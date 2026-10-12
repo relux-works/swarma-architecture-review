@@ -169,3 +169,140 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Affected specs:** User manager §§4.4, 4.6, 10 and retirement diagrams; dispatcher §5.4 and direct-operator reconciliation; broker §§7, 13 and revocation/unbind diagram; book chapter 3.
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answer `$rCFiGcgcIpsPVFHQoZNsG2cM5BT91hoI20BYfTAZU-o`, room `#swarma-review-2`, topic `f-local-retirement`, 2026-10-12. Confirms the unmatched authority, global-lock dependency and local-retirement direction with a separate operator unbind obligation. Proposal `$IdjWdQRYx7c3wle48e44m9RrIveFpOk9ZVljj8Qn0r4`.
 - **Status:** proposed.
+
+## F-13 — Make `exec.stop` signal and verify the same process set
+
+- **Lens:** reliability and recovery; stop convergence; unknown versus absent.
+- **Problem:** The two halves of `exec.stop` cover different process sets.
+  - *Signalled set:* `exec.stop` sends SIGTERM and then SIGKILL only to the receipt's process session.
+  - *Verified set:* it succeeds only when no process of the account that started at or after the receipt remains, escaped descendants included.
+  - A descendant that started its own session falls in the verified set but outside the signalled one. Coding agents start such sessions routinely: tmux or screen servers, `setsid`, daemonizing dev servers. Repeating the same stop signals the same session again, so it cannot converge while that descendant lives.
+  - The execution then never reaches finish. Cleanup, retirement and capacity release all wait behind it.
+  - A session-host restart needs confirmed absence, so it stays parked.
+
+  The receipt window also bounds the verified set, which leaves two smaller gaps:
+  - Processes that OS facilities start for the UID (cron, at, the per-user launchd domain) can start outside the window. Every later stop then ignores them, because each stop only counts processes started at or after its own receipt. They can keep running while the allocation is `idle`.
+  - On macOS the kernel stamps a process's start time from the wall clock. A backward clock step can make a later descendant look older than the receipt and drop it from the verified set.
+
+  Only retirement uses the complete scope. This is a published-contract defect, not a tested implementation result.
+- **Evidence:** Paths are relative to `~/Developer/ReluxWorks/`.
+  - `platform/curator-host-helper/spec/helper.md` v0.6 @ `e58b0726`:
+    - §4.7, line 218: signals go to the receipt's process session; verification covers account processes started at or after the receipt, escaped descendants included; one execution per generation.
+    - `diagrams/launch.puml`, lines 98–103: the same sequence, ending in `processes_remain` and a retry with the same stop effect ID.
+    - §4.4, line 174: retirement stops the per-user service domain, terminates every process of the UID and verifies over a quiet period.
+    - §4.3, lines 156–159: account creation places no restriction on OS persistence facilities.
+  - `platform/curator-dispatcher/spec/dispatcher.md` v0.6 @ `e06fcfee`:
+    - §5.3, lines 262–263: the stop precedes finish.
+    - §6, line 302: qualification lists descendants escaping the session, but the contract gives no converging result for them.
+    - §7.1, line 320: the dispatcher repeats the same stop.
+    - §9, line 379: capacity is released only after confirmed absence.
+    - §15, line 446: a lost supervisor with escaped descendants.
+  - `platform/curator-session-host/spec/session-host.md` r8 @ `3a253016`, §3.5, line 207: a restart requires confirmed process absence.
+  - `curator/curator-agent-launcher/SPEC.md` @ `22973272`, §10.4, lines 1953–1956, and book `wiki/book/swarma/ru/03-polzovatel-na-agenta.md`, line 55: the stop receipt is issued only after no process remains, escaped descendants included.
+- **Proposed change:** Give `exec.stop` and retirement one termination scope.
+  - **Scope.** While the rule of one execution per generation holds, `exec.stop` for the generation's current execution does what retirement step 3 does:
+    - it signals every process of the generation's UID: TERM, grace period, KILL;
+    - it stops the per-user service domain where the OS has one;
+    - it verifies absence over a quiet period.
+  - **Receipt.** The receipt check (pid, start time, boot ID, session ID) remains the identity and authority check for the target execution. It no longer defines what gets terminated.
+  - **Current-execution fencing.**
+    - Account-wide signalling happens only when the requested `execution_id` is the generation's latest receipt.
+    - A completed stop replays its recorded result without signalling.
+    - An old receipt never authorizes stopping a later sequential execution.
+  - **Per-execution containment.** Where it exists, a cgroup kill can make Linux signalling exact. The account-wide check stays decisive, because cron and launchd processes do not belong to the execution's unit.
+  - **Persistence denial.** `user.create` denies OS persistence facilities to agent accounts: cron and at deny lists, no per-user launchd bootstrap. This needs per-platform qualification.
+  - **Future backends.** A backend that ever allows concurrent executions per generation must replace this scope with an exact per-execution unit. It must never return to session scope.
+- **Expected benefit:**
+  - Stop converges no matter how an agent forked.
+  - One termination scope replaces two.
+  - `idle` means no process of the account, so slot accounting and restart preconditions hold.
+  - A compromised agent cannot outlive its stop through `setsid`, cron or launchd.
+  - Absence no longer depends on wall-clock start times.
+- **Risks and costs:**
+  - The stop kills every process of the UID by design, which relies on the existing one-execution-per-generation rule.
+  - Persistence denial and the idle zero-process rule need per-platform qualification. A quiet period proves absence at the check, not that no OS facility can respawn a process later.
+  - Unkillable processes, such as those in uninterruptible sleep, still yield `processes_remain` and stay honestly unknown.
+  - No owner decision is challenged.
+- **Affected specs:**
+  - user manager §§4.3, 4.4, 4.7, 12 and `launch.puml`;
+  - dispatcher §§5.3, 6, 7.1, 15;
+  - session host §3.5;
+  - agent launcher §10.4;
+  - book chapters 3 and 7.
+- **Confirmed-by:** `macmini_swarma-review-2_astra`, answer `$2exPHgpsWDfPGnRapYwVKCtxtqE6IRQI12Zz5XniN0g`, room `#swarma-review-2`, topic `f-stop-scope`, 2026-10-12.
+  - The confirmation covers the signal/verification mismatch and the non-convergence of stop and cleanup.
+  - Its two refinements, current-execution fencing and per-platform persistence qualification, were accepted in `$gD_fW_5wsz3d6smOC4pSdAg6Y1HAQZTKS3j5riN2Ie0`. Concrete cron and launchd denial mechanisms remain publication work.
+  - Proposal `$xIl_IppEi8rqUCmEQyhSiFHnhw833jrwbqrCbvJLQ3U`; clock addendum `$B5Du4y8WIXFxQ9QcnuEa6ez2OpgfBV_I9TiXyHziT18`.
+- **Status:** proposed.
+
+## F-14 — Publish a renewal path for the credential authority of standing and kept allocations
+
+- **Lens:** reliability and operations; standing allocations; credential-authority lifecycle.
+- **Problem:** Standing allocations have no expiry by owner decision. Their credential authority is finite on purpose:
+  - every grant has a window;
+  - the agent leaf's window is the intersection of the request, the caller's grant and the dispatcher's grant;
+  - bindings carry `expires_at`, and the broker removes an expired binding and never extends one;
+  - a lease's `authorized_until` is the earliest of these limits.
+
+  That finiteness is intentional. What is missing is a renewal contract.
+  - **Lapse.** When the earliest window ends, the binding is removed and leases and renewals refuse.
+  - **No way back.** Reconciliation then keeps the standing allocation pending, because a new bind needs explicit fresh authority. No operation supplies that authority for an existing allocation:
+    - §8.1 has no rebind or leaf rotation;
+    - team bring-up only "reconciles";
+    - `provision` would re-create the account, and re-creation is operator-only;
+    - a broker bind replay never reactivates a removed binding.
+  - **Shared cliff.** Every standing allocation under one dispatcher grant lapses at the same instant. The standing team, orchestrator included, loses credential authority together, and no recovery path is published.
+  - **Delegations.** F-3's requester-signed orchestrator delegation has a window too. A renewed delegation does not rewrite the caller chains that descendants' bindings already hold.
+- **Evidence:** Paths are relative to `~/Developer/ReluxWorks/`.
+  - `platform/curator-dispatcher/spec/dispatcher.md` v0.6 @ `e06fcfee`:
+    - §3.4, line 104: the leaf window is the intersection of request, caller grant and dispatcher grant.
+    - §3.5, line 123, and §4.3, line 156: standing allocations have no expiry.
+    - §5.5, line 297: bring-up reconciles existing allocations.
+    - §7.1, line 316: a new bind needs fresh authority, and a standing allocation stays pending.
+    - §8.1, lines 339–351: no rebind operation exists.
+  - `platform/curator-credential-broker/spec/broker.md` v0.6 @ `a0e6ab95`:
+    - §6.1, line 263, and §6.2, lines 283 and 286: windows are mandatory and checked on every edge.
+    - §7.1, line 351, and §7.2, lines 362 and 364: replay never reactivates a binding, and expired bindings are removed.
+    - §7.3, line 373: the broker never extends a binding.
+    - §8.3, line 421: `authorized_until`.
+    - §8.5, lines 445–446: renewal is tied to the lease's binding and refused after `authorized_until`.
+    - §14, line 617: the dispatcher grant is operator-issued with `--until`.
+  - `platform/curator-session-host/spec/session-host.md` r8 @ `3a253016`, §3.1, line 137: capability expiry bounds authority, not the standing lifetime.
+  - Book `wiki/book/swarma/ru/03-polzovatel-na-agenta.md`, line 148, and `09-zapusk.md`, line 139: standing allocations have no expiry.
+- **Proposed change:** Publish one journaled renewal effect on an existing allocation.
+  - **The effect.** The dispatcher re-signs the agent leaf under the current dispatcher and caller chains and replaces the broker binding for the same `(uid, generation)`. The effect has:
+    - its own ID (E-rebind);
+    - a fresh `revocation.check` with context `prepare`;
+    - broker `effect.observe`;
+    - a removal tombstone for the old binding.
+
+    The account is not re-created.
+  - **Authority.** For standing allocations, the operator-signed team description or an operator re-grant. For ordinary kept allocations, the owner's fresh signed request.
+  - **Renew ahead.** The sweep renews before the earliest window ends. Status reports each allocation's credential-authority horizon, so an approaching lapse is visible.
+  - **Running leases.** Rebinding does not carry a running lease, because unbind ends the old binding's leases. Two options:
+    - publish a fenced fresh-lease handoff for a qualified holder (runner or executor);
+    - use an explicit park and restart that keeps the account.
+
+    No seamless continuation is promised for env-channel executions or app-server renewal until such a handoff is published and qualified.
+  - **Delegations.** For F-3 orchestrators, a renewed requester-signed delegation names exactly which existing allocations it reauthorizes. Each is rebound with the new chain, and ancestor revocation still applies through the retained ancestry.
+  - **No auto-renewal.** An expired or revoked chain is never renewed automatically.
+- **Expected benefit:**
+  - Standing and kept roles survive grant renewal without re-creating accounts.
+  - The correlated team-wide lapse goes away.
+  - One renewal path reuses the existing bind, effect and observation machinery.
+  - An approaching lapse is visible in advance.
+- **Risks and costs:**
+  - One more dispatcher effect, a broker binding-replacement rule and an operator renewal routine need publication and qualification. Cases to cover: renewal racing with revocation; a crash between removing the old binding and binding the new one; an expired chain.
+  - Renewal interrupts running leases until a qualified handoff exists.
+  - Operators must keep re-issuing grants.
+  - This does not challenge the standing-lifetime decision or D-IDENTITY.
+- **Affected specs:**
+  - dispatcher §§3.4, 3.5, 4.3, 5.2, 5.5, 7.1, 7.2, 8.1, 15;
+  - broker §§7.1–7.3, 8.3, 8.5, 16;
+  - session host §3.1 (cross-reference);
+  - book chapters 3 and 9.
+- **Confirmed-by:** `macmini_swarma-review-2_astra`, answer `$7bsfZDCZOmzWNYr9GEHIJ2mdLd9x0pJqHsIAZ17jkmc`, room `#swarma-review-2`, topic `f-standing-renewal`, 2026-10-12.
+  - The confirmation covers the operator/rebind contract gap.
+  - Its narrowings were accepted in `$srlmJhSXmHif_atlJtVjskJukR2t48-qQCkuRru-jys`: finite authority is intentional, rebinding needs a published lease handoff or a park/restart, and descendant reauthorization must be explicit.
+  - Proposal `$cvPSJ6V1jlg6CqJ3_xfdg73ygMJ1W7xIj6pgf-DxMe4`.
+- **Status:** proposed.
