@@ -179,10 +179,11 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
   - A descendant that started its own session falls in the verified set but outside the signalled one. Coding agents start such sessions routinely: tmux or screen servers, `setsid`, daemonizing dev servers. Repeating the same stop signals the same session again, so it cannot converge while that descendant lives.
   - The execution then never reaches finish. Cleanup, retirement and capacity release all wait behind it.
   - A session-host restart needs confirmed absence, so it stays parked.
+  - An escaped process keeps its leased token past the stop. It also shares the UID, home and broker principal `(uid, generation)` with the next execution of the same generation, so a one-shot compromise becomes a standing one.
 
   The receipt window also bounds the verified set, which leaves two smaller gaps:
   - Processes that OS facilities start for the UID (cron, at, the per-user launchd domain) can start outside the window. Every later stop then ignores them, because each stop only counts processes started at or after its own receipt. They can keep running while the allocation is `idle`.
-  - On macOS the kernel stamps a process's start time from the wall clock. A backward clock step can make a later descendant look older than the receipt and drop it from the verified set.
+  - On macOS the kernel stamps a process's start time from the wall clock. A backward clock step can make a later descendant look older than the receipt and drop it from the verified set. This needs an operator or NTP step; an agent cannot cause it, so it is an operational gap, not an adversarial one.
 
   Only retirement uses the complete scope. This is a published-contract defect, not a tested implementation result.
 - **Evidence:** Paths are relative to `~/Developer/ReluxWorks/`.
@@ -210,7 +211,10 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - A completed stop replays its recorded result without signalling.
     - An old receipt never authorizes stopping a later sequential execution.
   - **Per-execution containment.** Where it exists, a cgroup kill can make Linux signalling exact. The account-wide check stays decisive, because cron and launchd processes do not belong to the execution's unit.
-  - **Persistence denial.** `user.create` denies OS persistence facilities to agent accounts: cron and at deny lists, no per-user launchd bootstrap. This needs per-platform qualification.
+  - **Persistence denial.** `user.create` denies OS persistence facilities to agent accounts. Each item is a qualification row, not a claim:
+    - Linux: `cron.deny` and `at.deny` entries for agent accounts; no lingering, so no `systemd --user` manager; no session scope.
+    - macOS: `cron.deny` and `at.deny`; verify that a process of a hidden non-login UID cannot bootstrap a background `user/<uid>` launchd domain.
+    - `setsid`, double fork and `nohup` are covered only by the account-wide scope itself.
   - **Future backends.** A backend that ever allows concurrent executions per generation must replace this scope with an exact per-execution unit. It must never return to session scope.
 - **Expected benefit:**
   - Stop converges no matter how an agent forked.
@@ -232,6 +236,10 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Confirmed-by:** `macmini_swarma-review-2_astra`, answer `$2exPHgpsWDfPGnRapYwVKCtxtqE6IRQI12Zz5XniN0g`, room `#swarma-review-2`, topic `f-stop-scope`, 2026-10-12.
   - The confirmation covers the signal/verification mismatch and the non-convergence of stop and cleanup.
   - Its two refinements, current-execution fencing and per-platform persistence qualification, were accepted in `$gD_fW_5wsz3d6smOC4pSdAg6Y1HAQZTKS3j5riN2Ie0`. Concrete cron and launchd denial mechanisms remain publication work.
+  - `macmini_swarma-review-2_fable`, answer `$7HuagbWaAI_ZG7QT3YjTUuWVRgBGMHFpDmluM8mL6Vc`, same topic, 2026-10-12, confirms independently from the trust lens:
+    - no published text widens the signalled set or denies persistence facilities;
+    - an escaped process turns a one-shot compromise into a standing one;
+    - the account-wide scope touches only generations the dispatcher created, so it opens no new hole.
   - Proposal `$xIl_IppEi8rqUCmEQyhSiFHnhw833jrwbqrCbvJLQ3U`; clock addendum `$B5Du4y8WIXFxQ9QcnuEa6ez2OpgfBV_I9TiXyHziT18`.
 - **Status:** proposed.
 
@@ -277,15 +285,22 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - a removal tombstone for the old binding.
 
     The account is not re-created.
-  - **Authority.** For standing allocations, the operator-signed team description or an operator re-grant. For ordinary kept allocations, the owner's fresh signed request.
-  - **Renew ahead.** The sweep renews before the earliest window ends. Status reports each allocation's credential-authority horizon, so an approaching lapse is visible.
+  - **Authority.** The renewing principal must already sit in the chain it renews:
+    - the dispatcher chain and standing roles: the operator, through the operator-signed team description or an operator re-grant;
+    - ordinary kept allocations: the owner's fresh signed request;
+    - F-3 orchestrators: a fresh requester-signed delegation, installed from the requester's authenticated connection.
+
+    It is never the dispatcher's own signature.
+  - **Never widens.** The new leaf is the intersection of the current chains with the originally admitted request. A renewal that would add accounts, harnesses or profiles is a new `provision`, not a renewal.
+  - **Renew ahead.** The sweep renews before the earliest window ends. Status reports each allocation's credential-authority horizon, plus the dispatcher grant's `--until` as the node-wide horizon, so an approaching lapse is visible.
   - **Running leases.** Rebinding does not carry a running lease, because unbind ends the old binding's leases. Two options:
     - publish a fenced fresh-lease handoff for a qualified holder (runner or executor);
     - use an explicit park and restart that keeps the account.
 
     No seamless continuation is promised for env-channel executions or app-server renewal until such a handoff is published and qualified.
   - **Delegations.** For F-3 orchestrators, a renewed requester-signed delegation names exactly which existing allocations it reauthorizes. Each is rebound with the new chain, and ancestor revocation still applies through the retained ancestry.
-  - **No auto-renewal.** An expired or revoked chain is never renewed automatically.
+  - **Expired versus revoked.** Renew-ahead applies only before a window ends. An expired chain needs explicit renewal by its authorized principal. A revoked envelope or key is never re-issued by the sweep; it needs a new explicit operator decision. Otherwise renew-ahead would become a way around revocation.
+  - **Honest scope.** An env-channel execution already holds its token, so renewal changes only future leases and restarts. The correlated cliff therefore concerns restarts and Codex renewals. The cure is visibility and operator-authorized renew-ahead, not longer windows.
 - **Expected benefit:**
   - Standing and kept roles survive grant renewal without re-creating accounts.
   - The correlated team-wide lapse goes away.
@@ -304,6 +319,12 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Confirmed-by:** `macmini_swarma-review-2_astra`, answer `$7bsfZDCZOmzWNYr9GEHIJ2mdLd9x0pJqHsIAZ17jkmc`, room `#swarma-review-2`, topic `f-standing-renewal`, 2026-10-12.
   - The confirmation covers the operator/rebind contract gap.
   - Its narrowings were accepted in `$srlmJhSXmHif_atlJtVjskJukR2t48-qQCkuRru-jys`: finite authority is intentional, rebinding needs a published lease handoff or a park/restart, and descendant reauthorization must be explicit.
+  - `macmini_swarma-review-2_fable`, answer `$s9tBflVQbd2NMMXPb-wir5y8MFqhfUIhK34LuqQPM4Y`, same topic, 2026-10-12, confirms independently from the trust lens that no published operation renews a leaf, binding or requester-signed delegation for an existing allocation. Its five trust conditions are folded into the proposed change:
+    - the renewing principal is already in the chain;
+    - renewal never widens;
+    - expired is renewable but revoked is not;
+    - renewal is an admission point;
+    - honest scope.
   - Proposal `$cvPSJ6V1jlg6CqJ3_xfdg73ygMJ1W7xIj6pgf-DxMe4`.
 - **Status:** proposed.
 
