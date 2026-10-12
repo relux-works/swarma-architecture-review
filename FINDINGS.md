@@ -598,3 +598,73 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Affected specs:** dispatcher §§3.4, 4.2, 8.1 (`host_stop`), 12, 14, 15 and 16 question 3; session host §§3.3–3.5, 3.7 and 7 question 2; `diagrams/v1-daemon.puml`; helper §4.7 (the caller stays the dispatcher); book chapters 7, 9 and 13.
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answer `$5gnJdPD-KX2ODUZZedc-KNfIF9QDAEYm_PTNdmpNmoY` (no host stop; the per-execution permit cannot admit a successor; successor reuse sound under five recovery conditions, adopted in item 4–5); `macmini_swarma-review-2_astra`, answer `$aZFUn8Kn0gQXmPiz-X7DqyRzMES52B32WSThdIUgkao` (missing host-stop surface; successor admission needs explicit owner lifecycle authority rather than delayed-work reuse alone, adopted in item 1; reboot requester left open, item 6); both in `#swarma-review-2`, topic `f-session-permit-scope`, 2026-10-12. Proposal `$TE3_k7rPlt_m4y9HysT7vZ4P8-uhYxp65OE5vBDGNmo`.
 - **Status:** proposed.
+
+## F-21 — State the time assumption and make wall-clock steps unable to destroy state or revive authority
+
+- **Lens:** reliability and recovery; time as an input to irreversible effects and to authority.
+- **Problem:** No module spec states a time source or clock assumption. A search of the user manager, dispatcher, broker and session-host specs and the launcher §10 for clock, NTP or monotonic finds nothing. Wall-clock comparisons nevertheless drive both destructive effects and authority. The default time sources are unauthenticated NTP (macOS `timed`, Linux `systemd-timesyncd` or `chrony` without NTS), and they step the clock on a large offset. So a rogue or on-path time source, an operator's manual date change, a VM resume or a wrong RTC at boot can move it.
+  - **A forward step destroys state.**
+    - The dispatcher's one-minute sweep retires every ordinary kept allocation whose lifetime the step crosses (24 h default, 7 days maximum). Under F-1, retirement deletes the home, uncommitted work included.
+    - The broker removes every binding whose window the step crosses, for good: "Expired bindings are removed by the broker", and a removed binding is never reactivated by replay.
+    - Correcting the clock afterwards restores nothing. Every grant window also closes, so every lease and renewal refuses node-wide. That part fails closed.
+  - **A backward step revives authority.** Grant windows, leaf and delegation windows and lease `authorized_until` are evaluated against wall time only. After a backward step:
+    - an expired caller leaf, orchestrator delegation or agent leaf verifies again;
+    - an expired but not yet removed binding leases again;
+    - `authorized_until` moves into the future.
+
+    Revocation is unaffected, because it uses records, not times. But expiry is one of the two ways the design ends authority, and F-14's renew-ahead assumes expiry is monotone.
+  - **Reversible effects.** False wedge detection, premature or late Codex refresh, and runtime-deadline stops are reversible or fail closed. They are not the finding.
+- **Evidence:** Paths are relative to `~/Developer/ReluxWorks/`.
+  - `platform/curator-dispatcher/spec/dispatcher.md` v0.6 @ `e06fcfee`:
+    - §3.4, line 104: leaf windows;
+    - §3.5, line 120: allocation lifetimes;
+    - §5.4, line 273: an expired ordinary allocation is retired;
+    - §7.2, line 329: the one-minute sweep enforces lifetimes and runtime deadlines.
+  - `platform/curator-credential-broker/spec/broker.md` v0.6 @ `a0e6ab95`:
+    - §6.2, lines 283 and 286: windows are checked against the current time on every edge;
+    - §7.2, lines 362–364: expired bindings are removed and never reactivated;
+    - §8.3, line 421: `authorized_until`;
+    - §9.4, line 491: the 48 h refresh window.
+  - `platform/curator-host-helper/spec/helper.md` v0.6 @ `e58b0726`, §4.4.1, line 186: retirement deletes the home.
+  - `platform/curator-session-host/spec/session-host.md` r8 @ `3a253016`, §3.7, line 226: wedge deadlines.
+  - The only time-integrity rule in the sources is in `swarma-review/context/swarm-platform-architecture/vision/contracts/admission-and-delivery.md` @ `e5781c8`, §5, line 90. It keeps a monotonic high-watermark clock per store and rejects `issued_at` more than 2 minutes in the future. No module spec carries a comparable rule.
+- **Proposed change:**
+  - **State the time assumption.** The installer section names an authenticated time source (for example NTS) or an operator-controlled one.
+  - **High-watermark "now" for authority.**
+    - The broker and the dispatcher each keep a durable high-watermark of observed wall time and evaluate every grant, leaf, delegation, binding and lease window at `max(now, watermark)`, reusing the ADM device. A backward step can then only narrow authority, never revive it.
+    - A forward step makes the watermark sticky: after a bad step is corrected, authority stays closed until real time catches up. Resetting the watermark is therefore an explicit operator act, after the incident below confirms the clock.
+  - **Destruction gated on monotone elapsed time.**
+    - Expiry-driven `user.retire` (home deletion) and expiry-driven binding removal require both wall-clock expiry and accumulated boot-inclusive monotonic elapsed time (`CLOCK_BOOTTIME` on Linux, continuous time on macOS) of at least the lifetime, counted from activation.
+    - The elapsed time is accumulated durably at each sweep, because those clocks reset at reboot. Downtime is not counted, which can only delay destruction.
+    - An expired binding is already unusable, so its removal can wait.
+  - **Detect and hold everything else.**
+    - Each component compares wall-time and monotonic deltas between sweeps.
+    - A backward move, or a forward move beyond tolerance, raises an incident and holds time-based evidence reclamation.
+    - Explicit stops and operator retirements keep working, and admission keeps failing closed.
+  - **Qualification.** Cover:
+    - a forward step beyond the longest lifetime: no retirement or binding removal before monotone elapsed time;
+    - a backward step across a grant expiry: no revived lease;
+    - a VM resume;
+    - a wrong RTC at boot.
+- **Expected benefit:**
+  - One clock fault, accidental or induced, can no longer mass-delete agent homes or bindings, or revive expired authority.
+  - The time assumption becomes explicit and testable.
+  - No new service is added; the existing sweep, the ADM high-watermark pattern and the existing incident surface are reused.
+- **Risks and costs:**
+  - A little durable time bookkeeping per component.
+  - After a bad forward step, the node stays fail-closed until an operator confirms the clock and resets the watermark.
+  - Destructive expiry is delayed by host downtime.
+  - Lifetime and quota decisions, the standing rules and D-* decisions are unchanged.
+- **Affected specs:**
+  - dispatcher §§3.4, 3.5, 5.4, 7.2, 11, 15;
+  - broker §§6.2, 7.2, 8.3, 9.4, 15, 16;
+  - user manager §§4.4.1, 11 (cross-reference);
+  - session host §3.7 (cross-reference);
+  - book chapter 9.
+- **Confirmed-by:** `macmini_swarma-review-2_fable`, answer `$ME0vAJVBEuNYBTTkocYSE7akdNlsetjWqI6AzmGwvFM`, room `#swarma-review-2`, topic `f-clock-step`, 2026-10-12.
+  - It confirms from the trust lens at high confidence.
+  - It names the unauthenticated-NTP lever and the backward-step revival of authority.
+  - It adds the high-watermark "now" and the monotone gate for destructive effects, both accepted in `$UJyR1eZfYvJYMavRK7zaI6-KBMCtxpx2Dy62O3muVCc` with the sticky-watermark and accumulation precisions.
+  - Partial refutation: the ADM store-epoch rule exists in VISION, but not in any module spec.
+  - Proposal `$clPNHlMeC3dZnG_R9NuXUkwCKUaYHAt0CeExMrAGVT0`.
+- **Status:** proposed.
