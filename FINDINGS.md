@@ -809,3 +809,65 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Affected specs:** User manager §§4.1, 4.4–4.7, 6, 7, 12, 14 and recovery/retirement diagrams; dispatcher §7 cleanup references; book chapter 3.
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answer `$N_ixiDaY6FQjqqJsRc8G4AuWkN2qx5DEHnVkTlPni44`, and `macmini_swarma-review-2_fable`, answer `$lzyoXH4abyqW3ne3O6gjncp6Fb8Oc03APwKWn41BHX8`, room `#swarma-review-2`, topic `f-bounded-helper-recovery`, 2026-10-12. Both confirm the gap and separate finding at high confidence; dependency-scoped recovery is adopted. Astra's refinement `$0rcVSTwO0vprS9hz0OEicRIhqzLt0vDa60t_d6gZm1g` preserves the metadata timer's existing scope and requires qualification of bounded forward progress. Proposal `$ZFam8lis1w_bkiXgWL8Hcku03k9LZegSbVsnO87ZZ7o`.
 - **Status:** proposed.
+
+## F-26 — Make the original caller publish when an effect identity becomes permanently inadmissible
+
+- **Lens:** reliability and recovery; evidence retention; checks how F-10 was applied.
+- **Problem:** As applied, F-10 lets receivers discard effect evidence only once the original identities are "permanently inadmissible". It explicitly calls time-based expiry insufficient. No component can establish that condition.
+  - **The receivers cannot.** Effect IDs are opaque hashes of the dispatcher's caller principal, request ID, record ID, component, operation and attempt. The receivers cannot tell when the dispatcher's record is terminal.
+  - **The dispatcher never says.**
+    - It reuses an effect ID for as long as the record is non-terminal, and standing allocations may stay pending indefinitely.
+    - It publishes no record retention or release rule.
+    - Its delayed-work rule refers to a request "validity window" that the published request schemas do not contain.
+  - **The mechanism is open in all three modules.**
+  - **Consequence.** Receivers either keep journals and tombstones forever, or invent a time window that F-10 forbids and that F-21 shows to be clock-dependent. Realistically, evidence grows without bound: every launch and stop of every standing execution, and every bind and unbind, adds evidence for good.
+- **Evidence:** Paths are relative to `~/Developer/ReluxWorks/`.
+  - `platform/curator-host-helper/spec/helper.md` v0.6 @ `e58b0726`:
+    - §4.6, line 205: discard only when permanently inadmissible; mechanism unpublished;
+    - §4.6, line 207: the append-only audit;
+    - §14 question 8, line 370.
+  - `platform/curator-credential-broker/spec/broker.md` v0.6 @ `a0e6ab95`:
+    - §7.2, line 367: time-based expiry insufficient; mechanism required before activation;
+    - §12.3, line 558: the append-only audit;
+    - §18 question 9, line 714.
+  - `platform/curator-dispatcher/spec/dispatcher.md` v0.6 @ `e06fcfee`:
+    - §3.4, line 108: the "validity window" with no schema member;
+    - §4.5, line 191: effect ID derivation;
+    - §4.6, lines 212–223: the R-OBS mapping;
+    - §7.1, lines 320–321 and 325: same-ID retries; standing records pending indefinitely;
+    - §16 question 11, line 477.
+- **Proposed change:** Make inadmissibility clock-free and caller-published.
+  1. **Caller release.**
+     - Once the dispatcher has durably recorded a record as terminal, with all its effects confirmed, it sends each receiver an `effect.release` listing that record's effect IDs. The record ID is random and never reused, so no later effect can carry those IDs.
+     - The receiver marks the IDs permanently inadmissible: a replay refuses as released and is never re-executed. It then compacts their replay evidence to a tombstone that keeps the outcome class and target identity.
+  2. **Target-scoped compaction.** Operations bound to an existing target are already refused by state once the target is gone: a removed generation at the user manager, or a removed binding of a retired generation at the broker. Their evidence may be compacted without a release. `user.create` and `bind` stay release-guarded, because their replay is not refused by target state.
+  3. **Trust rules for release:**
+     - A receiver refuses to release any effect it still holds as pending (F-22 class 3). The receiver's own terminality decides, never the caller's assertion, so release can never hide in-flight work or erase the trail of an orphan.
+     - Release compacts replay evidence only, never the append-only audit.
+     - A released ID observes as `recorded`, with the outcome class and target identity from its tombstone, and never as `not_recorded`. The six R-OBS states are unchanged.
+     - Release is a journaled, authenticated, idempotent effect of the original caller principal or an operator, the same access rule as observation. It is serialized under the receiver's journal lock with any continuation.
+  4. **Restore safety.** A dispatcher restored under F-17 can never re-send a released ID, because the receivers keep the compact tombstones.
+- **Expected benefit:**
+  - Bounded receiver storage without depending on a clock.
+  - F-10's retention gate becomes publishable and mechanically checkable: evidence is reclaimed only after release or target removal.
+  - The only party that knows inadmissibility becomes its publisher.
+  - Release cannot erase what happened or hide a pending effect.
+- **Risks and costs:**
+  - One small idempotent operation per receiver, plus qualification rows:
+    - a lost release (evidence is kept, which is safe);
+    - a replayed release;
+    - a release racing a continuation;
+    - a release refused for pending work;
+    - observation after release.
+  - Compact tombstones still grow slowly, one per released create or bind effect.
+  - Remote claims keep F-7's floors; this is the local counterpart only.
+  - No owner decision is challenged.
+- **Affected specs:**
+  - dispatcher §§3.4, 4.5, 4.6, 7.1, 16 question 11;
+  - user manager §§2, 4.6, 14 question 8;
+  - broker §§7.2, 12.3, 13.2, 18 question 9.
+- **Confirmed-by:** `macmini_swarma-review-2_fable`, answer `$Or0Ly56XuB5cc-gSCjIYuT03b7VtbrMCgdrhotAX0eU`, room `#swarma-review-2`, topic `f-evidence-release`, 2026-10-12.
+  - It confirms the gap: no rule lets a receiver establish permanent inadmissibility on its own.
+  - It confirms that caller release is sound under four trust rules, all folded in. Rule 3 uses the existing `recorded` state, as accepted in `$msPTzG0GKbU3i4JMtML12Yy_4I3ZmofhwflW9ga6aHM`.
+  - Proposal `$gD04ngB4KxrhUvMAfof3l9aQxKXBGSlrz6b6QOF1hHw`.
+- **Status:** proposed.
