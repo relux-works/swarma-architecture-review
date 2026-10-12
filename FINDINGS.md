@@ -810,7 +810,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answer `$N_ixiDaY6FQjqqJsRc8G4AuWkN2qx5DEHnVkTlPni44`, and `macmini_swarma-review-2_fable`, answer `$lzyoXH4abyqW3ne3O6gjncp6Fb8Oc03APwKWn41BHX8`, room `#swarma-review-2`, topic `f-bounded-helper-recovery`, 2026-10-12. Both confirm the gap and separate finding at high confidence; dependency-scoped recovery is adopted. Astra's refinement `$0rcVSTwO0vprS9hz0OEicRIhqzLt0vDa60t_d6gZm1g` preserves the metadata timer's existing scope and requires qualification of bounded forward progress. Proposal `$ZFam8lis1w_bkiXgWL8Hcku03k9LZegSbVsnO87ZZ7o`.
 - **Status:** proposed.
 
-## F-26 — Make the original caller publish when an effect identity becomes permanently inadmissible
+## F-26 — F-10's retention gate needs a cross-module decision: receivers cannot establish inadmissibility under the current grammar
 
 - **Lens:** reliability and recovery; evidence retention; checks how F-10 was applied.
 - **Problem:** As applied, F-10 lets receivers discard effect evidence only once the original identities are "permanently inadmissible". It explicitly calls time-based expiry insufficient. No component can establish that condition.
@@ -836,31 +836,36 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - §4.6, lines 212–223: the R-OBS mapping;
     - §7.1, lines 320–321 and 325: same-ID retries; standing records pending indefinitely;
     - §16 question 11, line 477.
-- **Proposed change:** Make inadmissibility clock-free and caller-published.
-  1. **Caller release.**
-     - Once the dispatcher has durably recorded a record as terminal, with all its effects confirmed, it sends each receiver an `effect.release` listing that record's effect IDs. The record ID is random and never reused, so no later effect can carry those IDs.
-     - The receiver marks the IDs permanently inadmissible: a replay refuses as released and is never re-executed. It then compacts their replay evidence to a tombstone that keeps the outcome class and target identity.
-  2. **Target-scoped compaction.** Operations bound to an existing target are already refused by state once the target is gone: a removed generation at the user manager, or a removed binding of a retired generation at the broker. Their evidence may be compacted without a release. `user.create` and `bind` stay release-guarded, because their replay is not refused by target state.
-  3. **Trust rules for release:**
-     - A receiver refuses to release any effect it still holds as pending (F-22 class 3). The receiver's own terminality decides, never the caller's assertion, so release can never hide in-flight work or erase the trail of an orphan.
-     - Release compacts replay evidence only, never the append-only audit.
-     - A released ID observes as `recorded`, with the outcome class and target identity from its tombstone, and never as `not_recorded`. The six R-OBS states are unchanged.
-     - Release is a journaled, authenticated, idempotent effect of the original caller principal or an operator, the same access rule as observation. It is serialized under the receiver's journal lock with any continuation.
-  4. **Restore safety.** A dispatcher restored under F-17 can never re-send a released ID, because the receivers keep the compact tombstones.
+- **Proposed change:** Treat the retention mechanism as one joint decision by the dispatcher and both receivers. No receiver can make it alone under the current grammar. Choose between two options, compare them before choosing, and publish the one chosen.
+  - **Option A: caller release.**
+    - Once the dispatcher has durably recorded a record as terminal, with all its effects confirmed, it sends each receiver an `effect.release` listing that record's effect IDs. Record IDs are random and never reused.
+    - The receiver refuses any resent released ID and compacts its replay evidence to a tombstone. Trust rules:
+      - The receiver refuses to release an effect it still holds as pending (F-22 class 3). Its own terminality decides, never the caller's assertion.
+      - Only replay evidence is compacted, never the append-only audit.
+      - A released ID observes as `recorded`, with the outcome class and target identity from its tombstone, never as `not_recorded`. The six R-OBS states are unchanged.
+      - Release is a journaled, authenticated, idempotent effect of the original caller principal or an operator, serialized under the receiver's journal lock with any continuation.
+  - **Option B: an admission floor carried in the request.**
+    - Effect requests carry an admission epoch or sequence, so receivers define admissibility themselves with a durable floor, as F-7 does for remote effects. This changes `helper-op/1`, `launch-op/1` and `broker/1`.
+    - A sequence-based floor avoids F-21's clock dependence; a time-based floor inherits it.
+    - Either way, the dispatcher's undefined "validity window" (§3.4:108) is published as this floor or removed.
+  - **Common rules for both options:**
+    - No caller claim erases pending intent, stop or cleanup evidence, or live authorization dependencies.
+    - Removing a target compacts evidence only for operations that the target's state already refuses on replay. Effects that create a target (`user.create`, `bind`) are not covered by it.
+    - Either the digest-and-result linkage that R-OBS requires is retained, or a reduced observation contract is published.
+    - A shared rollback of receiver state remains fenced under F-17.
 - **Expected benefit:**
-  - Bounded receiver storage without depending on a clock.
-  - F-10's retention gate becomes publishable and mechanically checkable: evidence is reclaimed only after release or target removal.
-  - The only party that knows inadmissibility becomes its publisher.
-  - Release cannot erase what happened or hide a pending effect.
+  - The hidden cross-module dependency is stated. With opaque effect IDs, receivers cannot close F-10's gate on their own; the dispatcher and receivers must agree on Option A or Option B.
+  - Both options come with their safety rules, so whichever is chosen is checkable.
+  - **Storage, stated honestly.** Option A does not bound storage. It keeps one tombstone per released create or bind effect, so growth is proportional to the allocations ever created. That is the same order as the ledger, which already keeps every generation forever, rather than proportional to every effect ever issued. Option B can bound storage only with durable floors plus explicit backpressure and storage limits.
 - **Risks and costs:**
-  - One small idempotent operation per receiver, plus qualification rows:
+  - Option A adds a new wire operation per receiver, with its own durable completion and replay semantics and caller-to-receiver coordination. Its qualification rows:
     - a lost release (evidence is kept, which is safe);
     - a replayed release;
     - a release racing a continuation;
     - a release refused for pending work;
     - observation after release.
-  - Compact tombstones still grow slowly, one per released create or bind effect.
-  - Remote claims keep F-7's floors; this is the local counterpart only.
+  - Option B changes three closed request grammars and needs durable floors.
+  - Remote claims keep F-7's floors.
   - No owner decision is challenged.
 - **Affected specs:**
   - dispatcher §§3.4, 4.5, 4.6, 7.1, 16 question 11;
@@ -868,6 +873,12 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
   - broker §§7.2, 12.3, 13.2, 18 question 9.
 - **Confirmed-by:** `macmini_swarma-review-2_fable`, answer `$Or0Ly56XuB5cc-gSCjIYuT03b7VtbrMCgdrhotAX0eU`, room `#swarma-review-2`, topic `f-evidence-release`, 2026-10-12.
   - It confirms the gap: no rule lets a receiver establish permanent inadmissibility on its own.
-  - It confirms that caller release is sound under four trust rules, all folded in. Rule 3 uses the existing `recorded` state, as accepted in `$msPTzG0GKbU3i4JMtML12Yy_4I3ZmofhwflW9ga6aHM`.
+  - It confirms that caller release is sound under four trust rules, all folded into Option A. Rule 3 uses the existing `recorded` state, as accepted in `$msPTzG0GKbU3i4JMtML12Yy_4I3ZmofhwflW9ga6aHM`.
+  - **Dissent.** `macmini_swarma-review-2_astra`, answer `$Amyijfm7nFracjiFVX4BFOttmdnlr0lCsRHlwB2H7kQ`, same topic, does not confirm this as a new finding.
+    - F-10 already gated the mechanism.
+    - Release with one tombstone per effect does not bound storage.
+    - A receiver-defined epoch, floor or window is possible in principle with a grammar change.
+
+    Astra recommends treating the topic as design input to the existing F-10 gate. Its corrections are applied in this entry: the storage claim, Option B, receiver refusal in place of the restore claim, and the safety conditions. The owner should weigh the entry as design input with one trust-lens confirmation and one simplicity-lens dissent.
   - Proposal `$gD04ngB4KxrhUvMAfof3l9aQxKXBGSlrz6b6QOF1hHw`.
 - **Status:** proposed.
