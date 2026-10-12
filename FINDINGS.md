@@ -714,6 +714,10 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - Failed forward retirement steps are unfinished recovery.
   - **Terminal result** is recorded and replayed with the target's current state.
   - **Dispatcher mapping.** The dispatcher maps unfinished admitted work to its pending handling, never to `refused`.
+  - **Continuation rules.**
+    - A continuation repeats the original canonical arguments exactly, including `exec.stop`'s `grace_seconds`. No tunable is excluded from the digest, so a changed argument remains `request_id_conflict`.
+    - The receiver itself enforces F-13's latest-receipt fence on every continuation. Once a later execution's receipt exists, a continued stop of the earlier one refuses to signal.
+    - Continuation never creates authority. Classes 3 and 4 can only narrow: a continued stop or unbind. Only a fresh admission (class 2) can create authority, and it re-checks permission, expiry and revocation. A principal whose grant has lapsed may continue its own stop, never its own bind.
 - **Expected benefit:**
   - Stop converges through the retries the specs already prescribe.
   - Replay safety and the fresh-authority rule are preserved.
@@ -730,6 +734,11 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Confirmed-by:** `macmini_swarma-review-2_astra`, answer `$AfJKsnEBq0ukSp1BMFwJCwwqDTIm1nISg8OMumb3gz4`, room `#swarma-review-2`, topic `f-retryable-outcomes`, 2026-10-12.
   - It confirms at high confidence that a completed receiver result must be distinguished from an unfinished accepted stop, with same-ID continuation and fence revalidation.
   - It refuses a blanket rule that transient refusals progress without fresh authority. That claim is withdrawn, and the four-class table using the existing states was accepted in `$v1yOY-y0jAb6koU_Gthgj9mps4g6lr5l1L-DcBCaPFA`.
+  - `macmini_swarma-review-2_fable`, answer `$c_1lpqcM4S_TRLxLurCRn6960mlMX34E55jNFzbAbt8`, same topic, confirms the narrowed entry from the trust lens. Its three replay-safety points are folded into the continuation rules:
+    - identical canonical arguments;
+    - a receiver-enforced latest-receipt fence;
+    - no authority created by continuation.
+  - Astra's qualification of the replay-safety sentence, `$epKuUyWhATnl0aSMaSPirYIk95dw5o3Cw85UXug0Q7s`, is applied.
   - Proposal `$6thKsqEGFnAkIEisxpXM9GNbQTsOCLH6EyOXVj8eQLw`; self-narrowing `$L4AZ6kyXFqvUVCWLIIYI-KlEXOINfQyoocArQKKEUDI`.
 - **Status:** proposed.
 
