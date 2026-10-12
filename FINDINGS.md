@@ -14,7 +14,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Less automatic recovery of arbitrary home contents. The operator must choose the recovery/retention policy. Existing code, results and free-text logs still need their own confidentiality policy and must not inherit the restricted metadata export's assurance. Metadata fields require explicit provenance and schema checks.
 - **Affected specs:** user-manager §4.4.1, §12 and §14; broker §12.1–12.2 as the threat-model basis; dispatcher retirement policy §5.4; book chapter 3 and the owner decision log.
 - **Confirmed-by:** `macmini_swarma-review_rev1`, Matrix room `#swarma-review`, topic `f-archive-boundary`, event `$ZS-2olsaKDyKYmBDJrPlnA01c9gTOD7Zgg2-qBi_asc` (2026-10-12). Independent confirmation covers the classification counterexample and narrow-export/deterministic-retirement direction.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-2 — Give standing executions a bounded operator migration path
 
@@ -26,7 +26,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Maintenance interrupts selected executions; v0 has no admitted native-resume path, so seamless context continuity cannot be promised. Stop/restart authority and persisted maintenance progress require a small published contract. Unknown absence may still defer maintenance. Rollback must retain later records and prove reader/writer compatibility; restoring an old snapshot is not a repair.
 - **Affected specs:** dispatcher §8.1, §11 and activation qualification; user-manager §4.7 as the reused stop contract; session-host §3.5 where a qualified later backend participates; dispatcher activation diagrams; book chapters 7 and 9.
 - **Confirmed-by:** `macmini_swarma-review_rev1`, room `#swarma-review`, topic `f-standing-cutover`, event `$EwfCbtwVIR8XtR4Ewvo3aAtdbqCQ2GkC8ixDahK_9TQ`; and `macmini_swarma-review_rev2`, same topic, event `$AJwUjvzcy-JClVsp-evbjCeC14S_eG_9coRRruHqlDI` (2026-10-12). Both independently confirm the unbounded drain and the bounded operator stop/confirmed-absence direction.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-3: Requester-signed orchestrator delegation preserves ancestor revocation
 
@@ -42,7 +42,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Requires an explicit bootstrap transaction and a signature from C, which may be unavailable; keep such allocations pending rather than granting authority implicitly. The existing chain/depth bound limits recursion. Already delivered provider tokens retain their documented lifetime. This does not challenge D-IDENTITY, D-EXECUTOR or standing-session lifetime decisions.
 - **Affected specs:** Dispatcher §§3.3–3.4, 5.2, 8.1 and qualification; broker §§6–8 and negative vectors; CIP-0011; trust-contract and book explanations.
 - **Confirmed-by:** `ivan-network-profiles`, answer `$Fba69kF8czFSOMeMm1Y7F8CVgd00x-t3Rx6txMbcY8k`; `macmini_swarma-review_rev4`, ack `$8ew6MenEBOZ6yQ6ocGGXv1s-Xqzf30ghhPX19VqAXio`; `macmini_swarma-review_rev2`, ack `$xoUue7_0grHCIkSpLe8G5IHwJcc8kyM4kcrjQb6aGZs`; `macmini_swarma-review_rev3`, answer `$2Bbi5NN0LJAPDOQtwmu6zpjhXyuPqndS6KHkAUsestM`, all in `#swarma-review`, topic `f-orchestrator-delegation` on 2026-10-12. Proposal `$qsl2CIceAWuqJC1DXiGRBBx7YpXsxuAswulM9QXcyvc`; refined direction `$OD3366JTzirmv-E-Z_TI0pop0PgxAjReH3XFtKozjlQ`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-4 — Keep privileged starts behind the dispatcher and remove delegated launch tickets
 
@@ -54,7 +54,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** The dispatcher must be available for new starts, as admission/stop already require. The durable host permit, authentication, crash ordering and receipts still need joint publication and qualification; a best-effort cancel is insufficient. Host compromise must not bypass dispatcher policy or authorize another caller generation. Controller-only re-adoption preserves the execution ID; actual replacement uses a new one.
 - **Affected specs:** dispatcher §5.3/§12; user-manager §7/I4; session-host §3.2–3.4/I4; launcher §10 references; book chapters 7/9 and diagrams.
 - **Confirmed-by:** `macmini_swarma-review_rev3`, answer `$USGyhrdJyV3j1dZrZRtqQlNiEWWGsf7h2im9w84TWD4`; `macmini_swarma-review_rev4`, answer `$fMj1h0_0iEICHOXA57GsGYbpG_3Bw6yov-NrxiOpBGQ`; `macmini_swarma-review_rev1`, answer `$ve260nOw6hgZBeas-FnMUX-jhTNmpJKxSs39La3_esA`, all in `#swarma-review`, topic `f-single-launch-authority`, 2026-10-12. Accepted durable-permit refinement: `$25OpJE2NA2kRTEh3ZkTR9QEtqWD0RE6RM4bHK7dt0Q0`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-5 — Start the dispatcher with one service transport and defer queueing independently
 
@@ -66,7 +66,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Service installation/readiness moves earlier and needs hosted-runner qualification. Dispatcher outage blocks new requests. Existing execution/supervisor crash handling remains necessary; this does not remove execution claims or imply live-process adoption. Update all slice-0/deployed-sudoers references together so acceptance tests exercise the selected path.
 - **Affected specs:** dispatcher §§2–3, 6–11 and qualification; broker slice-0 acceptance §16; CIP-0011 phase/client/acceptance text; book chapter 9 and deployment diagrams.
 - **Confirmed-by:** `macmini_swarma-review_rev4`, answer `$YJFFZvyhF9wIQIjCG_vTUXqkbO7V_3OExm5NelpeK9Q`; `macmini_swarma-review_rev1`, answer `$0F2E3z5VjiR4S8i8MLSzv4yPpWANShjllJ_7Ne6iN5A`, in `#swarma-review`, topic `f-daemon-first`, 2026-10-12. Accepted maintenance/readiness refinement: `$owsu67BMLyZT9ptYzBnC22XArpKNYA03kCsl75_N0ro`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-6 — Publish one launcher descriptor lifecycle for trusted handles and bounded plan staging
 
@@ -81,7 +81,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Requires platform-qualified descriptor handling and bounded staging; the exact mechanism remains publication work. Any staging artifact must be protected, immutable to the agent and cleaned on failure. Holding generation exclusion longer requires a bounded pre-exec path. Receipt-before-exec uncertainty still needs reconciliation; no new claim of harness readiness or exactly-once completion follows. This does not challenge D-EXECUTOR, D-IDENTITY or the no-argument privileged entry.
 - **Affected specs:** Helper §§2, 4.6, 7, 12 and launch diagram; agent launcher §10.1 and its publication/qualification gates; dispatcher prepare/start/recovery references; book launch sequence.
 - **Confirmed-by:** Trusted-handle lifetime: `macmini_swarma-review_rev4`, answer `$2dX2ptF9chRgkRCW51S2fsqoZ_PXTyQy2eDi7Hiyj40`, and `macmini_swarma-review_rev2`, answer `$xbZwDsG9XdYG_xxxaIoXEBQJN12YgL5j1k1kL-2Q58k`, topic `f-launch-descriptor-lifetime`, proposal `$fJ44ohCyNMPwY7afU41v3qxzVTKIP7AMOjF6aG_c33U`. Bounded staging: `macmini_swarma-review_rev4`, answer `$jhE4VOZPzG5bWRXqE9KJGdUS9qe-63ghi5yoVnu9Sq4`, topic `f-launch-plan-staging`, proposal `$Dhlc6aIK7--RFH2LDx3E03MlmE7sucGncZft4vHlHgs`. Both in `#swarma-review` on 2026-10-12; consolidation notice `$L6NhEM5GiZh2PWV0zjtXzRu8oI46FBsQaZNctquoaAo`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-7 — Separate remote effect claims from the ten-minute result cache
 
@@ -93,7 +93,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Requires small durable claim/floor state and a published admission rule. Unknown results may need operator resolution; this does not promise exactly-once completion. A new operation identity is an explicit new effect decision, never an automatic retry repair. ADM example durations are not adopted as remote policy, and indefinite bindings must not imply unbounded claim storage.
 - **Affected specs:** CIP-0009 D5/D6 and protocol qualification; remote-worker publication register; future Remote Bash/workplace execution contract; remote-worker turn diagram and book donor/recovery explanation. No change to donor variants, trust modes, job caps or local helper schemas.
 - **Confirmed-by:** `ivan-network-profiles`, answer `$hocCkIHx3IyXxM5-pzZb33B_aLdawbtvEpFLz934ZA0`; `macmini_swarma-review_rev1`, answer `$qr_fKXPotAKDYqUnhTct9gK3uB5JbU2jwFYkHUS_PQ0`; `macmini_swarma-review_rev2`, answer `$RnOSjzu1J8AyRvF9Yw40rOaS1syNJ0ObueUPzkj2O8s`, all in `#swarma-review`, topic `f-remote-replay-floor`, 2026-10-12. Independent confirmations distinguish this remote admission invariant from the local effect-observation API candidate. Proposal `$u-PQlGRFMRqaHy5pIeCkJp6L7PJ536evujwClS0-AqQ`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-8 — Publish a narrow broker revocation verdict for dispatcher admission
 
@@ -105,7 +105,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** A small authenticated read/verdict contract and client integration are required; broker unavailability can block early admission. A prior verdict cannot prevent a later revocation, so final checks remain mandatory. Snapshot-based alternatives need freshness evidence and cannot treat parseable old data as current. This does not solve the owner's separate restoration-history gap or revoke copied vendor tokens, and does not change the caller/dispatcher grant split.
 - **Affected specs:** dispatcher §§3.4, 5, 7, 9 and qualification; broker §§6.4, 13 and qualification; CIP-0011 slice-0 composition; book chapter 5 and admission diagrams.
 - **Confirmed-by:** `macmini_swarma-review_rev1`, answer `$QD9KG-GDkjkKJP6aTpjeYhC9avwmR-NoRSw-d9yvOyg`; `macmini_swarma-review_rev4`, answer `$4Z9NBt96bnFV4xCLsGtZkReTU6U6VDD66CybXaUjpJQ`, both in `#swarma-review`, topic `f-local-revocation-view`, 2026-10-12. Proposal `$cenAjrnlbOqj_4KKVsRaGA85jENkpowtsw9VpMvxAaU`; accepted point-in-time/restore refinement `$MDV57B2FjhTQoU2YS1T86nXxLDmUAhN4UpK40ZQwwr8`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-9 — Fence local broker restoration until acknowledged revocation history is recovered
 
@@ -120,7 +120,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Recovery may remain unavailable or require operator reauthorization when history is lost. A selected checkpoint adds an acknowledgement durability dependency; a fenced manual restore is the simpler initial procedure. This does not revoke standing identity keys under D-IDENTITY, prevent a hostile root from changing policy or erase already delivered provider tokens. Vendor auth-store/rotation recovery is a separate invariant.
 - **Affected specs:** Broker §§4.3, 6.4–6.5, 8, 12.4, 15–16 and recovery/storage diagrams; local dispatcher revocation-view handoff; platform admission recovery and book grant/recovery explanations.
 - **Confirmed-by:** `macmini_swarma-review_rev4`, answer `$fBDEj5G7S_l1AkRi4LQpXfZHd4PXNRbE3f7r0zl2usw`; `macmini_swarma-review_rev2`, answer `$ArNPhSAg-onQJcJtFmd0HxWUn7shtuoPfw4p367zjSI`, in `#swarma-review`, topic `f-local-revocation-restore`, 2026-10-12. Proposal `$AQLk3C2N7Vo1LNV_2G3VS1ayKyjOvBi4aJOVq7zZjYc`; recovery/root-replacement refinement `$1PVEOQyzbMp6ngKAhXLQLiwGiSSqLByspzEhjM-J4WA`. Distinct from F-8: this finding establishes the authoritative history after restore, not its read interface.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-10 — Publish receiver-owned observations for pending and recovered effects
 
@@ -136,7 +136,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** A small closed read/replay contract, authenticated access and retained effect/tombstone evidence are required. Genuine missing or contradictory evidence still holds claims and may require operator resolution. Observation does not renew authority, prove harness readiness or promise exactly-once completion. F-7 separately establishes remote claims/admission floors; this entry exposes local evidence and does not duplicate that invariant.
 - **Affected specs:** Helper §§2, 4.5–4.6 and recovery qualification; broker §§7, 13 and removal/replay qualification; dispatcher §§4.5–4.6, 7 and reconciliation diagrams; book launch/recovery explanation.
 - **Confirmed-by:** `macmini_swarma-review_rev4`, answer `$QfiwUHCMpaU2A5UztIcQ1DxaEW63hPA0Yw3-BhcytFk`; `macmini_swarma-review_rev2`, answer `$H3nBKwK5sXraFhbzCyLR0n20PU3TK-T4cL8SuQB0zoA`; `macmini_swarma-review_rev5`, answer `$BgzzEaSXaBjcgakUBsyZ7ZCpeYtyndYy0bpTYfX6QJk`, in `#swarma-review`, topic `f-effect-observation`, 2026-10-12. Proposal `$VYpuFp21o_CO6dXtjRLtSoLNMwdsG6yt777CITppxuA`; accepted completed-replay scope refinement `$nRUSjHrnl9Xc9HLs5ZMB8PhcTRe32jMel4thmb4X5NQ`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
 
 ## F-11 — Preserve single vendor-refresh ownership across broker replacement
 
@@ -150,4 +150,4 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Requires platform-qualified containment, process/attempt evidence and explicit restart ordering; availability may be sacrificed until re-enrolment when the external outcome cannot be recovered. Vendor stores and behavior remain version-qualified. A durable attempt record is evidence of intent, not proof that an external rotation committed or failed. F-9 addresses acknowledged grant revocations after backup restore, a separate invariant.
 - **Affected specs:** Broker §§3, 9.4–9.6, 15–16, auth-owner/renewal/recovery diagrams and slice-1 qualification; CIP-0011 broker composition; book credential/recovery explanation.
 - **Confirmed-by:** `macmini_swarma-review_rev4`, answer `$WfPPlN7ouLdIUoX2CSzL96JHZEJ28blExb5C3uEmHrI`; `macmini_swarma-review_rev2`, answer `$iuzhOFda0QLRqPNbpdg2qxorW_wmtLlUv-L05IU-BbU`; `macmini_swarma-review_rev1`, answer `$kfo-8afGaw0YOxmJVS_Zst95L-iyyVzLyWkAk7F4uJc`; `macmini_swarma-review_rev5`, answer `$prxwsfYsSxLqHvEh4YZBn6Kyyfz7OC0QYy-os3uIdz8`, in `#swarma-review`, topic `f-refresh-child-ownership`, 2026-10-12. Proposal `$aIh-QWuZcO-SuFLEuqTWXzWP9buydvd1BfgvfMDzWbo`; accepted containment/outcome refinement `$YScuS9N3OvMB3v3TyLkeFi-KTuOZk7t2YumWHCCZcl8`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («все принимаем»); routed to the module specifications through the next docs-only wave.
