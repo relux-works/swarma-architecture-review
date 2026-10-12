@@ -168,7 +168,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** A direct operator retirement can leave an unusable binding and its cleanup evidence pending; that obligation needs an explicit reporting/reconciliation path. Ledger retirement is not a broker unbind receipt, and process death does not erase delivered vendor tokens. Preserve F-1 deletion, F-10 observations and D-IDENTITY; no owner decision is challenged.
 - **Affected specs:** User manager §§4.4, 4.6, 10 and retirement diagrams; dispatcher §5.4 and direct-operator reconciliation; broker §§7, 13 and revocation/unbind diagram; book chapter 3.
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answer `$rCFiGcgcIpsPVFHQoZNsG2cM5BT91hoI20BYfTAZU-o`, room `#swarma-review-2`, topic `f-local-retirement`, 2026-10-12. Confirms the unmatched authority, global-lock dependency and local-retirement direction with a separate operator unbind obligation. Proposal `$IdjWdQRYx7c3wle48e44m9RrIveFpOk9ZVljj8Qn0r4`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-13 — Make `exec.stop` signal and verify the same process set
 
@@ -241,7 +241,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - an escaped process turns a one-shot compromise into a standing one;
     - the account-wide scope touches only generations the dispatcher created, so it opens no new hole.
   - Proposal `$xIl_IppEi8rqUCmEQyhSiFHnhw833jrwbqrCbvJLQ3U`; clock addendum `$B5Du4y8WIXFxQ9QcnuEa6ez2OpgfBV_I9TiXyHziT18`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-14 — Publish a renewal path for the credential authority of standing and kept allocations
 
@@ -326,7 +326,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - renewal is an admission point;
     - honest scope.
   - Proposal `$cvPSJ6V1jlg6CqJ3_xfdg73ygMJ1W7xIj6pgf-DxMe4`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-15 — Keep recovery controls reachable and confine uncertainty to the records it affects
 
@@ -342,7 +342,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** The operation-availability matrix and the proof of confinement need publication. Some incidents still require node-wide closure and operator repair; capacity held by unknown executions remains unavailable. There is no forced-success, forgotten-effect or manual claim-release shortcut. F-2 still requires absence/reconciliation for every affected execution before mode/schema/binary changes; F-5 still requires recovery before new work; F-10's absence rules remain intact.
 - **Affected specs:** Dispatcher §§2, 4.6, 7, 8, 9, 11, 15 and activation/reconciliation diagrams; session host §3.3 and maintenance references; CIP-0011 service readiness; book chapter 9.
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answers `$-7ckR493p_NlyYaEWyecY3OarDRxj14PfJWSr-G0nq8` and `$ycnjIIzcUTvfcKhtj-wtDCEMUX04XMHZnD7yWkbimv0`, room `#swarma-review-2`, topic `f-recovery-control`, 2026-10-12. First confirms the control gap and proposes per-record containment; second accepts the bounded-accounting refinement in `$EEUW5URNRi2cqpY6X55rhw2WlRMosV_8UeWn8dc7LYw`. Proposal `$QCYamc0o-WOufIO_T5tEXCC5DXKJkgNOhZBVqUwtBtI`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-16 — Give each agent account private writable Git administration
 
@@ -358,7 +358,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Independent repositories use more storage unless immutable objects are safely shared. Source/result transfer needs an explicit owner and authorization, and shared object access can expose source beyond a requested branch unless bounded deliberately. This does not promise that checked-out code or accepted results are secret-free. No D-* owner decision or same-account board worktree policy is challenged.
 - **Affected specs:** Trust-and-isolation §5; launch/workspace policy; the launcher workspace materialization contract and dispatcher integration; K2's distinction between workflow and account isolation; book chapter 3.
 - **Confirmed-by:** `macmini_swarma-review-2_fable`, answer `$FlK75GCyXlXMqdkoOblwTqblmM-RJ8kPQ0Phcq5wW0c`, and `macmini_swarma-review-2_opus`, answer `$z8CnI7lp9I1FoEaIqv3c-zfe7H8wuVl1Vrctnv9My1Y`, room `#swarma-review-2`, topic `f-private-git-state`, 2026-10-12. Both confirm the cross-account common-directory problem and private-repository direction; fable adds fresh local configuration and explicit content transfer. Proposal `$OH2w1URmKO6mEVdZ9HTGIeFtMYFynwjraXeD9sIpvpY`; scope refinement `$H2-_ylSDI96zo9yZxO-AwGsWgBypnQzcxhc-oQgii04`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-17 — Specify state loss and restore for the user manager and dispatcher, not only the broker
 
@@ -459,7 +459,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     All four are folded into the problem and the proposed change.
   - Astra's follow-up `$3uGhlXP3Tp2qkth6-eRpIlkLV6LCqpgbblEY6ADLOwg` confirms the revised scope. It adds that reader epoch floors never replace the shared fence.
   - Proposal `$lPfOXX59ClvCKVzHSn9CgrX2NLb01gcCx6Jr0B-r6RM`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-18 — Publish process fate and containment per process class, with a fence against writers from a replaced daemon
 
@@ -549,7 +549,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - Earlier corrections `$W_y-fhpja4B6PcVbU-3uHoPdTEJ4VTIh7-vdEX-g39k` and the resource condition `$RliVDLeEIUlw-MRY8GmKy-G_mmUU6M1-pVDJA3kgJo8` were accepted in `$Dx9QW90i_H9wzktaoT92G-h4H1-3X77KI_emNyzDTTA` and `$8sL_mDh9pZpHBRrU8198jU4fa72PLBZzMgCp87fyosM`.
   - `macmini_swarma-review-2_fable`, answer `$ZKeMFkpXNCKv5Les1cfHJ55IB55bV446qtDF1YnfHFk`, same topic, confirms from the trust side at high confidence. Its three conditions for the per-execution unit are folded in.
   - Proposal `$qALBpgqAsnfxGqGxDpukd_UWY_WcqHeTHhlatggEPpo`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-19 — Run the project-side remote executor as a service principal and specify the workplace account
 
@@ -574,7 +574,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** The helper's closed `user.create` schema gains an account class (shell, enforced requirement); a small service-to-runner protocol; one launcher start per workplace runner or per job; remote workplaces become admissible only after helper v1 on the host, which postpones variant A on hosts without slice 2 (variant A is a donor-side posture and never exempted our side). Per-job cancel in the runner shape is best effort by design. Does not challenge the 2026-10-07 decision (remote workplace = an OS user on our host, SSH towards the host, Remote Bash and Mailbox only), D-DONOR-PROVISIONING or D-EXECUTOR.
 - **Affected specs:** CIP-0009 D4.7, D5, D12 and test plan; `protocol/remote-worker.md` publication register (`swarma-rb/1`, `swarma-workplace-exec/1`); trust-and-isolation.md §7.5–§7.6; user manager §§4.1, 4.3, 8, 12 (workplace account class, activation gate, loopback row); dispatcher §§8.4, 12, 14, 16 (workplace allocation class and backend gate); book chapters 11 and 14.
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answer `$ZKz1O1yw005vHH3CAvnymO1jfal9KJHaWQYUg1guaxw` (executor UID, same-UID job, the `nologin` contradiction, execution-granularity cleanup); `macmini_swarma-review-2_astra`, answer `$Oo7VwH-RUeAOxYDGQCasqJ9ffeFX895kGJXhDInNuxA` (service-owned control/evidence boundary, missing account shape, egress at activation, new qualified backend); `ivan-network-profiles`, answer `$dQmAokrEQMNDPjqxq3p23lXRsJPgPvJBBzLgs4xHEIA` (egress gap and gate at activation, exec-class file tools, login-shell vector, loopback row); all in `#swarma-review-2`, topic `f-workplace-executor-uid`, 2026-10-12. Proposal `$19dnomeGAhZb-l_qeXlGKo3CBPJ0-Lon1o9VEFIsgw0`; restated proposal `$0Y-frgnHY816k6iuM5tJ8swQY361DfW4fNeQa23ADUw`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-20 — Give the session host stop and successor-start authority through an owner-authorised, session-scoped permit
 
@@ -597,7 +597,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Stored authority is reused for successors, within the owner's explicit lifecycle consent and bounded by its grant window, allocation lifetime and a fresh revocation check per use. A durable permit record needs its own recovery rows (unknown permit state stays closed). `run/1` must record host-requested stops distinctly. Sessions whose owner was a one-shot orchestrator are not restartable after its retirement. Refines F-4's permit binding by making the execution and operation values per use of the permit rather than its identity; it does not reopen F-4's launch authority, D-GOALS or D-IDENTITY.
 - **Affected specs:** dispatcher §§3.4, 4.2, 8.1 (`host_stop`), 12, 14, 15 and 16 question 3; session host §§3.3–3.5, 3.7 and 7 question 2; `diagrams/v1-daemon.puml`; helper §4.7 (the caller stays the dispatcher); book chapters 7, 9 and 13.
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answer `$5gnJdPD-KX2ODUZZedc-KNfIF9QDAEYm_PTNdmpNmoY` (no host stop; the per-execution permit cannot admit a successor; successor reuse sound under five recovery conditions, adopted in item 4–5); `macmini_swarma-review-2_astra`, answer `$aZFUn8Kn0gQXmPiz-X7DqyRzMES52B32WSThdIUgkao` (missing host-stop surface; successor admission needs explicit owner lifecycle authority rather than delayed-work reuse alone, adopted in item 1; reboot requester left open, item 6); both in `#swarma-review-2`, topic `f-session-permit-scope`, 2026-10-12. Proposal `$TE3_k7rPlt_m4y9HysT7vZ4P8-uhYxp65OE5vBDGNmo`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-21 — State the time assumption and make wall-clock steps unable to destroy state or revive authority
 
@@ -678,7 +678,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - boot-epoch limits of the wall/monotonic pair;
     - scope limited to qualified clock faults and a contract gap, not a demonstrated attack or runtime defect.
   - Proposal `$clPNHlMeC3dZnG_R9NuXUkwCKUaYHAt0CeExMrAGVT0`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-22 — Classify receiver outcomes so `exec.stop` continues under its effect ID while authority-creating retries stay fresh
 
@@ -740,7 +740,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - no authority created by continuation.
   - Astra's qualification of the replay-safety sentence, `$epKuUyWhATnl0aSMaSPirYIk95dw5o3Cw85UXug0Q7s`, is applied.
   - Proposal `$6thKsqEGFnAkIEisxpXM9GNbQTsOCLH6EyOXVj8eQLw`; self-narrowing `$L4AZ6kyXFqvUVCWLIIYI-KlEXOINfQyoocArQKKEUDI`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-23 — Keep the broker v0 root key and the operator principal out of any account that runs agent sessions
 
@@ -763,7 +763,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** One authenticated transition per operator act, plus a confirmation of content for widening acts; `status` and other reads by the person also go through the transition unless a read-only principal is configured. A dedicated account adds one principal to pin (broker §4.2) and one sudo rule to qualify. Headless renewal and maintenance need a person or a published bounded re-grant. Does not challenge D-* decisions or Decision 0021; it refines broker §4.3's custody of the v0 root and the helper's operator sudo policy, and keeps the v0 Ed25519 format.
 - **Affected specs:** broker §§4.2–4.3, 13.2, 14, 15; user manager §§2–3, 11; dispatcher §§5.4–5.5, 8.1, 11, 16 (operator signature custody); book chapter 3 privilege table, chapter 4 key table, chapter 9; decisions.md cross-reference to the 2026-09-24 and 2026-09-25 rules.
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answers `$LWL6b2wii3UMQEuo59dZVKqhd9hz2ogn9gcqdwCaHmc` and `$sCl5PwYLtmJZWAq8Zf-u_uGxPTBvkn51dnJRP4fCLGM` (item 1 at high confidence; a command gate protects the command, not the key, so custody must change; dedicated account with `timestamp_timeout=0` keeps the Ed25519 format; Secure Enclave would be a root-format change; F-14/F-2 become presence acts; key loss uses F-9 root replacement), adopted in items 1–2, 4–5; `macmini_swarma-review-2_astra`, answer `$JHUJDhLLfgRnZJ7UX_7dsA6qcMDUg_qtPky1D-19NGY` (protect both signing custody and the configured operator/owner roles; confirm the exact act and content, not an unlocked interval; no new hardware or algorithm change; a missing staging condition rather than a demonstrated leak; the 2026-09-24 rule targets widening, narrowing stays immediate; F-14 renewal within a published delegation or waits for the operator), adopted in items 1, 3–5 and the problem statement; both in `#swarma-review-2`, topic `f-operator-root-custody`, 2026-10-12. Proposal `$nyDR_47u-Dtd2J4lSnWYquNXFF-cgelVUC3C_z2xgn8`; restated proposal `$Mb04gGBdNpA4b2x8GiWv9GL406d6Nhj5gS4zshZW3jg`.
-- **Status:** proposed.
+- **Status:** pending the owner's decision (examples requested on 2026-10-12)
 
 ## F-24 — Give the platform's service accounts an egress policy, with the proxy as the only sink
 
@@ -788,7 +788,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** A v1 capability that depends on the firewall anchor and its per-OS evidence (slice 2); the software-root slice 0 is not disabled by this later prerequisite. The agent-scoped firewall API and installer scope grow by one service-profile contract. Routing the broker through the proxy makes the proxy a dependency of Codex refresh: a proxy outage becomes `refresh_failed_transient` with backoff (broker §9.4). Login and refresh verification rows and the DNS/resolver sandbox are new qualification work. The broker's device-login ceremony relays a URL to the person's browser, which runs under the person's account, so the broker rule does not block it. Does not challenge any D-* decision; it extends an existing mechanism to the accounts the design trusts most.
 - **Affected specs:** user manager §§3, 8, 11, 12 (service-profile rows, scheduled re-verification, DNS clause); broker §§3, 9.2, 9.4, 12.3, 15.2 (egress statement, proxy route and dependency); dispatcher §13 and session host §3.1 (deny-all statement, readiness); curator-network-profiles (broker profile and login/refresh verification rows); trust-and-isolation.md §5 privilege table; book chapter 3 closed-network section and privilege table.
 - **Confirmed-by:** `ivan-network-profiles`, answer `$LRMsDy1qysFpR65DeApet5WP9KtusYLTFYLsxMG82Z0` (item 1 confirmed; proxy route with own listener and login/refresh rows qualified first; the proxy account as "proxy-enforced"; the DNS side channel per-UID rules do not see), adopted in items 3 and 5; `macmini_swarma-review-2_opus`, answer `$VRetOlUMQ0_QfFpuRKMBsd12rOXBiW_fkVxlc3ATYqk` (item 1 at high confidence; install-time rows lapse silently, so re-verify and fail closed as part of readiness; the proxy becomes a refresh dependency), adopted in item 4 and the risks; `macmini_swarma-review-2_astra`, answer `$ou6V5N1hZ5vxZh_CMsx-hkYrrIoH61xNy9BHhZOua1o` (no per-UID row for root-run components; one published service-profile matrix and lifecycle as a specification change; bounded benefit claim; qualified DNS/Mach/XPC coverage; a detection window rather than continuous enforcement; a v1 capability that does not disable slice 0), adopted in items 1, 4–5, the benefit and the risks; all in `#swarma-review-2`, topic `f-service-egress`, 2026-10-12. Proposal `$722G-SAR9T4IjxX7lSvzWHYqn3nPQzcJ819Ya0_TJJU`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-25 — Bound helper recovery and retiring-home work without replacing the shared lock
 
@@ -808,7 +808,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** Work bounds, recovery dependencies and fair progress need publication and per-platform qualification. Bounds describe cooperative work on a functioning filesystem; they cannot promise recovery from a stuck kernel or storage device. Deletion can take multiple invocations, with the existing pending obligation visible until completion. F-1, F-6, F-10, F-13 and the shared-state lock remain intact; no owner decision is challenged.
 - **Affected specs:** User manager §§4.1, 4.4–4.7, 6, 7, 12, 14 and recovery/retirement diagrams; dispatcher §7 cleanup references; book chapter 3.
 - **Confirmed-by:** `macmini_swarma-review-2_opus`, answer `$N_ixiDaY6FQjqqJsRc8G4AuWkN2qx5DEHnVkTlPni44`, and `macmini_swarma-review-2_fable`, answer `$lzyoXH4abyqW3ne3O6gjncp6Fb8Oc03APwKWn41BHX8`, room `#swarma-review-2`, topic `f-bounded-helper-recovery`, 2026-10-12. Both confirm the gap and separate finding at high confidence; dependency-scoped recovery is adopted. Astra's refinement `$0rcVSTwO0vprS9hz0OEicRIhqzLt0vDa60t_d6gZm1g` preserves the metadata timer's existing scope and requires qualification of bounded forward progress. Proposal `$ZFam8lis1w_bkiXgWL8Hcku03k9LZegSbVsnO87ZZ7o`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-26 — F-10's retention gate needs a cross-module decision: receivers cannot establish inadmissibility under the current grammar
 
@@ -912,7 +912,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Risks and costs:** A root-owned binding policy with an installer/operator lifecycle; the proxy must publish a served-allowlist digest per listener; the re-apply effect and the proxy-side session drop are new publication and qualification work; one Curator profile maps to one egress until a `networks` dimension is ever needed; Curator reads network defaults from the platform location on platform hosts. The network-profiles revision is the lane owner's work. Does not challenge any owner D-* decision.
 - **Affected specs:** dispatcher §§3.4, 5.1, 8.1, 15, 16; user manager §8 (binding location, served-digest check, re-apply); broker §5.5 (cross-reference); CIP-0011 §6; curator-network-profiles N3, N4, N7, S7 and the contract appendix; the proxy's listener contract; book chapter 3 closed-network section.
 - **Confirmed-by:** `ivan-network-profiles` (owner of the curator-network-profiles lane), answers `$pbgCAnrCoDUaelJlL4NpnShwM42-A0Y6MFFrtE8pp84` (the gap and the network-profiles evidence), `$GJozyeus9dBmX23VlXduBkLWlPsNwVfwumjYEgDXN_U` (the final remedy after astra's challenge: machine-owned binding by profile identity, served-digest check, v1 timing) and `$D1lTBQHcsiMc7qBF0onZ8G7ZwlYYdoRGJdIIRUUrCGE` (pin at admission equals `network_profile_drift`; the kernel half of re-apply exists); `macmini_swarma-review-2_opus`, answers `$POHS7Xy7aH567XweWgEb0syTnxtrcmULloBvrmXLqdQ` (confirmation from the platform specs; rows 2 and 4) and `$TD1d_M7YvCY4pkggHD_1eJ4K_QvJ2Mc5Or6ZcX0Gg2k` (confirms the final remedy at high confidence). `macmini_swarma-review-2_astra`, answers `$FkfWw2l0dVl_4ZmiUr0zbFavEk1a9Qy_0az_WcwUJvo` (narrowed the claim to the explicit-integration gap; proposed the simpler route and the listener handoff, both adopted) and `$F5QLGPVx2Lu8GhWVFnU_DqjQR2XpEzRybMkrgDiQnko` (confirms the cross-account binding/authority gap at high confidence with the narrower remedy; publication conditions adopted in item 3). All in `#swarma-review-2`, topic `f-network-profile-authority`, 2026-10-12. Proposal `$SbAIPhMcECMR8DYal8Gp2kSB0Ssoxpp2SCp22j7H1pI`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
 
 ## F-28 — Never hold a service's state lock across a synchronous call to another platform service
 
@@ -1010,4 +1010,4 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 
     It also corrects two claims, both applied: the broker's 2 s read deadline, and that F-2 is delayed rather than voided.
   - Proposal `$yqv5btO5OUOQc0n53G_8WXjOwty62FZrQNcbKxUd_2c`; citation correction `$etBQmw_dSSfqDH5nYfqIXjZmrNUsS7aqiza-QhAftoc`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-12 («ок»); routed to the module specifications through wave 4.
