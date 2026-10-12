@@ -630,9 +630,11 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
   - The only time-integrity rule in the sources is in `swarma-review/context/swarm-platform-architecture/vision/contracts/admission-and-delivery.md` @ `e5781c8`, §5, line 90. It keeps a monotonic high-watermark clock per store and rejects `issued_at` more than 2 minutes in the future. No module spec carries a comparable rule.
 - **Proposed change:**
   - **State the time assumption.** The installer section names an authenticated time source (for example NTS) or an operator-controlled one.
-  - **High-watermark "now" for authority.**
-    - The broker and the dispatcher each keep a durable high-watermark of observed wall time and evaluate every grant, leaf, delegation, binding and lease window at `max(now, watermark)`, reusing the ADM device. A backward step can then only narrow authority, never revive it.
-    - A forward step makes the watermark sticky: after a bad step is corrected, authority stays closed until real time catches up. Resetting the watermark is therefore an explicit operator act, after the incident below confirms the clock.
+  - **Watermarked authority time.** The broker and the dispatcher each keep a durable high-watermark of wall time observed under established time confidence, reusing the ADM device.
+    - **Both directions narrow.** Expiry checks (`expires_at`, `authorized_until`, binding expiry) evaluate at `max(now, watermark)`. `not_before` checks evaluate at `min(now, watermark)`. A wrong step in either direction can then only narrow authority. A forward watermark alone would open future `not_before` windows early, so the watermark is never applied to `not_before` with `max`.
+    - **Ordering.** Detect-and-hold and time-confidence validation, below, precede both authority evaluation and any advance of the watermark. The watermark never advances on untrusted time.
+    - **Reset.** A forward step makes the watermark sticky: after a bad step is corrected, authority stays closed until real time catches up. Resetting a poisoned watermark is therefore an explicit operator act, taken after the incident confirms the clock. A reset preserves evidence established under trusted time, so what expired then stays expired. Confirming the correct wall clock is not consent to revive genuinely expired authority.
+    - **Limits.** These rules are a proposed contract for qualified clock faults, not a proof against arbitrary clock behavior.
   - **Destruction gated on monotone elapsed time.**
     - Expiry-driven `user.retire` (home deletion) and expiry-driven binding removal require both wall-clock expiry and accumulated boot-inclusive monotonic elapsed time (`CLOCK_BOOTTIME` on Linux, continuous time on macOS) of at least the lifetime, counted from activation.
     - The elapsed time is accumulated durably at each sweep, because those clocks reset at reboot. Downtime is not counted, which can only delay destruction.
@@ -718,7 +720,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
   - The idempotency contract becomes mechanically checkable, one row per operation.
 - **Risks and costs:**
   - A classification table plus qualification rows: retry after `processes_remain`, replay after success, and retry after a pre-admission rejection whose authority has since been revoked.
-  - Misclassifying work as unfinished only makes it loop visibly; it never duplicates an effect.
+  - Replay safety is not a general property of the classification. It follows from the journal, current-authority and same-effect reconciliation rules being correct. A completed or never-authorized operation must never become a fresh pending mutation just because its class changes.
   - No owner decision is challenged.
 - **Affected specs:**
   - user manager §§4.4, 4.6, 4.7;
