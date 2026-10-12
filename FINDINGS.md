@@ -602,7 +602,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 ## F-21 — State the time assumption and make wall-clock steps unable to destroy state or revive authority
 
 - **Lens:** reliability and recovery; time as an input to irreversible effects and to authority.
-- **Problem:** No module spec states a time source or clock assumption. A search of the user manager, dispatcher, broker and session-host specs and the launcher §10 for clock, NTP or monotonic finds nothing. Wall-clock comparisons nevertheless drive both destructive effects and authority. The default time sources are unauthenticated NTP (macOS `timed`, Linux `systemd-timesyncd` or `chrony` without NTS), and they step the clock on a large offset. So a rogue or on-path time source, an operator's manual date change, a VM resume or a wrong RTC at boot can move it.
+- **Problem:** No module spec states a time source or clock assumption. A search of the user manager, dispatcher, broker and session-host specs and the launcher §10 for clock, NTP or monotonic finds nothing. Wall-clock comparisons nevertheless drive both destructive effects and authority. The default time sources are unauthenticated NTP (macOS `timed`, Linux `systemd-timesyncd` or `chrony` without NTS), and they step the clock on a large offset. Depending on the host's time configuration, a rogue or on-path time source, an operator's manual date change, a VM resume or a wrong RTC at boot can therefore move it. This is a contract gap for qualified clock faults, not a demonstrated attack or runtime defect.
   - **A forward step destroys state.**
     - The dispatcher's one-minute sweep retires every ordinary kept allocation whose lifetime the step crosses (24 h default, 7 days maximum). Under F-1, retirement deletes the home, uncommitted work included.
     - The broker removes every binding whose window the step crosses, for good: "Expired bindings are removed by the broker", and a removed binding is never reactivated by replay.
@@ -637,10 +637,13 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - Expiry-driven `user.retire` (home deletion) and expiry-driven binding removal require both wall-clock expiry and accumulated boot-inclusive monotonic elapsed time (`CLOCK_BOOTTIME` on Linux, continuous time on macOS) of at least the lifetime, counted from activation.
     - The elapsed time is accumulated durably at each sweep, because those clocks reset at reboot. Downtime is not counted, which can only delay destruction.
     - An expired binding is already unusable, so its removal can wait.
-  - **Detect and hold everything else.**
-    - Each component compares wall-time and monotonic deltas between sweeps.
-    - A backward move, or a forward move beyond tolerance, raises an incident and holds time-based evidence reclamation.
-    - Explicit stops and operator retirements keep working, and admission keeps failing closed.
+  - **Detect and hold everything else.** This is the primary cut. A grace period alone only delays loss.
+    - **One policy.** A single platform time-confidence policy is published and reused by every service, with no per-component prompts.
+    - **Within a boot.** Components compare wall-time and monotonic deltas between sweeps. The pair is comparable only inside one boot epoch; it cannot certify the initial RTC or slow drift.
+    - **On a step.** A backward move, or a forward move beyond tolerance, raises an incident and holds time-based evidence reclamation.
+    - **After boot.** Destructive time-triggered effects, and any watermark advance beyond tolerance, hold until an authenticated sync or an operator confirmation establishes confidence.
+    - **While time is untrusted.** New admission, leases and renewals refuse, and retained bindings do not keep issuing credentials.
+    - **Unaffected.** Explicit stops and operator retirements keep working.
   - **Qualification.** Cover:
     - a forward step beyond the longest lifetime: no retirement or binding removal before monotone elapsed time;
     - a backward step across a grant expiry: no revived lease;
@@ -666,5 +669,64 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
   - It names the unauthenticated-NTP lever and the backward-step revival of authority.
   - It adds the high-watermark "now" and the monotone gate for destructive effects, both accepted in `$UJyR1eZfYvJYMavRK7zaI6-KBMCtxpx2Dy62O3muVCc` with the sticky-watermark and accumulation precisions.
   - Partial refutation: the ADM store-epoch rule exists in VISION, but not in any module spec.
+  - `macmini_swarma-review-2_astra`, answer `$Ooqt1wUh42zupdwUOQn2S94m63CQWhVZFh4FyqpoiOg`, same topic, confirms at high confidence the missing time-integrity contract for automatic irreversible expiry. Its corrections were accepted in `$9Y8K7Db3cjZnBzDLQxb9RlM-rnO2Qynxz11u4HfMX4I`:
+    - a startup time-confidence rule;
+    - one shared policy;
+    - refusal of new authority while time is untrusted;
+    - boot-epoch limits of the wall/monotonic pair;
+    - scope limited to qualified clock faults and a contract gap, not a demonstrated attack or runtime defect.
   - Proposal `$clPNHlMeC3dZnG_R9NuXUkwCKUaYHAt0CeExMrAGVT0`.
+- **Status:** proposed.
+
+## F-22 — Classify receiver outcomes so `exec.stop` continues under its effect ID while authority-creating retries stay fresh
+
+- **Lens:** reliability and recovery; idempotency; stop convergence.
+- **Problem:** Two receiver rules conflict for `exec.stop`.
+  - **Replay rule.** "A repeated mutating (caller, request_id) with the same operation and canonical arguments returns the recorded result together with the target's current state" (user manager; the broker has the same rule for bind).
+  - **Retry rule.** The same user-manager spec expects `exec.stop` after `processes_remain` to be repeated with the same effect ID and to make progress. The dispatcher repeats it while the termination receipt is missing.
+  - **No tie-breaker.**
+    - User-manager recovery resumes only interrupted creation and retirement, not stops.
+    - The dispatcher's effect table knows only `ok`, `refused` with a code, and `unknown`, so it records `processes_remain` as `refused`.
+    - Neither receiver says whether such an outcome is a recorded result or unfinished work, and R-OBS has no wording for it.
+  - **Consequence.** An implementation that records `processes_remain` as the result replays it forever, and the stop never converges. This is independent of F-13's signal scope.
+  - **Pre-admission rejections.** The same ambiguity leaves open whether a pre-admission rejection leaves a recorded effect, for example a bind refused with `revocation_state_unavailable` during an F-9 fence. Retrying such a rejection must never bypass fresh authority.
+  - **Retirement is not affected.** Recovery already resumes it, although its failed forward steps should be named as unfinished recovery.
+- **Evidence:** Paths are relative to `~/Developer/ReluxWorks/`.
+  - `platform/curator-host-helper/spec/helper.md` v0.6 @ `e58b0726`:
+    - §4.6, lines 202–205: recovery resumes interrupted creation and retirement; the replay rule; observation and retention;
+    - §4.7, line 218: `processes_remain`, "and the call may be repeated with the same effect request id";
+    - §4.4, line 174, and §4.4.1, lines 185–186: retirement's retry and forward-recovery wording.
+  - `platform/curator-credential-broker/spec/broker.md` v0.6 @ `a0e6ab95`:
+    - §7.2, lines 361–362: pending interrupted work and the bind replay rule;
+    - §13.2, lines 590–601: the six observation states.
+  - `platform/curator-dispatcher/spec/dispatcher.md` v0.6 @ `e06fcfee`:
+    - §4.5, line 191: effect results `ok`, `refused` or `unknown`;
+    - §4.6, lines 212–223: the R-OBS mapping;
+    - §7.1, line 316: a new bind needs fresh authority;
+    - §7.1, lines 320–321: same-ID repetition of stop and cleanup.
+- **Proposed change:** Publish one outcome table per receiver operation (create, bind, launch, stop, unbind, retire). Map it onto the existing six R-OBS states; add no new state.
+  - **Transport uncertainty** maps to unknown or unavailable. It is observed and never relabelled as pending.
+  - **Pre-admission rejection** records no receiver intent. Any retry is a fresh admission with current permission, expiry and revocation checks, so the fresh-authority invariant for new binds holds.
+  - **Unfinished admitted work** is a durably accepted intent and maps to pending.
+    - `exec.stop` with `processes_remain` continues under the same ID. It revalidates the generation and current-execution fence (F-13) and never signals a later execution after success.
+    - Failed forward retirement steps are unfinished recovery.
+  - **Terminal result** is recorded and replayed with the target's current state.
+  - **Dispatcher mapping.** The dispatcher maps unfinished admitted work to its pending handling, never to `refused`.
+- **Expected benefit:**
+  - Stop converges through the retries the specs already prescribe.
+  - Replay safety and the fresh-authority rule are preserved.
+  - The idempotency contract becomes mechanically checkable, one row per operation.
+- **Risks and costs:**
+  - A classification table plus qualification rows: retry after `processes_remain`, replay after success, and retry after a pre-admission rejection whose authority has since been revoked.
+  - Misclassifying work as unfinished only makes it loop visibly; it never duplicates an effect.
+  - No owner decision is challenged.
+- **Affected specs:**
+  - user manager §§4.4, 4.6, 4.7;
+  - broker §§7.2, 13.2;
+  - dispatcher §§4.5, 4.6, 7.1;
+  - F-10 observation wording in all three.
+- **Confirmed-by:** `macmini_swarma-review-2_astra`, answer `$AfJKsnEBq0ukSp1BMFwJCwwqDTIm1nISg8OMumb3gz4`, room `#swarma-review-2`, topic `f-retryable-outcomes`, 2026-10-12.
+  - It confirms at high confidence that a completed receiver result must be distinguished from an unfinished accepted stop, with same-ID continuation and fence revalidation.
+  - It refuses a blanket rule that transient refusals progress without fresh authority. That claim is withdrawn, and the four-class table using the existing states was accepted in `$v1yOY-y0jAb6koU_Gthgj9mps4g6lr5l1L-DcBCaPFA`.
+  - Proposal `$6thKsqEGFnAkIEisxpXM9GNbQTsOCLH6EyOXVj8eQLw`; self-narrowing `$L4AZ6kyXFqvUVCWLIIYI-KlEXOINfQyoocArQKKEUDI`.
 - **Status:** proposed.
