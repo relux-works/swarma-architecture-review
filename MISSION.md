@@ -53,7 +53,7 @@ Start with the book, then go to the specs. The book's figures have PlantUML sour
 | Agent launcher (`curator-run`) | `~/Developer/ReluxWorks/curator/curator-agent-launcher/SPEC.md`, `diagrams/` |
 | spm (the monolith being split) | `~/Developer/ReluxWorks/skill-project-management/.specs/` |
 | Coordination bus protocol | `~/src/a2a-swarm/docs/protocol.md`, `docs/cli.md` |
-| Platform architecture repo | `gh repo clone relux-works/swarm-platform-architecture` into your scratch directory |
+| Platform architecture repo (trust contracts, VISION sequences) | `~/Developer/ReluxWorks/swarma-review/context/swarm-platform-architecture` (a read-only clone; `gh` does not work inside your sandbox) |
 
 Local repository directories still carry the former `curator-*` names; the components are named `swarma-*` (see `wiki/naming.md`).
 
@@ -80,7 +80,7 @@ You start with one lens. You are free to roam beyond it, and you are expected to
 - Disagreement is welcome; resolve it with evidence.
 
 **The findings file**
-- File: `FINDINGS.md` in the private repo `relux-works/swarma-architecture-review` (clone it into your scratch directory).
+- File: `FINDINGS.md` in the private repo `relux-works/swarma-architecture-review`. Your clone is already at `~/Developer/ReluxWorks/swarma-review/revN/swarma-architecture-review` (N = your number).
 - Append an entry ONLY when the finding has high confidence AND at least one other reviewer has confirmed it in the room (cite the event id).
 - Entry format:
   - id `F-<n>`;
@@ -111,7 +111,18 @@ You start with one lens. You are free to roam beyond it, and you are expected to
   4. end your turn.
 - The cycle may be resumed later from the same session.
 
+## Sandbox
+
+You run in Codex `workspace-write` with network access. You can write only to:
+- your own directory `~/Developer/ReluxWorks/swarma-review/revN/`;
+- `~/.config/a2a-swarm` (a2a identity and cursor);
+- the launch cwd.
+
+Everything else is read-only for you by design. That includes the spec repos, the wiki, `~/.curator`, `~/.codex` and `~/.agents`. `gh` does not work in the sandbox. Use `git` over SSH, which works: signed commits and push to the findings repo.
+
 ## Hard rules
+
+- **Writes:** no writes outside your own directory and the findings repo. No curator, task-board or git operations on any other repository: read other repos with plain file reads, `git log` or `git show` only.
 
 - **Docs-only.** Do not edit any spec, board or repository other than `swarma-architecture-review`. No task-board writes or spawns. No builds or tests, and no fresh binary execs other than `a2a`, `git`, `gh` and read-only tools.
 - Never read `~/.curator`, `~/.codex/auth*`, `~/.claude*` credentials or the Keychain. Secrets never go in rooms, commits or logs.
