@@ -920,14 +920,13 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Problem:** The dispatcher has a single state lock, and the spec places the whole of reconciliation under it. It says so four times: §4.1 and three figures.
   - **What reconciliation calls.**
     - The user manager: `effect.observe` and repeated `exec.stop` with its grace period. Each is a sudo root process behind the user manager's single global lock, which F-25 shows can be held for long recovery work.
-    - The broker: `effect.observe` and `revocation.check`, with deadlines up to 30 s.
+    - The broker: `effect.observe` and `revocation.check`. Their administrative reads have a 2 s deadline, and lease requests have longer ones.
   - **When it runs.** At startup, on `reconcile`, and every minute from the sweep.
-  - **What freezes.** Read as written, every other dispatcher operation waits while any reconciliation runs: status, cancel, admission, `host_start`. That voids:
+  - **What freezes.** Read as written, every other dispatcher operation waits while any reconciliation runs: status, cancel, admission, `host_start`. That defeats:
     - F-15's reachable recovery controls;
-    - F-20's host stop;
-    - F-2's bounded maintenance attempt.
+    - F-20's host stop.
 
-    A wedged user-manager or broker call freezes the whole dispatcher, and the next sweep queues behind it.
+    It also delays F-2's maintenance control. F-2 already defers unknown work, so its safety holds, but the control path is held up behind the lock. A wedged user-manager or broker call freezes the whole dispatcher, and the next sweep queues behind it.
   - **Host side.** The rule that the host validates the fence and epoch "atomically with each effect" invites the same pattern there. `host_start` is a call into the dispatcher, so this forms a lock chain host → dispatcher → user manager.
   - **Nothing releases the lock.** No text releases it around a call. The only text that separates a cross-service call from the lock is the cancel rule, which serializes cancel "with the claim".
   - **A cross-tenant lever.** Any party able to stall a receiver freezes every tenant's admission, status, cancel, `host_stop` and incident response. One example is an agent leaving a wide retiring home (F-25). Another is a slow broker. No spec states a lock or call-order discipline.
@@ -948,28 +947,39 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - §4.7, line 218: the grace period.
   - `platform/curator-credential-broker/spec/broker.md` v0.6 @ `a0e6ab95`, §13.1, line 570: request deadlines.
   - `platform/curator-session-host/spec/session-host.md` r8 @ `3a253016`, §3.4, line 190: every effect, start included, has a fence and epoch rule.
-- **Proposed change:** One rule across the platform services, with each component's call graph published.
-  - **No lock across calls.** No service holds its state lock across a synchronous call to another platform service. The lock covers journal and record transitions only.
+- **Proposed change:** One rule across the platform services, with each component's wait/lock graph published.
+  - **No lock across calls.** No service holds its service-wide state-transition lock across a synchronous call to another platform service. That lock covers journal and record transitions only.
+  - **Ownership locks are exempt.** Singleton and process-ownership locks have different lifetimes and are never released mechanically by this rule:
+    - F-11's single-refresh-writer ownership;
+    - F-6's root generation exclusion in the launcher.
   - **Dispatcher pattern.**
     1. Under the lock, journal the intent and mark the effect in flight.
     2. Release the lock and make the call.
     3. Under the lock again, record the result.
   - **Authority is fixed at intent.** It is never re-derived after the lock is released. The caller principal, signature, chain, `revocation.check` verdict and capacity claim are recorded in the journaled intent and in the effect's canonical arguments. Receivers verify their own authority independently, and the final broker checks remain the backstop.
+  - **Journal-before-effect is not enough on its own.** The unlocked pattern also needs these rules:
+    - Each call is bound to immutable arguments plus the record, daemon-instance and controller epochs.
+    - There is a defined point before which cancellation prevents the call from being issued.
+    - Claims are retained for any work that may have executed.
+    - Every late result is revalidated under the lock against the current fences and versions. A stale result, for example one arriving after a daemon replacement, may resolve historical evidence, but it never reopens admission or delivery and never resurrects a cancelled start.
+    - Cancellation records intent promptly. It cannot promise an immediate successful stop of unknown work, whose absence still awaits the receiver.
+  - **Bounded concurrency.** Outbound I/O and in-flight work are bounded, so that releasing the lock does not just move the blockage into a single request worker.
   - **Per-record serialization.** Effects are serialized per record by the durable in-flight entry, not by the global lock.
     - Cancel, fence withdrawal and `host_stop` observe the in-flight marker, recorded as "in flight, cancel requested", so the post-call handler stops rather than proceeds. The cancel rule already says this for launch.
     - Two operations on one allocation still queue on that record (`agent_busy`). Unrelated records, and status, cancel and stop, stay available.
   - **Host side.** The host holds no fence lock across `host_start`. The dispatcher validates the fence and epoch per effect from the four values the host sent. If the host's fence changes mid-call, the host withdraws the permit with a second call, and the dispatcher reconciles under the claim and receipt interlock. Atomicity is per effect at the receiver, never a cross-service lock.
-  - **Call graph.** The published call graph is acyclic: dispatcher → user manager and broker; host → dispatcher; executor or runner → broker. No reverse synchronous calls: calls flow from the admission owner towards the evidence owners.
+  - **Wait/lock graph.** Publish the actual wait/lock graph: which locks are held while waiting on which calls. That graph must be acyclic. A blanket component-level call graph would be stronger than needed and is not acyclic anyway: the runner registers with the host, and the host delivers to the runner. The calls that matter are dispatcher → user manager and broker, and host → dispatcher. None of them waits while holding a state-transition lock.
   - **Qualification:**
     - cancel and status during a reconciliation that is blocked on a slow user-manager call;
-    - a sweep over many records with one wedged receiver;
-    - a cancel arriving mid-launch;
-    - a fence withdrawal arriving mid-`host_start`.
+    - a sweep over many records with one stalled receiver;
+    - a cancel or epoch change while a call is outside the lock, including mid-launch;
+    - a fence withdrawal arriving mid-`host_start`;
+    - a stale completion arriving after a daemon replacement.
 - **Expected benefit:**
   - The control surface that F-15, F-20 and incident response rely on stays live.
   - One slow or stalled dependency affects only its own record.
   - No cross-service lock chains.
-  - The discipline is mechanically checkable by reviewing lock scopes and the call graph.
+  - The discipline is mechanically checkable by reviewing lock scopes and the wait/lock graph.
   - The dispatcher's liveness no longer depends on F-25's bound in the user manager.
 - **Risks and costs:**
   - In-flight markers must survive crashes, which they do as journal entries, and reconciliation must resolve them.
@@ -987,5 +997,14 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - cancel and fence changes observe the in-flight marker;
     - atomicity is per effect at the receiver;
     - a lock held across a call is a cross-tenant lever.
+  - `macmini_swarma-review-2_astra`, answer `$EwyFPEAml1A8Dr_Af_QUE_u1NtP-K6DclOdg7JGd1bk`, same topic, confirms at high confidence, with per-record in-flight ownership as the smaller cut. Its conditions are folded in:
+    - ownership locks are exempt;
+    - each call is bound to its epochs;
+    - cancellation has a defined linearization point;
+    - every late result is revalidated, and stale results never resurrect work;
+    - concurrency is bounded;
+    - the rule is stated as a wait/lock graph, not a blanket call graph.
+
+    It also corrects two claims, both applied: the broker's 2 s read deadline, and that F-2 is delayed rather than voided.
   - Proposal `$yqv5btO5OUOQc0n53G_8WXjOwty62FZrQNcbKxUd_2c`; citation correction `$etBQmw_dSSfqDH5nYfqIXjZmrNUsS7aqiza-QhAftoc`.
 - **Status:** proposed.
