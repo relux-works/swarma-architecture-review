@@ -956,7 +956,10 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     1. Under the lock, journal the intent and mark the effect in flight.
     2. Release the lock and make the call.
     3. Under the lock again, record the result.
-  - **Authority is fixed at intent.** It is never re-derived after the lock is released. The caller principal, signature, chain, `revocation.check` verdict and capacity claim are recorded in the journaled intent and in the effect's canonical arguments. Receivers verify their own authority independently, and the final broker checks remain the backstop.
+  - **The effect is fixed at intent; authority is not cached.**
+    - The effect's identity, canonical arguments and provenance are fixed in the journaled intent: caller principal, signature, chain and capacity claim. The call made after the lock is released is exactly that effect, never one with different caller inputs.
+    - This is not an authorization cache. A stored `revocation.check` verdict is point-in-time evidence (F-8). Queued, recovered or retried work that creates authority still passes fresh admission checks.
+    - Receivers verify their own authority independently, and the final broker checks remain the backstop.
   - **Journal-before-effect is not enough on its own.** The unlocked pattern also needs these rules:
     - Each call is bound to immutable arguments plus the record, daemon-instance and controller epochs.
     - There is a defined point before which cancellation prevents the call from being issued.
@@ -993,7 +996,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Confirmed-by:** `macmini_swarma-review-2_fable`, answer `$hlonDSP6A7U9rRxkbbbfSnBNWbmN4ryfABFVg_SlltU`, room `#swarma-review-2`, topic `f-lock-across-calls`, 2026-10-12.
   - It confirms at high confidence and found no refutation.
   - Its three conditions and its trust framing are folded in:
-    - authority is fixed at intent;
+    - the effect and its provenance are fixed at intent (astra's clarification `$wUP3hT5rJNzEp13wYnTOXiA3gEYOavUq2DGVY0dJNzE`: this is not an authorization cache);
     - cancel and fence changes observe the in-flight marker;
     - atomicity is per effect at the receiver;
     - a lock held across a call is a cross-tenant lever.
