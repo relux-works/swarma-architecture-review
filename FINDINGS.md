@@ -363,7 +363,12 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 ## F-17 — Specify state loss and restore for the user manager and dispatcher, not only the broker
 
 - **Lens:** reliability and recovery; durable identity; unknown versus absent.
-- **Problem:** The platform specifies crash recovery through journals. For state loss or restore it specifies only the broker's revocation state (F-9). Three invariants that other components depend on have no supported procedure:
+- **Problem:** The platform specifies crash recovery through journals. For state loss or restore it specifies only the broker's revocation state (F-9). Four invariants that other components depend on have no supported procedure:
+  - **No identity resurrection.**
+    - The ledger is the liveness anchor every other component trusts. Broker principals, host connections and the architectural key keeper accept a UID only while the ledger shows its generation as active.
+    - A ledger restored to a point where a since-retired generation `g` was active re-enables `g` for whatever process now holds its UID. The OS account may have been removed and the UID re-issued in the meantime.
+    - If broker state is restored to the same point, the new holder leases under `g`'s binding. With a key keeper, it would sign as `g`'s identity.
+    - Random generation identifiers do not prevent this: it is the same `g` and the same UID. It is the account-level twin of F-9's resurrected revoked grant.
   - **Never-reused generations.**
     - The generation is "never reused", but no allocator is published. The book calls it a number, and the examples (`g-0193`, `g17`) look like a counter.
     - A counter-backed implementation could re-issue generations after a ledger restore. The UID cursor in the same file would roll back too. If the post-snapshot account was retired, its UID can also be re-issued, and the same `(uid, generation)` would then name two account instances across:
@@ -398,9 +403,15 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - §6.4, line 312, and §15.4, line 659: F-9's fenced restore, and "a same-home sequence, audit file or checkpoint cannot certify its own rollback".
     - §7.1, line 341: `binding_id` is already a random 128-bit identifier.
   - `platform/curator-session-host/spec/session-host.md` r8 @ `3a253016`, §3.1, line 135: the host reads the ledger directly.
+  - `swarma-review/context/swarm-platform-architecture/vision/contracts/admission-and-delivery.md` @ `e5781c8`, §5, line 90: a store restored from backup, with a store epoch older than the recorded one, keeps the fence closed until an operator reconciles.
   - Book `wiki/book/swarma/ru/03-polzovatel-na-agenta.md`, lines 34 and 79: the generation is a never-repeating number; example `g17`.
 - **Proposed change:**
-  - **Fresh generations.** Create generations from a fresh random 128-bit value, as `binding_id` already is, so uniqueness never depends on a durable counter. This does not authenticate a restored old ledger.
+  - **Fresh generations.** Create generations from a fresh random 128-bit value, as `binding_id` already is, so uniqueness never depends on a durable counter. This does not authenticate a restored old ledger. Like `uid_not_clean`, which checks the filesystem rather than the ledger cursor, the generation rule rests on evidence outside the ledger.
+  - **Generations only move forward.** After a declared restore, a generation that any surviving evidence records as `retiring` or `removed` is never returned to `active`. Surviving evidence means the OS directory service, broker tombstones, `receipts/<generation>/` or the audit log. An `active` record whose OS account is absent is contradictory, not an interrupted creation to resume.
+  - **Ledger store epoch.**
+    - The broker, host, launcher and dispatcher read the ledger file directly, so no RPC can close them.
+    - The ledger therefore carries a monotonic store epoch. Every reader records the highest epoch it has seen, in its own state, and refuses a lower one until an operator reconciles.
+    - This reuses the store-epoch rule that `vision/contracts/admission-and-delivery.md` §5, line 90, already applies to the host store. It detects a rollback of the ledger alone; it cannot detect a whole-machine rollback.
   - **One shared operator restore procedure** for user-manager and dispatcher state, reusing F-9's fence:
     - the restore mark lives outside the restored domain;
     - a user-manager restore closes every ledger consumer (broker, launcher, session host, dispatcher) before the restored bytes become visible; closing `effect.observe` alone is not enough;
@@ -438,5 +449,12 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - every ledger consumer closes before restored bytes become visible;
     - reverse inventory has limits;
     - no automatic adoption.
+  - `macmini_swarma-review-2_fable`, answer `$JKauzc4DSe0R5nUh_zAV5W1qsE-5yUA2ByjDrSkVOAM`, same topic, 2026-10-12, confirms independently from the trust lens. It adds:
+    - the identity-resurrection invariant;
+    - generations that only move forward;
+    - a ledger store epoch for the direct readers;
+    - `uid_not_clean` as the model for evidence outside the ledger.
+
+    All four are folded into the problem and the proposed change.
   - Proposal `$lPfOXX59ClvCKVzHSn9CgrX2NLb01gcCx6Jr0B-r6RM`.
 - **Status:** proposed.
