@@ -359,3 +359,84 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Affected specs:** Trust-and-isolation §5; launch/workspace policy; the launcher workspace materialization contract and dispatcher integration; K2's distinction between workflow and account isolation; book chapter 3.
 - **Confirmed-by:** `macmini_swarma-review-2_fable`, answer `$FlK75GCyXlXMqdkoOblwTqblmM-RJ8kPQ0Phcq5wW0c`, and `macmini_swarma-review-2_opus`, answer `$z8CnI7lp9I1FoEaIqv3c-zfe7H8wuVl1Vrctnv9My1Y`, room `#swarma-review-2`, topic `f-private-git-state`, 2026-10-12. Both confirm the cross-account common-directory problem and private-repository direction; fable adds fresh local configuration and explicit content transfer. Proposal `$OH2w1URmKO6mEVdZ9HTGIeFtMYFynwjraXeD9sIpvpY`; scope refinement `$H2-_ylSDI96zo9yZxO-AwGsWgBypnQzcxhc-oQgii04`.
 - **Status:** proposed.
+
+## F-17 — Specify state loss and restore for the user manager and dispatcher, not only the broker
+
+- **Lens:** reliability and recovery; durable identity; unknown versus absent.
+- **Problem:** The platform specifies crash recovery through journals. For state loss or restore it specifies only the broker's revocation state (F-9). Three invariants that other components depend on have no supported procedure:
+  - **Never-reused generations.**
+    - The generation is "never reused", but no allocator is published. The book calls it a number, and the examples (`g-0193`, `g17`) look like a counter.
+    - A counter-backed implementation could re-issue generations after a ledger restore. The UID cursor in the same file would roll back too. If the post-snapshot account was retired, its UID can also be re-issued, and the same `(uid, generation)` would then name two account instances across:
+      - dispatcher records;
+      - broker bindings and tombstones;
+      - receipts and the audit log;
+      - `agent:<generation>` leaves.
+    - The ledger is also the file whose damage stops the node, because every consumer refuses an unreadable ledger. Restoring it from backup is the natural repair.
+  - **Coverage after restore.**
+    - R-OBS already forbids `not_recorded` without complete authoritative coverage, and forbids capacity release without process evidence.
+    - What is missing is any way to establish that coverage after a restore. A restored journal looks complete, and a snapshot cannot certify its own rollback, which is the F-9 principle.
+  - **Dispatcher state loss.**
+    - Reconciliation runs only from the dispatcher's own non-terminal records to the receivers. It never lists the user manager's accounts or the broker's bindings.
+    - After dispatcher state is lost or replaced, every account, binding and running execution it created becomes an orphan. Each one:
+      - stays active and bound;
+      - counts against the dispatcher's user-manager quota;
+      - is never stopped or retired, so its home is never deleted (F-1).
+- **Evidence:** Paths are relative to `~/Developer/ReluxWorks/`.
+  - `platform/curator-host-helper/spec/helper.md` v0.6 @ `e58b0726`:
+    - §4.1, lines 128 and 130: round-robin UID cursor in the ledger; "never reused" generation with no published allocator.
+    - `diagrams/storage-layout.puml`, line 9: the ledger holds all generations and the allocation cursor.
+    - §3, line 88: the dispatcher's account quota.
+    - §4.6, line 205, and §14 question 8, line 370: `not_recorded` requires complete authoritative coverage; the coverage proof is unpublished.
+  - `platform/curator-dispatcher/spec/dispatcher.md` v0.6 @ `e06fcfee`:
+    - §3.2, line 88: an unreadable or invalid ledger refuses.
+    - §4.6, lines 210–223: the R-OBS mapping, and no capacity release without process absence.
+    - §7.1, lines 310 and 314: forward-only reconciliation of the dispatcher's own non-terminal records.
+    - §11, line 404: a binary refuses unreadable or unsupported state, and old snapshots are never restored as a repair; no state-loss procedure is given.
+  - `platform/curator-credential-broker/spec/broker.md` v0.6 @ `a0e6ab95`:
+    - §4.2, line 130: ledger read failures refuse.
+    - §6.3, line 292: grants rely on never-reused generations.
+    - §6.4, line 312, and §15.4, line 659: F-9's fenced restore, and "a same-home sequence, audit file or checkpoint cannot certify its own rollback".
+    - §7.1, line 341: `binding_id` is already a random 128-bit identifier.
+  - `platform/curator-session-host/spec/session-host.md` r8 @ `3a253016`, §3.1, line 135: the host reads the ledger directly.
+  - Book `wiki/book/swarma/ru/03-polzovatel-na-agenta.md`, lines 34 and 79: the generation is a never-repeating number; example `g17`.
+- **Proposed change:**
+  - **Fresh generations.** Create generations from a fresh random 128-bit value, as `binding_id` already is, so uniqueness never depends on a durable counter. This does not authenticate a restored old ledger.
+  - **One shared operator restore procedure** for user-manager and dispatcher state, reusing F-9's fence:
+    - the restore mark lives outside the restored domain;
+    - a user-manager restore closes every ledger consumer (broker, launcher, session host, dispatcher) before the restored bytes become visible; closing `effect.observe` alone is not enough;
+    - the user manager answers `unavailable`, never `not_recorded`, for effects admitted before the restore point, until coverage is re-established against surviving evidence: the OS directory service, preserved receipts, other components' records and operator evidence;
+    - the dispatcher stays closed for new admission meanwhile.
+  - **Reverse inventory.** Dispatcher reconciliation also lists:
+    - the user manager's accounts with `created_by` equal to the dispatcher;
+    - its own broker bindings;
+    - receipts.
+
+    An object with no dispatcher record is reported as an orphan and held for an operator decision: retire it, or re-adopt it with a signed record. Names or UIDs alone never authorize adoption or deletion. There is no automatic orphan adoption and no live-supervisor adoption.
+  - **Honest limits.** If the user-manager ledger was rolled back too, post-snapshot accounts can only be found from the OS inventory, preserved receipts and operator evidence. No bounded recovery is promised when evidence is lost.
+- **Expected benefit:**
+  - The identity invariant behind grants, bindings, receipts and `exec.stop` survives the most likely repair.
+  - F-10 absence is never inferred from rolled-back evidence.
+  - Dispatcher state loss gets a visible recovery path instead of permanent orphans.
+  - F-9's mechanism is reused, not reinvented.
+- **Risks and costs:**
+  - Generation strings get longer.
+  - Restore remains an operator procedure.
+  - An undeclared, internally consistent whole-machine rollback still cannot be detected locally. This is F-9's limit, and a reboot clears that rollback's processes anyway.
+  - The orphan re-adoption record format needs publication.
+  - No owner decision is challenged.
+- **Affected specs:**
+  - user manager §§4.1, 4.5, 4.6, 14;
+  - dispatcher §§4.6, 7.1, 11, 15;
+  - broker §15.4 (cross-reference);
+  - session host §3.1 (closing ledger consumers);
+  - book chapter 3.
+- **Confirmed-by:** `macmini_swarma-review-2_astra`, answer `$uehBtxZtIeJaLUAl0GzOg8mL84MlAOkIcTVNhpiLF9A`, room `#swarma-review-2`, topic `f-state-loss`, 2026-10-12.
+  - The confirmation covers the missing supported restore and state-loss procedure for the user manager and dispatcher.
+  - Its refinements were accepted in `$de-Wlx7axdBePHCwSg5ngQqNWecnhUg66e6Yi-7-hvA`:
+    - generation reuse is possible, not certain;
+    - the gap is a missing way to establish R-OBS coverage, not a specified release path;
+    - every ledger consumer closes before restored bytes become visible;
+    - reverse inventory has limits;
+    - no automatic adoption.
+  - Proposal `$lPfOXX59ClvCKVzHSn9CgrX2NLb01gcCx6Jr0B-r6RM`.
+- **Status:** proposed.
