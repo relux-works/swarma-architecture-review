@@ -881,4 +881,11 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 
     Astra recommends treating the topic as design input to the existing F-10 gate. Its corrections are applied in this entry: the storage claim, Option B, receiver refusal in place of the restore claim, and the safety conditions. The owner should weigh the entry as design input with one trust-lens confirmation and one simplicity-lens dissent.
   - Proposal `$gD04ngB4KxrhUvMAfof3l9aQxKXBGSlrz6b6QOF1hHw`.
-- **Status:** proposed.
+- **Status:** withdrawn by its author on 2026-10-12. The entry is kept as design input to F-10's publication gate; it is not a finding.
+  - **Reason.** Astra's simplicity test, `$tby3ycRQjcYf29phypeU2Mgnpo3cs09kWRf6A6MzJgs`, shows that release makes nothing safely discardable beyond what local compaction already allows. The reasoning is in `$7UyQW6_AXHImRbWkGB4KoYU7igg7GaIL4zy5R9VssM0`.
+  - **How the gate can be closed locally, with no new operation:**
+    - receivers compact terminal step journals and keep the effect ID, digest, terminal result and target linkage;
+    - replays of target-bound effects are refused or idempotent by state: retire, unbind, `exec.stop` (receipt, latest-receipt fence, re-verified absence) and `launch.start` (receipt or rolled-back tombstone in the receipt store);
+    - an identity index is kept only for create-type effects (`user.create`, `bind`). It grows with allocations, like the ledger.
+    - A request-carried floor is needed only if bounded identity storage is ever required.
+  - The safety rules recorded above still apply to any future design. Fable's confirmation concerned release safety, not its necessity.
