@@ -913,3 +913,79 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 - **Affected specs:** dispatcher §§3.4, 5.1, 8.1, 15, 16; user manager §8 (binding location, served-digest check, re-apply); broker §5.5 (cross-reference); CIP-0011 §6; curator-network-profiles N3, N4, N7, S7 and the contract appendix; the proxy's listener contract; book chapter 3 closed-network section.
 - **Confirmed-by:** `ivan-network-profiles` (owner of the curator-network-profiles lane), answers `$pbgCAnrCoDUaelJlL4NpnShwM42-A0Y6MFFrtE8pp84` (the gap and the network-profiles evidence), `$GJozyeus9dBmX23VlXduBkLWlPsNwVfwumjYEgDXN_U` (the final remedy after astra's challenge: machine-owned binding by profile identity, served-digest check, v1 timing) and `$D1lTBQHcsiMc7qBF0onZ8G7ZwlYYdoRGJdIIRUUrCGE` (pin at admission equals `network_profile_drift`; the kernel half of re-apply exists); `macmini_swarma-review-2_opus`, answers `$POHS7Xy7aH567XweWgEb0syTnxtrcmULloBvrmXLqdQ` (confirmation from the platform specs; rows 2 and 4) and `$TD1d_M7YvCY4pkggHD_1eJ4K_QvJ2Mc5Or6ZcX0Gg2k` (confirms the final remedy at high confidence). `macmini_swarma-review-2_astra`, answers `$FkfWw2l0dVl_4ZmiUr0zbFavEk1a9Qy_0az_WcwUJvo` (narrowed the claim to the explicit-integration gap; proposed the simpler route and the listener handoff, both adopted) and `$F5QLGPVx2Lu8GhWVFnU_DqjQR2XpEzRybMkrgDiQnko` (confirms the cross-account binding/authority gap at high confidence with the narrower remedy; publication conditions adopted in item 3). All in `#swarma-review-2`, topic `f-network-profile-authority`, 2026-10-12. Proposal `$SbAIPhMcECMR8DYal8Gp2kSB0Ssoxpp2SCp22j7H1pI`.
 - **Status:** proposed.
+
+## F-28 — Never hold a service's state lock across a synchronous call to another platform service
+
+- **Lens:** reliability and recovery; lock discipline; liveness of the control plane.
+- **Problem:** The dispatcher has a single state lock, and the spec places the whole of reconciliation under it. It says so four times: §4.1 and three figures.
+  - **What reconciliation calls.**
+    - The user manager: `effect.observe` and repeated `exec.stop` with its grace period. Each is a sudo root process behind the user manager's single global lock, which F-25 shows can be held for long recovery work.
+    - The broker: `effect.observe` and `revocation.check`, with deadlines up to 30 s.
+  - **When it runs.** At startup, on `reconcile`, and every minute from the sweep.
+  - **What freezes.** Read as written, every other dispatcher operation waits while any reconciliation runs: status, cancel, admission, `host_start`. That voids:
+    - F-15's reachable recovery controls;
+    - F-20's host stop;
+    - F-2's bounded maintenance attempt.
+
+    A wedged user-manager or broker call freezes the whole dispatcher, and the next sweep queues behind it.
+  - **Host side.** The rule that the host validates the fence and epoch "atomically with each effect" invites the same pattern there. `host_start` is a call into the dispatcher, so this forms a lock chain host → dispatcher → user manager.
+  - **Nothing releases the lock.** No text releases it around a call. The only text that separates a cross-service call from the lock is the cancel rule, which serializes cancel "with the claim".
+  - **A cross-tenant lever.** Any party able to stall a receiver freezes every tenant's admission, status, cancel, `host_stop` and incident response. One example is an agent leaving a wide retiring home (F-25). Another is a slow broker. No spec states a lock or call-order discipline.
+- **Evidence:** Paths are relative to `~/Developer/ReluxWorks/`.
+  - `platform/curator-dispatcher/spec/dispatcher.md` v0.6 @ `e06fcfee`:
+    - §4.1, line 133: "Every state change and every reconciliation holds the lock";
+    - §4.5, line 191: intent is journaled before every call;
+    - §5.3, line 269: cancel is serialized with the claim;
+    - §7.1, lines 310–323: reconciliation's calls;
+    - §7.2, line 329: the one-minute sweep;
+    - §12, line 414: "validates the fence/current epoch atomically with each effect".
+  - Dispatcher figures:
+    - `diagrams/reconcile.puml`, line 8: "lock; replay journal; list non-terminal records" before the call loop;
+    - `diagrams/dispatch-lifecycle.puml`, line 19: "reconcile under lock";
+    - `diagrams/storage-layout.puml`, line 14: "all state changes / reconciliation hold lock".
+  - `platform/curator-host-helper/spec/helper.md` v0.6 @ `e58b0726`:
+    - §4.6, line 201: one global lock for every user-manager operation;
+    - §4.7, line 218: the grace period.
+  - `platform/curator-credential-broker/spec/broker.md` v0.6 @ `a0e6ab95`, §13.1, line 570: request deadlines.
+  - `platform/curator-session-host/spec/session-host.md` r8 @ `3a253016`, §3.4, line 190: every effect, start included, has a fence and epoch rule.
+- **Proposed change:** One rule across the platform services, with each component's call graph published.
+  - **No lock across calls.** No service holds its state lock across a synchronous call to another platform service. The lock covers journal and record transitions only.
+  - **Dispatcher pattern.**
+    1. Under the lock, journal the intent and mark the effect in flight.
+    2. Release the lock and make the call.
+    3. Under the lock again, record the result.
+  - **Authority is fixed at intent.** It is never re-derived after the lock is released. The caller principal, signature, chain, `revocation.check` verdict and capacity claim are recorded in the journaled intent and in the effect's canonical arguments. Receivers verify their own authority independently, and the final broker checks remain the backstop.
+  - **Per-record serialization.** Effects are serialized per record by the durable in-flight entry, not by the global lock.
+    - Cancel, fence withdrawal and `host_stop` observe the in-flight marker, recorded as "in flight, cancel requested", so the post-call handler stops rather than proceeds. The cancel rule already says this for launch.
+    - Two operations on one allocation still queue on that record (`agent_busy`). Unrelated records, and status, cancel and stop, stay available.
+  - **Host side.** The host holds no fence lock across `host_start`. The dispatcher validates the fence and epoch per effect from the four values the host sent. If the host's fence changes mid-call, the host withdraws the permit with a second call, and the dispatcher reconciles under the claim and receipt interlock. Atomicity is per effect at the receiver, never a cross-service lock.
+  - **Call graph.** The published call graph is acyclic: dispatcher → user manager and broker; host → dispatcher; executor or runner → broker. No reverse synchronous calls: calls flow from the admission owner towards the evidence owners.
+  - **Qualification:**
+    - cancel and status during a reconciliation that is blocked on a slow user-manager call;
+    - a sweep over many records with one wedged receiver;
+    - a cancel arriving mid-launch;
+    - a fence withdrawal arriving mid-`host_start`.
+- **Expected benefit:**
+  - The control surface that F-15, F-20 and incident response rely on stays live.
+  - One slow or stalled dependency affects only its own record.
+  - No cross-service lock chains.
+  - The discipline is mechanically checkable by reviewing lock scopes and the call graph.
+  - The dispatcher's liveness no longer depends on F-25's bound in the user manager.
+- **Risks and costs:**
+  - In-flight markers must survive crashes, which they do as journal entries, and reconciliation must resolve them.
+  - Admission counts in-flight records conservatively, which the capacity claims already do.
+  - No owner decision is challenged.
+- **Affected specs:**
+  - dispatcher §§4.1, 4.5, 5.3, 7.1, 7.2, 12, 15 and the reconcile, dispatch-lifecycle and storage-layout figures;
+  - session host §3.4;
+  - user manager §4.6 (cross-reference);
+  - broker §13.1 (cross-reference).
+- **Confirmed-by:** `macmini_swarma-review-2_fable`, answer `$hlonDSP6A7U9rRxkbbbfSnBNWbmN4ryfABFVg_SlltU`, room `#swarma-review-2`, topic `f-lock-across-calls`, 2026-10-12.
+  - It confirms at high confidence and found no refutation.
+  - Its three conditions and its trust framing are folded in:
+    - authority is fixed at intent;
+    - cancel and fence changes observe the in-flight marker;
+    - atomicity is per effect at the receiver;
+    - a lock held across a call is a cross-tenant lever.
+  - Proposal `$yqv5btO5OUOQc0n53G_8WXjOwty62FZrQNcbKxUd_2c`; citation correction `$etBQmw_dSSfqDH5nYfqIXjZmrNUsS7aqiza-QhAftoc`.
+- **Status:** proposed.
