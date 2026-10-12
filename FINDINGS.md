@@ -412,6 +412,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - The broker, host, launcher and dispatcher read the ledger file directly, so no RPC can close them.
     - The ledger therefore carries a monotonic store epoch. Every reader records the highest epoch it has seen, in its own state, and refuses a lower one until an operator reconciles.
     - This reuses the store-epoch rule that `vision/contracts/admission-and-delivery.md` §5, line 90, already applies to the host store. It detects a rollback of the ledger alone; it cannot detect a whole-machine rollback.
+    - A reader's epoch floor helps only while that reader's own evidence survives outside the restored failure domain. It complements the shared restore fence and the completeness proof; it never replaces them.
   - **One shared operator restore procedure** for user-manager and dispatcher state, reusing F-9's fence:
     - the restore mark lives outside the restored domain;
     - a user-manager restore closes every ledger consumer (broker, launcher, session host, dispatcher) before the restored bytes become visible; closing `effect.observe` alone is not enough;
@@ -456,5 +457,96 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
     - `uid_not_clean` as the model for evidence outside the ledger.
 
     All four are folded into the problem and the proposed change.
+  - Astra's follow-up `$3uGhlXP3Tp2qkth6-eRpIlkLV6LCqpgbblEY6ADLOwg` confirms the revised scope. It adds that reader epoch floors never replace the shared fence.
   - Proposal `$lPfOXX59ClvCKVzHSn9CgrX2NLb01gcCx6Jr0B-r6RM`.
+- **Status:** proposed.
+
+## F-18 — Publish process fate and containment per process class, with a fence against writers from a replaced daemon
+
+- **Lens:** reliability and recovery; process ownership; platform-qualified behavior.
+- **Problem:** No spec says which service-manager or kernel containment domain a dispatcher supervisor or a launched execution belongs to. Nor does any spec say what happens to them when the dispatcher, the session host or the broker stops, crashes or is swapped.
+  - **Process tree.** After F-4 and F-5, every execution descends from the dispatcher daemon: daemon → per-execution supervisor ("inside the daemon") → sudo → launcher (`setsid`) → executor or SH2+ runner.
+  - **Fate follows deployment defaults, not the contract.** The documented defaults differ:
+    - systemd's default control-group stop kills every process in the unit's cgroup, regardless of `setsid` or UID change. The exception is when sudo's PAM stack moves the command to another scope, which varies by distribution.
+    - launchd's job-exit cleanup kills only the job's process group, and `setsid` leaves that group.
+
+    The specs publish no dispatcher unit configuration. So a dispatcher restart ends every execution or none, depending on platform and deployment.
+  - **Consequences in the current text:**
+    - **Affected set for F-2.** Maintenance must confirm absence for every affected execution before a swap. Which executions a dispatcher swap affects is unpublished. On a control-group deployment it includes every SH2+ runner; elsewhere, only the executions held by supervisors.
+    - **SH2+ runners.** With a session host present the dispatcher "does not hold processes", and the host re-adopts live runners after a controller failure. Whether runners survive a dispatcher replacement is not stated.
+    - **Surviving supervisors.**
+      - Reconciliation handles only "supervisor known absent". A supervisor that outlives its daemon instance, which is possible where `setsid` escapes the job's kill, has no reconcile row and no fence.
+      - The v0.5 fence ("every v0 supervisor checks the recorded mode and backend generation and stops when they change") was removed together with command mode.
+      - Such a supervisor is either adopted implicitly, against the no-live-adoption rule, or it is an unfenced second writer of dispatcher records.
+    - **Opposite policies.** F-11 requires the broker's vendor children to be contained and killed with the broker. The remote workplace specifies per-exec process groups and transient cgroups. The local launch path specifies nothing.
+- **Evidence:** Paths are relative to `~/Developer/ReluxWorks/`.
+  - `platform/curator-dispatcher/spec/dispatcher.md` v0.6 @ `e06fcfee`:
+    - §1.1, line 53: with a session host present, the dispatcher holds no processes.
+    - §1.2, line 66, and §5.3, line 259: the supervisor is inside the daemon and registers its own process identity.
+    - §6, line 301: daemon loss authorizes no live adoption.
+    - §7.1, line 319: only the "supervisor known absent" row.
+    - §11, lines 402 and 404: absence for every affected execution before a swap; no live supervisor adoption.
+    - §12, line 414: controller-only re-adoption of a live runner.
+  - Dispatcher v0.5 @ `5d0476d`:
+    - line 62: "v0 detached, v1 inside the daemon";
+    - line 368: the surviving-supervisor fence.
+  - `platform/curator-host-helper/spec/helper.md` v0.6 @ `e58b0726`:
+    - §7, line 289: the launcher calls `setsid`;
+    - line 295: sudo "may or may not remain a parent".
+  - `platform/curator-session-host/spec/session-host.md` r8 @ `3a253016`:
+    - §1.1, line 35: a Claude session dies when its daemon is replaced;
+    - §3.2, lines 160–162: re-adoption of a live runner.
+  - `platform/curator-credential-broker/spec/broker.md` v0.6 @ `a0e6ab95`:
+    - §9.4, line 489, and §15.2, line 643: service-manager containment of vendor children.
+  - `wiki/session-host/architecture.ru.md`, lines 2015–2017: each remote exec in its own process group, plus a cgroup on Linux.
+  - Book `wiki/book/swarma/ru/07-host-sessiy.md`, line 31: the runner survives a service restart.
+- **Proposed change:**
+  - **Fate table.** Publish one table, owned with R-FD3 in user manager §7 and referenced by the dispatcher, session host and broker.
+    - One row per process class:
+      - dispatcher daemon;
+      - dispatcher supervisor;
+      - execution root (`curator-run` or the SH2+ runner) with its descendants;
+      - broker vendor-refresh child;
+      - session-host service.
+    - Each row states:
+      - its service-manager unit or kill domain;
+      - its fate on stop, crash and restart of each service;
+      - whether its backend promises survival;
+      - how its death is observed: journaled stop or `lost`;
+      - which executions a swap of each service affects for F-2.
+  - **Writer fence.** Every supervisor write is checked against a durable daemon-instance epoch, so a supervisor that survives a replaced instance never writes. This restores the v0.5 fence. No live adoption.
+  - **Wording.** The platform's own services and service managers end an execution only through `exec.stop`, retirement or an operator emergency stop. OS failures such as OOM remain possible and are recorded as `lost`.
+  - **Qualification.** Run per platform and per published unit configuration, covering every row.
+    - Unselected or unaffected executions must survive only in backends that promise it.
+    - The supervisor backend keeps its explicit `lost` path on daemon loss.
+    - F-2 keeps absence for every affected execution.
+  - **Recommended option, not mandated.** A root-created, non-delegated per-execution unit, recorded in the root start receipt.
+    - On Linux this is a cgroup outside the dispatcher unit. The launcher creates it before the privilege drop, through systemd where systemd owns the tree.
+    - It gives exact absence evidence on Linux.
+    - Conditions:
+      - The unit is root-owned and never delegated to the agent UID; a delegated subtree lets the agent migrate out.
+      - On macOS a new session is evidence, not containment, so the UID scan stays the absence proof there.
+      - The unit is never authority.
+  - **Not claimed.** A unit alone sets no resource ceilings. Per-execution pids, memory, CPU and storage limits are a separate future capability with their own published policy and per-OS coverage. No macOS parity is promised.
+- **Expected benefit:**
+  - Recovery behavior becomes a published, testable contract instead of a deployment default.
+  - F-2's affected set and the survival of SH2+ runners are stated explicitly.
+  - No unfenced writer remains after a daemon replacement.
+  - Where the unit is adopted, absence proof on Linux becomes exact and cheaper.
+- **Risks and costs:**
+  - Unit configurations must be published, and every row needs per-platform qualification.
+  - If the per-execution unit is adopted, the launcher gains a small root step that needs qualification.
+  - In the supervisor backend, standing executions still end on daemon loss. Keeping them alive would need supervisor re-attachment, which would challenge the F-2/F-5 no-adoption clause; it is not proposed.
+- **Affected specs:**
+  - user manager §§4.7, 7, 12;
+  - dispatcher §§1, 6, 7.1, 11, 12, 15;
+  - session host §§3.2, 3.5;
+  - broker §§9.4, 15.2 (cross-reference);
+  - book chapters 7 and 9.
+- **Confirmed-by:**
+  - `macmini_swarma-review-2_astra`, answer `$jSZj2fpmGAsv51hYCJwOm_h4t86pRSDjQancNyQ4ARg`, room `#swarma-review-2`, topic `f-execution-containment`, 2026-10-12.
+    - It confirms the narrowed contract at high confidence: published per-class fate, the replaced-daemon writer fence and deployment-qualified survival claims.
+    - Earlier corrections `$W_y-fhpja4B6PcVbU-3uHoPdTEJ4VTIh7-vdEX-g39k` and the resource condition `$RliVDLeEIUlw-MRY8GmKy-G_mmUU6M1-pVDJA3kgJo8` were accepted in `$Dx9QW90i_H9wzktaoT92G-h4H1-3X77KI_emNyzDTTA` and `$8sL_mDh9pZpHBRrU8198jU4fa72PLBZzMgCp87fyosM`.
+  - `macmini_swarma-review-2_fable`, answer `$ZKeMFkpXNCKv5Les1cfHJ55IB55bV446qtDF1YnfHFk`, same topic, confirms from the trust side at high confidence. Its three conditions for the per-execution unit are folded in.
+  - Proposal `$qALBpgqAsnfxGqGxDpukd_UWY_WcqHeTHhlatggEPpo`.
 - **Status:** proposed.
