@@ -43,7 +43,8 @@
   1. **Fan-out, not relay.**
      - The operator command delivers one signed act (one act ID, one set of canonical bytes) directly to each service's existing operator intake. Each service verifies it and journals its part idempotently under the act ID, without waiting for another service.
      - The command reports per-service results and retries undeliverable parts, reporting them as unknown meanwhile.
-     - The hold is set at act admission, concurrently with the fan-out, through the host-wide fail-closed `hold` gate. It never waits behind the service calls.
+     - The hold is set at act admission, concurrently with the fan-out, and never waits behind the service calls.
+     - It is an all-stop-specific latch, readable fail-closed like the host-wide `hold` gate, but distinct from every other closure reason: other holds, R-MAINT closure, the restore fence and untrusted time. Only the explicit recovery act clears it, and that act never clears another holder's latch. Admission requires every latch clear. The dispatcher defines `hold` only by its read semantics (§9 :542), and the launch contract's gate table has no `hold` row (SPA `vision/contracts/launch.md` §5). As written, one shared gate would let an unrelated hold-clear reopen admission after an all-stop without the explicit recovery, or let recovery clear another owner's hold.
   2. **Contain before stopping.** Issue the broker freeze, the host delivery closure and the range deny-all promptly and independently. Then run the process stops with bounded parallelism. Hold-last applies only to recovery.
   3. **Receiver-enforced launch fence.**
      - On receiving the act, the user manager persists a root-owned all-stop mark.
