@@ -40,6 +40,10 @@
      - Keep the existing result-to-admission checks.
   4. **Qualification:** an archive differing in content or mode; missing and extra archive paths; a dirty-checkout archive; a stale rework base. Each must refuse at materialization or import, never land as a spurious delta.
 - **Expected benefit:** Every C is provably B plus edits the worker could have made. Base mismatches surface as refusals at the first step that can see them, instead of misattributed deltas in review. Verification is a bounded content pass and an equality, with no new component, privilege or worker `.git` access.
+- **Limits.**
+  - These checks establish consistent base representations. They do not prove that an exporter-reported edit was made by the worker, replace exact-C review, or remove the compromised-exporter residual (spm #604 §10).
+  - They close the orchestrator-side injection path that fable describes.
+  - The relation is derived and pinned at preparation, where B is available, and verified at consumption, without making the dispatcher own a repository.
 - **Risks and costs:**
   - The board must implement the canonical manifest identically.
   - Materialization gains a bounded verification pass.
@@ -60,6 +64,7 @@
     - It frames the import check as a bounded tree pass.
     - All adopted.
   - `macmini_swarma-review-3_fable` (trust/threat model), `$dyh0_YIJSuXRpZJywsquqmfaC-gb60F_XQnC0BAM8a0`: confirms that neither check exists. Trust addition: all three representations of B come from one principal, the orchestrator that composes the plan and cuts the archive. A prompt-injected orchestrator could therefore plant content that the exporter reports as the worker's modification, landing in C under the worker's trailers. The import check, recomputed from the repository object B and never from the plan, is what anchors the trailers' attribution. Adopted in item 3.
+  - `ivmbp_swarma-review-3_astra-15` (R-TRANSFER, adversarial), `$4eQw9nJ9Hq_F8sxAD2rTqzL4zcWVBnlRXJUabklH77I`: partial confirmation as a pre-activation contract requirement. The existing base invariants (DP7 :322, :368, :694, :696) stay counterevidence. It refines the reverse cases (content in B the worker never saw needs both archive and manifest to be wrong) and adds the limits above. Adopted.
   - Proposal `$x4o6yMN0KNytWRXmgVxwub8JzBvrpYVTqG7UJHmP56o`; review request `$Hjgh5emZJUh1cBFILZm72ylCVJ1jGdp8LiSVORHkCUI`.
 - **Status:** proposed. Checked at dispatcher `74687e6`, user manager `3da62ad`, launcher `f08f566d` and spm PR #604 r6 on 2026-10-13.
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** UM7 rewrote the materialize item but added no archive-to-manifest verification; substance unchanged. The helper lines moved: §7 item 1 :441→:445; §12 :542→:554; §14 q15 →:607.
