@@ -100,4 +100,4 @@
 - **Status:** proposed. Checked against dispatcher `74687e6`, user manager `3da62ad`, broker `df8c738` and session host `70c9d97` on 2026-10-13.
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** substance unchanged; the corpus is final. The helper lines moved: §2 :49→:53; §3 :102→:106; §4.7 :323→:327; §7 step 2 :397→:401 (receipt :401→:405, drop :402→:406); §8.3 :502→:512; `diagrams/components.puml` R-ALLSTOP Operator→Dispatcher :92→:96.
   - Rechecked against SH7 `798a321c` the same day. SH7 removes the host figure's dispatcher relay but selects no coordinator, so the remedy is unchanged. The fan-out in item 1 would be the selection SH7 leaves open.
-  - UM7 remains pending; recheck helper §8.3 when it lands. Distinct from `f-allstop-unstarted-generation`, which exists with a healthy dispatcher, and from `f-workplace-relay-quiescence`, whose ingress fence also applies during the all-stop.
+  - Distinct from `f-allstop-unstarted-generation`, which exists with a healthy dispatcher, and from `f-workplace-relay-quiescence`, whose ingress fence also applies during the all-stop.
