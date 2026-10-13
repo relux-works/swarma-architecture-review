@@ -1,0 +1,95 @@
+# astra-01 — spec fit and minimality
+
+Status: round 1, provisional; collective active. Author: `ivmbp_swarma-mcp-deps_astra-01` on `ivmbp`.
+
+## Position
+
+Prefer **named requirements plus operator-local provider evidence** (`N`, topic `alt-names-local-evidence`), optionally complemented by an inert skill-shipped declaration (`A+N`). The base's separation of requirement, provision, and operator choice is useful. Its mandatory identity interpretation of an optional `server` field adds a resolver/provenance problem that the owner's stated goal does not require. Remove that field from the core proposal, retain existing declaration packages for independently selected provisioning, and spend the new specification work on honest evidence and protected operator choices.
+
+This is a conditional design preference, not a claim of implementation or a completed two-host proof. It does not prove a global optimum beyond the compared designs. The literal mission E3 promise is stronger than the operational boundary the convener clarified; both readings are reported below.
+
+## Evidence baseline
+
+- Review inputs: mission/base/three inputs at review commit `1c6010abf79f775208d317b768bfad04041774cb`.
+- Scoring uses the amended mission E3 at `534e384`, pulled and read after the convener's decision event `$ropOGjw3dqPFz1fjx0hkU8dYrqD4iOS6X3jfs7L5y9o`. Original E3 is preserved separately.
+- curator-spec: `a9c03be237b723b5bf87aed070165ad6f68b2586`.
+- curator: `5234cf38833554542e68afade15951c6e56ed89e`.
+- Source clones were read locally and clean; they were not fetched because their directories are outside this seat's write scope. No builds, tests, client probes, web access, or real credential/config reads were performed.
+- Findings: [schema budget](../findings/f-schema-budget.md), [package versus service](../findings/f-package-is-not-service.md), [launch universe](../findings/f-launch-universe.md), [opaque providers](../findings/f-opaque-provider.md). The first two are this seat's peer-confirmed findings, published in signed commit `cdea27d`.
+
+Source keys used in scoring:
+
+| Key | Evidence |
+| --- | --- |
+| S1 | Core §4, especially lines 159–198 and 1175–1177; `common.schema.json:610–618`: v5+ named requirements, documentary transport, closed fields; draft 9 currently adds dependency directory only |
+| S2 | Manager §§1/6: closed machine configuration; read-only native presence, disabled exclusion, any/all, found-agent marker; `internal/mcp/mcp.go:54–62, 240–285` implements native union and full-file parsing |
+| S3 | Environments §§1.3/1.4/2/2.2: profile locks, deterministic package resolution, git-only MCP declarations, source allowlists, bare runtime command, env names |
+| S4 | Environments §§5.8/7.8/10.2/10.3: managed-only output, selected launch channels, native exclusions/overrides, aggregate env-name allowance; `internal/contextmaterialize/mcp.go` and `internal/envprofile/managed.go` |
+| S5 | `agent-mcp-v1.schema.json`, §5.8 output: no auth class or HTTP header routing; csk input §§1/3/5 describe additional names-only routing and bounded native handling |
+| S6 | Environments §2.3 and manager §7.1; csk proposal §§2/4 and slice decisions D1/A6: surfacing versus consent, protected state, exact-plan authority; csk's HTTP no-consent exception is a separate contract |
+| S7 | COMPATIBILITY.md Stability/partial-client baseline; GOVERNANCE.md Changes/Proposals/Decision record; draft-sources-v2 README: no released-schema rewrites, governed new versions and vectors |
+
+## Candidates and rubric
+
+- **B0:** base exactly as written.
+- **B1:** repaired base retaining authoritative package/endpoint requirements. It adds complete identity/lock/evidence/binding semantics, scoped checking, consent, and the operational secret boundary; this is a comparison design, not the base text.
+- **B2:** base repaired by demoting `server` to non-authoritative acquisition guidance, retaining a new skill field/schema lane. Auth metadata is omitted; provider evidence, scope and consent match N.
+- **N:** unchanged skill requirement grammar; existing explicitly selected profile/native provisioning; one operator-local binding/evidence concept covers aliases and opaque reliance. No skill-selected acquisition or auth schema extension.
+- **L:** N restricted to manager-protected secret-free metadata and operator assertions; it does not inspect arbitrary native files. This is the literal no-byte-contact alternative for the dependency checker, not a promise that the existing launcher never passes environment values.
+
+E3 in the main table is the **amended mission** row: **no use, storage, forwarding, logging, or testing of credential values by the dependency subsystem; no auth flow; unavoidable foreign bytes handled privately and discarded. No raw argv/URL/env projection is persisted, logged, or surfaced, and diagnostics are metadata-only.** The amendment is explicit in mission commit `534e384`; its preceding explanation is `$FnzEHL5onBPh1J0YMZAUCkfxrSEpNS2y7Z-u7A8rogA`. Managed environment transport remains the existing launcher contract.
+
+| Criterion | B0 | B1 | B2 | N | L | Evidence and reason |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| E1 New concepts/fields | 1 | 0 | 1 | 1 | 1 | S1/S5/S7: B0 hides auth/binding changes; B1 requires full provenance machinery. N/L need new protected evidence semantics despite zero new skill fields. Their 1 assumes use of an existing configuration family; a new standalone record family would lower it to 0. |
+| E2 Reuse | 1 | 1 | 1 | 1 | 1 | S2–S4/S6: provisioning largely reuses profiles and declarations. Scoped checking and assertion lifecycle are new machinery for every repaired candidate; they do not earn automatic full reuse credit. |
+| E3 Secret boundary, operational | 1 | 2 | 2 | 2 | 2 | S2/S4–S6: B0 omits the foreign-byte bound. Repaired candidates state it; L removes arbitrary native reads from the dependency checker entirely. No matcher may log argv/URL merely because their field names sound public. |
+| E4 Zoo | 0 | 2 | 2 | 2 | 2 | S2/S4: B0 has no evidence route for an opaque connector. Repaired candidates admit explicit assertion-grade reliance. The 2 is conditional on that being accepted as coverage; it is not observation and never overrides a known disabled or unsupported target. |
+| E5 Portability | 1 | 1 | 1 | 2 | 2 | S1/S3/S7: new manifest versions are rejected by partial clients; N/L preserve current manifest bytes. B1 also restricts deployment provenance. Operator-local selection is intentionally machine-specific while the requirement retains its meaning. |
+| E6 Honest failure/consent | 1 | 2 | 2 | 2 | 2 | S2/S4/S6: B0 promises read-only checks and consent but leaves opaque, scope, provenance, and authority cases unresolved. Repaired candidates retain unknown/negative states and label assertions; provisioning requires exact operator consent before writes. |
+| E7 Specifiability | 1 | 1 | 1 | 1 | 1 | S1/S3/S7: schema homes and vector families are identifiable, but no candidate has delivered the governed closed binding/evidence contract. B1 carries more unresolved equivalence rules. |
+| E8 Operator effort | 1 | 1 | 2 | 2 | 1 | Common case is an already suitable provider: observed match is zero actions; N/B2 assertion or binding is one. B1 may additionally resolve/prove provenance. L requires assertions for ordinary native cases and repeats them on scope/invalidation changes. New provider setup and native login are additional, reported separately. |
+| **Total, operational** | **7** | **10** | **12** | **13** | **12** | Design scores, not measurements or implementation certification. |
+
+Under the **literal** original E3 zero anchor, B0/B1/B2/N score **0** because arbitrary mixed native bytes can contain credential values. Their totals are respectively **6/8/10/11**, and all fail the literal no-zero gate. L scores E3=2 only at the stated dependency-checker boundary; a whole-launcher “never forwards a value” reading conflicts with S4 and cannot be satisfied by reusing that launcher. A score of 1 for byte contact, proposed by another seat, is within numerical tolerance but changes gate eligibility; that disagreement must remain visible.
+
+Zoo scores do not promise MCP support where the client has none. `required_in: all` still fails if a selected target cannot provide MCP, is disabled, or has contradictory evidence. A scoped assertion addresses an **unobservable** capable provider, not known impossibility. Unsupported clients and ordinary setup effort cannot be waved away by the word “binding.”
+
+### Additional independently proposed alternatives
+
+| Design | E1 | E2 | E3 amended | E4 | E5 | E6 | E7 | E8 | Total | Original E3 / total |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| A+N: inert skill-shipped declaration with N | 1 | 1 | 2 | 2 | 2 | 2 | 1 | 2 | **13** | 0 / 11 |
+| T: exact tool/capability requirements, no manager probe | 1 | 1 | 2 | 1 | 1 | 1 | 0 | 1 | **8** | 0 / 6 if native-file inspection is retained |
+| G: manager-owned authenticated MCP gateway | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | **4** | 0 / 4 |
+
+**A+N** (wonder-01, `$Oi-yLH129Y6zJ-z0AeVV4E84AOrddTDk6HrcmMGsm4M`) makes an existing schema-1 `agent-mcp.json` an optional recommendation in the skill snapshot. S3 already permits a git snapshot/directory to be addressed as an MCP package. S7 favors preserving old manifest bytes. The SHIP half can avoid a schema change, but the whole A+N design retains N's binding/evidence cost: E1/E2/E7 cannot inherit a zero-change claim from one half. It ties N in the defined common case; it improves discovery for a missing provider, which is a useful tie-break for the optional complement. Adoption must retain four bounds: independent MCP allowlist/signers/strict audit; metadata-only pre-admission surfacing; exact resolved commit rather than assuming MCP and skill version tags agree; no conversion of path-sourced skills into git-admitted MCP packages. Multi-server authors can use an existing companion context package. §9.1 profile installation requires a context root, so a bare shipped declaration still needs that explicit composition route or a separately counted new convenience command. Generic HTTP env-header routing remains unsupported by declaration v1.
+
+**T** (wonder-01, `$PzZOjpCVB5M21uS8891NqqjxCDYck2IuhK1HxwTxTqE`) needs a new requirement field/schema (E1=1), tool inventory/equivalence machinery absent from S2/S4 (E2=1, E7=0), and cannot prove semantic capability from matching tool-name strings (E5=1). Avoiding live probing preserves amended E3=2, but current local evidence supplies no universal tool inventory. Assertions leave weaker install-time evidence (E4/E6/E8=1), so T does not beat N. Its useful observation survives as explanatory prose: a requirement name is an author-local service label, not a global service identity.
+
+**G** (wonder-01, `$hKTg60s0b50i-kQHeKXD6UWd9VLbQNlygcTkZfZG5ss`) requires a long-lived routing/lifecycle/auth product instead of S2's pure check (E1/E2=0). Credential forwarding is its job (E3=0 under either reading), and no evidence shows opaque provider-account connectors expose gateway-accessible endpoints (E4=0). A manifest now relies on the gateway (E5=1); backend-specific readiness, permissions, naming and setup need their own contracts (E6/E7/E8=1). It is disqualified regardless of minor numeric differences. An independently operated gateway remains an ordinary external provider under N.
+
+## Smallest changes to the base
+
+1. Keep `dependencies.mcp_servers` and its old version semantics. Drop normative `server.package`/`server.endpoint`; keep transport documentary in old manifests. Existing `hint` can explain setup without becoming executable authority.
+2. Use existing operator-selected context/MCP packages and their profile lock when provisioning is chosen. A skill dependency does not enroll a package, mutate a profile, fetch a new range, install a plugin, or enable a server. Any native writer remains a separately governed capability; preserve its ownership model and refuse managed-home destinations.
+3. Replace separate aliases and implicit identity waivers with one protected operator binding/evidence contract. It is scoped to requirement identity, consumer/project, selected target and native/managed launch; distinguish observed, operator-asserted, unknown, disabled, and conflicting states. Names remain author-chosen labels explained by each skill's hint/documentation, not a new global capability registry. Show the complete requiring skill set; the same label in another skill does not silently inherit an assertion. Bindings never authorize provisioning, credential routing, or bypass of source/audit/signer/system policy.
+4. Evaluate evidence in the chosen launch context. Reuse validated profile/channel evidence; exclude native sources ignored by a strict channel; respect observable overrides. For `any`, one positive observation or explicitly labeled accepted assertion suffices; for `all`, every selected target needs one. Unknown alone never passes. A plan is not a committed configured state.
+5. Keep observed agents distinct from asserted acceptance in status and persistence. Do not overload old `FoundIn` into “observed or someone approved.” Decide explicitly whether existing marker fields remain observed-only with protected local companion evidence, or whether a new marker lane is needed. This is why E7 remains 1.
+6. Remove the new auth-class grammar. Use native client guidance and existing env-name mechanisms only where their actual adapter capabilities suffice. Current managed HTTP declarations cannot magically turn `env_names` into headers; additional routing needs its own governed change. Keep the foreign-byte handling bound explicit, and never claim authenticated/connected or run a health probe.
+7. Provision only through an operator-approved exact plan, with destination and aggregate exposure visible and changed actions invalidating approval. Existing source allowlists and surfacing are necessary but not exact-plan consent. Applying csk D1's no-consent HTTP exception to this dependency workflow would lose E6 credit.
+
+## Normative homes and acceptance cases
+
+Core §4 and the released `mcpRequirement` definition can remain unchanged for N. The new evidence/admission semantics belong in a reviewed manager extension to §6, with a governed successor of the relevant closed machine configuration if bindings use it. Manager §1 and compatibility/governance must state the opt-in, persistence authority and old-reader behavior. Launch evidence refers to environments §§5.8/7.8/8.4, without widening managed writers into native homes. Consent and metadata-only reporting require explicit behavior, not merely a new enum.
+
+Required vector families: unchanged v5–8 grammar and documentary transport; alias collision and same-label unrelated services; explicit disabled state; native Claude excluded by strict managed launch; managed-only provider; OpenCode override; `any` observed+unknown versus all; opaque without/with assertion; assertion scoped to wrong consumer or changed requirement; assertion revocation/invalidation; source allowlist and consent remaining cumulative; incomplete publication never recorded as configured; secret-bearing foreign argv/URL never in output; malformed inputs yield metadata-only diagnostics; unsupported HTTP routing refuses or remains external setup, never a fabricated auth success.
+
+These are proposed vectors. None was executed in this review.
+
+## Peer agreement and open proof work
+
+- astra-03 independently preferred N, operational row `1,2,2,2,2,2,1,2` (14), versus this seat's `1,1,2,2,2,2,1,2` (13): one-point difference on E2 only, event `$vq4G9mAfI0yzeUEbk3drxoBlj42GXIf9eyl6VaeBCuE`. Both are on ivmbp, so this does not complete proof.
+- Two confirmed findings exist with event IDs. Their independent confirmation is not a substitute for whole-design scoring on a different host.
+- Considered wonder-01's skill-shipped recommendation, tool-capability contract and gateway alternatives; the first composes with N under the bounds above. Await the mini host's independent scores; challenge assertion-grade E4 and finish the binding/marker contract before claiming E7=2.
+- The convener amended operational E3 in the mission; the literal limitation remains documented. No architecture adoption or implementation authorization is inferred from that amendment.
