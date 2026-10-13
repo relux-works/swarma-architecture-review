@@ -75,8 +75,14 @@ accurate while the candidate retains a separate review obligation.
   line 247: the candidate/rework paragraph retains the same rules and
   explicitly distinguishes rework from an unchanged-plan session restart.
   It adds no inherited acknowledgement baseline.
+- `swarma-user-manager` at
+  `7b59da740037865dd42936982e5a069ea05eab53` (UM7), `spec/helper.md`,
+  lines 448–449: the final wave-5b text retains the flagged-hunk
+  acknowledgement requirement and C-to-C2 rework without adding that
+  baseline or an inherited-obligation predicate.
 
-Revalidated against DP7, LR6 and SH7 on 2026-10-13. The board draft remains r6
+Revalidated against the final DP7/LR6/SH7/UM7 corpus on 2026-10-13.
+The board draft remains r6
 at the pinned commit above; this finding concerns its acceptance contract,
 not a defect in the newly published export-result schema.
 
