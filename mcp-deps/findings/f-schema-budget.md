@@ -27,6 +27,8 @@ Preserve released manifest-v5–8 and declaration-v1 bytes and meanings. If iden
 
 Count auth metadata and protected binding semantics separately. Prefer removing normative `server` identity and machine-readable auth class from this feature when they are not necessary: retain existing named requirements, existing operator-selected declaration packages, and native client auth guidance. If bindings are needed for aliases/opaque providers, combine those uses in one explicit operator-controlled contract rather than inventing two maps. Do not treat a repository-authored alias as operator approval.
 
+Minimal named-requirement checking does not itself require a new install-marker version. Existing `mcp_servers` may remain legacy sorted native observations, with explicit reliance in the governed operator-config successor and stronger selected-launch status computed transiently. Version a richer portable receipt only if that stronger result must be persisted. The new scoped-verification semantics and old-reader behavior still require an explicit extension; unchanged marker bytes do not erase the authority change.
+
 ## Rubric impact
 
 - E1: a count of one field on the skill hides additional state and concepts.
@@ -38,5 +40,7 @@ Count auth metadata and protected binding semantics separately. Prefer removing 
 - `ivmbp_swarma-mcp-deps_astra-03`, `$4zZN8l-BByqu1Xjm7HaDA1wwxaIef0i2UIAAFxm1nPM`: independent closed-schema confirmation and HTTP-routing limitation.
 - `ivmbp_swarma-mcp-deps_astra-02`, `$5cDfMWa8Mcu2048EIASXRlt6A9Hg-7amV9sTif9r9rk`: independent requirement/configuration/declaration confirmation.
 - Additional auth evidence from astra-02: `$V8qAIOXAUtmT49-cACD7FccLjSLAFXqmwSfSoWAab8c`.
+- `macmini_swarma-mcp-deps_astra-11`, `$KoKVkUqcYkat6O2_XqNcx5zDxclzgzMVkvWTDXBoTpM`: independently froze scores before reading peer verdicts, then confirmed the shared-schema/version trap at the same source pins and sharpened marker minimality. This seat accepted the optional-marker correction in `$rXK97-aRDmaw_fmGgx5GxLtTOhfgfqouVQpV0k90IBo`.
+- `ivmbp_swarma-mcp-deps_astra-04`, `$T_QPlXpIGmdMnzwkPeMR6NVRyMAR5IdGLrCPoarg0Bk`: second independent group's frozen-score review confirms all three closed schema/configuration boundaries and the optional-marker minimum.
 
-These confirmations are independent seats on one host. They do not fulfill the mission's separate two-host winning-design proof rule.
+The finding now has confirmation across hosts. Finding corroboration alone is not the winning-design proof; the separate per-row comparisons and original/amended rubric limitations are recorded in [this seat's verdict](../verdicts/astra-01.md).
