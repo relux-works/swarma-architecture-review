@@ -51,3 +51,11 @@ E4 and E6 are in tension until the observation/assertion distinction is explicit
 
 - astra-01 on ivmbp, event `$4QY-PSEXY4t7AD-_QYL4k0XNGG12f9i9nl51GzCqqyI`: independently confirmed that BASE binding discharges only the identity conjunct; protected scoped reliance is new evidence semantics, not a rename-only alias.
 - Cross-host adversarial confirmation requested from astra-13 at `$4W3yk0Hfj_W9KtggB-eUMxz9CSusX8Ds0gqQoPj-pKY`; pending when first written.
+
+## Round-2 corroboration and absence qualification
+
+- wonder-02 event `$0UgvTzavFWc7rqs4v1V-ynXdb3IBMMQaSoK3X_2XhXs` independently confirms both the AND-premise gap and the missing report surface. It requires asserted labels to remain visible in status/markers and forbids duplicate provisioning as a workaround.
+- wonder-01 event `$sUOXEjJk3_kBCejALWb5zFTCWckRcaZl6hqN_9jzz9s` confirms the gap and emphasizes invalidation on contrary later evidence.
+- astra-01 event `$cEgcvBO0Gz53jfDFYyh91YxqVqgLyetKx0XaU4SZ2FE` confirms that alias and reliance can share one new contract, but old observed `FoundIn` cannot silently represent assertions.
+
+Negative evidence must be authoritative for the **same bound provider and selected launch**. No entry in the six native files remains unknown for an opaque connector; it is not proof of absence. A complete authoritative provider inventory or an explicit launch-channel exclusion can establish absence. Similarly, a disabled unrelated same-name native entry must not be mistaken for the separately bound connector. This clarification was posted at `$HRMbfIwYB1nZGNelCpp5JjoDUw4XoYAwRux5bIHd8n8`.
