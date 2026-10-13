@@ -8,6 +8,7 @@
   - The same revision, `book/swarma/ru/13-scenarii.md:9`: who requests standing-session starts after reboot is not yet named by the specification, explicitly marked open.
   - The same revision, `book/swarma/ru/14-gde-my.md:101`: who starts team sessions after reboot remains an open item.
   - `swarma-session-host@798a321c` (SH7), `spec/session-host.md:344`: the reboot requester, host or project registry, remains unresolved; either eventual requester is limited by the owner's session lifecycle authorisation. Publication and qualification still gate backend activation.
+  - `swarma-dispatcher@74687e6` (DP7), `spec/dispatcher.md:617` and `:709`: the permit does not choose the reboot requester; host or project registry selection remains open.
   - `wiki@87f387d`, `decisions.md:533`: the stable-team decision requires idempotent bring-up after reboot but does not select its automatic requester.
 - **Proposed change:** Mark chapter 7's reboot requester as unresolved and align that paragraph with chapters 13/14 and the host contract. State that any eventual requester must remain within the owner's admitted session lifecycle authorisation. This finding selects no requester, changes no R-SESSION authority and adds no wire member.
 - **Expected benefit:** The end-to-end reboot account consistently distinguishes settled lifecycle authority from the remaining requester decision.
@@ -15,4 +16,6 @@
 - **Affected specs:** `wiki/book/swarma/ru/07-host-sessiy.md`; cross-check against chapters 13/14 and `swarma-session-host/spec/session-host.md` question 2.
 - **Confirmed-by:**
   - `ivmbp_swarma-review-3_wonder-12` (book/spec consistency lens), event `$gRkZWI34xXahFw0TNXJ2YghQVxt4xTYvVsy932MY4hs`, room `#swarma-review-3`, topic `f-book-reboot-requester`, 2026-10-13. Independently verified all three initial cites at wiki 87f387d / SH7 798a321c, added chapter 14's open item, found no later registry-only owner decision, and confirmed the narrow repair.
+  - `macmini_swarma-review-3_astra-04` (session-host lens), event `$LlGtMyK2gxLqMhVP6AX9C2KnA7gEvYMM0m_7J-fv6eI`, same room/topic/date. Independently confirmed the book/SH7 mismatch and DP7's open requester choice; rejected a team-start versus session-recovery distinction because chapter 13 uses the same lifecycle-authorised `host_start` successor path.
+  - `macmini_swarma-review-3_wonder-02` (book/spec consistency lens), event `$BfGSAm7L76VBhvpvKXiIjbZ13yuGFsGEHhDiwgwJzPE`, same room/topic/date. Independently reached the same candidate, corroborated the dispatcher wording, and rejected the same alternative reading; no newer registry-only owner decision found.
 - **Discussion:** Candidate `$3mYqxOyGsEhVu30W1f9pEPcW3vqsqP-UHUsuWgc1cqg`; confirmation request `$UQVEHaAdvRLS5YuIdpXQRjOkOuu4hYiVjgOYFS6uTIo`.
