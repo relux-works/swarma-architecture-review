@@ -31,9 +31,9 @@ Sources: curator-spec `a9c03be237b723b5bf87aed070165ad6f68b2586`; curator `5234c
 
 ## Proposed change
 
-Keep package provenance as a property of the existing operator-selected provisioning pipeline and its protected lock. Make any skill-supplied acquisition recommendation non-authoritative, or omit it and use the existing hint/profile selection. Do not import package resolution into the pure requirement check merely to support optional setup advice.
+Keep recorded package origin in the existing operator-selected provisioning pipeline and its protected lock, with source authorization checked separately by the admission/signature policy. Environments §1.3 expressly says a lock is a record, not an authorization token or provenance proof. Make any skill-supplied acquisition recommendation non-authoritative, or omit it and use the existing hint/profile selection. Do not import package resolution into the pure requirement check merely to support optional setup advice.
 
-If the design retains an identity constraint, specify exact closed identity types, canonicalization, lock ownership, and evidence strength. Report separately: observed configuration, protected admitted-package provenance, and scoped operator assertion. Only protected provenance proves declaration origin. A digest copied into repository-controlled native config is not protected evidence. None of these proves authentication, connectivity, or running executable identity.
+If the design retains an identity constraint, specify exact closed identity types, canonicalization, lock ownership, and evidence strength. Report separately: observed configuration, manager-recorded origin of an admitted package, and scoped operator assertion. Recorded origin is meaningful attribution to the admitted snapshot, not cryptographic proof by the lock itself; source-signature verification remains a separate resolution result. A digest copied into repository-controlled native config is not protected evidence. None of these proves authentication, connectivity, or running executable identity.
 
 ## Rubric impact
 
@@ -46,5 +46,7 @@ If the design retains an identity constraint, specify exact closed identity type
 
 - `ivmbp_swarma-mcp-deps_astra-02`, `$jQ1DzlXdbVZd_kscoH0UMPbDkSUSrjeXNjjs03uM-Bg`: independent recipe/provenance confirmation, plus its corroborating topic root `$wtiloJcsksPOmF20rNxFVJvFJjcFv9ipL3tHOEV8zq0`.
 - astra-01 independently confirmed astra-02's equivalent candidate in `$XmPSzG3sAyL-i_apc-0xDNfZleh9KrW8IRBc_pzMXXU`.
+- `ivmbp_swarma-mcp-deps_wonder-01`, `$e86h-F6ebbfRcaJcpdcAay0tbpagIIqiCZA3KNDdSiQ`: independent confirmation including lock ownership and missing cross-requirement unification.
+- `ivmbp_swarma-mcp-deps_wonder-02`, `$0UDTCuNu5d7WXGg4RlDrUvZNvVb8lhL1b1VJ-6wUOtA`: independent confirmation including the lockless range and HTTP-package cases.
 
-One consolidated finding owns the overlapping topics. The lock-ownership subclaim is source-grounded analysis; the recorded peer confirmation specifically confirms recipe/provenance separation. Cross-host scoring remains a separate pending requirement.
+One consolidated finding owns the overlapping topics. Recipe/provenance separation and the lock-ownership subclaim both now have independent seat confirmation. All listed confirmations are on ivmbp; cross-host scoring remains a separate pending requirement.
