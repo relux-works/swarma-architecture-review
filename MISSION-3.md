@@ -194,7 +194,7 @@ On PARK:
 
 ## Sandbox
 
-- **Codex (astra and astra-NN):** `workspace-write` with network, max effort, `service_tier=fast`. Writable: its own directory, `~/.config/a2a-swarm`, the launch cwd.
+- **Codex (astra, astra-NN, sol-NN):** `workspace-write` with network, max effort, `service_tier=fast` (owner: «сол тоже можно на фаст»). Writable: its own directory, `~/.config/a2a-swarm`, the launch cwd.
 - **Claude (fable, opus):** `dontAsk` with an allow-list: reads of the sources; `a2a`, `git` and read-only shell; edits only in your own directory.
 - **Muse (wonder):** `muse exec` with its OS sandbox. Writes only in its own directory; network enabled for `a2a` and `git`; web tools disabled. Its `a2a` state lives in `A2A_CONFIG_DIR` inside its directory.
   - Host rule R246 applies. Never run `muse login`, `logout`, `auth` or any store-touching subcommand.
