@@ -56,7 +56,13 @@
        - DP7 classifies the waiver as widening, and helper §3 forbids inferring unattended widening from an old confirmation. Option (b) therefore **needs an owner decision**: it pre-authorises a widening act. It is not claimed to fit the existing pre-authorised narrowing grammar.
        - Automatic discard without such a record, or a release by the caller alone, would **challenge R-TRANSFER (2026-10-13)** and is not proposed.
      - Trusted-class allocations default to retain-and-repair.
-  4. **Board flow.** Add an export-refusal edge to the board draft: no C; a repair round, or the next round on the last admitted base after the disposition.
+  4. **Permission denial needs a bounded disposition.** The worker owns its tree, and owner permission bits and owner-set deny ACLs bind the owner too. A same-UID exporter that never mutates the tree therefore cannot read a mode-000 file, or traverse a directory without search permission (including a readable file under a non-searchable parent, or an entry outside the write scope). DP7's closed `reason_class` vocabulary (§5.2.1 :366) has no class for this, so such an export is neither recorded nor refused. The retry mapping is unpublished, so an infinite retry is not proven, but no bounded disposition exists.
+     - Publish one: a defined refusal class, or a typed exporter failure with the same repair and disposition path, documented explicitly rather than by silently widening the schema.
+     - Decide it by the exporter's own failed open or stat on an entry it must read, in its fixed environment, and name the entry in `offending_path`.
+     - Keep EIO, unavailable storage, a vanished volume and ambiguous identity in `pending`. Not every EACCES is sabotage.
+     - Never chmod or otherwise mutate the tree, and never raise the exporter's privilege to read it. Repairing permissions would also hide what the worker did.
+     - Qualification rows: a mode-000 file, a non-searchable directory, a readable file under a non-searchable parent, a macOS deny ACL, and an unreadable entry outside the write scope.
+  5. **Board flow.** Add an export-refusal edge to the board draft: no C; a repair round, or the next round on the last admitted base after the disposition.
 - **Expected benefit:**
   - Honest workers recover from accidental refusals without the operator and without losing valid edits.
   - Hostile repeated refusals have a stated cost, (a), or a one-time policy, (b).
@@ -92,6 +98,10 @@
   - `macmini_swarma-review-3_astra-05` (R-TRANSFER, first pass), `$4THqxfPGBzw9DW5P4lWiW3uMcXeuVXfTMFiE_lVhRso`: confirms the revised bounded-repair scope at DP7 §5.2.1:345 and figure :51–54, :75. A valid result and a policy refusal cannot be conflated. A same-workspace repair needs current work authority and a new export identity. A standing discard policy is an owner choice. No execution-slot pin is claimed.
   - `macmini_swarma-review-3_astra-05` `$cbKF4290sFTcDlN1pSpBTYvnKb6xWH6AWvJ9ytskPEU` and `ivmbp_swarma-review-3_astra-15` `$H_sGalP5d0GynbuTLye5sWmQl6GX_BiFRAwke16MQDE` asked for the same determinism narrowing, plus terminal-result replay. Both applied.
   - Determinism narrowed: `macmini_swarma-review-3_wonder` (topic `f-workspace-result-modes`, `$tk9vAcp5SViEClA7usBqUtxjsVPt0_XDbg4sp-J67g4`, item 2) and `ivmbp_swarma-review-3_astra-15` `$PevYmwTXl0ytftAA9_7v7V-dB7WA_YpBfMJUwAkCBzw` show that refusal diagnostics are walk-order-dependent under DP7. "Contradictory" now compares only the outcome class and the recorded change-set digest.
+  - Permission-denial amendment (`$cpjGfT3VgnwS8H0vQOSFxmHdItaJWO2txko6hLn0d24`), adopted as item 4:
+    - `macmini_swarma-review-3_fable` `$ew2UbLTnuyY0FI-vMd9ZLl-lCpFw44gK9TqzDhiK8IU`: classify by the exporter's own errno, never mutate, add the parent-search and outside-scope cases;
+    - `macmini_swarma-review-3_wonder` `$C2T-0RZF8iKVl-FPXo2wFsQmGPukBPZchBQGwcxQ0zU`: name the entry in `offending_path`, no privilege increase;
+    - `macmini_swarma-review-3_astra` `$1W-BHXHuodAzck30s6hLr057j5nN0GVdCwe3sFtHpuw`: infinite retry is not proven; publish an explicit bounded disposition (a class or a typed failure); EIO stays pending; not every EACCES is sabotage.
   - Proposal `$vc7Ie_X8ANWJBL1F5LoJQl53zBXFE26UYLtQG01UiZs`; review request `$RGmGgkoCjCjzQpUL-DCUwmBBuhwlBdJoGwR_4vP12Oo`; revised scope `$SvuheVv1VzWhXIEADzqrUyEVNSHbcbhkm_AHAHGtaHg`.
 - **Status:** proposed. Revalidated against dispatcher wave 5b `74687e6` and user-manager head `3da62ad` on 2026-10-13. DP7 made the retention explicit (§5.2.1 line 345) and classified the waiver as widening (§3.2 line 114). The confirmations were given against `19a75e63`, and the problem is unchanged. UM7 remains pending.
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** substance unchanged. The helper lines moved: §3 :108→:112; §4.4 step 3 :202→:206; §7 export :443→:447.
