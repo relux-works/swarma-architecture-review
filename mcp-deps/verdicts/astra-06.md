@@ -1,7 +1,8 @@
 # astra-06: zoo compatibility, independent adversarial pass
 
 Seat: `ivmbp_swarma-mcp-deps_astra-06`, second independent five, ivmbp.
-Status: independent score frozen before first-five verdict access; debate pending.
+Status: independent score preserved; round 1 adversarial reconciliation complete;
+active until convener PARK.
 Date: 2026-10-14.
 
 ## Independence and evidence boundary
@@ -52,11 +53,11 @@ runtime certification. Mission artifacts are the task/documentation flow.
 | E6 honest failure | 1 | 2 | 2 | B has consent and auth-not-checked, but leaves unknown and launch scope unresolved. L/B+ require typed unknown, known negative precedence, explicit assertion provenance and consent before every new write. |
 | E7 specifiability | 0 | 1 | 1 | B leaves identity comparison, binding grammar and version gate open. L/B+ have writable counterexample vectors below but still need a closed adopted schema/profile. Core §4, common.schema.json `$defs.mcpRequirement`, COMPATIBILITY stability and GOVERNANCE Changes/Decision record. |
 | E8 operator effort | 1 | 1 | 1 | Existing visible provider costs zero; opaque provider one local assertion. Fresh env setup, client login, package allowlist and provisioning can be multiple independent actions. No universal one-action claim is evidenced. |
-| **Total, amended E3** | **5** | **11** | **9** | L preferred on these independently considered candidates, not a proof over every possible design. |
+| **Total, amended E3** | **5** | **11** | **10** | L preferred on these independently considered candidates, not a proof over every possible design. |
 
 Under the **original literal E3** row all three score **0** where they parse
 mixed native configs, because existing bytes can contain credential values.
-Original-row totals are B **4**, L **9**, B+ **7**; all fail its E3 eligibility
+Original-row totals are B **4**, L **9**, B+ **8**; all fail its E3 eligibility
 gate. The amended row is the proof row. The manager/launcher ownership distinction
 must also be explicit: environments §§7.8/10.3 delegates operator-value
 passthrough to the launcher; the requirement verifier must not resolve values.
@@ -142,7 +143,128 @@ Required outcomes for the new contract:
 | HTTP package requiring env token but no supported header route | provisioning unsupported; external configured provider still eligible |
 | Project approval/alias file attempts to attest for itself | untrusted evidence; no authority, no writes |
 
-Next: publish this frozen independent score, then read astra-03's position and
-the room, confirm/refute with cited evidence, and update only the debate section.
-Do not write a finding file without high confidence and another seat's event-id
-confirmation. Stay active through rounds until the convener's PARK.
+The initial signed checkpoint was `c587dc9a9797c13b07e028e4a20447f8a1829add`,
+rebased with signing and published as `0f030fafecaafafce1a9ca8d50b8d23ea28ab5ab`.
+Its B+ total was an arithmetic typo (9 instead of 10, original 7 instead of 8),
+corrected above and in room event `$zWGK6X4PHPM17PTq93P2IUyazc4sj9-DPzae69daCCU`;
+no per-row independent score changed. The first-score publication preceded my
+first astra-03 verdict read: `$Us6W5xQCXOtx7oFAcMUG8kGdOxG1uoy2w_KFCLIxJu4`.
+
+## Post-freeze adversarial comparison
+
+I read astra-03's first-five verdict only after the independent checkpoint. Its
+concrete **N** is a refinement of my L: the binding is carried by a successor of
+the existing protected manager configuration, not a standalone authority-record
+family. Scoped evidence can remain a transient result while the legacy marker
+keeps its old meaning; a new marker version is needed only if that evidence is
+persisted there. This earns E1=1 rather than my initial standalone-family E1=0.
+E2 stays 1: launch-aware checking is still new work.
+
+For a clearly stated **already-configured suitable provider** common case, E8=2
+is justified: observed providers require no setup, and an opaque provider needs
+one scoped operator decision. This is a workload assumption, not measured
+prevalence or a claim of one-click first setup. Cold setup retains E8=1.
+
+| Current serious candidate | E1 | E2 | E3 amended | E4 | E5 | E6 | E7 | E8 | Total | Original E3 / total |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| B, unchanged base | 0 | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 5 | 0 / 4 |
+| B+, repaired authoritative identity | 0 | 1 | 2 | 2 | 1 | 2 | 1 | 1 | 10 | 0 / 8 |
+| N, named requirement and scoped local evidence | 1 | 1 | 2 | 2 | 2 | 2 | 1 | 2 | 13 | 0 / 11 |
+| N+A, N plus bounded optional recommendation | 1 | 1 | 2 | 2 | 2 | 2 | 1 | 2 | 13 | 0 / 11 |
+| A alone, recommendation and legacy checker | 2 | 2 | 2 | 0 | 2 | 1 | 2 | 1 | 12 | 0 / 10 |
+
+The initial criterion evidence still applies. A alone adds only discovery of
+existing schema-1 bytes and uses current admission, so E1/E2/E7=2; its legacy
+checking excludes opaque providers and keeps launch ambiguity, so E4=0/E6=1.
+Its E3=2 is conditional on the corrected bounded diagnostics, not retention of
+current raw-command output. N+A imports N's actual evidence machinery, so its
+score must not pretend to get both that machinery and A-alone minimality for
+free. N/N+A tie; I prefer **N as the core**, with A optional and separable.
+
+### Attempts to break the preferred candidate
+
+1. **Disabled-layer resurrection is confirmed, and repaired in the contract.**
+   My exact OpenCode counterexample was independently checked by astra-13 at
+   `$3gLOuU_zpyqKhXrTTBjgvnUPNRRrKE7zUy0wy-2Ot98` and acknowledged by me at
+   `$Kzctr9tXQ_LgZIk5WmtordyZoiv0ClqQxmesJaIE6OU`. Keep negative observations
+   through layer resolution, then filter; never resurrect a lower native entry
+   by selecting that surface explicitly. An unrelated same-name opaque connector
+   is a different selector. This sharpens existing
+   [f-launch-universe](../findings/f-launch-universe.md), not a new finding.
+
+2. **HTTP env auth is an explicit capability limit, not solved by a label.**
+   astra-12 confirmed §5.8 and the actual serializers at
+   `$DWR-oqZ-bsDlBv-ivxu0oT0wWz1p_YEi6NmpOGXWteM`; my source read included
+   `contextmaterialize/mcp.go:244-318`. Existing native HTTP auth is usable only
+   in a launch that includes it. No `auth:env` field, env-name allowlist or
+   operator assertion supplies a missing header route. Keep this limitation in
+   existing secret/zoo findings and capability tables; a future names-only header
+   feature needs separate syntax, writers, consent and vectors. My acknowledgement
+   is `$iDdjNKN4kqq2KHjtFIuLLOz5qAaUIiaDT97rPvh_RHY`.
+
+3. **Empty profile is not strict exclusion.** §5.8 and
+   `contextmaterialize/mcp.go:217-224` emit no file/channel for an empty set.
+   The precise first/vector counterexample above is native `docs` plus an
+   **actually applied, nonempty strict channel containing another server and
+   excluding docs**. Do not infer exclusion from profile-empty alone. Pi's
+   absence is limited to the recorded revision-1 managed adapter/0.84.2, not
+   arbitrary native plugins or later client versions.
+
+4. **Opaque evidence stays weaker than observation.** N accepts explicit
+   reliance rather than discovering a hidden provider. Scope it to the exact
+   requirement identity, selected client/home/project/profile and provider
+   selector; no global name-only acceptance, no repository self-attestation.
+   A known negative for that effective provider wins, but absence from native
+   files does not negate a separately bound connector. Internal connector drift
+   remains unobservable. E4=2 is coverage of all provider categories by honest
+   evidence/acceptance paths, not universal automated verification or new client
+   functionality. An interpretation requiring those stronger guarantees should
+   score E4=1; then N/N+A total 12 and still lead the complete candidates.
+
+5. **Existing warnings also need the metadata bound.** The actual checker prints
+   the raw command at `mcp.go:143-144`. Manager §6 requires a warning, not that
+   string. Preserve private static PATH lookup; emit a fixed diagnostic keyed by
+   safe requirement/target identifiers, never arbitrary command/argv, URL, env,
+   parser snippets or unvalidated native labels. astra-02 source confirmation:
+   `$woH4Tj0pbOWRhxLB_2amNCvyXCRv4HHDV2X717_ObdQ`. This is a condition on the
+   proposed E3=2 contract, not a claim current implementation already satisfies it.
+
+6. **Optional co-location does not permit same-name dual-kind closure.** I
+   independently confirmed astra-04's challenge
+   `$iUc_uDX_kiEwtByLrYzC4qpzhIODJGkvPXIehrKehkk` by reading, at the same Curator
+   pin, `internal/contextresolve/contextresolve.go:316-318,409-419,915-918` and
+   `envprofile/managed.go:205-226`: the resolver selects one kind per name and
+   only MCP members materialize as MCP. My confirmation event is
+   `$cjkXXsAKqa1RgA871RL9IIK9QBe3kTfn9G17XP4UnYU`. A's optional joint-closure
+   recipe must use distinct skill and declaration package names, or defer that
+   collision. No automatic rename/alias or resolver redesign is part of N.
+
+For bounded A, the same git snapshot may carry an inert schema-1 recommendation;
+show safe candidate metadata only, select its exact commit through an
+operator-owned context `requires.mcp`, and independently apply MCP source,
+signer, allowlist and audit policy. A path/local skill does not acquire the
+git-only declaration identity by co-location. Root schema 1 recommends at most
+one declaration; multiple servers use existing companion context packages.
+This is optional setup assistance, never authority and never cloud discovery.
+
+### Evidence of agreement and remaining work
+
+The original independent L vector `[0,1,2,2,2,2,1,1]` already differed from
+astra-03's N vector `[1,1,2,2,2,2,1,2]` by at most one per row. The concrete
+existing-carrier/common-case refinement gives my current N/N+A vector
+`[1,1,2,2,2,2,1,2] = 13`, equal to astra-03's. We are separate sessions and
+directories in the first and second independent fives. This supports the amended
+mission's bounded rubric proof after both seats acknowledge the same candidate;
+it is not proof of a unique global optimum, completed specification, implemented
+conformance or current native-client certification. E7 deliberately remains 1.
+
+Before implementation: govern the protected configuration grammar, evidence
+status/aggregation, selector scope and revocation, same-provider negative
+precedence, adapter completeness and assertion/system-policy interaction. Retain
+all applicable admission/hardened gates, consent for new writes, and the
+manager-versus-launcher auth boundary. No new portable marker is mandatory when
+scoped status is transient; do not relabel legacy `FoundIn` as stronger evidence.
+
+All research is persisted here. No source, board, task-system or native config
+was changed. Existing finding owners may cite the confirmations above; this seat
+does not create duplicate finding files or edit their artifacts.
