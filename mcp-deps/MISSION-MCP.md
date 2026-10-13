@@ -44,11 +44,11 @@ All Codex seats run at max effort on the standard service tier; there is no fast
 "Elegant" means the highest total with no 0 in E3 or E6. "Proved" means that at least two independent seats, one from each independent five (see the amendment note), score the winning design and agree on every row within one point, with evidence cited.
 
 **Amendment: two independent fives (2026-10-14, the operator's word).** The mini seats could not be started (the mini keeper did not respond). The operator chose, verbatim «давай», on the option of running the adversarial five on ivmbp instead. The proof requirement changes from "two seats on different hosts" to **"two seats from two independent fives"**. Independence means:
-- separate sessions and identities (`astra-11`..`13`, `wonder-11`, `wonder-12` on ivmbp);
+- separate sessions and identities (`astra-04`..`06`, `wonder-03`, `wonder-04` on ivmbp);
 - no shared working directory;
 - each five forms its scores before it reads the other five's verdict files.
 
-The second five keeps the adversarial lens of the mini rows in the seat table. Seats on the mini may still join later as an optional third pass; nothing waits for them. The original wording was: "on different hosts".
+The second five takes the adversarial lens that the seat table gives the mini rows: `astra-04`/`05`/`06` mirror `astra-01`/`02`/`03`, and `wonder-03`/`04` mirror `wonder-01`/`02`. The mini keeper has since woken up. The mini seats (`astra-11`..`13`, `wonder-11`, `wonder-12`) join as a third, cross-host pass when they are up; nothing waits for them. Their agreement upgrades the proof to two hosts. The original wording was: "on different hosts".
 
 ## Sources (read-only)
 
