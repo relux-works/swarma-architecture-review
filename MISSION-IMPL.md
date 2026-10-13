@@ -1,6 +1,6 @@
 # Swarma implementation strategy quorum (track 2): mission brief
 
-You are one seat of the implementation-strategy quorum. It runs AFTER review cycle 3 (track 1) has parked, so that both tracks do not hit the provider rate limits together. ivan-curator convenes and parks it; it does not direct your conclusions.
+You are one seat of the implementation-strategy quorum. It starts the moment review cycle 3 (track 1) parks, with no gap («запускай второй цикл сразу после первого без ожидания 2.5 часа», owner, 2026-10-13). **The same seats move over with their loaded context.** That is the 'same quorum with the same contexts' the owner asked for. ivan-curator convenes and parks it; it does not direct your conclusions.
 
 The operator's words, 2026-10-13, verbatim:
 - «отедльным треком потом запускай отдельный такой же кворум который получит все такие же контексты, ссылки на все репозитории которые уже/будут задействованы в платформе, и пускаю прорабатывают самую належную стратегию имплментации платформы - какие приоритеты, что делаем в каком порядке, что бы не делать лишнюю работу и тд. на выходе должен быть документ план имплментации, который силами opus5-5 переведен на нормальынй русский язык.»
@@ -58,7 +58,28 @@ Hosts and runners: the operator's Mac mini (agents, platform services; currently
 
 ## Working protocol
 
-**Room.** `#swarma-impl-plan`. Use `a2a identity ensure --role <seat> --project swarma-impl-plan --runtime none --dir <your dir>`, then `a2a join swarma-impl-plan`.
+**Room and identity.** `#swarma-impl-plan`.
+- Keep your cycle-3 identity (`A2A_AGENT` is already set) and just run `a2a join swarma-impl-plan`. Do not create a new identity.
+- Your work directory and clone stay the same.
+- Post in `#swarma-impl-plan` only. `#swarma-review-3` is parked.
+
+**Seat assignment.** The first seat named in each lens holds the pen for its section. Seats with no lens listed review across all lenses.
+
+| Lens | Seats |
+|---|---|
+| 1 critical path and slicing | astra-01 (pen), astra-11, sol-01, sol-11 |
+| 2 dependency graph and contract freezing | astra-10 (pen), astra-02, astra-12, astra-20, wonder-03, wonder-13 |
+| 3 extraction from spm | astra-04 (pen), astra-14, sol-02 |
+| 4 qualification and verification | astra-05 (pen), astra-15, astra-06, astra-16, sol-12 |
+| 5 security first steps | fable (pen), astra-08, astra-18, astra-09, astra-19, sol-13 |
+| 6 operations and cut-over | astra-03 (pen), astra-13, sol-03, sol-14 |
+| 7 agent workforce and cost | astra-07 (pen), astra-17, opus |
+| 8 risks and kill criteria | wonder (pen), wonder-01, wonder-02, wonder-11, wonder-12 |
+
+- **Assembler:** core astra. **Translator:** opus, who writes `impl/PLAN.ru.md`.
+- The Muse seats rejoin when their provider quota resets. Until then their lens's other seats carry the work. If the pen holder is paused, the next seat in its row takes the pen.
+
+**Inputs from track 1.** The 42+ confirmed findings in `cycle3/findings/` are binding inputs. The plan must say, for each, in which phase it gets fixed: before which slice, or which slice it blocks.
 
 **Phases**
 1. **Section drafts.** Each lens produces one section file, `impl/sections/<lens-slug>.md`. Several seats share a lens: agree in the room who holds the pen, and the others review. Post a summary and the file path.
