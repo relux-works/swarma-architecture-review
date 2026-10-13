@@ -171,11 +171,13 @@ prevalence or a claim of one-click first setup. Cold setup retains E8=1.
 | B+, repaired authoritative identity | 0 | 1 | 2 | 2 | 1 | 2 | 1 | 1 | 10 | 0 / 8 |
 | N, named requirement and scoped local evidence | 1 | 1 | 2 | 2 | 2 | 2 | 1 | 2 | 13 | 0 / 11 |
 | N+A, N plus bounded optional recommendation | 1 | 1 | 2 | 2 | 2 | 2 | 1 | 2 | 13 | 0 / 11 |
-| A alone, recommendation and legacy checker | 2 | 2 | 2 | 0 | 2 | 1 | 2 | 1 | 12 | 0 / 10 |
+| A alone, recommendation discovery and legacy checker | 2 | 2 | 2 | 0 | 2 | 1 | 1 | 1 | 11 | 0 / 9 |
 
 The initial criterion evidence still applies. A alone adds only discovery of
-existing schema-1 bytes and uses current admission, so E1/E2/E7=2; its legacy
+existing schema-1 bytes and uses current admission, so E1/E2=2; its legacy
 checking excludes opaque providers and keeps launch ambiguity, so E4=0/E6=1.
+E7=1 for recommendation discovery: syntax reuse alone does not close its ordinary
+skill-lane audit scope, severity and waiver rules (late qualification below).
 Its E3=2 is conditional on the corrected bounded diagnostics, not retention of
 current raw-command output. N+A imports N's actual evidence machinery, so its
 score must not pretend to get both that machinery and A-alone minimality for
@@ -256,10 +258,30 @@ A path/local skill does not acquire the
 git-only declaration identity by co-location. Root schema 1 recommends at most
 one declaration; multiple servers use existing companion context packages.
 This is optional setup assistance, never authority and never cloud discovery.
+Path-source discovery is informational only and emits no executable profile
+adoption recipe. A recommendation-discovery feature must explicitly govern
+`agent-mcp.json` args/URL secret-scan scope in the ordinary skill lane, including
+severity, waiver and admission behavior; the always-strict profile rules cannot
+be imported silently. Pre-admission output stays metadata-only and diagnostics
+value-free regardless of the scan. Later MCP adoption independently passes its
+strict admission rules. Malformed optional metadata is not, by itself, a new
+skill-install failure.
 The recommendation bytes are pinned by the skill snapshot; adoption makes a
 separate operator pin. A later skill update does not update the provider or make
 its selected pin stale merely because the name is the same. No ongoing
 author/provider coupling or mandatory update-notice mechanism is implied.
+
+Late A-only score qualification, after direct re-reading at spec `a9c03be`:
+manager §7:1111-1171 leaves ordinary audit under machine policy and makes
+`context-secret-material` mandatory specifically for profile snapshots;
+environments §9.1:2302-2319 scopes that mandatory class to context/MCP snapshots.
+This does not yet close the ordinary skill-root sidecar contract. I therefore
+correct my earlier A-discovery E7=2 to 1 (12/10 becomes 11/9), agreeing with
+astra-03's source-checked qualification
+`$731Jpduhgk_b3gengesp8z1BBFy-K3u39HvzRMg6qgA`. An inert authored file with no
+discovery feature may retain E7=2, but cannot borrow discovery behavior for free.
+N and N+A remain 13/11, E7=1; the preferred design and independent proof pair are
+unchanged. This is a qualification of the alternative, not a new finding.
 
 ### Evidence of agreement and remaining work
 
@@ -286,6 +308,21 @@ point with selected-launch inputs. Availability of profile-lock evidence does
 not mean profile install already runs such a gate, and this proposal must not
 silently add a fatal environment-lifecycle check. Invocation, compatibility and
 failure rules remain part of E7's unfinished normative work.
+
+The E6=2 condition is explicit: render evidence source and grade together as
+`configured by name / provider identity and authentication not checked`, or
+`operator-asserted`. In the opted-in selected-launch check, a project-file entry
+alone never establishes observed-effective inclusion. Known rejection, ignoring,
+disabling or exclusion defeats acceptance; unobserved client activation/trust
+stays unknown/pending unless the governed protected-reliance path is permitted,
+in which case it stays asserted. Such reliance neither grants native workspace
+trust nor overrides a known denial. Legacy §6 presence plus warning retains its
+legacy meaning. I stated this at `$B5QnpvuW_xpWXR3HqRomKjb3kUX8KUBoYel8PUX7P0g`;
+wonder-12 accepted the bounded E6=2 condition at
+`$EPII6SRyCz1HAGKpUMXptv-sC3S42daQGPYtw346D_o`, acknowledged by me at
+`$M2t2Oy8eMX5ZGicYLMCnutYhkD5v13OxWIYwKI4cyw0`. A variant reporting bare
+satisfaction from project-name presence deserves E6=1; that dissent remains a
+condition on the design, not a claim of completed normative precision.
 
 All research is persisted here. No source, board, task-system or native config
 was changed. Existing finding owners may cite the confirmations above; this seat
