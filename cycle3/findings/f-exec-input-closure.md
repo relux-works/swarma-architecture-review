@@ -19,6 +19,8 @@ This is a pre-activation specification and qualification gap, not a demonstrated
 - `curator-spec` at `a01542857678108a77d5e1b1f051989b00384f1d`, `cips/CIP-0009-donor-side-deployment-and-bridge.md:175`: the workplace interface admits policy-controlled commands, stdin and file writes. `:209-211` repeats the interpreter/wrapper permission and R-VERIFY prohibition; `:286` lists future negative qualification without interpreted-input cases.
 - `curator-agent-launcher` at `da54e24b7d3bf3a565e9d2daa47bc90cc1c0b412`, `SPEC.md:747-774`: native network-adapter selection already rejects scripts and mutable interpreter closures and executes the evaluated artifact. That boundary is specific to native adapter selection; it does not qualify all task-tool invocations.
 
+**Landing revalidation, 2026-10-13.** Dispatcher DP7 at `74687e600e04817fa6e7a2e8904a9f7a3c83a1d8` preserves the relevant rules at `spec/dispatcher.md:384,388,698`. Launcher LR6 at `f08f566dd378ea27ce23ca0351ec793e95a696b6` now repeats the task-tool boundary at `SPEC.md:2006-2021`: protected fixed-subcommand wrappers, OS executable allowlists and profile-needed interpreters, with all worker-code execution reserved for R-VERIFY. Its harness-surface digest checks at `:1980-1987` protect harness launch/restart/resume; they do not establish inertness of worker-controlled project inputs consumed by every admitted tool. Neither landing adds the interpreted-input qualification proposed here. The user-manager capability-probe landing `3da62ad45d02efb34784a935ca5a17bf3b42ba35` leaves the cited helper text unchanged. Session-host SH7 and user-manager UM7 remain pending at this recheck.
+
 ## Proposed change
 
 Publish one shared R-EXEC qualification requirement for the complete admitted invocation: executable, entrypoint and arguments, environment, and every input the tool can interpret as code or configuration.
@@ -41,7 +43,7 @@ Qualification is tool- and release-specific. Some useful light checks will need 
 
 ## Affected specifications
 
-User manager R-EXEC/R-VERIFY and qualification; dispatcher task profiles and qualification; session-host light checks; CIP-0009 D5c and remote-worker publication/qualification register; the future language/tool profiles and verification contract.
+User manager R-EXEC/R-VERIFY and qualification; dispatcher task profiles and qualification; session-host light checks; CIP-0009 D5c and remote-worker publication/qualification register; launcher §10.2 exec profiles; the future language/tool profiles and verification contract.
 
 ## Confirmed by
 
