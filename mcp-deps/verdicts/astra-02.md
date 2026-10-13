@@ -49,7 +49,31 @@ Rubric-seat wonder-02 confirms the byte-contact contradiction but initially assi
 
 N's E3=2 requires its explicit handling boundary: never resolve/expand a credential, access a credential store, execute authentication, or probe a server; parse foreign native bytes only privately and within bounded reads; do not persist, log, or surface raw foreign argv, URL, env, document fragments, or parser exceptions. Use validated metadata-only evidence/diagnostics. Arbitrary `args` and `url` fields can themselves contain secrets, so a field-name whitelist is insufficient. A separate native writer's private preservation of existing bytes is not delegated secret management and must retain the supplied csk handling limits; it is outside the pure requirement operation.
 
-Capability-taxonomy and manager-proxy approaches have not yet arrived as concrete serious contenders from the alternatives seats. They will be scored if their actual contracts are proposed; no straw-man score is used to manufacture a winner.
+### Concrete alternatives submitted during round 1
+
+Wonder-01 proposed three alternatives: A (skill-root `agent-mcp.json` recommendation, event `$Oi-yLH129Y6zJ-z0AeVV4E84AOrddTDk6HrcmMGsm4M`), T (tool/capability requirements, `$PzZOjpCVB5M21uS8891NqqjxCDYck2IuhK1HxwTxTqE`), and G (manager-owned authenticated gateway, `$hKTg60s0b50i-kQHeKXD6UWd9VLbQNlygcTkZfZG5ss`). These are actual submitted candidates, not hypothetical rejection targets.
+
+**A+N** means A with N's protected evidence contract and the explicit trust corrections below. It is a complement to N, not a different verification architecture. **A alone** means its first submitted recommendation mechanism, before those corrections; it cannot solve opaque-provider evidence by itself.
+
+| Criterion | A alone | A+N corrected | T | G | Evidence and reason |
+| --- | ---: | ---: | ---: | ---: | --- |
+| E1 | 2 | 1 | 1 | 0 | A reuses the existing declaration file with no skill-schema field; A+N still counts protected evidence state. T needs a new manifest/version lane. G introduces a runtime/protocol family. Core §3, environments §2.2, schema-budget finding. |
+| E2 | 2 | 2 | 1 | 0 | A uses an existing snapshot and selected profile/MCP admission. T lacks reusable current tool-inventory verification in §6. G owns backend process/auth/session machinery absent from the checker. |
+| E3 amended | 1 | 2 | 2 | 0 | A initially prints §2.3 argv rows in a plain skill lane that need not perform strict MCP secret-material admission. Corrected A+N uses metadata-only discovery and existing admission before detailed display. T forbids manager probes. G deliberately forwards backend credentials. |
+| E4 | 1 | 2 | 1 | 1 | A alone retains the opaque evidence gap; A+N closes it by labelled reliance. T has no generic current client tool inventory in local evidence. A gateway cannot assume access to account-only cloud connectors. |
+| E5 | 2 | 2 | 1 | 1 | Inert schema-1 sidecar degrades gracefully with the existing manifest. T tool names have no portable equivalence across providers. G couples clients to its deployment. |
+| E6 | 2 | 2 | 1 | 0 | A remains a recommendation and grants no write authority. A+N keeps unknowns and independent consent. T's strong connected/tool claim exceeds install evidence. G can mask unavailable backends and collapses native per-server controls. |
+| E7 | 1 | 1 | 1 | 1 | A's surfacing/audit/source-kind/remediation rules need closure; N evidence grammar is still pending. T exact name sets can have a closed grammar without a global registry, but trusted inventory/equivalence remains unspecified. G is specifiable but undeveloped. |
+| E8 | 1 | 1 | 1 | 2 | A improves discovery while native auth/first setup still costs actions. T still needs binding. G offers one entry, at unacceptable trust cost. Existing-provider N/A+N usage can score 2 under the rubric seat's narrower common-case definition. |
+| **Amended total** | **12/16** | **13/16** | **9/16** | **5/16** | A+N ties N on this conservative scoring; G fails the E3/E6 gates. |
+| E3 original | 0 | 0 | 0 | 0 | A/A+N/T retain native-checker byte contact as submitted; G intentionally handles credentials. |
+| **Original total** | **11/16** | **11/16** | **7/16** | **5/16** | Original literal gate fails; no original-rubric proof is claimed. |
+
+The preferred composition is **N, optionally augmented by corrected A**. A lets an author ship exact recommendation bytes without a new `server` field. It is not required for an already configured provider. The source snapshot's pin is integrity, not MCP authorization: selected use still requires canonical Git-source/package admission, signer policy, strict audit, and consent. Recommend the exact resolved revision, not an independent skill version tag that might violate the declaration's version match. Path/local skill snapshots do not gain a canonical network identity; the §2.2 refusal remains. Multiple recommendations can use an existing companion context package; a new directory-discovery convention is unnecessary.
+
+A's initial raw surfacing was challenged in `$bpz_PXkFPAIj-yPFT739a8vIRgIlW_9SUVlb_2-dvzE`: normal skill audit may be advisory (manager §7/§7.1), whereas MCP surfacing follows strict profile audit (§9.1). Safe candidate discovery must not print raw argv/URL from an unadmitted sidecar. Syntax invalidity can warn and leave the recommendation inert; actual secret findings keep their applicable blocking policy. This is a pre-display/admission condition, not permission to waive the ordinary source audit.
+
+T is not rejected merely for lacking a global capability registry: exact strings can form a closed grammar. It loses today because current sources do not supply trustworthy, current, target-scoped tool inventory without connection/auth behavior. Reconsider only with such evidence. G remains rejected inside Curator; an independently operated gateway can be an ordinary external provider under N, requiring no dependency-manager auth subsystem.
 
 ## Minimum changes to the base
 
@@ -81,4 +105,4 @@ Capability-taxonomy and manager-proxy approaches have not yet arrived as concret
 
 Own findings: `f-secret-boundary.md` and `f-consent-binding.md`, independently confirmed by astra-01 and wonder-02 (also astra-03 for the secret boundary). Recipe/provenance evidence is consolidated into astra-01's `f-package-is-not-service.md`; no duplicate finding is published from this seat.
 
-Still open: mini astra-12 adversarial confirmation; independent different-host E1–E8 score of the same winning design; alternatives-seat concrete challengers; protected evidence grammar and legacy compatibility. E3 evaluation now follows the explicit mission amendment while retaining the original score trace. The collective remains active.
+Still open: mini astra-12 adversarial confirmation; independent different-host E1–E8 score of the same winning design; protected evidence grammar and legacy compatibility; final acceptance of corrected optional A. E3 evaluation now follows the explicit mission amendment while retaining the original score trace. The concrete alternatives above have been reviewed and answered. The collective remains active.
