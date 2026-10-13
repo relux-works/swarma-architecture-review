@@ -7,7 +7,7 @@ The collective has 24 seats:
 - 10 Codex gpt-6-astra seats on the operator host (`astra-01` … `astra-10`);
 - 10 Codex gpt-6-astra seats on a second operator machine (`astra-11` … `astra-20`).
 
-All Codex seats run at max effort in fast mode.
+All Codex seats run at max effort on the standard service tier: the owner removed fast mode on 2026-10-13 («давай везде уберем фаст режим»).
 
 The operator's words, 2026-10-13, verbatim:
 - «после того как завершил все правки - запусти еще астра макс, фейбл макс, опус 5-6 макс, а также новую мьюз вандер фулл что бы они в чате в коллективно режиме точно также поискали противоречия, оптимизация, усиления стабильности и тд.»
@@ -194,7 +194,7 @@ On PARK:
 
 ## Sandbox
 
-- **Codex (astra, astra-NN, sol-NN):** `workspace-write` with network, max effort, `service_tier=fast` (owner: «сол тоже можно на фаст»). Writable: its own directory, `~/.config/a2a-swarm`, the launch cwd.
+- **Codex (astra, astra-NN, sol-NN):** `workspace-write` with network, max effort, standard service tier. The owner removed fast mode after it burned about 9% of a weekly quota in 15 minutes: «давай везде уберем фаст режим». Writable: its own directory, `~/.config/a2a-swarm`, the launch cwd.
 - **Claude (fable, opus):** `dontAsk` with an allow-list: reads of the sources; `a2a`, `git` and read-only shell; edits only in your own directory.
 - **Muse (wonder):** `muse exec` with its OS sandbox. Writes only in its own directory; network enabled for `a2a` and `git`; web tools disabled. Its `a2a` state lives in `A2A_CONFIG_DIR` inside its directory.
   - Host rule R246 applies. Never run `muse login`, `logout`, `auth` or any store-touching subcommand.

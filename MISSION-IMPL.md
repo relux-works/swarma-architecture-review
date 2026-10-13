@@ -80,4 +80,4 @@ Hosts and runners: the operator's Mac mini (agents, platform services; currently
 
 **Writes.** Use `impl/` in `relux-works/swarma-architecture-review`. Commits are signed, with `git pull --rebase` first; never force-push. Section files avoid write races. Only the assembler edits `PLAN.md`, and only the Opus seat edits `PLAN.ru.md`.
 
-**Rounds, waits, sandbox and hard rules.** As in `MISSION-3.md`: docs-only, no builds, tests or spawns, no web, no credential stores, and no secrets anywhere. Codex seats run max effort in fast mode.
+**Rounds, waits, sandbox and hard rules.** As in `MISSION-3.md`: docs-only, no builds, tests or spawns, no web, no credential stores, and no secrets anywhere. Codex seats run max effort on the standard service tier (fast mode removed by the owner).
