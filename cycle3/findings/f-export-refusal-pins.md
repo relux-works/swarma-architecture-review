@@ -46,7 +46,9 @@
      - Fence, account-wide absence and export then repeat. A repaired export is a new, complete export, never a partial result turned into success.
      - Repair is forward work, not cleanup. It needs valid current work authority and a separately admitted continuation. It never inherits cleanup-only authority after expiry, and never lifts R-ALLSTOP, restore or other security holds.
      - The refused result and its export effect stay immutable terminal evidence. Each repair turn and each re-export gets its own linked execution and effect identity, so a changed tree is never replayed under an already-terminal export.
-     - The refusal evidence should list the offending entries up to a published bound, not only the first `offending_path`, so one repair turn can converge.
+     - Each repair is a new fenced round on the same workspace under the same rules. Account-wide absence is confirmed before each export. The workplace write fence and the SSH ingress fence of `f-workplace-relay-quiescence` stay closed from quiescence through export, and reopen only for the repair turn.
+     - The repair budget is fixed in the admitted plan and counted per round. When it is spent, the obligation stays retained and the per-act waiver is the only exit. Nothing is discarded automatically.
+     - The worker learns only the refusal class and offending path(s), as a letter or task snapshot, never a partial change set. DP7 reports one `offending_path`. Listing offending entries up to a published bound is an optional schema extension that would let one repair turn converge.
      - This publishes the currently missing "continue the same workspace after round end" step.
   3. **Disposition of refusals that persist after repair: an explicit owner choice.**
      - (a) **Per-incident widening waiver**, as today. The file then records the operator-presence lever plainly as an accepted cost.
@@ -65,6 +67,7 @@
   - Listing offending entries carries worker-controlled path strings, but only to the caller and the worker. It is not retirement metadata, so F-1's closed metadata schema is unaffected.
   - Option (b) needs an owner decision and its own record format.
   - Pinned caps make cap changes take effect only for newly admitted rounds.
+  - Residual: a hostile worker can spend the whole repair budget and still end at the operator act. With (a), the per-round operator cost is bounded, not removed. After expiry or revocation, a refused round can only be waived unless the owner designs a pre-authorised repair.
   - No change to unknown-versus-absent handling, whole-export refusal semantics or retention of partial or unknown exports.
 - **Affected specs:**
   - dispatcher §§3.2, 5.2, 5.2.1, 5.4, 7.1, 15, 16 question 22 and `diagrams/workspace-transfer.puml`;
@@ -82,5 +85,9 @@
     - `ivmbp_swarma-review-3_astra-11` (dispatcher), `$nl26m2aohn8r3LAPoRc4Y4NY27bDofBHMVSmOxM44uY`: the refusal branch at 74687e6 still retains the obligation. Automatic refusal-as-discharge would change R-TRANSFER policy.
     - `ivmbp_swarma-review-3_astra-15`, `$iPgsnZk04KFk7bdUcamn0-E5R1OhPW7D_n4DYOGCQWc`: §5.2.1:345 is explicit. A retained standing workplace consumes per-node allocation capacity. A standing disposal policy is an explicit owner choice. Adopted.
     - `macmini_swarma-review-3_astra`, `$SsgqTO6O2HqjnxxKdeM32AG5MnyvTjDkD9jTBqZtl3c`: the revised scope is sound, provided repair needs current work authority and a separately admitted continuation, and each repair attempt keeps its own linked identity. Adopted.
+  - Repair conditions:
+    - Core astra `$jnz7HHnTum7RT7QM9cYEvDcLnsVH819bUML35urdQ0c` and fable `$FSdi6bteNi6f3trnJErYV-t2k2jtanpYFxtUdu0KyJA` agree that a standing discard policy is a new owner decision. Fable gives four trust conditions for bounded repair.
+    - astra-11 `$NF8TgtoJXQSRXsoxGbBN5dYKOzGxRy7sI39YAZ6afiw` and core astra `$NIaADAY8eakcWzQ6A1ssPI_Q4FiBxv66eIslPTySVLw` refute repair as cleanup continuation: repair runs the worker, so it is forward work needing current authority. Fable accepts this in `$xugOcXWdEFyy08f7zibiG_1Z1u1x1B6jAfSb_1o3Xrc`.
+    - The remaining conditions (fenced same-workspace round, plan-bounded per-round budget, class and path only) are adopted above.
   - Proposal `$vc7Ie_X8ANWJBL1F5LoJQl53zBXFE26UYLtQG01UiZs`; review request `$RGmGgkoCjCjzQpUL-DCUwmBBuhwlBdJoGwR_4vP12Oo`; revised scope `$SvuheVv1VzWhXIEADzqrUyEVNSHbcbhkm_AHAHGtaHg`.
 - **Status:** proposed. Revalidated against dispatcher wave 5b `74687e6` and user-manager head `3da62ad` on 2026-10-13. DP7 made the retention explicit (§5.2.1 line 345) and classified the waiver as widening (§3.2 line 114). The confirmations were given against `19a75e63`, and the problem is unchanged. UM7 remains pending.
