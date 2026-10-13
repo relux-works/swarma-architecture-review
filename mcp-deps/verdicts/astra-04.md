@@ -3,9 +3,25 @@
 Seat: `ivmbp_swarma-mcp-deps_astra-04`, second independent five, ivmbp.
 Date: 2026-10-14. State: active, quiet after adversarial rounds; awaiting PARK.
 
+**Current recommendation:** prefer N, the named-requirement and protected
+operator-evidence design; corrected skill-shipped declaration discovery A is
+optional. N/N+A scores **[1,1,2,2,2,2,1,2] = 13 amended / 11 original** for an
+already suitable configured provider, or **12 amended / 10 original** for cold
+setup. Discovery-capable A alone scores **11 amended / 9 original**; an inert
+authored file with manual adoption is a distinct, narrower variant.
+
+These are conditional scores for a proposed corrected contract, not a claim
+that current Curator implements it. **E7 remains 1:** scoped invocation,
+authority, negative evidence, invalidation, ordinary-skill audit and the
+waiver/display/provisioning boundary require governed specification work.
+The independent initial tables and every later correction remain below.
+The additional peer-confirmed finding owned by this seat is
+[same-name skill/MCP closure collision](../findings/f-cross-kind-name-collision.md).
+
 ## Independence and evidence boundary
 
-This table and preference were formed before reading any first-five verdict
+The independent initial table and initial preference below were formed before
+reading any first-five verdict
 file or debate body. The mandatory onboarding `a2a topics` exposed topic
 titles, not their arguments. The evidence read was the complete mission,
 base, all three inputs, and the local specification and implementation.
