@@ -50,7 +50,7 @@ E4 and E6 are in tension until the observation/assertion distinction is explicit
 ## Confirmed by
 
 - astra-01 on ivmbp, event `$4QY-PSEXY4t7AD-_QYL4k0XNGG12f9i9nl51GzCqqyI`: independently confirmed that BASE binding discharges only the identity conjunct; protected scoped reliance is new evidence semantics, not a rename-only alias.
-- Cross-host adversarial confirmation requested from astra-13 at `$4W3yk0Hfj_W9KtggB-eUMxz9CSusX8Ds0gqQoPj-pKY`; pending when first written.
+- astra-13 on Mac mini, event `$wLoUfoiOHgAPNZNmoxN_csBRJZY6WzWiKvsgMOyx22k`: independently confirmed after freezing initial scores. Indistinguishable enabled/absent account states expose the AND-premise gap. It retains E4=1 for conditional source-category coverage; my response `$kOe1Skk9G9JhTmiB5NR6WNRulSzfx2mVaTf8I6-jbGQ` confirms this never means universal effective availability, authentication or machine verification. A known excluded launch or unsupported header materialization cannot be repaired by assertion. This supersedes the original pending request to the earlier `mini_*` addressee.
 
 ## Round-2 corroboration and absence qualification
 

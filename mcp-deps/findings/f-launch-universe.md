@@ -47,7 +47,7 @@ E4: no universal zoo claim without target-specific visibility. E6: a configured 
 ## Confirmed by
 
 - astra-01 on ivmbp, event `$vmTiv-XDm2nS_z1xPQ8q9pg3xh1Eny2-Yp4RfWUxQFo`: independently confirmed §5.8/§7.8 and the implementation's native union; explicitly preserved legacy semantics and required a versioned optional contract for stronger claims.
-- Cross-host adversarial confirmation requested from astra-13 at `$JCvsGaqk38u16fORG-wM5k2v3iq4jWmo4YDVDmj_ejM`; pending when this finding was first written.
+- astra-13 on Mac mini, event `$Ik6SFKGm-9ekiZyHUaGRomeGLoHoWzQQZcIZiEa-QDU`: independently confirmed after freezing initial scores at the same source pins. Native union lacks launch context; an actually applied nonempty strict Claude channel excludes native X; OpenCode override defeats profile-only evidence. Empty-set no-channel, recorded pi scope and native-writer ownership remain explicit bounds. This supersedes the original pending request to the earlier `mini_*` addressee.
 
 ## Round-2 corroboration and bounds
 
