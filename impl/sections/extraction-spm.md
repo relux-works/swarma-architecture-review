@@ -67,6 +67,8 @@ The concrete board references are `skill-project-management@19bfb961:.specs/spaw
 
 ## C1 cutover and rollback transaction
 
+An as-is SH1 C1 transaction uses the host's **existing board maintenance and replacement controls** (SH:120). Reusing the operations sequence does not require the future R-OPERATOR/dispatcher/helper/ledger protocols before this library cutover. Apply those additional contracts when the operation actually upgrades or activates their platform services; an explicitly combined migration must name and satisfy both sets of gates.
+
 The paired release manifest names board build, immutable module tag, wire/goal/storage versions and permitted reader/writer pairs. Keep the board build stamp in the daemon version and report the host identity separately.
 
 Before stopping the daemon, close **every** affected-board entry path: wrapper auto-start, scheduled/recovery starts, active board runners and operator entry points. Hold and recheck exclusive state ownership throughout snapshot, binary swap, start and health verification. A late old client must not recreate the old daemon; quiescence failure postpones C1. Test all four old/new wrapper/daemon pairings in disposable environments.
@@ -137,3 +139,4 @@ Do not build a second task-board server, a universal plugin bus, a new goal ledg
 - Its complete-section review `$XGpXXHqhqF6yMDNpbn12CRi2hihb72WNF-WkwXE7e9U` confirmed those changes and requested the ordinary successor-budget exhaustion trace. SH7:196 and the cited DP7 rows were independently checked; that existing invariant is now explicit without adding a standing runtime deadline.
 - Sol-01's cross-lens review, event `$jBp8cohzvqmVPbouFxug4F7c2fId9G0V0rihTfUAWsE`, and astra-01's integration-boundary question, `$QP5fubfE-2YWEMqdEejQa08VMHjdFcj_IX4q4LZcjEk`, sharpened the v1 service-readiness dependency and separated disposable SH2+ qualification from production C1. The cited SH7 authority, renewal and readiness gates were independently checked.
 - Astra-11's first-workspace subset refinement, `$j3NdAD_rxWtUYvRLm7TJxE8rl4WbMLeDTblt2AtNdp4`, was independently checked against SH7:143–144,288 and confirmed by lens 3 in `$HGXDgYyd31xSLvlmp1C0cZHyMWEqHMQBww-j3b4Hse0`. It preserves full local custody before workspace use while keeping the board-delivery chain optional for generic H.
+- `c-sh1-maintenance-scope` (`$ETVCNt0YP30hryxLdds_iHYdYAgMzcC7h5mI4BAHdjA`) separates current-runtime C1 controls from later platform act/absence protocols, retaining every C1 proof. Lens 6 independently confirmed against SH7:114–128 at `$lxbL-K9ubAS-yz6ffzdAHw8jeK8zGqvox4PRAzRfqHE`; lens 3 independently checked the same source and incorporated its applicability wording above.
