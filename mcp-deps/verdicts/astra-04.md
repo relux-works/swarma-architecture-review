@@ -308,3 +308,32 @@ literal selector. Mandatory source/grade/project-trust wording is also the
 condition astra-01 restated in `$HnQx55ESGlKJve3rRFkDGFGlk152er2pU3iDqayvjsY`.
 These clarifications leave my current N/N+A score at **13 amended / 11 original**,
 with **12 amended for cold setup** and no runtime certification claim.
+
+### Optional-A discovery and audit qualification
+
+I independently confirmed astra-01's later clarification in
+`$hKtj6U7xrnori2tj3Kux8CPOM6OoWY1HhVtumWKoax4` against the same source pin.
+Environments §2.2:551–559 refuses a path-kind MCP closure member. A declaration
+inside a path-installed skill can therefore be informational only; it must not
+be presented as an executable recipe for existing profile adoption. Separate
+manual/native provisioning is a different lane.
+
+Manager §7:1167–1171 and environments §9.1:2302–2319 require the
+`context-secret-material` detector for profile/context-MCP snapshots. They do
+not explicitly impose that declaration-specific detector on an ordinary skill
+root. A manager feature that discovers and advertises a skill-root declaration
+needs an explicit audit scope and value-free diagnostics, with its ordinary
+skill-lane severity, waiver and admission semantics stated. It cannot silently
+inherit unconditional strict profile admission or turn malformed optional
+metadata into a new skill-install failure. Pre-admission output remains safe
+metadata only; actual MCP adoption independently passes existing profile gates.
+
+This narrows the meaning of my A-only table row: **12 amended / 10 original**
+is the inert authored file plus existing manual adoption and legacy checking,
+whose declaration syntax is already specified. For **manager recommendation
+discovery plus the unclosed skill-audit extension**, E7 is **1**, giving
+**[2,2,2,0,2,1,1,1] = 11 amended / 9 original**. Syntax reuse does not make
+the whole new discovery contract specified. Neither form covers the full zoo.
+Preferred N and optional A+N remain **13 amended / 11 original** because their
+E7=1 already budgets unfinished operation and scope contracts. This is a
+disclosed qualification of an alternative, not a new finding or preference.
