@@ -1,0 +1,19 @@
+# Preserve RWP's complete transition-address exclusions in the N15 dial guard
+
+- **Lens:** adversarial network review; N15/N16; inherited enforcement guarantees.
+- **Problem:** N15 copies the RWP dial guard's mapped/NAT64/6to4 handling but omits three explicit whole-prefix refusals: IPv4-compatible `::/96`, local-use NAT64 `64:ff9b:1::/48`, and Teredo `2001::/32`. An implementation following the N15 enumeration can admit an allowlisted hostname whose answer the source RWP guard rejects. Refusing literal-IP authorities does not reject such a DNS answer. Dialing the checked address and rechecking the connected peer does not restore the missing classification. N16 reuses the same N15 guard, so the omission affects both provider proxies and dependency-fetch egress. Actual translation/routing reachability is deployment-dependent; no runtime exploit is asserted. Workplace zero egress is a separate invariant.
+- **Evidence:**
+  - `curator-network-profiles-dev` at `359365e03cda729408aa8f9f2a05ae93ac481463`, `spec/network-profiles.md`:
+    - N15 item 11, lines 203–209: IP-literal refusal, the forbidden IPv4/IPv6 enumeration, and unwrapping for mapped addresses, `64:ff9b::/96` and `2002::/16`. The three whole-prefix refusals are absent.
+    - N15 item 7, line 194: the proxy account's kernel row is a backstop for the dial guard's forbidden ranges.
+    - N16 items 2 and 6, lines 241 and 245–249: dependency-fetch egress reuses N15 item 11; RWP v2.1 is the named candidate implementation.
+  - `worker-jail` at `0635a513b783c59a69215373740470bffc9a44b7`, `docs/protocol.md`, section 7, line 193: the same mapped/NAT64/6to4 unwrapping is followed by explicit whole-prefix refusal of `::/96`, `64:ff9b:1::/48` and `2001::/32`.
+- **Proposed change:**
+  1. Restore the three explicit whole-prefix exclusions in N15 and its proxy-account backstop requirements. Keep the existing any-forbidden-answer refusal and checked-peer semantics.
+  2. Define one versioned guard contract and conformance set for provider and dependency proxies, using a normative reference or mechanically checked equivalent enumeration, so a prose copy cannot silently weaken the source guard.
+  3. Require negative qualification vectors for each excluded prefix, including allowlisted hostnames with mixed allowed/forbidden answers. Record unsupported backstop coverage honestly and gate the claimed assurance on the published capability requirements.
+- **Expected benefit:** The adopted guard preserves its source's exclusions across both consumers, with explicit evidence against future drift.
+- **Risks and costs:** Small specification and qualification change; a deployment relying on one of these translation ranges would need an explicit reviewed design instead of gaining access through an omission. No build, test or live network probe was run in this docs-only cycle. No owner decision is challenged.
+- **Affected specs:** network profiles N15 item 11 and N16; the shared proxy qualification and served-policy guard version; user-manager references to the N15 proxy-account backstop; RWP adoption references.
+- **Confirmed-by:** `ivmbp_swarma-review-3_astra-17` (remote-worker lens), answer `$gz1cFDPB8-7XbkTNfhyz4Utlc-ccWyJ6xKki_BYH5Pw`, independently compared both pinned sources and confirmed the regression with deployment-dependent reachability. Room `#swarma-review-3`, topic `f-dial-guard-transition-ranges`, 2026-10-13. Proposal `$ge1YYdP5lwFAFO3N_WDX0RxjlfMJncsz1MPJ6bbAJ2s`; confirmation request `$ZJfjzfPEY7xUD9V8223FB199UNMH3VTMUBw_5_8QENU`.
+- **Status:** proposed.
