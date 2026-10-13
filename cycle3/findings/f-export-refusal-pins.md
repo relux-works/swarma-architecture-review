@@ -10,6 +10,8 @@
     - A hostile remote worker pins its own workplace: there is no next round.
     - It can also force one phone-confirmed widening act per refused round, which is a lever on operator presence rather than node capacity.
     - Honest workers hit the same pin through ordinary accidents: names differing only by case, which Linux allows, or a generated file over the cap. For local trusted children this holds the caller's allocation quota (4 by default) until the operator acts.
+    - A retained workplace still counts against the per-node live-allocation quota (16 by default; standing allocations keep live-allocation and concurrency quotas), even after its execution slot is released.
+    - No multi-placement attack by one donor, and no permanent execution-slot retention, is claimed.
   - One forbidden or over-cap entry can coexist with valuable valid edits, so a refusal does not prove the work is worthless. Retention is a deliberate safety trade-off. What is missing is any disposition other than a per-incident widening waiver.
 
   This is a lifecycle gap in a draft contract, not an implementation defect.
@@ -42,6 +44,8 @@
   2. **Bounded repair (no owner decision needed).**
      - The original caller may reopen a refused round's workspace for a bounded number of fix-up turns. The workspace is not re-materialized, so valid work survives. The refusal evidence goes only to the caller and the worker.
      - Fence, account-wide absence and export then repeat. A repaired export is a new, complete export, never a partial result turned into success.
+     - Repair is forward work, not cleanup. It needs valid current work authority and a separately admitted continuation. It never inherits cleanup-only authority after expiry, and never lifts R-ALLSTOP, restore or other security holds.
+     - The refused result and its export effect stay immutable terminal evidence. Each repair turn and each re-export gets its own linked execution and effect identity, so a changed tree is never replayed under an already-terminal export.
      - The refusal evidence should list the offending entries up to a published bound, not only the first `offending_path`, so one repair turn can converge.
      - This publishes the currently missing "continue the same workspace after round end" step.
   3. **Disposition of refusals that persist after repair: an explicit owner choice.**
@@ -74,5 +78,9 @@
   - `ivmbp_swarma-review-3_astra-19` (abuse controls), `$Ny39KoFe6Y5YCOnFsVANusVnrmiMFL3kRDPToJw4KPI`: confirms the allocation pin from the figure's refusal branch and finds no refusal/rework edge. It keeps deterministic refusals distinct from I/O, OOM and unknown outcomes, and limits the impact to live allocation, UID and home. Adopted.
   - `ivmbp_swarma-review-3_astra-15` (R-TRANSFER), `$4V0eoCqrtm2bndAUG_AkfjmYLcvVYaStLRwanyxJdL4`: confirms the liveness and abuse trace. It refutes harmless automatic deletion and proposes a standing disposal policy or bounded repair with four distinct outcomes. Adopted.
   - `macmini_swarma-review-3_fable` (trust/threat model), `$3PH4hfVA-hSicDh7K4HuuM0yebPz_7KI6_l5359fkk8`: confirms. It narrows who is pinned (the hostile worker's own workplace; the operator-presence lever) and notes that accidental refusals are a usability cost. It proposes the standing operator disposition, adopted as option (b), marked as needing an owner decision because DP7 classifies the waiver as widening.
+  - DP7 rechecks, after the revised scope:
+    - `ivmbp_swarma-review-3_astra-11` (dispatcher), `$nl26m2aohn8r3LAPoRc4Y4NY27bDofBHMVSmOxM44uY`: the refusal branch at 74687e6 still retains the obligation. Automatic refusal-as-discharge would change R-TRANSFER policy.
+    - `ivmbp_swarma-review-3_astra-15`, `$iPgsnZk04KFk7bdUcamn0-E5R1OhPW7D_n4DYOGCQWc`: §5.2.1:345 is explicit. A retained standing workplace consumes per-node allocation capacity. A standing disposal policy is an explicit owner choice. Adopted.
+    - `macmini_swarma-review-3_astra`, `$SsgqTO6O2HqjnxxKdeM32AG5MnyvTjDkD9jTBqZtl3c`: the revised scope is sound, provided repair needs current work authority and a separately admitted continuation, and each repair attempt keeps its own linked identity. Adopted.
   - Proposal `$vc7Ie_X8ANWJBL1F5LoJQl53zBXFE26UYLtQG01UiZs`; review request `$RGmGgkoCjCjzQpUL-DCUwmBBuhwlBdJoGwR_4vP12Oo`; revised scope `$SvuheVv1VzWhXIEADzqrUyEVNSHbcbhkm_AHAHGtaHg`.
 - **Status:** proposed. Revalidated against dispatcher wave 5b `74687e6` and user-manager head `3da62ad` on 2026-10-13. DP7 made the retention explicit (§5.2.1 line 345) and classified the waiver as widening (§3.2 line 114). The confirmations were given against `19a75e63`, and the problem is unchanged. UM7 remains pending.
