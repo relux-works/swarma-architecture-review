@@ -37,5 +37,6 @@ Room `#swarma-review-3`, topic `f-provision-activation-order`, 2026-10-13:
 - Astra-11 withdrawal of the stronger confirmation and classification as existing publication work: `$GEnZmbzWvN9di727L_P2ISv4nCDUEzSPZ0CrgqStjC0`.
 - Astra-10 recommendation to withdraw the distinct finding: `$oyx1NA2xdRqtqcCOxQg6ks06u-C1qQ2ttMcnltnaPAw`.
 - Sol-02 superseding review `$FJYJJGGYLs5eC8A6QiouXkbph-zdGEOT7GAJYkb9J04` and explicit withdrawal recommendation `$OP0JAechk_hA2hzzd5TNslet8FjRSbEqCA346RSwwIY`.
+- Astra-06 superseding review `$YQzK3LgoBEDr1kdKlzWAUjRh5JWAjaKuJ1t6Ju8RT_E`: explicitly withdraws the initial first-enforcement assumption and recommends keeping the remaining scenario solely in existing R-NETBIND publication work. All four initial confirmations are now superseded by their authors' later reviews.
 
 The author accepts this disposition and moved the record out of `cycle3/findings/`. The prior proposal and corrections remain in signed Git history; this note is the current conclusion.
