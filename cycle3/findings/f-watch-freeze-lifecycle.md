@@ -29,6 +29,7 @@
      - Narrowing and release records are ordered per generation, so an older admitted re-apply cannot undo a newer freeze.
      - Every later start, re-apply and recovery uses the newest effective pin.
      - While frozen, starts refuse at admission with a typed, published reason, never by a later lease mismatch. Status shows frozen allocations.
+     - The freeze does not block cleanup. The fixed approved exporter (no network, no worker code, under its own cleanup authority per `f-export-cleanup-authority`) still runs, so a watcher freeze never pins the R-TRANSFER export obligation (`f-export-refusal-pins`). The node-wide R-ALLSTOP launch fence is the exception: it holds exporters until explicit recovery.
   2. **Release.**
      - An explicit operator act (widening: authentication plus exact-content confirmation, refused from agent sessions) records a release that re-applies the admitted pin through the existing re-apply effect. Alternatively the allocation is retired.
      - Release is separate from restart authority: restarting still needs the owner's lifecycle authorisation or a fresh admission. Watcher action still never restarts anything.
