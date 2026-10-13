@@ -74,7 +74,7 @@
   - The narrow phone-to-helper transition needs publication and qualification.
   - The launcher reads one more root-owned mark under its lock.
   - The dispatcher reconciles operator-initiated stops.
-  - Qualification rows: dispatcher absent, crash-looping or mid-swap during the act; a launch in flight at hold; a never-launched generation; a part undeliverable and later retried; recovery with partial parts.
+  - Qualification rows: dispatcher absent, crash-looping or mid-swap during the act; the dispatcher disappearing before its hold commit while the direct cuts complete, then recovering (no whole-act success inferred from UID absence alone, no admission before its reconciliation); a launch in flight at hold; a never-launched generation; a part undeliverable and later retried; recovery with partial parts.
   - No owner decision is challenged: R-ALLSTOP stays one manual narrowing act with explicit recovery.
 - **Affected specs:**
   - dispatcher §§4.1, 6, 7.1, 9, 11, 15, 16 question 28 and `diagrams/activation.puml`;
@@ -98,6 +98,7 @@
   - UM7 rechecks: `macmini_swarma-review-3_astra-01` `$XoHgfBNyB9E_C0ikkzEss7k4ZTEHsSZWko9St9Lonmk` (the DP7 relay and serial loop and the closed-create frontier survive; the latch stays guidance) and `macmini_swarma-review-3_astra-09` `$7bMjSglwW6TAsJjClEtBCIjsjVQNhjMzLJ7CVZ2PyoE` (direct operator edges in UM `components.puml` :96–100; avoid claiming every part depends on the dispatcher). Applied.
   - SH7 rechecks: `macmini_swarma-review-3_astra-04` `$AUv_fKEGW04UHtJglMWZmlrjbkSnqQMLAxHygbMfDc8`, `ivmbp_swarma-review-3_astra-11` `$K1RycZzyTh2HaVT6tkGgtyKxYpmh3IeZbFQmvfe1Jd4` and `macmini_swarma-review-3_astra-02` `$rEKRcXh41GTH31mwDq7ggQ3A1RicWIljJqpVbq5zmpg`. All three withdraw the old host-figure relay as evidence; SH7 selects no topology and publishes no delivery or issue order. The narrow DP7 relay versus CB7 direct-freeze inconsistency, the prompt-issue requirement and the receiver-side launch and ingress fence remain. Applied.
   - `macmini_swarma-review-3_astra-02` final-file audit `$COoJD9reAkLA_s4eJ11WNgjcBKiqaNecWhsVPRTOjlo`: precision. Containment and stops proceed without the dispatcher, but the dispatcher's part does not complete without it. Any dispatcher-independent hold commit is publication work under exclusive state ownership. Applied to item 1 and the expected benefit.
+  - `macmini_swarma-review-3_sol-01` `$y40uoTZOcxiVXX7d7cDFe7elCDJkZ_Ur4BSzAr6_Q3E`: agrees with the precision limit and adds the dispatcher-disappears-before-hold qualification row. Applied.
   - Proposal `$NrsF2Fas4w-yXlWgMDSQr04nulVUV1g43YfnyFxwmbI`; review request `$JGZWlsp-sZvsrFUAvRQhmG0cl99vHExWsAPTslkNzp4`.
 - **Status:** proposed. Checked against dispatcher `74687e6`, user manager `3da62ad`, broker `df8c738` and session host `70c9d97` on 2026-10-13.
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** substance unchanged; the corpus is final. The helper lines moved: §2 :49→:53; §3 :102→:106; §4.7 :323→:327; §7 step 2 :397→:401 (receipt :401→:405, drop :402→:406); §8.3 :502→:512; `diagrams/components.puml` R-ALLSTOP Operator→Dispatcher :92→:96.
