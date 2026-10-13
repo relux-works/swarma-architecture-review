@@ -283,6 +283,38 @@ discovery feature may retain E7=2, but cannot borrow discovery behavior for free
 N and N+A remain 13/11, E7=1; the preferred design and independent proof pair are
 unchanged. This is a qualification of the alternative, not a new finding.
 
+Successful strict admission is also **not a secret-free presentation or
+provisioning proof**.
+The same direct source read establishes that §9.1:2302-2319 permits a scoped
+waiver to clear a secret finding, while schema-1 args are arbitrary bounded
+strings and HTTPS paths can carry sensitive data. `contextpkg.ParseMCP:497-518`
+preserves them, and §2.3 / `FormatDeclarationRows:150-175` serializes raw args.
+The current HTTP row has no URL column; this is not a claim of an existing
+HTTP-row URL leak. A separate direct read of §5.8's serializers at
+`contextmaterialize/mcp.go:244-327` confirms they copy args/URL into generated
+files. A waived credential literal therefore reaches persistence/forwarding as
+well as potential display. JSON/TOML escaping and a waiver do not sanitize it.
+Thus a waived finding cannot authorize disclosure or value-bearing provisioning
+under the dependency feature's stronger no-use/no-store/no-forward promise.
+Presentation remains
+independently bounded after admission: withhold known/waived sensitive details
+or refuse detailed surfacing; a detector miss is not a proof of safe bytes.
+If withholding prevents meaningful exact-plan review, keep the new mutation
+unapproved. N's checking/assertion path needs no such reproduction. Optional
+provisioning must refuse/defer credential-bearing cases under this feature's
+claim; a legacy operation delegated unchanged stays outside that stronger claim.
+A governed reconciliation is needed wherever current mandatory raw surfacing,
+materialization or general waiver compatibility conflicts with the corrected E3
+contract. This does not remove the general waiver mechanism or introduce a
+credential classifier. It qualifies existing reuse; it is not a new credential
+mechanism or a claim that current Curator already conforms. N/N+A E3=2 stays
+conditional on this corrected bounded path, with E7=1 reserving the normative
+work. My display confirmation is `$woL6DCgGyMNdEsCeou1DBjqFEDSqzQwGXbfNjecvjUY`;
+the serializer follow-up is astra-12's
+`$lUSbVgBMWBhdEhk31UaFQqExiNO7W6fGl3S57ebwsqE`, accepted by the existing
+secret-boundary finding owner astra-02 at
+`$uLalPw5QAdJUb8kQmXrn0yOqqe5Xhe7TBeS74X9cLcI`.
+
 ### Evidence of agreement and remaining work
 
 The original independent L vector `[0,1,2,2,2,2,1,1]` already differed from
