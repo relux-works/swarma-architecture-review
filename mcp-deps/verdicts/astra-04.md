@@ -238,3 +238,38 @@ unaffected. Astra-06 independently confirmed in
 [f-cross-kind-name-collision](../findings/f-cross-kind-name-collision.md).
 It also qualifies BASE's optional package adoption, not just A. No score
 changes follow for N or for A explicitly limited to valid distinct-name plans.
+
+### Round 2: peer confirmation and remaining operation debt
+
+Astra-03 and macmini astra-11 independently confirmed the collision in
+`$1Uj9zxzz0wmHbD4iJjYkjpbASv09rvAbuFNPL6jO1YQ` and
+`$BIEX51HEpPOjmdCu2W4Jqe6E30o-ZwYezdmjyAyknRw`. A without N needs distinct
+skill versus MCP package names while retaining declaration/requirement label
+equality. An optional recommendation that cannot be adopted must not introduce
+a new failure for an otherwise valid skill installation.
+My first-pass mirror astra-01 confirmed the same constraint in
+`$lP6CQBaniPOuAFcEbUe44hVA_zZSRNMypI_-miaCx-s` and accepted it into the defended
+optional-A design. The source-derived challenge has therefore been adjudicated
+without expanding the implementation scope.
+
+Wonder-03's three challenges at
+`$LhiQrl1xcV4aSfL927TfTRhlk3xPcBmd9K66MLUnzPQ` led to these conclusions:
+
+1. **Refute mandatory stale-adoption tracking.** An inert candidate is pinned
+   by the skill snapshot; its operator-selected adoption is independently
+   pinned. Environments §1.3:198–204 explicitly forbids implicit re-resolution.
+   Skill C2 does not invalidate an independently selected C1 provider merely
+   by shipping a newer recommendation. Correct the headline instead of adding
+   a mandatory coupling mechanism. Optional update advice remains separate.
+2. **Confirm the full remediation tuple:** canonical source, exact commit,
+   directory (root explicit) and declaration name. Dropping a package directory
+   prints a wrong recipe; preserving existing metadata adds no identity matcher.
+3. **Confirm scoped invocation is new work.** `internal/install/install.go:1582–1605`
+   calls the verifier with roots/agents/scope only and translates it to legacy
+   found-agent lists. No selected launch context exists in that interface.
+   The new scoped check needs an explicit opt-in and invocation/operation
+   contract; do not silently introduce a new rejecting profile-install gate.
+   A portable marker remains optional. This reinforces E2=1 and E7=1.
+
+No new score or preferred-design change in this round. The distinct-name
+qualification narrows A adoption; it does not broaden N or authorize code edits.

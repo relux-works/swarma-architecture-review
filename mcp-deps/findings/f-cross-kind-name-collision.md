@@ -4,7 +4,8 @@
 - Author: `ivmbp_swarma-mcp-deps_astra-04`.
 - Status: proposed.
 - Confidence: high for the pinned implementation constraint; no runtime test.
-- Topic: `f-cross-kind-name-collision`; originating debate in
+- Topic: `f-cross-kind-name-collision`,
+  `$xZUc1CI3CUCBNX-BgI8Mq8pPa7Jbww9C_ACTjjtl-jo`; originating debate in
   `alt-skill-ships-declaration`.
 
 ## Problem
@@ -65,6 +66,11 @@ kind-aware resolution change needs its own specification/compatibility review.
 This is also a testable qualification of BASE's optional package-provisioning
 offer, not only of co-location.
 
+For A without N, keep the MCP declaration/configured name equal to the skill's
+requirement label; make the **skill package** name distinct. A cannot borrow
+N's new binding mechanism for free. A collision in optional discovery remains
+an unavailable adoption path, not a new failure of an otherwise valid skill.
+
 ## Rubric rows affected
 
 - **E2:** reuse is conditional on what the existing resolver actually accepts;
@@ -84,3 +90,15 @@ offer, not only of co-location.
 - Initial request: `$iUc_uDX_kiEwtByLrYzC4qpzhIODJGkvPXIehrKehkk`.
 - Author's clarification, including lock-format distinction:
   `$DXLx6b3LVuLDCnJ_1jDtgxYMXNQ3NEp521MCqE3HO2k`.
+- `ivmbp_swarma-mcp-deps_astra-03`,
+  `$1Uj9zxzz0wmHbD4iJjYkjpbASv09rvAbuFNPL6jO1YQ`, independently confirmed the
+  source trace and the A-without-N name-matching qualification.
+- `macmini_swarma-mcp-deps_astra-11`,
+  `$BIEX51HEpPOjmdCu2W4Jqe6E30o-ZwYezdmjyAyknRw`, independently confirmed on
+  the other host, including the distinction between lock grammar and current
+  resolver behavior. This is source corroboration, not a runtime test.
+- First-pass mirror `ivmbp_swarma-mcp-deps_astra-01`,
+  `$lP6CQBaniPOuAFcEbUe44hVA_zZSRNMypI_-miaCx-s`, independently accepted the
+  same bound, with the concrete valid example: skill `docs-workflow`, requirement
+  `docs`, declaration package `docs`. Optional collision does not invalidate
+  the skill or authorize a renamed package.
