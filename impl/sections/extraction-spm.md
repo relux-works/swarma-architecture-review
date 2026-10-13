@@ -18,7 +18,7 @@ A separate read of spm `b2e26c038ddfe38392aa86412eb066fd12d45462`, `tools/board-
 | Move into the public module | Stay in task-board through C1 |
 |---|---|
 | The complete recursive pinned `internal/sessionmanager` snapshot, subpackages, tests, fixtures, terminal corpus, goldens and non-Go assets, with attribution and provenance | `tb-sessiond` executable and composition root; board CLI entry points and wrappers; routing and spawn runtime |
-| Provider hosts and transports, transcripts, records, notices, manager/daemon serving library and the source-derived compatibility seam | Goal ledger, board write transaction and exact-revision application/rollback binding; run manifests, ancestry, acceptance, handoff evidence and repository operations |
+| Provider hosts and transports, transcripts, records, notices, manager/daemon serving library and the source-derived compatibility seam | Goal ledger, board write transaction and exact-revision application/rollback binding; RUN manifests/events, completion hooks, ancestry, acceptance, handoff evidence and repository operations |
 | Narrowly typed injected services or neutral local implementations for outward dependencies | Board facts and authorization, feature gates, context authority and local security configuration supplied by the composition root |
 
 Inclusion is not activation: Muse code stays unregistered and the hosted scaffold stays closed in SH1. Keep Claude's exact rendered-revision acknowledgement and deferred waiter/cancellation, Codex text directives, terminal initial geometry/resize, existing attachment behavior and the file-backed notice API. Do not silently turn notice delivery into an always-on bus.
@@ -49,6 +49,20 @@ After O, each accepted upstream change has one source commit, destination commit
 Qualify deliberate mutations of projected production code, real converters and relevant guard paths: each must fail a named test, with a passing baseline. Compile failure, an unrelated failing test or absent evidence is not a mutation kill. Accept required guard-read instrumentation upstream first and pin it before relying on measured coverage. Existing live-provider and tagged opt-ins remain explicitly scoped; extraction does not claim they ran.
 
 Keep all builds/tests on the approved hosted runners. The existing owner permission for private-board excerpts in public CI logs is distinct from artifact publication: allowlisted reports only; no private checkout, candidate archives, dependency caches or raw logs in lane artifacts. Do not expose checkout credentials to an untrusted PR-triggered job (SH §2.4; gate guide).
+
+### Semantic acceptance across the seam
+
+Use the accepted freeze's existing behavior as the reference and exercise the real consumer paths at F, Z and C1. Equal JSON shapes and matching aggregate test counts are not sufficient.
+
+| Case | Required preservation |
+|---|---|
+| Goal-free session; two different BoardKeys | Open/attach/detach, terminal geometry and durable notices retain current behavior; no shared owner slot or inbox between boards. The existing entry points reach the single board-composed daemon for each board. |
+| Goal revision application | Claude exact acknowledgement, deferred waiter cancellation, failed apply and rollback preserve the authoritative owner head. Codex keeps text directives with native goals disabled. Muse and hosted admission remain closed. |
+| Child exits 0, completion hook or required outcome fails | Runner-side finalization and the role's task-scoped outcome/acceptance predicates still govern success. Host exit cannot complete the board task. Preserve distinct role-handoff and accepted-delivery branches; `failed`/`cancelled` waits stay nonzero. |
+| Durable terminal event but stale running snapshot | Repair the snapshot once from the event; do not append a second heartbeat-expiry failure or reroute the element. Retain run/goal revision history and replay cursors across the tag switch. |
+| Old/new client and daemon pairings | Exercise protocol/version and handler behavior, including requester-dependent goal admission and rollback, not just structural wire equality. A late old client never creates a second writer. |
+
+The concrete board references are `skill-project-management@19bfb961:.specs/spawn-runtime-completion.md:17–21,77–80,145–164,264–319,503–518`. At the same pin, `tools/board-cli/internal/sessionmanager/goal_apply_contract.go:23–45` explains that `Requester` changes admission behavior while the structural signature cannot detect a handler-only change. Reconcile these cases against the future O freeze; neither this evidence pin nor current local main is that freeze. This expands the acceptance description, not the module's authority over board completion.
 
 ## C1 cutover and rollback transaction
 
@@ -102,3 +116,8 @@ The spec's October 9 planning baseline is six SH1 landings F/O/G/X/Y/Z: **18–2
 Stop or narrow the extraction if the representative graph fails, parity needs unexplained test edits, a converter bypasses local policy, provenance is incomplete, the source freeze has no single integrator, required evidence is missing or consumer/schema compatibility cannot be proven. Preserve the working board dependency until those gates pass. Escalate a changed calendar/ownership decision explicitly; do not silently reinterpret it.
 
 Do not build a second task-board server, a universal plugin bus, a new goal ledger, a parallel legacy hosted receiver, a second launch path, automatic resume fallback or generic migration machinery to make SH1 look like the target platform. The useful first result is a tested public library consumed by the existing board. The useful next result is a separately qualified platform backend with one clear owner for each effect.
+
+## Section review record
+
+- Core astra independently checked the prototype limitations and separation of the extraction/release/cutover gates, event `$CLJrsMVN1g_wqrBfoQIrFL6h8FgGj3frLnQh5oIQnwk`; its requested calendar-owner/source clarification is incorporated.
+- Sol-02 independently checked the SH1 ownership, source-pin limits, complete finding inputs and retained board semantics, event `$XvhfM1BfRVh0SGzrowcUCV17yBDX7wp6xVW18NyP-hU`. The completion/replay and semantic wire-compatibility cases above were independently read at its cited pin and incorporated. Final draft review remains open.
