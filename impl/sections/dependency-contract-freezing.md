@@ -8,12 +8,13 @@
 
 The first contract freeze is the protected launch and recovery boundary. Do not wait for every remote or SH2 format. Conversely, a schema for successful launch alone is insufficient: the first consumer needs its original-caller identity, immutable arguments, durable observations, cancellation, absence, time, restore and cleanup contract before it can be enabled.
 
-Keep four facts separate in each existing publication register:
+Keep five facts separate in each existing publication register; these are evidence facts, not a new runtime state machine:
 
 1. **Decided semantics:** the owner has selected the authority or invariant. This does not publish an encoding.
 2. **Published draft:** readers can inspect concrete fields or canonical bytes. A draft may still change and may omit the surrounding lifecycle.
 3. **Frozen producer/consumer contract:** both owners accept a pinned revision, shared positive/negative vectors, compatibility rules and the required failure/recovery behavior for a named consumer.
-4. **Qualified activation:** that consumer's actual accounts, sockets, executables, OS/backend and storage satisfy the required evidence. Parser agreement and a successful model do not establish this fact.
+4. **Implementation availability:** name the actual released artifact and supported feature, including whether the capability remains closed. Publication and a frozen contract do not imply that executable code exists.
+5. **Qualified activation:** that consumer's actual accounts, sockets, executables, OS/backend and storage satisfy the required evidence. Parser agreement, a released artifact and a successful model do not establish this fact.
 
 For example, DP7 publishes DRAFT `swarma-dispatcher workspace-result/1`; it does not publish the complete archive, manifest, intake, transport, retention or cleanup contract. R-START already removes launch tickets; a stale register must not turn them into future work. Muse C7 priority is decided while the proposed subscription channel and its qualification remain open. These distinctions belong beside the authoritative owner reference, not in a new central service or independent normative schema catalogue.
 
@@ -62,12 +63,15 @@ flowchart LR
     N --> R
     T --> R
     Q[Workplace ingress and donor protocols] --> R
-    E[SH1 source proof and accepted tag] --> H[Hosted-session contract and H activation]
+    E[SH1 source proof and accepted tag] --> H[Qualified H activation]
     C --> H
     N -->|qualified v1 host row and resolver| H
+    W -. workspace input .-> H
+    T -. board code-delivery integration .-> H
+    H -. if selected as MVP host .-> M
 ```
 
-This is a technical dependency graph, not a change to the adopted S0/S1/S2 release order. S1 and S2 publication/implementation can proceed in parallel after shared contracts stabilize. An earlier S2 release while C4 remains blocked requires the explicit disposition identified by lens 1; a graph must not silently authorize it. S1 is a completion dependency of the recorded Claude-and-Codex MVP. Every target H consumes the qualified v1 host row/resolver contract; T applies when that host uses workspace flows. Neither requirement follows merely from the milestone's name.
+This is a technical dependency graph, not a change to the adopted S0/S1/S2 release order. S1 and S2 publication/implementation can proceed in parallel after shared contracts stabilize. An earlier S2 release while C4 remains blocked requires the explicit disposition identified by lens 1; a graph must not silently authorize it. S1 is a completion dependency of the recorded Claude-and-Codex MVP. Every target H consumes the qualified v1 host row/resolver contract. Workspace-bearing H needs W's complete lifecycle/custody; full T applies only before the actual board code-delivery integration or claim, and remains required for A. H is a dependency of S0b only if it is the selected MVP host. The board remains optional for generic hosted sessions, including that selected board-free MVP consumer (SH7 §3.8).
 
 **Resolve the first-plan branch explicitly.** LR6 `SPEC.md:1757–1765` currently requires a workspace section in the composed plan. A non-workspace protected proof is the smaller first consumer only after launcher/dispatcher/helper/broker owners publish an admissible intake case. Do not guess null members or rename a coding workspace “scratch.” If that contract is not selected and published, W's materialize/stop/fence/distinct-execution/cleanup/refusal/durable-result-custody subset is part of S0a acceptance. Full T later adds board import, candidate-wide review, verification and external effects; S0a need not wait for landed code merely to retain a complete export safely. The graph therefore does not require S0a → complete T → S0a. A first workspace may be trusted and local; remote-A timing cannot excuse missing export/cleanup.
 
@@ -132,3 +136,5 @@ Initial lens-2 evidence from astra-02: `$KSa_po_cBIWzmLyNWDB5ErS_rSnU3YVtBi7zHAj
 Applied lens-3 draft review `$AefQbvcy9x_RObxgFk-idh5J-QsVyOZAUcADsf5P2yc`: S1 → S0b, mandatory SH7 :136/:140 service boundary, and first-use service-output budgets. Rechecked wiki `87f387d:decisions.md:535` and SH7 directly. The `c-slice-zero-scope` resolution `$k3xp8q5XArIJ1-Er21jJExBUdiA9iZGde-yyZdIWFw8` has confirmations from lenses 1, 2 and 5; its W-versus-complete-T precision is `$3_KbdX8x2NPo7pBUKYqR2A91u6MpfwROZvUoftfegbs`. Those resolved requirements are incorporated here; later draft review can still refine implementation ordering.
 
 Applied astra-20's first-workspace book deadline and first-use scope precision (`$73f5B4m9IbiDojrrBBdPI0qUqHRQ2XK4fs1xgbWyE4Q`). The separate live-provider lab dependency comes from `c-live-provider-qualification`, refined at `$Hhv0bgHpWDVyDKwQeFAMMEgYPb7hSfarf-ToY8qW1xc`, confirmed by lens 5 at `$OoP4Y0bH-foymN5Laf8T4JXC_Xn4rkBh3P8cDm3kmZw` and lens-4 pen at `$D6ZlcAc8Je0rBPO1sD3f4vLOyuYqe7OQIJ7xfwnzNoY`, and requested by astra-02 at `$9ZeO6YvLMXQC0sFH_qVx-lxK0V3-oxPbOfJrAMSNjbY`. Directly rechecked UM7 §12:548, CB7 §9.5–9.6 and CIP-0010 :172–176; missing lab authority/evidence blocks dependent live acceptance while synthetic and contract work proceeds.
+
+Applied astra-02's follow-up `$xeQUkDYAa48YsKGbnGKv5YxZsQ5GxX-_iqi5oMdHKPs`: implementation availability is separate evidence, and W versus full T also applies to generic workspace-bearing H. This agrees with lens-3 confirmation `$HGXDgYyd31xSLvlmp1C0cZHyMWEqHMQBww-j3b4Hse0`; SH7 §3.8 keeps the board optional. Lens-5 review `$oeLykTMRbH9OvzXs0CQmEYRv22P5oKR8SZIJshiOqF4` is reflected by the conditional H → S0b edge.
