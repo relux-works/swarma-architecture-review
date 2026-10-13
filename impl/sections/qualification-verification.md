@@ -124,6 +124,8 @@ Before enabling any proposed provider-limit automatic recovery, publish its reas
 
 Optional web, alerts, generic delegated actions, Muse subscription, keeper automation and donor B each have their own gate. Default-off capability is an honest bounded stage, not evidence of successful qualification. Muse C7 priority is decided; channel and qualification remain proposed/open. Donor B waits for its separate provisioner and coherent harness/bridge/provider/refresh/control principal table. No new project-helper donor verbs, implicit loopback exemption, project-side donor credentials or software key downgrade is inferred.
 
+The donor provisioner is B-only; the selected native-control transport must qualify for every affected B/C tuple. CIP-0009 D2 applies the socket-restricted sandbox to C as well as B, while CIP-0008 R3 selects Codex's loopback app-server. Publish the admitted listener/client path or qualify an alternative before that tuple starts; do not postpone a C socket requirement under a B-only label. A keeps its own qualified channel and explicit lack of donor OS isolation.
+
 ## 7. Cycle-3 disposition coverage
 
 The assembler owns the complete finding ledger. This table identifies the qualification effect of every current active slug; it does not renumber, merge findings or adopt separately proposed owner policy.
@@ -145,7 +147,7 @@ The assembler owns the complete finding ledger. This table identifies the qualif
 | `f-review-harness-surface`, `f-rework-inherited-flags` | T review: inert data first, separately qualified discovery exclusion where needed, cumulative baseline-relative acknowledgements and fresh exact-C verdict. |
 | `f-verify-network-phase`, `f-landing-egress-principal` | T runner/transport: inert fetch → externally offline execution, exact request/result consumption, actual performer/custody/route and per-effect checks. New daemon/service row only if chosen topology needs it. |
 | `f-workplace-relay-quiescence`, `f-donor-signature-algorithm` | A: explicit relay/start/ingress lifetime and A/C worker signature-suite interoperability; account-wide absence stays valid through export. |
-| `f-donor-egress-principals`, `f-donor-provisioner-register` | Before B activation: separate provisioner, principals and restricted provider/refresh/native-control routes; A is not evidence for B. |
+| `f-donor-egress-principals`, `f-donor-provisioner-register` | Before B activation: separate provisioner and coherent principal/provider/refresh routes. The native-control listener/client reconciliation also gates affected C sandbox tuples; the provisioner itself stays B-only. A is not evidence for B/C. |
 | `f-host-output-accounting`, `f-unknown-data-replay` | H or the first earlier actual storage/delivery consumer: retained debt/control reserve and evidence-based unknown reconciliation without replay or false capacity release. |
 | `f-restart-stop-authority`, `f-resume-probe-superseded`, `f-book-reboot-requester`, `f-agent-goal-authority` | H or earlier actual lifecycle/goal consumer: correct authority and figures; account-wide stop, separate native lock, D-RESUME, selected requester and caller/board goals. SH1 remains compatibility-only. |
 | `f-book-archive-tree`, `f-book-egress-example` | S0a/S2 documentation acceptance: deletion/metadata-only archive and static-v0 versus enforced-v1/provider-only claims. No runtime pass inferred from text corrections. |
