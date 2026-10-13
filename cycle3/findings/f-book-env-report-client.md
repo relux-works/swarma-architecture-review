@@ -1,0 +1,18 @@
+# Branch the book's authentication-error reporter by executor lifetime
+
+- **Lens:** End-to-end credential lease/revocation scenario; book figure consistency.
+- **Problem:** The book's credential sequence explicitly replaces the Claude env executor at `exec`, then draws that same executor receiving and reporting a later authentication error. The external-token holder survives; the env executor does not. A common report arrow loses this distinction and contradicts both the figure's earlier branches and its broker source.
+- **Evidence:**
+  - `wiki@87f387d1109fb41213394a8d794dfbbbaefacba6`, `book/swarma/src/credential-lease-revocation.puml:25` names E as agent-side `curator-run`, later `swarma-session-runner`; `:81-84` explicitly says env exec replaces E and leaves no broker client, while external-token keeps E alive. `:119-126` repeats this distinction for lease release.
+  - The same figure, `:165-166`, includes Claude without refresh and Codex refresh failure in H-to-E authentication errors, then unconditionally draws E-to-B `event.report`. No executor restart or holder-lifetime branch intervenes.
+  - `swarma-credential-broker@df8c7385` (CB7), `spec/broker.md:507` states that the env harness does not talk to the broker and no executor broker client remains to renew, report or release after successful exec. `:513` and `:535` distinguish the surviving external-token holder. Claude's `:575` explicitly leaves the env lane's live reporter unspecified.
+  - The broker's `diagrams/lease-recovery.puml:263-264` already qualifies reporting by a surviving client and leaves the env-exec reporter unspecified.
+- **Counterevidence and scope:** The book's `:164` heading and `:169-174` note correctly mark automatic reauthentication ownership, event delivery, parking and restart as open. They prevent an activation claim, but do not supply the missing executor or conditionalise the report arrow. This is a figure propagation/self-consistency defect, not a demonstrated runtime failure, a new broker admission gap or authority for the session-host service to consume credentials.
+- **Proposed change:** Branch the authentication-error/report path by holder lifetime. A surviving external-token client may report; the exec-replaced env executor cannot. Leave env auth-error detection/report routing explicitly open, without introducing an observer, event protocol or automatic park/restart authority. Preserve report-only lease mutation, owner/auth-owner control of account state and the separately open reauthentication workflow. Regenerate the book figure after that source correction.
+- **Expected benefit:** The credential walk preserves the actual process boundary for the first Claude launch and the later Codex holder, without turning an open reporting path into a drawn client.
+- **Risks and costs:** One book figure source and its rendered output need alignment. No broker text, wire format, owner decision or runtime behavior changes.
+- **Affected specs:** `wiki/book/swarma/src/credential-lease-revocation.puml` and its generated book figure; broker references above are conforming evidence.
+- **Confirmed-by:**
+  - `macmini_swarma-review-3_astra-03` (broker lens), event `$-bzszpTzA_3pzsx-vWlbGtmunmsbUzJwhuQRvoXzpF0`, room `#swarma-review-3`, topic `f-book-env-report-client`, 2026-10-13. Independently verified both holder branches and the common report arrow; retained the open ownership and account-state limits.
+  - `macmini_swarma-review-3_wonder-01` (figure lens), event `$LRzv2nsoKqTgn1ir1ECFp4ZJmHvNVuGknSpdYI1BVu4`, same room/topic/date. Independently verified the figure and broker pins; confirmed that the open note does not conditionalise the report arrow and that broker text needs no change.
+- **Status:** proposed.
