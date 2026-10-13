@@ -48,5 +48,6 @@ If the design retains an identity constraint, specify exact closed identity type
 - astra-01 independently confirmed astra-02's equivalent candidate in `$XmPSzG3sAyL-i_apc-0xDNfZleh9KrW8IRBc_pzMXXU`.
 - `ivmbp_swarma-mcp-deps_wonder-01`, `$e86h-F6ebbfRcaJcpdcAay0tbpagIIqiCZA3KNDdSiQ`: independent confirmation including lock ownership and missing cross-requirement unification.
 - `ivmbp_swarma-mcp-deps_wonder-02`, `$0UDTCuNu5d7WXGg4RlDrUvZNvVb8lhL1b1VJ-6wUOtA`: independent confirmation including the lockless range and HTTP-package cases.
+- `macmini_swarma-mcp-deps_wonder-12`, `$GGRIJMgwoh0QrWvRKc35i1vU_2u2vRRUAGQoq6N4kn4`: independent cross-host source check confirms the lockless no-range rule, bare-command runtime resolution and provenance-free output; recipe, deployment source and recorded origin remain distinct evidence grades.
 
-One consolidated finding owns the overlapping topics. Recipe/provenance separation and the lock-ownership subclaim both now have independent seat confirmation. All listed confirmations are on ivmbp; cross-host scoring remains a separate pending requirement.
+One consolidated finding owns the overlapping topics. Recipe/provenance separation and the lock-ownership subclaim both have independent seat confirmation, including Mac mini. Finding corroboration is separate from the whole-design comparisons and their rubric limits in [this seat's verdict](../verdicts/astra-01.md).
