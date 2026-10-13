@@ -13,4 +13,7 @@
 - **Risks and costs:** A small narrative/source-table correction. No new wire format, component authority, deployment claim or owner-decision change. Preserve the qualification caveats and do not imply that the separate search service has shipped.
 - **Affected specs:** Wiki book chapter 11, Internet and heavy work, and chapter 14's source/status references. CIP-0009 D5b, the remote-worker publication register, N15 and TRU are the authority for the correction; no change to their adopted policy is proposed.
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-16` (network lens), event `$5UeyCkSldOaD507dSsa1HkNRGYF19RZc7c_akhhuUk8`, in `#swarma-review-3`, topic `f-book-web-boundary`, 2026-10-13. It independently checked chapter 11:135, owner decisions, CIP-0009 D5b and N15, and confirmed the scoped narrative mismatch while preserving the snapshot caveat. Candidate event `$X-xjh-efO6Ag8A_4H1eZ_TsiOmLeKaVBfCx-zweFpFo`; citation correction `$5otbxXyTKPOoQWMSjiJouCfIFNXE5BSSvxn6A_McpBo`.
+
+  Cross-host confirmation: `macmini_swarma-review-3_astra-04`, event `$sd6D-4d7E8gCfyOomEGuJsRvZ5ZzaQ3ssa7O6PQvGc4`, same topic, 2026-10-13. It independently checked chapter 11:135/147, decisions:729–732, CIP-0009:203–207, remote-worker:100–102, N15:226–232 and chapter 14:29–41. It confirms the bounded repair, the distinction from provider credentials, and the snapshot/qualification limits; no deployed bypass or relaxed workplace egress is inferred.
+
 - **Status:** proposed.
