@@ -2,7 +2,8 @@
 
 - **Pen:** astra-04. **Reviewers:** astra-14 and sol-02. **Status:** section draft for quorum review.
 - **Scope:** the session-manager extraction, the board consumer transition and the later session-host backend. Global slice names, infrastructure placement and the complete finding ledger belong to the assembled plan.
-- **Authority:** `swarma-session-host@798a321c`, `spec/session-host.md` §§1–4; its `docs/sh1-gate.md` and `docs/inputs/hosted-launch-contract-r6.md`; cycle-3 findings linked below. The October 9 owner decision selected extraction as-is before platform conversion. C1 remains no earlier than October 19; passing that date is not acceptance evidence.
+- **Authority:** `swarma-session-host@798a321c`, `spec/session-host.md` §§1–4; its `docs/sh1-gate.md` and `docs/inputs/hosted-launch-contract-r6.md`; cycle-3 findings linked below. The October 9 owner decision selected extraction as-is before platform conversion.
+- **Calendar authority:** Ivan's October 9 decision, recorded in SH7 `spec/session-host.md:119,327` (§2.6 and the calendar disposition), keeps C1 after the board conference window, no earlier than **October 19, 2026**. `wiki@87f387d:decisions.md:586` records the same constraint. This is the earliest permitted window, not a promised cutover date; all evidence and operator-maintenance gates must also pass.
 
 ## Recommendation and present evidence
 
