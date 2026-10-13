@@ -35,7 +35,7 @@ Minimum conformance cases:
 
 | Case | Result for the selected managed launch |
 | --- | --- |
-| Native Claude X exists; profile X absent | X is not satisfied by that native entry |
+| A present strict Claude channel contains Y but excludes X; native X exists | X is not satisfied by that native entry |
 | Managed channel X exists; native X absent | Native absence alone does not reject managed evidence |
 | OpenCode project X overrides managed X with a different endpoint | The managed digest alone cannot establish the effective identity; report mismatch or bounded unknown |
 | Native writer destination carries an environments marker | Refuse this writer's mutation of the managed home |

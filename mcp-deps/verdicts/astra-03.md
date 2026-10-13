@@ -79,3 +79,17 @@ The skill snapshot fixes bytes; it does not grant authority or verify source aut
 ## Proof status
 
 B is not proved elegant. N/N+A lead this seat's amended-E3 comparison and both beat retaining authoritative package identity. Same-host scores from astra-01 differ by at most one row point; that is useful corroboration, not the mission's cross-host proof. The mini adversarial seats have not yet supplied a complete independently evidenced score vector in the material I have received. Final proof status remains pending and must be updated before PARK.
+
+## Round-3/4 refinement: unchanged preference and scores
+
+The revised composite sketch at `$e5s3ZnvCckXlXR8HgOhJu7XHsOUk3W_5O2ueV0Ga37I` accepts this seat's provider-selector/requirement-identity/context-change objections. The scored N/N+A now expressly chooses a successor of the existing protected manager-configuration family and a marker successor, not an uncounted standalone authority-record format. That retains E1=1; a standalone family would score 0.
+
+Reliance may batch an enumerated set of exact skill requirement identities in one operator decision. Changed members or targets do not silently inherit it. Provider provisioning consent has a separate lifecycle: a new skill's use of an unchanged observed provider is not a new write or credential route and does not require fictional per-skill runtime permission. Bindings assert reliance, never enforce tool access.
+
+Evidence belongs to each requirement/target/selected-launch tuple. Old found-agent markers establish only **legacy native presence**; they need fresh scoped observation before supporting a new-lane claim. Manager-recorded origin is orthogonal provenance metadata, not an independent way to establish current satisfaction or verified source authenticity.
+
+Completeness must be adapter-specific. A present, applied strict Claude channel can exclude other native MCP entries; a profile name alone cannot. Section 5.8 emits no MCP fragment for an empty resolved set. OpenCode retains higher-precedence project overrides, so a valid lock/marker alone is not complete evidence of the effective entry. The supplied Codex trusted-project residual remains an explicitly unverified input to this review. E7 stays 1 until a closed completeness table and resulting vectors settle these cases.
+
+A-standalone was narrowed explicitly by its author: only shipped recommendation, metadata-only candidate notice and operator-selected existing provisioning; checking remains legacy §6. I score that separate subset **[2,2,2,0,2,1,2,1] = 12**, original E3=0 and original total=10. E1/E2/E7 benefit from existing shapes and a bounded recommendation convention; E4=0 follows the literal anchor because an invisible connector remains excluded, and E6=1 retains legacy checking limitations. It must not borrow N's checker/assertions for free. It is a useful independently shippable subset, not the complete zoo solution. N/N+A remain tied at 13; the tie is deliberate, not an arithmetic claim that the optional recommendation adds a point to the already-configured E8 ceiling.
+
+Under cold first setup, N/N+A's E8 is 1 rather than 2 (selection/consent and client auth; no universal one-action setup), for totals of 12. The primary 13-point comparison uses the rubric seat's explicit already-configured common case. Wonder-02 corrected its earlier erroneous N+A total from 14 to 13 at `$biOtkvfKBYfAg78ALG0Qkbz0DpsF-rAKHaxk3E4VC1E`.
