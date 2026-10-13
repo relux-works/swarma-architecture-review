@@ -1,7 +1,7 @@
 # astra-04 — independent spec-fit and minimality verdict
 
 Seat: `ivmbp_swarma-mcp-deps_astra-04`, second independent five, ivmbp.
-Date: 2026-10-14. State: independent round 1; adversarial comparison pending.
+Date: 2026-10-14. State: round 1 adversarial comparison; collective active.
 
 ## Independence and evidence boundary
 
@@ -141,3 +141,100 @@ the portable skill is unnecessary to let an operator fulfill that dependency.
 
 - Independent round 1: the scores above were frozen locally before opening
   first-five verdicts. No peer-confirmed finding file has been authored yet.
+
+## Adversarial comparison after the independent freeze
+
+The initial table is preserved above, signed before peer reading in local
+commit `7fffa30`, then signed again after rebase and published as `ebdc698`.
+Room freeze event: `$gTvTSooKcOKvtSeKCW7ECYSPKezTm6j9dSp-dVr392M`.
+Only afterward did I read astra-01 and the relevant debate bodies.
+
+The first-pass defense of N survives my recipe/provenance, old-schema and
+strict-channel counterexamples. Its explicit distinction between an inert
+recommendation and authority also survives the csk D1 conflict. I independently
+confirmed the schema finding in `$T_QPlXpIGmdMnzwkPeMR6NVRyMAR5IdGLrCPoarg0Bk`.
+This confirms a finding; it is not runtime qualification.
+
+Three score qualifications matter when comparing **the same concrete N**:
+
+- E1 becomes **1** if records live in a successor of the existing manager
+  configuration family, and scoped results are computed transiently. My initial
+  0 explicitly counted a new evidence-record family. A portable marker bump is
+  not necessary unless stronger acceptance is persisted there; old `FoundIn`
+  retains its legacy meaning. Configuration nesting is not zero semantic cost.
+- E7 becomes **1**, correcting my initial over-credit: finite result states and
+  possible vectors do not yet close the configuration grammar, policy precedence,
+  launch-completeness table, scope selection and invalidation contract. Governance
+  is known; the closed contract is still work to do.
+- E8 is **2** for the now explicitly bounded comparison case of an already
+  suitable configured provider: zero actions for observation, one enumerated
+  batch for operator reliance. It is **1** for cold setup and is not a claim
+  about the measured frequency of either case. Auth remains separate.
+
+Thus the refined existing-configuration N is **[1,1,2,2,2,2,1,2] = 13**
+under amended E3, **11** under original E3. Cold-setup amended total is **12**.
+This matches astra-01's same-design vector. Even the frozen independent N table
+differs from astra-01 by at most one on every row. The mission's independent-five
+agreement condition is therefore satisfied for this scoped preference, without
+claiming a universal optimum, normative adoption, or a proven implementation.
+
+E4=2 means coverage of provider categories through supported observations or
+explicit assertion-grade reliance. It cannot supply a missing client capability,
+defeat an applied strict channel, or turn an incomplete observation into proof.
+The strict Claude example needs a present, actually applied channel; an empty
+profile set produces no §5.8 file and does not itself establish exclusion.
+
+### Additional serious alternatives examined after freeze
+
+| Candidate | E1 | E2 | E3 amended | E4 | E5 | E6 | E7 | E8 | Total | Original E3 / total |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| Refined N, existing config + transient status | 1 | 1 | 2 | 2 | 2 | 2 | 1 | 2 | **13** | 0 / 11 |
+| Repaired identity base I, still requiring new identity contracts | 0 | 1 | 2 | 2 | 2 | 2 | 1 | 1 | **11** | 0 / 9 |
+| A: inert skill-shipped schema-1 recommendation, legacy checking | 2 | 2 | 2 | 0 | 2 | 1 | 2 | 1 | **12** | 0 / 10 |
+| A+N with explicitly selected, valid existing-package adoption | 1 | 1 | 2 | 2 | 2 | 2 | 1 | 2 | **13** | 0 / 11 |
+| T: exact tool-name requirements without manager probing | 1 | 1 | 2 | 1 | 1 | 1 | 0 | 1 | **8** | 0 / 6 if native parsing retained |
+| G: manager-owned authenticated MCP gateway | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | **4** | 0 / 4 |
+
+A reuses the grammar in environments §2.2 and can remain inert in an old skill
+snapshot (core §§3–4), so E1/E2/E5/E7=2. Its legacy §6 evidence cannot cover opaque
+providers or the managed-launch universe (E4=0/E6=1); operator adoption still
+needs an existing context-root route (E8=1). A+N pays N's full contract costs.
+This is optional discovery convenience, not a reason to delay N or silently
+expand package authority. Admission, exact commit selection and the schema-1
+HTTP header limitation remain unchanged.
+
+T needs a new manifest lane and inventory machinery (E1/E2=1), while §6 and
+`internal/mcp` only provide configuration metadata. Exact strings do not prove
+semantic equivalence, and no current trustworthy cross-client inventory is
+established (E4/E5/E6/E8=1, E7=0 for the proposed semantic satisfaction contract,
+not merely because strings lack a central registry). No live tools probe keeps
+amended E3=2. G introduces a runtime/auth service (E1/E2=0), handles credentials
+(E3=0), and has no route to opaque client-owned connectors (E4=0). Its remaining
+rows each require new operational contracts (1); it is disqualified by E3.
+
+### New adversarial case: same-name co-location is not dual-kind adoption
+
+Question to astra-01/wonder-01/wonder-03:
+`$iUc_uDX_kiEwtByLrYzC4qpzhIODJGkvPXIehrKehkk`.
+
+At curator `5234cf3`, `internal/contextresolve/contextresolve.go:316–317`
+indexes selected kinds and constraints by name, and `add():409–420` coerces a
+second kind to the first. `build():907ff` emits one selected member per name.
+`internal/envprofile/gitsource.go:721–755` constructs then sorts requirements by
+name/kind; `Manifest():238–275` loads only the chosen kind. Finally,
+`internal/envprofile/managed.go:205–226` emits only MCP-kind members.
+
+Therefore a root selecting `skills.docs` and `mcp.docs` at identical source and
+revision cannot be assumed to install both kinds just because both manifests
+coexist in the snapshot. This is a source-derived implementation constraint,
+not a runtime result or a claim that the normative spec explicitly forbids
+dual-kind lock rows: lock validation itself keys uniqueness by `(kind,name)`.
+
+Minimal A qualification: use distinct skill and declaration package names in a
+joint closure, or defer that colliding adoption case. Do not silently invent a
+rename, alias or kind-aware resolver and count it as free reuse. N remains
+unaffected. Astra-06 independently confirmed in
+`$cjkXXsAKqa1RgA871RL9IIK9QBe3kTfn9G17XP4UnYU`; the bounded finding is
+[f-cross-kind-name-collision](../findings/f-cross-kind-name-collision.md).
+It also qualifies BASE's optional package adoption, not just A. No score
+changes follow for N or for A explicitly limited to valid distinct-name plans.
