@@ -62,9 +62,19 @@ accurate while the candidate retains a separate review obligation.
     path flagged by section 4, and does not supply their required
     candidate-bound acknowledgements.
 - `swarma-dispatcher` at
-  `19a75e63cd794f93c81c8c6fdb9d176eba1ed87c`,
-  `spec/dispatcher.md` section 5.2, lines 317–318: the same flagged-hunk
+  `74687e600e04817fa6e7a2e8904a9f7a3c83a1d8` (DP7),
+  `spec/dispatcher.md` section 5.2, lines 325–326: the same flagged-hunk
   obligation and rework-from-C flow, with board ownership of review.
+  The newly published draft result schema in section 5.2.1 describes an
+  export result, not the board's review baseline or acceptance predicates;
+  it does not resolve this gap.
+- `curator-agent-launcher` at `f08f566d` (LR6), `SPEC.md`, lines
+  1903–1927: import flags, fresh exact-C acknowledgement and C-to-C2 rework
+  repeat the same contract without defining inherited review obligations.
+
+Revalidated against DP7 and LR6 on 2026-10-13. The board draft remains r6
+at the pinned commit above; this finding concerns its acceptance contract,
+not a defect in the newly published export-result schema.
 
 ## Proposed change
 
