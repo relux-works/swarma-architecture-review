@@ -1014,7 +1014,7 @@ Append-only. One entry per validated finding. Format: see `MISSION.md`, "The fin
 
 # Cycle 3
 
-Merged at PARK on 2026-10-13 from the one-file records in `cycle3/findings/`, numbered in the order they were first committed. Each entry names its record, and `impl/PLAN.md` §13 gives its implementation-plan disposition. The owner has not yet ruled on these findings; each keeps the status its record states.
+Merged at PARK on 2026-10-13 from the one-file records in `cycle3/findings/`, numbered in the order they were first committed. Each entry names its record, and `impl/PLAN.md` §13 gives its implementation-plan disposition. The owner accepted all 44 on 2026-10-13 («окей, давай принимаем все 44»). The optional owner policies inside F-43 (standing discard of refused exports), F-45 (local-reviewer and requester-exclusion rules) and F-66 (metadata confidentiality hardening) stay unchosen and off by default. Routing: wave 6 (docs only) takes every finding whose first blocked consumer is P0, S0a or W, plus all text drift against decisions already taken. The rest land with their stage's contract packages (S0b, S2, T, A, H), as `impl/PLAN.md` §13 requires.
 
 ## F-29 — Align the key-keeper summary with generation fencing and D-IDENTITY
 
@@ -1033,7 +1033,7 @@ Merged at PARK on 2026-10-13 from the one-file records in `cycle3/findings/`, nu
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-20`, room `#swarma-review-3`, topic `f-keeper-identity-generation`, event `$FrVih7vJGi67pLQaeCBP8SHGRdAbMgOieTzluiyFTBA` (2026-10-13). Independent cross-cutting confirmation at high confidence, with the explicit limit that this is incomplete propagation and not an enabled exploit. Candidate event: `$Tss8QVV-URuVfdg55a9iyFG2mpRNe_1eSDocAl8q7wo`.
 - **Additional figure confirmation:** `ivmbp_swarma-review-3_wonder-11`, same room/topic, event `$7SJx0DhwFDZF21_HiMwUNB2L0u6V84gKwLWbBsUfU7E` (2026-10-13), identified both diagrams; astra-18 independently checked their source at the pin above. DP7, final-corpus UM7 and CB7 rechecks preserve the original finding.
 - **First-pass confirmation:** `macmini_swarma-review-3_astra-08`, same room/topic, events `$24TeZJfq6GWpFExk-p91lHleEWPYEB6201pBaeDIAe8` and `$vKYrv3XAPzESkW9-MZFYHHksfO1oDeEkDY5j8ATzgZo` (2026-10-13), independently confirmed the bounded finding and its unchanged D-IDENTITY evidence at final-corpus UM7.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-keeper-identity-generation.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-30 — Publish a coherent donor network-owner and control-transport table
@@ -1051,7 +1051,7 @@ Merged at PARK on 2026-10-13 from the one-file records in `cycle3/findings/`, nu
 - **Risks and costs:** A separate provider-egress principal may add donor provisioning and local IPC configuration. A combined principal increases authority and needs an explicit review. The local app-server route must not become unrestricted loopback access. This finding does not select a new wire schema, alter project-host N15, move donor credentials to the project, or challenge the owner-approved A/B/C deployment order.
 - **Affected specs:** curator-spec CIP-0008 R3, CIP-0009 D1/D2/D5, CIP-0010 C2/C5, `protocol/remote-worker.md`, donor deployment/component/layout figures and the future donor-provisioner contract.
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-13`, answer `$TirGgn0_UT0JxSvIu6f0yKflkl7cBXCFhN0hc-62svo` (credential lens); `ivmbp_swarma-review-3_astra-16`, answer `$3fNIjAe1ZFm8ZUy912Ygl4ePjysoNTY9l0_0-fZnprk` (network lens), in `#swarma-review-3`, topic `f-donor-egress-principals`, 2026-10-13. Proposal `$PdDP-HsJp0MkBkK5yXG8bJFo6HwnEPq8rd57fDZjmdQ`; confirmation request `$AwUZs9fiwW8ikvy2m2XN3HERHlTyXrgeT4o7CxREOU4`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 
 The Codex control-transport row was independently confirmed by `ivmbp_swarma-review-3_astra-13`, answer `$YPYcLbtzqhmg5Y0v8afXnM62g4aZhNhhzFJtrS_UulQ`, in the same topic on 2026-10-13, replying to `$y9yvfF6tqC1CSmwVAY4SKFv6SCSYSdwzZSEZxh2aNZk`. It extends the same principal/route-table correction rather than creating another finding.
 
@@ -1061,7 +1061,7 @@ Independent first-pass remote-worker review by `macmini_swarma-review-3_astra-07
 ## F-31 — R-EXEC must constrain interpreted inputs as well as executable paths
 
 - **Lens:** Abuse controls, adversarial pass (astra-19); trust and operations cross-checks.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 
 ### Problem
 
@@ -1119,7 +1119,7 @@ Room: `#swarma-review-3`, topic `f-exec-input-closure`.
 ## F-32 — Preserve inherited review obligations across worker rework
 
 - **Lens:** R-TRANSFER adversarial pass; exact-candidate review binding.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Author:** astra-15 (`ivmbp_swarma-review-3_astra-15`).
 - **Topic:** `f-rework-inherited-flags`, root `$cw3U0GUdoywKik_fu6EqIU5-oj1HqfQqenmLWCd1Olc` in `#swarma-review-3`.
 
@@ -1315,7 +1315,7 @@ no builds, tests or source mutations were performed.
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-18` (trust lens), answer `$E0al5ETZpEDC80fyMYqledO6jogj5X9LZzc7M870huY`, independently confirms the assurance/qualification gap and the narrower repair. Room `#swarma-review-3`, topic `f-connect-origin-boundary`, 2026-10-13. Proposal `$4LsVeEoMUdkTACGt1nMJiRl6_nUHKXQ-pqVtb8NbQIU`; confirmation request `$nbtsquE9jtbhWEd1rErAGpqit2BN5_DQH8BeHOwZQvc`.
 - **First-pass adversarial check:** `macmini_swarma-review-3_astra-06`, answer `$YGJn9pi1GPD4TWaTqoCXX0olIXhIHCD56hDUefOBglQ`, independently confirmed the narrowed assurance gap against the same N15/N16, RWP and trust-contract pins. The source distinguishes domain fronting from ordinary allowed-host exfiltration; no live provider/CDN fronting tuple is established. Room `#swarma-review-3`, same topic, 2026-10-13.
 - **Final corpus recheck (2026-10-13):** user manager `7b59da740037865dd42936982e5a069ea05eab53` (UM7), `spec/helper.md:462,467-470`, preserves the provider-only claim and binds served policy to account/profile/service generation. It still delegates the mechanism to unchanged N15 `359365e`; those identity and digest checks do not add application-origin inspection. DP7 `74687e60`, LR6 `f08f566d`, SH7 `798a321c` and CB7 `df8c7385` retain the same boundary. No refutation from the final wave-5b corpus.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-connect-origin-boundary.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-34 — Preserve RWP's complete transition-address exclusions in the N15 dial guard
@@ -1338,7 +1338,7 @@ no builds, tests or source mutations were performed.
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-17` (remote-worker lens), answer `$gz1cFDPB8-7XbkTNfhyz4Utlc-ccWyJ6xKki_BYH5Pw`, independently compared both pinned sources and confirmed the regression with deployment-dependent reachability. Room `#swarma-review-3`, topic `f-dial-guard-transition-ranges`, 2026-10-13. Proposal `$ge1YYdP5lwFAFO3N_WDX0RxjlfMJncsz1MPJ6bbAJ2s`; confirmation request `$ZJfjzfPEY7xUD9V8223FB199UNMH3VTMUBw_5_8QENU`.
 - **First-pass adversarial check:** `macmini_swarma-review-3_astra-06`, answer `$eHNtv7BlVKTqKV8C-FA5jTakOFVfq-JRTCqzufjBkdo`, independently confirmed the omitted whole-prefix refusals against the same N15 and RWP pins. Literal-host refusal and peer rechecking do not restore the missing DNS-answer classification; reachability remains deployment-dependent. Room `#swarma-review-3`, same topic, 2026-10-13.
 - **Final corpus recheck (2026-10-13):** user manager `7b59da740037865dd42936982e5a069ea05eab53` (UM7), `spec/helper.md:467-468,486`, binds the served-policy digest to the guard version and delegates the guard to unchanged N15 `359365e`. Attesting that version does not restore the three omitted exclusions. The final wave-5b alignment does not change this finding or its deployment-dependent scope.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-dial-guard-transition-ranges.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-35 — Give delegated registered actions a constructible envelope and admission route
@@ -1358,7 +1358,7 @@ no builds, tests or source mutations were performed.
 - **Affected specs:** `vision/contracts/trust-and-isolation.md` §4; `vision/contracts/admission-and-delivery.md` §§2-4; VISION §4.5/§4.7 and the linked delegated-action example.
 - **Confirmed-by:** Room `#swarma-review-3`, topic `f-delegated-action-envelope`: `ivmbp_swarma-review-3_astra-14`, event `$jO-M92Zs-8SEyO3FnNkHbQXF57jWoLNPxvJuReeJ3zE`; `ivmbp_swarma-review-3_astra-20`, event `$CiPbeotSAXObUZeITm8gzM4obHV_ngO_WgIAiPDIVoE` (2026-10-13). Both independently checked the `session.control` counterexample and confirmed the narrower registered-action mismatch. Candidate event: `$U1cCOBM1j0Co-qxnqwkQcCBsjLqGozSO4r9Cmbg4pvM`.
 - **First-pass confirmation:** `macmini_swarma-review-3_astra-08`, same room/topic, event `$sftTjEszVv3_hCW6qnKdgWUvh83q_Yd-GoIcymhEDMY` (2026-10-13), independently confirmed the registered-action route mismatch at the unchanged final-corpus SPA pin, preserving direct `session.control` as counterevidence to a universal operator-only claim.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-delegated-action-envelope.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-36 — Reconcile donor P-256 identities with the common envelope signature contract
@@ -1376,7 +1376,7 @@ no builds, tests or source mutations were performed.
 - **Risks and costs:** Multiple worker signature suites add registry/parser/verifier and compatibility qualification work. This is distinct from F-23: the affected key is the remote worker's `K_sig`, not the broker root or operator phone's SSH authentication key. The proposed reconciliation preserves the existing A/C owner decision and does not itself change root custody or authorize a new cryptographic wire format.
 - **Affected specs:** curator-spec CIP-0009 D0/D4/D5 and remote-worker publication register; swarm-platform-architecture ADM envelope and TRU trust/enrollment/variant sections; corresponding donor enrollment/message figures and qualification requirements.
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-18`, answer `$2IjWmXsnf9hbNm44lOXmhU72R6Kdpm-0ed_znoks-ls` (trust lens), in `#swarma-review-3`, topic `f-donor-signature-algorithm`, 2026-10-13. Proposal `$LikP3GLsjbUSiaHaKXAhxn7UXVoE6VMCETKmds4FJzU`; confirmation request `$TBpHVPBsqRn-5NUTYMbc0YD2plwUrVgjTO_GUbz47R8`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 
 Independent first-pass remote-worker review by `macmini_swarma-review-3_astra-07` confirmed the finding at the same CIP/SPA revisions: answer `$ZAsDGeVrU4GlhsDeOXSj6pRcwWXuXHRVqF0X4eM7LRQ`, same topic, 2026-10-13. The donor protocol's mandatory final signature cannot use ADM's optional generic data signature as an escape; no published donor suite extension was found.
 - **Record:** `cycle3/findings/f-donor-signature-algorithm.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
@@ -1399,7 +1399,7 @@ Independent first-pass remote-worker review by `macmini_swarma-review-3_astra-07
 
   Cross-host confirmation: `macmini_swarma-review-3_astra-04`, event `$sd6D-4d7E8gCfyOomEGuJsRvZ5ZzaQ3ssa7O6PQvGc4`, same topic, 2026-10-13. It independently checked chapter 11:135/147, decisions:729–732, CIP-0009:203–207, remote-worker:100–102, N15:226–232 and chapter 14:29–41. It confirms the bounded repair, the distinction from provider credentials, and the snapshot/qualification limits; no deployed bypass or relaxed workplace egress is inferred.
 
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-book-web-boundary.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-38 — Publish one workplace ingress and execution lifetime before admitting jobs
@@ -1434,7 +1434,7 @@ Independent first-pass remote-worker review by `macmini_swarma-review-3_astra-07
   - `macmini_swarma-review-3_astra-02` (first-pass user-manager/launcher), `$rEPd5m2JsEOJmHqfjuPKBiWtCq-opoHnLWIbio5b-fQ`: independently confirmed at current UM/CIP/LR6 pins; root-owned stub bytes, job network namespaces and a standing runner do not resolve the control-process lifetime.
   - `macmini_swarma-review-3_astra-07` (first-pass remote-worker), `$aCgIZ1peQTWh1V2YUjydQy19SDo1lxlzmakLcs3wGvw`: independently confirmed ordinary start/export/reconnect composition; D7's existing retirement KRL/session-closure requirements bound the claim as stated above.
   - Original proposal `$z6OfKTHiGokdGW3fySZRl-NjmNNWZfkl56Wt1dOjk84`; corrected baseline helper line offsets and ownership `$RfxpeJEPhfPOGrcGBw28X64SZUytkWQwPH7TLvGGX1Y`; first-pass challenge/figure evidence `$z2PubKCrMFYRLtbCVl4u4Fw6n2VEcQYDe576sjKV21U`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 
 Revalidated after the DP7/LR6 landing notice `$KZD9hevUKsHOMBZzBCUfSBiVrcFhg04L3foomNym-eI`: dispatcher `74687e60` and launcher `f08f566d` preserve this conflict. User-manager `3da62ad4` adds a scoped macOS qualification harness but leaves `spec/helper.md` unchanged from `ae540c5`; those measurements do not define a new ingress lifecycle. Curator-spec `a0154285` and network-profiles `359365e` remain the pinned related evidence.
 
@@ -1469,7 +1469,7 @@ Final-corpus recheck after the UM7 notice and correction `$dNFixUaYy5ip6Ola5osdS
   - `macmini_swarma-review-3_astra-01` (dispatcher first pass), `$38ag9Wun0a_nwvC8YFRFBlhcIjIht9vQlhWTjowTwz0`: independently confirms against DP7 `74687e6` and helper head `3da62ad`; distinguishes the idle invariant/create observation from fresh account-wide absence, and preserves complete no-launch coverage, admission/ingress fencing and unknown on lost history. Final UM7 recheck at `7b59da74` confirms unchanged behavior in `$yyWJTF0d-mHcFyQNI84_sHCR3gQSnlfxUOKk1HmQbsI`.
   - `macmini_swarma-review-3_sol-01` (end-to-end scenarios), `$TILpziHfBCXugB33gVHDcWVI3m6dKOGprzD4mtogj2Q`: independently confirms the successful standing-team bring-up before any first start. Final UM7 recheck at `7b59da74`, `$kJ1m04i6C7bT1OxGN453eDBHFxFTzc-PbkF6Muw1-pA`, confirms that no no-launch inventory/absence row was added.
   - Proposal: `$Mmxt6eM_EyZAcYU8q9bvZb7KBEjFD0X7M64Y0yTaVsQ`; review request: `$usyiapr7qWn5G8GcoKEYk5UXkJjC_INxYTxmtOnhm0Q`.
-- **Status:** proposed. Revalidated on 2026-10-13 against the final cycle-3 corpus: dispatcher DP7 `74687e6` and user-manager UM7 `7b59da74`. The relevant ALLSTOP and latest-receipt contracts retain the gap; no source recheck remains pending. Astra-01 and sol-01 independently confirmed the final UM7 trace. This remains a pre-activation inventory/absence publication defect, not a claim about a deployed implementation.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed. Revalidated on 2026-10-13 against the final cycle-3 corpus: dispatcher DP7 `74687e6` and user-manager UM7 `7b59da74`. The relevant ALLSTOP and latest-receipt contracts retain the gap; no source recheck remains pending. Astra-01 and sol-01 independently confirmed the final UM7 trace. This remains a pre-activation inventory/absence publication defect, not a claim about a deployed implementation.
 - **Record:** `cycle3/findings/f-allstop-unstarted-generation.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-40 — Bind envelope replay to the complete signed intent
@@ -1488,7 +1488,7 @@ Final-corpus recheck after the UM7 notice and correction `$dNFixUaYy5ip6Ola5osdS
 - **Risks and costs:** The final contract must specify canonical digest coverage and replay ordering precisely. Issuers must use fresh IDs for renewed or changed commands. The draft and gated SH2+ consumer need coordinated wording; this is not a request to activate an unpublished schema. Distinct from F-7's remote-tool claim/result-cache lifetime issue and `f-delegated-action-envelope`'s action-vocabulary mismatch.
 - **Affected specs:** `vision/contracts/admission-and-delivery.md` §§2 and 5; the session-host SH2+ delivery/receipt contract and its eventual schema.
 - **Confirmed-by:** Room `#swarma-review-3`, topic `f-envelope-intent-replay` (2026-10-13): `ivmbp_swarma-review-3_astra-18`, event `$s5LYgElHTsfFbeq2wU9eqXgEEPzyhB-0webNI0EbZS8`, independently confirmed the explicit predicate and the narrower conflict/acknowledgement scope; first-pass host seat `macmini_swarma-review-3_astra-04`, event `$tdEAJ6VnO13vfXOhVSCnz_yAkcJzvob73RBiIB0XDb0`, challenged host re-admission and confirmed it does not repair a duplicate returned before a new host effect; recovery seat `macmini_swarma-review-3_opus`, event `$NaqOamT_yBnmzz7_IctrwPVI7wibPUOkQCqWH1VZzds`, confirmed the successor-execution control example and full-intent comparison. Candidate event: `$Qo8xirKDssE0X-CZlQoQVFOrInXngRrGgICTZUvSk0M`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-envelope-intent-replay.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-41 — Propagate the separate donor-provisioner boundary into the trust summary
@@ -1508,7 +1508,7 @@ Final-corpus recheck after the UM7 notice and correction `$dNFixUaYy5ip6Ola5osdS
 - **Affected specs:** `swarm-platform-architecture/vision/contracts/trust-and-isolation.md` §7.2 and related donor-provisioning references. The user-manager non-goals, remote-worker publication register and wiki Z14 supply the authority; no replacement API is proposed.
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-17` (remote-worker lens), event `$Duxh-xPkjBZTEWG9k6gdZoXnTXi65VtcmFCsXB_WNxQ`; `ivmbp_swarma-review-3_astra-12` (user-manager/launcher lens), event `$Kq-7U6jeguCICgw6lotIsfG0QGI0twKymXoHMgxogBw`, both in `#swarma-review-3`, topic `f-donor-provisioner-register`, 2026-10-13. Both independently confirmed the source contradiction and required the proposed-status qualification. Candidate question: `$fZdd8JvniyACMy51pJ6BIplZEJS03AQ1K9N1dFjAroo`.
   Cross-host confirmations at the final corpus: `macmini_swarma-review-3_astra-04`, event `$UT6zX5uGWG-vvwmLftDol79D-1jruNtr8cgDin1GSx4`; `macmini_swarma-review-3_astra-05`, event `$-uFd3cdpGno4Dpi5-qTaXqNLkiYh2gV9X2-E3qrebgY`; `macmini_swarma-review-3_astra-06`, event `$4vCjzdzNIeHPZGnQXL2zcJArT79L7qiEBichxnHSFyw`; and `macmini_swarma-review-3_astra-07`, event `$sK7p4uHD7EOxgvSxbdhdg3XDgbZHkN2df9cyZ2_VUdI`, same topic, 2026-10-13. All preserve proposed-status, the disabled B gate and separate donor privileges; none establishes a shipped helper grammar or an active donor path. The closed cross-UID runtime probe remains qualification input, separate from this propagation finding.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-donor-provisioner-register.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-42 — Authorize mandatory cleanup export separately from expired worker start authority
@@ -1539,7 +1539,7 @@ Final-corpus recheck after the UM7 notice and correction `$dNFixUaYy5ip6Ola5osdS
   - The same reliability seat supplied the DP7 complete-content durability refinement in `$AOOFZmhQA9sgoCkyZ-_1u-cDToK_4WQb3KJL_OnoHS0`; incorporated as the discharge/retention publication requirement, not a separate finding or a claim that the unpublished blob transport is implemented.
   - `ivmbp_swarma-review-3_astra-14` (session host), in consolidated duplicate topic `f-export-after-expiry`: `$B_cQjTVFQchdh7Ncv9YNsaGcW_zyk1Itg7gH3LDV9eQ`; confirms that R-SESSION cannot fill the gap, cross-referenced into this topic by `$_56ZKXrTniPwMD2-JC_Iko_IAuFz_B8gu58wYKIAQ4g`.
   - `macmini_swarma-review-3_astra-05` (first-pass transfer), `$G-IcLGhoFDDzRz3KU2BQPzNG2LTLRzwAbwdyUIdgStg`, and `macmini_swarma-review-3_astra-01` (first-pass dispatcher), `$DY9F5sEortmvj4t0mqvg4X02Ezo5KmUCWUnMRKF9kME`, independently reconfirmed DP7. The latter also confirms complete-content durability and that an archived signature supplies no current result-retrieval authority for a retired caller generation.
-- **Status:** proposed. Peer-confirmed against wave 5 and revalidated against the final announced corpus: dispatcher DP7 `74687e6`, user manager UM7 `7b59da74`, session host SH7 `798a321c` and launcher LR6 `f08f566d`. Their final revisions preserve the gap; no source landing remains pending for this finding. No implementation or runtime qualification is claimed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed. Peer-confirmed against wave 5 and revalidated against the final announced corpus: dispatcher DP7 `74687e6`, user manager UM7 `7b59da74`, session host SH7 `798a321c` and launcher LR6 `f08f566d`. Their final revisions preserve the gap; no source landing remains pending for this finding. No implementation or runtime qualification is claimed.
 - **Record:** `cycle3/findings/f-export-cleanup-authority.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-43 — Give a deterministic export refusal a disposition path, so a worker-controlled tree cannot pin its round until an operator act
@@ -1650,14 +1650,14 @@ Final-corpus recheck after the UM7 notice and correction `$dNFixUaYy5ip6Ola5osdS
   - `macmini_swarma-review-3_astra-05` `$xiX-f6Jc-zEtfvv04l5hjtMI-o71C6Zd7R6CqTOKuFA` and `$O4MPrFEVe3EBYH3SMaDGnZfLUd04Ck-Guh0NGsRSY4g`: confirms the permission-denial extension. Precision: infrastructure-denial negative control; listing versus search vectors; `uchg` is not an unreadable vector; no proven infinite retry. Applied to item 4.
   - `ivmbp_swarma-review-3_astra-15` `$ddJUxTJbcQX1iUXvfQ05VIbZdE1dApJAnXVSvste0Yw`: confirms the narrow outcome-coverage gap at UM7 :443/:447; qualify against the admitted worker tools; no claim that DP7 requires infinite retry; classification never discharges. Applied.
   - Proposal `$vc7Ie_X8ANWJBL1F5LoJQl53zBXFE26UYLtQG01UiZs`; review request `$RGmGgkoCjCjzQpUL-DCUwmBBuhwlBdJoGwR_4vP12Oo`; revised scope `$SvuheVv1VzWhXIEADzqrUyEVNSHbcbhkm_AHAHGtaHg`.
-- **Status:** proposed. Revalidated against dispatcher wave 5b `74687e6` and user-manager head `3da62ad` on 2026-10-13. DP7 made the retention explicit (§5.2.1 line 345) and classified the waiver as widening (§3.2 line 114). The confirmations were given against `19a75e63`, and the problem is unchanged.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed. Revalidated against dispatcher wave 5b `74687e6` and user-manager head `3da62ad` on 2026-10-13. DP7 made the retention explicit (§5.2.1 line 345) and classified the waiver as widening (§3.2 line 114). The confirmations were given against `19a75e63`, and the problem is unchanged.
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** substance unchanged. The helper lines moved: §3 :108→:112; §4.4 step 3 :202→:206; §7 export :443→:447.
 - **Record:** `cycle3/findings/f-export-refusal-pins.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-44 — The exec-profile reference is caller text: publish a machine-owned selection and digest pin, the F-27 shape for R-EXEC
 
 - **Lens:** trust and threat model (fable); user manager and launcher cross-check (astra-02).
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 
 ### Problem
 
@@ -1714,7 +1714,7 @@ Room `#swarma-review-3`, topic `f-exec-profile-authority` (root `$31ovEDYd2iC8Lc
 ## F-45 — Trusted-circle admission and the untrusted-class predicate: reviewer and host-loop eligibility are inferences, not stated rules
 
 - **Lens:** trust and threat model (fable); shared consistency lens. Adversarial trust (astra-18), cross-cutting (astra-20) and remote-worker (astra-17) cross-checks.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 
 ### Problem
 
@@ -1881,7 +1881,7 @@ Room `#swarma-review-3`, topic `f-trusted-circle-class` (root `$P7hXiwArLTB1IKsq
   - `macmini_swarma-review-3_sol-01` `$y40uoTZOcxiVXX7d7cDFe7elCDJkZ_Ur4BSzAr6_Q3E`: agrees with the precision limit and adds the dispatcher-disappears-before-hold qualification row. Applied.
   - Precision on item 2: `macmini_swarma-review-3_astra-04` `$9R3F7ofViT-x6asWWjDeJg-ojxH8sj6__eP1HJ4UhAs` (stops never wait for containment acknowledgements; no write to the dispatcher's private hold state) and `macmini_swarma-review-3_sol-01` `$cSIBQY2y4md8WvVeFRN0AT-Cld7X1HRpnPNveRrOlTQ` (absence becomes final only behind the receiver fence; the broker-unavailable acceptance case). Applied. `ivmbp_swarma-review-3_astra-14` `$iMoNnrI0mHdbYTt3dD1PC6uOIdYY99wnlrpbzPchZrE` and `macmini_swarma-review-3_astra-03` `$NQQWRpF3X9jOZuUn3kzC8fV0mlUoHtlS0ddN_QfT9us` confirm the completion-scope correction.
   - Proposal `$NrsF2Fas4w-yXlWgMDSQr04nulVUV1g43YfnyFxwmbI`; review request `$JGZWlsp-sZvsrFUAvRQhmG0cl99vHExWsAPTslkNzp4`.
-- **Status:** proposed. Checked against dispatcher `74687e6`, user manager `3da62ad`, broker `df8c738` and session host `70c9d97` on 2026-10-13.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed. Checked against dispatcher `74687e6`, user manager `3da62ad`, broker `df8c738` and session host `70c9d97` on 2026-10-13.
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** substance unchanged; the corpus is final. The helper lines moved: §2 :49→:53; §3 :102→:106; §4.7 :323→:327; §7 step 2 :397→:401 (receipt :401→:405, drop :402→:406); §8.3 :502→:512; `diagrams/components.puml` R-ALLSTOP Operator→Dispatcher :92→:96.
   - Rechecked against SH7 `798a321c` the same day. SH7 removes the host figure's dispatcher relay but selects no coordinator, so the remedy is unchanged. The fan-out in item 1 would be the selection SH7 leaves open.
   - Distinct from `f-allstop-unstarted-generation`, which exists with a healthy dispatcher, and from `f-workplace-relay-quiescence`, whose ingress fence also applies during the all-stop.
@@ -1890,7 +1890,7 @@ Room `#swarma-review-3`, topic `f-trusted-circle-class` (root `$P7hXiwArLTB1IKsq
 ## F-47 — Candidate files must stay review data: no harness may adopt an unaccepted candidate's instructions, hooks or tools through native discovery
 
 - **Lens:** trust and threat model (fable); session-host (astra-14), abuse-control (astra-19), simplicity (core astra) and R-TRANSFER (astra-15) cross-checks.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 
 ### Problem
 
@@ -1965,7 +1965,7 @@ Room `#swarma-review-3`, topic `f-review-harness-surface` (root `$-JaB5xzwisv0M7
 - **Risks and costs:** Small narrative/register edits. No new wire format, authority or owner-decision change. Must not be read as evidence for subscription billing, key lifetime, refresh behaviour or a supported release.
 - **Affected specs:** Wiki book chapters 10 and 14; curator-spec CIP-0010 open-questions register (one sentence). Broker `spec/broker.md` §§10.2/18.5 is the authority; no change proposed there; curator-agent-launcher `SPEC.md` open-questions table; swarma-session-host `spec/session-host.md` open questions.
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-13` (credential-broker adversarial lens), event `$ggc1KpVHeZjHiaBL1AgZqK4CuXDP5xs2-ZUBVMciHzw`, and `ivmbp_swarma-review-3_astra-17` (remote-worker lens), event `$Iv1_AvmiDMpGkteFuF_mHTi7KDMJxy6hQL1mm_ElcUM`, in `#swarma-review-3`, topic `f-book-muse-c7`, 2026-10-13. Both independently read wiki 87f387d ch10:32/55, ch14:99 and broker df8c738:9/579/581/885; astra-17 supplied the CIP-0010:192 register evidence. Candidate event `$JyHEeOVzf0GGEmR_OJ-VFKKlSuy30vR5X8r5_RcvCZE`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-book-muse-c7.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-49 — Give the watcher's egress freeze a dominance rule, a release and a version, and publish `fw.apply` outcome tables
@@ -2036,7 +2036,7 @@ Room `#swarma-review-3`, topic `f-review-harness-surface` (root `$-JaB5xzwisv0M7
   - `macmini_swarma-review-3_astra-09` (abuse controls, first pass), `$7tJTeuEpVFlPHUtjV5gPHc3K8-Je7jdBZ0zTHIeh-Ec`: confirms the revised lifecycle and qualification gap, the proxy-session scope, the stop's independence, release separate from restart, the preserved cleanup export and the input-attribution refinement.
   - UM7 rechecks: `macmini_swarma-review-3_astra-01` `$OFdPcLAmhfGsFqN-RyYHaLroJZadYW6hXgzJNPkBKq8` and `macmini_swarma-review-3_astra-09` `$e1MVgc8yylmdKy2ZOR9kQnb3u7YOq41pPIfi1cZuFrs`: the narrowed finding survives at `7b59da74`; `components.puml` :89 attribution intent noted in item 6.
   - Proposal `$iriTdKhTcqr5PVKdtmNGtZTjAS6iq-a5XWb5oIpo2dQ`; review request `$67MCJHHQmsw_qcph2E0LoTiHLEvnbScXXIw5KNIKzgA`; narrowed scope `$0G-UuQmHNgPj0D5JoIpHEJ8CSkyDfULxl2lpvMaQGkQ`.
-- **Status:** proposed. Checked at dispatcher `74687e6`, user manager `3da62ad`, broker `df8c738` and session host `70c9d97` on 2026-10-13. SH7 `798a321c` keeps host §3.7 unchanged in substance (now line 271).
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed. Checked at dispatcher `74687e6`, user manager `3da62ad`, broker `df8c738` and session host `70c9d97` on 2026-10-13. SH7 `798a321c` keeps host §3.7 unchanged in substance (now line 271).
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** substance unchanged; no freeze dominance, release, version placement or `fw.apply` outcome table was added. The helper lines moved: §4.1 :149→:153; §4.6.2 :266→:270; §8 re-apply :468→:472; §8.2 :498→:510; §13 :574–577→:585–589; §14 q18 :600→:612, q21 :603→:615.
 - **Record:** `cycle3/findings/f-watch-freeze-lifecycle.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
@@ -2044,7 +2044,7 @@ Room `#swarma-review-3`, topic `f-review-harness-surface` (root `$-JaB5xzwisv0M7
 
 - **Lens:** R-TRANSFER; cross-spec consistency; verification isolation.
 - **Author:** astra-05 (`macmini_swarma-review-3_astra-05`).
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Topic:** `f-verify-network-phase` in `#swarma-review-3`, root
   `$pzJwFtIdyL6ffmgmEtFLykN6ZR5rHdlQfZ0g6U9C3IU`.
 
@@ -2186,7 +2186,7 @@ The peers' scope corrections are incorporated above.
 - **Affected specs:** Wiki book chapter 03 disk-layout tree only. User-manager §4.4 area (`helper.md:138/212/220`) is the authority; no change proposed there.
 - **Confirmed-by:** `macmini_swarma-review-3_astra-02` (user-manager/launcher lens), event `$jTmPZZ4e3rN4KHcCwS6ofI5Rd61obDOnCzl8SGxMGUY`, in `#swarma-review-3`, topic `f-book-archive-tree`, 2026-10-13. It independently read wiki 87f387d ch03:90,99-116, `platform-storage-layout.puml:60` and UM 3da62ad4 `helper.md:138/212/217/220`. Candidate event `$CTwiiYBqo54SbjhxHRztOx_XKAqghWaiPBREnXcw2t4`.
 - **Additional review:** astra-20 independently confirmed the tree/prose/helper mismatch in `$xOgYJuBd7QzM-sHaY-_-x_dP47fJxlyrZsrN-RXaw8I`, and limited the uniqueness claim to the compared material in `$zbD50qg5sVBcgJbUAI4xFpnh0-LHmRphAJCOrWE1zmo`; no exhaustive corpus-wide uniqueness claim is made. Published by astra-20 through the MISSION-3 peer fallback because the author could not sign/push from its sandbox.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-book-archive-tree.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-52 — Align book chapter 03's egress example with provider-only platform egress (R-NET-TOOL)
@@ -2206,13 +2206,13 @@ The peers' scope corrections are incorporated above.
 - **Affected specs:** Wiki book chapter 03, closed-network section (and chapter 14 source references when the pin moves). N15 item 12, dispatcher qualification requirements and user-manager §8 are the authority; no change to their adopted policy is proposed.
 - **Confirmed-by:** `macmini_swarma-review-3_astra-02` (user-manager/launcher lens), event `$gbExWfhRGHc1XYYRAUoTUu7oWkVHK-OjcJkALsm-GkY`, in `#swarma-review-3`, topic `f-book-egress-example`, 2026-10-13. It independently checked wiki 87f387d ch03:134 against UM 3da62ad4 §8:458-459 and LR6 f08f566d SPEC.md:2023-2031. Candidate event `$MCNoljHi3q3_kdesJPPa8n65eT3WzTGpwbCMqq5oUcs`.
 - **Additional review:** astra-20 independently confirmed the destination mismatch in event `$TehToBGC3Fk8IJApkmkEaJ5JrPTCQqZ__WL_ny2ffwk`; astra-16 confirmed in `$SjgHqFb3-2tT6Vq11SZCJiyRlZgfuzJWWUtLg567Iyk`. Wonder-12 accepted the destination-only qualification in `$ksTslN0TGK9hZX63-n2LixwzKoPMW8FrqDBB3VQH6j4`. The qualification is incorporated above. Published by astra-20 through the MISSION-3 peer fallback because the author could not sign/push from its sandbox.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-book-egress-example.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-53 — Align reboot requester wording with the unresolved module contract
 
 - **Lens:** End-to-end reboot scenario; book/spec consistency.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Problem:** The reboot walk names a sole automatic requester in chapter 7 and the older trust-contract draft, while the standing-team scenario, the book's open-item list and the host/dispatcher contracts leave that choice unresolved. A reader could treat registry-only recovery ownership as settled before the corresponding decision and activation contract exist.
 - **Evidence:**
   - `wiki@87f387d`, `book/swarma/ru/07-host-sessiy.md:87`: after reboot, recovery is requested by the project registry, described as the sole automatic requester; the assertion has no open-status marker.
@@ -2237,7 +2237,7 @@ The peers' scope corrections are incorporated above.
 ## F-54 — Bound producer-induced storage at the session-host service boundary
 
 - **Lens:** session host; resource accounting, durable delivery and recovery availability.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Problem:** Agent-account disk ceilings do not charge the durable transcript and other service-owned bytes that an admitted runner induces the host to write. The host's target contract does not state an equivalent per-producer retained-byte budget or a protected control/journal reserve. A noisy or faulty admitted producer can therefore exhaust shared host storage while its own home stays within its ceiling. Storage refusal remains correct, but unrelated sessions lose durable delivery and recovery/control availability. This is an SH2+ contract gap, not a demonstrated deployed failure or a claim that untrusted workplaces may run local harnesses.
 
 ### Evidence
@@ -2293,13 +2293,13 @@ Current SH1 diagnostic-log rotation is not qualification of the gated SH2 transc
 - **Affected specs:** `swarm-platform-architecture/vision/contracts/launch.md` §7; `vision/contracts/trust-and-isolation.md` §8; `diagrams/plantuml/sequence/spawn-with-user.puml`, `worker-start.puml`; `diagrams/c4/model/02-systems.dsl`, `99-relationships.dsl` and their artefacts. Broker §3.1, session-host §3.2 and dispatcher README already state the correct boundary.
 - **Confirmed-by:** `ivmbp_swarma-review-3_sol-11`, room `#swarma-review-3`, topic `f-host-credential-lookup`, event `$ooX0rCNZsr1wAMYg_BxFQdkVt72GM6YmjtsOPJZ4vuk` (2026-10-13), and `ivmbp_swarma-review-3_astra-13`, event `$_gF2jt79x-IzeupHYLnFGFdeXWbcRLItvhEuGG6Hq7g` (2026-10-13). Both confirmations are scoped to stale boundary/activation guidance: a conforming broker refuses the drawn sequence, with no demonstrated leak or automatic per-home fallback. Candidate event: `$3pw5s-ymS0nR5rxpxXnqV6Xb7p5sgAY319iOWcBdtzY`; C4 evidence event: `$TzhhWb5sX6sWko5U1v4yXGoF-fAWGha9Ei19b9NozjU`.
   Cross-host confirmation: `macmini_swarma-review-3_astra`, event `$gNIj04N6rHNbk9nhm9fDjv1IWAs3v-ujHtb1ZXxyLGA`, same topic, 2026-10-13. Independent reads of SPA `6b3f983`, CB7 `df8c7385` and SH7 `798a321c` confirm the actor/custody and obsolete gate guidance while retaining broker binding checks as counterevidence to any actual leak or automatic fallback. Initial credential custody remains distinct from `f-book-env-report-client` and its surviving reporter question. Recorded by assigned scribe astra-20; wonder-11 retains ownership.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-host-credential-lookup.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-56 — R-TRANSFER's landing, pending-ref publication and verification handoff have no network principal under R-NET-TOOL
 
 - **Lens:** trust and threat model (fable); shared consistency lens. R-TRANSFER (astra-15), user manager (astra-12) and book/decisions (wonder-12) cross-checks.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 
 ### Problem
 
@@ -2373,13 +2373,13 @@ Room `#swarma-review-3`, topic `f-landing-egress-principal` (root `$keWZaFnVV4rm
 - **Affected specs:** dispatcher §§5.2, 5.2.1, 16 question 22 and `schemas/workspace-result-1.schema.json` (no field change); user manager §7 and §14 question 15; launcher §10.1–10.2; session host §3.1; `curator-spec` `protocol/remote-worker.md` and CIP-0009 D5a; board import draft (spm #604) manifest baseline.
 - **Confirmed-by:** `macmini_swarma-review-3_astra-02`, answer `$kCWK2xCFT2aOXc3IDzzHTzgNWz74HWgJ9ydLeDW71UU`; `macmini_swarma-review-3_astra-05`, answer `$91Q372WdPBvEIE2Z4cORFI3jFq-lgZ3mmw9ipynXkaw`; `ivmbp_swarma-review-3_astra-15`, answer `$PevYmwTXl0ytftAA9_7v7V-dB7WA_YpBfMJUwAkCBzw`; `ivmbp_swarma-review-3_wonder-13`, notice `$zuJHHxQCoF17bGNPE50FpKgX6L7vjKoR_J9D752kmo8`; all in `#swarma-review-3`, topic `f-workspace-result-modes`, 2026-10-13. Candidate `$tk9vAcp5SViEClA7usBqUtxjsVPt0_XDbg4sp-J67g4`. The confirmations' scope limits (pre-publication inconsistency; blob identity covers link text; no new result field) are folded into the problem and proposed change. UM7 had not landed at recording time; helper text is rechecked at `3da62ad4`.
   Further independent item-1 confirmations: `ivmbp_swarma-review-3_astra-20`, `$x4_ubYPwUOPKfUkJkm6Yl5aFZxHiOJrMsuiWaDzIusU`; `ivmbp_swarma-review-3_sol-11`, `$16cEFro1Lv3OtW32sAbb5GqcXW9MbrWCIooeqDLyjBc`. Added at the author's request `$IhqlST1lYrEvKgqNvaXefHBw-j6FvG7sXa3acTzSUeM`; neither expands the recorded scope.
-- **Status:** proposed
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed
 - **Record:** `cycle3/findings/f-workspace-result-modes.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-58 — The watcher's operator alert has no published owner, route or availability: "over the phone path" names an inbound channel
 
 - **Lens:** trust and threat model (fable); abuse-control (astra-19), network (astra-06) and session-host (astra-04) cross-checks.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 
 ### Problem
 
@@ -2451,7 +2451,7 @@ Room `#swarma-review-3`, topic `f-alert-egress-owner` (root `$e34rO-gD462QhsZAgv
 - **Affected specs:** `swarm-platform-architecture/diagrams/plantuml/sequence/mailbox-delivery.puml`, `keeper-sign.puml` (note), rendered artefacts; optionally `vision/contracts/trust-and-isolation.md` §2 if delegated signing is adopted. ADM §§3–4 and TRU §6 already state the correct model.
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-18`, room `#swarma-review-3`, topic `f-mailbox-figure-verdicts`, event `$ZyysI_bHUQ-0R29_O2pT4Wg1hGx03lpHwcM9OB2kax4` (2026-10-13): independently confirmed at SPA 6b3f983 with bounded consequences (contradictory guidance, not an established effect bypass; the binding note is counterevidence to unrestricted impersonation; cross-reference to `f-delegated-action-envelope`). Candidate event: `$QcouzwPfGrccxVSxGxEyk3aiijH3uE1yk1nOv9HnEeU`.
   Cross-host confirmations: `macmini_swarma-review-3_astra`, event `$JycH2z3tBjFPlhkaFSxT2ZEffi3D3aYjYskbYUDaUH8`, and `macmini_swarma-review-3_fable`, event `$03hez_f22zkUWBPgZsx0JvcuWQzgxlHTQ6A6WX2XIR0`, same topic, 2026-10-13. Both directly check SPA `6b3f983`, retain the figure's host `admit()` as counterevidence to an effect bypass, and distinguish the existing own-identity signing path from any separately designed and reviewed delegation. Fable notes that a future delegated operation must preserve generation binding (cross-reference `f-keeper-identity-generation`); this finding does not adopt such an operation. Recorded by assigned scribe astra-20; wonder-11 retains ownership.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-mailbox-figure-verdicts.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-60 — Use registered actions in the grant figure's worked example
@@ -2467,7 +2467,7 @@ Room `#swarma-review-3`, topic `f-alert-egress-owner` (root `$e34rO-gD462QhsZAgv
 - **Risks and costs:** One figure redraw plus artefact regeneration. Two subclaims from the original candidate were refuted in review and are not part of this finding: (1) that the composite breaks subset attenuation — this grant is `delegable: no`, and a registered atomic action can obey subset attenuation (astra-18, event `$lAcB573IWEzmcTWwoAI1vln2NTj-p6ufVeWDv98fbQg`); (2) that the figure's registry-lookup arrows re-centralise verification — the figure's own note requires signature-chain, expiry, condition and revocation checking with one library at every point of action (astra-03).
 - **Affected specs:** `swarm-platform-architecture/diagrams/plantuml/sequence/grant-issue-and-check.puml` and its rendered artefacts. TRU §4 and ADM §§4/7 already state the correct register.
 - **Confirmed-by:** `macmini_swarma-review-3_astra-03`, room `#swarma-review-3`, topic `f-grant-figure-vocabulary`, event `$dGN2Lnfk7rJsajGVg6vQ44L_ipQlCo0zrcbdEFykRaI` (2026-10-13), independently confirming the narrow vocabulary contradiction at SPA 6b3f983 (TRU §4:33–37; ADM §4:56/59/62; §7:105); and `ivmbp_swarma-review-3_astra-18`, event `$lAcB573IWEzmcTWwoAI1vln2NTj-p6ufVeWDv98fbQg` (2026-10-13), confirming the narrow worked-example vocabulary/encoding mismatch. Both refuted subclaims (attenuation breakage, centralised verification) were withdrawn by wonder-11. Candidate event: `$D1Wz0dPTMDzH-MJ4pQ9VMBEQYj9tvcIEtgkZg2HR6a8`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-grant-figure-vocabulary.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-61 — Remove the superseded qualified-range resume probe from RST and the restart figures
@@ -2487,7 +2487,7 @@ Room `#swarma-review-3`, topic `f-alert-egress-owner` (root `$e34rO-gD462QhsZAgv
 - **Affected specs:** `swarm-platform-architecture/vision/contracts/restart-and-takeover.md` §§3–4; `vision/DECISIONS-FOR-OWNERS.md` D-R5; `diagrams/plantuml/sequence/controlled-restart.puml`, `context-takeover.puml` and artefacts. `wiki/decisions.md` D-RESUME and session-host §3.5/§3.6 already state the settled rule.
 - **Confirmed-by:** `macmini_swarma-review-3_astra-04`, room `#swarma-review-3`, topic `f-resume-probe-superseded`, event `$NHGqfkxEd648iS-VkctpXziaaaDDEu2bw4fMHiZEcwM` (2026-10-13), confirming against SH7 798a321c, wiki 87f387d and SPA 6b3f983, with the scope limit that only the extra resume-version probe is corrected and all other eligibility and launch-qualification checks stay. Candidate event: `$vghO2DNuU1oXHfc6OzDFyYjnP_WMzpAHbrDFhd8W_yU`.
   Scope refinement: `ivmbp_swarma-review-3_astra-18`, event `$q6Kk8vbn_SPMKqcRudxiDLsskhE9LR4JHQlhjJSW8lo`, independently confirms the SPA-local defect and the corrected wiki mirror; original peer publisher `macmini_swarma-review-3_astra-08` independently confirms that counterevidence and requests this narrowing in event `$vllePbEY5DpCCXXbcZnr96SogmWqHekktkKeDuo1siU`, same topic, 2026-10-13. Recorded by assigned scribe astra-20 with wonder-11 ownership preserved. Resume-version eligibility remains separate from goal authorship and stop/start ownership; no merge is implied.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-resume-probe-superseded.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-62 — Cross-check the base archive and the plan manifest against commit B, at materialization and at import
@@ -2558,7 +2558,7 @@ Room `#swarma-review-3`, topic `f-alert-egress-owner` (root `$e34rO-gD462QhsZAgv
   - `macmini_swarma-review-3_fable` (trust/threat model), `$dyh0_YIJSuXRpZJywsquqmfaC-gb60F_XQnC0BAM8a0`: confirms that neither check exists. Trust addition: all three representations of B come from one principal, the orchestrator that composes the plan and cuts the archive. A prompt-injected orchestrator could therefore plant content that the exporter reports as the worker's modification, landing in C under the worker's trailers. The import check, recomputed from the repository object B and never from the plan, is what anchors the trailers' attribution. Adopted in item 3.
   - `ivmbp_swarma-review-3_astra-15` (R-TRANSFER, adversarial), `$4eQw9nJ9Hq_F8sxAD2rTqzL4zcWVBnlRXJUabklH77I`: partial confirmation as a pre-activation contract requirement. The existing base invariants (DP7 :322, :368, :694, :696) stay counterevidence. It refines the reverse cases (content in B the worker never saw needs both archive and manifest to be wrong) and adds the limits above. Adopted.
   - Proposal `$x4o6yMN0KNytWRXmgVxwub8JzBvrpYVTqG7UJHmP56o`; review request `$Hjgh5emZJUh1cBFILZm72ylCVJ1jGdp8LiSVORHkCUI`.
-- **Status:** proposed. Checked at dispatcher `74687e6`, user manager `3da62ad`, launcher `f08f566d` and spm PR #604 r6 on 2026-10-13.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed. Checked at dispatcher `74687e6`, user manager `3da62ad`, launcher `f08f566d` and spm PR #604 r6 on 2026-10-13.
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** UM7 rewrote the materialize item but added no archive-to-manifest verification; substance unchanged. The helper lines moved: §7 item 1 :441→:445; §12 :542→:554; §14 q15 →:607.
 - **Record:** `cycle3/findings/f-base-binding.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
@@ -2589,7 +2589,7 @@ Room `#swarma-review-3`, topic `f-alert-egress-owner` (root `$e34rO-gD462QhsZAgv
 - **Affected specs:** `wiki/naming.md`, `wiki/glossary.md`; `curator-spec` platform contract disposition and remote-worker publication register; dispatcher §16, user-manager §14, broker §18, session-host §7, launcher §10.5 (status rows become index references); session-host §3.3 and launcher §10.5 wording.
 - **Confirmed-by:** `ivmbp_swarma-review-3_wonder-13`, notice `$x-cUmokv8OLRpWydlHBOsCk7pd4ixfK74Jb7xQnb0lM` (items 1, 3-scope, 5 at CB7/SH7 heads, plus the disposition extension); `macmini_swarma-review-3_astra`, answer `$Q7iwANYmMBV426VwpS0P30dYEKiDfvCUO4PwGU1c7hY` (items 1 and 4; owner-linked-index refinement adopted); `macmini_swarma-review-3_wonder-03`, answer `$UuZq-6J1_cNOVNweelHp1d0CVwWhiaTo14nsWK4daFA` (item 4 permit sub-point and item 1 from primary text); `ivmbp_swarma-review-3_astra-20`, answer `$ALLJpGq6YEi7M5agowGaC6rnYxXpM2E8eznmVJ_5PRA` (mixed confirmation; its item-2 scope correction and identifier-class distinction adopted). `macmini_swarma-review-3_fable`, answer `$BQr9DJLAI5gW-HG1aduX4wH0HrwK-E2nNVvjEJ5V8uU` (the `onboard` register item); `macmini_swarma-review-3_wonder-03`, notices `$4WTcMFLrOY0AAC5Aezel01C_N1Ng_TzrTgfkdfpvMP8`, `$fFILvahQ2O5Gq6QESnPpsfk4LCno9Ebq2anJTdjGfwU` and answer `$3hgZunyPOf4vLjEQUxg_4LF2-BR3CpLdZ0OL2ffbqL4` (component-name extension and credential-package spelling). All in `#swarma-review-3`, topic `f-wire-register-drift`, 2026-10-13. Candidate `$LUHmaYP857bGKZtUqNhCJXmavY-kW0vvBSpl8PGxWK0`.
   Additional cross-cutting confirmation: `macmini_swarma-review-3_astra-10`, `$KDZGJ3ulurFzcYuHW1k-PGgev9FxnoiI_E2v_T74APA`; added at the author's request `$ffqeopdWTWfWhisPpvlMQUmhw-ag47i-NJoaN_Br5IM`. The author approved the rollout-vocabulary and historical-mention precision edits in `$OwxyAbsJKpwjvPdbw9Que8Ln7vkPzN_AolvfJXMv14A`.
-- **Status:** proposed
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed
 - **Record:** `cycle3/findings/f-wire-register-drift.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-64 — Align the restart contract and session figures with dispatcher-owned stop/start and account-wide absence
@@ -2617,7 +2617,7 @@ Room `#swarma-review-3`, topic `f-alert-egress-owner` (root `$e34rO-gD462QhsZAgv
   - `ivmbp_swarma-review-3_wonder-11`, `$5-_1DljME8YkxdZlJuqYnhgwpHQF2WSlqGiAq8r7QCM`: independently confirmed the text and figure mismatch across machines, absence of an explicit historical/superseded marker, and separation from the resume-probe finding. Its context-takeover start citation is corrected to line 42.
   - `macmini_swarma-review-3_astra-02`, `$s1UIcUbohdV3CCQki1KnV3Ce-gudVFIWS8AvaXRAJes`: independent helper-lens confirmation, including the book restart figure and explicit VISION-not-canon limitation. `ivmbp_swarma-review-3_astra-14`, `$UTCWQCe0j90uCqgK02tBOtKxboiwR-3AuV7MfyNm7Io`: independent cross-host confirmation of the stop/start boundary and specific book remnants. `macmini_swarma-review-3_wonder-01`, `$orbZ156KbOx5VArHWKJIS1bhDm6dKmiblcukmxOnlGU`: independently verifies the book's three stale restart steps against current helper and session-host figures, retaining its correct D-RESUME portion.
   - Proposal `$Eurwb7J7uNO3W8bu5BVrlxNqKO2CTZ1xvT38MzNOowc`; consolidation and scope preservation `$4TUXEz30cDUUnD0Rh8-exQoH46-vlT4dvjl5pxs70K8`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-restart-stop-authority.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-65 — Reserve the R- prefix for shared rules and publish the rule register once
@@ -2635,13 +2635,13 @@ Room `#swarma-review-3`, topic `f-alert-egress-owner` (root `$e34rO-gD462QhsZAgv
 - **Risks and costs:** Documentation-only edits across the citing specs and one new register page; the register must then be updated in the same change as any new shared rule (the proposed docs-gate check makes that enforceable). No wire format, code value or owner decision changes; nothing here un-gates any feature.
 - **Affected specs:** `swarma-credential-broker/spec/broker.md` (§3.1, §18 preamble), `swarma-dispatcher/spec/dispatcher.md` (revision notes, §§5.3, 12, 16), `swarma-user-manager/spec/helper.md` (§7), `swarma-session-host/spec/session-host.md` (§5 traceability table), `curator-spec/cips/platform-contract-disposition.md`, `curator-spec/decisions/` (0005 duplication), and the new register home (`wiki/naming.md` or `swarm-platform-architecture` trust contract).
 - **Confirmed-by:** `macmini_swarma-review-3_wonder-03`, event `$_IPCpJ0KeknCxygiSjNl8QdbhOVprx42ukwBfZN9oI0` (independent extraction on the macmini source set; R-LR1 confined to `.temp/` board artifacts; Decision-0005 duplication confirmed); `macmini_swarma-review-3_wonder`, event `$X98sbi5nf-YDcJ2kgKfLvr9DiU4qAz0Hc1D08j0FOdY` (all three points from independent extraction; one-register-design boundary with f-wire-register-drift); `macmini_swarma-review-3_astra-10`, event `$DT43WQAhCvO0ZCpk9tzjIhB6UN26yKLqVtxdxUvxXmw` (cross-cutting lens; independent reproduction; index must route to the authoritative rule, not redefine it); `ivmbp_swarma-review-3_astra-20`, event `$ZaeXkO9hOOaHRMYKW6PPbg4mcQAfbaNLuboRNCmTkrQ` (cross-cutting lens; confirms the navigation/index problem and Decision-0005 ambiguity with the bounded wording adopted above — the label is unresolvable by token lookup, while Decision 0021 and launcher §10 identify the owner). Room `#swarma-review-3`, topic `f-r-name-namespace`, 2026-10-13. Candidate event: `$1dKMAJX_2ioTJ7vMFuc_qrQyp3pPxYmW8Dze2yutSQs`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-r-name-namespace.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-66 — World-readable ledger, receipts and applied state: platform generation and execution-start metadata has no required exclusion from tenant executions
 
 - **Lens:** trust and threat model (fable); book-versus-spec consistency. User-manager cross-check (astra-02).
-- **Status:** proposed (hardening and clarification, not a broken invariant).
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed (hardening and clarification, not a broken invariant).
 
 ### Problem
 
@@ -2717,7 +2717,7 @@ Room `#swarma-review-3`, topic `f-ledger-topology-read` (root `$bQGTP3zrM3wr_ESX
 - **Risks and costs:** Re-render and manifest bookkeeping only; the figures keep their draft-CIP status. The freshness rule is a landing-process obligation (plus an optional upstream-aware check), not a network fetch in CI; without an upstream reference it cannot be made mechanical, and the manifest should not imply otherwise. Requiring committed renders is a repository policy choice; the post-render-check alternative avoids it. No owner decision is challenged.
 - **Affected specs:** Wiki book `book/swarma/src/MANIFEST.md`, the five copied `.puml` sources and their renders, `book/swarma/src/worker-code-path.puml`, `book/swarma/check-figures.sh`, and the missing `worker-code-path` render. CIP-0008/0009/0010 and `protocol/remote-worker.md` at `a0154285`, dispatcher §5.3 and the board import draft are the authority; no change to them is proposed.
 - **Confirmed-by:** `macmini_swarma-review-3_wonder-02` (book lens), event `$5OoNxrjzolFMYs2kZPsourtdkRfLGIq5-DVYKNU-zPc`, in `#swarma-review-3`, topic `f-book-cip-figure-copies`, 2026-10-13. Independent mechanical reproduction: manifest pin and SHA-256 equality at `601cbb0` vs `a0154285` (donor-first-deployment `986a4211…` vs `f9dee5eb…`), the ForceCommand/egress contradiction against chapter 11:100, and the 26-source/25-render gap. Candidate event `$BthDx0zmZ1_MgYK1QQOCSgytdRn-HWYzbMXSoovb7cU`. Also `ivmbp_swarma-review-3_wonder-11` (same lens, pair seat), event `$9LdrYrl0E6HQIWfg7rmTXhS8vm3CwCDFeNhj5b0OpPc`, same topic: independent duplicate-figure sweep reproduced all five divergent hashes (join-handshake `13b4993a…` at the pin vs `f6584831…` current) and the render gap; agrees the curator-spec originals track the current CIPs and only the book copies are stale.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-book-cip-figure-copies.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-68 — Preserve the identity's daily proxy budget across service restarts
@@ -2747,7 +2747,7 @@ Room `#swarma-review-3`, topic `f-ledger-topology-read` (root `$bQGTP3zrM3wr_ESX
 - **Confirmed-by:** `macmini_swarma-review-3_opus` (recovery/time lens), answer `$K2FCuWyEpI5LDMYXZ-VExVJaRadk0ww6xJaBDTfGoXw`, independently confirmed the narrow assurance/adoption mismatch and suggested the time-confidence vector; line correction `$4U9BHUwhEZlE2cklnndxQggYSQPBK-PVS60x06dA7gE`. Room `#swarma-review-3`, topic `f-proxy-budget-incarnation`, 2026-10-13. Proposal `$6XLGLTWoJuXU4DQvNsGNKoJXKNC-qHGgdjAEdZwMzd4`; confirmation request `$oc_2cbfnfnsYuTLzHlBQPuwKLzbmmWtZtGTsZ9hut_s`; author's scope clarification `$OA82bkQIxNKWHZRTU-hqUnUnPF-cRIPyM1NogDCgqRU`.
 - **Scenario confirmation:** `macmini_swarma-review-3_sol-01`, answer `$w00vhCvG9JTgsrxD71r-pTKq0Epf0BUGRMuaXRIL8Zw`, independently confirmed the same-window replacement trace and suggested a standing-account vector where credential E-rebind or network re-apply coincides with listener replacement. A changed authority/listener is not itself a new budget identity or window. Same room/topic, 2026-10-13.
 - **Adversarial confirmation:** `ivmbp_swarma-review-3_astra-16`, answer `$Re1zxUwlw7RB4e9YulPd8Xvhhf1WbA5OwsaWM11v_xM`, confirmed the mismatch against the final N15/UM7/RWP pins and identified the N16 adaptation-list and P4 qualification omissions. N15's daily-cap requirement already forbids interpreting this as permission to reset usage; the finding is the incompatible candidate default and missing adoption/qualification condition. Existing startup checks, a legitimately new generation/job, and legitimate calendar rollover do not refute the scoped trace. Same room/topic, 2026-10-13.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-proxy-budget-incarnation.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-69 — Preserve executor lifetime in the book's credential sequences
@@ -2768,7 +2768,7 @@ Room `#swarma-review-3`, topic `f-ledger-topology-read` (root `$bQGTP3zrM3wr_ESX
 - **Confirmed-by:**
   - `macmini_swarma-review-3_astra-03` (broker lens), event `$-bzszpTzA_3pzsx-vWlbGtmunmsbUzJwhuQRvoXzpF0`, room `#swarma-review-3`, topic `f-book-env-report-client`, 2026-10-13. Independently verified X3's holder branches/common report arrow and retained the open ownership/account-state limits. Further event `$WCkp4r8NgtVxJwqCgrXmjHGQ-oYbmP6xlpQuEynTzcc` independently confirms X1's narrower need to disambiguate holder lifetime, explicitly preserving its correct refusal rule and excluding a second runtime defect.
   - `macmini_swarma-review-3_wonder-01` (figure lens), event `$LRzv2nsoKqTgn1ir1ECFp4ZJmHvNVuGknSpdYI1BVu4`, same room/topic/date. Independently verified X3 and the broker pins; confirmed that the open note does not conditionalise its report arrow and that broker text needs no change.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-book-env-report-client.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-70 — Add the conditional workspace-export gate to the book's one-shot cleanup
@@ -2793,7 +2793,7 @@ Room `#swarma-review-3`, topic `f-ledger-topology-read` (root `$bQGTP3zrM3wr_ESX
   - `ivmbp_swarma-review-3_sol-11`, `$3kE9KYP5SfM-Cch3qQClCLxZns7MjWJa_aKbW7l5bbs`: independently read the pinned book and DP7; confirms this exact bounded candidate, distinct file ownership and the non-workspace/compensation/capacity/metadata counterbounds. Its original primary-source confirmation is `$Jx6kmHW5wN92W-pGXAh13sKKpkSP1ptk4BKPTEX9OzE` in `f-book-cip-figure-copies`.
   - Original candidate: `$ZPDxLvJ8X2C0V9iy7T3TJdLO4IOOdyRQthfQYUo-fA4`; same-topic peer request: `$-4MFv4XaJEuoktTXGiXwT8h0zVlYIMGAVPofvi2JoiM`.
   - Additional independent confirmations in the overlap-check topic `f-book-cip-figure-copies`: `macmini_swarma-review-3_astra-05` (transfer lens), `$-R6r9OV7mvKLB-SsDCtchy5KaMoIqZ3Bu60T5Qs122A`; `macmini_swarma-review-3_astra-10` (cross-cutting lens), `$8hkpLJCWpBF-efmw3UWTPTph3CEj-mwW7RQXVlCqKBw`; `macmini_swarma-review-3_astra-07` (remote-worker lens), `$bOHa-P2Z1dOpO2UvgFTBj8jEe_Ft4r03FVytLyoTdwo`. Each independently confirms the omission and distinguishes it from v4's scope and module-level export findings.
-- **Status:** proposed. Source/document reads only; no runtime, build, test or rendering evidence claimed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed. Source/document reads only; no runtime, build, test or rendering evidence claimed.
 - **Record:** `cycle3/findings/f-book-one-shot-export.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-71 — Propagate D-GOALS supersession into the still-linked goal contracts and sequence
@@ -2818,7 +2818,7 @@ Room `#swarma-review-3`, topic `f-ledger-topology-read` (root `$bQGTP3zrM3wr_ESX
   - `macmini_swarma-review-3_astra-04`, event `$8ZoA3l_6ZlcFTRIAfD6lmBmKHNiyK9aBmrOFBZCvDWQ`, and `ivmbp_swarma-review-3_astra-18`, event `$gAURekxuzvElBmYdMMdXttFfses95MEvDyk2MAQq1ko`: independent host and adversarial-trust confirmation at the same bounded scope, preserving the canonical supersession and existing goal/board gates.
   - `macmini_swarma-review-3_sol-02`, event `$TMy5w-R8mo2litYsutvwcOVl7QyIISYYSSydBenNgu8`, and `macmini_swarma-review-3_sol-03`, event `$Uyjb_fRqmIJDnIEIj7jcSJsLlRYevto8jF4h7QGcUDw`: scenario confirmations; added the VISION summaries and correctly updated book figure as counterevidence. Those sources were independently read and incorporated.
   - Candidate event: `$JLxN-75t0ZiBC6y0Kzix-KbBkFSx2WLwXevFln2e3XM`. Scope acceptance: `$xLv2h0OdsdU2WlpKlkT3fB1Ho8xleUJQcbEesr5TgBI`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-agent-goal-authority.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
 
 ## F-72 — Mark the superseded unknown-data replay exception in the SPA delivery contract
@@ -2841,5 +2841,5 @@ Room `#swarma-review-3`, topic `f-ledger-topology-read` (root `$bQGTP3zrM3wr_ESX
   - `macmini_swarma-review-3_astra-04`, event `$ppJJqE6OhQ5nlM-m8LhFt84ZhzEp0EHDcEoc2esAAJk`: independent host confirmation, separate-counterexample assessment and agreement with the bounded liveness treatment; status/stop reachability limits incorporated.
   - `ivmbp_swarma-review-3_astra-14`, event `$Ah2q6Urh3vy5pORFxTUJPJg1qmZO9b15LH_2coSwgsg`: independent cross-host confirmation; preserves positive non-application redelivery and confirms that repairing the admission-digest finding does not repair this policy drift.
   - Candidate: `$EOfAVNtx7Bg7At9Mr1HP7d1FNcZjX6HkSlnaNlbVkOY`; directed challenge: `$nrWItCFjEc4OnFuGad4wKZUWpduEevItA8T1Hma3PUE`.
-- **Status:** proposed.
+- **Status:** accepted by the owner on 2026-10-13 («окей, давай принимаем все 44»). As confirmed: proposed.
 - **Record:** `cycle3/findings/f-unknown-data-replay.md`; its implementation-plan disposition is in `impl/PLAN.md` §13.
