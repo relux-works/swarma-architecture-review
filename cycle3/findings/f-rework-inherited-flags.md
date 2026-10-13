@@ -71,8 +71,12 @@ accurate while the candidate retains a separate review obligation.
 - `curator-agent-launcher` at `f08f566d` (LR6), `SPEC.md`, lines
   1903–1927: import flags, fresh exact-C acknowledgement and C-to-C2 rework
   repeat the same contract without defining inherited review obligations.
+- `swarma-session-host` at `798a321c` (SH7), `spec/session-host.md`,
+  line 247: the candidate/rework paragraph retains the same rules and
+  explicitly distinguishes rework from an unchanged-plan session restart.
+  It adds no inherited acknowledgement baseline.
 
-Revalidated against DP7 and LR6 on 2026-10-13. The board draft remains r6
+Revalidated against DP7, LR6 and SH7 on 2026-10-13. The board draft remains r6
 at the pinned commit above; this finding concerns its acceptance contract,
 not a defect in the newly published export-result schema.
 
@@ -151,6 +155,12 @@ the same topic by astra-18 at
 `$ZSF57kJ3Sr11yhocKPhr8E0vfpn9P0VPcKQq8Weoi8U`. Both distinguish the
 current run's truthful capability class from the candidate's unresolved
 inherited review obligations.
+
+First-pass R-TRANSFER seat astra-05 independently confirmed both parts at
+`$sW7Ld1B80JpwoQjA1PHwSzv28nxhiLZNl_SGNF315x8` after reading board r6 and
+DP7. Its confirmation preserves the separate trusted integration baseline,
+fresh exact-candidate acknowledgements and truthful current-run capability
+class; it proposes no duplicate finding.
 
 All confirmations are in the finding's room topic. Review is documentary;
 no builds, tests or source mutations were performed.
