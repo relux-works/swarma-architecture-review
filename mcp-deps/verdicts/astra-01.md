@@ -1,6 +1,6 @@
 # astra-01 — spec fit and minimality
 
-Status: round 2, provisional; collective active. Author: `ivmbp_swarma-mcp-deps_astra-01` on `ivmbp`.
+Status: round 4, provisional; collective active. Author: `ivmbp_swarma-mcp-deps_astra-01` on `ivmbp`.
 
 ## Position
 
@@ -51,7 +51,7 @@ E3 in the main table is the **amended mission** row: **no use, storage, forwardi
 | E8 Operator effort | 1 | 1 | 2 | 2 | 1 | Common case is an already suitable provider: observed match is zero actions; N/B2 assertion or binding is one. B1 may additionally resolve/prove provenance. L requires assertions for ordinary native cases and repeats them on scope/invalidation changes. New provider setup and native login are additional, reported separately. |
 | **Total, operational** | **7** | **10** | **12** | **13** | **12** | Design scores, not measurements or implementation certification. |
 
-Under the **literal** original E3 zero anchor, B0/B1/B2/N score **0** because arbitrary mixed native bytes can contain credential values. Their totals are respectively **6/8/10/11**, and all fail the literal no-zero gate. L scores E3=2 only at the stated dependency-checker boundary; a whole-launcher “never forwards a value” reading conflicts with S4 and cannot be satisfied by reusing that launcher. A score of 1 for byte contact, proposed by another seat, is within numerical tolerance but changes gate eligibility; that disagreement must remain visible.
+Under the **literal** original E3 zero anchor, B0/B1/B2/N score **0** because arbitrary mixed native bytes can contain credential values. Their totals are respectively **6/8/10/11**, and all fail the literal no-zero gate. L scores E3=2 only at the stated dependency-checker boundary; a whole-launcher “never forwards a value” reading conflicts with S4 and cannot be satisfied by reusing that launcher. The amended rubric does not retroactively satisfy the literal promise.
 
 Zoo scores do not promise MCP support where the client has none. `required_in: all` still fails if a selected target cannot provide MCP, is disabled, or has contradictory evidence. A scoped assertion addresses an **unobservable** capable provider, not known impossibility. Unsupported clients and ordinary setup effort cannot be waved away by the word “binding.”
 
@@ -96,13 +96,18 @@ Wonder-01's sketch (`$6Ju0U6dvorEvdtJ0MsUkDEFhhMjnZPdD4btQilsiQhQ`) makes the re
 
 The round-3 revision (`$e5s3ZnvCckXlXR8HgOhJu7XHsOUk3W_5O2ueV0Ga37I`) resolves those D3/D4 objections, explicitly chooses an existing manager-config successor, and accepts separate provider-consent and opaque-reliance lifecycles. D1 now keeps all pre-admission display metadata-only and names exact-commit adoption through a real context package. I accept those corrections. E7 remains 1 because adapter/launch evidence completeness and the extension's system-policy/hardened interaction still need a closed contract.
 
+The subsequent closure (`$R2qT1zuemaAB6XGZYwcsy_Fh-ncIeE1HMRY5f8q64M4`, accepted by this seat in `$jNFV-zBNiS3FKni1yne77cS0_Y-b38h4OEqSLseNKEs`) fixes the sketch's provider selectors as native `(agent, surface, configured name)`, managed `(profile, lock member name)`, or opaque `(agent, launch, operator label)`. These are matching identities, never byte fingerprints. The contract claims no durable detection of changes behind an opaque label. Admission and hardened policy remain cumulative: an assertion cannot replace source/signer/audit admission or suppress a hardened refusal. Whether protected system policy may additionally forbid assertion-grade reliance is still a governed choice.
+
+Completeness is specific to the actual launch. The authoritative Claude exclusion premise is a **present, actually applied strict channel**; §5.8 emits no channel file for an empty MCP set, so an empty profile set alone does not establish exclusion. Codex's trusted-project residual and OpenCode's project overrides remain incomplete. Native-file absence cannot disprove an opaque provider; a known unsupported target such as pi cannot be rescued by assertion. These bounds close the sketch discussion without claiming that normative configuration/marker grammar, policy rules or conformance vectors already exist. E7 stays 1.
+
 The lock's `recorded-origin` label is not a provenance proof or an alternative satisfaction state: environments §1.3 explicitly forbids using the lock as a provenance proof, and a recorded-origin server can be missing, disabled or overridden. Signature results, protected-boundary validation and current observed/asserted acceptance are separate facts. All provenance references in candidate B1 describe work an authoritative-identity design would need, not evidence that today's lock provides it by itself.
 
 E1 remains conditional: a new standalone binding record family scores 0 under the mission's explicit anchor even if its physical layout is manager-private. An existing configuration family successor plus marker evolution can score 1; zero new skill fields does not erase either cost. Scores and the N/A+N preference are otherwise unchanged this round.
 
 ## Peer agreement and open proof work
 
-- astra-03 independently preferred N, operational row `1,2,2,2,2,2,1,2` (14), versus this seat's `1,1,2,2,2,2,1,2` (13): one-point difference on E2 only, event `$vq4G9mAfI0yzeUEbk3drxoBlj42GXIf9eyl6VaeBCuE`. Both are on ivmbp, so this does not complete proof.
+- Current same-host agreement is N/N+A `1,1,2,2,2,2,1,2` (13): astra-03 `$t-hXR5ubB2L4l9s0YmuWd7GRgWJz23h3z0vzCev9jOs`, astra-02 `$CSGD0bKQZ4cX9rCtVuSn-Ed_d0kdAOoRM-eZdJyVc_o`, and wonder-01/02's final sketch/scoring messages. This supersedes astra-03's earlier E2=2 score of 14. These seats are all on ivmbp, so agreement does not complete proof.
+- Wonder-02 explicitly recorded both A-standalone E4 readings in `$cCNG9kO0TxjYdp7ig8nqRCDeij6qGhpceigw3Q9UlZM`: this seat's strict exclusion anchor gives E4=0 and total 12; the declared partial-coverage interpolation gives E4=1 and total 13. Neither changes the N/N+A preference among designs meeting the complete goal; the per-row disagreement is one point.
 - Two confirmed findings exist with event IDs. Their independent confirmation is not a substitute for whole-design scoring on a different host.
-- Considered wonder-01's skill-shipped recommendation, tool-capability contract and gateway alternatives; the first composes with N under the bounds above. Await the mini host's independent scores; challenge assertion-grade E4 and finish the binding/marker contract before claiming E7=2.
+- Considered wonder-01's skill-shipped recommendation, tool-capability contract and gateway alternatives; the first composes with N under the bounds above. Await the second host's independent scores; challenge assertion-grade E4 and finish the binding/marker contract before claiming E7=2. Convener `$h4JEJERFqsHn2uo4CleuMAw2Ylh0NKOdpxvvss87CLA` reports those seats are not yet running; expected identities use `macmini_swarma-mcp-deps_`, not the earlier guessed `mini_` prefix. Challenges are parked until actual identities join.
 - The convener amended operational E3 in the mission; the literal limitation remains documented. No architecture adoption or implementation authorization is inferred from that amendment.
