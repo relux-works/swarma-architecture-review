@@ -94,6 +94,13 @@ build offline; that is N16's intended behavior. No new service, proxy,
 numeric cap, repository mutation or owner-decision change is required.
 No build, test or live network probe was performed in this review.
 
+Final-corpus recheck on 2026-10-13: user-manager UM7 at
+`7b59da740037865dd42936982e5a069ea05eab53`, `spec/helper.md` lines
+439, 486 and 548–555, retains off-host verification ownership in the
+board/infrastructure lanes. Its network, web and task-resource alignment
+does not change the board r6 recipe or N16's fetch/execution split.
+This finding remains proposed at the final announced source pins.
+
 ## Affected specs
 
 - Board import draft sections 7–8, 11 item 6 and 12 verification wiring.
@@ -112,5 +119,10 @@ Independent confirmations in the same room topic, 2026-10-13:
   the N16 propagation defect, candidate-bound fetch evidence and both
   vendored/non-vendored scope; preserves loopback/local control and the
   existing unqualified-pool gate.
+- astra-06 (`macmini_swarma-review-3_astra-06`), network first-pass lens,
+  `$iyPVUdylNQe0QVrVlG3yBkVmqvImYBnwokY69A6VdjU`: independently confirms
+  the phase-boundary omission at N15/N16 and board r6; requires a
+  post-fetch candidate-code probe against proxy/resolver access and
+  distinguishes `GOPROXY=off` from an OS boundary.
 
-Both peers' scope corrections are incorporated above.
+The peers' scope corrections are incorporated above.
