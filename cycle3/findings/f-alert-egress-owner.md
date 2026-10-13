@@ -12,7 +12,7 @@ Every wave-5 text makes operator alerting part of the abuse controls. The watche
 ## Evidence
 
 - `swarma-dispatcher` at `74687e60` (v0.11), `spec/dispatcher.md:472` (§7.3): "It alerts the operator over the phone path"; `:112-114` (§3.2): the phone path is the inbound act channel; `:626` (§13): deny-all egress including loopback TCP and DNS; `:737` (§16 q27): phone-alert format unpublished.
-- `swarma-user-manager` at `ae540c59` (v0.9; unchanged at `3da62ad4`), `spec/helper.md:498` (§8.2): "Alerts reach the operator over the phone path"; `:480-486` (§8.1): dispatcher and session host deny-all, broker vendor-only; the root helper and launcher have no per-UID row (:480), so the table is not a blanket root deny-all claim.
+- `swarma-user-manager` at `7b59da7` (v0.10, UM7), `spec/helper.md:510` (§8.2): "Alerts reach the operator over the phone path"; `:490-502` (§8.1): dispatcher and session host deny-all, broker vendor-only; the root helper and launcher have no per-UID row, so the table is not a blanket root deny-all claim. The same text was at `ae540c59:498, :480-486`.
 - `swarma-session-host` at `798a321c` (r11), `spec/session-host.md:271` (§3.7): "Alerts use the operator phone path"; `:140` (§3.1): deny-all, Unix-socket platform calls only; `:362` (§7 q18): phone-alert and reason-delivery formats unpublished.
 - `swarma-credential-broker` at `df8c7385` (v0.10), `spec/broker.md:600-605` (§11): events on `status` and the audit log now; "Later versions deliver them to the session host and the message bridge, so that a session is parked and a person is asked to re-enrol from their phone"; `:873` (§17): labelled later.
 - `swarm-platform-architecture` at `6b3f983`, `trust-and-isolation.md:78`: the bridge's egress is "later to its carrier".

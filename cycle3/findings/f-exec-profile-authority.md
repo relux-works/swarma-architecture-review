@@ -14,7 +14,7 @@ This is a publication gap in the selection and pinning contract, not a claim tha
 ## Evidence
 
 - `swarma-dispatcher` at `74687e60` (v0.11), `spec/dispatcher.md:189`: the plan digest covers "the exec-profile reference"; `:296`: `prepare` checks the "exec-profile reference" among its gates; `:374`: `start` requires "the recorded class, current qualified host matrix and admitted exec-profile reference"; `:384`: "The plan carries the task-class exec-profile reference, covered by its digest"; `:316`: the orchestrator composes children's plans under its own account from its own Curator configuration; `:142-144`: R-NETBIND supplies the source-and-pin rules for the network profile that are missing here; `:735` (§16 q25): profile formats unpublished.
-- `swarma-user-manager` at `ae540c59` (v0.9; unchanged at `3da62ad4`), `spec/helper.md:397`: the launcher verifies "the task exec profile" against host and class gates before a start; `:433`: per-task-class allowlists; `:441`: the plan records the exec profile; `:601` (§14 q19): profile encoding and enforcement open.
+- `swarma-user-manager` at `7b59da7` (v0.10, UM7), `spec/helper.md:401`: the launcher verifies "the task exec profile" against host and class gates before a start; `:437`: per-task-class allowlists; `:445`: the plan records the exec profile; `:613` (§14 q19): profile encoding and enforcement open (the same text at `ae540c59:397, :433, :441, :601`).
 - `curator-agent-launcher` at `f08f566d` (LR6), `SPEC.md:1757-1765`: the composed plan carries the exec-profile reference under the plan digest; `:2006-2021`: the user manager owns the allowlist; neither names a selection authority.
 - `swarma-session-host` at `70c9d97e` (r10), `spec/session-host.md:172`: the same R-EXEC text, no selection rule.
 

@@ -40,6 +40,8 @@ Closes the path from an untrusted producer to control of a trusted-class agent t
 
 Reviewing through diffs and blobs changes the reviewer's working style; tree-level review waits for a strict adapter per harness. Prompt injection through the flagged content remains a residual that review scrutiny, not isolation, addresses. No owner decision is challenged.
 
+- `swarma-user-manager` at `7b59da7` (v0.10, UM7), `spec/helper.md:448` (§7 item 4): the same flagged-path list and review rule, unchanged in substance from `ae540c59:444`.
+
 ## Affected specifications
 
 Dispatcher §5.2 step 5, §14 table, §16 q22; session host §3.5; launcher §10 review and surface bullets; user manager §7 item 4; board import draft §§5, 10 and the verdict leaf; CIP-0002 operative summary and open questions; book chapter 11 step 6.
