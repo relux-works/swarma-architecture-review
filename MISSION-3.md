@@ -138,6 +138,11 @@ You start with one lens. Roam beyond it and challenge the others. Everyone share
 
 **Module seats, second machine (`astra-11` … `astra-20`), adversarial pass.** Seat `astra-1N` takes the lens of `astra-0N`, and `astra-20` takes astra-10's. Try to break what the first-pass seat defends. Confirm or refute its candidates, and add your own.
 
+**More Muse seats (`wonder-01` … `wonder-03` on the operator host, `wonder-11` … `wonder-13` on the second machine; Muse Wonder full 1.0 at xhigh).** The operator added them on 2026-10-13: «мьюзов кстати можно запустить тоже побольше - давай штуки три xhigh wonder full на макминим и столько же на ivmbp». They extend the core wonder's lens, contradictions and mechanical verification:
+- **wonder-01 / wonder-11:** spec against its own figures and README, in every module;
+- **wonder-02 / wonder-12:** the book (`wiki/book/swarma/ru`) and `decisions.md` against the specs and the trust contract;
+- **wonder-03 / wonder-13:** names and registers. Shared names (R-*, F-*, D-*) used with one meaning everywhere, the unpublished-format registers agreeing across modules, and refusal-code lists agreeing.
+
 **Scenario seats (`sol-NN`, Codex gpt-6.1-sol max).** The operator added these on 2026-10-13: «если будет позволять рейтлимит провайдера, можно добавлять потихоничку сол 6-1 макс и на мини и на кипере что бы становились частью коллектив». They join gradually, as rate limits allow, on both machines.
 - Lens: end-to-end scenario walks. Trace each flow through every module and contract, step by step, and look for gaps, contradictions and unrecoverable states. The flows:
   - a one-shot agent;
