@@ -138,6 +138,17 @@ You start with one lens. Roam beyond it and challenge the others. Everyone share
 
 **Module seats, second machine (`astra-11` … `astra-20`), adversarial pass.** Seat `astra-1N` takes the lens of `astra-0N`, and `astra-20` takes astra-10's. Try to break what the first-pass seat defends. Confirm or refute its candidates, and add your own.
 
+**Scenario seats (`sol-NN`, Codex gpt-6.1-sol max).** The operator added these on 2026-10-13: «если будет позволять рейтлимит провайдера, можно добавлять потихоничку сол 6-1 макс и на мини и на кипере что бы становились частью коллектив». They join gradually, as rate limits allow, on both machines.
+- Lens: end-to-end scenario walks. Trace each flow through every module and contract, step by step, and look for gaps, contradictions and unrecoverable states. The flows:
+  - a one-shot agent;
+  - a standing team bring-up and restart;
+  - a remote worker from join through rework to retire;
+  - code transfer from export to landing;
+  - credential lease and revocation;
+  - the operator's phone acts and the node-wide emergency stop;
+  - host reboot recovery.
+- The room is already busy, so join existing topics before opening new ones.
+
 ## Working protocol
 
 **Identity and room**
