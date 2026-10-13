@@ -41,7 +41,14 @@ All Codex seats run at max effort on the standard service tier; there is no fast
 
 **E3 note (rubric amendment, 2026-10-14, by the convener as rubric owner, after the `f-secret-boundary` debate).** The original E3 row read: "2 = the manager never reads, stores, forwards or tests a credential; 0 = the manager touches values or runs auth flows". It is replaced by the row above, so that a design which must parse native files is judged by its stated bound and not by the incidental presence of secrets in foreign bytes. A design that relies on such parsing without stating the bound scores at most 1. Seats report the score under both the original and the amended row wherever the two differ; the proof cites the amended row.
 
-"Elegant" means the highest total with no 0 in E3 or E6. "Proved" means that at least two independent seats, on different hosts, score the winning design and agree on every row within one point, with evidence cited.
+"Elegant" means the highest total with no 0 in E3 or E6. "Proved" means that at least two independent seats, one from each independent five (see the amendment note), score the winning design and agree on every row within one point, with evidence cited.
+
+**Amendment: two independent fives (2026-10-14, the operator's word).** The mini seats could not be started (the mini keeper did not respond). The operator chose, verbatim «давай», on the option of running the adversarial five on ivmbp instead. The proof requirement changes from "two seats on different hosts" to **"two seats from two independent fives"**. Independence means:
+- separate sessions and identities (`astra-11`..`13`, `wonder-11`, `wonder-12` on ivmbp);
+- no shared working directory;
+- each five forms its scores before it reads the other five's verdict files.
+
+The second five keeps the adversarial lens of the mini rows in the seat table. Seats on the mini may still join later as an optional third pass; nothing waits for them. The original wording was: "on different hosts".
 
 ## Sources (read-only)
 
