@@ -96,6 +96,8 @@ Native clients own OAuth and secret handling. Schema-1 declarations have no auth
 
 Provider-write consent renews for changes to admitted declaration/execution, credential routing, agents, destination or scope. The list of requiring skills is display attribution, not a new per-skill use-permission system. A newly installed skill using an unchanged observed provider is not a provider mutation. Reliance scoping and write-consent lifecycle are distinct.
 
+The stronger no-secret claim also bounds provisioning, not just stdout. I's `contextpkg.ParseMCP:497-518` preserves args/URL and `contextmaterialize/mcp.go:244-327` copies them into generated files. Under the corrected dependency path, credential-bearing provisioning must be refused/deferred before reproducing or forwarding those values; an audit waiver does not relax that boundary. Existing general profile-waiver behavior is not silently changed or certified. Reconciliation with §§2.3,5.8,9.1 requires explicit governance, and a legacy operation outside this stronger path cannot inherit its end-to-end E3 claim. Scores describe this proposed bounded path, not all existing profile/launcher behavior.
+
 Environment names are a launch-wide union (§§5.8,10.2), not a per-server credential-isolation mechanism. Consent must expose and reassess the effective recipient set and admitted-name union when composition changes. The manager still handles names only. Under §10.3, hardened posture rejects explicit `passable_env_names: null`, while an absent knob retains the active S4 profile's behavior: `s4-warn` is unbounded with warnings; `s4-enforce` drops unlisted names. No stronger sandbox or rollout guarantee is claimed.
 
 ## Minimum delta from BASE
