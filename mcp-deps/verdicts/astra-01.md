@@ -1,6 +1,6 @@
 # astra-01 — spec fit and minimality
 
-Status: round 4, provisional; collective active. Author: `ivmbp_swarma-mcp-deps_astra-01` on `ivmbp`.
+Status: round 6, provisional; independent adversarial passes joining. Author: `ivmbp_swarma-mcp-deps_astra-01` on `ivmbp`.
 
 ## Position
 
@@ -12,6 +12,7 @@ This is a conditional design preference, not a claim of implementation or a comp
 
 - Review inputs: mission/base/three inputs at review commit `1c6010abf79f775208d317b768bfad04041774cb`.
 - Scoring uses the amended mission E3 at `534e384`, pulled and read after the convener's decision event `$ropOGjw3dqPFz1fjx0hkU8dYrqD4iOS6X3jfs7L5y9o`. Original E3 is preserved separately.
+- Proof procedure follows the operator-directed "two independent fives" mission amendment at `b5e7dab`, fully read after convener notice `$16H5I0yTqnEJxkLpw6pt1gM406Uxyf0Hm5b4KZAid3g`. The second ivmbp five freezes its own scores before reading the first five's verdicts; the joining Mac mini five is an additional cross-host pass. Agreement across independent groups and agreement across hosts are reported separately.
 - curator-spec: `a9c03be237b723b5bf87aed070165ad6f68b2586`.
 - curator: `5234cf38833554542e68afade15951c6e56ed89e`.
 - Source clones were read locally and clean; they were not fetched because their directories are outside this seat's write scope. No builds, tests, client probes, web access, or real credential/config reads were performed.
@@ -106,8 +107,8 @@ E1 remains conditional: a new standalone binding record family scores 0 under th
 
 ## Peer agreement and open proof work
 
-- Current same-host agreement is N/N+A `1,1,2,2,2,2,1,2` (13): astra-03 `$t-hXR5ubB2L4l9s0YmuWd7GRgWJz23h3z0vzCev9jOs`, astra-02 `$CSGD0bKQZ4cX9rCtVuSn-Ed_d0kdAOoRM-eZdJyVc_o`, and wonder-01/02's final sketch/scoring messages. This supersedes astra-03's earlier E2=2 score of 14. These seats are all on ivmbp, so agreement does not complete proof.
+- Current first-group agreement is N/N+A `1,1,2,2,2,2,1,2` (13): astra-03 `$t-hXR5ubB2L4l9s0YmuWd7GRgWJz23h3z0vzCev9jOs`, astra-02 `$CSGD0bKQZ4cX9rCtVuSn-Ed_d0kdAOoRM-eZdJyVc_o`, and wonder-01/02's final sketch/scoring messages. This supersedes astra-03's earlier E2=2 score of 14. These seats belong to the same first group on ivmbp; their agreement completes neither the amended independent-group proof nor the original cross-host proof.
 - Wonder-02 explicitly recorded both A-standalone E4 readings in `$cCNG9kO0TxjYdp7ig8nqRCDeij6qGhpceigw3Q9UlZM`: this seat's strict exclusion anchor gives E4=0 and total 12; the declared partial-coverage interpolation gives E4=1 and total 13. Neither changes the N/N+A preference among designs meeting the complete goal; the per-row disagreement is one point.
 - Two confirmed findings exist with event IDs. Their independent confirmation is not a substitute for whole-design scoring on a different host.
-- Considered wonder-01's skill-shipped recommendation, tool-capability contract and gateway alternatives; the first composes with N under the bounds above. Await the second host's independent scores; challenge assertion-grade E4 and finish the binding/marker contract before claiming E7=2. Convener `$h4JEJERFqsHn2uo4CleuMAw2Ylh0NKOdpxvvss87CLA` reports those seats are not yet running; expected identities use `macmini_swarma-mcp-deps_`, not the earlier guessed `mini_` prefix. Challenges are parked until actual identities join.
+- Considered wonder-01's skill-shipped recommendation, tool-capability contract and gateway alternatives; the first composes with N under the bounds above. The second ivmbp group (`astra-04`–`06`, `wonder-03`–`04`) and the Mac mini group (`astra-11`–`13`, `wonder-11`–`12`) are now joining. Respect their independent initial scoring before any direct advocacy. Neither proof is claimed yet; assess their actual per-row scores and evidence, including assertion-grade E4, after those scores are frozen. The binding/marker contract must still be governed before claiming E7=2.
 - The convener amended operational E3 in the mission; the literal limitation remains documented. No architecture adoption or implementation authorization is inferred from that amendment.
