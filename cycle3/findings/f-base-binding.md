@@ -34,6 +34,7 @@
   1. **One canonical manifest.** Define it as path plus Git kind/mode plus content identity, the shape of `f-workspace-result-modes`. Derive it from the immutable objects of B, never from a working checkout.
   2. **Materialize.** Before work, verify every archive entry against the plan's manifest: path, kind/mode and content identity. Refuse on any mismatch, missing or extra entry. The workspace is then provably the manifest's tree.
   3. **Import.**
+     - The recomputation never takes the manifest from the orchestrator-composed plan: all three base representations come from that one principal, so only the repository object B anchors attribution (fable).
      - Recompute the manifest from the caller repository's immutable B, with the same canonical encoding as the plan, so the board is a second conforming implementation rather than a parallel definition. This is a bounded tree pass, not a comparison of two trusted strings.
      - Refuse unless it equals the result's `manifest_digest` and `base_commit` equals B.
      - Keep the existing result-to-admission checks.
@@ -58,6 +59,7 @@
     - It corrects the reverse cases: a missing archive path exports as a delete, an extra one as an add.
     - It frames the import check as a bounded tree pass.
     - All adopted.
+  - `macmini_swarma-review-3_fable` (trust/threat model), `$dyh0_YIJSuXRpZJywsquqmfaC-gb60F_XQnC0BAM8a0`: confirms that neither check exists. Trust addition: all three representations of B come from one principal, the orchestrator that composes the plan and cuts the archive. A prompt-injected orchestrator could therefore plant content that the exporter reports as the worker's modification, landing in C under the worker's trailers. The import check, recomputed from the repository object B and never from the plan, is what anchors the trailers' attribution. Adopted in item 3.
   - Proposal `$x4o6yMN0KNytWRXmgVxwub8JzBvrpYVTqG7UJHmP56o`; review request `$Hjgh5emZJUh1cBFILZm72ylCVJ1jGdp8LiSVORHkCUI`.
 - **Status:** proposed. Checked at dispatcher `74687e6`, user manager `3da62ad`, launcher `f08f566d` and spm PR #604 r6 on 2026-10-13.
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** UM7 rewrote the materialize item but added no archive-to-manifest verification; substance unchanged. The helper lines moved: §7 item 1 :441→:445; §12 :542→:554; §14 q15 →:607.
