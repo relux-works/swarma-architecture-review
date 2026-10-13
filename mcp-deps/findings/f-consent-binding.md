@@ -44,6 +44,8 @@ Reuse the supplied exact-plan consent pattern instead of creating an auth subsys
 6. Keep `passable_env_names` as client-launch admission. Do not claim per-server isolation or require a new broker to make the dependency feature usable. Authentication remains with the client/operator.
 7. State separately how the base's stronger consent rule composes with csk D1. Do not silently change either supplied contract or declare them identical.
 
+Provisioning consent and reliance have different lifecycles. Display the requiring skill set as attribution. Renew provider-write consent for changed execution/routing/targets/destination; adding a consumer of the same observed provider does not itself change that plan. In contrast, a reliance record granted to a particular requirement cannot automatically cover another skill with the same local label. Batching an explicitly enumerated set is permitted, but it is not a wildcard or per-skill runtime tool isolation. Astra-01 independently confirmed this distinction in event `$bcQo8dvlG5td3CYYqnAR8O4tAEjgOafREz5sppyue8s`.
+
 ## Rubric rows affected
 
 - **E1/E2:** protected binding/consent semantics are real additional machinery even when the skill adds only one field; reuse the csk pattern and existing policy gates.

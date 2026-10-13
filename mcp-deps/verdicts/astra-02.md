@@ -1,6 +1,6 @@
 # astra-02 — authentication and trust verdict
 
-State: provisional, round 1. Host: ivmbp. No implementation or runtime qualification is claimed.
+State: provisional, round 2. Host: ivmbp. No implementation or runtime qualification is claimed.
 
 ## Position
 
@@ -23,7 +23,7 @@ Source clones are outside the writable sandbox; their clean local checkpoints we
 
 - **B — Base as written:** new `server` package/endpoint identity, recipe-or-digest matching, aliases, optional provision, and auth class metadata.
 - **R — Repaired identity-bearing base:** preserve identity requirements, but add governed immutable resolution/provenance, selected-launch matching, protected assertions for opaque providers, exact-plan consent, and explicit bounded native-file handling. This is a substantial correction, not a one-field implementation.
-- **N — Named requirements/local evidence:** no new skill field or auth declaration. Retain the named requirement; combine alias selection and opaque-provider reliance in one protected operator record scoped to the requirement, consumer, agent, and launch. Provision through existing selected profiles/packages or a separately reviewed native writer. Unknown without reliance fails. Existing incompatible/disabled evidence is not overwritten by an assertion.
+- **N — Named requirements/local evidence:** no new skill field or auth declaration. Retain the named requirement; combine alias selection and opaque-provider reliance in one protected operator record scoped to the requirement, consumer, agent, and launch. Home that authority in a governed successor of the existing machine-configuration family, with per-target result evidence in a marker successor; curator-spec assigns versions. This is not a new standalone authority-file family. Provision through existing selected profiles/packages or a separately reviewed native writer. Unknown without reliance fails. Existing incompatible/disabled evidence is not overwritten by an assertion.
 
 `alt-names-local-evidence` was independently proposed by astra-01 in event `$-Q10wx4Zpfeu7dJwMNuhMSMvYC2uHkm8FrVKsGK0oy0`; it matches this seat's preferred trust boundary. Native-inspecting N is scored below. A variant that never inspects arbitrary native files may improve literal E3, but its trusted metadata ingress and compatibility with mandatory manager §6 reads have not been specified; it is not credited as a completed solution.
 
@@ -34,13 +34,13 @@ Scores evaluate the described design contracts, not implementation completion. E
 | Criterion | B | R | N | Evidence and reason |
 | --- | ---: | ---: | ---: | --- |
 | E1 New concepts/fields | 1 | 0 | 1 | B adds requirement identity, declaration auth, and binding state, despite its one-field claim; R additionally needs specified pin/provenance semantics; N removes the skill/declaration changes but honestly counts a new protected evidence record. Closed schemas and `f-schema-budget`. |
-| E2 Reuse | 1 | 1 | 2 | B/R package identity goes beyond native §6 and needs resolution/evidence machinery; N keeps requirement grammar and uses existing profile resolution, package allowlist, signer/audit gates, and provisioning channels. Environments §§1.3–1.4, 2.2, 5.8, 6. |
+| E2 Reuse | 1 | 1 | 1 | All introduce some checker machinery. N keeps requirement grammar and existing profile resolution, allowlist/signer/audit gates, and provisioning channels, but its protected scoped evidence is still new. Round-2 correction applies the rubric's "only existing machinery" literally. Environments §§1.3–1.4, 2.2, 5.8, 6. |
 | E3 Literal no credential-byte contact | 0 | 0 | 0 | All three native-inspecting forms read potentially credential-bearing files. `mcp.go:240–288`, supplied csk §§4–5, `f-secret-boundary`. The zero endpoint says the manager touches values. No authentication execution is necessary for this counterexample. |
 | E4 Zoo | 1 | 2 | 2 | B's opaque-provider identity binding does not establish configured/enabled presence. R/N admit separately labelled operator reliance without a new client API. This is coverage by reliance, not universal automatic observation. `f-opaque-provider`; manager §6 and environments §7.8. |
 | E5 Portability | 2 | 1 | 2 | B's intended operator binding can retain one manifest across machines, although underspecified. R's meaningful source/endpoint identity constrains substitutes; weakening it by waiver must be explicit. N leaves deployment selection local and skill requirements unchanged. Core §4; `f-package-is-not-service`. |
 | E6 Honest failure/consent | 1 | 2 | 2 | B promises consent/no auth checks, but identity evidence, scope and authority invalidation remain ambiguous. R/N expressly fail unknown, preserve known negatives, label reliance, and require protected exact-plan consent before their provisioning writes. `f-consent-binding`, `f-launch-universe`. |
 | E7 Specifiability | 0 | 1 | 1 | B has no closed binding grammar, identity canonicalization, or lock owner. R/N identify a governable contract and concrete negative vectors, but neither has frozen all schema/state semantics. COMPATIBILITY, GOVERNANCE; confirmed findings. |
-| E8 Operator effort | 1 | 1 | 1 | Repeated use of a current approved plan needs no action, but cold setup can require provider selection, consent, and native authentication. Opaque providers require reliance; env-auth GUI setup may be manual. No evidence supports a universal one-action first-use claim. Inputs csk §§2, 5. |
+| E8 Operator effort | 1 | 1 | 2 | Common case is now explicitly the rubric seat's suitable already-configured provider: N needs zero actions when observed or one scoped reliance decision when opaque. Cold setup still scores 1: provider selection, consent, and native authentication may require separate steps. B/R identity resolution can add setup even for a functionally suitable provider. Inputs csk §§2, 5. |
 | **Literal total** | **7/16** | **8/16** | **11/16** | **All fail the literal no-zero E3 gate under this seat's reading.** |
 | E3 operational non-management, separately | 1 | 2 | 2 | B omits the native identity matcher's handling boundary. R/N explicitly forbid auth execution, value lookup/expansion, credential-store access, probes, persistence/logging/egress, while permitting bounded private handling of existing bytes. This is a different guarantee. |
 | **Current amended-rubric total** | **8/16** | **10/16** | **13/16** | N leads among these designs under the explicitly amended E3. Cross-host proof remains pending. |
@@ -58,18 +58,24 @@ Wonder-01 proposed three alternatives: A (skill-root `agent-mcp.json` recommenda
 | Criterion | A alone | A+N corrected | T | G | Evidence and reason |
 | --- | ---: | ---: | ---: | ---: | --- |
 | E1 | 2 | 1 | 1 | 0 | A reuses the existing declaration file with no skill-schema field; A+N still counts protected evidence state. T needs a new manifest/version lane. G introduces a runtime/protocol family. Core §3, environments §2.2, schema-budget finding. |
-| E2 | 2 | 2 | 1 | 0 | A uses an existing snapshot and selected profile/MCP admission. T lacks reusable current tool-inventory verification in §6. G owns backend process/auth/session machinery absent from the checker. |
+| E2 | 2 | 1 | 1 | 0 | A uses an existing snapshot and selected profile/MCP admission; A+N adds scoped evidence machinery. T lacks reusable current tool-inventory verification in §6. G owns backend process/auth/session machinery absent from the checker. |
 | E3 amended | 1 | 2 | 2 | 0 | A initially prints §2.3 argv rows in a plain skill lane that need not perform strict MCP secret-material admission. Corrected A+N uses metadata-only discovery and existing admission before detailed display. T forbids manager probes. G deliberately forwards backend credentials. |
 | E4 | 1 | 2 | 1 | 1 | A alone retains the opaque evidence gap; A+N closes it by labelled reliance. T has no generic current client tool inventory in local evidence. A gateway cannot assume access to account-only cloud connectors. |
 | E5 | 2 | 2 | 1 | 1 | Inert schema-1 sidecar degrades gracefully with the existing manifest. T tool names have no portable equivalence across providers. G couples clients to its deployment. |
 | E6 | 2 | 2 | 1 | 0 | A remains a recommendation and grants no write authority. A+N keeps unknowns and independent consent. T's strong connected/tool claim exceeds install evidence. G can mask unavailable backends and collapses native per-server controls. |
 | E7 | 1 | 1 | 1 | 1 | A's surfacing/audit/source-kind/remediation rules need closure; N evidence grammar is still pending. T exact name sets can have a closed grammar without a global registry, but trusted inventory/equivalence remains unspecified. G is specifiable but undeveloped. |
-| E8 | 1 | 1 | 1 | 2 | A improves discovery while native auth/first setup still costs actions. T still needs binding. G offers one entry, at unacceptable trust cost. Existing-provider N/A+N usage can score 2 under the rubric seat's narrower common-case definition. |
+| E8 | 1 | 2 | 1 | 2 | A improves first-setup discovery but does not cover opaque evidence itself. A+N uses the same explicit already-configured common case as N (zero or one action); cold setup remains 1. T still needs binding. G offers one entry, at unacceptable trust cost. |
 | **Amended total** | **12/16** | **13/16** | **9/16** | **5/16** | A+N ties N on this conservative scoring; G fails the E3/E6 gates. |
 | E3 original | 0 | 0 | 0 | 0 | A/A+N/T retain native-checker byte contact as submitted; G intentionally handles credentials. |
 | **Original total** | **11/16** | **11/16** | **7/16** | **5/16** | Original literal gate fails; no original-rubric proof is claimed. |
 
 The preferred composition is **N, optionally augmented by corrected A**. A lets an author ship exact recommendation bytes without a new `server` field. It is not required for an already configured provider. The source snapshot's pin is integrity, not MCP authorization: selected use still requires canonical Git-source/package admission, signer policy, strict audit, and consent. Recommend the exact resolved revision, not an independent skill version tag that might violate the declaration's version match. Path/local skill snapshots do not gain a canonical network identity; the §2.2 refusal remains. Multiple recommendations can use an existing companion context package; a new directory-discovery convention is unnecessary.
+
+Round-2 score-vector refinement leaves N/A+N totals unchanged at 13: E2 moves from 2 to 1 because new binding/evidence is not existing-only machinery; E8 moves from 1 to 2 after naming the already-configured common-case assumption. Initial cold-start caution remains explicitly recorded rather than erased.
+
+Wonder-01's revised D1–D6 sketch, event `$6Ju0U6dvorEvdtJ0MsUkDEFhhMjnZPdD4btQilsiQhQ`, makes bounded native parsing explicit and adopts source-kind/admission limits. E7 remains 1: its binding record still needs an exact requiring-skill/requirement identity rather than just the local name, and old marker labels cannot be promoted from legacy presence to selected-launch observation without a fresh check. Existing lock records state origin but are not authorization or provenance proofs (environments §1.3); admission gates remain separate.
+
+Further closed-grammar constraints from the debate: evidence is per requirement/target/selected launch, since one target can be observed while another is asserted. An opaque binding needs a safe unambiguous provider selector; a disabled same-name native entry is not authoritative evidence about an unrelated cloud connector. Name-only absence from §6 files cannot invalidate opaque reliance. Using a new standalone protected record instead of the existing configuration family would make E1=0 under the mission's new-format anchor; the score of 1 explicitly assumes the configuration/marker successor route above.
 
 A's initial raw surfacing was challenged in `$bpz_PXkFPAIj-yPFT739a8vIRgIlW_9SUVlb_2-dvzE`: normal skill audit may be advisory (manager §7/§7.1), whereas MCP surfacing follows strict profile audit (§9.1). Safe candidate discovery must not print raw argv/URL from an unadmitted sidecar. Syntax invalidity can warn and leave the recommendation inert; actual secret findings keep their applicable blocking policy. This is a pre-display/admission condition, not permission to waive the ordinary source audit.
 
@@ -100,6 +106,8 @@ T is not rejected merely for lacking a global capability registry: exact strings
 | New stdio server beside an env-bearing server | Report shared client-launch exposure; no per-server isolation claim |
 | Native file contains secret material or malformed value | Under operational contract, private bounded handling and metadata-only diagnostics; never raw dumps, value logs, diff bodies, or credential-bearing probes |
 | Current managed HTTP declaration has env names but no header mapping | No claim that token-header authentication has been wired or tested |
+
+Provisioning consent and opaque-provider reliance are distinct. The requiring skill list should be displayed as attribution, while a new skill requiring an unchanged, observed provider does not by itself create a new provider write or credential route. A reliance record scoped to particular requirements must not be inherited by a different skill with the same local label. These checks do not enforce per-skill access isolation inside a native client's already available tool set. If safe metadata cannot establish provider drift, report the limitation or use operation-scoped reliance; do not persist raw foreign configuration as a substitute.
 
 ## Confirmation and remaining proof work
 
