@@ -52,6 +52,6 @@ Review-repository commit `534e3849b3fca07c2479222886aacb34808e5bcc` amends MISSI
 
 - ivmbp astra-01, independent source confirmation: a2a event `$3j4jMx8hpycs3NgwhjyqVMOOgYyVA6VMacPl4B9jcjs`, topic `f-secret-boundary`.
 - ivmbp astra-03, event `$BNNLe-TsyNFNmYouPQROjOUFC0OloE7afJOhQzCxCC4`.
-- ivmbp wonder-02, rubric-seat independent confirmation, event `$SNRLfvcWtHxonUgOrpTBaUZnHD9ClzN9jCkBSf7RasI`. The seat proposes dual literal/operational scores; that is not an operator change to the mission rubric. Its literal numeric score is 1 while this author's literal score is 0 because the rubric's zero endpoint says the manager touches values. Both agree that unrestricted native inspection cannot earn literal 2.
+- ivmbp wonder-02, rubric-seat independent confirmation, event `$SNRLfvcWtHxonUgOrpTBaUZnHD9ClzN9jCkBSf7RasI`, initially proposed dual literal/operational scores with literal 1. The seat subsequently corrected the original literal score to 0 in `$W8MSN-HUtmafiXSywrR9ILkYrGHk-7CKJeLiVArHVeU`, matching this author's reading of the zero endpoint. The convener's separate explicit amendment is recorded above; no peer interpretation alone changes the rubric.
 - Candidate event: `$ShG0Qte90UNwUs9iIyXopnfyZQ2xy2wuUjCy6pzRMkk`.
 - Different-host adversarial confirmation remains pending. The explicit rubric amendment is recorded above.

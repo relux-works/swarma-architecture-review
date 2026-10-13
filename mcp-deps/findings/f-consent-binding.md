@@ -37,10 +37,10 @@ Read-only source checkpoints: curator-spec `a9c03be237b723b5bf87aed070165ad6f68b
 Reuse the supplied exact-plan consent pattern instead of creating an auth subsystem:
 
 1. Keep authority in operator-controlled protected machine state outside the repository. Project files may propose aliases/bindings; they cannot authorize them. Same-OS-user compromise remains outside this file-based threat model and must not be solved with a fictitious human-only flag.
-2. Bind consent to the exact resolved requirement/declaration identity and the consumer project/profile, target agents, launch context, scope/destination, effective recipe or endpoint, requested env names, and interpretation version. Revalidate inputs before publication. Changed or widened authority needs renewed consent.
+2. Bind provider-write consent to the exact resolved declaration identity and the consumer project/profile, target agents, launch context, scope/destination, effective recipe or endpoint, requested env names, and interpretation version. The requiring skill set is attribution, not a provider-consent renewal trigger. Bind opaque reliance separately to exact enumerated requirement identities as described below. Revalidate inputs before publication. Changed or widened authority needs renewed consent.
 3. Keep source allowlist, package allowlist, strict audit, signer policy, system locks, native ownership, and consent cumulative. An approval does not bypass a hardened refusal or turn a foreign native entry into an owned one.
 4. Show the endpoint and relevant shared-launch exposure in the reviewed plan. Existing §2.3 rows alone cannot review HTTP credential routing.
-5. Distinguish rename-only selection, observed public metadata, protected provenance, and operator reliance. A binding never changes known disabled/conflicting configuration into an observed healthy provider. Opaque reliance is labelled as such.
+5. Distinguish rename-only selection, observed public metadata, manager-recorded origin, and operator reliance. Origin is annotation, not availability or authorization. A binding never changes known disabled/conflicting configuration of that provider into an observed healthy provider. Opaque reliance is labelled as such.
 6. Keep `passable_env_names` as client-launch admission. Do not claim per-server isolation or require a new broker to make the dependency feature usable. Authentication remains with the client/operator.
 7. State separately how the base's stronger consent rule composes with csk D1. Do not silently change either supplied contract or declare them identical.
 
@@ -49,7 +49,7 @@ Provisioning consent and reliance have different lifecycles. Display the requiri
 ## Rubric rows affected
 
 - **E1/E2:** protected binding/consent semantics are real additional machinery even when the skill adds only one field; reuse the csk pattern and existing policy gates.
-- **E3:** all checks use public identities and names; none requires reading credential values.
+- **E3:** decisions depend on public identities and names, never credential lookup or use. Any unavoidable native-file byte handling must independently meet the amended boundary in `f-secret-boundary.md`.
 - **E6/E7:** authority provenance, exact-plan invalidation, and honest env-scope reporting must be vectored.
 - **E8:** an unchanged exact plan can reuse consent; a changed credential route correctly requires a new action.
 
@@ -58,4 +58,4 @@ Provisioning consent and reliance have different lifecycles. Display the requiri
 - ivmbp astra-01, event `$Q2vl0tBPG65rCP2-wtTFDYSb3_FXWdIiQiP_QjZq-74`, topic `f-consent-binding`.
 - ivmbp wonder-02, event `$5P_OppjPueGB-VRS6PvETkZn8oov-7j-rSGQEeVeeOk`, confirming the independent gates, env-union limitation, and absent HTTP endpoint in existing surfacing rows.
 - Candidate event: `$mhovjJEZ0ayL0LlKvIcCl7kjgvweMMaC6RM1F88gg8Q`.
-- Different-host adversarial review requested from mini astra-12.
+- Different-host adversarial review remains pending. The earlier `mini_*` challenge is parked: convener event `$h4JEJERFqsHn2uo4CleuMAw2Ylh0NKOdpxvvss87CLA` confirms the seats are not yet running and will have `macmini_*` identities.
