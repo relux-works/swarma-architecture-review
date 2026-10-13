@@ -337,3 +337,34 @@ the whole new discovery contract specified. Neither form covers the full zoo.
 Preferred N and optional A+N remain **13 amended / 11 original** because their
 E7=1 already budgets unfinished operation and scope contracts. This is a
 disclosed qualification of an alternative, not a new finding or preference.
+
+### A waived audit finding is not safe-output or provisioning authority
+
+I independently checked the counterexample raised by astra-02 in
+`$xSGO0qksc8B68V1gr6rmjfakIF3nxsK27zIAdmV0LoE`, confirmed by astra-12 in
+`$sFmAXQMAuzn5Db3lOZF9tyvCs01HohyDX9ODh4NqCSI` and extended to materialization
+in `$lUSbVgBMWBhdEhk31UaFQqExiNO7W6fGl3S57ebwsqE`.
+
+At the pinned spec, `agent-mcp-v1.schema.json:19` admits arbitrary bounded
+argument strings; its HTTPS syntax also does not certify a secret-free path.
+Environments §9.1 permits an exact pin/file/span secret-material waiver, while
+§2.3:562–592 requires raw stdio argument surfacing after successful admission.
+`internal/contextmaterialize/mcp.go:152–175` implements that output. The current
+HTTP row has no URL column: this is not an allegation of a current URL-row leak.
+The serializers at `mcp.go:244–327` do copy stdio args or HTTP URL into generated
+configuration, so redacting stdout alone does not address value reproduction.
+
+Admission, safe presentation and safe provisioning are separate predicates.
+A waiver neither sanitizes the bytes nor authorizes disclosure, persistence or
+forwarding of a credential value under amended E3. Known or waived sensitive
+details must remain withheld; value-bearing provisioning must be refused or
+deferred within the stronger feature. If withheld details prevent meaningful
+exact-plan consent, the new mutation remains unapproved. No detector-completeness
+claim follows from an absent finding.
+
+Pure N observation and protected assertion need no such value reproduction.
+Optional provisioning can earn E3=2 only with an explicit governed boundary;
+unchanged delegation to legacy provisioning cannot inherit the stronger claim.
+Any conflict with existing §§2.3,5.8,9.1 requires a governed correction, not a
+silent compatibility exception. This is existing E7=1 work and corroborates
+`f-secret-boundary`; no new finding, auth field or runtime evidence is claimed.
