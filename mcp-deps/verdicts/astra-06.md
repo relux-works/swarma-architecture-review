@@ -1,8 +1,8 @@
 # astra-06: zoo compatibility, independent adversarial pass
 
 Seat: `ivmbp_swarma-mcp-deps_astra-06`, second independent five, ivmbp.
-Status: independent score preserved; round 1 adversarial reconciliation complete;
-active until convener PARK.
+Status: independent score preserved; adversarial comparison and first/second-five
+agreement confirmed; active until convener PARK.
 Date: 2026-10-14.
 
 ## Independence and evidence boundary
@@ -189,7 +189,8 @@ free. N/N+A tie; I prefer **N as the core**, with A optional and separable.
    `$Kzctr9tXQ_LgZIk5WmtordyZoiv0ClqQxmesJaIE6OU`. Keep negative observations
    through layer resolution, then filter; never resurrect a lower native entry
    by selecting that surface explicitly. An unrelated same-name opaque connector
-   is a different selector. This sharpens existing
+   is a different selector. First-pass astra-03 also confirmed this exact case at
+   `$-WPmMsTwqDITDwlLnchhPOzpeZDwUvCNbfeRCtPGOkU`. This sharpens existing
    [f-launch-universe](../findings/f-launch-universe.md), not a new finding.
 
 2. **HTTP env auth is an explicit capability limit, not solved by a label.**
@@ -200,7 +201,9 @@ free. N/N+A tie; I prefer **N as the core**, with A optional and separable.
    operator assertion supplies a missing header route. Keep this limitation in
    existing secret/zoo findings and capability tables; a future names-only header
    feature needs separate syntax, writers, consent and vectors. My acknowledgement
-   is `$iDdjNKN4kqq2KHjtFIuLLOz5qAaUIiaDT97rPvh_RHY`.
+   is `$iDdjNKN4kqq2KHjtFIuLLOz5qAaUIiaDT97rPvh_RHY`. First-pass confirmations:
+   astra-03 `$pqoN-QjlkB5g7Xqw7eRpNAuBDF9cKqvDLNccUSxqOoE` and astra-02
+   `$SDG3Hg98YjUa8EGwWXliAclPj-Z5in5qhpPTgYrT1I4`.
 
 3. **Empty profile is not strict exclusion.** §5.8 and
    `contextmaterialize/mcp.go:217-224` emit no file/channel for an empty set.
@@ -237,15 +240,26 @@ free. N/N+A tie; I prefer **N as the core**, with A optional and separable.
    only MCP members materialize as MCP. My confirmation event is
    `$cjkXXsAKqa1RgA871RL9IIK9QBe3kTfn9G17XP4UnYU`. A's optional joint-closure
    recipe must use distinct skill and declaration package names, or defer that
-   collision. No automatic rename/alias or resolver redesign is part of N.
+   collision. No automatic rename/alias or resolver redesign is part of N. The
+   owned confirmed finding is
+   [f-cross-kind-name-collision](../findings/f-cross-kind-name-collision.md).
+   This is a current implementation reuse limit, not a lock-schema prohibition:
+   the lock format can distinguish `(kind, name)` even though this resolver
+   selects one kind for a name.
 
 For bounded A, the same git snapshot may carry an inert schema-1 recommendation;
 show safe candidate metadata only, select its exact commit through an
-operator-owned context `requires.mcp`, and independently apply MCP source,
-signer, allowlist and audit policy. A path/local skill does not acquire the
+operator-owned context `requires.mcp`, preserving canonical source, exact
+revision, package directory (root shown explicitly) and declaration name, and
+independently apply MCP source, signer, allowlist and audit policy.
+A path/local skill does not acquire the
 git-only declaration identity by co-location. Root schema 1 recommends at most
 one declaration; multiple servers use existing companion context packages.
 This is optional setup assistance, never authority and never cloud discovery.
+The recommendation bytes are pinned by the skill snapshot; adoption makes a
+separate operator pin. A later skill update does not update the provider or make
+its selected pin stale merely because the name is the same. No ongoing
+author/provider coupling or mandatory update-notice mechanism is implied.
 
 ### Evidence of agreement and remaining work
 
@@ -253,9 +267,12 @@ The original independent L vector `[0,1,2,2,2,2,1,1]` already differed from
 astra-03's N vector `[1,1,2,2,2,2,1,2]` by at most one per row. The concrete
 existing-carrier/common-case refinement gives my current N/N+A vector
 `[1,1,2,2,2,2,1,2] = 13`, equal to astra-03's. We are separate sessions and
-directories in the first and second independent fives. This supports the amended
-mission's bounded rubric proof after both seats acknowledge the same candidate;
-it is not proof of a unique global optimum, completed specification, implemented
+directories in the first and second independent fives. **astra-03 explicitly
+acknowledged the same candidate and read my complete frozen baseline at
+`$7Q7hZ8vwgM3_PzWDcavW9tlMilzWWm5fNVzC2NEMX2c`.** This supplies the amended
+mission's bounded rubric proof, using the independent baseline as well as the
+separately recorded post-debate clarification. It is not proof of a unique global
+optimum, completed specification, implemented
 conformance or current native-client certification. E7 deliberately remains 1.
 
 Before implementation: govern the protected configuration grammar, evidence
@@ -264,6 +281,11 @@ precedence, adapter completeness and assertion/system-policy interaction. Retain
 all applicable admission/hardened gates, consent for new writes, and the
 manager-versus-launcher auth boundary. No new portable marker is mandatory when
 scoped status is transient; do not relabel legacy `FoundIn` as stronger evidence.
+The scoped check must be explicitly requested at a governed skill-check entry
+point with selected-launch inputs. Availability of profile-lock evidence does
+not mean profile install already runs such a gate, and this proposal must not
+silently add a fatal environment-lifecycle check. Invocation, compatibility and
+failure rules remain part of E7's unfinished normative work.
 
 All research is persisted here. No source, board, task-system or native config
 was changed. Existing finding owners may cite the confirmations above; this seat
