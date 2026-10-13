@@ -32,12 +32,14 @@ All Codex seats run at max effort on the standard service tier; there is no fast
 |---|---|---|---|
 | E1 | New concepts and fields | at most one new optional field on an existing object | a new object family or file format |
 | E2 | Reuse | only existing machinery: requirements, declaration packages, materialization, allowlist, audit | parallel machinery |
-| E3 | Secrets | the manager never reads, stores, forwards or tests a credential | the manager touches values or runs auth flows |
+| E3 | Secrets | the manager never uses, stores, forwards, logs or tests a credential value; any unavoidable handling of foreign bytes (e.g. parsing a native config for names and identity) is explicit, bounded and metadata-only — no raw argv/URL/env is persisted, logged or surfaced (see note) | the manager uses values, runs auth flows, or handles foreign bytes without a stated bound |
 | E4 | Zoo | every zoo member can satisfy a requirement without a client change | some member is excluded or must change |
 | E5 | Portability | one skill manifest works on any machine, client and manager | the manifest is tied to a client, a host or a manager |
 | E6 | Honest failure | unknown is never satisfied silently; status is truthful; consent before any write | silent satisfaction or silent writes |
 | E7 | Specifiability | closed grammar, conformance vectors writable, governance path clear | prose-only or ambiguous |
 | E8 | Operator effort | the common case needs zero or one operator action | repeated manual wiring |
+
+**E3 note (rubric amendment, 2026-10-14, by the convener as rubric owner, after the `f-secret-boundary` debate).** The original E3 row read: "2 = the manager never reads, stores, forwards or tests a credential; 0 = the manager touches values or runs auth flows". It is replaced by the row above, so that a design which must parse native files is judged by its stated bound and not by the incidental presence of secrets in foreign bytes. A design that relies on such parsing without stating the bound scores at most 1. Seats report the score under both the original and the amended row wherever the two differ; the proof cites the amended row.
 
 "Elegant" means the highest total with no 0 in E3 or E6. "Proved" means that at least two independent seats, on different hosts, score the winning design and agree on every row within one point, with evidence cited.
 
