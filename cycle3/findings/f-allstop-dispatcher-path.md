@@ -48,7 +48,7 @@
   1. **Fan-out, not relay.**
      - The operator command delivers one signed act (one act ID, one set of canonical bytes) directly to each service's existing operator intake. Each service verifies it and journals its part idempotently under the act ID, without waiting for another service.
      - The command reports per-service results and retries undeliverable parts, reporting them as unknown meanwhile.
-     - The hold is set at act admission, concurrently with the fan-out, and never waits behind the service calls.
+     - The hold is set at act admission, concurrently with the fan-out, and never waits behind the service calls. A dispatcher-independent commit of the dispatcher's hold, if wanted, is publication work that must preserve exclusive state ownership. No offline writer of dispatcher state, and no writable hold file, is proposed or assumed.
      - Publication guidance, not a confirmed defect: clearing one closure condition affects only that condition, and admission still requires every independent gate. The all-stop closure clears only by its explicit recovery act. The contract already states this conjunction: DP7 :519 lists maintenance, restore, hold and time separately; :433 and :575 require explicit recovery; CB7 :801 and :813 keep the freeze independent of restore. Only the encoding is unpublished: the dispatcher defines `hold` by its read semantics alone (§9 :542). No separate store or wire object per reason is mandated, and today's infrastructure HOLD practice is not evidence of the platform encoding.
   2. **Contain before stopping.** Issue the broker freeze, the host delivery closure and the range deny-all promptly and independently. Then run the process stops with bounded parallelism. Hold-last applies only to recovery.
   3. **Receiver-enforced launch fence.**
@@ -64,7 +64,7 @@
   5. **Recovery scope.** The content-confirmed recovery act names the stopped set and the per-session restart scope, keeping every existing barrier. Durable permit suspension, as R-MAINT withdraws authority, is one way to express it.
   6. **Align the specs.** Dispatcher §6, §11 and `activation.puml`; host §3.5 and `node-emergency-stop.puml`; helper §§3, 4.7, 8.3; broker §15.5 (already direct).
 - **Expected benefit:**
-  - The emergency stop completes when the dispatcher is absent, unready or mid-swap.
+  - Containment (broker freeze, range deny-all, host delivery closure, the launch and create fence) and process stops proceed when the dispatcher is absent, unready or mid-swap. The dispatcher's own hold and journal part is reconciled when it returns. The whole act counts as complete, and recovery may begin, only after every part, the dispatcher's included, is known. Partial or unknown parts keep admission closed (DP7 :433/:575).
   - Credentials and delivery are cut without waiting for process stops.
   - No in-flight start lands after an absence scan.
   - Recovery says what comes back and by whose act.
@@ -97,6 +97,7 @@
   - `macmini_swarma-review-3_sol-01`, UM7 recheck `$Id6ohwAZorTqBSgTiRgSWXg_PoNGToX9FUw0WvsiZUg`: helper §8.3 :514 keeps the all-generation journaled scope. UM7 `components.puml` :96–99 draws Operator→Dispatcher together with direct Operator→Firewall/Broker/Host parts, a mixed topology beside the DP7 relay.
   - UM7 rechecks: `macmini_swarma-review-3_astra-01` `$XoHgfBNyB9E_C0ikkzEss7k4ZTEHsSZWko9St9Lonmk` (the DP7 relay and serial loop and the closed-create frontier survive; the latch stays guidance) and `macmini_swarma-review-3_astra-09` `$7bMjSglwW6TAsJjClEtBCIjsjVQNhjMzLJ7CVZ2PyoE` (direct operator edges in UM `components.puml` :96–100; avoid claiming every part depends on the dispatcher). Applied.
   - SH7 rechecks: `macmini_swarma-review-3_astra-04` `$AUv_fKEGW04UHtJglMWZmlrjbkSnqQMLAxHygbMfDc8`, `ivmbp_swarma-review-3_astra-11` `$K1RycZzyTh2HaVT6tkGgtyKxYpmh3IeZbFQmvfe1Jd4` and `macmini_swarma-review-3_astra-02` `$rEKRcXh41GTH31mwDq7ggQ3A1RicWIljJqpVbq5zmpg`. All three withdraw the old host-figure relay as evidence; SH7 selects no topology and publishes no delivery or issue order. The narrow DP7 relay versus CB7 direct-freeze inconsistency, the prompt-issue requirement and the receiver-side launch and ingress fence remain. Applied.
+  - `macmini_swarma-review-3_astra-02` final-file audit `$COoJD9reAkLA_s4eJ11WNgjcBKiqaNecWhsVPRTOjlo`: precision. Containment and stops proceed without the dispatcher, but the dispatcher's part does not complete without it. Any dispatcher-independent hold commit is publication work under exclusive state ownership. Applied to item 1 and the expected benefit.
   - Proposal `$NrsF2Fas4w-yXlWgMDSQr04nulVUV1g43YfnyFxwmbI`; review request `$JGZWlsp-sZvsrFUAvRQhmG0cl99vHExWsAPTslkNzp4`.
 - **Status:** proposed. Checked against dispatcher `74687e6`, user manager `3da62ad`, broker `df8c738` and session host `70c9d97` on 2026-10-13.
   - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** substance unchanged; the corpus is final. The helper lines moved: §2 :49→:53; §3 :102→:106; §4.7 :323→:327; §7 step 2 :397→:401 (receipt :401→:405, drop :402→:406); §8.3 :502→:512; `diagrams/components.puml` R-ALLSTOP Operator→Dispatcher :92→:96.
