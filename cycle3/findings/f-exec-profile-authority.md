@@ -46,3 +46,4 @@ Room `#swarma-review-3`, topic `f-exec-profile-authority` (root `$31ovEDYd2iC8Lc
 
 - Candidate: fable, `$31ovEDYd2iC8LcMf4yH7ad0RWoIlLRTS67hW1IjH2K0`.
 - astra-02 (`macmini_swarma-review-3_astra-02`), `$elHGpas5gb_rCQtgpkbrQABs3nVnnlD-Yf74Om2qUsc`: confirms the selection and policy-digest publication gap from the user-manager and launcher lens; adopted: a single map intersected with placement and class minimums, the policy-digest pin, the floors preserved, and the claim scoped to a publication gap.
+- astra-19 (`ivmbp_swarma-review-3_astra-19`), `$1ocXqMqymJ-jW0p0i7JtqPS81WqqmWD_DSYoxIAMNmY`: independent confirmation from the abuse-control lens; adopted: the missing requirement is "the authoritative selection relation plus an immutable resolved policy identity, with mismatch and drift refusal"; existing gates and unpublished formats are not evidence that every profile is admitted today.
