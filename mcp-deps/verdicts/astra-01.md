@@ -1,6 +1,6 @@
 # astra-01 — spec fit and minimality
 
-Status: round 10, provisional; independent comparisons recorded, awaiting convener PARK. Author: `ivmbp_swarma-mcp-deps_astra-01` on `ivmbp`.
+Status: round 11, provisional; independent comparisons recorded, awaiting convener PARK. Author: `ivmbp_swarma-mcp-deps_astra-01` on `ivmbp`.
 
 ## Position
 
@@ -104,11 +104,17 @@ The opted-in lane must render evidence source and grade together: **configured b
 
 The hardened floor is the effective policy, not an invented default-deny promise. Environments §10.3 preserves absent `passable_env_names` as unbounded-with-warning under `s4-warn`, including hardened posture; hardened rejects explicit `null`. Absent becomes empty only under `s4-enforce`. Consent must therefore name the effective rollout/policy and resulting exposure. No credential values are inspected to establish those metadata facts.
 
+Strict admission is also not a secret-free certificate. Environments §9.1 permits an exact pin/file/span secret-material waiver; schema-1 permits arbitrary bounded argument strings and HTTPS path bytes, which `contextpkg.ParseMCP:497–518` preserves. The current §2.3 row and `FormatDeclarationRows:150–175` print stdio args after admission; the row has no HTTP URL column. The §5.8 serializers at `contextmaterialize/mcp.go:244–327` also copy args/URL into generated files. A waiver changes admission, not the bytes or their disclosure/persistence authority. The proposed bounded feature keeps recommendation/evidence output metadata-only independently of admission and refuses credential-bearing provisioning under its no-use/no-store/no-forward promise. If withheld details prevent meaningful exact-plan review, the write remains unapproved. A detector miss is not a proof of safety.
+
+Any stronger display or admission/materialization rule needs an explicit governed compatibility change wherever existing §§2.3/5.8/9.1 conflict. Unchanged delegation to that legacy lane cannot inherit an end-to-end E3 guarantee; reproducing a waived actual credential meets amended E3's zero anchor. N's E3=2 scores the proposed bounded dependency path, not all existing profile/launcher behavior. This sharpens the existing conditional boundary and keeps E7=1 rather than claiming a completed fix. Astra-02's counterexample is `$xSGO0qksc8B68V1gr6rmjfakIF3nxsK27zIAdmV0LoE`; astra-12 confirms persistence as well as display in `$lUSbVgBMWBhdEhk31UaFQqExiNO7W6fGl3S57ebwsqE`; this seat independently confirms the pinned sources in `$7xAqOx7_rd6ZhqDV7GluuciCFXbjrKXgKHwWdGcHgeQ`. The existing `f-secret-boundary` finding owns this case.
+
 Required vector families: unchanged v5–8 grammar and documentary transport; alias collision and same-label unrelated services; explicit disabled state; native Claude excluded by strict managed launch; managed-only provider; OpenCode override; `any` observed+unknown versus all; opaque without/with assertion; assertion scoped to wrong consumer or changed requirement; assertion revocation/invalidation; source allowlist and consent remaining cumulative; incomplete publication never recorded as configured; secret-bearing foreign argv/URL never in output; malformed inputs yield metadata-only diagnostics; unsupported HTTP routing refuses or remains external setup, never a fabricated auth success.
 
 Adversarial additions: raw native command/bare filename never echoed; legacy marker unchanged while scoped status is recomputed; a new MCP env name widens an unchanged server's potential exposure; a new recipient widens an unchanged name union; unknown recipients require the explicit shared-domain limit; hardened absent-knob behavior differs between `s4-warn` and `s4-enforce`; higher-priority OpenCode disable survives layer composition; same-name cross-kind adoption is deferred while distinct-name adoption remains possible; subdirectory remediation preserves the complete source tuple; skill recommendation updates do not imply provider updates; opted-in scoped checking is distinct from legacy install and profile installation.
 
 Assurance vectors must also cover project-only presence with unknown client trust, a known trust refusal, allowed assertion-grade reliance without granting client approval, and same-name unrelated providers. Every result retains the identity/authentication qualifier; legacy presence and selected-launch evidence remain distinguishable.
+
+Waiver vectors must distinguish admission from safe display and materialization: a waived credential-bearing argument is never echoed; a waived argument or URL is not copied into generated configuration by the bounded feature; withholding details never becomes implicit exact-plan consent. Current HTTP rows must not be falsely described as printing URLs, and the proposed contract must not claim a clean detector result proves all content non-sensitive.
 
 These are proposed vectors. None was executed in this review.
 
