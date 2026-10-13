@@ -60,3 +60,4 @@
     - All adopted.
   - Proposal `$x4o6yMN0KNytWRXmgVxwub8JzBvrpYVTqG7UJHmP56o`; review request `$Hjgh5emZJUh1cBFILZm72ylCVJ1jGdp8LiSVORHkCUI`.
 - **Status:** proposed. Checked at dispatcher `74687e6`, user manager `3da62ad`, launcher `f08f566d` and spm PR #604 r6 on 2026-10-13.
+  - **UM7 recheck (user manager `7b59da74`, 2026-10-13):** UM7 rewrote the materialize item but added no archive-to-manifest verification; substance unchanged. The helper lines moved: §7 item 1 :441→:445; §12 :542→:554; §14 q15 →:607.
