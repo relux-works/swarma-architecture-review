@@ -1,4 +1,4 @@
-# Preserve sensitive-hunk acknowledgements across worker rework
+# Preserve inherited review obligations across worker rework
 
 - **Lens:** R-TRANSFER adversarial pass; exact-candidate review binding.
 - **Status:** proposed.
@@ -31,6 +31,15 @@ This is a missing review-contract predicate, not a claim of an implemented
 or observed bypass. General review of C2 may catch the change; the mandatory
 machine-checkable acknowledgement rule is underdefined.
 
+The same gap affects unresolved web provenance. Section 4 records the
+producing run's capability class and requires acknowledgement of incomplete
+web-assisted provenance. If unaccepted C1 has that obligation, a web-free
+C2 that retains C1 content receives no current-run web flag under that
+rule. C1's parent trailers remain traceable, but no C2 acceptance predicate
+requires surfacing and acknowledging the inherited unresolved provenance.
+The later execution really was web-free; its classification must remain
+accurate while the candidate retains a separate review obligation.
+
 ## Evidence
 
 - `skill-project-management` at
@@ -44,6 +53,9 @@ machine-checkable acknowledgement rule is underdefined.
   - Lines 509–523 and 598–614: sensitive hunks require explicit
     acknowledgement; any new candidate invalidates previous verdicts.
     Neither passage defines a cumulative baseline for the flagged set.
+  - Lines 545–555: web-assisted and incomplete-provenance flags are derived
+    from the producing run; no rule carries unresolved obligations for
+    content inherited from an unaccepted candidate into the fresh verdict.
   - Lines 886–900: the verification collector explicitly compares C against
     independently approved H, preserving inherited harness changes. That
     narrower report does not cover every instruction, auto-run or symlink
@@ -71,10 +83,22 @@ base-refresh and re-review path. Keep the independently approved harness H
 rule; H serves a different purpose and must not be substituted for the
 integration review baseline by implication.
 
+For unresolved web provenance inherited from an unaccepted candidate,
+preserve a separate candidate-level review obligation without changing the
+factual capability class of the current run. Bound inheritance at the
+trusted integration baseline. Clearing requires a published conservative
+provenance/removal rule or explicit exact-candidate reviewer resolution;
+editing or rewording a hunk alone does not prove its dependency disappeared.
+Use the candidate ancestry and recorded provenance to make the obligation
+visible at acceptance. Already accepted trunk content need not propagate
+the flag indefinitely, and an acknowledgement does not retroactively make
+incomplete provenance complete.
+
 Qualify an inherited instruction change, inherited symlink, successive
 rework rounds, a reverted sensitive change, and a refreshed integration
-base. In every case the verdict must name the exact candidate and the
-complete required acknowledgement set.
+base. Also qualify web-assisted C1 followed by web-free C2, with retained,
+reworded and removed contributing content. In every case the verdict must
+name the exact candidate and the complete required acknowledgement set.
 
 ## Expected benefit
 
@@ -87,6 +111,8 @@ for the exact candidate that will land.
 The board must retain and validate the trusted baseline and recompute the
 candidate-wide delta. Repeated acknowledgements cost reviewer attention,
 but are consistent with the existing prohibition on verdict carry-over.
+Inherited provenance also needs a conservative clearance rule; a tree diff
+alone cannot establish that an informational dependency has disappeared.
 This proposal does not change the owner-selected rework base or signed
 fast-forward path and requires no new service or privileged component.
 
@@ -109,5 +135,12 @@ fast-forward path and requires no new service or privileged component.
   and recommended one trusted integration baseline with a recomputed final
   delta instead of an additional persistent flag ledger.
 
-Both confirmations are in the finding's room topic. Review is documentary;
+The inherited web-provenance refinement was independently confirmed in
+the same topic by astra-18 at
+`$LdPv_CsO0UoDrjOSwA6zw4EHXWUCVcEooeSPd7a2JZ0` and core astra at
+`$ZSF57kJ3Sr11yhocKPhr8E0vfpn9P0VPcKQq8Weoi8U`. Both distinguish the
+current run's truthful capability class from the candidate's unresolved
+inherited review obligations.
+
+All confirmations are in the finding's room topic. Review is documentary;
 no builds, tests or source mutations were performed.
