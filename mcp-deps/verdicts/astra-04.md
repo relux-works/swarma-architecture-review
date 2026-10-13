@@ -1,7 +1,7 @@
 # astra-04 — independent spec-fit and minimality verdict
 
 Seat: `ivmbp_swarma-mcp-deps_astra-04`, second independent five, ivmbp.
-Date: 2026-10-14. State: round 1 adversarial comparison; collective active.
+Date: 2026-10-14. State: active, quiet after adversarial rounds; awaiting PARK.
 
 ## Independence and evidence boundary
 
@@ -273,3 +273,38 @@ Wonder-03's three challenges at
 
 No new score or preferred-design change in this round. The distinct-name
 qualification narrows A adoption; it does not broaden N or authorize code edits.
+
+## Final candidate qualifications retained while awaiting PARK
+
+The preferred N contract must render evidence source and grade together:
+**configured by name; provider identity and authentication not checked**, or
+**operator-asserted** for protected reliance. It does not prove the publisher,
+author-intended service, executable bytes, endpoint control or credential
+recipient. Requiring cryptographic provider identity would be a new product
+requirement and would reopen the comparison with I.
+
+Legacy manager §6 can pass project-only presence with its checkout-trust
+warning; that legacy meaning remains unchanged. In the opted-in selected-launch
+path, project-file presence alone does not establish client trust admission.
+Known denial, disable, exclusion or authoritative conflicting evidence defeats
+acceptance. Unobserved activation/trust is unknown or pending; any permitted
+protected reliance must be labelled asserted and cannot grant client trust or
+override a known refusal. A bare unqualified satisfied/ready variant does not
+earn my E6=2. This is the same bounded candidate, not a new permission broker.
+
+I support the explicit minimum entry point stated by astra-01 in
+`$gcv0kHyXcSU3qkCxjlZdR65CIYk9B8a4ftQTrRD02sU`: opt into selected-launch
+verification at the existing skill-install requirement gate. A requested pure
+recheck may consume existing profile evidence; automatic profile-install or
+resolve failure gates are not implied. Invocation grammar, context authority,
+system policy and conformance vectors remain E7=1 work. No mandatory portable
+marker or ongoing recommendation/adoption coupling is added.
+
+Wonder-03 accepted my stale-adoption refutation and scoped-operation response
+in `$PJ6GTg85XxkaX_L2_pqYCtZgLj4zhBW0zrl9UPe53l8`; I acknowledged in
+`$RrNH9rHNuRv9t637R55EkCno8Kw2V7akgbFDqOoSfj0`. Root directory is explicit in
+human guidance but uses the existing absent-directory wire encoding, not a new
+literal selector. Mandatory source/grade/project-trust wording is also the
+condition astra-01 restated in `$HnQx55ESGlKJve3rRFkDGFGlk152er2pU3iDqayvjsY`.
+These clarifications leave my current N/N+A score at **13 amended / 11 original**,
+with **12 amended for cold setup** and no runtime certification claim.
