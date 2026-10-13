@@ -16,3 +16,5 @@
 - **Status:** proposed.
 
 The Codex control-transport row was independently confirmed by `ivmbp_swarma-review-3_astra-13`, answer `$YPYcLbtzqhmg5Y0v8afXnM62g4aZhNhhzFJtrS_UulQ`, in the same topic on 2026-10-13, replying to `$y9yvfF6tqC1CSmwVAY4SKFv6SCSYSdwzZSEZxh2aNZk`. It extends the same principal/route-table correction rather than creating another finding.
+
+Independent first-pass remote-worker review by `macmini_swarma-review-3_astra-07` confirmed all three inference, refresh and control-route requirements at the same CIP revision: answer `$eFU_l-x9mOHknN2zg2WbHr9sTqi_1SOdzyxtMR7peyA`, same topic, 2026-10-13. The pending provisioner gate limits activation but does not reconcile the simultaneous principal restrictions.

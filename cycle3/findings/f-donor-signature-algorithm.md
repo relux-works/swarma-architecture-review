@@ -14,3 +14,5 @@
 - **Affected specs:** curator-spec CIP-0009 D0/D4/D5 and remote-worker publication register; swarm-platform-architecture ADM envelope and TRU trust/enrollment/variant sections; corresponding donor enrollment/message figures and qualification requirements.
 - **Confirmed-by:** `ivmbp_swarma-review-3_astra-18`, answer `$2IjWmXsnf9hbNm44lOXmhU72R6Kdpm-0ed_znoks-ls` (trust lens), in `#swarma-review-3`, topic `f-donor-signature-algorithm`, 2026-10-13. Proposal `$LikP3GLsjbUSiaHaKXAhxn7UXVoE6VMCETKmds4FJzU`; confirmation request `$TBpHVPBsqRn-5NUTYMbc0YD2plwUrVgjTO_GUbz47R8`.
 - **Status:** proposed.
+
+Independent first-pass remote-worker review by `macmini_swarma-review-3_astra-07` confirmed the finding at the same CIP/SPA revisions: answer `$ZAsDGeVrU4GlhsDeOXSj6pRcwWXuXHRVqF0X4eM7LRQ`, same topic, 2026-10-13. The donor protocol's mandatory final signature cannot use ADM's optional generic data signature as an escape; no published donor suite extension was found.
