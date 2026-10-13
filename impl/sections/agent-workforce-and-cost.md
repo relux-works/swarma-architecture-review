@@ -1,0 +1,116 @@
+# Agent workforce and cost
+
+**Status:** draft for peer review. **Pen:** astra-07. **Reviewers:** astra-17 and opus; cross-lens review requested from qualification and critical-path owners. Discussion: `#swarma-impl-plan`, `s7-inputs-opus`. This section proposes implementation scheduling; it does not authorize launches, change project policy or qualify a provider channel. All 44 cycle-3 finding files were considered; their complete phase assignment belongs to the assembled plan's coverage table.
+
+## 1. Staff accepted changes, not concurrent seats
+
+Use one producer for a bounded change, independent review through the existing board workflow, and an explicit owner for its qualification evidence. Start another production lane only when its contract, reviewer, runner and landing capacity are available. Parallelize independent frozen contracts and their negative-vector design; serialize competing edits to the same contract or candidate. The 24-seat architecture quorum is a review method, not a production concurrency target.
+
+The binding owner posture is subscription-first, with token-based architecture retained, and a first-release Claude/Codex target. The recorded workforce choice is Opus 5.5 for orchestration, Sonnet 5.5 for workers, and Luna Max as an acceptable worker rather than an orchestrator. Sonnet workers share the Claude subscription with orchestration and review. The orchestrator contract remains model-agnostic. Current Codex seats use standard service, with fast mode removed. These are local owner instructions, not vendor capability or price claims. [S1]
+
+The present quorum's instruction to use the available quota until provider refusal is specific to this review/planning run. It is not an implicit permanent implementation policy. Proposed implementation policy: reserve the ability to review, repair and qualify work already in flight before spending a window on another producer. Existing project constraints and any later explicit owner instruction take precedence.
+
+Keep three limits separate:
+
+| Limit | Planning consequence |
+|---|---|
+| Provider account/window | Several models, seats or machines may share the same allowance. Extra UIDs, refresh owners or donor connections do not create another subscription. Track the actual account/window scope before estimating capacity. |
+| Host and dispatcher | DP7 defaults are 2 concurrent executions and 4 live allocations per caller, 6 executions and 16 allocations per node; they are configurable. Standing roles count. These are platform defaults, not the quorum's current seat count or provider limits. |
+| Review, verification and operator capacity | A producer cannot make accepted throughput exceed the slowest of these lanes. Export refusal can retain an allocation after execution capacity is released; account-wide absence does not free every resource. |
+
+Broker v0 does not implement grant bounds on concurrent subscription use and refuses grants containing those unsupported predicates. Keep workforce pacing in the existing orchestrator/board scheduling policy; do not invent a broker grant field or a quota service. Quota observations are advisory and never supply admission, renewal, replay or cleanup authority. [S2, S3, S5]
+
+## 2. Route by work and risk, with an explicit admitted pair
+
+The following is a starting routing proposal, not a benchmark ranking or mandatory replacement of each repository's policy. Select the executable model, effort, harness release and service tier explicitly from the target project's admitted choices; record requested and resolved values. A model listed in the registry is not proof that its provider/account/harness tuple is available or platform-qualified. Recheck selection when starting a new run; preserve an existing run's recorded identity and effect history during recovery. The board's provider-local rank and recommendations do not grant permission or establish cross-provider equivalence. [S4]
+
+| Work | Initial routing and escalation | Required result |
+|---|---|---|
+| Orchestration, dependency decisions, cross-module contracts | Opus 5.5 per the owner baseline; use a policy-admitted strong peer for adversarial review. Select effort for the scope; the current architecture quorum's max setting is not a reason to use max for every later task. Luna is not an orchestrator. | A bounded task with source pins, acceptance, dependencies, authority boundaries and an assigned reviewer. |
+| Mechanical propagation, figures, bounded docs and routine implementation | Sonnet 5.5 worker baseline; a policy-admitted Codex worker is an alternative. Astra medium/low record-only review has precedent in the doc waves, not blanket evidence for low-effort privileged implementation. Luna Max may take a bounded worker task where context and validation fit; no fast-tier exception is inferred. | The same acceptance and review gates as any other producer; escalate when scope or unresolved authority expands. |
+| Privileged launch, credentials, parsers, fences, recovery and transfer integrity | A strong admitted producer, with deep reasoning where supported. Recommend Opus 5.5 as deciding reviewer and a second independent adversarial review for this class, using the existing review workflow. This general recommendation extends a task-specific archive-secrets reviewer decision; it is not already a universal owner mandate. | Concrete negative vectors, crash boundaries and receiver-side refusal evidence; record-only review never becomes acceptance. |
+| End-to-end scenario and qualification design | A policy-admitted Sol/Codex or other qualified worker, with the relevant module reviewer. Preserve the loaded scenario context instead of restarting a broad review on every leaf. | A reproducible scenario, expected observations and failure attribution. A tester agent requests and reads off-host execution; it does not execute candidate code locally. |
+| Additional contradiction checks and provider research | Muse is useful as an independent review lane when available. Prioritize its subscription qualification as already decided, but do not count the proposed broker channel as implementation capacity. | Evidence from approved inputs; optional review diversity must not make the core Claude/Codex path wait for an unqualified third provider. |
+| Final operator-facing translation | Opus 5.5, as this mission assigns. | Russian text with the same structure, gates, status and technical identifiers as the accepted English revision. |
+
+Every accepted candidate requires an eligible trusted reviewer distinct from the producer and a verdict bound to its exact commit. A second model is useful for independent reasoning, but the name of the model is not the independence boundary. Trusted-circle membership alone supplies no review role. The proposed local-only reviewer rule and exclusion of the requesting orchestrator in `f-trusted-circle-class` remain explicit owner choices; this staffing table does not silently adopt them.
+
+For candidate review, start with exact diffs and blobs as inert, digest-bound resources outside harness discovery roots. Entering a candidate checkout requires a qualified exclusion of its native instructions, hooks, skills and tools. Acceptance does not admit those control surfaces. Locally permitted light checks must be qualified as inert for their complete invocation and inputs; “type checking” is not a universal exemption. [F1]
+
+## 3. Budget one complete accepted-change loop
+
+Track cost by **candidate series / accepted change**, with links to each producer, review, repair and qualification run. Reuse board run manifests and result records rather than create another daemon or billing system. Separate these quantities:
+
+- Provider-reported input, cached-input and output tokens, and reasoning usage only where its definition is supplied. Retain model, effort, harness, provider/account scope, measurement time and known gaps. Do not sum fields that the provider already reports as overlapping.
+- Subscription window consumption and reset observations. Percentages from different plans or windows are not interchangeable tokens or money. Two machines observing the same window are two observations, not two allowances.
+- Runner wall time, queue time, storage/retention and transfer volume, including failed and repeated qualification.
+- Human-presence events: enrollment, grant renewal, operator waiver, maintenance/recovery and unresolved export disposition. Batching their preparation does not combine distinct exact-content confirmations into one authorization.
+
+For provider/model lane `p` and slice `s`, use this planning ledger:
+
+`B(s,p) = context preparation + initial production + independent review + admitted rework reserve + qualification interpretation + landing/closeout`
+
+Each term sums the runs planned for that slice. Qualifying runner execution has its own time/infrastructure budget and is not hidden inside model tokens. All fresh exact-C verdicts count again; retaining useful context reduces repetition but never carries an old verdict to a new C. Input packs include the relevant source revisions, governing contracts, explicit exclusions, acceptance vectors and prior review findings. Refresh the changed dependencies when the corpus moves; do not ask every worker to rediscover the whole platform.
+
+**Bootstrap calibration:** for the first bounded protected-launch task, reserve one producer, its required review pair, one full rework/review cycle and the mandatory qualification/closeout work. Record actual consumption even if it refuses or fails. Repeat on the next two comparable accepted changes where possible. Use the observed range and maximum from this small sample, not a statistically unsupported percentile. Establish separate samples for docs, code/recovery work and provider research. Before those observations, the numerical token total is **unmeasured**; the owner approves the pilot window/ceiling and the plan does not substitute an invented token price or per-task count.
+
+After calibration, assign an explicit token envelope to every slice in provider-separated units using its bounded task list. Reforecast when a task changes class, a contract reopens, a harness/provider changes or qualification requires new vectors. A provisional schedule can include one complete rework cycle per change, but that is a reserve assumption, not a claim that every change needs exactly one. If a second full rework cycle is needed, split the scope or get an explicit budget extension through the ordinary task-owner workflow; preserve unresolved obligations and evidence.
+
+| Milestone | Workforce and cost gate before opening the next lane |
+|---|---|
+| Contract freeze and docs alignment | One pen per shared contract, independent confirmation of cross-module changes, source/figure propagation owned in the same wave. Record docs-loop cost separately from code. |
+| Protected Claude launch core (CB7 slice 0; lens 1 may label it S0a) | Complete the first accepted-change calibration, including operator enrollment, negative/recovery qualification and cleanup. This does not claim the larger one-host MVP or external-admission milestone. |
+| One-host MVP and Codex slice 1 | Price the actual keeper/mailbox/host work chosen by lens 1 separately from the smaller protected launch. For Codex, account for auth-owner replacement and supported-release race qualification; shared refresh ownership is not another quota pool. |
+| Enforced networking / slice 2 | Add host-specific enforcement and proxy recovery qualification, runner fetch/offline phase checks and any adopted watcher/operator workflow. Do not extrapolate a docs-only landing rate to this work. |
+| R-TRANSFER and remote milestone A | Add materialize/stop/export/import, candidate-wide review, off-host verification, rework and durable cleanup as a complete loop. Count no donor contribution toward committed capacity until the relevant donor and workplace gates pass. A does not qualify B or C. |
+| SH1 extraction | Use existing board/host compatibility evidence; keep extraction and tagged consumer cutover distinct. Do not charge the full SH2+ control plane to every SH1 leaf. |
+| SH2+ standing operation | Budget durable transcript/evidence storage, recovery, review backlog and operator renewals. Standing identity continuity is not a promise of infinite provider quota. Token/window planning never introduces a forbidden runtime deadline or automatic retirement of a standing allocation. |
+
+SH7 §4 gives a historical planning prior: 3–4 hours per clean accepted change, 10–12 hours with one rework/base movement, and two runs at a time on the shared host. It is dated 2026-10-09, is not a commitment, and already includes landing. Use it only as a prior until the new flow is measured. Do not add landing twice, divide the whole schedule by 24 seats, or convert provider percentage burn into elapsed-time speedup. Add CI/runner wait only where it is not already inside the measured interval. [S6]
+
+## 4. Pace providers and protect work in progress
+
+Start with one bounded production change per independent frozen contract. On the shared host, retain its existing run cap, disk guard and maintenance/hard-stop instructions; the docs-only HOLD exception does not exempt code or qualification. Across machines, use the stricter of host capacity, available eligible review/runner slots and the observed shared provider window when choosing whether to start more work. The exact cross-host producer cap is a calibration output, not the dispatcher's 2/6 defaults or a new grant condition.
+
+Reserve enough of the same provider window for the review/rework already owed. Where usage facts are absent, stale, unsupported or ambiguous, record that state and keep production concurrency conservative; do not report an unknown allowance as zero or as free capacity. Read quota only through the approved consumer/observation path, outside admission validation. The existing provider-quota package deliberately makes these facts advisory and keeps failed-read ages rather than fabricating headroom. [S5]
+
+On a confirmed provider rate limit, preserve the current task, candidate and run context, suppress duplicate launches and resume after a fresh permitted opportunity. Use the provider's reported reset/retry evidence where available; do not hard-code this cycle's reset clock into implementation policy. Authentication failures and ambiguous errors follow their separate typed recovery paths, without treating them as quota or invoking another login. A provider recovery does not clear a platform security fence, renew a grant, establish process absence or prove that an unknown delivery did not apply. Switching providers is a new deliberately selected, policy-admitted run with an explicit handoff, never a silent replay of the interrupted effect.
+
+Prefer preparing inert review inputs, bounded documentation or a different already-qualified independent provider lane while a window is exhausted. Do not lower acceptance criteria, activate an unqualified Muse lane, broaden workplace authority or create duplicate speculative producers merely to occupy every seat. The current quorum's quota-exhaustion instruction remains in force for this quorum; this paragraph is the proposed implementation policy.
+
+## 5. Finding-driven workforce dependencies
+
+The assembler keeps the complete slug-to-phase matrix. These findings directly change this section's staffing or cost assumptions and must retain their individual gates even when edits are batched:
+
+| Finding(s) | Cost or staffing requirement and blocking milestone |
+|---|---|
+| `f-review-harness-surface`, `f-exec-input-closure`, `f-exec-profile-authority` | Before local candidate consumption / the relevant exec profile: qualify data-only review and inert checks; reserve off-host capacity for anything unqualified. |
+| `f-rework-inherited-flags`, `f-base-binding`, `f-workspace-result-modes` | Before workspace transfer acceptance: budget fresh candidate-wide acknowledgements, a canonical manifest and the bounded verification passes. A small final-round diff does not make inherited obligations free. |
+| `f-export-cleanup-authority`, `f-export-refusal-pins`, `f-book-one-shot-export` | Before workspace cleanup is enabled: reserve bounded cleanup/retention capacity and operator disposition time. Repair requires current work authority; expired cleanup authority does not finance another worker turn. Refusal is not successful export or permission to delete. |
+| `f-verify-network-phase`, `f-landing-egress-principal` | Before automated enforced-platform verification/landing: fund the runner phase boundary and the chosen trusted transport performer. Neither a tester agent nor spare provider tokens supply its network or signing authority. |
+| `f-donor-signature-algorithm`, `f-workplace-relay-quiescence` | Before remote A: signature interoperability and the complete ingress/start/export lifetime must qualify. Donor-side spare quota does not make project-side work admissible. |
+| `f-donor-egress-principals`, `f-donor-provisioner-register` | Before B: no forecast assumes a functioning donor B path while provisioner and principal/route publication remain open. Keep A/B/C costs separate. |
+| `f-book-muse-c7` | Correct decided priority versus proposed channel/open qualification during contract alignment; do not book Muse subscription broker capacity before its qualification milestone. |
+| `f-trusted-circle-class` | Before the affected role admission: make positive reviewer/placement requirements explicit. Local-only reviewers and requester exclusion remain separately costed owner choices. |
+| `f-host-output-accounting`, `f-proxy-budget-incarnation` | Before SH2 history and the corresponding N15/N16 budget claim: retained bytes and consumption survive replacements. Logical-session count, fresh listeners and new run IDs are not debt reset mechanisms. |
+| `f-alert-egress-owner`, `f-watch-freeze-lifecycle`, both ALLSTOP findings | Before claiming the affected incident capability: budget qualified notification or explicitly declared status-only operations, exact operator acts and recovery. Provider pacing cannot reopen holds or replace the all-generation absence contract. |
+
+Other cycle-3 corrections remain binding in their owning sections; none is waived because it lacks a cost row here. In particular, docs/status propagation should land with the owning contract wave, rather than trigger another independent full-corpus review by every producer.
+
+## 6. Acceptance, estimate and deliberate exclusions
+
+This workforce lane is ready when each planned implementation slice has a bounded task list, explicit producer/reviewer/qualification owners, a recorded policy-admitted routing proposal, resource inputs, a complete-loop budget or explicitly unmeasured pilot, and a provider/host/runner/operator capacity check. A dry planning walkthrough must account for one rate-limited producer, a full rework, a refused export and an unavailable reviewer without inventing acceptance or deletion authority. The first measured slices then replace provisional estimates.
+
+Initial planning/instrumentation effort: one bounded documentation/configuration change using existing board records, plus calibration during already-needed work. No new quota daemon, cross-provider ranking engine, autonomous model marketplace, billing gateway or mandatory third-provider rollout is on the critical path. Existing record projections should be used first; code for missing measurements needs its own ordinary reviewed scope. This review has performed no builds, tests, provider probes, spawns or credential reads.
+
+Open implementation choices: the pilot's actual provider-window ceilings and review/rework reserve; the initial cross-host concurrency cap; whether to adopt the proposed universal privileged-change review pairing; and the separate reviewer eligibility policy options in `f-trusted-circle-class`. Owner choices about transport placement, persistent refusal disposition and Muse qualification stay with their owning lenses. None is silently resolved here by a cost estimate.
+
+## Source notes
+
+- **S1:** `wiki@87f387d:decisions.md:420–423,446,507,535,605–606`; `MISSION-3.md` standard-tier/max review settings; curator track-2 control event `$SNsZXlk0Ro04ah3iaMUpasL_Im9fAcH5xGPFkduxrPk`. The archive-secrets reviewer choice at :605 is task-specific. Opus's local evidence map is `$MdC3gNsRieqp6vSo70D7egkdivggj06DMs5B9Ri7SQc`; reported burn percentages are not independent measurements by this seat and are not used as token prices.
+- **S2:** `swarma-dispatcher@74687e60:spec/dispatcher.md` §§3.5–3.6 (:153–173), §5.4 (:394), §9 (:539). Standing runtime is not a cost-control deadline.
+- **S3:** `swarma-credential-broker@df8c7385:spec/broker.md` §§1.1, 5.6 (:282–284), 6.2, 9.4–9.6, 10.2 and 18.4–18.5 (:884–885). One-person custody and provider qualification do not create a concurrency-grant API.
+- **S4:** `skill-project-management@b2e26c038:.specs/spawn-model-selection.md` §§Explicit Selection, Discovery, Board-Managed Quality-Per-Token Procedure (:8–182); `workload-class-recommendations.md` proposed design §§1–2 distinguishes the board task class from advisory per-run suitability. These source descriptions do not prove the installed consumer implements every proposed policy version. DP7's signed commit `74687e6` records an actual docs-wave review pair: Astra medium record-only and Sonnet 5.5 high accepting.
+- **S5:** `skill-agents-management@fcdc317:pkg/providerquota/doc.go:1–16` and `record.go:86–127`: advisory facts, consumer-owned execution/throttling, window scope/timestamps, distinct unsupported/absent/failed reads and no quota refresh inside admission. No live quota or credential store was accessed for this section.
+- **S6:** `swarma-session-host@798a321c:spec/session-host.md` §4 (:305–315): dated estimate and its caveats, with landing included and SH1/SH2+ scope separated.
+- **F1:** `cycle3/findings/f-review-harness-surface.md`, `f-exec-input-closure.md`, `f-trusted-circle-class.md`; the rest of the cost dependency table uses the corresponding files under `cycle3/findings/` at the cycle-3 PARK baseline, with late confirmed additions included.
