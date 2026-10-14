@@ -1,6 +1,6 @@
 # astra-02 — trust, security, privacy and retention
 
-Status: research complete, exact refined assembly ratified, awaiting convener PARK; 2026-10-14. Owner: `ivmbp_swarma-memory_astra-02`, five 1, ivmbp. Research only: no implementation or platform qualification claimed. Both owned findings have independent five-2 confirmation. The initial score freeze and subsequent exact-artifact comparisons remain explicit below.
+Status: final after convener PARK at 2026-10-14T03:01Z, event `$4F7bE51FAxbpexhXiSxmU6ftN29nPi46ZChu7OUWbk8`; exact refined assembly ratified. Owner: `ivmbp_swarma-memory_astra-02`, five 1, ivmbp. Research only: no implementation or platform qualification claimed. Both owned findings have independent five-2 confirmation. The initial score freeze and subsequent exact-artifact comparisons remain explicit below.
 
 ## Position
 
@@ -8,7 +8,7 @@ Keep the base's independent knowledge subsystem and its second-half authority bo
 
 The first security contract must cover what is admitted, who may cause each operation, every derived copy, and what a view can reveal. It cannot wait for the base's P3 federation milestone. Full ATMS, vector retrieval, model-based consolidation, private-person memory and federation are optional later consumers of this contract.
 
-The most important distinction missing from the executable contract is between **reasoning dependencies** and **content derivation/custody**. Independent support can preserve a conclusion's epistemic status after a source disappears; it cannot authorize retaining a summary or embedding that still contains that source's restricted content.
+The key correction to the base contract is separating **reasoning dependencies** from **content derivation/custody**. Independent support can preserve a conclusion's epistemic status after a source disappears; it cannot authorize retaining a summary or embedding that still contains that source's restricted content.
 
 Current published candidate: [bounded evidence](../designs/bounded-evidence.md) at `5d96e7020053370cb03ad4f243d07157d798d696`, with its adopted [semantic companion](../designs/bounded-support-semantics-astra-03.md) at `9bafff829e9233b5510ef827ca79a6707d69ae64`. The protected profile scores **15/16**; its documentary profile scores **14/16**. The latter is still the recommended first experiment. These exact profiles are distinct from the stronger hypothetical document register scored in the initial freeze. Earlier exact-artifact proof pins below remain historical.
 
@@ -151,7 +151,7 @@ Additional primary evidence and review:
 - **W2:** [OpenTelemetry GenAI span conventions](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-spans.md), accessed 2026-10-14, Development status: memory query/record and prompt content capture is opt-in; a configured external-content upload hook can operate independently of attribute-capture and sampling flags. Telemetry retention needs its own admission/custody treatment. The old opentelemetry.io GenAI location redirects readers to this dedicated repository.
 - **W3:** [W3C PROV-AQ §6](https://www.w3.org/TR/prov-aq/#security-considerations), accessed 2026-10-14, recognizes privacy leakage through provenance. Its advice supports protection of derivation metadata; it is not a complete memory authorization protocol.
 
-Next: review the exact bounded-evidence and alternative artifacts, reconcile scores with independent fives, respond to challenges, and remain available until convener PARK. No implementation was performed.
+The planned exact-artifact comparisons, independent score reconciliation and challenge responses were completed in the later rounds recorded below. No implementation was performed.
 
 ## Exact-artifact comparison and current recommendation
 
@@ -159,7 +159,7 @@ After independent scoring, I read astra-01's `bounded-evidence.md` at `e8ab519` 
 
 I accept the cross-five platform-fit correction: the first experiment needs no new daemon. Begin with admitted persistable decision records and a read-only adapter (or one operator-owned embedded store), making no hostile-agent isolation claim. The dedicated one-writer service is a later deployment profile for private content or independent autonomous proposers. This is the smallest concrete implementation of the shared semantic contract. Existing handoff enums stay closed: P0 is explicit pull/tool data; a host-owned copy is a later source-owner contract, not a new memory reference smuggled into `swarm-handoff/2`.
 
-The original alternative artifacts were fetched and SHA-256-verified through a2a, without executing their contents: JOM `06cac67eb744b2bf31bd29e039db48891ece98d900b42d48e90b55677a6dec52`; compiler `e708842131c64b8aef4bdc33c167f8b446ce8310be9fcbcfc14d60c09b6adfc0`. Files are in `.temp/memory-research/`; their owner is updating them after review. The following scores deliberately identify the examined versions rather than mixing later room concessions with older files.
+The original alternative artifacts were fetched and SHA-256-verified through a2a, without executing their contents: [JOM](../designs/alt-journal-only-memory.md) `06cac67eb744b2bf31bd29e039db48891ece98d900b42d48e90b55677a6dec52`; [compiler](../designs/alt-memory-as-compiler.md) `e708842131c64b8aef4bdc33c167f8b446ce8310be9fcbcfc14d60c09b6adfc0`. The convener integrated these exact bytes at `9485416`; both hashes were rechecked at PARK. The following scores deliberately identify the examined versions rather than mixing later room concessions with older files.
 
 | Design/version | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -183,7 +183,7 @@ The compiler owner accepted the statelessness challenge in `$UoCSSyCaJ5BGGbMShBE
 
 **W4:** Independently inspected [Graphiti code at 9d56c190926b382a54c5ea03e7680af1d05e1c9d](https://github.com/getzep/graphiti/blob/9d56c190926b382a54c5ea03e7680af1d05e1c9d/graphiti_core/graphiti.py#L1993) and [official provenance article](https://www.getzep.com/blog/how-zep-tracks-provenance-in-agent-memory/), accessed 2026-10-14. `remove_episode` selects edges by first originating episode, differing from the article's last-support description; summary rebuilding is not present in that method and its absence is acknowledged in the article. This is static code/documentation evidence, not a runtime reproduction. Exact version/backend qualification is necessary before optional projection adoption; deletion can participate in an erase pipeline but does not establish complete custody closure. astra-05 owns the corresponding finding.
 
-Source recheck: all ten source HEAD pins stayed unchanged. The board checkout has unrelated task-state changes, but the two cited `pkg/board/query/activity_{ledger,correction}.go` files match pinned HEAD exactly (`git diff --exit-code HEAD -- ...`, exit 0). No source working tree was modified by this seat.
+At the round 3 source recheck, all ten source HEAD pins stayed unchanged. The board checkout had unrelated task-state changes, but the two cited `pkg/board/query/activity_{ledger,correction}.go` files matched pinned HEAD exactly (`git diff --exit-code HEAD -- ...`, exit 0). No source working tree was modified by this seat.
 
 ## Round 4: exact assembled candidate and proof boundary
 
@@ -212,4 +212,4 @@ The complete `0ce0094..5d96e7020053370cb03ad4f243d07157d798d696` design delta an
 
 Current scores remain protected `[2,2,2,2,2,2,1,2]` = **15**, documentary `[2,2,2,1,2,2,1,2]` = **14**. My exact-revision confirmation is `$tbaPniaW_Anr2lxQNV5FCfbl2BG00eAyvoJY-x4B_2o`. Independent five-2 exact confirmations include astra-05 `$vFk2PtdiSVjBeEzpiQMAW3NfZzpGAqbOdtJWxhR8Gzk`, astra-04 `$6QCXmTgUwiwnaTwD-_ppGsBFnU0NP4VSPwJA1PcMXAk`, and astra-06 `$PiCCXD-mxfgOPA49NQvnIXKBbl40CZXGqgZ8o1MtBF8`. Thus current bytes have the same mission-defined cross-five design agreement. This extends the earlier proof record and leaves all empirical, implementation, uniqueness and two-host limits intact.
 
-No addressed research question remains open. Final parking publication awaits the convener's signal. Operator policy choices and later RFC/qualification/pilot work remain as listed above; no new finding or recommendation change follows from updating the current artifact pointers.
+No addressed research question remains open. The convener issued PARK at 2026-10-14T03:01Z after two quiet rounds; the [parking handoff](../parked/astra-02.md) preserves the operator choices and later RFC/qualification/pilot work. The convener reports that the mini five has not started; any later independent review belongs in a cross-host addendum. No two-host proof, new finding or recommendation change is claimed by this finalization.
