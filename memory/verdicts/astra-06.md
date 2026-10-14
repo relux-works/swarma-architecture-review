@@ -1,6 +1,8 @@
 # astra-06: semantics before inference machinery
 
-Seat: five 2, semantics and formal core; mirror of astra-03. Status: round 1, 2026-10-14. The independent score record was frozen in signed commit `dec1a5b` before any first-five verdict or candidate-topic body was read; subsequent debate is recorded separately below. The base is **both halves** of `memory/inputs/SKETCH.ru.md`, including its own corrections and narrower first slice. This is a research recommendation, not a shipped contract or an implementation result.
+Seat: five 2, semantics and formal core; mirror of astra-03. Status: round 2, 2026-10-14. The independent score record was frozen in signed commit `dec1a5b` before any first-five verdict or candidate-topic body was read; subsequent debate is recorded separately below. The base is **both halves** of `memory/inputs/SKETCH.ru.md`, including its own corrections and narrower first slice. This is a research recommendation, not a shipped contract or an implementation result.
+
+**Current recommendation:** publish one storage-independent evidence/view contract; use a reviewed persistable document register and read-only explicit recall for the architecture pilot. Introduce a protected single-writer service only when private material, autonomous proposers or measured load require it. The daemon is not a prerequisite for testing the semantic contract. The initial table remains an independence record; the stronger peer-reviewed alternatives are scored separately below.
 
 ## Independent score record
 
@@ -41,7 +43,7 @@ SEL means a source-linked, scoped evidence ledger with a replaceable query proje
 
 The journal is ordered by monotonically increasing committed sequence, not wall-clock order. Valid time says when the proposition applies; knowledge time is the committed sequence at which this service learned the admissible record. Source event time and ingest time are different metadata. A late correction changes a present query about the past but not an "as known at sequence H" query, subject always to **current** disclosure/erasure rules. Historical reconstruction never restores yesterday's access rights.
 
-Every query is evaluated at a context tuple containing knowledge space, perspective, current audience/purpose policy, valid-at, committed memory watermark, source-version frontier and rule-set revision. A vector of journal frontiers is not an atomic platform-wide snapshot. Missing source frontiers make coverage limited; unavailable source history is not evidence that no event occurred.
+Every query is evaluated at a context tuple containing knowledge space, perspective, current audience/purpose policy, valid-at, committed memory watermark, source-version frontier and rule-set revision. A vector of journal frontiers is not an atomic platform-wide snapshot. Missing source frontiers make coverage limited; unavailable source history is not evidence that no event occurred. Internal global cuts stay protected: public frontiers, cursor changes, view digests and dirty-state metadata must depend only on authorized information unless the owner explicitly declassifies global activity. An opaque token is insufficient if its equality or issuance cadence still reveals hidden writes. Compare permitted response semantics/distributions with independently generated request metadata appropriately normalized; do not promise byte identity of random view IDs or universal timing noninterference.
 
 ### Four values are evidence summaries, not permission or a completeness claim
 
@@ -61,7 +63,7 @@ For the two one-way rules `(A and B) -> C` and `(D and E) -> C`, withdrawing B w
 
 ## Stores, APIs and platform seams
 
-- The memory service is the only writer of its admitted semantic journal and derived SQLite indexes. An extractor is an unprivileged proposal client. Source owners retain their existing single-writer journals, source resolution and acceptance authority. No new source-of-truth board, grant registry, keeper ledger or session log is introduced.
+- In the protected service profile, the memory service is the only writer of its admitted semantic journal and derived SQLite indexes. An extractor is an unprivileged proposal client. In the documentary pilot, the existing reviewed repository integration owner writes persistable typed records, and the recall adapter is read-only. That register is a durable semantic history even when Git supplies the machinery; claiming "no new log" must not hide ownership of its facts. Source owners retain their existing journals, source resolution and acceptance authority. No new source-of-truth board, grant registry, keeper ledger or session log is introduced.
 - Minimal API: `propose`, `record_revision`, `recall`, `explain`, `changes`; read-only source resolution remains with the owning service. Request retries have stable idempotency identities; immutable receipts name committed sequence and schema. A verifier produces a typed report naming exact subject bytes, environment, verifier/rule version and limits. A generic `verify=true` field is forbidden.
 - `recall` yields data framed for an audience and a purpose, plus pins, coverage, evidence availability and explicit source status. Session-host alone delivers it; Curator alone supplies approved executable/instruction context. A changes cursor is a notification stream, never a wake or new-goal capability. Board/keeper processes decide what follow-up exists.
 - Simulation/dream evidence carries its world/run scope through every derivation; it may support a claim **about rehearsal** but cannot satisfy a real-world acceptance gate. Apiary chapter 10 explicitly makes that distinction.
@@ -96,6 +98,7 @@ Proposed conformance vectors (paper specification, **not executed tests**):
 | V13 Source gap | missing journal range or restored source | coverage gap, explicit uncertainty | infer event never occurred |
 | V14 Sufficient, not necessary | rules A,B -> C and D,E -> C; only -A,-D witnessed | no positive C witness; no negative C witness | completing sufficient rules into a definition and deriving -C |
 | V15 Attributed remote mirror | authenticated remote writer submits a board ledger-mirror row | attributed report; asserted ledger origin remains unchecked | treat writer attribution as proof that ledger event occurred |
+| V16 Hidden metadata mutation | public graph fixed; hidden append/erase/revision advances internal cut | authorized view/cursor semantics disclose no hidden delta | leaking global sequence, cache digest or dirty-generation changes |
 
 ## Operator-only questions
 
@@ -127,6 +130,32 @@ The frozen SEL is a formal specialization of astra-01's `alt-bounded-evidence`, 
 New attack V14 was addressed to astra-03 in `$xo9GjCq6DOlYLcCGOM8NsGmf8ax8frBJtWAL_Iq2YmE`: a support equation must not become a definition whose failed sufficient grounds refute the conclusion. Candidate V15 is in topic `f-mirror-origin`, opener `$39Rvtun7xhHKMjnF4wic_w4CfVDkxx8uoc2U9EELVEM`, with confirmation requested from astra-01/03 in `$aNOKbN84ZuzEm-w97aYUEY-Ft2FPCxP-5obUMxfvaoc`. No finding file exists yet because independent confirmation is pending.
 
 The MCP date-specific statement in S line 52 was checked against [official specification 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28), accessed 2026-10-14: its Base Protocol section does describe stateless self-contained requests and per-request negotiation. This corroborates that transport state is not durable knowledge; it does not validate the knowledge semantics.
+
+## Post-freeze adversarial round 2
+
+The [mirror-origin finding](../findings/mirror-origin-astra-06.md) is now published in signed `71d9066`, with direct-read confirmations from astra-03 (`$xzDm_O3PeUE8MD5xDjVIfjyrUtbwb5KtSExaKegqSm8`) and astra-01 (`$F5k5_K05289EcMGd0y6gEMbmwTJPKqn456SU5brFNd0`), both five 1. More seats independently confirmed later. No source code change is proposed. Finding attachment `$7O5dlQVM-0TlUQEXrjD4poG7S9FPSx8ioC6GoUqx9-s` has SHA-256 `86ff1dbe51a000d7ff05b5d67deae2050b58e9321fe97562b1a36346efda1706`.
+
+astra-03 explicitly accepted V14 and the edge-role split in `$Wn4qxVWxqyUWx27i2Mf6KkDW5KjKhEmULrFXAuAT2IU`. I read the complete [formal companion](../designs/bounded-support-semantics-astra-03.md) at `877cfdf1568bcafce0ecd063f88f2d8e99910e63`, including its 23 vectors, and the complete [bounded-evidence design](../designs/bounded-evidence.md) at `e8ab519c71c7ad4df483f32cdc77a139b859e6a3`. Those files resolve the original inference/source attacks. I also read [astra-02's security profile](astra-02.md) and its erasure/view findings at `a121605080aee5b4a2aa787979b2d8bde13fa3f3`: current-access rechecks, separate retention lineage, late-writer fencing and an erasure witness outside the restored failure domain are required parts of the scored managed profile.
+
+New V16 challenges a concrete tension between that companion's S13 noninterference and its globally named watermark. I posted `$CX7dxB6U3_Gt7xaJ6irKNkIFR_eWBh0dPjOEyQgH3TM`; astra-02 independently posted the same counterexample eight seconds earlier in `$mBVrz35sCx2C_g0mVVVpJB0440Y4AoASEcsfFJza8DM`. This strengthens the existing [view-inference finding](../findings/view-inference.md); it is not a duplicate finding. The proposed resolution is already incorporated into my query contract above; common-artifact closure remains to be checked.
+
+### Concrete candidate scoring after peer review
+
+| R1–R8 vector | Total | Candidate and evidence boundary |
+|---|---:|---|
+| 2,2,2,1,2,2,1,2 | 14 | Bounded-evidence **file alone** at e8ab519: the author explicitly leaves the dedicated security/evaluator contracts incomplete. Matches astra-01 and astra-04 on this exact file. |
+| 2,2,2,2,2,2,1,2 | 15 | Bounded evidence **with** astra-03 semantic and astra-02 security profiles, including current-access/erasure and authorized-metadata commitments. No executed conformance. |
+| 2,2,2,2,2,2,1,2 | 15 | Strengthened documentary register with the **same** admitted-source, view, supersession and managed-derivative contract, limited to explicitly persistable documentation. Git is not a private payload store; controlled private sidecars, if any, must satisfy the service profile. |
+| 2,2,1,1,2,1,1,2 | 12 | Original wonder-01 JOM attachment `06cac67e…`: useful card/CLI/kernel, but its low-weight Curator overlay is not a data boundary (R3); Git erasure is admitted incomplete (R4); its initial read-time evidence/AND-OR semantics are open (R6/R7). Later room corrections materially strengthen this candidate. |
+| 2,2,2,1,2,1,1,1 | 12 | Original wonder-01 compiler attachment `e7088421…`: narrow builder and normal approval boundaries, but its no-derived-storage premise contradicts retained briefing bytes, ladder summaries, rejection log and TTL caches (R4); recomputed explanations lack a complete reproducibility contract (R6/R7); first worker-briefing slice depends on an unclosed host package lane (R8). Explicit-pull documentary compilation could improve that last score. |
+
+The strengthened document score is not a revision of the frozen TDD score by wishful thinking: it adds the very semantics, controlled output/retention and source typing the thin baseline lacked. R1–R3 and R5 reuse the common small, non-authoritative, runtime-independent contract. R4 is conditional on the named document-only admission and managed derivative scope, not the extension `.md` or a promise that review detects all secrets. R6 follows the same source/partial-evaluation/revision contract. R7 stays 1; R8 uses the same archive-home decision corpus with explicit pull and fewer initial moving parts. Broad Git private-memory ingestion would lose the R4 point again.
+
+I fetched and read the original JOM and compiler files from room attachments `$eh6HiwHu8dU9XoYoMV3X0aH6PpPgPmFeUU3cLVt4_Io` and `$YgY-s1TErF7Pdb_p3s9kcUAxYxCxDxdTngzknuOAsxs`, respectively, rather than treating later discussion as the original design. Exact hashes: `06cac67eb744b2bf31bd29e039db48891ece98d900b42d48e90b55677a6dec52` and `e708842131c64b8aef4bdc33c167f8b446ce8310be9fcbcfc14d60c09b6adfc0`. Local read copies are `.temp/astra-06/alt-journal-only-memory.md` and `.temp/astra-06/alt-memory-as-compiler.md` in the seat directory. The compiler retention/replay challenge is `$EqNSU-JhqIsQ3UtPC_l6udEy1AkoRgToPvCq4XnESDw`; I do not claim these original files contain subsequent repairs.
+
+**Recommendation narrowing:** astra-04's review of the P0 surface was persuasive, and astra-01 accepted it in `$5xQbTPFC1tAGDlJkbflxxJmT0dR82c9-2Sc8hTjOsYU` / `$FSMUYFQhhG7FtlpyeGkC3gbmNTScdQ5TqTFpYGuL-7w`. Documentary M0 has no requirement that forces a daemon. It also must not silently allocate a `knowledge_view` reference in the closed `swarm-handoff/2` grammar; explicit pull avoids that unpublished integration. Service isolation is justified by a later protected multi-proposer profile, not by calling a journal universal.
+
+**Proof status:** my full-profile vector was posted in `$_lZYOWuvt_xgB_fE_UITLHBc-GoVbAiZJ3KPcWBklPo` and matches astra-03 on every row. This supplies the two-five score-agreement part of the mission for the common contract direction; the V16 metadata clarification still needs to be reflected in the assembled artifact. The strengthened document and managed profiles tie, so the rubric does not select a unique storage engine. Use the smaller document surface for the named pilot. There is no two-host proof or measured product superiority in this seat's evidence yet.
 
 ## Work log
 
