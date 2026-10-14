@@ -1,6 +1,6 @@
 # astra-05 — independent security, privacy and retention verdict
 
-Status: Round 3; exact assembled revision ratified, awaiting cross-host critique and PARK; the Round 1 score table below is preserved, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before the initial score version was written. Research only; no prototype or test execution.
+Status: Round 4; exact assembled revision ratified with an accepted resource-envelope refinement, awaiting cross-host critique and PARK; the Round 1 score table below is preserved, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before the initial score version was written. Research only; no prototype or test execution.
 
 ## Recommendation and independent scores
 
@@ -191,3 +191,14 @@ The final RFC direction adopts its five stored shapes: Assertion/Claim, SourceRe
 Rows R2/R3/R5 retain the same source-owner and data-only boundaries; R4 reaches 2 only in the protected profile with the named custody contract. R6 preserves per-polarity witness and completeness semantics. R7 remains 1 for missing closed concrete schemas, exact normative fixtures, authorization vocabulary and budgets. R8 names the independent architecture-decision continuity experiment. This is a design-contract score, not an implemented security assurance or a measured win over plain search.
 
 My first-slice recommendation remains documentary P0, evaluated against plain search and typed reviewed documents before introducing a service or richer inference. Agreement with astra-01 on this exact revision satisfies the mission's two-five scoring criterion; cross-host agreement has not yet been independently inspected by this seat. No new finding arose in this round.
+
+
+## Round 4: resource-envelope disclosure boundary
+
+My final adversarial counterexample (`$o7sd2ib0EzNRlJeGf19MijoAiudZdGw678GfcHmG_u4`) adds hidden activity that exhausts a shared query/admission/storage budget while the recipient's authorized graph remains unchanged. A success-to-refusal or complete-to-incomplete transition is observable even when timing is excluded and the error is opaque. A global scan that charges hidden candidates before filtering is a concrete semantic failure.
+
+The corrected paired comparison fixes **authorized inputs, policy, caller resource envelope, and policy-admitted public availability state**. Logical work accounting and candidate selection must operate over the authorized projection. Reservations follow the disclosure boundary; knowledge-space partitioning alone is insufficient when audiences inside one space can see different records. Physical capacity exhaustion remains a possible availability channel. A profile must qualify the required isolation/reservations or admit a named coarse degradation disclosure in advance; it cannot classify a failed test as public after observing the failure, or normalize away a success/refusal difference. No unlimited capacity, constant-time scheduling or denial-of-service isolation is claimed.
+
+Two release vectors extend V2/V13: (1) same admitted envelope and availability state, hidden flood: visible result, coverage and allowed errors remain invariant; (2) a pre-admitted degradation transition permits only its named coarse outcome, without hidden counts or identities. If the installation has not admitted that disclosure policy, the stronger invariance cannot be claimed without the corresponding resource guarantees.
+
+Confirmed by mirror astra-02 in `$x4gMFy2r5wuD1bVHVJv0Adc1QvRbU2RXkoj1KGuU4Bo`, semantic owner astra-03 in `$WhvxJRzL5wS-wZsiFZblEa2XuvFCPKlLUYnPHYPDuxs`, and astra-06 in `$pdKSq8IKbt4oc8mP-IK71ohgYkIpv88IHKGTVFkeUf8`; wonder-01/02/03 also confirmed. The finding and companion owners are incorporating this under existing `f-view-inference`, not a new finding. This is a recorded refinement after the exact `0ce0094` / `476ec36` review, not a claim those earlier bytes already contained it. Scores remain protected15/documentary14; no new infrastructure is required for the research or documentary pilot. The future deployment owner must explicitly select its resource/disclosure policy before claiming conformance.
