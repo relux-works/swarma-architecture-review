@@ -11,8 +11,16 @@ CIP-0006), curator `5234cf3` (`internal/mcp/mcp.go`, `internal/contextmaterializ
 three `inputs/` at `1c6010a`. `git pull` from this sandbox fails (uid/SSH; source clones are
 read-only), so all citations are to the local pins above.
 
-Status: **Round 1 draft — updated as the debate moves.** Live table: room topic `scores`
-(`$mTl0E_Eso4-XNeWtQR8osepFdQ7_K2nPIEFeKZsH2u4`).
+Status: **Round 5 — updated as the debate moves.** Live table: room topic `scores`
+(`$mTl0E_Eso4-XNeWtQR8osepFdQ7_K2nPIEFeKZsH2u4`; Round-2 table
+`$vs1Dh-X9Qz7UpTacOzyxz-sSO-IbX9iqztugvcRd18c`; Round-3 arithmetic correction
+`$biOtkvfKBYfAg78ALG0Qkbz0DpsF-rAKHaxk3E4VC1E`; Round-4 canonical-scope ruling
+`$lNHT93BO3iTyCsO7GbLTGNzPtl99qTEU3D3lpTXGlHA`). The Round-1 version of this file was landed
+by the convener at `0cd68b9`; this version is written in the clone and ready for the
+convener's next landing (this sandbox cannot signed-commit/push; SSH fails with "No user
+exists for uid 502", and unsigned commits are prohibited). **Correction on the record:** the
+Round-2 table printed N+A as 14/16; its digits sum to 13 (caught by wonder-01). No cell
+changed intent — the total alone was wrong, here and in the Round-2 rounds marker.
 
 ## Mechanical claim-check of BASE-DESIGN
 
@@ -39,24 +47,66 @@ Peer confirmations by this seat (room events): `f-secret-boundary`
 `$wo5YNm48iTnPqXqJqcxbFC_00nZSLnCcFlkpgTMZ138`; `f-opaque-provider`
 `$0UgvTzavFWc7rqs4v1V-ynXdb3IBMMQaSoK3X_2XhXs`; `f-consent-binding`
 `$5P_OppjPueGB-VRS6PvETkZn8oov-7j-rSGQEeVeeOk`; `f-package-identity`
-`$0UDTCuNu5d7WXGg4RlDrUvZNvVb8lhL1b1VJ-6wUOtA`.
+`$0UDTCuNu5d7WXGg4RlDrUvZNvVb8lhL1b1VJ-6wUOtA` (consolidated finding file:
+`findings/f-package-is-not-service.md`, astra-01, per `$xAUlhuqfMP5tvUDDL_WNZ8V_7prYFeFtk7j16YVzqh8`).
 
-## Rubric scores (Round 1)
+Additional verified evidence folded in during Round 2: shipped parser rejects unknown
+requirement keys (`internal/skillspec/parse.go` `rejectUnknown` on
+{hint, transport, required_in}); install gate reads exactly two roots, never a managed home
+(`internal/install/install.go` `mcpVerifier` comment + body); §5.8 serializers emit URL/type
+only, so no HTTP header env binding exists in current machinery (astra-02,
+`$V8qAIOXAUtmT49-cACD7FccLjSLAFXqmwSfSoWAab8c`); COMPATIBILITY partial-client baseline lets
+cocoaskills stay on rc.10 core (lines 304–306), making new-schema manifests uninstallable
+there while inert extra files degrade gracefully.
 
-Mechanical tests per row are stated in room topic `scores`. E3 below is the operational
-reading (no semantic access to values); literal E3 (zero credential-byte contact) is 1 for
-every native-inspecting design including the status quo, and 2 only for designs restricted to
-guaranteed secret-free records. The "elegant" gate (no 0 in E3/E6) needs a convener ruling on
-which E3 gates; this seat proposes E3-op gates, E3-lit is reported as a standing limitation.
+## Rubric scores (Round 5)
+
+Mechanical tests per row are stated in room topic `scores`. E3 was expressly disposed of by
+the convener in MISSION-MCP.md at `534e384` (re-read from disk in this clone after the
+convener's sync; text matches the in-room quote at
+`$FnzEHL5onBPh1J0YMZAUCkfxrSEpNS2yZ-u7A8rogA` / `$ropOGjw3dqPFz1fjx0hkU8dYrqD4iOS6X3jfs7L5y9o`):
+2 = never uses, stores, forwards, logs or tests a credential value, with unavoidable
+foreign-byte handling explicit, bounded and metadata-only; an unstated bound caps the score
+at 1; the proof cites the amended row and reports the original alongside. Under the
+**original** wording ("touches values" = 0), every native-inspecting design scores
+E3-original 0 — this seat's Round-1 score of 1 is withdrawn in favour of the
+astra-01/02/03 reading. Bounded handling also means raw foreign argv/URL are never
+persisted, logged or surfaced (they can carry credentials); diagnostics stay metadata-only.
+
+E8 is dual-reported like E3: the table's E8 uses the stated test (common case = a suitable
+provider already configured). Cold first-setup is reported in the notes, never averaged:
+every provisioning design scores E8-cold 1 (selection/consent + client-side auth), status
+quo 0. Cold totals: N 12, A 13, N+A 12. A proof must name its E8 reading.
 
 G0 (proof precondition, not a rubric row): the design must let a skill dependency actually
 reach a configured state (the operator's goal), not merely be checked.
 
-| Design | E1 | E2 | E3-op | E4 | E5 | E6 | E7 | E8 | Total | G0 |
-|---|---|---|---|---|---|---|---|---|---|---|
-| BASE as written | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | **8/16** | partial |
-| Status quo (manager §6) | 2 | 2 | 2 | 1 | 2 | 1 | 2 | 0 | **12/16** | fail |
-| BASE′ repaired (forecast) | 1 | 2 | 2 | 1 | 2 | 2 | 2 | 1 | **13/16** | pass |
+| Design | E1 | E2 | E3 | E4 | E5 | E6 | E7 | E8 | Total | G0 | E3-orig |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Status quo (manager §6) | 2 | 2 | 1 | 1 | 2 | 1 | 2 | 0 | **11/16** | fail | 0 |
+| BASE as written | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | **8/16** | partial | 0 |
+| BASE corrected, identity kept (astra-01/03 row) | 0 | 1 | 2 | 2 | 1 | 2 | 1 | 1 | **10/16** | pass | 0 |
+| BASE guidance-only (astra-01 row) | — | — | — | — | — | — | — | — | **12/16** | pass | 0 |
+| N — `alt-names-local-evidence` (astra-01) | 1 | 1 | 2 | 2 | 2 | 2 | 1 | 2 | **13/16** | pass | 0 |
+| A-standalone — `alt-skill-ships-declaration` (wonder-01) | 2 | 2 | 2 | 1 | 2 | 1 | 2 | 1 | **13/16** | pass | 0 |
+| **N+A composite (preferred on goal fit)** | 1 | 1 | 2 | 2 | 2 | 2 | 1 | 2 | **13/16** | pass | 0 |
+| B — `alt-capability-tools` (wonder-01) | 1 | 1 | 2 | 1 | 1 | 1 | 0 | 1 | **8/16** | partial | 0* |
+| C — `alt-gateway-proxy` (wonder-01) | 0 | 0 | 0 | 1 | 1 | 0 | 1 | 2 | **5/16** | pass | 0 |
+
+\* B's strong form needs no native inspection, so a metadata-only variant could reach
+E3-original 2 at the price of its E6/E7 cells; not scored as submitted. Status-quo E3 is 1
+(not 2) because today's checker states no bounded-handling bound (convener cap); Round 1
+said 2, total corrected 12→11. This seat's Round-1 "BASE′ repaired (13/16 forecast)" is
+retired as dominated by N+A (same guidance at zero schema cost). N, A-standalone and N+A
+**tie at 13/16** from this seat; the preference below is a goal-fit tie-break, not a points
+win. E4 mechanical rule (Round 4, gating reading): 2 iff all five provider sources can
+satisfy with no client change (opaque via labeled assertion); 1 iff every file-observable
+source can satisfy and opaque fails honestly (status-quo parity); 0 iff a source satisfying
+today is excluded or a client must change. The mission defines only the 2/0 anchors, so "1"
+is a declared interpolation; under astra-01's strict reading (opaque exclusion ⇒ 0) totals
+become status quo 10, BASE 7, A-standalone 12, B 7, C 4, N/N+A unchanged at 13 — ranking of
+goal-meeting designs is invariant and every per-row spread stays ≤1. Second-host scorers
+must state their E4/E8 conventions, as with E3.
 
 Per-cell justification, BASE as written:
 
@@ -67,10 +117,10 @@ Per-cell justification, BASE as written:
   but needs new skill-range resolution without a lock (C5), per-client identity+enabled
   decoders (C3/C7), launch-scoped evidence (C9), and a skill→profile provisioning path that
   does not exist (C10). §5.8/§6 used outside their specified scope is not reuse.
-- **E3-op=1** — no auth execution, no health checks, names-only declarations (C12); but the
-  new identity matcher has no stated non-secret projection rule. One specified sentence
-  (compare only name/transport/command/args/url/env-names; never retain/diff/log other
-  fields) earns 2.
+- **E3=1** — no auth execution, no health checks, names-only declarations (C12); but the
+  new identity matcher states no bounded-handling bound (convener cap). Earning 2 needs the
+  bound spelled out, including: raw foreign argv/URL never persisted, logged or surfaced —
+  field-name whitelisting alone does not make them safe to echo.
 - **E4=1** — name-only requirements: whole zoo passes. `server`-carrying requirements:
   opaque plugins/connectors cannot satisfy the presence conjunct (C8); managed-launch
   satisfaction is mis-scoped (C9); `pi`/windsurf-project make some `all` unsatisfiable.
@@ -89,62 +139,152 @@ Per-cell justification, BASE as written:
 
 Status-quo notes: E4=1/E6=1 reflect pre-existing debt (C3 disabled-decoder gaps, opaque
 providers, launch-universe blindness); E8=0 because every server is hand-wired from a hint.
-Its 12/16 with G0=fail is the calibration proof that the rubric alone cannot crown a winner:
+Its 11/16 with G0=fail is the calibration proof that the rubric alone cannot crown a winner:
 elegance must be judged among designs that meet the goal.
+
+Alternative cell notes (this seat; room events `$3d9O9Uc62m7vnEKzYzImIYeAgm3L7FicZAfQzpjcoHU`,
+`$-61mWLy5FbJ529QmYJc1-_T5XMH9qzFy9E2yIV0M_3c`, `$c21CsS25eMJM5jIw4mAD3ftGeFb306ZCe5u8h5G1ECQ`,
+`$4jeyuHCKp9bzs8shoky21WlBwTQSYATy33N6lwY1QOM`):
+
+- **N (13/16)** — row identical to astra-01's; astra-03 differs only on E2. E1=1 contingent
+  on the binding homing in an existing protected object (manager-config v4 or existing
+  manager-home state); a new standalone format makes E1=0. E3=2 requires the bounded-handling
+  bound spelled verbatim in the spec delta. E4=2 over the five provider sources on
+  MCP-capable clients, opaque via labeled assertion (weakness charged to E6, which N
+  satisfies); pi/windsurf bounds are client-capability limits outside every design.
+  Unanswered-in-N: name-meaning/squatting sentence, closed invalidation-observable set,
+  assertion batching (E8 fan-out), first-setup hand-wiring (needs A).
+- **A-standalone (13/16)** — author's explicit Round-3 scope: ship + metadata-only candidate
+  notice + operator-selected provisioning; checking = today's §6 legacy presence, unchanged
+  (this seat's earlier launch-aware A row is superseded). Verified: core §3 mandates only
+  `SKILL.md` at root; §3.1 eligibility governs agent-facing context (`agent-skill.json` is
+  itself outside it); §2.2 package = snapshot/directory whose root contains `agent-mcp.json`.
+  Two-stage surfacing: pre-admission display metadata-only (name, transport, verdict class,
+  route); full §2.3 rows only after strict MCP admission; shipped args/url inside the
+  secret-material detector scope as an admission gate; malformed ⇒ metadata-only MUST-warn,
+  never fail/silence; credential material never warn-only ⇒ E3=2. E2=2 honestly under this
+  scope (no borrowed checker); the price is E6=1 (inherited §6 debts: non-uniform disabled
+  decoding, launch-unscoped unions, labelled legacy) and E4=1 (opaque = unknown-fails).
+  Equals wonder-01's row exactly; astra-01's bounded-A (10) is within 1 on every row.
+  Source kind stays git-only for profile adoption (§2.2); path/local snapshots display-only;
+  remediation names the resolved revision and the context-package route (no naked-declaration
+  install). Evidence label is "manager-recorded origin", never provenance (§1.3 lock
+  discipline, verified lines 205–206), and recorded origin is orthogonal metadata — never
+  satisfaction evidence.
+- **B (8/16)** — within 1 of author's self-scoring on every row. E7=0 (no closed tool
+  namespace; no client inventory surface in local evidence) kills it as a deliverable today.
+  Framing retained: requirement key = author-chosen capability label. Record as
+  deferred-pending-client-inventory with its stated re-score trigger.
+- **C (5/16)** — identical to author's row. E3=0/E6=0 under both readings (gateway uses and
+  forwards values, terminates auth; single entry masks backend state and destroys
+  per-server disable semantics; pi has no channel). CIP-0011 verified: broker/dispatcher
+  are separate modules, Curator a client. Record as **rejected-with-reason**.
 
 ## Preferred design and smallest changes to the base
 
-Preferred: **BASE′ — keep Require / Provide / Bind, demote identity from normative to
-reported, and route provisioning through lanes that already exist.** No alternative design
-has been posted yet (`alt-*` topics: none at Round 1); this preference is explicitly
-revisable when wonder-01/wonder-11 alternatives land, and each will be scored in this table.
+Preferred: **N+A composite — named requirements with launch-scoped local evidence and
+protected operator bindings (N), plus inert skill-shipped declaration recommendations
+surfaced at install and provisioned only through existing operator-selected lanes (A)**,
+as sketched in wonder-01's D1–D6 (`$6Ju0U6dvorEvdtJ0MsUkDEFhhMjnZPdD4btQilsiQhQ`, attacked at
+`$aRepY_z1bvqhi9Op5HsFbfkmeGMJTnslha6tXpVAz9M`, revised at
+`$e5s3ZnvCckXlXR8HgOhJu7XHsOUk3W_5O2ueV0Ga37I`). N, A-standalone and N+A tie at 13/16 from this
+seat — a frontier between minimality (A) and zoo completeness (N+A); the tie-break is goal
+fit: the operator's goal explicitly centres zoo coexistence, and only the composite covers
+opaque zoo members (E4=2 via labeled assertion, E6=2 launch-true status) *and* first-setup
+(A's informed one-selection path). A alone is the shippable first subset of the composite and
+the minimal fallback if the binding record is rejected. This keeps the base's Require/Provide/Bind separation — the part that survived
+every attack — while deleting its normative identity machinery. Author-supplied package
+identity is *not* required by the operator's goal: skill dependencies pin because the
+manager installs them; MCP requirements are checked, not installed, and provisioning
+authority is the operator's in every surviving design. Identity is discovery UX, carried
+inertly by A.
 
-Smallest delta set from BASE to BASE′ (each maps to a confirmed `f-*` thread):
+Smallest change set from BASE to N+A:
 
-1. **Governed schema lane** (`f-schema-budget`): preserve v5–v8 bytes; add `server` only via
-   a deliberate draft-9 amendment or a new schema version, with decision record, both-version
-   vectors, and marker decision. No "v5+ optional extension".
-2. **`server` = non-authoritative acquisition hint** (`f-package-identity`,
-   `f-package-is-not-service`): endpoint in the closed §2.2 grammar; package as exact-ref
-   forms only on the skill surface (ranges only when pinned by a profile lock). Satisfaction
-   stays manager-§6 presence; identity is *reported* per launch as
-   observed-match / observed-mismatch / unknown / asserted — never silently flipping a
-   presence success (any future tightening is its own versioned contract, cf. H3).
-3. **Launch-scoped evidence** (`f-launch-universe`): evaluate against
-   (agent, scope, native-vs-managed descriptor); managed checks consume the resolved,
-   marker-validated channel set with recorded residuals; specify per-client disabled
-   semantics (closing the C3 code gap) and never hide same-name shadowing behind a union.
-4. **Opaque = asserted, never satisfied-silently** (`f-opaque-provider`): protected,
-   scoped operator assertion as the only escape hatch, labeled in status/markers forever;
-   no duplicate provisioning to compensate for invisibility.
-5. **Bindings/consent as protected exact-plan machine state** (`f-consent-binding`):
-   outside any checkout; bound to resolved declaration, consumer, agents, destination,
-   argv/endpoint, env names; revalidated before write; §2.3 gains `url` visibility (S1) so
-   credential-routing consent is informed; csk D1 stays a separate, explicitly scoped
-   contract. Drop the auth-class wire field (hint + `env_names` + client UX already carry
-   the guidance; a governed `agent-mcp` v2 can add it later if evidence demands).
-6. **Provisioning lanes stay separate** (C10): managed homes only via an explicitly
-   operator-selected profile (§5.8 unchanged); native homes only via the separately reviewed
-   native-writer feature (csk design, incl. H4: never write into marker-owned managed homes
-   or `curator-mcp.config.toml`). A skill requirement alone never provisions anything
-   transitively; the hint only makes the operator's one consent action informed.
-7. **Secret discipline for the matcher** (`f-secret-boundary`): non-secret projection rule
-   as in E3 above; no health checks; status vocabulary fixed to
-   configured / mismatched / unknown / asserted + "auth not checked".
+1. **Delete `server` from the skill wire entirely** (vs. base §1): no manifest schema lane,
+   no ranges on lockless surfaces, no endpoint grammar, no auth class. Schemas 5–9 keep
+   their bytes; old and partial (rc.10-baseline) managers keep installing the same skills.
+2. **Ship-inert MAY clause, two-stage surfacing** (A, sketch D1-revised): skill root MAY
+   contain `agent-mcp.json` (existing §2.2 schema-1 grammar); not agent-facing context. At
+   skill install, on exact `name` == requirement-key match with an unsatisfied requirement,
+   show a metadata-only candidate notice (name, transport, detector verdict class, route —
+   never raw argv/url); full §2.3 rows only after strict MCP admission. The file's args/url
+   enter the secret-material detector scope as an admission gate (lane's normal blocking
+   policy; credential material never warn-only); malformed ⇒ metadata-only MUST-warn, never
+   fail/silence. Remediation names the exactly resolved revision and the real route (add as
+   `requires.mcp` to an operator-selected context package — §9.1 consumes context roots; no
+   naked-declaration install, no new command); adoption re-runs allowlist/signers/strict
+   audit on the declaration source (skill admission proves nothing); git-only for the
+   profile lane (§2.2), path/local snapshots display-only there; csk native lane only under
+   exact-plan consent (H4 respected). Transitive skills get surfacing, never authority.
+3. **Launch-scoped evidence** (`f-launch-universe`): §6 name semantics evaluated per
+   (agent, scope, native-vs-managed launch); managed checks consume the resolved
+   marker-validated channel set with §7.8 residuals; per-client disabled semantics specified
+   (closing C3); same-name shadowing never hidden by union.
+4. **One protected binding/assertion record** (N; `f-opaque-provider`, `f-consent-binding`;
+   sketch D3/D4-revised): homed in a governed successor of the existing machine-configuration
+   family (a new standalone record family would make E1=0 — storage ownership does not
+   dissolve a format). Members: enumerated exact requirement identities (skill package
+   identity + requirement name, batched in one operator action, no name wildcard), consumer
+   scope, target agent, selected launch descriptor, provider selector (configured name +
+   surface/handle class), evidence observed|asserted. Changed enumerated membership,
+   requirement identity, scope, target or launch descriptor = non-matching context (no silent
+   carry-forward); invalidation observables closed (revocation; bound provider observed
+   disabled/absent in a surface authoritative and complete for that launch; launch-kind
+   exclusion — absence from the six native files alone never invalidates). Evidence recorded
+   per (requirement, target, launch) in a marker successor; old markers read as legacy native
+   presence only and discharge no managed claim. Recorded origin is orthogonal metadata in
+   lock/ledger evidence, never satisfaction proof, and never outranks current negative
+   evidence. Project data may request, never authorize. Consent displays include the
+   requiring-skill list as *attribution*; renewal triggers are only the closed widening set
+   (declaration digest, agents, destination/scope, argv-or-endpoint, env names) —
+   consumer-set changes alone do not renew consent, because per-skill use-authorization is
+   unenforceable and asserting it would violate E6 (astra-02's distinction; conceded by
+   wonder-01, sketch D6-corrected). §2.3 gains `url` visibility (S1, sketch D5) so
+   credential-routing consent is informed; csk D1 remains a separate explicitly scoped
+   contract.
+5. **Secret bound stated verbatim** (`f-secret-boundary`, amended E3): no value use, storage,
+   forwarding, logging or testing; foreign-byte handling bounded and metadata-only (raw
+   native argv/URL never echoed); no health checks; status vocabulary
+   configured / mismatch-reported / unknown / asserted + "auth not checked".
+6. **Name-meaning sentence**: the requirement key is an author-chosen capability label fixed
+   by the skill's own documentation; binding prompts enumerate every requiring skill + hint;
+   the manager never adjudicates same-name meaning.
 
-Forecast for BASE′ is 13/16 with E4 deliberately capped at 1 (assertion-grade zoo coverage
-is not configuration-grade) and E1 at 1 (hint member + binding knob/state exceeds the
-one-field bar). If the collective wants E1=2, the only honest route found so far is dropping
-`server` from the skill wire entirely (context-package-only declarations) — an alternative
-this seat will score on arrival, trading E8/G0 for E1.
+Remaining honest costs of N+A: E1=1 (binding record + marker evolution), E2=1
+(evidence-aware checking is new checker machinery), E7=1 until the binding grammar,
+invalidation set and vectors are actually written. No design scored reaches 15–16 without
+hiding one of these.
 
 ## Proof status
 
-"Elegant" requires highest total with no 0 in E3/E6; "proved" requires two independent seats
+"Elegant" = highest total with no 0 in E3 (amended) or E6; "proved" = two independent seats
 on different hosts agreeing within one point on every row, with evidence. Current state:
-BASE as written is **refuted as already-elegant** (8/16 here; every load-bearing claim above
-independently confirmed by ≥2 ivmbp seats; mini adversarial seats pending). BASE′ is a
-forecast, not a proof. Open proof obligations: (a) wonder-12 independent scoring from mini;
-(b) convener ruling on the E3 gating reading; (c) at least one genuinely different
-alternative scored head-to-head; (d) conformance-vector sketches for the E6 truth table
-(match/mismatch/unknown/malformed/disabled/shadowed × any/all × native/managed).
+
+- BASE as written is **refuted as already-elegant** (8/16; claims C4–C14 each confirmed by
+  ≥2 ivmbp seats; findings landing on `main` by astra-01/02/03).
+- On ivmbp, N/N+A rows from astra-01, astra-02, astra-03, wonder-01 and this seat agree
+  within 1 on every row (residual spread: dual-reported E8 reading only; common digits
+  [1,1,2,2,2,2,1,2]=13); A-canonical equals wonder-01's row exactly and is within 1 per row
+  of astra-01's bounded-A; B and C rows match their author's self-scoring within 1 (C
+  exactly). Wonder-01's D1–D6 sketch was attacked and revised (enumerated identities,
+  provider selector, per-target evidence, legacy-marker limits, config-successor homing,
+  D6 concession): composite E7 stays 1 unanimously on ivmbp.
+- Open proof obligations: (a) second-host independent scoring (wonder-12, astra-11..13) of
+  N, A-standalone and N+A — still the blocking item (mini seats not yet up per convener
+  `$h4JEJERFqsHn2uo4CleuMAw2Ylh0NKOdpxvvss87CLA`; cross-host asks parked until `macmini_*`
+  identities post); (b) E7 pin-downs — closed at sketch level in Round 5
+  (`$R2qT1zuemaAB6XGZYwcsy_Fh-ncIeE1HMRY5f8q64M4`: completeness sharpening, hardened floor,
+  provider selector as matching identity with no durable drift detection claimed for opaque),
+  remaining as governed text (CIP + decision record): per-launch authoritative-completeness
+  table (managed ≠ universally complete — only an actually applied strict Claude channel
+  over a non-empty set excludes authoritatively; OpenCode overrides and Codex trusted-project
+  residual persist; §5.8 empty set writes no channel, so vectors use a present strict
+  channel), the governed choice whether system files may forbid the asserted class under
+  hardened (floor holds either way: assertion never replaces admission or suppresses a
+  hardened refusal);
+  (c) E6 truth-table conformance vectors (match/mismatch/unknown/malformed/disabled/shadowed
+  × any/all × native/managed); (d) under the *original* E3 wording no native-inspecting
+  design passes the no-zero gate (all E3-original 0) — the proof therefore stands on the
+  convener's amended row, recorded here without substitution; (e) E8 reading (common-case
+  vs cold) named in any final proof, since cold totals reorder A above N/N+A.
