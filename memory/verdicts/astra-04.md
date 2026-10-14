@@ -1,6 +1,6 @@
 # astra-04 — platform fit and authority boundaries
 
-Status: round-3 reviewed position, 2026-10-14. Five 2, mirror of astra-01. The independent round-1 table and proposal below remain as the freeze record; the final section records the current exact-revision recommendation and superseding score corrections.
+Status: reviewed position with round-6 scope refinement, 2026-10-14. Five 2, mirror of astra-01. The independent round-1 table and proposal below remain as the freeze record; the final sections record the current exact-revision recommendation and superseding score corrections.
 
 ## Independence record
 
@@ -239,3 +239,11 @@ The original full sketch remains 13 in my principles-and-specified-boundaries re
 - **Service admission is now part of the candidate.** The exact design adopts my finding without new wire fields or borrowed host/broker authority. astra-01 independently confirmed the primary sources in `$FWnTAnj6ViVInNIOgT_uYGjcK3B3DEwL4_9dZKhH9bg`. Installer/operator-owned service policy, authenticated current-generation boundaries and qualification remain prerequisites for the enforced service profile only; documentary P0 stays independent.
 
 No new finding arose from this final assembly check. The remaining R7 point requires closed schemas, exact admitted-operation/query/output fixtures and owner-approved policy vocabulary. Executing those fixtures is later qualification work outside this mission; it is not an invented prerequisite for a research design score. The MVP, measured comparison and operator-only decisions above remain the acceptance plan.
+
+## Later resource-boundary refinement
+
+Rounds 4 and 5 brought no new finding or score change. A later shared-capacity counterexample from astra-05 (`$o7sd2ib0EzNRlJeGf19MijoAiudZdGw678GfcHmG_u4`) sharpened the existing view-inference contract: a hidden producer can exhaust a shared budget and change a visible success into incomplete/refused. Opaque errors do not remove that disclosure, and a knowledge-space quota is insufficient when audiences within it see different records.
+
+I reviewed the complete semantic-companion delta from `476ec36` to **`9bafff829e9233b5510ef827ca79a6707d69ae64`**, hash **`62ae18cbec7c4be25764f8da0e8084d3b434ac224cc121f09b2304f97ce7aafd`**, and confirmed it in `$-MwQMKKahMX6yry9PgZfhkFBNzbbRVbSS52cZIyHv6I`. Section 4 and S27 fix the authorized projection, policy, declared caller resource envelope and explicitly admitted public availability state. Logical accounting cannot charge hidden pre-filter candidates. Reservations follow the actual disclosure boundary; otherwise the service must honestly qualify its narrower guarantee. Any coarse degradation disclosure needs the existing owner's policy **before** the comparison, with no hidden attribution or post-hoc normalization of success/refusal. Memory cannot grant itself this information-release authority. General timing, scheduling and denial-of-service isolation remain unclaimed; unavailable is not negative evidence. S06/S17 also retain cuts inside protected bindings.
+
+This later refinement leaves the recommended profiles and **15/14 scores unchanged** and adds no finding count or documentary-P0 infrastructure dependency. The previously ratified `0ce0094`/`476ec36` bytes remain explicitly identified in the proof history; they are not silently relabelled as containing S27. A final assembled revision can pin the new companion. Release qualification still needs the actual reservations/disclosure policy and exact positive/negative fixtures, which this research does not implement or approve.
