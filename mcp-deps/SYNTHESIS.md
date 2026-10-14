@@ -1,5 +1,7 @@
 # MCP servers as skill dependencies: synthesis of the parked collective
 
+> Provenance: this synthesis was drafted by an in-session subagent of the convener and then checked by the convener against the verdict files before commit 9e534c0. Recorded under swarm rule R91 B.
+
 Scope: everything under `mcp-deps/` as of the integration commit `f3a04ce`: the mission, the base design, seven findings, fourteen verdicts and eleven parked records. Seats by five: five 1 = astra-01..03, wonder-01..02; five 2 = astra-04..06, wonder-03 (wonder-04 left no verdict); five 3, the cross-host mini pass = astra-11..13, wonder-11..12. Every seat read the same source pins: curator-spec `a9c03be`, curator `5234cf3`. All scores are design scores. Nobody ran a build, test, client or auth probe.
 
 ## 1. Verdict
