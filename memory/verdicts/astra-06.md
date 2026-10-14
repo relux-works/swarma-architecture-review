@@ -1,6 +1,6 @@
 # astra-06: semantics before inference machinery
 
-Seat: five 2, semantics and formal core; mirror of astra-03. Status: independent initial assessment, 2026-10-14. No first-five verdict or candidate design has been read before this score table was written. The base is **both halves** of `memory/inputs/SKETCH.ru.md`, including its own corrections and narrower first slice. This is a research recommendation, not a shipped contract or an implementation result.
+Seat: five 2, semantics and formal core; mirror of astra-03. Status: round 1, 2026-10-14. The independent score record was frozen in signed commit `dec1a5b` before any first-five verdict or candidate-topic body was read; subsequent debate is recorded separately below. The base is **both halves** of `memory/inputs/SKETCH.ru.md`, including its own corrections and narrower first slice. This is a research recommendation, not a shipped contract or an implementation result.
 
 ## Independent score record
 
@@ -57,7 +57,7 @@ Do not infer logical negation from a failed test, withdrawn source, superseded d
 
 Evaluate the finite signed-rule graph for the selected context without enumerating all minimal assumption environments. Return a bounded explanation witness; large explanation **display** can be truncated independently of complete support evaluation. Traversal/evaluation exhaustion is instead `incomplete`, never a fabricated final value. Acyclic version references make replay and removal tractable; an unsupported positive cycle cannot bootstrap evidence. Abstract ontology graphs may still contain cycles.
 
-For `C = (A and B) or (D and E)`, withdrawing B while D and E remain admitted leaves positive support for C. Any resulting review notification means a named basis changed, not that the decision was annulled. Reverse dependency traversal guarantees only the explicitly registered graph. An LLM-discovered possible dependency remains a candidate, including the claim that a delivered KnowledgeView was actually used.
+For the two one-way rules `(A and B) -> C` and `(D and E) -> C`, withdrawing B while D and E remain admitted leaves positive support for C. The sketch's equation is interpreted as alternative sufficient grounds, **not** a biconditional definition of C: negative A and negative D do not derive negative C. Any resulting review notification means a named basis changed, not that the decision was annulled. Reverse dependency traversal guarantees only the explicitly registered graph. An LLM-discovered possible dependency remains a candidate, including the claim that a delivered KnowledgeView was actually used.
 
 ## Stores, APIs and platform seams
 
@@ -94,6 +94,8 @@ Proposed conformance vectors (paper specification, **not executed tests**):
 | V11 Real vs dream | test succeeds only in rehearsal | rehearsal claim only | real acceptance witness |
 | V12 Decision survives | one adopted decision basis withdrawn | preserved acceptance record plus review rationale | memory rescinds owner decision |
 | V13 Source gap | missing journal range or restored source | coverage gap, explicit uncertainty | infer event never occurred |
+| V14 Sufficient, not necessary | rules A,B -> C and D,E -> C; only -A,-D witnessed | no positive C witness; no negative C witness | completing sufficient rules into a definition and deriving -C |
+| V15 Attributed remote mirror | authenticated remote writer submits a board ledger-mirror row | attributed report; asserted ledger origin remains unchecked | treat writer attribution as proof that ledger event occurred |
 
 ## Operator-only questions
 
@@ -114,11 +116,22 @@ Local sources were read only, without pulls or builds. Source revisions observed
 - **C:** `curator-spec/cips/CIP-0013-machine-base-context.md` revision 3, lines 9–24, 85–95, 184–225: draft status, consent, pinned updates, no authority from package content and read failure distinct from absence.
 - **U:** `swarma-user-manager/spec/helper.md`, effect observation result table: `not_recorded` requires complete authoritative evidence, unlike missing history. `wiki/book/swarma/ru/03-polzovatel-na-agenta.md`, lines 101–118: home deletion decision and metadata-only exports.
 - **W:** `waggle/spec/waggle.md` §§4.3–4.4, §8: signed provenance and policy remain separate; transport is untrusted. Draft status is explicit.
-- **A:** de Kleer, [An assumption-based TMS](https://www.sciencedirect.com/science/article/pii/0004370286900809), 1986, DOI 10.1016/0004-3702(86)90080-9; author's [publication list](https://www.dekleer.org/bib.htm). Accessed 2026-10-14. ATMS explicitly manipulates assumption sets; choosing a simpler selected-context evaluation is a design choice, not an assertion that ATMS cannot work.
-- **L:** [Making Belnap's Useful 4-Valued Logic Useful](https://cdn.aaai.org/ocs/17599/17599-77711-1-PB.pdf), AAAI research paper. Accessed 2026-10-14. Four-valued evidence representation does not itself define our service's source admission, access policy or bounded evaluation semantics; those remain explicit design obligations.
+- **A:** de Kleer, [An assumption-based TMS](https://www.dekleer.org/Publications/An%20Assumption-Based%20TMS.pdf), 1986, DOI 10.1016/0004-3702(86)90080-9; author's [publication list](https://www.dekleer.org/bib.htm). Accessed 2026-10-14. Section 4.3 (pp. 144–145) defines sound, consistent, complete and minimal labels; §4.5 gives up to 2^n contexts for n assumptions. The propagation discussion (p. 152) explicitly limits consistency/completeness before termination. Choosing simpler selected-context evaluation is my design choice, not a claim ATMS cannot work. An original worst-case construction is AND over n independent pairs of alternative assumptions: it has 2^n minimal sufficient environments even though the signed support graph is linear-sized.
+- **L:** Sutcliffe, Pelletier and Hazen, [Making Belnap's Useful Four-Valued Logic Useful](https://cdn.aaai.org/ocs/17599/17599-77711-1-PB.pdf), FLAIRS-31/AAAI, 2018, pp. 116–117. Accessed 2026-10-14. The paper discusses FDE's lack of a conditional connective and failure of modus ponens for a material-implication encoding. Thus four-value rendering does not pick an executable inference calculus. Source admission, access policy and incomplete evaluation remain our own explicit contract obligations.
+- **J:** `skill-project-management/pkg/board/query/activity_ledger.go`, `authorizeLedgerMirror` and its `STATED BOUND` comment at `ad68902`: remote-api mirrors preserve authenticated attribution but cannot prove they were emitted by the ledger mirror sink. `activity_correction.go` separately implements append-only `corrects`/`supersedes` records through an activity transaction. Inspected as code, without running it.
+
+## Post-freeze adversarial round 1
+
+The frozen SEL is a formal specialization of astra-01's `alt-bounded-evidence`, not a competing service or new alternative topic. astra-03 is writing that family's formal companion. I confirmed its two independently reached issues in events `$6jxHbLsDl-Lkefu_yhwLyBeLhFIr4aFr8vtcXgP56qg` (cutoff) and `$9Og11QdbR3N1C-_IDJ_7DOz5rCLDQFEO0JmC0FlyiBM` (conflict rules). This is confirmation of counterexamples, not yet a same-version score proof.
+
+New attack V14 was addressed to astra-03 in `$xo9GjCq6DOlYLcCGOM8NsGmf8ax8frBJtWAL_Iq2YmE`: a support equation must not become a definition whose failed sufficient grounds refute the conclusion. Candidate V15 is in topic `f-mirror-origin`, opener `$39Rvtun7xhHKMjnF4wic_w4CfVDkxx8uoc2U9EELVEM`, with confirmation requested from astra-01/03 in `$aNOKbN84ZuzEm-w97aYUEY-Ft2FPCxP-5obUMxfvaoc`. No finding file exists yet because independent confirmation is pending.
+
+The MCP date-specific statement in S line 52 was checked against [official specification 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28), accessed 2026-10-14: its Base Protocol section does describe stateless self-contained requests and per-request negotiation. This corroborates that transport state is not durable knowledge; it does not validate the knowledge semantics.
 
 ## Work log
 
 - Read the mission fully; pulled the research clone with `git pull --rebase` (already current); read both sketch halves. Tool readiness recorded in the seat directory `.temp/astra-06/tool-readiness-01.log`.
 - Onboarded only the assigned a2a identity; joined `swarma-memory`; initial topic list contained `rounds` only. Followed the a2a skill printed by `a2a skill print`; source is `a2a-swarm/internal/skill/files/a2a/SKILL.md`. No other source repositories, board state or code were modified.
 - Frozen the independent score record above before reading five 1's verdicts. Next: publish the candidate, read astra-03, attack differences, seek cross-five scoring and peer-confirmed findings. Do not create findings without a named confirming peer/event.
+- Signed and verified `dec1a5b`, pushed directly to main under the mission-specific publication rule; the source corpus remained unchanged. First-five topic bodies were read only after that commit.
+- CLI documentation mismatch: `a2a post --non-blocking` was refused (`flag provided but not defined`); `--reply-by 30m` was refused (RFC3339 required). Retried with non-blocking intent in the message body and exact `2026-10-14T01:45:00Z`; both questions posted successfully. No shared tooling fix was attempted because this mission forbids source/tool changes. `a2a post --help` also only reports `help requested`; evidence is in `.temp/astra-06/a2a-post-help-02.log` in the seat directory.
