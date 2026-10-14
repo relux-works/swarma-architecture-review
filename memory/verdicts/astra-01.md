@@ -1,14 +1,14 @@
 # astra-01 verdict: platform fit and authority boundaries
 
-Seat: astra-01, five 1, ivmbp. Status: round-1 independent draft, 2026-10-14. No peer verdict was used to form the initial scores. Work is research-only; no source repositories, board state, runtime configuration or platform contracts were modified. Recommended candidate: [bounded evidence memory](../designs/bounded-evidence.md), room `alt-bounded-evidence`.
+Seat: astra-01, five 1, ivmbp. Status: round-2 revision, 2026-10-14. No peer verdict was used to form the preserved initial scores. Work is research-only; no source repositories, board state, runtime configuration or platform contracts were modified. Recommended candidate: [bounded evidence memory](../designs/bounded-evidence.md), room `alt-bounded-evidence`.
 
 ## Position
 
 The base sketch is directionally compatible with Swarma, **especially its second half**, which already rejects a global source-of-truth log, secret hoarding, automatic instruction promotion and hidden orchestration. Those are strengths, not findings against it. Its weakness is an unclosed integration contract: a generic `KnowledgeView`, `verify` and `Notify` do not yet tell a consumer how to preserve authority, authorization, source cuts and execution boundaries.
 
-I recommend the smallest version of the base that has independent value: one optional evidence service, a knowledge-only journal, exact references to existing domain records, explicit supersession, bounded registered dependencies, and data-only pull results. It owns no grants, launches, goals, acceptance, custody deadlines, configuration or session input. The full recommendation, stores, APIs, context seam and acceptance vectors are in the linked design.
+I recommend the smallest version of the base that has independent value: a reviewed documentary register first, with exact references to existing domain records, explicit supersession, bounded registered dependencies and data-only pull results. No named documentary-P0 requirement needs a new daemon. An isolated single-writer service is the target for protected private/multi-proposer operation, not a prerequisite for the experiment. Neither profile owns grants, launches, goals, acceptance, custody deadlines, configuration or session input. The full recommendation, stores, APIs, context seam and acceptance vectors are in the linked design.
 
-## Rubric
+## Independent round-1 rubric (preserved)
 
 Scores assess documented designs, not measured implementations. A 2 means the criterion is explicitly met at the evaluated design level; no score is a product qualification. Every column must also satisfy no 0 in R3/R4/R6. Initial alternatives are mine; named peers may supersede them with stronger designs.
 
@@ -35,7 +35,29 @@ Scores assess documented designs, not measured implementations. A 2 means the cr
 - **R7:** Base names metrics but supplies no closed grammar, replay/erasure vectors or governance for adapters. Bounded memory has concrete negative vectors and owners, but exact schema, policy vocabularies and evaluator semantics are not frozen; it earns 1, not a claim of conformance. The alternate document/query formats are similarly only design sketches here.
 - **R8:** Base's part 2 decision-drift use case is already useful, as is bounded evidence memory or typed documents. Pure query over source journals cannot by itself retain a new cross-source interpretation, a challenge or a registered dependency unless it stores those somewhere else; it gives retrieval value but misses the named continuity loop.
 
-This is **not yet the mission's proof of optimality**. The bounded service currently leads my limited comparison by one point. A well-specified document design might tie or win; it should be compared on the same corpus before committing to a daemon, language or graph store. Required next step: independently score a stable candidate revision from another five, then record row-level agreement and event IDs. No implementation cost or performance advantage has been measured.
+At this freeze the mission's proof of optimality was not met. The bounded service led my limited comparison by one point. A well-specified document design could tie or win; the post-freeze reassessment below records that challenge without rewriting the independent evidence.
+
+## Round-2 reassessment and honest product boundary
+
+astra-04's independently frozen verdict and its question `$CxWQDD5684oRqeMZqeg0LwNNMnIq1wGZ9OLGQMfuPKA` improve the typed-document candidate: it has a closed assertion/amendment convention, current authorization, explicit source cuts and the same data-only contract. My original R6=1 described a bare document convention, not this stronger design. wonder-01's `$dq4OKFcMgkU6jF7cGJ8fjiVxlRs_ojdlEhhcCOLuPPE` correctly challenges a daemon as an unearned first-slice prerequisite. I accept both; the full design now separates the documentary experiment from protected service operation.
+
+astra-02/05's erasure and view-inference analysis supplies the missing service contract: independent read/use/retain/forward predicates; view-relative status; separate byte/custody lineage; publication fencing; per-boundary purge receipts; restore coverage outside the restored failure domain. These are now explicit in the design, so its service-profile R4 rises at the **design-contract** level. Actual qualification remains unperformed. The Git documentary profile stays R4=1 for general memory: its allowed corpus and retention promise are narrower, and arbitrary clones are not controlled erasure stores.
+
+| Criterion | Base, unchanged | Bounded service, revised | Governed typed register, revised | Source-only query, unchanged |
+| --- | ---: | ---: | ---: | ---: |
+| R1 | 1 | 2 | 2 | 2 |
+| R2 | 2 | 2 | 2 | 2 |
+| R3 | 2 | 2 | 2 | 2 |
+| R4 | 1 | 2 | 1 | 1 |
+| R5 | 2 | 2 | 2 | 2 |
+| R6 | 2 | 2 | 2 | 1 |
+| R7 | 1 | 1 | 1 | 1 |
+| R8 | 2 | 2 | 2 | 1 |
+| **Total /16** | **13** | **15** | **14** | **12** |
+
+Unchanged scores retain their row evidence above. R6 for the revised register follows astra-04's exact-source/assertion/amendment rules and data-only/current-access semantics, not any intrinsic power of Git. R4 for the service is conditional on the published retention/disclosure protocol; R7 remains 1 until a closed profile and conformance package is published. The service is the highest-scoring general-memory target among these candidates. The lower-surface document experiment is still the recommended first step because its narrow admitted use case requires neither sensitive storage nor autonomous mutation. This is a stated scope/cost tie-break, not a claim Git provides the service's security boundary.
+
+Same-revision cross-five scoring is still pending; convergent scores for a design family are not yet proof for this exact revision. No language, database or performance winner has been measured. The compiler and alternative-hunter designs will be scored after their full artifacts arrive.
 
 ## Source evidence and maturity
 
@@ -58,12 +80,13 @@ Read-only clone revisions observed 2026-10-14; files below were read from these 
 
 The local source-head inventory and CLI readiness evidence are in `.temp/astra-01-onboarding/`. These contain no credentials. No source clone was pulled or modified. No credential directories were inspected.
 
-## Candidate problems, not yet confirmed findings
+## Candidate disposition
 
-1. **Context data can be promoted by an unspecified consumer.** Room `f-memory-data-channel`: `KnowledgeView` lacks recipient/purpose/provenance-verdict and a named noninstruction consumer contract. P proposes operator-overlay snapshots, C distinguishes order from authority, and A requires per-item framing. Remedy: explicit tool-result data first; no overlay, skill or machine base writes; preserve provenance through every derivation. Peer confirmation pending; no finding file yet.
-2. **A source reference needs an authority class.** B says remote derived ledger mirrors can be hand-minted by the same token path and remain attributed. Memory must resolve canonical run evidence before reporting an authoritative outcome. A source digest/signature alone cannot select the authority owner.
+1. **Context data can be promoted by an unspecified consumer.** [Peer-confirmed finding](../findings/memory-data-channel.md), room `f-memory-data-channel`. astra-02 confirmed in `$XxrJ2a2afWS6E-CwUzsZUFHSCKohG2BivATAPsKPPB4`; astra-04 confirmed across fives in `$TorX3CcPnhLO7UDztCEB7ZL8CkxNEUHTxii8kc3qMTk`. The finding explicitly distinguishes unchanged external authority gates from model obedience, and preserves the closed handoff grammar.
+2. **A source reference needs an authority class.** B says remote derived ledger mirrors can be hand-minted by the same token path and remain attributed. Memory must resolve canonical run evidence before reporting an authoritative outcome. I confirmed astra-06's `f-mirror-origin` in `$F5k5_K05289EcMGd0y6gEMbmwTJPKqn456SU5brFNd0`; the exact primary branch is `pkg/board/query/activity_ledger.go:53–85`, verified unchanged from B's pinned HEAD. astra-06 owns the finding; no duplicate file.
 3. **`verify` cannot gain executor authority.** A test-verifier plugin may inspect reports, but fresh tests/candidate execution belong to R-VERIFY, with an authorized client choosing the action. Memory must not become a side door into arbitrary code execution or network fetch.
 4. **Platform-wide snapshots need qualified completeness.** Existing stores own independent sequences. A memory watermark plus source cut vector can explain observed state; it cannot promise global serializability or conclude absence from an unavailable source.
+5. **Erasure is not epistemic invalidation.** Confirmed astra-02's `f-erasure-closure` in `$-tTXQoCv0Ij3aTd-l5wKpf4LX-85ekLuQyOKmNB3VbY`. A still-supported proposition can retain restricted bytes. Host tool results/transcripts are a different custody boundary and require the owner's disposition evidence; memory cannot promise their erasure from its own receipt.
 
 ## Smallest change set from the base
 
@@ -83,4 +106,5 @@ Only the operator can choose the first admitted corpus/data sensitivity, the own
 
 ## Round log
 
-- Round 1: mission and entire base read; identity ensured and room joined; current local sources checked; independent scoring recorded; one context-seam candidate and the bounded evidence alternative opened. Cross-five scoring and candidate confirmations pending.
+- Round 1: mission and entire base read; identity ensured and room joined; current local sources checked; independent scoring recorded; context-seam candidate and bounded evidence alternative opened. Initial design/verdict signed, signature verified and published as `e8ab519`.
+- First adversarial replies: confirmed erasure closure and mirror-origin against primary sources; obtained cross-five context finding confirmation; accepted closed-handoff and documentary-first challenges. Initial score table preserved; revised comparison and design explicitly separate documentary and protected-service profiles. All publication uses signed commits and ordinary non-forced main pushes as the mission directs.
