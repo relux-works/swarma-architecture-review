@@ -1,6 +1,6 @@
 # astra-02 — trust, security, privacy and retention
 
-Status: round 3, reviewed position; 2026-10-14. Owner: `ivmbp_swarma-memory_astra-02`, five 1, ivmbp. Research only: no implementation or platform qualification claimed. Both owned findings have independent five-2 confirmation. The initial score freeze and subsequent exact-artifact comparisons remain explicit below.
+Status: round 4, exact assembled design ratified; 2026-10-14. Owner: `ivmbp_swarma-memory_astra-02`, five 1, ivmbp. Research only: no implementation or platform qualification claimed. Both owned findings have independent five-2 confirmation. The initial score freeze and subsequent exact-artifact comparisons remain explicit below.
 
 ## Position
 
@@ -9,6 +9,8 @@ Keep the base's independent knowledge subsystem and its second-half authority bo
 The first security contract must cover what is admitted, who may cause each operation, every derived copy, and what a view can reveal. It cannot wait for the base's P3 federation milestone. Full ATMS, vector retrieval, model-based consolidation, private-person memory and federation are optional later consumers of this contract.
 
 The most important distinction missing from the executable contract is between **reasoning dependencies** and **content derivation/custody**. Independent support can preserve a conclusion's epistemic status after a source disappears; it cannot authorize retaining a summary or embedding that still contains that source's restricted content.
+
+Current published candidate: [bounded evidence](../designs/bounded-evidence.md) at `0ce009435206f31f387efd207dc3f2662e66e4d9`, with its adopted [semantic companion](../designs/bounded-support-semantics-astra-03.md) at `476ec3618c7c55d471a572454aa7e4aba772aab6`. The protected profile scores **15/16**; its documentary profile scores **14/16**. The latter is still the recommended first experiment. These exact profiles are distinct from the stronger hypothetical document register scored in the initial freeze.
 
 ## Initial rubric
 
@@ -36,8 +38,11 @@ The admission, disclosure and epistemic semantics apply to every implementation,
 
 1. **SourceRef** identifies an admitted source owner, immutable revision, locator within that revision and permitted disclosure class. Source text stays under its current authority unless separately admitted for retention. A hash or locator can itself disclose information; neither is public by default.
 2. **ClaimRevision** contains a typed proposition, perspective, valid time, recorded time and authenticated proposer. Adoption remains a source-owner decision reference, never an agent-controlled authoritative status field.
-3. **Support** links exact claim/source revisions with a declared support/refutation direction and, later, a closed bounded rule. Support is evaluated within a named authorized view. Semantic-review output remains a model judgment.
-4. **Revision** records supersession, challenge or withdrawal without silently overwriting history. Erasure is a distinct lifecycle operation over content and derivatives, not a claim that prior content was false.
+3. **Justification** links exact claim/source revisions with a declared support/refutation direction and, later, a closed bounded rule. Documentary basis and review-on-change relationships do not imply logical entailment. Support is evaluated within a named authorized view.
+4. **Assessment** records the exact subject, check kind, checker and policy/environment pins. Signature validation, test results, deterministic entailment and model review remain different qualifications; an agent-selected label cannot upgrade one into another.
+5. **Revision** records supersession, challenge or withdrawal without silently overwriting history. Erasure is a distinct lifecycle operation over content and derivatives, not a claim that prior content was false.
+
+This now aligns with the five stored shapes in the assembled candidate. A View is derived output, with protected internal cuts and a separately authorized public projection; it is not another authority or a retention exemption.
 
 The memory service is the only writer of its claim/revision journal, policy-enforcement metadata, content-derivation inventory and disposable projections. Existing modules remain sole writers of source journals, grants, execution records, goals, acceptance and custody. The service has no credential-broker lookup role, process-control authority or session-input handle. An extractor can submit proposals through a bounded API; it cannot open the service store.
 
@@ -179,3 +184,22 @@ The compiler owner accepted the statelessness challenge in `$UoCSSyCaJ5BGGbMShBE
 **W4:** Independently inspected [Graphiti code at 9d56c190926b382a54c5ea03e7680af1d05e1c9d](https://github.com/getzep/graphiti/blob/9d56c190926b382a54c5ea03e7680af1d05e1c9d/graphiti_core/graphiti.py#L1993) and [official provenance article](https://www.getzep.com/blog/how-zep-tracks-provenance-in-agent-memory/), accessed 2026-10-14. `remove_episode` selects edges by first originating episode, differing from the article's last-support description; summary rebuilding is not present in that method and its absence is acknowledged in the article. This is static code/documentation evidence, not a runtime reproduction. Exact version/backend qualification is necessary before optional projection adoption; deletion can participate in an erase pipeline but does not establish complete custody closure. astra-05 owns the corresponding finding.
 
 Source recheck: all ten source HEAD pins stayed unchanged. The board checkout has unrelated task-state changes, but the two cited `pkg/board/query/activity_{ledger,correction}.go` files match pinned HEAD exactly (`git diff --exit-code HEAD -- ...`, exit 0). No source working tree was modified by this seat.
+
+## Round 4: exact assembled candidate and proof boundary
+
+I read `bounded-evidence.md` at `56d18ee` fully, then the complete delta and resulting design at `0ce009435206f31f387efd207dc3f2662e66e4d9`; its signature verifies under the configured human identity. The design SHA-256 is `9c8f63fd8aad3d44081b93225f727e504468297cadc21ab1d0973903d28c0599`. I also reviewed the semantic companion's complete `877cfdf..476ec36` delta and resulting text; its SHA-256 is `adde0314375f1950a817962c1c513070ef86aa3b01f1fecb14e86fe9339fd3ba`.
+
+The amended View explicitly protects global cuts and binds public metadata to admitted activity, including issuance/equality/length/cadence, receipts, errors and coverage. The companion's InternalQuery/ExternalQuery split and S24 close the concrete hidden-write attack; S25/S26 cover outside-domain restore and late derivative commits. The candidate explicitly adopts that companion and separates Justification from Assessment. My reservation about the standalone 56d18ee wording is resolved.
+
+| Exact design/profile | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Total |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Base, both parts, initial score retained | 1 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 13 |
+| 56d18ee standalone, before metadata correction | 2 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 14 |
+| 0ce0094 documentary P0 | 2 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 14 |
+| 0ce0094 protected profile + adopted 476ec36 companion | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 15 |
+
+For both current profiles: five stored record shapes and bounded semantics earn R1=2; source-owner stores and existing identity/context boundaries earn R2=2; explicit pull and the absence of authority/control effects earn R3=2; the runtime-independent local API/CLI earns R5=2; scoped qualified witnesses and registered-only completeness earn R6=2; the independently useful architecture-decision experiment earns R8=2. Protected-profile R4=2 is earned by the explicit admission, custody, erasure and disclosure contracts, not by deployment as a service. Documentary R4=1 honestly limits disposal over repository/replica history; the hypothetical fully governed register from my initial table is not this filed profile. R7=1 reflects still-open closed schemas, exact expected-result fixtures and resource/authorization vocabulary. No prototype or executed vector is required or claimed during this mission.
+
+The added protected-service admission gate also matches direct inspection of user-manager [P1] §§8–8.1 (lines 519–549) and session-host [P6] §3.1 (lines 132–144): v1 service rows have installer/operator ownership, no permissive default, socket/current-generation constraints and scheduled resolver/egress qualification. This does not block documentary P0 or retroactively gate the earlier software-root slice. These are normative source requirements, not implemented enforcement claims.
+
+astra-05 independently ratified the **same exact revision and both vectors** in `$W6Z420vc49y3Eflx2Xn5ti_MQNDmd58lKsVT549kVVA`; astra-04 did so in `$ZHOqMsgPsMRvYmQ7oOiijzHHx4oGmE-89-RrG36iArE`. Thus the mission's cross-five agreement condition is met on this assembled artifact, with no zero in a safety row. This is a design-contract result for the compared candidates, not an empirical or global optimum, not proof that a graph backend wins, and not yet a two-host proof. No cross-host third-five artifact has been read by this seat. A tied hypothetical design remains a tie; pilot measurements may favor plain typed documents.
