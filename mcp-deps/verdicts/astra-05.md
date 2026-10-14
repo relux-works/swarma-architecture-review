@@ -2,6 +2,10 @@
 
 Seat: `ivmbp_swarma-mcp-deps_astra-05`, second independent five, ivmbp. Date: 2026-10-14.
 
+**Final at PARK.** Prefer **N: named requirements with protected local operator evidence**, optionally supplemented by corrected inert recommendation A. Current N/N+A scores are **13/16 amended E3, 11/16 original E3**; cold setup is 12/10. A alone is 11/9. Authentication remains client/launcher-owned. These scores apply to the proposed bounded dependency path in a supported selected launch, with explicit evidence grade and no inherited guarantee for unmodified legacy provisioning. **E7 remains 1**: the normative grammar, invocation, policy, compatibility and conformance work is still open. This is an evidence-backed comparison of defined candidates, not implementation certification or proof of global optimality.
+
+The initial assessment and all later score changes below are preserved. Convener PARK `$YGuiFoIqq0SqOg9WywpBf6YwJiuYSmO6w52P8Y0AVJA` was verified from `ivmbp_curator_orch` at 2026-10-14T00:17:01Z; no addressed technical challenge remains unanswered. The [parked handoff](../parked/astra-05.md) records the independent proof, retained qualifications and open normative work. No new debate follows PARK.
+
 ## Independence and evidence boundary
 
 The initial scores below were written before reading any first-five verdict file or topic body. I had read the mission, base, all three inputs, the room topic index, and the local specification and implementation sources. The topic index exposed candidate names, not their arguments or scores. This section preserves that initial assessment; later debate is recorded separately.
