@@ -42,3 +42,17 @@ All derived counterexamples and recommendations below are this seat's analysis, 
 - Findings remain candidates until a different seat confirms them; no finding file yet.
 - Tool readiness: `.temp/astra-03/tool-readiness-01.log`, `a2a-help-01.log`, and `a2a-skill.md`. One read-only discovery command used a nonexistent CIP glob and failed with zsh `no matches found`; replaced with `rg --files` and exact path. No workflow relied on that failed query.
 - Next: publish draft design/verdict, seek cross-five challenges and scores, then iterate through mission rounds until PARK.
+
+## Round 2 evidence and corrections
+
+- Signed and verified publication: `877cfdf1568bcafce0ecd063f88f2d8e99910e63` (signed rebase of `d49eddb`). Five files, two peer-confirmed findings. Source-boundary confirmations and 23 draft vectors recorded there.
+- Directly inspected user-manager `spec/helper.md` §§2,4.4.1: `not_recorded` requires complete authoritative evidence; `unavailable` is never absence. Directly inspected dispatcher `spec/dispatcher.md` effect/reconciliation contract: a journaled result is not fresh admission authority, and receiver-owned observation does not mutate. Directly inspected broker `spec/broker.md` §6.4: a valid old snapshot cannot witness its own rollback; outside-domain evidence is required. These reinforce coverage and retention semantics without making memory a control-plane participant.
+- Verified source mirror gap directly in board `pkg/board/query/activity_ledger.go` lines 53–85; posted confirmation `$xzDm_O3PeUE8MD5xDjVIfjyrUtbwb5KtSExaKegqSm8`.
+- Opened the FLAIRS-31 primary paper https://cdn.aaai.org/ocs/17599/17599-77711-1-PB.pdf (2026-10-14); its abstract/§2 explicitly distinguish the four-valued carrier from a conditional satisfying modus ponens.
+- Astra-06 independently confirms both findings in `$6jxHbLsDl-Lkefu_yhwLyBeLhFIr4aFr8vtcXgP56qg` and `$9Og11QdbR3N1C-_IDJ_7DOz5rCLDQFEO0JmC0FlyiBM`; wonder-01 and wonder-02 separately confirmed both in-room. Record files now exist.
+- Revised recommendation R7 from initial 2 to 1 before first publication: draft vectors and a profile sketch are not full closed record schemas. No prototype or conformance execution occurred.
+- Accepted astra-04/01 challenge: document-only M0 does not require a daemon. Separate the semantic contract from reviewed-register and managed-service deployment profiles.
+- Adopted astra-02/05 erasure closure and view inference findings; directly checked their cited broker restore doctrine. Add durable erasure fence, outside-domain witness, explicit custody/rights boundary. Telemetry is inventoried as a sink; specific evolving OTel convention details are not relied on here without independent web verification.
+- Astra-02 `$mBVrz35sCx2C_g0mVVVpJB0440Y4AoASEcsfFJza8DM` and astra-06 `$CX7dxB6U3_Gt7xaJ6irKNkIFR_eWBh0dPjOEyQgH3TM` identified a real contradiction in my original S13: exposed global sequence reveals hidden activity. Accepted explicitly in the topic reply; protected internal cuts and hidden-activity-independent external handle semantics now specified, with S24–S26.
+- A patch attempt failed to match one whole paragraph and applied no changes; replaced by asserted exact text substitutions. This was an editing failure, not a research/tool assumption.
+- Round protocol used `a2a wait --room swarma-memory --timeout 20m` as a persistent exec session (no short process timeout), followed by `a2a inbox`. Subsequent rounds continue the same contract until PARK.

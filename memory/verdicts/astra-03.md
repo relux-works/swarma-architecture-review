@@ -4,7 +4,7 @@ Status: round 1 position, revised after cross-five challenge; open to review. Da
 
 ## Position
 
-Retain the sketch's platform-specific second half and its architectural-decision MVP. Replace the underspecified ATMS commitment with a versioned, bounded support evaluator over explicitly registered, acyclic justifications. Keep records and sources small; distinguish registered reasoning, independent verification, authoritative decisions and evaluation completeness. Full assumption-environment enumeration is a later optional profile.
+Retain the sketch's platform-specific second half and its architectural-decision MVP. Prefer a reviewed documentary register with explicit read-only recall for the first experiment; no named P0 requirement needs a daemon. Add an isolated service only for a separately qualified private/multiple-proposer profile or measured operational need. Replace the underspecified ATMS commitment with a versioned, bounded support evaluator over explicitly registered, acyclic justifications. Keep records and sources small; distinguish registered reasoning, independent verification, authoritative decisions and evaluation completeness. Full assumption-environment enumeration is a later optional profile.
 
 The principal gap is not the absence of the right ideas: the base already states most boundaries. It is that two implementations could follow those ideas and disagree about conflict, missing evidence, revision, scope and resource limits.
 
@@ -35,12 +35,18 @@ Scores assess design contracts, not delivered software. Evidence abbreviations r
 
 The initial table was authored before consulting other fives' verdict files (recommendation 16); R7 was reduced to 1 after astra-06's challenge because the companion is an RFC starting point, not a complete closed schema. The table is provisional: another seat may show a stronger concrete document or journal design. A 16 does not prove uniqueness; under this coarse rubric multiple designs may tie. Mission proof additionally requires the stated cross-five scoring agreement.
 
+## Refined candidate scores and cross-five evidence
+
+The initial documents column above describes bare typed documents with explicit supersession. The strengthened **reviewed persistable register + read-only projection** adopts the same source, view, retention and revision rules as the ledger; it scores `[2,2,2,2,2,2,1,2] = 15`, tied with the managed kernel profile. Prefer it for the documentary pilot because it introduces fewer operational components. This is a declared tie-break, not an extra rubric point. It cannot inherit a private multi-agent isolation or uncontrolled-replica erasure claim.
+
+The exact `bounded-evidence.md` at `e8ab519` alone scores `[2,2,2,1,2,2,1,2] = 14`; the score of 15 requires the linked semantics and security contracts. Astra-06 (five 2) reviewed my semantic companion at `877cfdf` and scored the combined family `[2,2,2,2,2,2,1,2]`, agreeing on every row: event `$_lZYOWuvt_xgB_fE_UITLHBc-GoVbAiZJ3KPcWBklPo`. That is design-level cross-five agreement on a specified composite, not executed qualification or a unique optimum. Its newly identified hidden-watermark defect is being corrected; refreshed exact-revision agreement remains necessary for the final candidate.
+
 ## Recommended contract
 
 See [design](../designs/bounded-support-semantics-astra-03.md) for the draft record grammar and vectors. In brief:
 
 - **Records:** Claim, SourceRef, Justification, Assessment, Revision; actor/space/policy references on the envelope. SourceRef records what was admitted, not a duplicate authoritative journal.
-- **Stores/writers:** one memory service appends accepted memory records and owns its rebuildable indexes. Each source module retains sole authority over its journal. LLM extraction is a proposing client. No shared writable SQLite, context files or git directory across agent UIDs.
+- **Stores/writers:** the documentary pilot uses one reviewed publication path and a read-only adapter; it claims no hostile-agent storage isolation. The managed profile uses one memory service to append accepted memory records and own rebuildable indexes. Each source module retains sole authority over its journal. LLM extraction is a proposing client. No shared writable SQLite, context files or git directory across agent UIDs.
 - **API:** admit/propose, explicit revise/challenge, recall, explain, changes; typed external verification assessments. Admission authenticates writers, checks schema/scope/retention and returns an idempotent receipt. No decision-accept, launch, grant, wake or install operation.
 - **Seams:** exact source revisions, audience/purpose-bound snapshots, current access checks, Curator-approved context selection, session-host delivery, board-owned goals and decisions. Dream/simulated evidence cannot qualify real execution claims (E3).
 - **Out of scope:** recursive/default logic, global consistency, semantic completeness over natural language, full ATMS labels, probabilistic truth scores, reputation authority, arbitrary verifier execution, graph database, federation and mandatory memory in safety/recovery paths.
@@ -57,7 +63,7 @@ See [design](../designs/bounded-support-semantics-astra-03.md) for the draft rec
 
 **Use case:** answer why retiring an agent home now deletes it, what replaced the older archive default, and which explicitly registered architecture notes still depend on that old decision.
 
-M0 is an authorized, one-host index of selected architecture documents, accepted decisions and review findings at pinned commits. It stores source-bound claims and explicit supersession, serves compact audience-bound views with expand/explain references, and lists affected registered dependents for human/owner review. No automatic extraction promotion, simulated outcomes as real evidence, auto-edits or work dispatch. The bounded rule evaluator is M1; M0 remains useful without it.
+M0 is an authorized, one-host reviewed register/read-only index of selected persistable architecture documents, accepted decisions and review findings at pinned commits. It does not require a daemon, service account or handoff schema change. It stores source-bound claims and explicit supersession, serves compact audience-bound views with expand/explain references, and lists affected registered dependents for human/owner review. No automatic extraction promotion, simulated outcomes as real evidence, auto-edits or work dispatch. The bounded rule evaluator is M1; M0 remains useful without it.
 
 Measure paired tasks on the same frozen corpus: time and source opens to recover the decision, correct current-versus-historical answers, exact citation accuracy, stale-answer rate, recall of a manually enumerated dependency set, false review notifications, and bytes retained/erased across projections. Denominators must be fixed before running. No timings or accuracy results are claimed in this document.
 
@@ -72,3 +78,5 @@ Implementation choices such as SQLite versus files, record IDs or language do no
 ## Review and open threads
 
 Candidates `f-bounded-inference` and `f-conflict-semantics` were independently confirmed by astra-06; finding records carry event IDs. Adopted that seat's clarification that documentary basis, review-on-change and sufficient support are distinct edges, and added the no-biconditional-completion counterexample. Confirmed astra-02's view-relative epistemics and astra-06's source-mirror assurance boundary from direct source inspection. Concrete cross-five scoring of the same published candidate remains pending. Tools/research evidence: [worklog](../notes/astra-03-evidence.md).
+
+Round 2 correction: astra-02 and astra-06 independently demonstrated that exposing the internal global watermark contradicts view non-disclosure. Internal audit cuts are now protected; public handles/cursors require a hidden-activity-independent issuance contract, not opacity alone. S24–S26 add metadata leakage and erasure recovery/race cases. Full closed schema publication remains open (R7=1).

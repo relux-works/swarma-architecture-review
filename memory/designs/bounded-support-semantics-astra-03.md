@@ -8,7 +8,7 @@ Memory answers: which admitted sources and explicitly registered reasoning suppo
 
 The core is a typed admission journal plus derived views. An empty result never establishes falsity. A stored quotation proves at most that the quoted source made a statement. A syntactically valid reasoning edge does not prove its semantic correctness. These distinctions survive every summary and export.
 
-M0 stores attributed assertions, exact source references, assessments and explicit revisions. M1 adds bounded support evaluation. Neither needs full ATMS, a graph database or a new platform registry.
+M0 stores attributed assertions, exact source references, assessments and explicit revisions. It can be a reviewed persistable documentation register plus read-only adapter, or an operator-owned embedded store, with no daemon and no hostile-writer isolation claim. A managed service is a separate profile for private data or multiple autonomous proposing principals. M1 adds bounded support evaluation. Neither needs full ATMS, a graph database or a new platform registry.
 
 ## 2. Minimal record model
 
@@ -22,7 +22,7 @@ Five record kinds share an authenticated envelope. `Principal` and `Space` refer
 | Assessment | Scoped result of a named check or reviewer, with subject/rule/policy/environment pins | A single universal `verified` flag |
 | Revision | Typed withdrawal, replacement, correction or availability transition referencing exact prior objects | Losing support refutes a proposition or cancels an owner decision |
 
-Every record has a service-assigned sequence. Source sequence numbers remain in their own namespaces; no timestamp or memory sequence imposes a total order over independent authorities. Wall-clock times are descriptive; journal sequence defines admission order.
+Every record has an internal writer-assigned sequence. It is protected audit metadata, not automatically part of a public record or receipt. Source sequence numbers remain in their own namespaces; no timestamp or memory sequence imposes a total order over independent authorities. Wall-clock times are descriptive; journal sequence defines admission order.
 
 An authority assertion such as “the owner adopted policy P” is a claim about an external decision record. Its currentness is projected from that authority's exact source revision. A memory proposal can challenge it, but cannot create or revoke the underlying decision.
 
@@ -44,8 +44,9 @@ Mode       = real | simulated
 
 Literal = (claim_revision_id, Polarity)
 Rule = (rule_id, rule_revision, EdgeRole, RuleKind, nonempty all_of[Literal], Literal)
-Query = (principal, purpose, space, perspective, mode, valid_at,
-         memory_watermark, source_watermarks, semantic_profile, policy_revision)
+InternalQuery = (principal, purpose, space, perspective, mode, valid_at,
+                 memory_watermark, source_watermarks, semantic_profile, policy_revision)
+ExternalQuery = (authorized_scope, purpose, valid_at, snapshot_handle?, bounds)
 ```
 
 Each concrete record schema is closed: unknown fields, schema versions, tags, duplicate object keys and malformed references fail admission. IDs are opaque within a typed issuer namespace. External ref strings are never executed. Claim predicate schemas specify exact types and equality; unversioned natural-language “same meaning” is not identity. A separate `equivalent` claim does not merge objects automatically. A digest identifies canonical bytes under a named algorithm/framing version; not the semantic meaning of a sentence.
@@ -72,7 +73,7 @@ For each polarity return independently:
 { witness: present | not_found,
   evaluation: complete | incomplete,
   evidence_qualification,
-  snapshot_watermark,
+  authorized_snapshot_handle,
   freshness,
   source_availability,
   dependency_coverage: registered_only }
@@ -81,6 +82,8 @@ For each polarity return independently:
 `not_found + incomplete` is indeterminate, not a completed “unknown” verdict. `present + incomplete` proves existence of the returned checked witness, but cannot claim no contrary evidence, enumerate all alternatives, or certify complete impact. Both present witnesses establish a conflict even if enumeration is incomplete. A complete search over the registered authorized graph is still not a complete account of the world. A view must say its policy and declared scope; it must not reveal whether hidden sources exist.
 
 The positive and negative channels are independent. With `A+`, `A-`, and an admitted sufficient-support rule `A+ -> B+`, B has that qualified positive support even while A is conflicted. There is no automatic B-, no explosion, and no silent discarding of A's conflict through ATMS nogood elimination. Whether an application may act on conflicted premises belongs to a separate consumer policy; the memory record does not authorize the action.
+
+Internal global memory sequences, source cuts, dirty generations and retention epochs stay protected. A visible counter, content digest, cursor or token equality can disclose a hidden append even when its content is opaque. Public view, change and admission receipts therefore reveal only metadata expressly admitted for that recipient. Snapshot handles bind to internal cuts without exposing them; their issuance, equality, length and error behavior must be independent of hidden-only mutations. One candidate contract mints fixed-length random handles per request regardless of activity, with stable internal binding for pagination; a visible `no_change` result depends only on the authorized projection. This is a proposal requiring conformance, not a claim that opacity alone proves non-disclosure. Authorized source revisions remain exact internally and are exposed only where separately allowed.
 
 Access is checked before deriving visible statuses, not only before rendering text. A claim's hidden supporting/conflicting source must not leak through status bits, hit counts, explanation paths or update notifications. The same visible inputs and policy should yield the same visible output irrespective of hidden records. Cross-space sharing requires an admitted, separately authorized derivative, not a proof path that tunnels through inaccessible content.
 
@@ -105,15 +108,15 @@ Invalidation has a deterministic dirty boundary: when an accepted revision chang
 
 A verification assessment is immutable and scoped. “Signature passed yesterday over digest D” can remain historically recorded, subject to retention, while current resolution or current authorization is unavailable. Neither implies “the claim is true today.” An expired test result remains a historical test result; its exact artifact/contract/policy/environment pins cannot be copied onto a changed candidate.
 
-A memory store owns a manifest of its retained payloads and derivatives: excerpts, summaries, embeddings, search indexes, explanation caches, exported view payloads and applicable backups. A semantic justification graph is not an erasure graph: paraphrases and tokens may be retained without a logical dependency edge. An erasure job must traverse the retention lineage, with tombstones that themselves contain no sensitive content. A hash may be sensitive or guessable and is not automatically safe to retain.
+The managed profile requires explicit source admission and independent read/use/retain/forward checks; a read permission does not grant persistence or model-provider forwarding. A memory store owns a manifest of its retained payloads and derivatives: excerpts, summaries, embeddings, search indexes, explanation caches, exported view payloads and applicable backups. A semantic justification graph is not an erasure graph: paraphrases and tokens may be retained without a logical dependency edge. An erasure job must traverse the retention lineage, with tombstones that themselves contain no sensitive content. A hash may be sensitive or guessable and is not automatically safe to retain. The erasure fence is durable before disclosure or derivative commits can proceed; stale in-flight jobs cannot reintroduce erased content. Restore remains closed until erasure/policy completeness is reconciled against evidence outside the restored failure domain. Missing witness or unreachable custody sink yields incomplete erasure, never success. Telemetry, external collectors and provider disclosures are named custody surfaces; unmanaged already-delivered bytes cannot be recalled. These requirements adopt the [erasure-closure finding](../findings/erasure-closure.md).
 
 An audit receipt may preserve approved non-sensitive identifiers and inability to reconstruct a deleted view. Physical deletion legitimately reduces reproducibility; report that loss. Do not claim both complete replay of deleted payloads and complete erasure.
 
 ## 7. Source and platform boundaries
 
-The service is the sole writer of its own memory records and indexes. Board, keeper, session-host, dispatcher and trust components remain sole writers/authorities of their records. An extractor may submit a claim, not alter grants or install instructions. Source refs contain namespace, exact revision/watermark, selector and digest where permissible; missing/unavailable source is a typed state, not a dangling edge ignored by recall.
+For the managed profile, the service is the sole writer of its own memory records and indexes. For documentary M0, the reviewed register has one authorized publication path and the adapter is read-only; the same proposal does not assert OS isolation under the operator account. Board, keeper, session-host, dispatcher and trust components remain sole writers/authorities of their records. An extractor may submit a claim, not alter grants or install instructions. Source refs contain namespace, exact revision/watermark, selector and digest where permissible; missing/unavailable source is a typed state, not a dangling edge ignored by recall.
 
-A view is an audience/purpose-bound projection with memory and source watermarks, policy/profile version, item provenance, availability and qualification. It is data supplied through the existing authorized context path. The session host still delivers input; Curator still determines approved configuration; board goals and acceptance remain external. Delivered content is not a registered reasoning dependency unless explicitly asserted as one. Delivery receipts must not pretend to know what the model internally used.
+A view is an audience/purpose-bound projection internally pinned to memory and source watermarks, policy/profile version, item provenance, availability and qualification. Its external representation follows the metadata disclosure contract in section 4. Independent source frontiers are a vector of cuts, not an atomic platform-wide snapshot. For M0 it is explicitly pulled tool data. `swarm-handoff/2` has no arbitrary memory/KnowledgeView reference kind: no field is added and no seed injection is claimed; later host integration needs actual protected tool-output custody or an owned versioned schema extension. The session host still delivers input; Curator still determines approved configuration; board goals and acceptance remain external. Delivered content is not a registered reasoning dependency unless explicitly asserted as one. Delivery receipts must not pretend to know what the model internally used.
 
 Dream/rehearsal mode is an explicit evidence context. A simulated approval or test outcome cannot satisfy a real-execution predicate. An authorized summary of a rehearsal may support a proposition about the rehearsal; it cannot become the underlying real outcome. This follows the platform book's `10-sny.md`, not an assumption that “dreams” merely means memory consolidation.
 
@@ -129,7 +132,7 @@ explain(claim_revision, query, budget) -> witness_graph + completeness
 changes(cursor, audience, budget) -> admitted_change_refs + cursor
 ```
 
-Assessment and challenge proposals use `admit`; the kind determines authorization. Same authenticated writer, space and idempotency key with identical canonical input yields the same receipt; different input yields an idempotency conflict. Admission and index-dirty marking are one durable transaction. No receipt means no assumed commit; clients can resolve an uncertain attempt by its idempotency identity.
+Assessment and challenge proposals use `admit`; the kind determines authorization. Same authenticated writer, space and idempotency key with identical canonical input yields the same receipt; receipts do not expose a global sequence by default; different input yields an idempotency conflict. Admission and index-dirty marking are one durable transaction. No receipt means no assumed commit; clients can resolve an uncertain attempt by its idempotency identity.
 
 There is no blanket `verify(claimId)` that silently chooses assurance meaning. A request can name the check class, exact subject pins and permitted executor; any resulting assessment retains that scope. Running the check is outside the memory kernel.
 
@@ -164,8 +167,11 @@ Each vector needs a closed initial snapshot, admitted operations, authorized que
 | S21 | `(A AND B) -> C`, `(D AND E) -> C`, with A- and D- only | no C- without a separate explicit rule | completing the rules to a biconditional and deriving C- |
 | S22 | Source quote or declared adoption rationale about p | attribution or review dependency only | sufficient support for p without the separately qualified assessment/rule |
 | S23 | Authenticated remote board mirror with unverified ledger origin | submitter-attributed claim only | authoritative source-ledger event from mirror provenance alone |
+| S24 | Add/revise/erase only hidden records between identical allowed queries | same permitted semantics and handle issuance distribution | global watermark/cursor/digest/dirty/coverage/refusal changes reveal hidden activity |
+| S25 | Restore a valid snapshot before an acknowledged erasure | disclosure stays fenced until outside-domain evidence reconciles | old in-snapshot inventory witnesses its own completeness |
+| S26 | Extract before erasure and attempt derivative commit afterwards | reject stale commit or rederive from allowed inputs | erased content recreated after completed purge |
 
-Strict timing noninterference is a separate engineering claim from S13's deterministic logical projection. The implementation must name which leakage dimensions it tests and must not claim a timing proof from content-output equality alone.
+For S13/S24, compare permitted semantics and declared randomness distributions, normalizing unrelated freshly minted IDs/timestamps by a predeclared rule; do not demand byte identity of random view handles. The normalization may not hide activity-dependent counters or token equality. Strict timing noninterference is a separate engineering claim from S13's logical projection. The implementation must name which leakage dimensions it tests and must not claim a timing proof from content-output equality alone.
 
 ## 10. Evaluation and governance
 
