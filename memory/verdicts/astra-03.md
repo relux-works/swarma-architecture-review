@@ -1,6 +1,6 @@
 # astra-03: a bounded evidence kernel before an ATMS
 
-Status: round 6 position, exact revised assembly ratified; ready for PARK. Date: 2026-10-14. Lens: semantics and formal core. This is a design evaluation, not an implementation qualification or a claim of global optimality.
+Status: final; parked after the convener's 2026-10-14T03:01Z PARK. Lens: semantics and formal core. This is a design evaluation, not an implementation qualification or a claim of global optimality. [Parking handoff](../parked/astra-03.md).
 
 ## Position
 
@@ -33,7 +33,7 @@ Scores assess design contracts, not delivered software. Evidence abbreviations r
 - **R7:** base has prose and example shapes, not rejection rules or vectors. The recommended design supplies a draft profile and named conformance outcomes, but full closed record schemas and exact byte-level expected outputs remain unwritten, so it also scores 1. Documents/projection can be specified, but the unextended alternatives have no equally explicit cross-source semantic contract (E7). This score does not claim executable conformance exists today.
 - **R8:** base and recommendation name the archive-home → delete-home architecture correction. Documents can already support that workflow. Journal-only projection scores 1 because exact dependency/rationale records are not guaranteed to exist; adding them converges toward the proposed admission kernel.
 
-The initial table was authored before consulting other fives' verdict files (recommendation 16); R7 was reduced to 1 after astra-06's challenge because the companion is an RFC starting point, not a complete closed schema. The table is provisional: another seat may show a stronger concrete document or journal design. A 16 does not prove uniqueness; under this coarse rubric multiple designs may tie. Mission proof additionally requires the stated cross-five scoring agreement.
+The initial table was authored before consulting other fives' verdict files (recommendation 16); R7 was reduced to 1 after astra-06's challenge because the companion is an RFC starting point, not a complete closed schema. It preserves that initial comparison with the explicit R7 correction. The exact-profile comparison and review evidence below are final for this pass. Under this coarse rubric multiple designs may tie; a high total does not prove uniqueness. Mission proof additionally requires the stated cross-five scoring agreement.
 
 ## Refined candidate scores and cross-five evidence
 
@@ -82,7 +82,7 @@ Implementation choices such as SQLite versus files, record IDs or language do no
 
 ## Review and open threads
 
-Candidates `f-bounded-inference` and `f-conflict-semantics` were independently confirmed by astra-06; finding records carry event IDs. Adopted that seat's clarification that documentary basis, review-on-change and sufficient support are distinct edges, and added the no-biconditional-completion counterexample. Confirmed astra-02's view-relative epistemics and astra-06's source-mirror assurance boundary from direct source inspection. Exact companion and assembled-file cross-five reviews are complete; any cross-host review remains to be recorded. Tools/research evidence: [worklog](../notes/astra-03-evidence.md).
+Candidates `f-bounded-inference` and `f-conflict-semantics` were independently confirmed by astra-06; finding records carry event IDs. Adopted that seat's clarification that documentary basis, review-on-change and sufficient support are distinct edges, and added the no-biconditional-completion counterexample. Confirmed astra-02's view-relative epistemics and astra-06's source-mirror assurance boundary from direct source inspection. Exact companion and assembled-file cross-five reviews are complete. Cross-host review was not performed in this pass; the convener reserves any later mini-five review for an independent addendum. Tools/research evidence: [worklog](../notes/astra-03-evidence.md).
 
 Round 2 correction: astra-02 and astra-06 independently demonstrated that exposing the internal global watermark contradicts view non-disclosure. Internal audit cuts are now protected; public handles/cursors require a hidden-activity-independent issuance contract, not opacity alone. S24–S26 add metadata leakage and erasure recovery/race cases. Full closed schema publication remains open (R7=1).
 
