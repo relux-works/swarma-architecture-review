@@ -1,6 +1,6 @@
 # astra-05 — independent security, privacy and retention verdict
 
-Status: Round 2 complete; assembled-candidate wording remains under review; the Round 1 score table below is preserved, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before the initial score version was written. Research only; no prototype or test execution.
+Status: Round 3; exact assembled revision ratified, awaiting cross-host critique and PARK; the Round 1 score table below is preserved, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before the initial score version was written. Research only; no prototype or test execution.
 
 ## Recommendation and independent scores
 
@@ -31,7 +31,7 @@ The base means the whole sketch, including its more careful Swarma second half. 
 - **R7:** All designs are still proposals; none in this comparison has a complete normative grammar and conformance package. Ledger has writable adversarial vectors below, but fields, budgets and final governance remain to publish. Awarding 2 merely for naming JSON Schema would reward aspiration. Broker revocation supplies a concrete model for release serialization and fenced restore [CB §6.4].
 - **R8:** Base part 2 §§5,8 names architecture-decision drift, already useful on one host. Ledger and documents implement that use case without federation or a graph database. Pure replay alone requires enough source adapters and an interpretation model to beat ordinary source search; incremental value is plausible but less direct. Platform book distinguishes proposed personal memory from already authoritative process memory [P9].
 
-## Proposed RFC boundary
+## Independent RFC starting point
 
 ### Primitives, stores and writers
 
@@ -175,3 +175,19 @@ I read the complete `bounded-evidence.md` at `56d18ee` and the complete semantic
 | Documentary P0 as filed at `56d18ee` | 2 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 14 | Persistable reviewed corpus; its disposition boundary is narrower than the hypothetical strengthened document alternative |
 
 This clarification was sent to astra-01 in `$M8XV1cvdXQOP9rtDE-7zxUut-_KVr2shqgRTprqqBEU`. It is a reservation about a specific artifact, not a new architectural finding. The frozen baseline and the hypothetical full-contract scores remain unchanged. I will ratify an assembled revision after inspecting its matching metadata wording. R7 is held at 1 for absent closed concrete schemas and exact normative vectors; this research mission does not require building an implementation to state a complete specification.
+
+
+## Round 3: assembled revision ratified
+
+I read the entire [bounded-evidence design](../designs/bounded-evidence.md) at signed and locally verified `0ce009435206f31f387efd207dc3f2662e66e4d9`, including its diff from `56d18ee`. It explicitly adopts the semantic companion at `476ec3618c7c55d471a572454aa7e4aba772aab6`. The protected binding/public projection distinction, handle issuance/equality constraints, erasure and restore fences, downstream-custody boundary and platform-service admission requirements resolve my exact-artifact reservation.
+
+| Exact assembled profile at `0ce0094` | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Total |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Protected service | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | **15** |
+| Documentary P0 | 2 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | **14** |
+
+The final RFC direction adopts its five stored shapes: Assertion/Claim, SourceRef, Justification, **Assessment**, and Revision; View is derived. This supersedes the independent four-family packaging above by making the already-separated verification report explicit as an Assessment. Documentary basis and review-on-change are distinct from sufficient logical support. An LLM cannot acquire deterministic-assessment authority by choosing a label. R1 remains 2: this remains a handful of domain-neutral shapes.
+
+Rows R2/R3/R5 retain the same source-owner and data-only boundaries; R4 reaches 2 only in the protected profile with the named custody contract. R6 preserves per-polarity witness and completeness semantics. R7 remains 1 for missing closed concrete schemas, exact normative fixtures, authorization vocabulary and budgets. R8 names the independent architecture-decision continuity experiment. This is a design-contract score, not an implemented security assurance or a measured win over plain search.
+
+My first-slice recommendation remains documentary P0, evaluated against plain search and typed reviewed documents before introducing a service or richer inference. Agreement with astra-01 on this exact revision satisfies the mission's two-five scoring criterion; cross-host agreement has not yet been independently inspected by this seat. No new finding arose in this round.
