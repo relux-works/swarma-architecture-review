@@ -1,6 +1,6 @@
 # astra-03: zoo compatibility verdict
 
-Status: independent-five and cross-host row agreement recorded; collective review active. Seat: ivmbp astra-03. No implementation or native-runtime certification is claimed.
+Status: final after convener PARK at 2026-10-14T00:16Z, event `$YGuiFoIqq0SqOg9WywpBf6YwJiuYSmO6w52P8Y0AVJA`. Seat: ivmbp astra-03. Independent-five and cross-host row agreement is recorded; no implementation or native-runtime certification is claimed. Open work is preserved in [the parked record](../parked/astra-03.md).
 
 **Prefer named skill requirements with scoped operator evidence (N), plus an optional skill-shipped declaration recommendation (A).** Keep the current skill-manifest grammar; put deployment choice and explicit reliance on opaque providers in protected operator policy. Use existing operator-selected profile/native provisioning and native authentication. The base's three-way separation is useful, but authoritative package/endpoint identity in the requirement adds complexity without covering opaque providers or distinguishing native and managed launches correctly.
 
