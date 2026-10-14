@@ -1,6 +1,6 @@
 # Bounded evidence memory
 
-Owner: astra-01 (five 1, ivmbp). Status: proposed, round 2 revision, 2026-10-14. Room: `alt-bounded-evidence`. This is an RFC direction, not a claim of implemented or activated contracts. The companion [verdict](../verdicts/astra-01.md) holds the source inventory, scoring and open questions.
+Owner: astra-01 (five 1, ivmbp). Status: proposed, round 3 refinement, 2026-10-14. Room: `alt-bounded-evidence`. This is an RFC direction, not a claim of implemented or activated contracts. The companion [verdict](../verdicts/astra-01.md) holds the source inventory, scoring and open questions.
 
 ## Decision proposed
 
@@ -12,7 +12,7 @@ The documentary profile stores no personal or sensitive memory in Git. Reviewed 
 
 ## Kernel
 
-Five record shapes are sufficient. Names below are proposed local vocabulary, not allocated Swarma wire names. The normative direction for their meaning is the [bounded support semantics companion](bounded-support-semantics-astra-03.md), reviewed at `476ec3618c7c55d471a572454aa7e4aba772aab6`; its closed schemas and exact conformance outputs still need an RFC. Packaging as documents does not change these meanings.
+Five record shapes are sufficient. Names below are proposed local vocabulary, not allocated Swarma wire names. The normative direction for their meaning is the [bounded support semantics companion](bounded-support-semantics-astra-03.md), reviewed at `9bafff829e9233b5510ef827ca79a6707d69ae64`; its closed schemas and exact conformance outputs still need an RFC. Packaging as documents does not change these meanings. Earlier agreement on this design at `0ce0094` used companion `476ec36`; the resource-envelope refinement below is recorded separately rather than attributed to those earlier bytes.
 
 1. **Assertion:** immutable ID and version, schema-qualified proposition, perspective, valid-time interval, recorded sequence/time. The submitting principal comes from authenticated intake, not a client `author` field. A claim that a board accepted a result remains a claim about an external decision.
 2. **Source reference:** owning system and kind, source object/event ID, exact revision or committed sequence, digest where available, locator governed by the source resolver, provenance class and availability. Retaining an excerpt requires a separate admission and retention decision; a reference grants no access to its target.
@@ -82,6 +82,8 @@ A view records recipient, purpose, source and policy revisions, source cuts, com
 
 Global memory/source cuts, dirty generations and retention epochs stay protected. A public opaque token is insufficient if its equality, issuance, length or cadence tracks hidden writes. Public handles, view digests, pagination/change cursors, admission receipts, coverage indicators and error classes must depend only on the admitted projection and its declared disclosure policy. One candidate handle scheme uses fixed-length random per-request handles, independent of hidden activity, with protected stable bindings for pagination; `no_change` depends only on the authorized projection. Exact source revisions are exposed only where authorized. The paired-store vectors include hidden append, revise and erase; compare permissible semantics and declared randomness distributions after predeclared normalization of independent fresh IDs/time. Normalization cannot erase a hidden-dependent counter or equality change. This contract addresses semantic/metadata disclosure; it makes no constant-time or general traffic-analysis claim.
 
+The paired comparison fixes the authorized inputs, policy, declared caller resource envelope and any already-authorized public availability state. Logical candidate selection and evaluation accounting operate on authorized work before applying the query budget; hidden pre-filter candidates cannot consume it or displace a visible witness. Admission, storage and work reservations follow the actual disclosure boundary, which may be narrower than a knowledge-space. The protected deployment must qualify how it preserves that envelope or which coarse aggregate degradation its existing policy owner explicitly permits disclosing. Availability is not automatically public, and a failed pair cannot be repaired by inventing a disclosure policy afterwards. Under equal admitted envelope and availability, hidden load must not alter success, refusal or coverage; across a permitted degradation transition, only the named coarse outcome is disclosed. Success/refusal differences cannot be normalized away. Shared physical exhaustion, wall-time cutoffs and scheduling remain subject to this declared scope; no unlimited capacity or general denial-of-service isolation is claimed. `Unavailable` remains distinct from negative evidence.
+
 Advisory change polling is sufficient for the first slice. A later authorized client may submit an ordinary notification through the existing bridge/host path; memory has no wake, goal or control capability. Explicit park, stop and revoked rights remain effective. Stop, revocation, recovery and acceptance never wait for memory, inference or consolidation. A policy that requires fresh evidence can refuse that one business action while control operations continue.
 
 ## Retention and derived information
@@ -107,6 +109,8 @@ No prototype or build is authorized in this research pass. These are proposed te
 | Query task B with task A's view/reference | Reauthorization; no reuse from an old audience grant |
 | Revoke read access; then explain/changes/count query | No hidden identifiers, statuses, counts or premise disclosure |
 | Hidden-only append/revise/erase between identical authorized queries | No public counter, token behavior, digest, coverage or error change attributable to hidden activity |
+| Hidden candidates precede a visible witness under the same admitted query envelope/availability | Hidden work does not consume the logical budget or remove the visible result; success/refusal/coverage are preserved |
+| Shared exhaustion changes availability | Only a coarse outcome authorized in advance may differ; no retroactive declassification or hidden-source attribution |
 | Delete source/excerpt and rebuild indexes/restore | No resurrection; affected verification and completeness report the gap |
 | A late extractor commits after an erasure fence | Stale disposition generation is rejected; no deleted derivative returns |
 | Duplicate import with same key; changed payload under same key | One receipt for the exact retry; conflict for changed intent |
@@ -116,7 +120,7 @@ No prototype or build is authorized in this research pass. These are proposed te
 | Memory unavailable while operator stops a session | Stop/park/revocation path proceeds under its existing owners |
 | `verify` is asked to test a supplied repository | Returns missing evidence/request data; launches nothing locally |
 
-The companion provides 26 more precisely framed proposed semantic vectors, including source attribution versus entailment, conflicting premises, incomplete evaluation, hidden metadata, old restore and late derivative writers. They are specification work, not executed tests. Full machine-readable input/output fixtures, schemas, authorization vocabulary and resource limits remain follow-on engineering.
+The companion provides 27 more precisely framed proposed semantic vectors, including source attribution versus entailment, conflicting premises, incomplete evaluation, hidden metadata, old restore, late derivative writers and the admitted resource/availability boundary. They are specification work, not executed tests. Full machine-readable input/output fixtures, schemas, authorization vocabulary and resource limits remain follow-on engineering.
 
 Use a manually labelled corpus of 10–30 architectural decisions and explicit source revisions, including archive-home/delete-home. Compare against plain search and typed versioned documents, under the same read access and question set. Measure correct current decision + exact source, stale decision rate, evidence precision, missed registered dependents, false review suggestions, answer time and repeated source-reading effort. Report sample size and uncertainty; no numeric win is claimed yet. Promote automatic extraction, richer inference or another graph backend only if it improves this comparison without weakening the boundary vectors.
 
