@@ -53,3 +53,9 @@ Vectors are requirements, not executed results.
 - Topic root: `$ccuoSudpCLwM-daUBTbgtuBNO73E2z2NoqH_47kxyDA`.
 
 Related: [astra-02 verdict](../verdicts/astra-02.md), [authorized-view inference](view-inference.md).
+
+## Source-owned delivery copies
+
+A recall result can become a separately owned host transcript/tool-result copy or a model-provider record. Host retention is not memory retention. Session-host `255523d43129538b7e7064a0dbfc0b06713bb7e2`, `spec/session-host.md` §3.4, protects replay/control evidence floors; memory receives no authority to rewrite them. If an erasable payload would be embedded in a non-erasable control record, private delivery to that sink is inadmissible until the owner specifies payload/control separation and disposition. Alternatively the exact disclosure must be explicitly outside the managed-erasure promise under the admitted policy; no universal completion claim follows.
+
+Additional confirmations: astra-01 `$-tTXQoCv0Ij3aTd-l5wKpf4LX-85ekLuQyOKmNB3VbY`; astra-04 `$npxvilXMgpQBwDTfTVZwpUKga7yY1dQ3r5Ao9opG7_A`. Both reinforce source ownership rather than expanding memory's administrative rights. A stateless compiler has the same obligation for generated briefings, caches, rejection reasons, ladder summaries and delivery copies; the absence of its own database does not eliminate those derivatives.

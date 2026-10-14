@@ -45,3 +45,11 @@ This is a specified functional non-disclosure property, not a claim of universal
 - Topic root: `$AskgYFX-NOEGGAeOKav2Kwp2ZUg_TqrlGkyedbXDNOg`.
 
 Related: [astra-02 verdict](../verdicts/astra-02.md), [erasure closure](erasure-closure.md).
+
+## Watermarks are part of the disclosure contract
+
+A view over public claim p at internal sequence 17 must not reveal sequence 18 merely because a hidden opposing claim was appended. The same applies to hidden revisions/erasures, global source cuts, view digests, dirty generations, coverage indicators and refusal metadata. Keep raw global cuts in protected audit. Externally expose only admitted activity, or handles under an explicit issuance contract whose equality, length and change cadence do not reveal hidden mutations. Encrypting or HMACing a changing global counter alone does not fix the leak.
+
+The paired-store vector compares allowed semantic outputs or their declared distributions. Independently randomized view IDs and timestamps are normalized only under a stated issuance model independent of the hidden activity; normalization cannot discard the very secret-dependent change being tested. Deliberately public activity is an explicit declassification that narrows the claim, not an implicit exception.
+
+Independently overlapping counterexamples: astra-02 `$mBVrz35sCx2C_g0mVVVpJB0440Y4AoASEcsfFJza8DM`, astra-06 `$CX7dxB6U3_Gt7xaJ6irKNkIFR_eWBh0dPjOEyQgH3TM`. Confirmations: astra-06 `$Vgcj9ktYwKPzZ-fwtf0rwV0FRHTgpDlLpSWL38jq3JA`, astra-05 `$lVOMJkWBepRxEr1OV8ZGfvjtuGQwnghZpNlKpLVzP5M`, and semantic-companion owner astra-03 `$aj-ZpyPOcKqLo4UAkX9Vp7UD-DoPLNhsnAo_Yv6SMfY`, who identifies the unqualified exposed watermark as a defect in that draft. This is a refinement of the existing finding, not an additional count.

@@ -1,10 +1,10 @@
 # astra-02 — trust, security, privacy and retention
 
-Status: round 1, provisional independent position; 2026-10-14. Owner: `ivmbp_swarma-memory_astra-02`, five 1, ivmbp. Research only: no implementation or platform qualification claimed. Findings require peer confirmation before separate finding files are written.
+Status: round 3, reviewed position; 2026-10-14. Owner: `ivmbp_swarma-memory_astra-02`, five 1, ivmbp. Research only: no implementation or platform qualification claimed. Both owned findings have independent five-2 confirmation. The initial score freeze and subsequent exact-artifact comparisons remain explicit below.
 
 ## Position
 
-Keep the base's independent knowledge service and its second-half authority boundaries. Shrink its first slice to an explicitly admitted corpus of architecture decisions and source references, explicit supersession, and recipient-bound views. Do not ingest general transcripts, arbitrary agent homes, tool output, private profiles, or credentials. Do not make private-memory retention a consequence of a successful schema check, source signature, secret scan, or Git review.
+Keep the base's independent knowledge subsystem and its second-half authority boundaries. Shrink its first slice to an explicitly admitted corpus of persistable architecture decisions and source references, explicit supersession, and recipient-bound views. Begin with a read-only adapter or one operator-owned embedded store; a daemon is not necessary for this documentary experiment. A protected one-writer service is a later profile for private data or autonomous proposers. Do not ingest general transcripts, arbitrary agent homes, tool output, private profiles, or credentials. Do not make private-memory retention a consequence of a successful schema check, source signature, secret scan, or Git review.
 
 The first security contract must cover what is admitted, who may cause each operation, every derived copy, and what a view can reveal. It cannot wait for the base's P3 federation milestone. Full ATMS, vector retrieval, model-based consolidation, private-person memory and federation are optional later consumers of this contract.
 
@@ -12,7 +12,7 @@ The most important distinction missing from the executable contract is between *
 
 ## Initial rubric
 
-These are design scores, not claims that software exists. The base means both parts of SKETCH, with Part II qualifying Part I. A 1 means a useful direction with an incomplete contract. The two alternatives below are concrete comparison baselines, not product capability claims. No collective optimality proof exists yet.
+These are the initial independently frozen design scores, not claims that software exists. The base means both parts of SKETCH, with Part II qualifying Part I. A 1 means a useful direction with an incomplete contract. The two alternatives below are concrete comparison baselines, not product capability claims. At this freeze no collective optimality proof existed; later cross-five agreement and artifact qualifications are recorded below.
 
 | Row | Base | Bounded memory service | Admitted documents + manifest | Evidence and reason |
 | --- | ---: | ---: | ---: | --- |
@@ -22,13 +22,15 @@ These are design scores, not claims that software exists. The base means both pa
 | R4 Secrets and retention | 1 | 2 | 2 | Base states the right principles but not closure/recovery semantics. Both alternatives require the admission and erasure contract below; Git holds only admitted non-sensitive documents and schemas, never a private append-only corpus. [P1–P3] |
 | R5 Runtime independence | 2 | 2 | 2 | Base I §6 provides transport-independent operations; both alternatives retain explicit API/CLI access without mandatory runtime hooks. |
 | R6 Honest epistemics | 2 | 2 | 2 | Base separates provenance, verification and adoption and limits invalidation to registered dependencies. Alternatives additionally bind conclusions to authorized evidence and report unavailable evidence distinctly. [P2, P6] |
-| R7 Specifiability/testability | 1 | 1 | 1 | None yet has a complete published grammar and executable conformance suite. Proposed vectors below establish what must be specified, not proof they pass. |
+| R7 Specifiability/testability | 1 | 1 | 1 | None yet has a fully closed schema and complete exact expected-result vectors. Proposed vectors below establish requirements; this research pass does not require or claim implementation execution. |
 | R8 Incremental value | 2 | 2 | 2 | Base II §5 names architecture-decision drift; both alternatives answer current decision/source/supersession on one host. |
 | **Total** | **13/16** | **15/16** | **15/16** | No 0 in a safety row. A tie is real: this rubric does not justify choosing a graph engine or full TMS. |
 
 The admitted-document baseline is serious: reviewed typed records plus a generated source/supersession manifest, recipient-specific packages and optional disposable search. A sole admitted writer controls any private sidecar, while repository authors remain authoritative for source documents. It sacrifices convenient online multi-writer queries, not honesty. The bounded memory service becomes preferable only if cross-session retrieval and registered reconsideration provide measured value beyond that baseline. Engine choice does not itself establish safety.
 
-## Security contract for the recommended service
+## Security contract and protected-service profile
+
+The admission, disclosure and epistemic semantics apply to every implementation, including the documentary P0. Store isolation and service-connection identity requirements below describe the later protected-service profile; an ordinary same-user embedded store does not claim hostile-process isolation.
 
 ### Primitives, stores and writers
 
@@ -51,7 +53,7 @@ Every durable output inherits applicable source restrictions. Combining sources 
 
 ### Authorized views and poisoning
 
-A KnowledgeView binds recipient, purpose, policy revision, source watermark/revisions, as-of time and emitted claim revisions. Its support/refutation/conflict/explanation results are computed from evidence eligible for that view. Do not compute global status and merely hide forbidden evidence links: the status, counts, ordering, cursor, error or hidden-principal identifier may itself leak private facts. Disclose an explicitly declassified attestation as its own source if the recipient may know the conclusion without its underlying material. The view makes no assertion of global completeness.
+A KnowledgeView binds recipient, purpose, policy revision, source watermark/revisions, as-of time and emitted claim revisions. Raw global cuts stay in protected audit; visible metadata must be audience-scoped or issued under an explicit contract independent of hidden activity. Opaque encoding of a changing global sequence does not hide its change cadence. Support/refutation/conflict/explanation results are computed from evidence eligible for the view. Do not compute global status and merely hide forbidden evidence links: the status, counts, ordering, cursor, error or hidden-principal identifier may itself leak private facts. Disclose an explicitly declassified attestation as its own source if the recipient may know the conclusion without its underlying material. The view makes no assertion of global completeness.
 
 Reauthorize cached packages and `explain`, `changes` and reference expansion at use; a snapshot preserves historical provenance, not perpetual permission. Scope cursors to audience and policy. Unknown policy or identity state refuses disclosure; it does not fall back to an unrestricted query. Retention expiry changes availability and may require recomputation; it does not refute the proposition.
 
@@ -63,7 +65,7 @@ Maintain content-derivation/custody edges in addition to reasoning edges: raw ad
 
 An admitted erasure first fences new reads, processing and exports for affected material. Its closure is processed through durable, retryable per-store obligations. Incomplete, unreachable or unknown stores keep completion partial; absence of a search hit is not deletion proof. In-flight jobs must check the fence at commit so late extraction cannot recreate erased text. The service reports a bounded scope and separate states for logical suppression, payload purge/key destruction, dependent rebuild and external disclosure.
 
-Restore cannot serve until current deletion/policy state is reconciled against the backup. Old projections cannot resurrect erased content. Crypto-shredding is only a qualified option when every relevant key copy, backup and plaintext derivative is accounted for; a shared database key cannot selectively erase one person's records. Public digests can reveal low-entropy facts and must not be retained as a universal privacy-safe tombstone.
+Restore cannot serve until current deletion/policy state is reconciled against the backup using a trustworthy witness outside the restored failure domain that covers acknowledged erasures. Old projections cannot resurrect erased content; restoring an old tombstone inventory alongside them is insufficient. Crypto-shredding is only a qualified option when every relevant key copy, backup and plaintext derivative is accounted for; a shared database key cannot selectively erase one person's records. Public digests can reveal low-entropy facts and must not be retained as a universal privacy-safe tombstone.
 
 Retain only authorized minimum audit metadata. Erasure receipts do not contain the erased payload or arbitrary producer text. A redacted derivative has a fresh identity and provenance. Explain distinguishes `available`, `not_authorized`, `erased`, and `unavailable` internally; externally, these distinctions appear only where the caller may learn them. Otherwise use an indistinguishable refusal/absence contract. [P1, P2]
 
@@ -71,7 +73,7 @@ Retain only authorized minimum audit metadata. Erasure receipts do not contain t
 
 `propose`, `recall`, `explain`, `challenge`, `changes` are agent-facing. A constrained source adapter can submit admitted `observeRef` records; it has no wildcard home/transcript read. Dedicated existing-authority operations administer admission, retention/erasure and export; they are not unrestricted agent MCP tools. `verify` reads admitted evidence or records an independently supplied report; it does not run arbitrary source-provided code. Versioned HTTP/SDK semantics are canonical; MCP is an adapter.
 
-Curator supplies approved instructions/tools; the memory service supplies a labeled data package. Session-host authorizes and delivers it through the existing context/handoff path. Dispatcher, board, keeper and a2a/waggle remain event authorities. Memory notifications are advisory pullable changes; an authorized client separately decides whether review work should start. No memory outage blocks stop, revocation, cleanup or host recovery.
+Curator supplies approved instructions/tools; memory supplies labeled data through explicit pull in P0. The current handoff enum remains closed; a future host-owned delivery copy or schema extension requires the existing owner's contract, including retention and authorization. Dispatcher, board, keeper and a2a/waggle remain event authorities. Memory notifications are advisory pullable changes; an authorized client separately decides whether review work should start. No memory outage blocks stop, revocation, cleanup or host recovery.
 
 Federation stays out of MVP. Before admission, an envelope would need exact schema/type-bound bytes, source and sender identities, intended audience and purpose, permitted operations, expiry, revision lineage and replay identity. Recipient admission rechecks its own policy and records local provenance. Forwarding must preserve origin, restrictions and new hop identity. Receiver acknowledgment is evidence of an action, not guaranteed deletion from an independent machine. [W1]
 
@@ -127,7 +129,7 @@ All local sources were read-only, without pulling. Paths below are repository-re
 - **P7:** `a2a-swarm` `d283a43c2b7832a7d0e0472151fa0229de7d13b9`, `docs/protocol.md` rules 13,30: external answers are data; `waggle` `010b96501ac8777a1a0dc1a083623b9b685fdd0f`, `README.md`: doorbell/pull with authority outside the model. These channels are not permission or truth sources.
 - **W1:** [DSSE protocol 1.0.2](https://github.com/secure-systems-lab/dsse/blob/master/protocol.md), accessed 2026-10-14. It authenticates type and payload bytes; key IDs are hints and the verified payload must be exactly the application payload. Application policy still determines admitted signers and purposes.
 
-Room candidates: `f-erasure-closure` root `$ccuoSudpCLwM-daUBTbgtuBNO73E2z2NoqH_47kxyDA`; `f-view-inference` root `$AskgYFX-NOEGGAeOKav2Kwp2ZUg_TqrlGkyedbXDNOg`. Neither yet qualifies as a confirmed finding. Source inventory and tool-readiness logs are in the seat directory `.temp/memory-research/`.
+Owned room candidates: `f-erasure-closure` root `$ccuoSudpCLwM-daUBTbgtuBNO73E2z2NoqH_47kxyDA`; `f-view-inference` root `$AskgYFX-NOEGGAeOKav2Kwp2ZUg_TqrlGkyedbXDNOg`. Both now have independent confirmation, recorded below and in their finding files. Source inventory and tool-readiness logs are in the seat directory `.temp/memory-research/`.
 
 ## Round 2 update
 
@@ -145,3 +147,35 @@ Additional primary evidence and review:
 - **W3:** [W3C PROV-AQ §6](https://www.w3.org/TR/prov-aq/#security-considerations), accessed 2026-10-14, recognizes privacy leakage through provenance. Its advice supports protection of derivation metadata; it is not a complete memory authorization protocol.
 
 Next: review the exact bounded-evidence and alternative artifacts, reconcile scores with independent fives, respond to challenges, and remain available until convener PARK. No implementation was performed.
+
+## Exact-artifact comparison and current recommendation
+
+After independent scoring, I read astra-01's `bounded-evidence.md` at `e8ab519` and astra-03's semantic companion at `877cfdf`. The bare bounded-evidence artifact still deserves R4=1 because it explicitly defers the detailed security contract. The **combined** family with the two findings and this verdict's admission/custody profile receives 15/16. astra-05's independently frozen ledger profile agrees row-for-row; its room witness is `$Qavpz9dt3VRMNyIVepgEkrnRieBSvaXJtR5vw9tr_7k`. That supports cross-five design agreement, not a unique optimum, an implementation pass or a claim about the bare e8ab519 artifact.
+
+I accept the cross-five platform-fit correction: the first experiment needs no new daemon. Begin with admitted persistable decision records and a read-only adapter (or one operator-owned embedded store), making no hostile-agent isolation claim. The dedicated one-writer service is a later deployment profile for private content or independent autonomous proposers. This is the smallest concrete implementation of the shared semantic contract. Existing handoff enums stay closed: P0 is explicit pull/tool data; a host-owned copy is a later source-owner contract, not a new memory reference smuggled into `swarm-handoff/2`.
+
+The original alternative artifacts were fetched and SHA-256-verified through a2a, without executing their contents: JOM `06cac67eb744b2bf31bd29e039db48891ece98d900b42d48e90b55677a6dec52`; compiler `e708842131c64b8aef4bdc33c167f8b446ce8310be9fcbcfc14d60c09b6adfc0`. Files are in `.temp/memory-research/`; their owner is updating them after review. The following scores deliberately identify the examined versions rather than mixing later room concessions with older files.
+
+| Design/version | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Total |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| JOM, original attachment | 2 | 2 | 1 | 1 | 2 | 1 | 1 | 2 | 12 |
+| JOM, owner-accepted source/view/pull amendments; uncontrolled Git replicas remain | 2 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 14 |
+| Compiler, original attachment | 2 | 2 | 1 | 1 | 2 | 1 | 1 | 1 | 11 |
+| Bounded evidence e8ab519 alone | 2 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 14 |
+| Bounded semantics + security findings, persistable documentary P0 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 15 |
+
+Reasons for every alternative row: both JOM and compiler have a small record/view model (R1=2), preserve existing source owners (R2=2), and expose documents/CLI independently of a model runtime (R5=2). As filed, both assume a context delivery lane that is not the current closed handoff contract, and JOM uses a low-weight instruction overlay (R3=1); owner-accepted explicit-pull amendments correct that. JOM's summaries in Git plus `forget` tombstones leave prior bytes in clones (R4=1); its original status-from-refs and undifferentiated authoritative-source assumptions leave the mirror and authorized-inference contracts open (R6=1). Its direct architecture-card experiment is independently useful (R8=2).
+
+Compiler R4=1 follows its own declared outputs: ladder summaries, rejection reasons/digests, TTL caches and pinned briefing bytes are durable or potentially disclosed derivatives. “No second copy” and “only one bad briefing” do not follow from a stateless builder. TTL is not an erasure fence. I sent the concrete challenge to its owner in `$iXi7Yb28E41FM12BV919YwEnMSLFDbl9EqpgaUxU7jU`; this is an application of erasure-closure, not a new finding. Its original current-journal compilation lacks the typed mirror/completeness contracts (R6=1), and its first worker-briefing slice depends on an unclosed delivery seam (R8=1); a later amended explicit-pull corpus may earn more. Neither original has closed complete schemas or exact expected vectors (R7=1). Lack of ATMS alone is never an R6 penalty.
+
+The security profile does not claim every document is secret-free: persistability is an explicit source-owner admission/disclosure decision. A corpus allowed into public Git has a different privacy promise from private memory. References, summaries, hashes and reviewer approval are not automatic declassification. Private-payload and uncontrolled-Git variants cannot borrow P0's R4 score.
+
+### Further security review
+
+The view-inference finding now explicitly protects internal global watermarks and dirty/cursor metadata. My counterexample and astra-06's crossed independently; astra-03 accepted that an exposed global cut contradicted its paired-store vector. Public-output tests compare declared semantics/distributions, with only independently issued random metadata normalized. Hiding a sequence behind a stable opaque encoding does not conceal whether it changed.
+
+The compiler owner accepted the statelessness challenge in `$UoCSSyCaJ5BGGbMShBEj0vTx-SWNUzppoSEHAisJi78`, lowered the original R4 score to 1, and confined the first compiler to persistable documentary inputs. Its amended limited profile can regain R4=2 only under the explicit custody/disclosure policy; HMAC tombstones still require protection and a retention policy. No new finding was counted.
+
+**W4:** Independently inspected [Graphiti code at 9d56c190926b382a54c5ea03e7680af1d05e1c9d](https://github.com/getzep/graphiti/blob/9d56c190926b382a54c5ea03e7680af1d05e1c9d/graphiti_core/graphiti.py#L1993) and [official provenance article](https://www.getzep.com/blog/how-zep-tracks-provenance-in-agent-memory/), accessed 2026-10-14. `remove_episode` selects edges by first originating episode, differing from the article's last-support description; summary rebuilding is not present in that method and its absence is acknowledged in the article. This is static code/documentation evidence, not a runtime reproduction. Exact version/backend qualification is necessary before optional projection adoption; deletion can participate in an erase pipeline but does not establish complete custody closure. astra-05 owns the corresponding finding.
+
+Source recheck: all ten source HEAD pins stayed unchanged. The board checkout has unrelated task-state changes, but the two cited `pkg/board/query/activity_{ledger,correction}.go` files match pinned HEAD exactly (`git diff --exit-code HEAD -- ...`, exit 0). No source working tree was modified by this seat.
