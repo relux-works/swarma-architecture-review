@@ -1,17 +1,18 @@
 # Collective results as Swarma book chapters
 
-Standalone chapters, in the Swarma book's format, on the designs the research collectives proposed. They retell `memory/SYNTHESIS.md` and `mcp-deps/SYNTHESIS.md` for a reader of the book. Where a chapter and the collective's files disagree, the files are right.
+Standalone chapters, in the Swarma book's format, on the designs the research collectives proposed. Chapters 01 and 02 retell `memory/SYNTHESIS.md` and `mcp-deps/SYNTHESIS.md` for a reader of the book; chapter 03 is a design written to the owner's requirement of 2026-10-14. Where a chapter and the collective's files disagree, the files are right.
 
 | Chapter | PDF |
 |---|---|
 | `ru/01-pamyat-agentov.md`: agent memory, bounded evidence memory | `pdf/01-pamyat-agentov.pdf` |
 | `ru/02-mcp-zavisimosti-skillov.md`: MCP servers as skill dependencies, design N | `pdf/02-mcp-zavisimosti-skillov.pdf` |
+| `ru/03-mcp-iz-skilla.md`: the owner's design, skill declares server and auth, Curator provisions | `pdf/03-mcp-iz-skilla.pdf` |
 
 Build: each chapter renders on its own, with the book's template, filter and stylesheet from the `wiki` repository (`book/swarma/`). Pandoc 3.x, WeasyPrint 69+ and the PT fonts are required.
 
 ```bash
 W=<wiki checkout>/book/swarma
-for b in 01-pamyat-agentov 02-mcp-zavisimosti-skillov; do
+for b in 01-pamyat-agentov 02-mcp-zavisimosti-skillov 03-mcp-iz-skilla; do
   pandoc ru/$b.md --from markdown --to html5 --standalone --template "$W/template.html" \
     --lua-filter "$W/filters/book.lua" --toc --toc-depth=2 --syntax-highlighting=none \
     --metadata lang=ru -o /tmp/$b.html
