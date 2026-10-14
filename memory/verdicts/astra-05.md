@@ -1,6 +1,6 @@
 # astra-05 — independent security, privacy and retention verdict
 
-Status: Research complete; current assembled revision ratified, awaiting cross-host critique and convener PARK; the Round 1 score table below is preserved, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before the initial score version was written. Research only; no prototype or test execution.
+Status: Final for this research pass; parked after the convener's PARK dated 2026-10-14T03:01Z; the Round 1 score table below is preserved, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before the initial score version was written. Research only; no prototype or test execution.
 
 ## Current exact recommendation
 
@@ -11,7 +11,7 @@ Start with the documentary architecture-decision register and a read-only pull a
 | Protected service | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | **15/16** |
 | Documentary P0 | 2 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | **14/16** |
 
-I verified the signed assembly, the full `0ce0094` → `5d96e70` delta and its resulting clauses, and the separately published `9bafff8` companion refinement. Design SHA-256: `50f77834992bcbe64358b7fea771f0ef3a8a94f524bcd3d22d8bf43377fd85dc`; companion SHA-256: `62ae18cbec7c4be25764f8da0e8084d3b434ac224cc121f09b2304f97ce7aafd`. My exact-revision confirmation is `$vFk2PtdiSVjBeEzpiQMAW3NfZzpGAqbOdtJWxhR8Gzk`; mirror astra-02 independently ratified the same bytes and vector in `$tbaPniaW_Anr2lxQNV5FCfbl2BG00eAyvoJY-x4B_2o`. This meets the mission's two-five agreement definition. No cross-host confirmation has been inspected by this seat.
+I verified the signed assembly, the full `0ce0094` → `5d96e70` delta and its resulting clauses, and the separately published `9bafff8` companion refinement. Design SHA-256: `50f77834992bcbe64358b7fea771f0ef3a8a94f524bcd3d22d8bf43377fd85dc`; companion SHA-256: `62ae18cbec7c4be25764f8da0e8084d3b434ac224cc121f09b2304f97ce7aafd`. My exact-revision confirmation is `$vFk2PtdiSVjBeEzpiQMAW3NfZzpGAqbOdtJWxhR8Gzk`; mirror astra-02 independently ratified the same bytes and vector in `$tbaPniaW_Anr2lxQNV5FCfbl2BG00eAyvoJY-x4B_2o`. This meets the mission's two-five agreement definition. No cross-host proof is claimed. At PARK, the convener reported that the mini five had not started; a later independent cross-host pass can be added separately.
 
 The resource-envelope refinement is in the assembled text, the companion's S27 and [view-inference](../findings/view-inference.md) at `1af9bdc`. Closed schemas, exact normative fixtures and deployment qualification remain work to do. The research does not claim an implemented security guarantee, measured superiority, or a unique storage-engine optimum. All earlier score tables and artifact identities below remain historical evidence.
 
@@ -215,3 +215,8 @@ The corrected paired comparison fixes **authorized inputs, policy, caller resour
 Two release vectors extend V2/V13: (1) same admitted envelope and availability state, hidden flood: visible result, coverage and allowed errors remain invariant; (2) a pre-admitted degradation transition permits only its named coarse outcome, without hidden counts or identities. If the installation has not admitted that disclosure policy, the stronger invariance cannot be claimed without the corresponding resource guarantees.
 
 Confirmed by mirror astra-02 in `$x4gMFy2r5wuD1bVHVJv0Adc1QvRbU2RXkoj1KGuU4Bo`, semantic owner astra-03 in `$WhvxJRzL5wS-wZsiFZblEa2XuvFCPKlLUYnPHYPDuxs`, and astra-06 in `$pdKSq8IKbt4oc8mP-IK71ohgYkIpv88IHKGTVFkeUf8`; wonder-01/02/03 also confirmed. The finding and companion owners published this at `1af9bdc` and `9bafff8`; the current assembled design `5d96e70` includes it under existing `f-view-inference`, not a new finding. This is a recorded refinement after the exact `0ce0094` / `476ec36` review, not a claim those earlier bytes already contained it. Scores remain protected15/documentary14; no new infrastructure is required for the research or documentary pilot. The future deployment owner must explicitly select its resource/disclosure policy before claiming conformance.
+
+
+## Parking record
+
+Finalized after convener `ivmbp_curator_orch` posted PARK in event `$4F7bE51FAxbpexhXiSxmU6ftN29nPi46ZChu7OUWbk8`, dated 2026-10-14T03:01Z. The recommendation, scores and confirmed findings are unchanged. No research challenge assigned to this seat remains unanswered. [Open threads and follow-on work](../parked/astra-05.md) distinguish operator decisions, RFC/qualification work and the future cross-host addendum. Source clones were not modified by this seat; no build, prototype or conformance execution was performed.
