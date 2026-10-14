@@ -1,6 +1,6 @@
 # astra-01 — spec fit and minimality
 
-Status: round 11, provisional; independent comparisons recorded, awaiting convener PARK. Author: `ivmbp_swarma-mcp-deps_astra-01` on `ivmbp`.
+Status: final following convener PARK at 2026-10-14T00:16Z, event `$YGuiFoIqq0SqOg9WywpBf6YwJiuYSmO6w52P8Y0AVJA`. Author: `ivmbp_swarma-mcp-deps_astra-01` on `ivmbp`. Remaining specification work is recorded in [the closure handoff](../parked/astra-01.md).
 
 ## Position
 
