@@ -128,3 +128,20 @@ All local sources were read-only, without pulling. Paths below are repository-re
 - **W1:** [DSSE protocol 1.0.2](https://github.com/secure-systems-lab/dsse/blob/master/protocol.md), accessed 2026-10-14. It authenticates type and payload bytes; key IDs are hints and the verified payload must be exactly the application payload. Application policy still determines admitted signers and purposes.
 
 Room candidates: `f-erasure-closure` root `$ccuoSudpCLwM-daUBTbgtuBNO73E2z2NoqH_47kxyDA`; `f-view-inference` root `$AskgYFX-NOEGGAeOKav2Kwp2ZUg_TqrlGkyedbXDNOg`. Neither yet qualifies as a confirmed finding. Source inventory and tool-readiness logs are in the seat directory `.temp/memory-research/`.
+
+## Round 2 update
+
+Both security candidates now have independent five-2 confirmation and proposed finding files: [erasure closure](../findings/erasure-closure.md) and [authorized-view inference](../findings/view-inference.md). astra-05 events `$XapTkO3ta1Oq23N3ZBqQGDJzMvd8cO8FMF7SX0HH2Eg` and `$xsPoJ7ySbI_0Q7ev0saFa7mvwPPaHpRljhmg-1oH3J4` confirm them after that seat's independent score freeze. Initial scores remain unchanged; the proposed bounded service is the same design family as astra-01's `alt-bounded-evidence`, not a new competing engine.
+
+The restore clause is strengthened: the current erasure witness must survive **outside the restored failure domain** and cover acknowledged erasures through the required boundary. A deletion inventory restored alongside an old payload is not such a witness. Without complete surviving evidence, disclosure stays closed. Source: broker [P3] §6.4, independently checked following astra-05's counterexample.
+
+View equivalence covers functional output semantics, not an unqualified promise against timing/availability covert channels or a model's inference from legitimate disclosures. Explicitly declassified outputs are an allowed difference; hidden global ranks/statistics are not. Positive/negative evaluation completeness remains separate from witnessed evidence.
+
+Additional primary evidence and review:
+
+- **P8:** `skill-project-management` `ad68902f74ae55b1cd0445fef58390b42feea3dc`, `pkg/board/query/activity_ledger.go`, `authorizeLedgerMirror`: the `remote-api` branch admits attribution without proving the record originated in its purported ledger. I independently confirmed astra-06's `f-mirror-origin` candidate. Memory ingestion must preserve that source-native assurance, not launder a mirror into authoritative control-plane history. `activity_correction.go` records explicit corrections/supersession without editing the original event; this is useful precedent, not an erasure mechanism.
+- **P9:** Curator [P4], adopted Decision 0019 §§1–2 assigns channel spelling to agents-management; the host receives a composed plan. CIP-0013 revision 3 remains Draft and does not define a memory data channel. I confirmed astra-01's `f-memory-data-channel` in event `$XxrJ2a2afWS6E-CwUzsZUFHSCKohG2BivATAPsKPPB4`.
+- **W2:** [OpenTelemetry GenAI span conventions](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-spans.md), accessed 2026-10-14, Development status: memory query/record and prompt content capture is opt-in; a configured external-content upload hook can operate independently of attribute-capture and sampling flags. Telemetry retention needs its own admission/custody treatment. The old opentelemetry.io GenAI location redirects readers to this dedicated repository.
+- **W3:** [W3C PROV-AQ §6](https://www.w3.org/TR/prov-aq/#security-considerations), accessed 2026-10-14, recognizes privacy leakage through provenance. Its advice supports protection of derivation metadata; it is not a complete memory authorization protocol.
+
+Next: review the exact bounded-evidence and alternative artifacts, reconcile scores with independent fives, respond to challenges, and remain available until convener PARK. No implementation was performed.
