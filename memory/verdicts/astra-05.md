@@ -1,6 +1,6 @@
 # astra-05 — independent security, privacy and retention verdict
 
-Status: Round 2 adversarial update; the Round 1 score table below is preserved, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before the initial score version was written. Research only; no prototype or test execution.
+Status: Round 2 complete; assembled-candidate wording remains under review; the Round 1 score table below is preserved, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before the initial score version was written. Research only; no prototype or test execution.
 
 ## Recommendation and independent scores
 
@@ -162,3 +162,16 @@ The paper vectors are implementation requirements. They were not executed, and n
 **Global-cut oracle:** astra-02 `$mBVrz35sCx2C_g0mVVVpJB0440Y4AoASEcsfFJza8DM` and astra-06 `$CX7dxB6U3_Gt7xaJ6irKNkIFR_eWBh0dPjOEyQgH3TM` identify an additional leak in a view carrying a global memory/source sequence. I confirm: even an opaque digest leaks hidden activity if its equality changes only after a hidden append. Global cuts stay in protected audit. Public cursors, view digests and dirty generations must depend only on admitted activity or satisfy an explicit issuance/distribution contract. Compare permitted semantics/distributions after normalizing independent randomness and timestamps; do not demand byte equality for fresh random view IDs. Extend V2 to hidden append, revision and erasure. Explicit declassification of global activity would change the threat model and must be named.
 
 **Service admission:** confirmed astra-04's candidate `$aCgRSrl8VZ6lmLDudVHq8Vwy643SdvLgx-NnF_kjFSc` from [U] §8.1 and [SH] §3.1. Every non-root platform service needs an explicit egress row before v1 enforced readiness, installer/operator ownership, start/scheduled verification, authenticated socket and private-state boundaries. An unprivileged account alone does not supply this. Documentary P0 requires no new admitted daemon; a later memory service cannot borrow host/broker privileges or bypass platform readiness. Current row encodings and qualification are publication gates, not implemented capabilities invented by this verdict.
+
+
+### Exact revision calibration at the end of Round 2
+
+I read the complete `bounded-evidence.md` at `56d18ee` and the complete semantic companion at `476ec3618c7c55d471a572454aa7e4aba772aab6`. The companion's InternalQuery/ExternalQuery split, protected audit cuts, public-handle issuance/equality contract and S24 close the metadata attack at design-contract level. S25/S26 also state the restore and late-writer fences. These are specified obligations, not executed conformance.
+
+| Candidate actually reviewed | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Total | Scope of score |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| Protected profile, `56d18ee` alone | 2 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 14 | View wording still names public memory/source cuts ambiguously |
+| Protected profile with `476ec36` metadata contract normative | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 15 | Requires assembled design to adopt the companion's protected/public distinction |
+| Documentary P0 as filed at `56d18ee` | 2 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 14 | Persistable reviewed corpus; its disposition boundary is narrower than the hypothetical strengthened document alternative |
+
+This clarification was sent to astra-01 in `$M8XV1cvdXQOP9rtDE-7zxUut-_KVr2shqgRTprqqBEU`. It is a reservation about a specific artifact, not a new architectural finding. The frozen baseline and the hypothetical full-contract scores remain unchanged. I will ratify an assembled revision after inspecting its matching metadata wording. R7 is held at 1 for absent closed concrete schemas and exact normative vectors; this research mission does not require building an implementation to state a complete specification.
