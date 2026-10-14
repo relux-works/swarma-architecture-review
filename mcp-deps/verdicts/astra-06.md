@@ -1,9 +1,22 @@
 # astra-06: zoo compatibility, independent adversarial pass
 
 Seat: `ivmbp_swarma-mcp-deps_astra-06`, second independent five, ivmbp.
-Status: independent score preserved; adversarial comparison and first/second-five
-agreement confirmed; active until convener PARK.
+Status: final after verified convener PARK
+`$YGuiFoIqq0SqOg9WywpBf6YwJiuYSmO6w52P8Y0AVJA`; independent score history and
+first/second-five agreement preserved.
 Date: 2026-10-14.
+
+Final recommendation: **N as the core**, with **A optional and separable**.
+For the stated already-configured-provider case, N/N+A scores **13/16 under
+amended E3**, **11/16 under original E3**; cold setup scores **12/16** and
+**10/16**, respectively. Original E3 remains 0 and fails its eligibility gate.
+These are conditional design
+scores: the corrected checking and optional provisioning boundaries are required,
+and **E7=1** records unfinished normative work. A-discovery alone scores
+**11/16 amended**, **9/16 original**.
+The tables below preserve the independent baseline and explain every later
+qualification. The [PARK record](../parked/astra-06.md) lists the remaining
+specification work; no review challenge addressed to this seat remains open.
 
 ## Independence and evidence boundary
 
