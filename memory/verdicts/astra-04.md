@@ -1,6 +1,6 @@
 # astra-04 — platform fit and authority boundaries
 
-Status: independent round-1 position, 2026-10-14. Five 2, mirror of astra-01.
+Status: round-3 reviewed position, 2026-10-14. Five 2, mirror of astra-01. The independent round-1 table and proposal below remain as the freeze record; the final section records the current exact-revision recommendation and superseding score corrections.
 
 ## Independence record
 
@@ -210,3 +210,32 @@ R4 improves only because the revised service profile adopts independent rights, 
 I therefore recommend the **staged bounded-evidence family: documentary P0 first, protected service only when justified and admitted**. Among the designs scored here its target profile has the highest total, no zero in R3/R4/R6, and exact cross-five agreement. This meets the mission's stated design-level proof condition for the cited revision. It does not prove unique global optimality, measured benefit, production readiness or two-host agreement. Historical baseline and independence tables above remain unchanged.
 
 The service-admission candidate is now peer-confirmed and recorded in [memory-service-admission.md](../findings/memory-service-admission.md), with astra-05 event `$NLxqVwhE0DqqB-ozuwsztkvIxN5JwzaEhn5VjLmzDss` and wonder-03 event `$ZysNTSyYc0uI9XNTi2Xz2eRLY9aEY3rzA7gqcAYPT2I`. It makes the later deployment profile explicit without blocking M0. astra-01 accepted the no-daemon and handoff objections in `$5xQbTPFC1tAGDlJkbflxxJmT0dR82c9-2Sc8hTjOsYU`; astra-02 accepted the host-owned-sink constraint in `$B_GifeEjsP7wYya-GJAXXbsf6zw9NEFMVHnfC6Zz7ZM`. The finding's status remains proposed, as required by the mission.
+
+## Round 3: exact assembled profile and current verdict
+
+**Recommend the documentary pilot first, within the bounded-evidence family.** The later protected-service profile earns **15/16**; the actual filed documentary profile earns **14/16**. The document pilot remains the delivery recommendation because its named use case needs no protected daemon, and no empirical benefit from a larger service has been demonstrated. These profiles share meaning and differ in custody/deployment claims; storage technology is not an independent semantic design.
+
+The exact reviewed artifact is [bounded-evidence.md](../designs/bounded-evidence.md) at **`0ce009435206f31f387efd207dc3f2662e66e4d9`**, SHA-256 **`9c8f63fd8aad3d44081b93225f727e504468297cadc21ab1d0973903d28c0599`**. It incorporates the semantic companion at **`476ec3618c7c55d471a572454aa7e4aba772aab6`**, SHA-256 **`adde0314375f1950a817962c1c513070ef86aa3b01f1fecb14e86fe9339fd3ba`**. I read the earlier full design, the complete later diff and resulting amended sections, and the full companion. My ratification is `$ZHOqMsgPsMRvYmQ7oOiijzHHx4oGmE-89-RrG36iArE`; astra-01's exact-revision score is `$17V-qbyzDX2q17cmzqJtR2gxhbdWangK56rEXDGcO2Q`.
+
+| Criterion | astra-01 managed | astra-04 managed | astra-01 documentary | astra-04 documentary |
+|---|---:|---:|---:|---:|
+| R1 | 2 | 2 | 2 | 2 |
+| R2 | 2 | 2 | 2 | 2 |
+| R3 | 2 | 2 | 2 | 2 |
+| R4 | 2 | 2 | 1 | 1 |
+| R5 | 2 | 2 | 2 | 2 |
+| R6 | 2 | 2 | 2 | 2 |
+| R7 | 1 | 1 | 1 | 1 |
+| R8 | 2 | 2 | 2 | 2 |
+| **Total** | **15** | **15** | **14** | **14** |
+
+The original full sketch remains 13 in my principles-and-specified-boundaries reading; its R4/R7 do not close the operational contracts. The strengthened register D remains 14 after the recorded R7 calibration, and projection-only J remains 12. No score here claims that an unbuilt system passed deployment qualification. The mission's cross-five proof requirement is now met at one exact assembled revision, with every row equal and no R3/R4/R6 zero. Cross-host confirmation and measured product superiority remain unclaimed.
+
+### Corrections that supersede the earlier draft
+
+- **56d18ee alone is 14, not 15.** My earlier R4=2 read its generic prohibition on hidden-output changes as sufficient. astra-05's `$M8XV1cvdXQOP9rtDE-7zxUut-_KVr2shqgRTprqqBEU` and astra-06's exact-artifact challenge correctly identified that its View still named memory/source cuts without explicitly keeping them private. I accepted the stricter reading in `$77xYbIOsJPYGdCiqaZw9-ewj7ZpURh-wFmXpWld7TIU`. The historical score paragraph above is retained as an audit trail, not the current score.
+- **0ce0094 closes that ambiguity.** Internal sequences/cuts/retention epochs remain protected. Public view and admission receipts, change cursors, digests, coverage and errors follow the authorized projection. Opaque tokens alone are inadequate: issuance, equality, length and cadence must not reveal hidden-only mutations. Companion S24 makes this falsifiable, including predeclared normalization of independent randomness; it makes no general constant-time claim. Apply this same correction to my earlier API/View sketch above.
+- **Use the companion's five semantic kinds.** Assertion, SourceRef, Justification, Assessment and Revision have explicit distinct meanings; View is derived. My three-family M0 sketch remains a possible packaging of the documentary subset, not a competing normative grammar. Documentary basis and review-on-change do not establish logical entailment. The paired support/completeness channels, source assurance, simulated/real split and one-way rule restriction carry through every adapter.
+- **Service admission is now part of the candidate.** The exact design adopts my finding without new wire fields or borrowed host/broker authority. astra-01 independently confirmed the primary sources in `$FWnTAnj6ViVInNIOgT_uYGjcK3B3DEwL4_9dZKhH9bg`. Installer/operator-owned service policy, authenticated current-generation boundaries and qualification remain prerequisites for the enforced service profile only; documentary P0 stays independent.
+
+No new finding arose from this final assembly check. The remaining R7 point requires closed schemas, exact admitted-operation/query/output fixtures and owner-approved policy vocabulary. Executing those fixtures is later qualification work outside this mission; it is not an invented prerequisite for a research design score. The MVP, measured comparison and operator-only decisions above remain the acceptance plan.
