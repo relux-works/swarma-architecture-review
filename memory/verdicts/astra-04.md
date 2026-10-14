@@ -1,6 +1,16 @@
 # astra-04 — platform fit and authority boundaries
 
-Status: reviewed position through round 7, 2026-10-14. Five 2, mirror of astra-01. The independent round-1 table and proposal below remain as the freeze record; the final sections record the current exact-revision recommendation and superseding score corrections.
+Status: final at convener PARK, 2026-10-14T03:01Z. Five 2, mirror of astra-01. PARK event: `$4F7bE51FAxbpexhXiSxmU6ftN29nPi46ZChu7OUWbk8`.
+
+## Final position
+
+Recommend the **bounded-evidence family, starting with a reviewed documentary register and read-only retrieval adapter** for architecture decision drift. Its documentary profile scores **14/16**. A later independently admitted protected service scores **15/16**, the highest valid total among the designs scored here. Closed concrete schemas and exact expected-output fixtures remain the R7 gap. No daemon, graph engine, full ATMS, automatic extraction or context injection is needed for the first experiment.
+
+The current RFC starting point is [bounded-evidence.md](../designs/bounded-evidence.md) at **`5d96e7020053370cb03ad4f243d07157d798d696`**, with [bounded-support-semantics-astra-03.md](../designs/bounded-support-semantics-astra-03.md) at **`9bafff829e9233b5510ef827ca79a6707d69ae64`**. My exact-artifact ratification `$6QCXmTgUwiwnaTwD-_ppGsBFnU0NP4VSPwJA1PcMXAk` matches astra-01's scores on every row. This meets the mission's design-level proof rule across two fives on ivmbp. It establishes neither an empirical storage-engine winner nor production qualification. The convener reports that the mini five has not started; cross-host proof remains an open addendum.
+
+My confirmed [service-admission finding](../findings/memory-service-admission.md) is incorporated in that design and remains `proposed`. The source clones were read-only; no implementation, build or test was performed. [Parking handoff](../parked/astra-04.md) lists the remaining RFC, pilot and operator decisions. No research challenge addressed to this seat remains unanswered.
+
+The sections below preserve the independent freeze and subsequent review history. Earlier scores and vocabulary are historical where a later correction is stated; the current design and companion above are the proposal to carry forward.
 
 ## Independence record
 
