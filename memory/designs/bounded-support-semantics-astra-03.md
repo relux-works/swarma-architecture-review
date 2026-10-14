@@ -87,6 +87,8 @@ Internal global memory sequences, source cuts, dirty generations and retention e
 
 Access is checked before deriving visible statuses, not only before rendering text. A claim's hidden supporting/conflicting source must not leak through status bits, hit counts, explanation paths or update notifications. The same visible inputs and policy should yield the same visible output irrespective of hidden records. Cross-space sharing requires an admitted, separately authorized derivative, not a proof path that tunnels through inaccessible content.
 
+The tested non-disclosure relation fixes the authorized projection, policy, caller's declared resource envelope and any explicitly policy-authorized public availability state. Logical query/evaluation accounting counts authorized work only; hidden candidates scanned before filtering cannot consume that logical budget. Admission, storage and work reservations must follow the disclosure boundary, which may be narrower than a knowledge-space when audiences see different subsets. The later service profile must specify how it preserves those envelopes or which limited aggregate degradation it intentionally discloses. A public availability transition is an authorized information release, not proof of zero leakage: its policy must be established before the test by the existing owner, must not expose hidden-space attribution, and cannot be invented after observing a failure. Under the same admitted envelope and availability state, hidden workload must not alter success, refusal or completeness. A coarse opaque error is not sufficient. General timing, scheduling and denial-of-service isolation are not claimed; wall-time cutoffs and shared-pool exhaustion must still follow this declared availability contract, and `unavailable` never becomes negative evidence.
+
 ## 5. Why bounded evaluation is sufficient initially
 
 For C with sufficient-support rules `(A AND B) -> C` and `(D AND E) -> C`, withdrawing B disables only the first support path. The second still supports C. This needs a stored AND/OR dependency DAG and reverse index, not enumeration of all minimal assumption environments.
@@ -149,7 +151,7 @@ Each vector needs a closed initial snapshot, admitted operations, authorized que
 | S03 | S02 plus A+ -> B+ | B+ with conflicted-premise provenance | B- or arbitrary C without an explicit rule |
 | S04 | C=(A AND B) OR (D AND E); withdraw B | C+ via D/E | unsupported C because first explanation was removed |
 | S05 | C=A AND B; withdraw sole B+ | C positive witness not found | C- or revoked owner decision |
-| S06 | Cut off evaluation before D/E in S04 | incomplete, reason and watermark | complete unsupported C |
+| S06 | Cut off evaluation before D/E in S04 | incomplete, authorized reason and protected snapshot binding | complete unsupported C or exposed global cut |
 | S07 | Complete support evaluation, render only one of many proofs | support complete; explanation enumeration partial | conflating explanation cap with evaluation failure |
 | S08 | A+ -> B+, B+ -> A+ | cycle refusal, atomic no partial admission | self-supporting A/B |
 | S09 | Valid-from t1, learned at seq20; ask as-known seq19 | correction absent; earlier view preserved | backdating transaction knowledge |
@@ -160,7 +162,7 @@ Each vector needs a closed initial snapshot, admitted operations, authorized que
 | S14 | Same idempotency identity/input twice, then changed input | one record/receipt, then conflict | duplicated observation or overwritten proposal |
 | S15 | Simulated test pass requested as real outcome | excluded/inapplicable for real claim | dream evidence qualifies real acceptance |
 | S16 | LLM proposes `checked_entailment` with no deterministic assessment | refusal/downgrade to explicitly labelled proposal by contract | formal proof qualification from proposer label |
-| S17 | Source decision replaced externally, old dependent query before recompute | dirty/stale or completed recompute at new watermark | old supported answer labelled current |
+| S17 | Source decision replaced externally, old dependent query before recompute | dirty/stale or completed recompute at new protected cut | old supported answer labelled current or exposed global cut |
 | S18 | Unknown predicate/profile version or field | typed refusal | silently interpreting it as closest known field |
 | S19 | Memory correction targets a board decision | memory challenge/rationale only | board decision or task status changed |
 | S20 | Quotation paraphrased into an excerpt/embedding without a support edge, then erased | derivative found through retention lineage | survives because logical graph had no edge |
@@ -170,8 +172,9 @@ Each vector needs a closed initial snapshot, admitted operations, authorized que
 | S24 | Add/revise/erase only hidden records between identical allowed queries | same permitted semantics and handle issuance distribution | global watermark/cursor/digest/dirty/coverage/refusal changes reveal hidden activity |
 | S25 | Restore a valid snapshot before an acknowledged erasure | disclosure stays fenced until outside-domain evidence reconciles | old in-snapshot inventory witnesses its own completeness |
 | S26 | Extract before erasure and attempt derivative commit afterwards | reject stale commit or rederive from allowed inputs | erased content recreated after completed purge |
+| S27 | Hidden workload pressures a shared pool while the authorized projection is unchanged | same result/coverage/refusal under equal admitted resource envelope and public availability state; separately authorized degradation remains explicit | charging hidden work to the logical query budget, retroactive declassification, or treating unavailable as absent evidence |
 
-For S13/S24, compare permitted semantics and declared randomness distributions, normalizing unrelated freshly minted IDs/timestamps by a predeclared rule; do not demand byte identity of random view handles. The normalization may not hide activity-dependent counters or token equality. Strict timing noninterference is a separate engineering claim from S13's logical projection. The implementation must name which leakage dimensions it tests and must not claim a timing proof from content-output equality alone.
+For S13/S24/S27, compare permitted semantics and declared randomness distributions, normalizing unrelated freshly minted IDs/timestamps by a predeclared rule; do not demand byte identity of random view handles. The normalization may not hide activity-dependent counters, token equality or success/refusal differences. Test both fixed-envelope/availability equivalence and any separately admitted public degradation transition; do not condition on an undeclared state to make a failed pair disappear. Strict timing noninterference is a separate engineering claim from S13's logical projection. The implementation must name which leakage dimensions it tests and must not claim a timing proof from content-output equality alone.
 
 ## 10. Evaluation and governance
 
