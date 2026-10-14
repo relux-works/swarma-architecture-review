@@ -1,0 +1,86 @@
+# astra-01 verdict: platform fit and authority boundaries
+
+Seat: astra-01, five 1, ivmbp. Status: round-1 independent draft, 2026-10-14. No peer verdict was used to form the initial scores. Work is research-only; no source repositories, board state, runtime configuration or platform contracts were modified. Recommended candidate: [bounded evidence memory](../designs/bounded-evidence.md), room `alt-bounded-evidence`.
+
+## Position
+
+The base sketch is directionally compatible with Swarma, **especially its second half**, which already rejects a global source-of-truth log, secret hoarding, automatic instruction promotion and hidden orchestration. Those are strengths, not findings against it. Its weakness is an unclosed integration contract: a generic `KnowledgeView`, `verify` and `Notify` do not yet tell a consumer how to preserve authority, authorization, source cuts and execution boundaries.
+
+I recommend the smallest version of the base that has independent value: one optional evidence service, a knowledge-only journal, exact references to existing domain records, explicit supersession, bounded registered dependencies, and data-only pull results. It owns no grants, launches, goals, acceptance, custody deadlines, configuration or session input. The full recommendation, stores, APIs, context seam and acceptance vectors are in the linked design.
+
+## Rubric
+
+Scores assess documented designs, not measured implementations. A 2 means the criterion is explicitly met at the evaluated design level; no score is a product qualification. Every column must also satisfy no 0 in R3/R4/R6. Initial alternatives are mine; named peers may supersede them with stronger designs.
+
+| Criterion | Base, both halves | Bounded evidence service | Typed documents + existing decisions | Pure source-journal query, no knowledge log |
+| --- | ---: | ---: | ---: | ---: |
+| R1 Minimal kernel | 1 | 2 | 2 | 2 |
+| R2 Reuse | 2 | 2 | 2 | 2 |
+| R3 Authority separation | 2 | 2 | 2 | 2 |
+| R4 Secrets and retention | 1 | 1 | 1 | 1 |
+| R5 Runtime independence | 2 | 2 | 2 | 2 |
+| R6 Honest epistemics | 2 | 2 | 1 | 1 |
+| R7 Specifiability/testability | 1 | 1 | 1 | 1 |
+| R8 Incremental value | 2 | 2 | 2 | 1 |
+| **Total /16** | **13** | **14** | **13** | **12** |
+
+### Evidence for each row
+
+- **R1:** Base part 1 §§2–5 introduces eight primitives, full ATMS ambitions and multiple verifier families without a closed kernel. The bounded design reduces identities/scopes to external references and has five finite record shapes, with graph engines optional. Documents and source-query alternatives have smaller kernels still; their limitation appears in R6/R8 rather than an invented complexity penalty.
+- **R2:** Base part 2 §3 explicitly keeps a knowledge journal plus source references. All serious alternatives retain source ownership. The source table below shows why a global journal would be a regression: SH §1/§3.2, DP §1.1, board activity §Derived Control-Plane Ledger Mirror and keeper book ch.11 assign different authorities.
+- **R3:** The base explicitly prohibits memory grants, wake/input, automatic acceptance and instruction promotion in part 2 §§4,6. Its omissions are a contract-closing need, not evidence it intentionally grants those powers. Every scored alternative retains this prohibition. Bounded memory additionally binds actual consumers, operations and forbidden effects to Handoff §§1–5, Curator D0019 and SH §§3.4–3.8.
+- **R4:** Base part 2 §6 correctly demands admitted sources and derived deletion, but the first-half P0–P3 plan postpones access control and has no erase/restore completion contract. Bounded memory improves admission and lineage, but remains 1 until security peers close erasure, authorized explanations and restore. Git history makes erasure difficult for the document baseline; source-only query avoids copies but still needs policy for responses, caches, logs and disclosures. No design gets a free 2 from saying "references only".
+- **R5:** Base MCP plus HTTP/SDK are adapters. The bounded core, plain documents and source query can be consumed independently of a harness. None requires Curator or host hooks for its first use.
+- **R6:** Base expressly distinguishes integrity, epistemics and decisions, bitemporal history, alternatives and registered dependencies (part 1 §§3–5; part 2 §§4–5). Bounded memory adds observed-source cuts, evaluation completeness and source-authority classification. Bare document/query alternatives have provenance but need a closed conflict/revision convention before matching those guarantees.
+- **R7:** Base names metrics but supplies no closed grammar, replay/erasure vectors or governance for adapters. Bounded memory has concrete negative vectors and owners, but exact schema, policy vocabularies and evaluator semantics are not frozen; it earns 1, not a claim of conformance. The alternate document/query formats are similarly only design sketches here.
+- **R8:** Base's part 2 decision-drift use case is already useful, as is bounded evidence memory or typed documents. Pure query over source journals cannot by itself retain a new cross-source interpretation, a challenge or a registered dependency unless it stores those somewhere else; it gives retrieval value but misses the named continuity loop.
+
+This is **not yet the mission's proof of optimality**. The bounded service currently leads my limited comparison by one point. A well-specified document design might tie or win; it should be compared on the same corpus before committing to a daemon, language or graph store. Required next step: independently score a stable candidate revision from another five, then record row-level agreement and event IDs. No implementation cost or performance advantage has been measured.
+
+## Source evidence and maturity
+
+Read-only clone revisions observed 2026-10-14; files below were read from these local clones. Section references are stable within the listed revisions. A book paraphrase never upgrades a proposed mechanism into shipping behavior. The mission's source preference is module specs over book text when they differ.
+
+| ID | Repository revision | Paths/sections used | What it establishes |
+| --- | --- | --- | --- |
+| W | wiki `94aebceca3af6a904b73644fb973e201762af8e2` | `book/swarma/ru/02-sistema-celikom.md`; `07-put-soobscheniya.md`; `16-postskriptum.md` | One writer and typed APIs; bridge admission vs session effects; runtime/distributed protocol/substrate are different maturity levels |
+| A | swarm-platform-architecture `567b07701bdf32cdebc516e38e6f0321fc5253a0` | `vision/contracts/handoff-package.md` §§1–5; `goals.md` §§1–4 | Recipient-specific high-watermark projection, closed allowlist, original item provenance, reauthorization, authoritative goal revisions; contract drafts, no activation claim |
+| SH | swarma-session-host `255523d43129538b7e7064a0dbfc0b06713bb7e2` | `spec/session-host.md` §§1,2.2–2.3,3.2–3.8 | Host owns logs/receipts/input, dispatcher execution/cleanup; machine-local context policy is independent of board facts; explicit stops stay stopped; D-GOALS; SH1 vs gated SH2+ |
+| DP | swarma-dispatcher `b719e2307f5f4d6284abbd1ba60c42330f2d6ae8` | `spec/dispatcher.md` §1 and §1.1; revisions R-TRANSFER/R-VERIFY | Dispatcher owns execution records, not plan composition or board acceptance; draft v0.14 explicitly says nothing implemented |
+| UM | swarma-user-manager `12609a9e05d5013c34416e1a0332fe5c28c4bcd5` | `spec/helper.md` §4.4.1 | Ordinary retirement deletes the home; only closed service-generated metadata survives under that lane; workspace-export custody is separately authorized; account removal is not identity revocation |
+| CB | swarma-credential-broker `ec7fb3d0670449b074521d51f3e03b59f0142a69` | `spec/broker.md` §§3,4.1–4.3 | Kernel peer identity plus generation, broker grant/lease authority; caller keys differ from future keeper identity keys; no memory-side identity shortcut |
+| C | curator-spec `eb1f08c6c66cedc52d9e09553fb791367f334704` | `protocol/environments.md` §6; decisions `0019-fragment-consumers-and-one-construction-site.md` §§1–2; `0021-sessions-enter-through-curator-run.md`; `cips/CIP-0013-machine-base-context.md` status/current state | One channel-spelling site, composed plans at host, overlay weights order chapters; machine base proposal is Draft, not a shipped memory context path |
+| B | skill-project-management `ad68902f74ae55b1cd0445fef58390b42feea3dc` | `docs/activity-mutation-coverage.md` operator guide, Derived Control-Plane Ledger Mirror, Authoring authority; `docs/context-payloads.md` Authorization before provider access | Immutable per-element sequence and correction; source-ledger-before-mirror; remote mirror authoring is only attribution, not prevention; current authorization before materialized context use |
+| K | wiki revision W | `book/keeper/ru/09-zhurnal-i-vosstanovlenie.md`; `11-yadro-kipera-i-a2a.md`; `12-kiper-v-platforme.md` | Kernel journal owns obligation state, transport supplies evidence; response != fulfilment; several integration and signature questions remain open |
+| P | wiki revision W | `book/ru/09-pamyat.md`; `10-sny.md` | Earlier hierarchical memory/overlay proposal; external facts quarantined; weights do not grant rights; dreams are rehearsal, not real acceptance, and sleep activation needs authority |
+| R | a2a-swarm `d283a43c2b7832a7d0e0472151fa0229de7d13b9` | `internal/skill/files/a2a/SKILL.md`; `references/protocol-rules.md`; runtime `a2a --help` | Actual room/tool protocol, identity ownership, untrusted inbox frame and explicit addressed events; no inference that transport receipts authorize acts |
+| G | waggle `010b96501ac8777a1a0dc1a083623b9b685fdd0f` | `README.md` Status and Design in brief | Draft signed communication/coordination design; signatures and claims are not deployed integration evidence |
+
+The local source-head inventory and CLI readiness evidence are in `.temp/astra-01-onboarding/`. These contain no credentials. No source clone was pulled or modified. No credential directories were inspected.
+
+## Candidate problems, not yet confirmed findings
+
+1. **Context data can be promoted by an unspecified consumer.** Room `f-memory-data-channel`: `KnowledgeView` lacks recipient/purpose/provenance-verdict and a named noninstruction consumer contract. P proposes operator-overlay snapshots, C distinguishes order from authority, and A requires per-item framing. Remedy: explicit tool-result data first; no overlay, skill or machine base writes; preserve provenance through every derivation. Peer confirmation pending; no finding file yet.
+2. **A source reference needs an authority class.** B says remote derived ledger mirrors can be hand-minted by the same token path and remain attributed. Memory must resolve canonical run evidence before reporting an authoritative outcome. A source digest/signature alone cannot select the authority owner.
+3. **`verify` cannot gain executor authority.** A test-verifier plugin may inspect reports, but fresh tests/candidate execution belong to R-VERIFY, with an authorized client choosing the action. Memory must not become a side door into arbitrary code execution or network fetch.
+4. **Platform-wide snapshots need qualified completeness.** Existing stores own independent sequences. A memory watermark plus source cut vector can explain observed state; it cannot promise global serializability or conclude absence from an unavailable source.
+
+## Smallest change set from the base
+
+1. Keep part 2's module split; replace Principal/Space ownership with platform references and an enforced adapter policy.
+2. Make all source intake explicit; retain source-owned records and exact revisions rather than a second platform log. Distinguish transport, derived mirror, source-owned receipt and interpretation.
+3. Close the KnowledgeView consumer contract: audience/purpose, source cuts, original provenance, coverage, data-only presentation and current authorization. No memory overlay or new launch composer.
+4. Move access, retention, leakage and resource bounds into P0. Keep security-control availability independent of memory. Add a non-model administration path for source admission and erasure.
+5. Start with supersession and bounded registered rules; defer full ATMS. Keep incomplete evaluation distinct from unsupported status.
+6. Limit `verify` to checking admitted evidence. Changes are advisory data; existing effect owners decide whether to act.
+7. Make the decision-drift corpus the first acceptance gate and compare typed documents before choosing Rust, a daemon, Graphiti or a graph database.
+
+## First slice and operator decisions
+
+First slice and measurement are specified in the linked design. Success means the next researcher can answer the current retirement policy, its historical basis and the registered work that needs reconsideration, without rereading whole sessions or inventing present authority. A one-host explicit query suffices; no platform gate waits for it.
+
+Only the operator can choose the first admitted corpus/data sensitivity, the owner of source-admission and erasure policy, the acceptable retention period, and whether the useful measured product should remain a local tool or be operated as a dedicated platform service. Recommend approved architecture documents only, personal/dream/agent-reputation memory deferred, no automatic promotion to procedural instructions. Exact schema and conformance engineering are technical work, not operator decisions by default.
+
+## Round log
+
+- Round 1: mission and entire base read; identity ensured and room joined; current local sources checked; independent scoring recorded; one context-seam candidate and the bounded evidence alternative opened. Cross-five scoring and candidate confirmations pending.
