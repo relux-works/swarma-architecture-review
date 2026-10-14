@@ -1,6 +1,6 @@
 # astra-03: a bounded evidence kernel before an ATMS
 
-Status: round 1 position, revised after cross-five challenge; open to review. Date: 2026-10-14. Lens: semantics and formal core. This is a design evaluation, not an implementation qualification or a claim of global optimality.
+Status: round 3 position, revised after cross-five challenge; open to review. Date: 2026-10-14. Lens: semantics and formal core. This is a design evaluation, not an implementation qualification or a claim of global optimality.
 
 ## Position
 
@@ -37,9 +37,9 @@ The initial table was authored before consulting other fives' verdict files (rec
 
 ## Refined candidate scores and cross-five evidence
 
-The initial documents column above describes bare typed documents with explicit supersession. The strengthened **reviewed persistable register + read-only projection** adopts the same source, view, retention and revision rules as the ledger; it scores `[2,2,2,2,2,2,1,2] = 15`, tied with the managed kernel profile. Prefer it for the documentary pilot because it introduces fewer operational components. This is a declared tie-break, not an extra rubric point. It cannot inherit a private multi-agent isolation or uncontrolled-replica erasure claim.
+The initial documents column above describes bare typed documents with explicit supersession. A hypothetical strengthened **reviewed persistable register + read-only projection** adopting all the same source, view, retention and revision rules as the ledger would score `[2,2,2,2,2,2,1,2] = 15`, tied with the managed kernel profile. Do not confuse that hypothetical extension with the filed documentary profile: after reading the full `bounded-evidence.md` at `56d18ee`, I score that exact protected-service profile `[2,2,2,2,2,2,1,2] = 15` and its documentary P0 `[2,2,2,1,2,2,1,2] = 14`, agreeing with astra-01 and astra-04 on every row. The documentary profile does not claim the managed service's full erasure boundary. Prefer it for the documentary pilot because it introduces fewer operational components. This is a declared tie-break, not an extra rubric point. It cannot inherit a private multi-agent isolation or uncontrolled-replica erasure claim.
 
-The exact `bounded-evidence.md` at `e8ab519` alone scores `[2,2,2,1,2,2,1,2] = 14`; the score of 15 requires the linked semantics and security contracts. Astra-06 (five 2) reviewed my semantic companion at `877cfdf` and scored the combined family `[2,2,2,2,2,2,1,2]`, agreeing on every row: event `$_lZYOWuvt_xgB_fE_UITLHBc-GoVbAiZJ3KPcWBklPo`. That is design-level cross-five agreement on a specified composite, not executed qualification or a unique optimum. Its newly identified hidden-watermark defect is being corrected; refreshed exact-revision agreement remains necessary for the final candidate.
+The exact `bounded-evidence.md` at `e8ab519` alone scores `[2,2,2,1,2,2,1,2] = 14`; the score of 15 requires the linked semantics and security contracts. Astra-06 (five 2) reviewed my semantic companion at `877cfdf` and scored the combined family `[2,2,2,2,2,2,1,2]`, agreeing on every row: event `$_lZYOWuvt_xgB_fE_UITLHBc-GoVbAiZJ3KPcWBklPo`. That is design-level cross-five agreement on a specified composite, not executed qualification or a unique optimum. Its hidden-watermark defect was corrected in signed `476ec36`; the companion content SHA-256 is `adde0314375f1950a817962c1c513070ef86aa3b01f1fecb14e86fe9339fd3ba`. Refreshed exact-revision agreement remains necessary for the final candidate.
 
 ## Recommended contract
 
@@ -77,6 +77,6 @@ Implementation choices such as SQLite versus files, record IDs or language do no
 
 ## Review and open threads
 
-Candidates `f-bounded-inference` and `f-conflict-semantics` were independently confirmed by astra-06; finding records carry event IDs. Adopted that seat's clarification that documentary basis, review-on-change and sufficient support are distinct edges, and added the no-biconditional-completion counterexample. Confirmed astra-02's view-relative epistemics and astra-06's source-mirror assurance boundary from direct source inspection. Concrete cross-five scoring of the same published candidate remains pending. Tools/research evidence: [worklog](../notes/astra-03-evidence.md).
+Candidates `f-bounded-inference` and `f-conflict-semantics` were independently confirmed by astra-06; finding records carry event IDs. Adopted that seat's clarification that documentary basis, review-on-change and sufficient support are distinct edges, and added the no-biconditional-completion counterexample. Confirmed astra-02's view-relative epistemics and astra-06's source-mirror assurance boundary from direct source inspection. Cross-five scores for exact full design `56d18ee` agree; refreshed review of my metadata correction remains pending. Tools/research evidence: [worklog](../notes/astra-03-evidence.md).
 
 Round 2 correction: astra-02 and astra-06 independently demonstrated that exposing the internal global watermark contradicts view non-disclosure. Internal audit cuts are now protected; public handles/cursors require a hidden-activity-independent issuance contract, not opacity alone. S24–S26 add metadata leakage and erasure recovery/race cases. Full closed schema publication remains open (R7=1).
