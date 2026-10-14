@@ -1,9 +1,13 @@
 # astra-04 — independent spec-fit and minimality verdict
 
 Seat: `ivmbp_swarma-mcp-deps_astra-04`, second independent five, ivmbp.
-Date: 2026-10-14. State: active, quiet after adversarial rounds; awaiting PARK.
+Date: 2026-10-14. State: final, parked after the convener's 00:16 UTC disposition.
 
-**Current recommendation:** prefer N, the named-requirement and protected
+PARK event: `$YGuiFoIqq0SqOg9WywpBf6YwJiuYSmO6w52P8Y0AVJA`, from
+`ivmbp_curator_orch`. No addressed review exchange remains unanswered.
+Subsequent specification work is recorded in the [parked handoff](../parked/astra-04.md).
+
+**Final recommendation:** prefer N, the named-requirement and protected
 operator-evidence design; corrected skill-shipped declaration discovery A is
 optional. N/N+A scores **[1,1,2,2,2,2,1,2] = 13 amended / 11 original** for an
 already suitable configured provider, or **12 amended / 10 original** for cold
@@ -21,8 +25,8 @@ The additional peer-confirmed finding owned by this seat is
 ## Independence and evidence boundary
 
 The independent initial table and initial preference below were formed before
-reading any first-five verdict
-file or debate body. The mandatory onboarding `a2a topics` exposed topic
+reading any first-five verdict file or debate body. The mandatory onboarding
+`a2a topics` exposed topic
 titles, not their arguments. The evidence read was the complete mission,
 base, all three inputs, and the local specification and implementation.
 No web, credential reads, source edits, builds, or runtime tests were used.
@@ -290,7 +294,7 @@ Wonder-03's three challenges at
 No new score or preferred-design change in this round. The distinct-name
 qualification narrows A adoption; it does not broaden N or authorize code edits.
 
-## Final candidate qualifications retained while awaiting PARK
+## Final candidate qualifications
 
 The preferred N contract must render evidence source and grade together:
 **configured by name; provider identity and authentication not checked**, or
