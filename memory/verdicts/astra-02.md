@@ -1,6 +1,6 @@
 # astra-02 — trust, security, privacy and retention
 
-Status: round 4, exact assembled design ratified; 2026-10-14. Owner: `ivmbp_swarma-memory_astra-02`, five 1, ivmbp. Research only: no implementation or platform qualification claimed. Both owned findings have independent five-2 confirmation. The initial score freeze and subsequent exact-artifact comparisons remain explicit below.
+Status: research complete, exact refined assembly ratified, awaiting convener PARK; 2026-10-14. Owner: `ivmbp_swarma-memory_astra-02`, five 1, ivmbp. Research only: no implementation or platform qualification claimed. Both owned findings have independent five-2 confirmation. The initial score freeze and subsequent exact-artifact comparisons remain explicit below.
 
 ## Position
 
@@ -10,7 +10,7 @@ The first security contract must cover what is admitted, who may cause each oper
 
 The most important distinction missing from the executable contract is between **reasoning dependencies** and **content derivation/custody**. Independent support can preserve a conclusion's epistemic status after a source disappears; it cannot authorize retaining a summary or embedding that still contains that source's restricted content.
 
-Current published candidate: [bounded evidence](../designs/bounded-evidence.md) at `0ce009435206f31f387efd207dc3f2662e66e4d9`, with its adopted [semantic companion](../designs/bounded-support-semantics-astra-03.md) at `476ec3618c7c55d471a572454aa7e4aba772aab6`. The protected profile scores **15/16**; its documentary profile scores **14/16**. The latter is still the recommended first experiment. These exact profiles are distinct from the stronger hypothetical document register scored in the initial freeze.
+Current published candidate: [bounded evidence](../designs/bounded-evidence.md) at `5d96e7020053370cb03ad4f243d07157d798d696`, with its adopted [semantic companion](../designs/bounded-support-semantics-astra-03.md) at `9bafff829e9233b5510ef827ca79a6707d69ae64`. The protected profile scores **15/16**; its documentary profile scores **14/16**. The latter is still the recommended first experiment. These exact profiles are distinct from the stronger hypothetical document register scored in the initial freeze. Earlier exact-artifact proof pins below remain historical.
 
 ## Initial rubric
 
@@ -205,3 +205,11 @@ The added protected-service admission gate also matches direct inspection of use
 astra-05 independently ratified the **same exact revision and both vectors** in `$W6Z420vc49y3Eflx2Xn5ti_MQNDmd58lKsVT549kVVA`; astra-04 did so in `$ZHOqMsgPsMRvYmQ7oOiijzHHx4oGmE-89-RrG36iArE`. Thus the mission's cross-five agreement condition is met on this assembled artifact, with no zero in a safety row. This is a design-contract result for the compared candidates, not an empirical or global optimum, not proof that a graph backend wins, and not yet a two-host proof. No cross-host third-five artifact has been read by this seat. A tied hypothetical design remains a tie; pilot measurements may favor plain typed documents.
 
 Round 5 refinement: astra-05's shared-budget counterexample is accepted within [view-inference](../findings/view-inference.md). Paired semantic equality fixes the authorized resource envelope and pre-admitted availability state; logical accounting cannot charge hidden records to a visible query. Physical capacity degradation requires qualified isolation or an explicitly authorized coarse disclosure policy decided before testing. Same-space principals can have different views, so space quotas alone do not prove this property. No automatic declassification, no new infrastructure mandate, no new finding and no score change. The release vectors distinguish semantic cutoff leakage from the explicitly bounded availability threat model.
+
+## Current refined assembly
+
+The complete `0ce0094..5d96e7020053370cb03ad4f243d07157d798d696` design delta and resulting clauses were reviewed, with a verified signature and design SHA-256 `50f77834992bcbe64358b7fea771f0ef3a8a94f524bcd3d22d8bf43377fd85dc`. The separately reviewed and signature-verified semantic refinement at `9bafff829e9233b5510ef827ca79a6707d69ae64` has SHA-256 `62ae18cbec7c4be25764f8da0e8084d3b434ac224cc121f09b2304f97ce7aafd`. S27 and the two assembled resource vectors faithfully carry the already accepted scope; S06/S17 also keep their cuts protected. No prior bytes are retrospectively credited with this refinement.
+
+Current scores remain protected `[2,2,2,2,2,2,1,2]` = **15**, documentary `[2,2,2,1,2,2,1,2]` = **14**. My exact-revision confirmation is `$tbaPniaW_Anr2lxQNV5FCfbl2BG00eAyvoJY-x4B_2o`. Independent five-2 exact confirmations include astra-05 `$vFk2PtdiSVjBeEzpiQMAW3NfZzpGAqbOdtJWxhR8Gzk`, astra-04 `$6QCXmTgUwiwnaTwD-_ppGsBFnU0NP4VSPwJA1PcMXAk`, and astra-06 `$PiCCXD-mxfgOPA49NQvnIXKBbl40CZXGqgZ8o1MtBF8`. Thus current bytes have the same mission-defined cross-five design agreement. This extends the earlier proof record and leaves all empirical, implementation, uniqueness and two-host limits intact.
+
+No addressed research question remains open. Final parking publication awaits the convener's signal. Operator policy choices and later RFC/qualification/pilot work remain as listed above; no new finding or recommendation change follows from updating the current artifact pointers.
