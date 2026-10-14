@@ -157,3 +157,56 @@ All paths below were read locally without pulling or editing the source clones. 
 ## Round log
 
 - Round 1: independent source reading and frozen scores above. No peer-confirmed finding yet. Next: publish these scores, examine astra-01's defense, and try concrete authority/retention counterexamples.
+
+## Post-freeze round 2: adversarial review
+
+The independent file was published in signed and verified commit `fea136340f3865d18c89be29540a3be6ddfc1bc3`; its original SHA-256 was `28b4b8ebf1cd9c5e5f41ed6a9ac50185004dc8d4f2e2dca96ad87b1d1527485a`. Only after that freeze did I read first-five topic bodies and astra-01's verdict/design. The initial failed read of astra-01's not-yet-published file returned no content.
+
+### Same-artifact comparison
+
+I scored `memory/designs/bounded-evidence.md` at `e8ab519c71c7ad4df483f32cdc77a139b859e6a3`, file SHA-256 `f1c3e7689aeb092f4ba05974399cdf221f70decd979423fdbfe8d9fe9fd131da`.
+
+| Criterion | astra-01 at e8ab519 | astra-04 same artifact | Difference |
+|---|---:|---:|---:|
+| R1 | 2 | 2 | 0 |
+| R2 | 2 | 2 | 0 |
+| R3 | 2 | 2 | 0 |
+| R4 | 1 | 1 | 0 |
+| R5 | 2 | 2 | 0 |
+| R6 | 2 | 2 | 0 |
+| R7 | 1 | 1 | 0 |
+| R8 | 2 | 2 | 0 |
+| **Total** | **14** | **14** | **0** |
+
+My confirmation is room event `$9S1EwHcSjc5fUys55XVJev1pzjTDFCOQG16xzC1daVI`; astra-01 published the scored artifact in `$uVowgbL1s_1Ir22O5bq9U53H9zXxAOeZxHa6pcUeZXM`. This satisfies the cross-five row-agreement part of the mission for that artifact. It does not establish a unique winner against strengthened alternatives or extend the evidence to another host.
+
+My frozen hypothetical L awarded R7=2 for its proposed state rules and vectors. Reviewing an exact draft that explicitly defers schemas and policy vocabulary makes **R7=1** the more defensible current assessment. I apply the same correction to my strengthened document register D: current totals L=14, D=14; base=13 and J=12 unchanged. The frozen table remains intact as the independence witness. This is a scoring-calibration change, not an invented implementation failure. A later combined grammar/security profile must be rescored at a named revision.
+
+### Attacks and outcomes
+
+1. **Closed handoff grammar.** Challenge `$CxWQDD5684oRqeMZqeg0LwNNMnIq1wGZ9OLGQMfuPKA`: `swarm-handoff/2` has no memory-view reference type. The published design explicitly chooses pull-only tool data for P0 and gates any future field extension or host-owned tool-output retention. I accept that resolution in the score-confirmation event above. No duplicate finding is warranted.
+2. **Instruction-channel laundering.** Confirmed astra-01's candidate in `$TorX3CcPnhLO7UDztCEB7ZL8CkxNEUHTxii8kc3qMTk` from E7 and the exact inert-resource boundary in session-host §3.5. The finding operationalizes the base's stated prohibition; it does not claim that the base intentionally grants authority.
+3. **No daemon required for the document pilot.** My question and wonder-01's independent fork distinguish record semantics, storage implementation and process deployment. astra-06 agreed in `$jetaq-yKrQvRq6HpfwwGAjfCY8qBP5eBU6qW-PjEKVg`; astra-03 agreed in `$5cU4pOqdyVxz7QS-fhDFY5gobA38JK-uZuBpyYyGg94`. A service boundary is necessary when the claimed isolation requires it, not because a graph/ledger vocabulary implies a daemon. No claim that an embedded caller-owned database protects against that caller.
+4. **Host custody versus memory erasure.** Added `$npxvilXMgpQBwDTfTVZwpUKga7yY1dQ3r5Ao9opG7_A` to `f-erasure-closure`. Session-host §3.4 at E3 pin requires retained control/audit/claim floors and truthful unknown state; memory cannot acquire authority to rewrite them. Host-retained view content needs separately owned disposition receipts and payload/control separation. If that sink cannot meet the chosen erasure promise, sensitive delivery is inadmissible or explicitly outside the guarantee. This supports the existing finding rather than opening another.
+5. **Source-origin laundering.** Independently read `skill-project-management/pkg/board/query/activity_ledger.go:53–85` and `docs/activity-mutation-coverage.md:145–167,308–327` at E6 pin. The remote branch intentionally permits attributed mirrors without proving their ledger origin. The intake must preserve `source-owned record`, `derived mirror` and `attributed assertion` as distinct assurance, resolved against exact authoritative evidence before promoting a reported outcome. astra-06 owns the existing `f-mirror-origin` finding; no duplicate needed.
+6. **An optional daemon still needs platform admission.** New candidate `f-memory-service-admission`, opener `$Qd0SfzIXgOLAdwK0a3Fut0iF0bOd5s9YqHaEMb91u00`, confirmation request `$aCgRSrl8VZ6lmLDudVHq8Vwy643SdvLgx-NnF_kjFSc`. At E5 pin `spec/helper.md:531–547` requires a declared/reachable socket-set qualification and an explicit egress row for every other non-root platform service before v1 enforced readiness. The base's new service-account label does not supply these contracts. Separate a document-only local experiment from deployment as an admitted Swarma daemon; do not weaken platform readiness to make an optional module appear nonblocking. Peer confirmations and the finding are recorded below.
+
+### Prior-art authority audit
+
+Read-only primary sources accessed **2026-10-14**; these are moving documentation/code pages, not pinned deployment qualifications.
+
+- [Letta MemFS documentation](https://docs.letta.com/concepts/memfs): the currently served page loads root memory files into the system prompt on each turn; older agents use `system/`. It also stores agent-owned skills with memory. This is useful prior art for versioned files, but its context/skill activation model does not establish Swarma's separate instruction approval. My inference is to reuse the representation selectively, not import its authority behavior. The search-index copy used an older directory convention, which is why the opened primary page is the cited version.
+- [Graphiti README](https://github.com/getzep/graphiti/blob/main/README.md) documents temporal facts, episode provenance, typed ontology and interchangeable backends. That supports considering it as a projection candidate; it does not establish our authority or bounded justification semantics.
+- [Graphiti MCP implementation](https://github.com/getzep/graphiti/blob/main/mcp_server/src/graphiti_mcp_server.py) exposes caller-selected `group_ids` search filtering and episode/edge deletion operations; `delete_episode` calls `remove_episode`. This limited read does **not** establish service-level authorization, complete derivative erasure, backup coverage or deterministic TMS. Grouping and available delete methods are not evidence of those stronger guarantees. Exact-version testing would be required before choosing it; none was run in this research pass.
+
+No implementation, benchmark or adoption is inferred from these pages. No web instructions were executed.
+
+### Current exact-revision recommendation
+
+After fully reading astra-01's revised `bounded-evidence.md` at **`56d18ee591fc387d4298d9ebc00e7d8baece57d0`**, SHA-256 **`ba38ed1d858667566acd58e945f9276ab5dd444ed412338923a2644e8655398f`**, I score its protected-service profile **`2,2,2,2,2,2,1,2 = 15/16`** and its documentary P0 **`2,2,2,1,2,2,1,2 = 14/16`**. These match astra-01's vectors for the same revision on every row. My event is `$5SXnC3UTxWX6cpTcKaeBKJ7D4WYVmq9EfSk88gx7ebA`; the owner's request/current vectors are `$KyIxD3MLjvYKTsgVNyVRj-b49IwIr1POlNkrZzThIIk`.
+
+R4 improves only because the revised service profile adopts independent rights, content-custody closure, derivative-write and outside-failure-domain restore fences, view-relative outputs and separately owned downstream disposition. A service or database label earns no point by itself. R7 stays 1 because closed schemas, exact fixture outputs and deployment qualification are unfinished. The documentary profile retains its narrower data/copy promise and useful stand-alone value.
+
+I therefore recommend the **staged bounded-evidence family: documentary P0 first, protected service only when justified and admitted**. Among the designs scored here its target profile has the highest total, no zero in R3/R4/R6, and exact cross-five agreement. This meets the mission's stated design-level proof condition for the cited revision. It does not prove unique global optimality, measured benefit, production readiness or two-host agreement. Historical baseline and independence tables above remain unchanged.
+
+The service-admission candidate is now peer-confirmed and recorded in [memory-service-admission.md](../findings/memory-service-admission.md), with astra-05 event `$NLxqVwhE0DqqB-ozuwsztkvIxN5JwzaEhn5VjLmzDss` and wonder-03 event `$ZysNTSyYc0uI9XNTi2Xz2eRLY9aEY3rzA7gqcAYPT2I`. It makes the later deployment profile explicit without blocking M0. astra-01 accepted the no-daemon and handoff objections in `$5xQbTPFC1tAGDlJkbflxxJmT0dR82c9-2Sc8hTjOsYU`; astra-02 accepted the host-owned-sink constraint in `$B_GifeEjsP7wYya-GJAXXbsf6zw9NEFMVHnfC6Zz7ZM`. The finding's status remains proposed, as required by the mission.
