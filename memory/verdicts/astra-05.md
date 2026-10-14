@@ -1,10 +1,10 @@
 # astra-05 — independent security, privacy and retention verdict
 
-Status: independent Round 1 position, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before this version was written. Research only; no prototype or test execution.
+Status: Round 2 adversarial update; the Round 1 score table below is preserved, frozen before reading any first-five verdict. Date: 2026-10-14. Seat: five 2, ivmbp; mirror: astra-02. These are design scores, not implementation certification. No first-five verdict or substantive room debate was read before the initial score version was written. Research only; no prototype or test execution.
 
 ## Recommendation and independent scores
 
-Recommend a **local evidence ledger with controlled admission and disclosure**, initially over one explicitly admitted architecture corpus. Keep the sketch's separation of belief, verification and decision; shrink the first implementation; make privacy a release condition, not a later federation feature. Its two-point advantage is conditional on the contracts below. No claim of global optimality or cross-five proof yet.
+Initial recommendation: a **local evidence ledger with controlled admission and disclosure**, over one explicitly admitted architecture corpus. Keep the sketch's separation of belief, verification and decision; shrink the first implementation; make privacy a release condition. After comparing the strengthened documentary alternative, I recommend implementing the first slice as reviewed decision records plus a read-only adapter under the same semantics, without requiring a daemon. A separate service becomes necessary for a protected multi-proposer/private-data boundary, not for the first documentary experiment. The highest score is a conditional tie, not proof of a unique engine choice; see the Round 2 comparison below.
 
 The base means the whole sketch, including its more careful Swarma second half. Scoring the first half alone would unfairly ignore its explicit corrections.
 
@@ -42,7 +42,7 @@ The base means the whole sketch, including its more careful Swarma second half. 
 
 The memory service alone writes its own record ledger, protected content store, dependency index, disposable search projections and erasure state. Original journals and artifacts stay with their source owners. The extractive model has proposal authority only. Identity, active account generation and present grants are bound by the existing authenticated service path [CB §§4.1–4.2]; no model-supplied `author` grants writer identity. A retained source signature proves bytes and issuer, not present permission or truth. Keeper-derived identity is a later platform contract, not an implemented prerequisite [CB §4.3].
 
-No agent opens a shared SQLite file or writes an index directly. One unprivileged service account hosts the ledger. First slice has one host, one configured corpus, one operator-admitted policy. Runtime portability does not imply identical isolation outside Swarma.
+No agent opens a shared SQLite file or writes an index directly. One unprivileged service account hosts the ledger. The protected-service profile has one host, one configured corpus and one operator-admitted policy. The documentary experiment may instead read an immutable approved register through an operator-owned adapter; it claims no hostile-agent writer isolation and admits no private payload sidecar. Runtime portability does not imply identical isolation outside Swarma.
 
 ### Minimal API and platform seams
 
@@ -59,7 +59,7 @@ Adapters resolve board/dispatcher/host/keeper references through their owner. A 
 
 **Separate rights:** read, use for a purpose, retain, and forward are independent predicates checked by the service/consumer boundary. A source grant does not automatically permit retaining a summary or sending it to an embedding/LLM provider. Mixed-source derivatives inherit all applicable restrictions; an explicit authorized new derivative is required for declassification. Retention deadlines cannot be lengthened by summarization. Plaintext already disclosed to an independent process cannot be recalled by later revocation; no service can promise otherwise.
 
-**No hidden-evidence oracle:** changing inaccessible records must not change a caller's disclosed claim status, graph shape, counts, ranking, cursor or change notice except through an explicitly authorized disclosure. Compute the epistemic view over the caller's admitted evidence and report its scope; do not label a filtered global status as universally true. Hiding a refutation may leave `supported within this view`, never `globally unconflicted`. This inference follows the provenance privacy risk described in W3C PROV-AQ §5 [WEB1]. Semantic output invariance is a proposed conformance target; no constant-time side-channel guarantee is claimed.
+**No hidden-evidence oracle:** changing inaccessible records must not change a caller's disclosed claim status, graph shape, counts, ranking, cursor or change notice except through an explicitly authorized disclosure. Compute the epistemic view over the caller's admitted evidence and report its scope; do not label a filtered global status as universally true. Hiding a refutation may leave `supported within this view`, never `globally unconflicted`. This inference follows the provenance privacy risk described in W3C PROV-AQ §6 [WEB1]. Semantic output invariance is a proposed conformance target; no constant-time side-channel guarantee is claimed.
 
 **Erasure is a protocol:** atomically fence new disclosures and derivative writes for the target privacy generation; persist a bounded erasure job; enumerate all controlled content and derivatives, including index payloads, embeddings, excerpts, summaries, caches, queues, logs and exports. Late work from an earlier generation cannot resurrect it. Report `access_closed`, `purge_pending`, `purged_within_boundary`, or `unavailable` as distinct states. Do not acknowledge physical erasure when only a tombstone exists. Historical queries use current rights; a query's historical timestamp cannot resurrect old permission.
 
@@ -121,5 +121,37 @@ Local sources were read without pulling or editing. Pinned revisions and paths:
 - **[P9], [P10], [K]** `wiki` `94aebceca3af6a904b73644fb973e201762af8e2`, `book/ru/09-pamyat.md`, `book/ru/10-sny.md`, `book/keeper/ru/09-zhurnal-i-vosstanovlenie.md`: quarantine and memory ladder, synthetic results not real acceptance, deterministic keeper replay. Preserve each chapter's proposed/decided labels.
 - **[A]** `a2a-swarm` `d283a43c2b7832a7d0e0472151fa0229de7d13b9`, `docs/protocol.md` rule 1: peers are data, communication grants no authority.
 - **[W]** `waggle` `010b96501ac8777a1a0dc1a083623b9b685fdd0f`, `README.md`: signed-role envelope and guarded data delivery are a draft design.
-- **[WEB1]** W3C, [PROV-AQ §5](https://www.w3.org/TR/prov-aq/#security-considerations), accessed 2026-10-14: provenance itself can expose sensitive relationships; automatic reference traversal is a privacy surface. Our non-disclosure contract is an inference, not a W3C implementation guarantee.
-- **[WEB2]** NIST, [SP 800-88 Rev. 2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r2.pdf), accessed 2026-10-14. Initial discovery only; full relevant section is to be checked before treating it as normative erasure evidence. The independent design does not assert compliance with this standard.
+- **[WEB1]** W3C, [PROV-AQ §6](https://www.w3.org/TR/prov-aq/#security-considerations), accessed 2026-10-14: provenance itself can expose sensitive relationships; automatic reference traversal is a privacy surface. Our non-disclosure contract is an inference, not a W3C implementation guarantee.
+- **[WEB2]** NIST, [SP 800-88 Rev. 2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r2.pdf), accessed 2026-10-14. Sections 3.2.3 and 3.2.5 checked: all target key copies, lower-level/unwrapped keys, externally recoverable keys and backup/escrow sources matter to erasure assurance. This supports the need for explicit key custody; our service-level protocol is an inference and does not assert NIST compliance.
+
+
+## Round 2: adversarial comparison and evidence
+
+Independent score freeze: 2026-10-14T01:00:19Z; original SHA-256 `95f6f78d6e05de6111c653a1ec9881808287a6c12141a39fb2a0fec24f506a81`. Signed initial artifact landed as `e2a3cd41dc990019a4e99b2d0a7634ac5a4c5e84`; pre-rebase objects were `cce146e` and `efc389c`. First-five verdict bodies were read only after this freeze. The original file is recoverable from that commit.
+
+### Mirror comparison
+
+astra-02's bounded-service profile in `f6e282d` scores R1..R8 `2,2,2,2,2,2,1,2`, identical to my independent 15/16 vector. Its strengthened admitted-documents + manifest alternative also carries those safeguards; my original bare-document baseline does not. On that stronger, explicitly constrained alternative my vector is likewise `2,2,2,2,2,2,1,2` (15/16). It need not implement optional inference to be epistemically honest. The distinction is the safety/semantics contract, not SQLite versus git.
+
+This yields agreement across fives 1 and 2 on the protected-ledger profile at design level, with R7 still 1. It does not establish empirical superiority, a unique winning implementation or cross-host agreement. The shared `bounded-evidence` design was still being revised toward a documentary first slice at review time, so final proof must identify its exact revision/profile and carry the security preconditions. A plain git note corpus remains the original 13/16 baseline.
+
+Adversarial challenges and replies:
+
+- **Restore cannot self-certify current deletion.** My challenge/confirmation `$XapTkO3ta1Oq23N3ZBqQGDJzMvd8cO8FMF7SX0HH2Eg` cites broker §6.4: restoring the deletion log with the data cannot witness erasures acknowledged after that snapshot. astra-02 accepted and committed to an external-to-restored-domain witness in `$SqT4Seq_4lZNcywzuFHVtqA8wiIRa5HN97IeHYMvfXY`. Late extractor writes also require generation checks. This strengthens the mirror's defended contract rather than inventing a second finding.
+- **Metadata oracle survives hidden-link filtering.** My confirmation `$xsPoJ7ySbI_0Q7ev0saFa7mvwPPaHpRljhmg-1oH3J4` requires paired-store equality for statuses, ranks, counts and cursors. astra-02 accepted in `$xzASIoBf7TlGzWYhc-15wyPLFO1eqNc9i1yfWmmPuuQ`; astra-03 confirmed scoped epistemics in `$qpSMGS8lVGSpLCosO8E8mxfQnKhRkWhzz5UUylovT6g`. A generic scope label cannot signal that a hidden contradiction exists.
+- **Host receipt is another retained copy.** astra-01's `$-tTXQoCv0Ij3aTd-l5wKpf4LX-85ekLuQyOKmNB3VbY` identifies host tool-result/transcript custody as independently owned. I accept the correction: sensitive disclosure to that sink is inadmissible without compatible disposition or an explicit narrower guarantee. Memory cannot delete the host's journal by owning its own cache.
+- **No new daemon prerequisite for document-only P0.** astra-01's replies `$5xQbTPFC1tAGDlJkbflxxJmT0dR82c9-2Sc8hTjOsYU` and `$FSMUYFQhhG7FtlpyeGkC3gbmNTScdQ5TqTFpYGuL-7w` accept astra-04/wonder-01's challenge. I adopt it: the first experiment can use reviewed records and a read-only adapter. The complete service profile remains a later implementation choice. Git-managed content must be explicitly persistable; a summary of a secret is not made safe by putting it in a reviewed file.
+
+### Graphiti audit: exact version matters
+
+Source: [Graphiti `graphiti.py` at `9d56c190926b382a54c5ea03e7680af1d05e1c9d`, lines 1993–2018](https://github.com/getzep/graphiti/blob/9d56c190926b382a54c5ea03e7680af1d05e1c9d/graphiti_core/graphiti.py#L1993), accessed 2026-10-14; revision verified with public `git ls-remote`.
+
+Static inspection: `remove_episode` selects an edge when the deleted episode is first in its episode list; it selects a node when only one episode mentions it. The method does not regenerate surviving summaries. Thus an edge with two source episodes can meet the deletion condition when its first source is removed. This is a code-path observation, not an executed failure across all releases or drivers.
+
+The [official provenance article](https://www.getzep.com/blog/how-zep-tracks-provenance-in-agent-memory/), accessed 2026-10-14, describes a stronger remaining-support cascade; it separately admits that surviving summaries are not regenerated and prior invalidations remain. That discrepancy prevents inheriting an erasure guarantee from a generic product description. Qualify the exact API/backend/version against two-source edge survival and sensitive-summary removal; keep custody/erasure policy outside the projection. Candidate `f-graphiti-erasure` awaits independent confirmation before a finding file is written.
+
+### Additional constraints for the documentary experiment
+
+No raw sensitive bodies enter git, its indexes or the context adapter; ordinary accepted code is not automatically admitted memory. Persistability is an explicit corpus policy, not a claim that review detects every secret. The adapter retains only policy-permitted data and emits a bounded data response; no context overlay or direct `swarm-handoff/2` schema extension is assumed. Unexpected sensitive content closes further disclosure and creates a scoped incident/erasure obligation; already distributed clones and model contexts are reported as external disclosures, never declared purged by a redaction commit.
+
+The paper vectors are implementation requirements. They were not executed, and no research score overrides an unpublished platform gate. Local source trees were checked for tracked modifications: the cited source files match the recorded revisions; unrelated task-board state changes were present and were not read or changed.
