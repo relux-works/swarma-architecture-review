@@ -7,12 +7,13 @@ Standalone chapters, in the Swarma book's format, on the designs the research co
 | `ru/01-pamyat-agentov.md`: agent memory, bounded evidence memory | `pdf/01-pamyat-agentov.pdf` |
 | `ru/02-mcp-zavisimosti-skillov.md`: MCP servers as skill dependencies, design N | `pdf/02-mcp-zavisimosti-skillov.pdf` |
 | `ru/03-mcp-iz-skilla.md`: the owner's design, skill declares server and auth, Curator provisions | `pdf/03-mcp-iz-skilla.pdf` |
+| `ru/04-doma-agentov.md`: who owns agent homes (Curator, launcher, session host), interim and target, login stores | `pdf/04-doma-agentov.pdf` |
 
 Build: each chapter renders on its own, with the book's template, filter and stylesheet from the `wiki` repository (`book/swarma/`). Pandoc 3.x, WeasyPrint 69+ and the PT fonts are required.
 
 ```bash
 W=<wiki checkout>/book/swarma
-for b in 01-pamyat-agentov 02-mcp-zavisimosti-skillov 03-mcp-iz-skilla; do
+for b in 01-pamyat-agentov 02-mcp-zavisimosti-skillov 03-mcp-iz-skilla 04-doma-agentov; do
   pandoc ru/$b.md --from markdown --to html5 --standalone --template "$W/template.html" \
     --lua-filter "$W/filters/book.lua" --toc --toc-depth=2 --syntax-highlighting=none \
     --metadata lang=ru -o /tmp/$b.html
