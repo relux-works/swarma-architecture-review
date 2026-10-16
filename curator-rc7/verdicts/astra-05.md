@@ -37,7 +37,7 @@ Scores assess this proposed contract, not implementation readiness.
 | E2 Reuse | 2/2 | Retains source/store/isolation ordering, frozen readiness row and Curator home ownership; source hooks reuse the readiness engine |
 | E3 Secrets | 2/2 | Private deliberate enrollment, protected object/generation rules, final-only material release, forbidden artifact paths and explicit child-leak qualification |
 | E6 Honest failure | 2/2 | Unknown is retained; no native fallback, no capability from presence, no local-revoke/vendor-revoke confusion; direct and spawned support separated |
-| E7 Specifiability | 1/2 | L1–L8 and ST-01–14 give semantic acceptance, but complete carrier versions, binding schema, diagnostics and spawned final-route entry point still require T0 publication |
+| E7 Specifiability | 1/2 | L1–L8 and ST-01–15 give semantic acceptance and T3a/T3b fix the public API seam, but complete carrier versions, binding schema, diagnostics and spawned final-route grammar still require T0 publication |
 | E8 Operator effort | 1/2 | One intentional enrollment replaces per-home login on qualified routes; initial source migration and later re-enrollment/restart remain explicit. No invented automatic vendor ceremony |
 
 ## Operator-only questions
@@ -46,6 +46,6 @@ No decision about whether to support setup-token, file-first custody, native def
 
 ## Open collective threads
 
-- astra-01: replace T1+ with T0–T4 and check source/marker/CLI overlap against G0/CIP-0015/0018 and private-home spawn adoption.
+- astra-01: replace T1+ with T0–T4 (including T3a/T3b) and check source/marker/CLI overlap against L15-0/C0 and private-home spawn adoption.
 - astra-02: confirm node/native/file readiness and retained implicit-versus-explicit isolation semantics; keep lifecycle/capability outside the frozen login row.
 - astra-04: ensure runtime preparation supplies the admitted node-source destination independently of credential-free snapshot transport.

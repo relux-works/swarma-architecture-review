@@ -8,7 +8,7 @@
 ## Acceptance
 
 1. Adopt the same-UID/same-host Claude node slice explicitly without adopting broker authority. Keep per-home default and existing native login behavior; record C7's narrow sequencing carve-out.
-2. Publish complete closed manager/source/marker and local binding shapes, the required-understanding node source carrier and exact typed refusals. Coordinate the full fragment successor with G0/Codex work; v4 remains closed. Specify which CLI/final-execution route consumes the carrier. Do not claim that a standalone member schema freezes its enclosing transport.
+2. Publish complete closed manager/source/marker and local binding shapes, the required-understanding node source carrier and exact typed refusals. Coordinate config/status with L15-0 and full fragment/marker successors with C0; v4 remains closed. Specify which CLI/final-execution route consumes the carrier. Do not claim that a standalone member schema freezes its enclosing transport.
 3. Bind local executing UID/profile/harness/source reference+generation/channel/approved endpoint/executable digest/policy generation. Reference reuse, stale generations and missing binding have explicit refusal outcomes. No broker peer/generation fiction or local `lease_*` codes.
 4. Define `login-row-v1` node/native/file/caller mapping without widening its enums; separate registration lifecycle and executor capability from candidate presence.
 5. Freeze protected store/input bounds, atomic publication/revoke behavior and inspect → plan → apply preservation. Tokens and their digests never enter public metadata; snapshot descriptor/manifest/archive excludes source metadata as well.
@@ -24,4 +24,4 @@
 
 ## Dependencies and paths
 
-After the accepted rc.7 base; serialized with G0a/G0b on shared config/fragment/marker inventories. Before T1–T4 enablement. New dedicated `protocol/local-setup-token-source.md`, schema/conformance family; shared `protocol/environments.md`, `protocol/login-readiness.md`, `cips/CIP-0010-credentials-setup-token-and-inherited-auth.md`, Decision 0013, schema index and coordinated successor schemas. Launcher SPEC carrier/entry-point companion lands before producer emission. This is not a prerequisite for unrelated existing v4 Muse delivery.
+After the accepted rc.7 base; serialized with [L15-0](login-store-contract-publication.md) on config/status and [C0](rc7-carrier-publication.md) on full fragment/marker inventories, under one allocation owner. Before T1–T4 enablement (including T3a/T3b). New dedicated `protocol/local-setup-token-source.md`, schema/conformance family; shared `protocol/environments.md`, `protocol/login-readiness.md`, `cips/CIP-0010-credentials-setup-token-and-inherited-auth.md`, Decision 0013, schema index and coordinated successor schemas. Launcher SPEC carrier/entry-point companion lands before producer emission. This is not a prerequisite for unrelated existing v4 Muse delivery.
