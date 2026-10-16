@@ -26,7 +26,7 @@ Updated neighbour clones were supplied under `curator-rc7-collective/sources/`; 
 | **Native and headless snapshot uptake** | HOST-HOME-SPEC/CODE plus D4-N/D4-S and each destination authentication/runtime row | D4 only on the named migrated route. No mutable live-home fallback or current-profile recapture on resume |
 | **Owner-requested Claude node-source outcome** | T0..T4, including both T3a/T3b, plus private-home and real headless-spawn qualification | Same-user `task-board spawn -> curator-run final-exec -> Claude` only. Direct-only injection does not close spawned-agent support |
 | **First public local hosted activation** | All hosted leaves, common runtime contract/code, three-runtime operation matrix and applicable C5 | Claude, Codex and Muse together. No partial two-runtime launch flag; materialize or a registered factory is insufficient |
-| **Cross-account archive activation** | X0..X4, separately admitted credential channel and destination runtime qualification | Only measured archive/relay/executor/platform tuples; local success does not prove D6 |
+| **Cross-account archive activation** | X0..X5, separately admitted credential channel and destination runtime qualification | Only measured archive/relay/executor/platform tuples; local success does not prove D6 |
 
 The rc.7 tag must not wait for full hosted or archive implementation. Conversely, it must not be described as completing D4 on existing consumers, the owner-requested token-spawn outcome, or all five CIPs. HOST-HOME is the remaining Curator prerequisite for those route activations, not part of pure materialize. If a mandatory rc.7 row remains unqualified, R0 records the exact blocker; it cannot quietly drop that row or label refusal-only code as supported.
 
@@ -81,7 +81,7 @@ CIP-0018 implementation leaf 7 remains spec-owned: record jointly passing eviden
 | [D4-N](leaves/native-snapshot-consumer.md) | curator-agent-launcher | Native interactive/exec private snapshot composition and original resume baseline; after M4 and common runtime seam |
 | [D4-S](leaves/spawn-snapshot-consumer.md) | project-management | Per-run headless snapshot/provenance, cancellation/retry identity and no duplicate start; after published executor/runtime seam |
 
-SNAP-ID, SNAP-LOCK and SNAP-PUBLISH develop in parallel in disjoint files against fixed interfaces. CLOSURE joins verified resolver inputs; CLI integration follows all four. Do not serialize publication helpers behind completed capture. `beginOperationValidated`, provisioning manager locks and current partial no-follow helpers are not reused as evidence for stronger snapshot guarantees. `--manifest-only` is not actual-tree attestation.
+SNAP-ID, SNAP-LOCK and SNAP-PUBLISH develop in parallel in disjoint files against fixed interfaces. CLOSURE joins verified resolver inputs; CLI integration follows all four. Do not serialize publication helpers behind completed capture. `beginOperationValidated`, provisioning manager locks and current partial no-follow helpers are not reused as evidence for stronger snapshot guarantees. Existing `verifyHome -> checkToolRelease -> detectRelease` executes the vendor; L15-2 and SNAP-LOCK share one pure-verification/observation split, not independent bypass flags. Both materialize CLI forms need a real provider-execution sentinel and a known-running detector control. `--manifest-only` is not actual-tree attestation.
 
 ### 3.4 Local Claude setup-token source
 
@@ -96,7 +96,7 @@ The [design](designs/setup-token-local-source.md) supplies the normative proposa
 | [T3b](leaves/setup-token-final-executor.md) | curator-agent-launcher | Actual final-hop API integration and real Claude child/source/reload qualification; after T3a and the private runtime seam |
 | [T4](leaves/setup-token-spawn-consumer.md) | project-management | Actual headless task-board -> curator-run -> Claude uptake and qualification; joins T3b with D4-S |
 
-This order avoids the custody/source-policy cycle and cross-module `internal` imports. The public facade is not a token getter, environment-map result or secret IPC. Snapshot composition and source-independent executor intake can develop before vendor authentication qualification; their final evidence joins at T3b/T4. Token bytes enter only the actual admitted Claude child. Injection before tracked ax serialization is forbidden. Current `tb-sessiond` restart lookup and hidden provider wrappers remain refused by local-hosted-launches §§4/6; the first node route is independent headless spawn, not full hosted activation.
+This order avoids the custody/source-policy cycle and cross-module `internal` imports. The public facade is not a token getter, environment-map result or secret IPC. Snapshot composition and source-independent executor intake can develop before vendor authentication qualification; their final evidence joins at T3b/T4. Token bytes enter only the actual admitted Claude child. Injection before tracked ax serialization is forbidden. ST-15 admits the final environment and rejects unqualified startup/loader injection before secret lookup; an approved binary digest alone does not constrain effective startup code. Current `tb-sessiond` restart lookup and hidden provider wrappers remain refused by local-hosted-launches §§4/6; the first node route is independent headless spawn, not full hosted activation.
 
 ## 4. Delivery lanes and serialization
 
@@ -112,6 +112,7 @@ This order avoids the custody/source-policy cycle and cross-module `internal` im
 | curator `internal/envfragment`, `envprofile/managed.go`, registry/status integration | L15-1/M1 first; C1 settings and SNAP-CLOSURE integration next; source hooks thereafter | M2/C4 vendor evidence, immutable fixture readers, new modules |
 | curator context manifest/resolve/lock/marker identity | C1 full-carrier work before consuming snapshot resolver integration; do not rewrite frozen old identities | Pure snapshot hashing/destination code; empty-vocabulary fixture design |
 | curator managerlock/transaction/capture | SNAP-LOCK owns the new non-recovering seam; no opportunistic mutation-recovery rewrite | SNAP-ID and SNAP-PUBLISH through fixed interfaces |
+| curator `verifyHome` / advisory version observation | L15-2 and SNAP-LOCK share one pure-content/metadata seam, with L15-2 integration first; both CLI consumers assert zero provider execution | Snapshot identity/destination helpers and vendor qualification outside those read paths |
 | curator `envprofile.go`, CLI env/status/profile entry files | L15-2, L15-3, L15-4, SNAP-CLI wire-up sequential as paths overlap; preserve ordinary install and selected lock | Independent package implementations and qualification records |
 | curator runtime/bootstrap, source admission, `pkg/localcredential` | SNAP-CLI -> HOST-HOME-CODE; T1 -> T2 -> T3a on their shared API; join only published seams | Source-independent D4 consumer fixtures and separate schema publication |
 | agents-management shared Curator context/seal and module release | M3 first, then C2 and hosted process-form integration; one module tag/pin state at a time | Provider-specific fixture work with no shared file edits |
@@ -123,7 +124,19 @@ Freeze small interfaces before parallel work; a task claims an exact path set be
 
 ## 5. Bounded follow-on hosted and archive ownership
 
-The hosted owner is publishing detailed leaves for the remaining CIP-0016 implementation rows: joint carrier/capability/config publication; agents-management process forms; project-management reservation and admission; distinct Claude/Muse runtime operations; Codex app-server/policy/resume; launcher selection/preparation/handoff; and all-runtime activation/migration. These are post-base route work, not a hidden rc.7 mega-leaf. Their canonical links replace this coordination paragraph before the plan is final.
+| Hosted leaf | Owner | Dependency and bounded surface |
+|---|---|---|
+| [H-WIRE](leaves/hosted-wire-publication.md) | launcher + receiver companion | Complete joint successor, limits/capabilities/config/framing; after HOST-HOME-SPEC and applicable settings publication |
+| [H-FORMS](leaves/hosted-process-forms.md) | agents-management | Pure complete prepared processes and typed restart templates; after H-WIRE; no daemon lifecycle |
+| [H-PREP](leaves/hosted-reservation.md) | project-management | Authenticated bounded private resource reservation; after H-WIRE; no profile resolve/provider start |
+| [H-ADMIT](leaves/hosted-admission.md) | project-management | Whole-plan authority/content recheck and durable exactly-one-start boundary; joins H-PREP, H-FORMS and HOST-HOME-CODE |
+| [H-CLAUDE](leaves/hosted-claude-pty.md) | project-management | Exact Claude PTY, attach/typed resume/goals and real runtime proof; after H-ADMIT/H-FORMS/common runtime |
+| [H-MUSE](leaves/hosted-muse-pty.md) | project-management | Actual registered musepty, exact process/root/backend and lifecycle; after H-ADMIT/H-FORMS/common runtime/M2/M3 |
+| [H-CODEX](leaves/hosted-codex-appserver.md) | project-management | Private prepared app-server/client, supported policy API and cold resume; after H-ADMIT/H-FORMS/common runtime and C5 |
+| [H-LAUNCHER](leaves/hosted-launcher-routing.md) | launcher | Explicit selection, native zero-contact, preparation/composition and private handoff; integration may land dormant before runtime qualification |
+| [H-RELEASE](leaves/hosted-activation-migration.md) | launcher coordinating peer releases | All three runtime/operation rows and explicit default migration; no live daemon replacement or borrowed qualification |
+
+H-FORMS and H-PREP develop in parallel after H-WIRE. H-ADMIT joins their immutable interfaces with the common verifier. Runtime adapters develop in separate files after the admitted-process contract; their actual qualification joins the production launcher/receiver route without circular implementation prerequisites. C5 and H-CODEX share one Codex integration schedule. H-RELEASE waits for every required row, not merely one generic factory. New hosted initial MCP/config bytes are Curator-owned under HOST-HOME; receiver tools/trust narrowing does not authorize MCP rewrites or ambient server merging.
 
 | Archive leaf | Owner | Dependency and activation boundary |
 |---|---|---|
@@ -131,9 +144,10 @@ The hosted owner is publishing detailed leaves for the remaining CIP-0016 implem
 | [X1](leaves/snapshot-archive-caller.md) | curator | SNAP-CLI + X0; actual-tree verified canonical resource |
 | [X2](leaves/snapshot-archive-relay.md) | dispatcher | X0; opaque verified relay/journal/retry; X1 integration and C6 settings join |
 | [X3](leaves/snapshot-archive-executor.md) | launcher | X0 + qualified runtime seam; whole-manifest install and protected expected admission; X1/X2 integration joins |
-| [X4](leaves/snapshot-consumer-migration.md) | project-management / agents-management, separate releases | Retire fallback per qualified route; local migration need not await remote implementation |
+| [X5](leaves/snapshot-remote-runtime.md) | launcher; pure-form companion if needed | Actual cross-account protected runtime and per-provider/platform start/login/model/native-resume qualification; after X3 and explicit protection decision |
+| [X4](leaves/snapshot-consumer-migration.md) | project-management / agents-management, separate releases | Retire fallback per qualified route; remote activation requires X5, local migration need not await remote implementation |
 
-X1/X2/X3 can implement against shared immutable vectors in parallel after X0. Actual end-to-end activation is a join. Runtime projection protection, credentials and cross-account authority remain independent gates; a valid archive hash is never admission. Dispatcher source was not supplied: its owner must pin actual code paths before implementation, rather than treating contract references as code evidence.
+X1/X2/X3 can implement against shared immutable vectors in parallel after X0; X3 intake implementation does not await X5 lifecycle qualification. Actual end-to-end activation joins X5 and the destination credential channel. D4-N or common HOST-HOME tests cannot qualify a different executing account. Runtime projection protection and cross-account authority remain independent gates; a valid archive hash is never admission. Dispatcher source was not supplied: its owner must pin actual code paths before implementation, rather than treating contract references as code evidence.
 
 ## 6. Normative coverage and release evidence
 
@@ -141,10 +155,10 @@ X1/X2/X3 can implement against shared immutable vectors in parallel after X0. Ac
 |---|---|
 | CIP-0014 leaf 2 / snapshots §§1–5 | SNAP-ID/LOCK/CLOSURE/PUBLISH/CLI; separate schema identity and real filesystem controls |
 | CIP-0014 leaves 3–4 / snapshots §6 | HOST-HOME-SPEC/CODE, D4-N/D4-S and hosted route leaves; all adapter/runtime policy and credential boundaries retained |
-| CIP-0014 leaves 5–7 / snapshots §7 | X0..X4 and C6 where settings cross dispatch |
+| CIP-0014 leaves 5–7 / snapshots §7 | X0..X5 and C6 where settings cross dispatch |
 | CIP-0015 / login-readiness §§1–7 | L15-0..4, C4 for Codex qualification; T2 only after its source extension is adopted |
 | CIP-0016 curator leaf 2 | Snapshot producer plus explicit common runtime initialization/verifier seam; receipt is not authentication or provider qualification |
-| CIP-0016 remaining leaves | Hosted follow-on owners above; C5 owns typed Codex policy, X0..X3 the later transport boundary |
+| CIP-0016 remaining leaves | H-WIRE/FORMS/PREP/ADMIT/CLAUDE/MUSE/CODEX/LAUNCHER/RELEASE; C5 owns typed Codex policy, X0..X3/X5 the later transport boundary |
 | CIP-0017 leaves 2–6 / environments §§7.9,10.2 | M1..M5, with SNAP-CLI's independent real producer/loader row |
 | CIP-0018 leaves 1–7 | C0..C6 plus spec activation record; R0 records the corresponding released pair |
 
@@ -152,4 +166,4 @@ X1/X2/X3 can implement against shared immutable vectors in parallel after X0. Ac
 
 Full status must execute zero vendor binaries, not merely avoid auth-status. OpenCode's unknown login row remains visible in strict all-participant checks, and materialize refuses its unqualified skills target. Muse D10 file admission is not held for refresh; refresh limits remain reported. Claude node source is inference-only and never claims Remote Control. No release removes these bounds to make a matrix green.
 
-Final review must close the hosted-link integration and spec activation ownership above, validate all relative links/IDs, and obtain peer confirmation of the dependency/release cut. This plan remains a working synthesis until those review actions finish; runtime gates are intentionally future work, not collective validation results.
+Final review must close the spec activation ownership above, validate all relative links/IDs, and obtain peer confirmation of the dependency/release cut. Runtime gates are intentionally future work, not collective validation results.
