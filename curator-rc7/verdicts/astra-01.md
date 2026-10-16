@@ -1,6 +1,6 @@
 # astra-01 — delivery and plan verdict
 
-Round 3 integrated position, pending collective review/parking. Owner of PLAN.md; adversarial review of astra-04 and the setup-token delivery seams. **Accept the proposed implementation plan and conditional token design.** This verdict evaluates their contracts, decomposition and gates, not implemented behavior or runtime qualification.
+Final position, parked on 2026-10-16 after convener decision `$gEYZR8rhEkJFEWRBsXfmU770rvlfWj0hSlSsIC3mnfc`. Owner of PLAN.md; adversarial review of astra-04 and the setup-token delivery seams. **Accept the proposed implementation plan and conditional token design.** All five seats accepted PLAN commit `32cf0f27535885141a3f813e367094923238e5be`, blob `f355619747d51fea46966ddbeed70e0560b83e36`; two subsequent unchanged rounds closed collective review. This verdict evaluates contracts, decomposition and gates, not implemented behavior or runtime qualification. No artifact-level objection or decision blocks the collective handoff.
 
 | Criterion | Score | Evidence |
 |---|---:|---|
