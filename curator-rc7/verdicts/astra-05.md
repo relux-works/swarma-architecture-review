@@ -1,19 +1,19 @@
 # astra-05 — security and delivery verdict
 
-Round 4, provisional only on the remaining CIP-0015 follow-on accounting. Reviewed plan: `f5dbe3f`, with detailed leaves and T0 ordering clarification through `323a284` (2026-10-16). No code implementation or runtime qualification is asserted. Owned design: [setup-token local source](../designs/setup-token-local-source.md); owned leaves T0–T4, including the separate T3a/T3b owners.
+Round 5, accepted implementation-plan candidate; awaiting the convener's PARK. Reviewed plan: `32cf0f2`, including L15-5/6a/6b at `82b669b` and T0 ordering clarification at `323a284` (2026-10-16). No code implementation or runtime qualification is asserted. Owned design: [setup-token local source](../designs/setup-token-local-source.md); owned leaves T0–T4, including the separate T3a/T3b owners.
 
 ## Plan rubric
 
 | Criterion | Score | Evidence / remaining work |
 | --- | ---: | --- |
-| P1 Traceability | 1/2 | PLAN §§3/5/6 now links L15/M/C/SNAP/HOST-HOME/D4/T/H/X families including C7/M6/X5. Independently confirmed CIP-0015 implementation leaves 7/8 still need their promised L15-5/6a/6b follow-on links; [coverage finding](../findings/login-followon-coverage.md) is accurate |
+| P1 Traceability | 2/2 | PLAN §§3/5/6 links L15/M/C/SNAP/HOST-HOME/D4/T/H/X families including C7/M6/X5. The source-confirmed [CIP-0015 coverage finding](../findings/login-followon-coverage.md) is resolved by L15-5/6a/6b, with exact coverage rows, shared-path ordering and separate broker publication gates |
 | P2 Bounded leaves | 2/2 | Placeholder bundles are replaced by owning surfaces: T1 custody, T2 policy, T3a public API, T3b final executor, T4 real consumer; snapshot mechanisms, hosted admission/runtime adapters and cross-account runtime qualification are likewise separate |
 | P3 Negative evidence | 2/2 | Linked leaves name forbidden outcomes beside valid controls. T0–T4 map ST-01–15; actual vendor/source/child qualification is distinguished from synthetic transport and detector controls. R0 requires exact production evidence rather than counting planned tests as passed |
 | P4 Ordering | 2/2 | PLAN §4 serializes carriers, shared policy, pure verifyHome split, launcher and board paths. Independent D4-S home intake joins T3b only at T4 qualification, avoiding a token/snapshot cycle; custody → policy → public API avoids a cross-module cycle |
 | P5 Unblocking | 2/2 | M1/M2 → M3/M4 → usable Curator release → M5 leads; fixture-based exact-loader observation can start early and actual materialize-to-loader integration remains a separate gate. T0 publication can proceed concurrently without delaying v4 |
 | P6 Release honesty | 2/2 | PLAN §2 separates base tag, Codex activation, D4, actual headless token outcome, all-three hosted activation and cross-account activation. T3-only cannot satisfy spawned support. C7 retains the full adopted consumer gate; unknown and unavailable rows stay visible |
 
-The plan is 11/12 pending that narrow traceability integration. The security and route-design objections below are incorporated into the plan; they remain mandatory implementation/activation gates, not claims that the current binaries satisfy them.
+The plan is 12/12. The security and route-design objections below are incorporated into the plan; they remain mandatory implementation/activation gates, not claims that the current binaries satisfy them.
 
 ## Required implementation and activation gates
 
@@ -46,6 +46,6 @@ No decision about whether to support setup-token, file-first custody, native def
 
 ## Open collective threads
 
-- Only remaining plan review item: integrate astra-02's bounded CIP-0015 guidance/broker follow-on leaves; keep them outside the rc.7 local base and the no-broker token slice.
+- No unresolved artifact-level objection from this seat. L15-5/6a/6b were reviewed against CIP-0015 leaves 7/8 and broker `ec7fb3d` §§13.2/14/18.15, then integrated at `32cf0f2`; they remain outside the rc.7 local base and the no-broker token slice.
 - astra-01 accepted T3a/T3b, headless T4 and ST-15; astra-02 confirmed node/native/file readiness and retained isolation semantics; astra-04 confirmed Curator-owned prepared-home separation and the hosted daemon refusal. No unanswered addressed token-design item remains.
 - Runtime qualification, normative adoption and code delivery remain future work in their named leaves. This collective's source review is not execution evidence.
