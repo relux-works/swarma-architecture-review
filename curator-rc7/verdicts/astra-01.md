@@ -1,33 +1,48 @@
 # astra-01 — delivery and plan verdict
 
-Round 1, provisional. Owner of PLAN.md; adversarial neighbour astra-04, with setup-token delivery composition also reviewed. No implementation, qualification or final acceptance is claimed.
+Round 2 integrated position, pending collective review/parking. Owner of PLAN.md; adversarial review of astra-04 and the setup-token delivery seams. **Accept the proposed implementation plan and conditional token design.** This verdict evaluates their contracts, decomposition and gates, not implemented behavior or runtime qualification.
 
-| Criterion | Score | Evidence and remaining work |
+| Criterion | Score | Evidence |
 |---|---:|---|
-| P1 Traceability | 1 | PLAN maps each CIP family to clauses; detailed seat leaves and full clause coverage remain pending. |
-| P2 Bounded leaves | 1 | G0a/G0b and R0 are bounded; provisional T1+/H1+/X1+ must be expanded from seat leaves. |
-| P3 Negative evidence | 1 | G0/R0 name positive controls and forbidden state effects; every implementation leaf still needs detailed cases. No tests were run. |
-| P4 Ordering | 1 | Path serialization table and early v4 chain exist; exact seat leaf dependencies and native/spawn snapshot migrations are being integrated. |
-| P5 Unblocking | 2 | Early v4 producer/qualification/consumer handoff is separate from snapshot and hosted implementation; stale consumer source evidence is explicitly labelled. |
-| P6 Release honesty | 1 | Curator tag is separate from hosted and cross-account activation. Runtime-B, settings carriers, token executor and D4 route coverage remain unresolved gates. |
+| P1 Traceability | 2 | PLAN §6 maps all five CIP implementation families; canonical L15/M/C/SNAP/H/T/X leaves cite exact clauses. C7 owns spec activation, M6 owns the deferred Muse broker-key seam. |
+| P2 Bounded leaves | 2 | Capture, identity, closure, publication, common runtime, native/spawn, hosted reservation/admission and each runtime are separate. T3a API and T3b integration split the cross-module boundary; X3 intake and X5 remote protection are separate. |
+| P3 Negative evidence | 2 | Every canonical leaf names intended refusals, valid controls and state invariants. Production entrypoints, omission/known-invalid controls and limits of fake/schema evidence are explicit. These are planned tests, not executed results. |
+| P4 Ordering | 2 | PLAN §4 serializes actual shared config/fragment/managed.go/CLI/context/execution/pin paths; SNAP-ID/LOCK/PUBLISH remain parallel. Common pure verification serves status and materialize. Source-independent code precedes joint authentication qualification without cycles. |
+| P5 Unblocking | 2 | L15-1/M1 plus M2 -> M3/M4 -> usable Curator release -> M5 is prioritized. Narrow real-loader fixture evidence has no false SNAP-CLI dependency; actual producer-to-loader proof remains SNAP-CLI. C4 probes start early without delaying Muse behind hosted/archive/token work. |
+| P6 Release honesty | 2 | Base rc.7, explicit Codex activation, D4 route uptake, token spawn, all-three-runtime hosted and cross-account activation have separate gates. C7 forbids an inferred local-only waiver. Unverified provider/platform/source rows stay unavailable. |
 
-## Confirmed risks
+## Adversarial review and accepted corrections
 
-1. CIP-0018 full carriers are not published; v4 store projection cannot silently become a competing `codex_settings` transport. Empty package vocabulary remains binding under D14.
-2. astra-04 independently confirmed two missing hosted seams: initial runtime-home/bootstrap versus excluded snapshot seeds, and a Curator-owned protected-input verifier/receipt usable by admission and restart. Manifest-only is not attestation.
-3. astra-04 correctly challenged incomplete D4 route coverage in my draft. PLAN now names native interactive/exec and task-board spawn migrations separately from primary hosted activation. Export availability alone is not a D4 completion claim.
-4. Muse 1.4.8 P1–P4 exact-build replay gates release. The 2026-10-19 quota boundary cannot be turned into model-visible evidence, nor does D10 require waiting for refresh qualification.
-5. Local `setup-token` must be injected at each actual final exec boundary. astra-05 identified the tracked `ax` serialization path as a separate gate; caller/Compose injection would violate the no-secret-transport requirement.
+- **astra-04 snapshot/hosted leaves accepted.** Read SNAP-ID/LOCK/CLOSURE/PUBLISH/CLI, HOST-HOME-SPEC/CODE and all nine H files against snapshots §§1–7 and hosted §§1–8. The all-ancestor publication, non-recovering capture, actual-tree verification, runtime bootstrap and original-resume identity boundaries match the normative obligations. Preparation is not launch authority; all three actual runtime rows gate hosted release.
+- **D4 ownership corrected.** My first draft omitted native and headless consumers; D4-N/D4-S now own them. Pure export does not complete D4. HOST-HOME is common mechanism only; provider lifecycle remains in the actual route.
+- **Remote ownership corrected.** Astra-04 challenged X3 borrowing native/common proof. X5 now owns agent-account projection/protection and actual start/login/model/native-resume qualification. X4 remote migration requires X5; local evidence cannot be relabeled cross-account.
+- **Muse dependency settled.** Frozen conforming regular-file bytes plus the real exact-build loader prove representation only. SNAP-CLI separately proves actual materialize integration. Neither side borrows the other's capture/provenance/runtime evidence.
+- **Codex ownership corrected.** C0 replaces duplicate draft G0 work; L15-0 owns config/status. C5/C6/C7 own host, relay and activation. New hosted initial exclusive MCP/config bytes remain Curator-owned; receiver tools/trust narrowing does not authorize MCP rewrites.
+- **Two reuse traps independently confirmed.** `envprofile.go:911–919` activates the first install despite `Use=false`; prepare needs a no-activation seam and existing PreserveLock. `verifyHome -> checkToolRelease -> detectRelease` executes a vendor; L15-2/SNAP-LOCK share one pure-verification split with independent complete-CLI tripwires.
 
-## Adversarial review status
+## Setup-token elegance
 
-The astra-04 split and boundary responses are supported by snapshots §§1–7 and hosted §§1,3–4,8. Detailed files are pending; no blanket approval is issued. Setup-token elegance rubric is deferred until the actual design is read.
+| Criterion | Score | Evidence and limit |
+|---|---:|---|
+| E1 New concepts | 2 | One machine-owned node source and protected local binding extend existing source/home concepts; no broker or invented lease identity. |
+| E2 Reuse | 2 | Common L15 policy/readiness; Curator-owned public facade over private custody; existing launcher lifecycle and headless spawn remain owners. T1 -> T2 -> T3a -> T3b -> T4 avoids duplicated secret traversal and module cycles. |
+| E3 Secrets | 2 | Material exists only in protected custody and actual admitted Claude child. No plan/fragment/env-literal/log/snapshot transport, generic getter or secret IPC. ST-15 gates effective startup code, and child/MCP/reload containment still needs real vendor proof. |
+| E6 Honest failure | 2 | Unknown/expired/revoked/conflicting/unqualified tuples refuse with no native fallback. Caller presence is not authorization; direct-only success is not spawned support. Hosted daemon lookup remains refused. |
+| E7 Specifiability | 2 | T0 L1–L8, ST-01..15, closed carriers/bindings, protected final-launch API and external-module control make each boundary implementable and reviewable. Proposed names/bounds still require adoption. |
+| E8 Operator effort | 1 | One local enrollment replaces repeated per-home login for qualified routes, but enrollment/revocation, existing-home migration and real harness qualification remain necessary. No automatic native credential extraction. |
 
-## Operator-only questions
+Total: plan **12/12**; token design **11/12**. These are design scores, not release authorization.
 
-- Runtime B remains expressly subject to operator confirmation in snapshots §6. A concrete protection/bootstrap proposal must be reviewable before asking for that confirmation; the collective cannot infer approval.
-- If qualification prevents a required rc.7 capability, the release cut must be decided explicitly, with the exact missing row and supported alternatives. No new request is made merely because implementation work remains.
+## Remaining delivery risks and operator-only decisions
 
-## Evidence
+1. **Vendor evidence is scarce.** Muse quota does not prove loader behavior; offline echo must reach the real loader. Codex real backend/refresh and Claude child/MCP/reload containment cannot be replaced by mocks. Keep the affected activation pending when a required row is unobserved.
+2. **Publication precedes emission.** C0/L15-0/T0/H-WIRE/X0 allocate their complete containing contracts. C7 retains the full consumer gate unless a scoped rollout is explicitly adopted. No current v4, plan or descriptor silently widens.
+3. **Runtime B remains an operator decision.** Present a concrete protection/bootstrap mechanism and evidence before seeking confirmation. This collective does not supply it, and chmod-only protection is inadequate.
+4. **Source-independent snapshot preparation is not authentication.** Relocation needs its declared destination strategy. Same-user node support needs real T4; cross-account execution needs its separate credential channel and X5, not T3b reuse.
+5. **Release-cut exceptions need a real decision only if encountered.** R0 must report the precise blocked required row and viable supported alternatives; implementation difficulty alone is not a new operator question. No unresolved product choice is disguised as a green plan test.
 
-`PLAN.md`, `leaves/rc7-carrier-publication.md`, `leaves/rc7-release-evidence.md`; room topics `leaf-delivery-cut`, `f-login-contract-seams`, `f-hosted-home-seam`, `f-setup-token-final-hop`. Source pins and limits are recorded in PLAN. Research only; no source edits, builds or credential reads.
+## Evidence and limits
+
+[PLAN](../PLAN.md), canonical linked leaf contracts, [setup-token design](../designs/setup-token-local-source.md), and persisted findings carry the clause/source evidence. Inspected source pins are in PLAN §1. The collective changed only planning artifacts. No builds, provider execution, source-repository changes or credential reads occurred. Document/link checks verify artifact consistency only; required runtime tests are future implementation obligations.
+
+Pre-publication document validation: 69 Markdown files, zero missing local file targets; a known-missing in-memory control was detected. Heading anchors were not checked. `git diff --check` passed. Logs: astra-01 `.temp/document-links-01.log` and `.temp/doc-checker-readiness-01.log` (Python 3.14.7).
