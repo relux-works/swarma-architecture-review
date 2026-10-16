@@ -25,6 +25,8 @@ Require both terminal stdin and stdout and no detected headless/CI marker.
 Use the trusted machine executable outside profile-owned bins, a neutral cwd
 and direct argv: `claude auth login`, `codex login` plus its single validated
 typed store block, or `muse login` with all managed XDG paths and file literal.
+Consume the typed projection directly, never by evaluating shell-format
+resolve output, which cannot carry the Codex argv block.
 No project MCP/tool/prompt channels. Explicit source and store conflicts
 refuse before exec; do not strip a selected credential source to manufacture
 home readiness. Resolve once through L15-1, with input revalidation before

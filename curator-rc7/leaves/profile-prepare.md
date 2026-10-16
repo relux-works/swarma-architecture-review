@@ -26,6 +26,21 @@ selected lock and effective machine policy. Reuse resolve/repair without
 bypassing trust, isolation, migration or credential conflicts; an existing
 lock cannot be silently updated as a side effect of preparation.
 
+The existing installer is **not** already a no-activation primitive:
+`envprofile.go:911–919` at this baseline runs `useLocked` on an empty machine
+even when `InstallOptions.Use=false`; `reinstallActivation` likewise activates
+when current is empty. Add an explicitly installation-only internal seam
+that reuses audited install publication without that activation. Preserve
+ordinary `profile install` first-install behavior. Do not activate and then
+restore pointers: native/scoped writes already happened by then.
+
+For an existing lock, use the resolver's preserve-lock contract while repairing
+(`managed.go:2599–2607` already captures/checks hash and refuses migration).
+An old lock that requires identity migration must remain unchanged and report
+the explicit migration need; ordinary `--repair` is not a safe substitute.
+Treat concurrent lock replacement as a changed selected input, never silently
+adopt another identity midway through preparation.
+
 Only supported, isolated, home-owned **absent** login may enter L15-3. Present
 does not relogin; unknown never prompts; shared/native absence gives native
 guidance; external sources give enrollment guidance. Recompute all rows and
@@ -52,6 +67,8 @@ filter that row. Source metadata presence does not promise inference.
 | Negative / forbidden effects | Positive control |
 |---|---|
 | Reinstall/update existing lock, activate profile, mutate any scoped-current marker | Missing explicit source installs once without activation; installed name retains bytes |
+| Empty machine plus `Use=false` reaches installer auto-activation, even if pointers are later restored | Prepare leaves initially absent current selections absent; ordinary first `profile install` still activates |
+| Existing legacy lock auto-migrates through plain repair, or another process replaces the selected lock during prepare | Current supported lock stays byte-identical; migration-required lock reports the need and remains unchanged |
 | Only current environment or convenient adapters appear | Multi-participant lock emits all rows, including failures and OpenCode |
 | Headless absent profile fetches; stale home repairs; empty invented matrix passes | Existing current/present profile reports 0 with no writes; missing profile reports 1 |
 | Unknown/conflicting/shared/external source invokes home login; present is repeated | Supported isolated absence starts exactly one admitted ceremony |
@@ -70,8 +87,9 @@ detected, not just compare formatted rows. No builds/tests are run here.
 
 L15-0–L15-3, existing installer and resolver. Likely paths: new
 `cmd/curator/profileprepare.go`, `cmd/curator/profile.go`, a focused
-`internal/envprofile` coordinator, help, tests and
-`docs/environment-config.md`. Serialize profile.go/status/managed integration
+`internal/envprofile` coordinator, the installation-only seam in
+`internal/envprofile/envprofile.go`, preserve-lock resolver integration, help,
+tests and `docs/environment-config.md`. Serialize profile.go/status/managed integration
 with other producer leaves; a coordinator module can be developed separately.
 Required in rc.7 after the early v4 unblock, not before it. Consumer guidance
 in skill-project-management follows the released command/status contract and

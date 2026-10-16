@@ -17,7 +17,10 @@
    inputs, not validators for their enclosing documents. Existing config
    versions 1–3 and closed status contracts retain their prior meaning.
    Do not invent a carrier number in implementation ahead of this publication.
-2. Coordinate with the Codex/v4 owner on a single delivery encoding. Published
+2. Coordinate with [C0](rc7-carrier-publication.md), the sole owner of full
+   Codex manifest/lock/marker/fragment successors and renderer semantics.
+   This leaf owns config/status and cross-document reconciliation only;
+   retired G0a/G0b aliases must not create duplicate work. Published
    v4 has `credential_store.config_overrides`; CIP-0018 requires a successor
    `codex_settings` member and prohibits two policy owners. Do not widen v4 or
    emit two independently authoritative settings blocks. A successor allocation
@@ -25,6 +28,8 @@
    allocation: retain `credential_store.selection` as agreement metadata,
    use `codex_settings` as the sole typed argv payload and forbid legacy
    `config_overrides` in that successor. Preserve existing v4 unchanged.
+   C0 also freezes nonempty Codex env/shell refusal with no partial output;
+   direct login consumes typed policy and never evaluates shell projection.
 3. State the managed-Muse exception explicitly: configured absent/native/file
    resolves to effective **file**, without rewriting the configured selector.
    The generic native-preservation table is not a second Muse admission rule.
@@ -66,8 +71,8 @@ These checks prove grammar and published decisions only, not runtime safety.
 
 ## Dependencies, paths, release cut
 
-No runtime prerequisite. Share one schema-allocation owner with the
-manifest/lock/marker and launch-carrier work; serialize edits to
+No runtime prerequisite. Coordinate schema allocation with C0 rather than
+duplicating its manifest/lock/marker and launch-carrier work; serialize edits to
 `protocol/environments.md`, `cli/curator.md`, schema indexes and conformance
 indexes. Touch `protocol/login-readiness.md`, affected full schema files,
 login conformance carriers, release notes and the coordinated Codex seam.

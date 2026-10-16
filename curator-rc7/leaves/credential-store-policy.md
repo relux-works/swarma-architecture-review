@@ -67,7 +67,7 @@ composition test to detect it; schema agreement alone is insufficient.
 
 L15-0 before config emission; the typed policy feeds the v4/Muse and successor
 Codex producer/consumer leaves. Codex explicit-store enablement also needs
-supported-release login/app-server/refresh qualification and strict consumers
+supported-release [login/app-server/refresh qualification](codex-storage-qualification.md) and strict consumers
 (profile-codex-settings §5); accepting a schema does not satisfy it.
 
 Likely paths: `internal/config/{config,environments}.go`,
