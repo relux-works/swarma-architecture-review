@@ -23,6 +23,7 @@ The score is for the current draft, not a rejection of the direction. Raise scor
 4. **Custody revocation has a delivery boundary.** Local deletion cannot recall a token already in a harness. Serialize release/revoke and invalidate source references; document vendor revocation and restart separately. No token digest or secret-bearing generic journal is permitted.
 5. **CIP-0010 is not already a shipped local contract.** C7 sequences cross-user broker first; metadata carrier and binding are pending. T0 must explicitly adopt the narrow same-user exception and coordinated complete carriers without reopening D11/D14 or claiming broker support.
 6. **Relocation and adoption are separate.** Per-home Claude login does not follow `CLAUDE_CONFIG_DIR` into a snapshot. Preserve existing native credentials; use explicit node-source adoption and Curator-owned runtime preparation. An unreadable native store is not evidence of absence.
+7. **Hosted restart currently prohibits daemon lookup.** Confirmed astra-01's challenge from local-hosted-launches §§4/6: exact provider process and caller-resolved fresh restart secrets cannot silently become a daemon token callback or wrapper. The chosen initial T4 chain is independent same-user headless task-board spawn → qualified curator-run final-exec → noninteractive Claude; hosted token routes remain refused pending their own amendment. Current project-management `ab63db823` still directly execs headless plan.Env at spawn.go:1180–1181.
 
 ## Setup-token elegance rubric
 

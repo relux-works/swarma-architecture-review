@@ -12,7 +12,7 @@
 3. Bind local executing UID/profile/harness/source reference+generation/channel/approved endpoint/executable digest/policy generation. Reference reuse, stale generations and missing binding have explicit refusal outcomes. No broker peer/generation fiction or local `lease_*` codes.
 4. Define `login-row-v1` node/native/file/caller mapping without widening its enums; separate registration lifecycle and executor capability from candidate presence.
 5. Freeze protected store/input bounds, atomic publication/revoke behavior and inspect → plan → apply preservation. Tokens and their digests never enter public metadata; snapshot descriptor/manifest/archive excludes source metadata as well.
-6. Name one same-user headless spawned route through the real final curator-run executor. Direct-only and interactive hosted PTY have different qualification rows. The first spawned consumer entry point and carrier owner must be resolved before T4 starts, not deferred to an implementation guess.
+6. Publish the proposed same-user headless chain `task-board spawn → approved curator-run local final-exec → Claude noninteractive process`, including its entry point and required plan carrier. It is independent of the full CIP-0016 primary hosted matrix. Direct-only and interactive hosted PTY have different qualification rows. `tb-sessiond` node lookup/restart remains refused: local-hosted-launches §§4/6 currently preserve the exact provider process and prohibit daemon lookup of fresh restart secrets. A later hosted token route needs an explicit amendment, never an internal injection callback or hidden wrapper.
 
 ## Mandatory negatives and positive controls
 
