@@ -18,9 +18,11 @@ Reviewed PLAN at `3b13aac`, X5 at `6186899`, and C5/C7/M6 at `75dc718` on 2026-1
 
 The underlying source evidence is pinned in [the evidence ledger](astra-04-evidence.md), [helper boundaries](snapshot-helper-boundaries.md), [runtime seam](hosted-home-seam.md), [Muse dependency split](muse-snapshot-replay-dependency.md), and [vendor-probe finding](materialize-version-probe.md).
 
-## Remaining synthesis check
+## Synthesis closure
 
-At `3b13aac`, the published C7 activation owner and M6 broker-key backend seam still need canonical PLAN links and coverage/dependency rows. Their detailed contracts at `75dc718` are accepted; this is a traceability completion, not another runtime design finding. Final scoring must use the integrated revision rather than the earlier placeholder plan.
+At `3b13aac`, the published C7 activation owner and M6 broker-key backend seam still needed canonical PLAN links and coverage/dependency rows. `f5dbe3f` closes that mapping. The subsequent CIP-0015 implementation-leaf 7/8 coverage finding was independently checked against source `5509499`; L15-5/6a/6b at `82b669b` supply bounded consumer guidance, Curator broker routing and dispatcher handoff. They preserve caller-scoped observation, prohibit status-to-lease/login promotion and depend on separate broker operator/observer publication.
+
+PLAN `32cf0f2` integrates those final rows, release cuts, shared paths and exact coverage. No artifact-level objection remains from this lens. P1–P6 are 2 each; future runtime qualification remains an activation requirement rather than evidence supplied by this review.
 
 ## Review limits and retained implementation gates
 
@@ -30,4 +32,4 @@ At `3b13aac`, the published C7 activation owner and M6 broker-key backend seam s
 - The additive Curator tag does not complete D4 migration, token-backed spawned authentication, hosted activation or archive delivery. Every advertised destination/platform/route requires its own evidence.
 - Shared `managed.go`, carrier identities, module pins and executor entrypoints must follow the explicit serialization table; new disjoint snapshot helper files may proceed in parallel against frozen interfaces.
 
-No new source edits, builds, credentials, vendor execution or web research were used for this review. A read-only Markdown target audit at `3b13aac` checked 56 plan/leaf/verdict files and 86 targets with zero missing local targets; the existing-target control passed and a known missing target was detected. This checks file existence only, not anchors, external URLs or normative completeness.
+No new source edits, builds, credentials, vendor execution or web research were used for this review. The final read-only audit at `32cf0f2` checked 74 Markdown files, 119 targets and all 53 leaf mappings with no missing local target or unlinked leaf. Existing-target controls passed; a known missing target and a deliberately removed M1 mapping were detected. This checks file existence and mapping only, not anchors, external URLs or normative completeness.
