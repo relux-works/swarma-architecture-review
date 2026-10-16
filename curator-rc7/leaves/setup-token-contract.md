@@ -13,6 +13,7 @@
 4. Define `login-row-v1` node/native/file/caller mapping without widening its enums; separate registration lifecycle and executor capability from candidate presence.
 5. Freeze protected store/input bounds, atomic publication/revoke behavior and inspect → plan → apply preservation. Tokens and their digests never enter public metadata; snapshot descriptor/manifest/archive excludes source metadata as well.
 6. Publish the proposed same-user headless chain `task-board spawn → approved curator-run local final-exec → Claude noninteractive process`, including its entry point and required plan carrier. It is independent of the full CIP-0016 primary hosted matrix. Direct-only and interactive hosted PTY have different qualification rows. `tb-sessiond` node lookup/restart remains refused: local-hosted-launches §§4/6 currently preserve the exact provider process and prohibit daemon lookup of fresh restart secrets. A later hosted token route needs an explicit amendment, never an internal injection callback or hidden wrapper.
+7. Freeze the Curator-owned public in-process `pkg/localcredential` facade: metadata describe plus typed authorize-and-start at the final boundary, with a secret-free process handle result. It resolves protected authority itself and offers no token getter, environment-map return, CLI stdout/IPC or caller-asserted authorization. Curator's internal store implementation stays private; launcher pins/imports the public API. Preserve existing launch signal/terminal/cancellation semantics.
 
 ## Mandatory negatives and positive controls
 

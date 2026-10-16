@@ -11,6 +11,7 @@
 2. Store secret only in the approved per-user 0600 object under protected 0700 ancestry. Validate ACL/ownership/type/mode and descriptor identity; reject symlinks/hard links/substitution. No permission-repair shortcut, generic journal, backup copy or shell command handling the material.
 3. Serialize replacement/revoke/final-read operations. A crash never activates mismatched metadata/material generations. Preserve the prior coherent enrollment or expose a recoverable unavailable state. Re-enrollment rotates opaque reference/generation so old plans do not bind a replacement by label.
 4. Report lifecycle metadata only, never material, hash, prefix or raw input errors. Unknown issuance/expiry stays unknown. Revocation means future local delivery disabled; it never claims vendor revocation or recall from running sessions.
+5. Ship the metadata portion of T0's public `pkg/localcredential` facade over the same private store core. CLI enrollment/revoke uses that core; no secret-bearing CLI, public getter or IPC is added. The final-launch operation lands separately in T3a after T2 source/home policy; do not create a T1↔T2 dependency cycle or publish a success stub.
 
 ## Mandatory negatives and positive controls
 
@@ -21,4 +22,4 @@
 
 ## Dependencies and paths
 
-T0 complete contract; new protected store can develop separately from readiness. Proposed new `internal/envcredential/` (name finalized by implementation owner), `cmd/curator/envcredential.go`, CLI dispatch/help/docs. Shared `cmd/curator/env.go` wiring is serialized with login/materialize leaves. Reuse existing no-follow/atomic primitives only after confirming they do not log/journal secret values. No credentials are placed under `internal/envprofile` content hashes or snapshot pipelines.
+T0 complete contract; new protected store can develop separately from readiness. Proposed new `internal/envcredential/` and public `pkg/localcredential/`, `cmd/curator/envcredential.go`, CLI dispatch/help/docs. Shared `cmd/curator/env.go` wiring is serialized with login/materialize leaves. Reuse existing no-follow/atomic primitives only after confirming they do not log/journal secret values. No credentials are placed under `internal/envprofile` content hashes or snapshot pipelines.
