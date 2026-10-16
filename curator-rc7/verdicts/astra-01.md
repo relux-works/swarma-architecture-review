@@ -1,10 +1,10 @@
 # astra-01 — delivery and plan verdict
 
-Round 2 integrated position, pending collective review/parking. Owner of PLAN.md; adversarial review of astra-04 and the setup-token delivery seams. **Accept the proposed implementation plan and conditional token design.** This verdict evaluates their contracts, decomposition and gates, not implemented behavior or runtime qualification.
+Round 3 integrated position, pending collective review/parking. Owner of PLAN.md; adversarial review of astra-04 and the setup-token delivery seams. **Accept the proposed implementation plan and conditional token design.** This verdict evaluates their contracts, decomposition and gates, not implemented behavior or runtime qualification.
 
 | Criterion | Score | Evidence |
 |---|---:|---|
-| P1 Traceability | 2 | PLAN §6 maps all five CIP implementation families; canonical L15/M/C/SNAP/H/T/X leaves cite exact clauses. C7 owns spec activation, M6 owns the deferred Muse broker-key seam. |
+| P1 Traceability | 2 | PLAN §6 maps all five CIP implementation families; canonical L15/M/C/SNAP/H/T/X leaves cite exact clauses. C7 owns spec activation, M6 the deferred Muse broker-key seam, and L15-5/6a/6b close the later readiness guidance/broker bridge accounting. |
 | P2 Bounded leaves | 2 | Capture, identity, closure, publication, common runtime, native/spawn, hosted reservation/admission and each runtime are separate. T3a API and T3b integration split the cross-module boundary; X3 intake and X5 remote protection are separate. |
 | P3 Negative evidence | 2 | Every canonical leaf names intended refusals, valid controls and state invariants. Production entrypoints, omission/known-invalid controls and limits of fake/schema evidence are explicit. These are planned tests, not executed results. |
 | P4 Ordering | 2 | PLAN §4 serializes actual shared config/fragment/managed.go/CLI/context/execution/pin paths; SNAP-ID/LOCK/PUBLISH remain parallel. Common pure verification serves status and materialize. Source-independent code precedes joint authentication qualification without cycles. |
@@ -19,6 +19,7 @@ Round 2 integrated position, pending collective review/parking. Owner of PLAN.md
 - **Muse dependency settled.** Frozen conforming regular-file bytes plus the real exact-build loader prove representation only. SNAP-CLI separately proves actual materialize integration. Neither side borrows the other's capture/provenance/runtime evidence.
 - **Codex ownership corrected.** C0 replaces duplicate draft G0 work; L15-0 owns config/status. C5/C6/C7 own host, relay and activation. New hosted initial exclusive MCP/config bytes remain Curator-owned; receiver tools/trust narrowing does not authorize MCP rewrites.
 - **Two reuse traps independently confirmed.** `envprofile.go:911–919` activates the first install despite `Use=false`; prepare needs a no-activation seam and existing PreserveLock. `verifyHome -> checkToolRelease -> detectRelease` executes a vendor; L15-2/SNAP-LOCK share one pure-verification split with independent complete-CLI tripwires.
+- **CIP-0015 follow-on accounting closed.** Astra-03 found omitted implementation rows 7/8. Reviewed astra-02's L15-5/6a/6b at `82b669b` against those rows and broker §18.15. They own consumer guidance and later authorized source/dispatcher integration; none adds a base rc.7 or local-token prerequisite, status lease, operator impersonation or unpublished wire. PLAN now maps every CIP-0015 implementation row explicitly.
 
 ## Setup-token elegance
 
@@ -45,4 +46,4 @@ Total: plan **12/12**; token design **11/12**. These are design scores, not rele
 
 [PLAN](../PLAN.md), canonical linked leaf contracts, [setup-token design](../designs/setup-token-local-source.md), and persisted findings carry the clause/source evidence. Inspected source pins are in PLAN §1. The collective changed only planning artifacts. No builds, provider execution, source-repository changes or credential reads occurred. Document/link checks verify artifact consistency only; required runtime tests are future implementation obligations.
 
-Pre-publication document validation: 69 Markdown files, zero missing local file targets; a known-missing in-memory control was detected. Heading anchors were not checked. `git diff --check` passed. Logs: astra-01 `.temp/document-links-01.log` and `.temp/doc-checker-readiness-01.log` (Python 3.14.7).
+Round-3 document validation: 74 Markdown files, zero missing local file targets; all 53 canonical leaf files linked from PLAN. Known-missing-target and omitted-M1-link in-memory controls detected the intended violations. Heading anchors were not checked. `git diff --check` passed. Logs: astra-01 `.temp/document-links-02.log` and `.temp/doc-checker-readiness-01.log` (Python 3.14.7); round-2 evidence remains in `document-links-01.log`.

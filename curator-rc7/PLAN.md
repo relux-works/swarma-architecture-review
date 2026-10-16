@@ -1,6 +1,6 @@
 # Curator rc.7 implementation plan
 
-Owner: astra-01. Round 2 synthesis, 2026-10-16. This is an implementation and delivery plan, not shipped-code or runtime-qualification evidence. The linked leaves define clauses, acceptance, negative tests with positive controls, dependencies, paths and estimates. Each repository maps its own leaves into its existing board before implementation; a coordinated handoff is never a multi-repository mega-PR.
+Owner: astra-01. Round 3 synthesis, 2026-10-16. This is an implementation and delivery plan, not shipped-code or runtime-qualification evidence. The linked leaves define clauses, acceptance, negative tests with positive controls, dependencies, paths and estimates. Each repository maps its own leaves into its existing board before implementation; a coordinated handoff is never a multi-repository mega-PR.
 
 ## 1. Fixed scope and inspected baseline
 
@@ -25,6 +25,7 @@ Updated neighbour clones were supplied under `curator-rc7-collective/sources/`; 
 | **Explicit Codex override activation** | C0..C7 and every consumer required by the adopted rollout contract | Only exact qualified tuples. Missing hosted/relay evidence is not a local-only waiver; a narrower activation requires prior spec adoption. Package vocabulary stays absent or `{}` |
 | **Native and headless snapshot uptake** | HOST-HOME-SPEC/CODE plus D4-N/D4-S and each destination authentication/runtime row | D4 only on the named migrated route. No mutable live-home fallback or current-profile recapture on resume |
 | **Owner-requested Claude node-source outcome** | T0..T4, including both T3a/T3b, plus private-home and real headless-spawn qualification | Same-user `task-board spawn -> curator-run final-exec -> Claude` only. Direct-only injection does not close spawned-agent support |
+| **Readiness consumer and broker follow-ons** | L15-5 after the released status/prepare surface; L15-6a/6b only after separate broker source/operator/observer adoption | Sanitized caller-scoped guidance, then separately authorized broker integration. No lease/enrollment side effect from status, no broker client in board/session host |
 | **First public local hosted activation** | All hosted leaves, common runtime contract/code, three-runtime operation matrix and applicable C5 | Claude, Codex and Muse together. No partial two-runtime launch flag; materialize or a registered factory is insufficient |
 | **Cross-account archive activation** | X0..X5, separately admitted credential channel and destination runtime qualification | Only measured archive/relay/executor/platform tuples; local success does not prove D6 |
 
@@ -49,8 +50,13 @@ Publication gates are concrete work: L15-0 allocates complete config/status carr
 | [L15-2](leaves/login-readiness.md) | curator | Caller-session metadata probes and full status/strict aggregate; after common policy, never `--version` or auth-status execution |
 | [L15-3](leaves/env-login.md) | curator | Trusted direct vendor login, both TTYs, admitted isolated home, exact failure/cancellation semantics; after policy/readiness and qualified delivery |
 | [L15-4](leaves/profile-prepare.md) | curator | Every participant, explicit install/resolve/login orchestration, headless report-only, no activation and no implicit lock migration; after L15-2/3 |
+| [L15-5](leaves/login-consumer-guidance.md) | project-management | Follow-on sanitized current/login display and source-specific preparation guidance; after released L15-0/2/3/4; no new reader or launch-authority gate |
+| [L15-6a](leaves/login-broker-curator.md) | curator | Follow-on broker metadata and explicitly admitted operator enrollment routing; after separately published/qualified broker source and §18.15 observer/operator entrypoints |
+| [L15-6b](leaves/login-broker-dispatcher.md) | dispatcher | Follow-on sanitized readiness handoff; fresh normal dispatch authority remains mandatory; after the same adopted boundary and L15-6a |
 
 L15-4 must not reuse ordinary installation with only `Use=false`: current `envprofile.go:911–919` still activates the first profile. Add an explicit no-activation seam; pointer restoration after native writes is too late. Preserve ordinary first-install activation as the positive control. Use the existing selected-lock preservation contract rather than unconstrained repair.
+
+L15-5 is distinct from the M5 module pin. L15-6a/6b account for CIP-0015's later broker bridge; they do not implement broker authority, choose unpublished wire, or become base rc.7/local-token prerequisites. Metadata observation cannot enroll, lease, renew, use a home fallback or infer absence from denied/unavailable access. Operator enrollment remains a separately authenticated human act; cached presence never replaces fresh dispatch/binding/lease checks.
 
 M2 qualifies the real loader on both representations; it does **not** prove materialize capture, publication or provenance. SNAP-CLI separately runs actual `env materialize -> Muse loader` with the frozen expected bytes. This removes a false early-release dependency without deleting the product integration gate. Offline echo is only a candidate observation lane until exact-loader equivalence is proved. Quota/auth failure, argv-only success and a fake binary cannot pass P1–P4. Model-visible residuals and refresh remain separate measured or unknown rows.
 
@@ -115,12 +121,12 @@ This order avoids the custody/source-policy cycle and cross-module `internal` im
 | curator context manifest/resolve/lock/marker identity | C1 full-carrier work before consuming snapshot resolver integration; do not rewrite frozen old identities | Pure snapshot hashing/destination code; empty-vocabulary fixture design |
 | curator managerlock/transaction/capture | SNAP-LOCK owns the new non-recovering seam; no opportunistic mutation-recovery rewrite | SNAP-ID and SNAP-PUBLISH through fixed interfaces |
 | curator `verifyHome` / advisory version observation | L15-2 and SNAP-LOCK share one pure-content/metadata seam, with L15-2 integration first; both CLI consumers assert zero provider execution | Snapshot identity/destination helpers and vendor qualification outside those read paths |
-| curator `envprofile.go`, CLI env/status/profile entry files | L15-2, L15-3, L15-4, SNAP-CLI wire-up sequential as paths overlap; preserve ordinary install and selected lock | Independent package implementations and qualification records |
+| curator `envprofile.go`, CLI env/status/profile entry files | L15-2, L15-3, L15-4, SNAP-CLI wire-up sequential as paths overlap; later T2/L15-6a source hooks serialize; preserve ordinary install and selected lock | Independent package implementations and qualification records |
 | curator runtime/bootstrap, source admission, `pkg/localcredential` | SNAP-CLI -> HOST-HOME-CODE; T1 -> T2 -> T3a on their shared API; join only published seams | Source-independent D4 consumer fixtures and separate schema publication |
 | agents-management shared Curator context/seal and module release | M3 first, then C2 and hosted process-form integration; one module tag/pin state at a time | Provider-specific fixture work with no shared file edits |
 | launcher fragment/plan/context/composition/execution and SPEC | M4 first, C3 then D4-N/T3b as overlapping entrypoints require; archive intake after its contract | New parser/control fixtures and contract reviews outside shared files |
-| project-management module/vendor, spawn, hosted identity/client/runtime | M5 first; D4-S before T4 integration; C5 serialized with Codex host work; reservation/admission own shared receiver state | Disjoint Claude/Muse runtime tests and non-mutating qualification |
-| dispatcher covered plan/resource contract and relay journal | C6 settings and X0/X2 archive owners coordinate the same schema/relay boundary | Frozen canonical resource vectors; no invented implementation paths |
+| project-management module/vendor, spawn, hosted identity/client/runtime | M5 first; D4-S before T4 integration; C5 serialized with Codex host work; L15-5 diagnostic integration shares source consumer files; reservation/admission own shared receiver state | Disjoint Claude/Muse runtime tests and non-mutating qualification |
+| dispatcher covered plan/resource contract and relay journal | C6, X0/X2, M6 and L15-6b owners coordinate shared schema/outcome/relay edits; no dependency on unrelated activation | Frozen canonical resource vectors; no invented implementation paths |
 
 Freeze small interfaces before parallel work; a task claims an exact path set before edits. A leaf exceeding its single attack surface splits before coding. Size estimates are relative, not delivery dates. Existing scoped tests may be reused only at the reviewed commit and with their demonstrated limits.
 
@@ -158,7 +164,10 @@ X1/X2/X3 can implement against shared immutable vectors in parallel after X0; X3
 | CIP-0014 leaf 2 / snapshots §§1–5 | SNAP-ID/LOCK/CLOSURE/PUBLISH/CLI; separate schema identity and real filesystem controls |
 | CIP-0014 leaves 3–4 / snapshots §6 | HOST-HOME-SPEC/CODE, D4-N/D4-S and hosted route leaves; all adapter/runtime policy and credential boundaries retained |
 | CIP-0014 leaves 5–7 / snapshots §7 | X0..X5 and C6 where settings cross dispatch |
-| CIP-0015 / login-readiness §§1–7 | L15-0..4, C4 for Codex qualification; T2 only after its source extension is adopted |
+| CIP-0015 leaves 1–2 / login-readiness §§1–2,5–7 | L15-0/1/2; complete carriers, machine policy and metadata-only status |
+| CIP-0015 leaf 3 | M3/M4 and C2/C3, plus H-FORMS/C5 on advertised hosted routes; C4 for explicit Codex runtime qualification |
+| CIP-0015 leaves 4–6 / login-readiness §§3–4 | L15-3/4; M1 with L15 common policy and R0 guidance for D10 Muse admission/refresh bound |
+| CIP-0015 leaves 7–8 | L15-5 consumer guidance; L15-6a Curator broker routing and L15-6b dispatcher handoff, after separate broker publication. T2 is a different local source extension |
 | CIP-0016 curator leaf 2 | Snapshot producer plus explicit common runtime initialization/verifier seam; receipt is not authentication or provider qualification |
 | CIP-0016 remaining leaves | H-WIRE/FORMS/PREP/ADMIT/CLAUDE/MUSE/CODEX/LAUNCHER/RELEASE; C5 owns typed Codex policy, X0..X3/X5 the later transport boundary |
 | CIP-0017 leaves 2–7 / environments §§7.9,10.2 | M1..M6, with SNAP-CLI's independent real producer/loader row and separate broker channel adoption for M6 |
