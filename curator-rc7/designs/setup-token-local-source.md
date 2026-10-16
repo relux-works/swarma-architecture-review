@@ -1,0 +1,152 @@
+# Claude setup-token: protected local source
+
+Owner: astra-05. Round 1 proposal, 2026-10-16. Design and normative-text proposal only; no implementation or harness qualification is claimed.
+
+## 1. Decision and boundary
+
+Deliver the local, same-OS-user slice of CIP-0010: a human deliberately enrolls a Claude `setup-token`; Curator owns its protected file store and source selection; the actual final executor reads it immediately before launching the qualified Claude process. Reuse the authentication node, opaque `source_ref`, protected binding and `credential-injection/1` concepts already proposed in CIP-0010. Do not introduce a broker, generic secret service, environment-file transport or native-login exporter.
+
+The token authenticates model inference. Remote Control and fetched claude.ai connectors are outside this source's capability. D11 already accepts the Remote Control limitation; it is not a new operator question. The accepted native per-home source remains the default and keeps its present semantics.
+
+This removes per-home browser login and session-dependent native credential storage **only on a qualified node-source execution path**. A successful enrollment, `login: present`, v4 support or a self-declared executor capability does not deliver that path. A direct-only implementation must not be called spawned/tracked support. A source node owned by another UID or on another host is unavailable in this slice; never copy its file into a home, archive or another account to make it work.
+
+## 2. Evidence and its limits
+
+| Evidence | Finding | Bound |
+| --- | --- | --- |
+| curator-spec `5509499`, CIP-0010 C1–C4, C6 and revisions 2.1/2.2 | File-first nodes, user-owned source, explicit migration, no fallback, final lookup, protected binding and qualification are already designed | CIP-0010 remains Draft; C7 still sequences cross-user broker first. Local-only admission needs an explicit narrow amendment |
+| Same pin, CIP-0003 operative disposition and historical launch-selection/launch-order text retained by C6 | Check conflicts before secret lookup; preserve explicit isolation locks; never inject through tracked literals; qualify settings reload | Historical Keychain-first custody is superseded by file-first C1 |
+| Same pin, login-readiness §§1–4 | Metadata-only rows; source → store → isolation → link; node sources reject non-native home-store overrides; login refuses node and prepare gives enrollment guidance | Presence is not authentication, expiry or launch authority |
+| Same pin, managed-home-snapshots §§1,3,4,6 and local-hosted-launches §§3–5 | Snapshot excludes credentials, OAuth/source metadata and backend policy; destination runtime preparation is separate | Caller readiness cannot certify relocated-home authentication |
+| Supplied `inputs/logins-facts.md`, Claude 2.1.299/macOS 15 | Env token selects `oauth_token`, writes no native login and is inference-only; desktop/ssh native stores differ | Historical probes, not a no-child-leak qualification or proof of every native-read path |
+| curator `0d00a109`, `internal/config/environments.go`, `internal/envprofile/managed.go:332,617` | Resolution currently starts at isolation; isolated macOS strategy records per-home-keychain | That marker is strategy metadata, not observed login; node source must precede these paths and use a coordinated marker revision |
+| launcher `9ad2f016`, `internal/composition/composition.go:115`, `internal/execution/execution.go:83,143` | Composer builds `EnvLiterals`; Prepare serializes them; tracked Run invokes `ax`, which inherits launcher environment; direct Run constructs the actual child | Secret lookup in Compose, plan building or the pre-ax environment is the wrong hop. Runtime injection/binding symbols were found in SPEC, not cmd/internal implementation |
+| launcher same pin, SPEC §10.3; broker `ec7fb3d`, §§8.5,12.1 | Qualification includes uncontrolled MCP, hooks and tool children; delivered env tokens cannot be recalled by local lease/source revocation | Broker grants, cross-user identity generations, leases and peer authority are not imported into this local feature |
+
+Vendor primary references read 2026-10-16:
+
+- [Authentication](https://code.claude.com/docs/en/authentication): setup-token is printed rather than saved; documented one-year token; API keys/helpers and other provider selections can outrank subscription sources. Bare mode does not consume this token. These are vendor descriptions, not fresh probes.
+- [Environment variables](https://code.claude.com/docs/en/env-vars): settings `env` entries can replace inherited values and be reapplied on reload; endpoint variables affect routing. Thus a clean initial process environment alone cannot establish the binding for a running session.
+- [Remote Control](https://code.claude.com/docs/en/remote-control): setup-token cannot establish Remote Control.
+
+No credentials, Keychain, real user stores or vendor binaries were read or executed for this review. No qualification evidence is manufactured from metadata fixtures. Third-party mirrors suggesting child-scrub switches are not a qualified implementation mechanism; the inspected English primary page did not establish those switches.
+
+## 3. Custody and enrollment
+
+The first backend remains CIP-0010 C1's per-user file: `~/.curator/auth/<label>/secret`, inside a user-owned 0700 node directory, with a 0600 regular secret file. This is a specification path, not a location inspected during this review. Node metadata contains harness `claude_code`, kind `claude-oauth-token`, opaque reference, enrollment state and timestamps. It contains no token bytes, token digest, account email or inferred organization. A label identifies a user-chosen node, not a verified vendor identity.
+
+Use the existing proposed command:
+
+```text
+curator env credential enrol claude_code --node <label> --token-stdin [--issued-at <date>]
+curator env credential status --node <label>
+curator env credential revoke --node <label>
+```
+
+The human runs `claude setup-token` in a private terminal and supplies **only the deliberately selected token**, not a captured vendor transcript, to enrollment. Do not promise that blindly piping the complete vendor command output is a stable protocol. `--token-stdin` accepts a bounded non-terminal stream; token argv, environment-variable enrollment, shell history snippets and an arbitrary source-file path are not initial interfaces. The login wrapper never captures setup-token output. Enrollment does not extract, migrate or revoke the human's native login.
+
+Before reading stdin, validate authority, node label, trusted store ancestry and operation preconditions. Accept one nonempty opaque token of bounded size (proposed maximum 16 KiB, optional one trailing LF/CRLF); reject embedded whitespace/control bytes, multiline transcripts, empty/oversized input and an invalid stated date without echoing input. Structural acceptance is not vendor validation. Use no shell evaluation or token-prefix assertion as proof of authenticity.
+
+Store access must walk protected ancestry without following symlinks; verify ownership, modes, effective ACL protection, regular-file type and no unexpected hard links on the opened object. Do not validate one pathname and later reopen a substituted path. Unsafe existing objects are refused, never chmodded, replaced or followed as a repair. Keep secrets out of generic transaction journals, backups and temp directories. If private atomic staging is used, it is part of the same protected store and has the same protections, cleanup and crash-recovery rules.
+
+Serialize enrollment, replacement, revoke and final material release per node. Metadata and secret generations must match: interrupted publication cannot combine old authorization with new material. A failed first enrollment publishes no usable source; failed replacement either leaves the prior coherent generation active or leaves the node unavailable with explicit recovery, never an ambiguous success. Re-enrollment after revoke uses a fresh opaque reference/policy generation; a stale plan must not silently select new credentials under a recycled label. `enrolled_at` is not `issued_at`; without stated issuance, expiry is unknown. Never log the token, a digest, a prefix or its original input size in a diagnostic.
+
+The file protects against other OS users and accidental artifact copying. Same-UID trusted processes can potentially read the file and the harness can read its environment. `isolation=isolated` is not an OS/process/account security boundary. No claim of protection from a compromised same-user harness, root, backups or process-memory inspection is made. Restrict filesystem exposure where the qualified sandbox supports it, without presenting that as token non-extractability.
+
+## 4. Machine policy, home adoption and readiness
+
+The selector is `credential_source.<profile>.claude_code = per-home | node:<label>` in the user-owned machine configuration, using the existing identifier grammar. No package, overlay, repository or system lock can select a node, account or source. Missing selection keeps source-policy v1's `per-home` default. Helpers, refresh-token provisioning and other harness node kinds remain outside this slice.
+
+Resolve source before store/isolation/link decisions. A node source requires `credential_store=native` (default). Here `native` means no override of Claude's own home store; it does **not** mean the node lives in Keychain. Explicit `file` or `keychain` is inapplicable and refuses `environment_credential_store_unsupported`. Node custody uses its independently fixed file backend.
+
+No native-store link is admitted for node mode. Retain CIP-0003/C6's distinction: an implicit shared default may yield to the explicit source's linkless strategy; an explicit shared setting or applicable shared lock conflicts and cannot be silently overwritten. Effective isolation is isolated; this permits deliberate token reuse and promises no separate vendor account. macOS native shared remains unsupported.
+
+Source changes on existing homes use inspect → plan → apply with a new marker/source identity. Do not delete, export or copy a native login, and never convert repair into source migration. A home containing a native credential or competing auth settings refuses. If safe absence/migration cannot be established, preserve that home and require an independently prepared node-source home; do not label unreadable native metadata as empty. A newly prepared private snapshot is credential-free, but still requires the separately admitted Curator runtime preparation and final source binding; snapshot portability never grants credential access.
+
+Use the frozen `login-row-v1` shape unchanged:
+
+| Observation under the adopted local source policy | login | login_detail |
+| --- | --- | --- |
+| Current protected active registration and accessible nonempty regular secret candidate, no observed conflict | present | source=node; store=native; backend=file; session=caller; reason=candidate-present |
+| Successful protected lookup establishes no registered candidate, including a completed local revoke | absent | same source/store/backend/session; reason=candidate-absent |
+| Unsafe ancestry/ownership, denied lookup, malformed/inconsistent registration or incomplete recovery | unknown | reason=metadata-unavailable, or untrusted-home for the home boundary |
+| Empty candidate | unknown | reason=empty-file |
+| Competing effective auth input/native home login | unknown | reason=source-conflict |
+| Source policy or platform metadata reader not adopted/qualified | unknown | reason=unqualified-backend; backend=unknown if unestablished |
+
+Readiness never opens secret content, executes `claude auth status`, probes the network, retrieves a token or creates a Keychain prompt. Generic status must not run an agent merely for an adjacent version/currency column either. Do not add node labels, expiry fields, error codes or source refs to this closed row. Separate credential status may report registration lifecycle/unknown or stated expiry and guidance without account identity or token digests.
+
+A known expired token can still be a physically present candidate: `login` deliberately does not assess validity. The separate lifecycle report says re-enrollment required and the executor refuses known expiry. `profile prepare`'s existing exit-0 contract remains current+present, **not** a promise that injection, inference or Remote Control works. Report capability/lifecycle limits separately; do not secretly change the row meaning. Unknown never triggers login. Node mode makes `env login` refuse with enrollment guidance; prepare never mints/enrolls a token or invokes native home login for node absence.
+
+## 5. Protected final executor
+
+Curator resolves a non-secret source projection. A coordinated full fragment successor and required-understanding plan extension carry only source metadata, never a path to the secret or a fallback env name. Existing v4 is closed; do not slip credential fields into it. Coordinate source and Codex successor allocations rather than minting independent competing revisions. Proposed node branch of `works.relux.curator.credential/1` remains CIP-0010's `{mode: node, source_ref, harness_channel}`; its exact closed schema must be published with the local binding and consumer capability. Existing proposed broker branch is not silently reinterpreted.
+
+At the final process boundary, resolve a user-owned local `credential_binding/1` that binds the executing UID, profile, harness, active node/reference and generation, channel, approved endpoint, approved harness executable digest and current policy generation. The local node does not impersonate a broker peer/generation or supply cross-user authority. Policy selects only installed, qualified executable/configuration tuples; a profile-controlled executable cannot become approved by naming it. The full binding is local protected state, not an authorization copied out of the plan. A source ref, matching digest, cached readiness or capability declaration alone supplies no authority.
+
+Order matters:
+
+1. Admit the full plan/carrier and the execution route; require independently qualified `credential-injection/1` for that route/platform/harness release. Reject another UID/host, unsupported interactive mode, `--bare` or unknown required extension before reading material.
+2. Ask Curator's policy/preparation boundary for home/source admission; the launcher does not reconstruct a home inventory. Re-resolve the local protected binding and effective settings, executable identity and endpoint policy. Refuse changed or unreadable evidence.
+3. Check competing auth inputs by **name/presence**, not by printing or comparing secrets: inherited OAuth/API/bearer/refresh variables, token FD/host channels, `apiKeyHelper`, settings `env`, provider/gateway/profile/federation switches, secure-storage overrides and endpoint/header overrides. Reserve the injected name in generic literals, inherited-name requests and MCP interpolation/configuration too. Reject native argv/settings that can replace admitted policy. Use CIP-0003's retained conflict inventory; qualify completeness for the supported release.
+4. Under the node operation lock, recheck active reference/generation, binding and known expiry, then open and validate exactly the protected secret object. No fallback after missing, unreadable, malformed, revoked or expired material. This release boundary is the local revocation linearization point; material already released cannot be recalled.
+5. Add `CLAUDE_CODE_OAUTH_TOKEN` only to the actual Claude child's private environment immediately before spawn. Never mutate global `os.Environ`, `EnvLiterals`, `env_names`, plan requests, temporary env files, shell command strings, ax's environment or host-receiver payloads. Close credential FDs before child execution and discard buffers when no longer needed; do not promise perfect memory zeroization in a garbage-collected runtime.
+
+The current direct `internal/execution` process launch is one possible final boundary. Current tracked execution hands off to ax; current hosted composition hands off to a receiver. Both must refuse node mode until their actual final receiver performs the same protected lookup with an admitted carrier. Injecting in their caller is not a shortcut. Hosted Claude with interactive PTY also cannot inherit a headless-only qualification; CIP-0010 C3.6 requires modes without `/login` for the initial tracked/headless source. Supporting interactive token homes needs its own admitted warning/conflict/reload behavior.
+
+Qualification must show the actual token source is used without native secret reads and that no uncontrolled MCP server, shell/tool child, hook, plugin helper, telemetry, debug dump or transcript obtains it. MCP environment interpolation can copy a reserved source into another variable, argument or URL before child creation; filtering only the original name is insufficient. Settings reload and helpers can replace the source or endpoint after launch. A documented or guessed scrub flag is not evidence: use a pinned real harness, sentinel tokens and child probes, with a known-leaking control. If the vendor cannot provide a clean qualified mechanism, keep the capability unavailable instead of adding a fake mock-only implementation or relaxing the requirement. The harness's own intentional access remains the accepted trusted-process boundary.
+
+## 6. Revocation and recovery
+
+Local revoke atomically marks the registration unusable, removes its stored item safely and invalidates bindings so subsequent material releases fail. Its success message says **local delivery disabled**, and gives separate vendor revocation guidance. It does not claim vendor revocation, stop arbitrary processes, erase already delivered tokens or invalidate tokens held by running sessions. Re-enrollment is a fresh deliberate action; stale plans/bindings do not reactivate a revoked generation.
+
+Known expiry refuses at exec even if a previous metadata row said present. Unknown expiry remains unknown. Typed vendor authentication failure requires re-enrollment/restart guidance with no silent home fallback or endless retry. Quota, permission, transport and ambiguous errors remain distinct; do not infer vendor revocation from every 401/403 or a network failure. Claude transcript resume with a replacement token is qualification work, not a promise based on source design.
+
+## 7. Proposed normative text
+
+Proposed new amendment `protocol/local-setup-token-source.md`, with coordinated references from environments §§7.4,12.1–12.2, login-readiness §§1–4, CIP-0010 C7, Decision 0013 and launcher execution contracts. This section is the minimal semantic contract; leaf T0 must publish its closed carriers/refusals/conformance before implementation advertises it.
+
+> **L1 — Scope and source.** An implementation MAY adopt the Claude local node source for same-OS-user, same-host launches. This adoption is independent of the cross-user broker sequence in CIP-0010 C7 and grants no broker, remote or cross-user capability. The user-owned, non-lockable `credential_source.<profile>.claude_code` selects `per-home` or `node:<label>`; absence preserves the source-policy v1 default. Packages, repositories, overlays and locks MUST NOT select credential material, nodes or accounts.
+>
+> **L2 — Custody.** Only deliberately supplied setup-token material MAY be enrolled through bounded private stdin into the first per-user 0600 file backend in a protected 0700 directory. Native credentials MUST NOT be extracted, copied, linked or deleted for enrollment. Node metadata MUST contain no credential value or digest. Reads and writes MUST verify protected ancestry and opened-object type, owner, permissions and identity without following unexpected links. Enrollment, replacement, revocation and material release MUST serialize and reject mismatched/incomplete generations. Failed operations MUST NOT publish usable partial state or expose input.
+>
+> **L3 — Policy and adoption.** Resolution MUST apply source, home-store selector, isolation admission and link strategy in that order. A node source MUST reject non-native home-store overrides and native-store links. Explicit conflicting isolation policy and existing credential ownership MUST NOT be silently changed; adoption MUST use inspect → plan → apply. Unreadable evidence MUST NOT count as absence. Existing native logins MUST be preserved outside the newly admitted source home.
+>
+> **L4 — Readiness and login.** Node readiness MUST use `login-row-v1` with source `node`, store `native`, backend `file` when established and session `caller`, derived only from protected registration/candidate metadata. Present means accessible candidate, not validity, expiry or executor qualification. Missing, empty, unreadable, unsafe and conflicting cases MUST retain §1's distinct outcomes. Status MUST NOT execute an agent, retrieve a token or perform authentication. `env login` MUST refuse node sources with enrollment guidance; `profile prepare` MUST NOT enroll a node or fall back to home login.
+>
+> **L5 — Carriers.** Plans/fragments MAY carry only the published required-understanding source metadata; no material, material digest, secret path, generic literal or ambient-name fallback is permitted. Snapshot manifests, descriptors and archives MUST carry neither token material nor credential-source metadata. Released closed carriers MUST NOT be widened. Unknown source semantics or an incapable final executor MUST refuse `credential_injection_unavailable` before material access.
+>
+> **L6 — Binding and injection.** Immediately before material release the final executor MUST re-resolve its protected local binding, active node generation, effective policy, approved executable and endpoint for the same UID/profile/harness/channel. Caller metadata, a plan digest or a capability declaration MUST NOT replace that authorization. Competing credential, settings/helper, provider or endpoint sources MUST refuse before lookup. Only the actual Claude child MAY receive `CLAUDE_CODE_OAUTH_TOKEN`; parent-global environment, intermediate executors, argv, files, logs and receipts MUST NOT receive it. Missing, unreadable, changed, revoked or expired sources MUST NOT trigger another source.
+>
+> **L7 — Qualification.** `credential-injection/1` MUST be advertised only for a published and behaviorally qualified route/platform/harness tuple. Qualification MUST establish selected-source behavior without native secret reads, reservation against conflicting sources and absence from uncontrolled MCP, hooks and tool children, including interpolation and reload paths. A clean initial environment, mocked exec, metadata status or schema pass alone is insufficient. `--bare`, unqualified interactive routes and unsupported recipients MUST refuse. The harness can read the delivered token; no non-extraction guarantee is implied.
+>
+> **L8 — Lifecycle.** Enrollment time MUST NOT be substituted for issuance time; unknown expiry MUST remain unknown. Local revoke MUST prevent subsequent material releases and invalidate stale bindings, but MUST NOT claim vendor revocation or recall of delivered values. Known expiry and local revocation MUST refuse further delivery. Recovery MUST require explicit re-enrollment and a newly admitted launch; error reporting MUST preserve uncertainty and never expose credential data. Remote Control is not supported by this source.
+
+Proposed diagnostic allocation (not claimed as currently published): retain `usage`, `environment_credential_store_unsupported`, `credential_node_missing`, `credential_store_unreadable`, `credential_source_conflict`, `credential_injection_unavailable`; publish specific local binding-mismatch, invalid-enrollment-input and revoked/known-expired delivery refusals in T0. Avoid borrowing broker `lease_*` codes for local operations. Lifecycle refusal codes are separate from the frozen readiness reason enum.
+
+## 8. Required conformance pairs
+
+| ID | Negative witness and forbidden effect | Positive control / limit |
+| --- | --- | --- |
+| ST-01 | Package/lock-selected node, unknown selector, path-shaped label, conflicting explicit shared policy, node+file/keychain selector: no store read or policy mutation | User-owned node, native store, linkless admitted isolation resolves metadata only |
+| ST-02 | Empty, multiline, oversize, terminal stdin or invalid date: typed enrollment refusal, unchanged old generation, no echo | One bounded deliberately supplied sentinel enrolls once; no network/vendor validity claim |
+| ST-03 | Symlinked ancestor/secret, hard link, wrong owner, permissive ACL/mode, object swap: refuse without following/writing target | Protected real object succeeds through descriptor-bound operations |
+| ST-04 | Crash before/after secret/metadata publication or concurrent enroll/revoke: no mixed usable generation; explicit recovery | Serial completed enrollment/replacement and revoke produce coherent observed state |
+| ST-05 | Missing vs denied vs zero-length vs conflicted registration: distinct frozen row outcomes; no credential open, helper, agent or network call | Protected nonempty candidate produces present with node/native/file/caller |
+| ST-06 | Old per-home marker plus selected node or native credential presence: migration refusal, native login untouched; repair cannot adopt | Explicitly admitted new node-source home has no native credential/link |
+| ST-07 | Unknown extension, missing capability, wrong UID/host, stale binding/source generation, swapped executable/endpoint/policy: no secret read or child start | Matching trusted local final-exec tuple starts the intended harness |
+| ST-08 | Inherited token even matching the enrolled value, API/bearer/helper/refresh/FD/provider/profile/gateway/settings conflict or `--bare`: exact conflict/refusal, no value logging | Otherwise identical admitted settings and private final-child env choose `oauth_token` |
+| ST-09 | Synthetic secret passed to generic literals, env-name requests, MCP interpolation/headers/argv, tracked ax request, hosted payload, preview, error/trace or snapshot: reject or prove absent | Real final child receives exactly one secret; all transport/diagnostic artifacts stay clean |
+| ST-10 | Enabled MCP/hook/shell children, live settings reload or redirection leak sentinel/change effective source: capability is unavailable for that tuple | Real harness probes for every enabled child channel; known-leaking planted control must fail the detector |
+| ST-11 | Revoke after status but before material release, known expiry, stale queued plan after re-enroll: no new delivery/fallback | Fresh valid binding and explicit re-enrollment launch; already delivered token is outside local recall guarantee |
+| ST-12 | Node absent/unknown during prepare or direct env login: no native login, token minting, prompt or material access | Home-owned isolated absent source still enters the existing admitted login ceremony |
+| ST-13 | Relocated snapshot/archive alone, source caller's present row, or direct-only qualification presented as hosted/tracked support: refuse | Destination Curator preparation plus independently qualified final-executor source binding succeeds |
+| ST-14 | Quota/network/ambiguous auth error reported as confirmed revoke, or automatic endless retry/native fallback | Typed known auth error yields bounded reauth guidance; uncertain error retains unknown |
+
+Artifact-leak scans use disposable synthetic sentinels and bounded known-bad controls, never real credentials or personal logs. A scanner recognizing only one literal spelling does not prove arbitrary encoding/exfiltration absence. Tests assert no forbidden child, no source mutation and no leakage on failure, not merely a nonzero exit. Authorized real qualification is separate work; this collective runs none.
+
+## 9. Delivery and owner questions
+
+Detailed leaves: [T0 normative publication](../leaves/setup-token-contract.md), [T1 custody](../leaves/setup-token-custody.md), [T2 source/readiness](../leaves/setup-token-policy-readiness.md), [T3 final execution](../leaves/setup-token-final-executor.md), [T4 actual same-user spawn uptake](../leaves/setup-token-spawn-consumer.md). T0 precedes all consumers. T1 can develop in a new module while source/readiness policy lands; shared CLI/config/marker paths serialize with CIP-0015/0018. T3 follows the v4 consumer work and the selected final-receiver carrier publication. T4 closes the concrete spawned-agent route through curator-run and remains a separate delivery obligation; direct support cannot substitute for it. Qualification blocks enablement, not unrelated v4 delivery.
+
+No need to reopen D11/D14 or ask whether setup-token should be supported. The current owner brief authorizes this local design. Acceptance must explicitly record the narrow C7 ordering carve-out and the first supported execution routes; this is a publication decision, not a reason to smuggle cross-user support into the local implementation. If a required child/source qualification cannot be met, report the exact constraint and options rather than weaken it silently. Full spawned-agent delivery remains incomplete until the actual spawned final path is qualified.
