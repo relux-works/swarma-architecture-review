@@ -1,7 +1,7 @@
 # astra-03 position — launch fragments and consumers
 
-Round 5 position, 2026-10-16. Accept the integrated implementation plan and
-setup-token design for their stated bounded delivery. Awaiting convener PARK.
+Final position after convener PARK, 2026-10-16. Accept the integrated
+implementation plan and setup-token design for their stated bounded delivery.
 Adversarial review of astra-02's full leaves is complete. This evaluates the plan, not
 implementation readiness. No product binaries, builds, model calls or
 credential probes were run.
