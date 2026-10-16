@@ -59,3 +59,14 @@ under `PreserveLock`. Prepare must retain that selected-lock contract or report
 explicit required migration; unconstrained repair cannot silently upgrade the
 installed identity. L15-4's added first-machine and old-lock controls are
 necessary refinements, not new product choices.
+
+## Round 5 follow-on coverage review
+
+Reviewed L15-5/6a/6b at signed `82b669b` against CIP-0015 implementation
+leaves 7–8, login-readiness §§1.1/3 and broker `ec7fb3d` §18.15. Accepted
+separate consumer/Curator/dispatcher owners and their no-inspection,
+no-automatic-mutation, no-lease and operator-authority controls. PLAN
+`32cf0f2` integrates their release, path and coverage boundaries. The
+[missing-owner finding](login-followon-coverage.md) is closed; no remaining
+leaf-design objection from this adversarial review. Runtime adoption and
+qualification are future evidence, not implied by this verdict.

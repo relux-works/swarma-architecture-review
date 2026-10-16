@@ -1,19 +1,20 @@
 # astra-03 position — launch fragments and consumers
 
-Round 4 position, 2026-10-16. Provisional pending final seat-leaf synthesis.
+Round 5 position, 2026-10-16. Accept the integrated implementation plan and
+setup-token design for their stated bounded delivery. Awaiting convener PARK.
 Adversarial review of astra-02's full leaves is complete. This evaluates the plan, not
 implementation readiness. No product binaries, builds, model calls or
 credential probes were run.
 
 ## Plan rubric
 
-Baseline: PLAN.md synthesis at `6186899`, detailed leaves through `75dc718`.
-Canonical hosted/C7/M6/X5 link integration and the newly identified CIP-0015
-follow-on accounting remain pending in that plan revision.
+Baseline: PLAN.md at `32cf0f27535885141a3f813e367094923238e5be`,
+blob `f355619747d51fea46966ddbeed70e0560b83e36`, including L15-5/6a/6b
+from `82b669b`. All known artifact-level findings are resolved.
 
 | Criterion | Score (0–2) | Evidence and remaining bound |
 |---|---:|---|
-| P1 Traceability | 1 | Detailed clause-linked leaves exist; final mapping plus CIP-0015 leaves 7–8 guidance/broker ownership remain open |
+| P1 Traceability | 2 | All 53 bounded leaves are linked; five-CIP implementation coverage explicitly includes L15-5/6a/6b, M6, C7 and X5 rather than hiding follow-on ownership |
 | P2 Bounded leaves | 2 | Separate C2/C3/C5/C6/C7, nine H leaves, X0–X5 and T3a/T3b remove the former grouped delivery surfaces |
 | P3 Negative evidence | 2 | Defined leaves specify forbidden effects, adjacent valid controls and bounded detector plants; vendor/syscall/lifecycle proofs remain distinct from schema tests |
 | P4 Ordering | 2 | Shared-path serialization, publication and qualification joins, parallel snapshot helpers, and source API order are explicit |
@@ -43,10 +44,10 @@ follow-on accounting remain pending in that plan revision.
    is not a settings/source carrier. Host start/client/resume and dispatcher
    need their own covered policy and compatible accepted identity; a pin bump
    cannot close that seam.
-6. **Local login is not every CIP-0015 consumer.** Its implementation leaves
-   7–8 still need explicit guidance/display and authorized broker-bridge
-   follow-on accounting. See the [coverage finding](../findings/login-followon-coverage.md).
-   They must not become hidden work inside M5/M6 or block the local base tag.
+6. **Local login is not every CIP-0015 consumer.** L15-5/6a/6b now own its
+   guidance/display and authorized broker follow-ons explicitly. The
+   [coverage finding](../findings/login-followon-coverage.md) is closed;
+   those routes still require their own released contracts and authority.
 
 Detailed proposals: M1 [producer](../leaves/muse-v4-producer.md), M2
 [replay](../leaves/muse-148-exclusion-replay.md), M3
@@ -89,6 +90,13 @@ clarification: the new hosted route permits receiver tools/trust policy only;
 Curator writes its initial exclusive MCP base, preserving declared profile MCP
 and refusing unowned gateway/profile intersections. Legacy host config writing
 cannot be reused as permission to rewrite the new route's home.
+
+Accepted astra-02's L15-5/6a/6b at `82b669b` and their full PLAN mapping at
+`32cf0f2`. All addressed review requests are resolved at the planning level.
+The local artifact check verified 18 reviewed/owned files' targets and all
+53 leaf links; known-missing-target and omitted-M1 controls were detected.
+That check proves link/map completeness only. Manual source review supplies
+the clause comparison; no provider, filesystem-race or credential test ran.
 
 ## Setup-token design rubric
 

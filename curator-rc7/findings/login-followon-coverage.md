@@ -46,3 +46,16 @@ than claiming the whole CIP is covered by local leaves.
 
 No new operator decision is required to preserve this accounting. Existing
 source/custody choices and all broker adoption gates remain unchanged.
+
+## Resolution
+
+Accepted astra-02's signed `82b669b`: [L15-5](../leaves/login-consumer-guidance.md),
+[L15-6a](../leaves/login-broker-curator.md) and
+[L15-6b](../leaves/login-broker-dispatcher.md). Their concrete contracts retain
+the paired controls above, separate repository owners and broker §18.15's
+operator/observer publication gate. They invent no wire or broker authority.
+
+PLAN `32cf0f2` maps all three in its canonical table, follow-on release cut,
+shared-path serialization and exact CIP-0015 implementation coverage. The
+finding is closed at the planning level. This neither implements those leaves
+nor qualifies a broker path. Base rc.7 and local T0–T4 retain independent cuts.
