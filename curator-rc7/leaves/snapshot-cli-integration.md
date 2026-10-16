@@ -20,6 +20,7 @@ Mandatory tests with positive controls:
 | --- | --- |
 | Public CLI exports a stable valid fixture and manifest-only matches it | Illegal flag combinations invoke zero selection/lock/publication operations; no success manifest |
 | Known current input succeeds with a fresh permitted destination | Stale/unprovisioned, lock timeout, pending recovery, unreadable marker/store/credential metadata, bad destination and drift return specified errors without repair or fallback |
+| Both successful export and manifest-only complete with a provider-exec sentinel installed | Neither invokes the sentinel via version checks, login, helper or runtime launch; an intentionally enabled probe is a bounded positive control for the execution detector |
 | Independent output survives repair/use/global sync of source fixtures | Runtime/live-home reference remains absent; changed generation cannot overwrite an existing snapshot |
 | Actual Muse `env materialize` output, with frozen manifest/descriptor identity, is loaded by the exact M2-qualified real loader with the same exclusions as the verified link | Changed/omitted root, wrong placement or residue of source-home references cannot be accepted as equivalent; a hand-constructed fixture does not prove this producer integration |
 | Qualified adapter and platform uses the real path | Helper-only passing evidence, unsupported adapter/form or skipped platform cannot be reported as production support |
