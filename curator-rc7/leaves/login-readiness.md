@@ -27,6 +27,12 @@ credential-content open, secret-producing helper, network operation, lease,
 prompt or store unlock. Current code calls `detectRelease` through both
 `adapterStates` and `verifyHome`/`checkToolRelease`; remove these status-path
 effects under L15-0's reconciled version-reporting contract.
+The same `verifyHome` chain also violates materialize's no-tool-execution
+boundary. Share one pure content/metadata verification seam with SNAP-LOCK
+and SNAP-CLI, keeping optional vendor observation outside it; serialize this
+`managed.go` change instead of adding independent bypass flags. Keep a real
+CLI tripwire for each caller, with unknown release when safe metadata is
+unavailable. See [the confirmed capture finding](../findings/materialize-version-probe.md).
 
 Claude macOS metadata uses a separately qualified bounded/nonprompting caller
 capability probe. Hash the **exact exported** `CLAUDE_CONFIG_DIR` string, not

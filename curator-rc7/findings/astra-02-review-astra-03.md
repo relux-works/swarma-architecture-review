@@ -75,10 +75,20 @@ that manual `eval` can apply Codex argv settings.
 | AR-3 | C4 `codex-storage-qualification.md` owns the exact supported binary/platform/backend evidence and relevant login, app-server and refresh observations. L15-1 references it. | Synthetic argv, API-key file or unrelated auth failure cannot qualify an OAuth/keyring refresh row. |
 | AR-4 | C1 and C0 propose explicit `codex_settings_unsupported` for required nonempty env/shell output, no partial output; native/empty remains valid. L15-3 consumes typed policy directly. | C0 must adopt and publish the full rule before producer implementation; this review does not allocate a wire revision. |
 
-All four requests are **resolved in the proposed leaf contracts**, subject to
-PLAN integrating their dependencies. Source inspection is not executed
-qualification. The added C7 spec activation and Muse relay leaves were not
-yet published at this review freeze and will be checked with the synthesis.
+All four requests are **resolved in the proposed leaf contracts**. PLAN at
+`6186899` incorporates the principal dependency corrections; its final link
+and coverage update remains to review. Source inspection is not executed
+qualification.
+
+Round-3 follow-up at `75dc718`: C7 `codex-qualification-activation.md` assigns
+the joint normative activation record to curator-spec separately from R0,
+and correctly requires an adopted scoped rollout contract before any local-only
+exception. M6 `muse-dispatch-backend.md` covers CIP-0017 leaf 7's final-child
+file backend without transferring the minting owner's OAuth store. It names
+the missing dispatcher implementation checkout honestly. Revised C5 assigns
+new-hosted initial base bytes solely to Curator; the receiver cannot rewrite
+them or confuse legacy-host allowances with the exact-plan route. These
+additions are accepted at plan level; their qualification gates remain open.
 
 All four requests were posted to the relevant Muse/Codex leaf topics. They
 are implementation/specification ordering questions, not new D14 decisions.
