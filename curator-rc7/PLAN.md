@@ -13,11 +13,13 @@ Read-only evidence pins observed for this review:
 | curator-spec | `55094992185521dba470d80e1745d60af7bf496c` | Accepted normative wave; pending carrier/activation gates remain explicit |
 | curator | `0d00a109ad1da77a5506747c89f24af9442eb341` | Current local code still emits v2/v3; `beginOperationValidated` recovers transactions |
 | curator-agent-launcher | `9ad2f0160a1995af94b5069e4e85638140cb2712` | Local parser supports v1–v3; hosted activation is not proved |
-| skill-agents-management | `a2a6e9f377f62a5872d99ecdfff0d1690e385f2a` | Stale local checkout; mission reports released v0.5.66 v4 support, not independently re-read here |
-| skill-project-management | `ad68902f74ae55b1cd0445fef58390b42feea3dc` | Stale local board-cli module pin v0.5.41-0.maint.1; no pull allowed |
+| skill-agents-management | `acae871c0d53cd580cfef1863a75c58e59b59690` (`v0.5.66`) | Convener-provided read-only clone: strict v4 reader verified; Codex non-native store remains unsupported; Muse exclusion map only names 1.4.7-R6101.1 |
+| skill-project-management | `ab63db82365cdf9229ad60f72cc82997cbbe5043` | Convener-provided read-only clone: board-cli pins v0.5.65; Curator provenance/lifecycle guards exist, but no materialize capability is implied |
 | swarma-credential-broker | `ec7fb3d0670449b074521d51f3e03b59f0142a69` | Read-only boundary evidence; no broker work belongs to the local token slice |
 
 The provided login facts are versioned observations, not fresh qualification. No builds, model calls, credential reads or source-checkout writes are performed by this collective.
+
+Updated neighbour evidence is under `/Users/iv/Developer/ReluxWorks/curator-rc7-collective/sources/`; the original mission checkouts were stale (`a2a6e9f` and `ad68902f`) and were never pulled. The launcher fresh clone is still `9ad2f016`. Supplied landing notices are not substituted for inspecting the recorded local head.
 
 ## 2. Immediate publication and integration gates
 
@@ -39,7 +41,7 @@ Each numbered row is a separate review/change, not a multi-repository mega-PR. T
 | F1 | curator | v4 value model/validation/renderers; environments §10.2 | Published v4 | Early curator lane |
 | F2 | curator | Muse verified root fact and effective file admission; environments §§7.4,7.9,10.2 | F1, shared policy projection | rc.7; release after Q-Muse |
 | Q1 | curator qualification owner | Exact Muse P1–P4 evidence; environments §7.9, CIP-0017 leaf 2 | Disposable probe prerequisites | Before consumer release |
-| A1 | agents-management | Released v4 request/argv/sealer support; environments §10.2 | F1 fixtures, Q1 release gate | Verify supplied v0.5.66 evidence; do not reimplement blindly |
+| A1 | agents-management | v4 request/argv/sealer support and exact-build qualification mapping; environments §§7.9,10.2 | Existing v0.5.66 + Q1 | Shape support already shipped; 1.4.8 activation needs a qualified successor release |
 | L1 | curator-agent-launcher | v4 parsing, composition, plan binding; environments §10.2 | A1 | Unblock public v4 launches |
 | P1 | project-management | Compatible module pin and real hosted/spawn v4 context path; CIP-0017 leaf 6 | Usable curator release + A1 + Q1 | First neighbour handoff |
 | C1 | curator | Machine-only store selector and eligibility; login-readiness §2, profile-codex-settings §5 | G0a; single shared projection | rc.7 |
@@ -86,6 +88,8 @@ Dependencies are semantic and path-based. A separate worktree does not make conc
 **May follow the curator tag:** complete local hosted runtime activation; task-board replacement of the interim copy after materialize/verification and runtime projection qualification; cross-account archive/dispatcher execution; broker source adoption; token refresh qualification, unqualified platform backends, new Codex package-setting vocabulary and OpenCode snapshot support. Do not defer only Codex from the first hosted release, and do not defer credential safety to a later release.
 
 **D4 coverage is route-specific:** additive materialize does not make native `curator-run`, headless exec, task-board spawn or primary hosted sessions snapshot-backed. D4-N and D4-S must remain separately tracked alongside H1+, with real launch/repair/resume evidence for each route. Until a route is migrated and qualified, the release cannot describe D4 as delivered there or use that route to claim the new lifetime guarantee. Its migration must never substitute a consumer-maintained copy list or live-home fallback.
+
+**Spawned Claude outcome:** direct-only `--print` qualification is an intermediate result. At least one real same-user spawn final-executor route must be qualified to deliver the requested spawned-agent authentication. Tracked `ax`, task-board spawn and primary hosted execution have different final hops; never serialize a token in the caller's `EnvLiterals`. For a hosted node route, explicitly reconcile local-hosted-launches §6's current prohibition on daemon secret resolution and §4's exact-provider-process contract. A new callback or wrapper cannot silently amend them.
 
 There are two different gates: the curator capability tag and the multi-repository first hosted release. Publication of materialize can unblock hosted implementation without claiming that hosting works. Similarly, source metadata may report present without proving inference or refresh. If a mandatory rc.7 gate remains unmet, name the blocked capability and revise the cut explicitly with the convener; do not silently weaken the contract.
 
