@@ -1,21 +1,21 @@
 # astra-05 — security and delivery verdict
 
-Round 1, provisional. Reviewed plan: `b592fa9` (2026-10-16). No code implementation or runtime qualification is asserted. Owned design: [setup-token local source](../designs/setup-token-local-source.md); owned leaves T0–T4.
+Round 4, provisional only on the remaining CIP-0015 follow-on accounting. Reviewed plan: `f5dbe3f`, with detailed leaves and T0 ordering clarification through `323a284` (2026-10-16). No code implementation or runtime qualification is asserted. Owned design: [setup-token local source](../designs/setup-token-local-source.md); owned leaves T0–T4, including the separate T3a/T3b owners.
 
 ## Plan rubric
 
 | Criterion | Score | Evidence / remaining work |
 | --- | ---: | --- |
-| P1 Traceability | 1/2 | PLAN §§2–3 cites the accepted normative sections and gates, but provisional T1+/H1+/X1+ rows are not a clause-complete leaf map. Integrate T0–T4 and the other seats' detailed leaves |
-| P2 Bounded leaves | 1/2 | v4, policy, readiness and capture/publication surfaces are split; token/hosted placeholder rows remain multi-owner until replaced |
-| P3 Negative evidence | 1/2 | G0/R0 and the plan require paired controls; detailed bodies for every other leaf are still pending synthesis. T0–T4 now supply source-policy, custody, final-hop and spawned-chain witnesses |
-| P4 Ordering | 2/2 | PLAN §4 names shared paths and serial owners; v4 precedes token integration. T4 must be explicitly tied to private-home/Curator-entry-point adoption rather than treated as a free launcher flag |
-| P5 Unblocking | 2/2 | Existing v4/Muse consumer chain is first; speculative source carriers do not block it. Mission release evidence and inspected stale checkouts are separated |
-| P6 Release honesty | 1/2 | Tag versus hosted activation is usefully separated, but “same-user setup-token path” needs the actual spawned T4 row and an explicit hold/deferral boundary; T0–T3 alone do not meet the owner's spawned-agent requirement |
+| P1 Traceability | 1/2 | PLAN §§3/5/6 now links L15/M/C/SNAP/HOST-HOME/D4/T/H/X families including C7/M6/X5. Independently confirmed CIP-0015 implementation leaves 7/8 still need their promised L15-5/6a/6b follow-on links; [coverage finding](../findings/login-followon-coverage.md) is accurate |
+| P2 Bounded leaves | 2/2 | Placeholder bundles are replaced by owning surfaces: T1 custody, T2 policy, T3a public API, T3b final executor, T4 real consumer; snapshot mechanisms, hosted admission/runtime adapters and cross-account runtime qualification are likewise separate |
+| P3 Negative evidence | 2/2 | Linked leaves name forbidden outcomes beside valid controls. T0–T4 map ST-01–15; actual vendor/source/child qualification is distinguished from synthetic transport and detector controls. R0 requires exact production evidence rather than counting planned tests as passed |
+| P4 Ordering | 2/2 | PLAN §4 serializes carriers, shared policy, pure verifyHome split, launcher and board paths. Independent D4-S home intake joins T3b only at T4 qualification, avoiding a token/snapshot cycle; custody → policy → public API avoids a cross-module cycle |
+| P5 Unblocking | 2/2 | M1/M2 → M3/M4 → usable Curator release → M5 leads; fixture-based exact-loader observation can start early and actual materialize-to-loader integration remains a separate gate. T0 publication can proceed concurrently without delaying v4 |
+| P6 Release honesty | 2/2 | PLAN §2 separates base tag, Codex activation, D4, actual headless token outcome, all-three hosted activation and cross-account activation. T3-only cannot satisfy spawned support. C7 retains the full adopted consumer gate; unknown and unavailable rows stay visible |
 
-The score is for the current draft, not a rejection of the direction. Raise scores only after the leaf map and route-specific release claims are integrated.
+The plan is 11/12 pending that narrow traceability integration. The security and route-design objections below are incorporated into the plan; they remain mandatory implementation/activation gates, not claims that the current binaries satisfy them.
 
-## Confirmed risks and requested plan changes
+## Required implementation and activation gates
 
 1. **Wrong final hop leaks tokens.** At launcher `9ad2f016`, `internal/execution/execution.go:83` serializes `EnvLiterals`; `:143` starts ax. Do not retrieve a token in the composer or inject into ax/global env. T3 qualifies the real final executor; T4 proves a real same-user headless spawn reaches it. Topic `f-setup-token-final-hop`.
 2. **Qualification cannot be inferred from successful inference or env construction.** Native secret-read suppression, uncontrolled MCP/hooks/tool children, settings reload and MCP interpolation need pinned real-harness evidence with a known-leaking control. No suitable child-filter mechanism was qualified by this collective. A safety flag or fake exec is not sufficient.
@@ -37,15 +37,15 @@ Scores assess this proposed contract, not implementation readiness.
 | E2 Reuse | 2/2 | Retains source/store/isolation ordering, frozen readiness row and Curator home ownership; source hooks reuse the readiness engine |
 | E3 Secrets | 2/2 | Private deliberate enrollment, protected object/generation rules, final-only material release, forbidden artifact paths and explicit child-leak qualification |
 | E6 Honest failure | 2/2 | Unknown is retained; no native fallback, no capability from presence, no local-revoke/vendor-revoke confusion; direct and spawned support separated |
-| E7 Specifiability | 1/2 | L1–L8 and ST-01–15 give semantic acceptance and T3a/T3b fix the public API seam, but complete carrier versions, binding schema, diagnostics and spawned final-route grammar still require T0 publication |
+| E7 Specifiability | 2/2 | L1–L8 and ST-01–15 define authority, custody, readiness and final-only release; T3a/T3b name the legal public API and T4 names the actual headless route. T0 owns exact closed carrier/binding/diagnostic/entry-point publication before code enablement; no unresolved hosted-daemon shortcut is assumed |
 | E8 Operator effort | 1/2 | One intentional enrollment replaces per-home login on qualified routes; initial source migration and later re-enrollment/restart remain explicit. No invented automatic vendor ceremony |
 
 ## Operator-only questions
 
-No decision about whether to support setup-token, file-first custody, native default or Remote Control is reopened. The requested local slice supplies the design direction. A real platform inability to satisfy child/source qualification would require a future concrete choice backed by probe evidence; none is invented from this review. The integrated plan must explicitly identify any release deferral of actual spawned support instead of silently substituting direct-only support.
+No decision about whether to support setup-token, file-first custody, native default or Remote Control is reopened. The requested local slice supplies the design direction. A real platform inability to satisfy child/source qualification would require a future concrete choice backed by probe evidence; none is invented from this review. The integrated plan explicitly defers the complete token-spawn outcome beyond the base tag while retaining it as priority follow-on work. No new operator decision blocks this design proposal.
 
 ## Open collective threads
 
-- astra-01: replace T1+ with T0–T4 (including T3a/T3b) and check source/marker/CLI overlap against L15-0/C0 and private-home spawn adoption.
-- astra-02: confirm node/native/file readiness and retained implicit-versus-explicit isolation semantics; keep lifecycle/capability outside the frozen login row.
-- astra-04: ensure runtime preparation supplies the admitted node-source destination independently of credential-free snapshot transport.
+- Only remaining plan review item: integrate astra-02's bounded CIP-0015 guidance/broker follow-on leaves; keep them outside the rc.7 local base and the no-broker token slice.
+- astra-01 accepted T3a/T3b, headless T4 and ST-15; astra-02 confirmed node/native/file readiness and retained isolation semantics; astra-04 confirmed Curator-owned prepared-home separation and the hosted daemon refusal. No unanswered addressed token-design item remains.
+- Runtime qualification, normative adoption and code delivery remain future work in their named leaves. This collective's source review is not execution evidence.
