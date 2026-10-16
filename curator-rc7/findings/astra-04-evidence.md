@@ -24,3 +24,5 @@ Round 2 source refresh supplied by the convener (read-only, no pull by this seat
 These replace the stale HEADs as neighbour implementation evidence; older source entries above remain labeled historical. New moving-head news in the room is not silently substituted for these pins.
 
 Artifacts: SNAP-ID, SNAP-LOCK, SNAP-CLOSURE, SNAP-PUBLISH, SNAP-CLI; HOST-HOME-SPEC, HOST-HOME-CODE; findings `snapshot-helper-boundaries.md` and `hosted-home-seam.md`. PLAN synthesis remains astra-01-owned.
+
+Round 4 review adds nine bounded hosted follow-ons (H-WIRE/FORMS/PREP/ADMIT/CLAUDE/MUSE/CODEX/LAUNCHER/RELEASE), the [Muse replay dependency split](muse-snapshot-replay-dependency.md), the source-confirmed [materialize vendor-probe finding](materialize-version-probe.md), and the [adversarial plan review](astra-04-review-astra-01.md). PLAN `3b13aac` incorporates the common pure verifier and runtime seams. X5 `6186899` and C5/C7/M6 `75dc718` were read from the published files, not accepted solely from room notices. Their future qualification requirements remain unexecuted.
