@@ -3,7 +3,7 @@
 - Owner repository: **curator-agent-launcher**.
 - Normative clauses: managed-home-snapshots §§6–7; CIP-0014 implementation leaf 6 executor portion and Design §6; published X0/SPEC §10; D6.
 - Attack surface: protected plan/resource intake to verified private installation.
-- Size: 5; archive intake is separate from provider runtime/projection qualification in D4-N and HOST-HOME.
+- Size: 5; archive intake is separate from cross-account runtime/projection implementation and qualification in [X5](snapshot-remote-runtime.md). D4-N and HOST-HOME supply no remote qualification by association.
 
 ## Acceptance and paired tests
 
@@ -13,4 +13,4 @@ A fully admitted canonical archive starts with matching protected runtime inputs
 
 ## Dependencies and paths
 
-X0, SNAP-CLI verifier semantics, HOST-HOME-SPEC/CODE and the consuming provider route's qualified runtime protection; runtime B needs the specified operator confirmation. X1/X2 integration joins before activation. Paths: published `curator-run exec` protected intake, `internal/execution`, resource parser/install/verification modules and runtime projection client. Serialize with C3, D4-N and T3b final-entry changes. A cross-account setup-token route is not supplied by T3b's same-user facade; retain separate credential-channel refusal.
+X0 and SNAP-CLI verifier semantics for intake implementation; HOST-HOME-SPEC/CODE and X5 define the separate runtime view. X5 cross-account provider/platform protection and X1/X2 transport integration join before activation; runtime B needs the specified operator confirmation. Paths: published `curator-run exec` protected intake, `internal/execution`, resource parser/install/verification modules and runtime projection client. Serialize with C3, D4-N and T3b final-entry changes. A cross-account setup-token route is not supplied by T3b's same-user facade; retain separate credential-channel refusal.

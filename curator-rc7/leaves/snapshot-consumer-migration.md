@@ -13,4 +13,4 @@ A compatible supported native/spawn/hosted/remote route succeeds through its own
 
 ## Dependencies and paths
 
-Route-specific D4-N/D4-S or hosted leaves plus X1–X3 for advertised remote execution. Local migration may land independently; do not hold a corrected local route behind unrelated remote work, and do not declare D6 done from it. Paths: agents-management capability/context admission and module release metadata; project-management spawn/hosted admission, compatibility branch tests, pins/vendor and migration docs. Serialize pin/vendor changes with M5 and C5/T4; retain exact qualified commit/version evidence.
+Route-specific D4-N/D4-S or hosted leaves plus X1–X3 and X5 for advertised remote execution. Local migration may land independently; do not hold a corrected local route behind unrelated remote work, and do not declare D6 done from it. Paths: agents-management capability/context admission and module release metadata; project-management spawn/hosted admission, compatibility branch tests, pins/vendor and migration docs. Serialize pin/vendor changes with M5 and C5/T4; retain exact qualified commit/version evidence.
