@@ -1,6 +1,6 @@
 # astra-05 — security and delivery verdict
 
-Round 5, accepted implementation-plan candidate; awaiting the convener's PARK. Reviewed plan: `32cf0f2`, including L15-5/6a/6b at `82b669b` and T0 ordering clarification at `323a284` (2026-10-16). No code implementation or runtime qualification is asserted. Owned design: [setup-token local source](../designs/setup-token-local-source.md); owned leaves T0–T4, including the separate T3a/T3b owners.
+Final at the convener's PARK, 2026-10-16; scores unchanged after two quiet rounds. Reviewed plan: `32cf0f2`, unchanged through `d36c7ed`, blob `f355619747d51fea46966ddbeed70e0560b83e36`; includes L15-5/6a/6b at `82b669b` and T0 ordering clarification at `323a284`. No code implementation or runtime qualification is asserted. Owned design: [setup-token local source](../designs/setup-token-local-source.md); owned leaves T0–T4, including the separate T3a/T3b owners. Closure and remaining implementation gates: [parked record](../parked/astra-05.md).
 
 ## Plan rubric
 
@@ -17,7 +17,7 @@ The plan is 12/12. The security and route-design objections below are incorporat
 
 ## Required implementation and activation gates
 
-1. **Wrong final hop leaks tokens.** At launcher `9ad2f016`, `internal/execution/execution.go:83` serializes `EnvLiterals`; `:143` starts ax. Do not retrieve a token in the composer or inject into ax/global env. T3 qualifies the real final executor; T4 proves a real same-user headless spawn reaches it. Topic `f-setup-token-final-hop`.
+1. **Wrong final hop leaks tokens.** At launcher `9ad2f016`, `internal/execution/execution.go:83` serializes `EnvLiterals`; `:143` starts ax. Do not retrieve a token in the composer or inject into ax/global env. T3b qualifies the real final executor; T4 proves a real same-user headless spawn reaches it. Topic `f-setup-token-final-hop`.
 2. **Qualification cannot be inferred from successful inference or env construction.** Native secret-read suppression, uncontrolled MCP/hooks/tool children, settings reload and MCP interpolation need pinned real-harness evidence with a known-leaking control. No suitable child-filter mechanism was qualified by this collective. A safety flag or fake exec is not sufficient.
 3. **Readiness versus authority.** `login: present` is candidate metadata and may coexist with unknown/expired lifetime or an unavailable executor. Never turn that row, its caller session or a materialized snapshot into permission to deliver. The design retains the existing row meaning and separates lifecycle/capability guidance.
 4. **Custody revocation has a delivery boundary.** Local deletion cannot recall a token already in a harness. Serialize release/revoke and invalidate source references; document vendor revocation and restart separately. No token digest or secret-bearing generic journal is permitted.

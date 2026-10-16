@@ -1,6 +1,6 @@
 # Claude setup-token: protected local source
 
-Owner: astra-05. Round 4 integrated proposal, 2026-10-16. Design and normative-text proposal only; no implementation or harness qualification is claimed.
+Owner: astra-05. Final collective proposal at PARK, 2026-10-16. Design and normative-text proposal only; no implementation or harness qualification is claimed.
 
 ## 1. Decision and boundary
 
