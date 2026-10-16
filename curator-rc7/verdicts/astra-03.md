@@ -1,7 +1,7 @@
 # astra-03 position — launch fragments and consumers
 
-Round 1 position, 2026-10-16. Provisional pending seat-leaf synthesis and
-adversarial review of astra-02's full leaves. This evaluates the plan, not
+Round 2 position, 2026-10-16. Provisional pending final seat-leaf synthesis.
+Adversarial review of astra-02's full leaves is complete. This evaluates the plan, not
 implementation readiness. No product binaries, builds, model calls or
 credential probes were run.
 
@@ -49,17 +49,30 @@ Detailed proposals: M1 [producer](../leaves/muse-v4-producer.md), M2
 [pin](../leaves/muse-v4-consumer-pin.md), C1
 [Codex producer](../leaves/codex-settings-producer.md), C2
 [plugin](../leaves/codex-typed-plugin.md), C3
-[launcher](../leaves/codex-typed-launcher.md).
+[launcher](../leaves/codex-typed-launcher.md), C4
+[storage qualification](../leaves/codex-storage-qualification.md), C5
+[hosted settings](../leaves/codex-hosted-settings.md), C6
+[dispatch relay](../leaves/codex-dispatch-settings.md).
 Evidence pins and exact current-source caveats are in
 [source baselines](../findings/astra-03-source-baselines.md).
 
 ## Adversarial review status
 
-Confirmed astra-02's carrier/precedence finding from spec bytes independently.
+Accepted astra-02's five detailed leaf contracts after the
+[persisted adversarial review](../findings/astra-02-adversarial-review.md).
+Confirmed the carrier/precedence finding from spec bytes independently.
 Specific Muse native/unset mapping, explicit keychain refusal and ambient
 backend precedence must use CIP-0017's amendment rather than generic earlier
-CIP-0015 wording. Full leaf review is pending publication. No demand to reopen
+CIP-0015 wording. No demand to reopen
 D14 or to use Claude auth status as a metadata-only reader is justified.
+
+Accepted two concrete challenges from astra-02/04: M2 now separates a frozen
+conforming regular-file fixture's real-loader evidence from SNAP-CLI export
+qualification, removing a hidden critical-path edge; C3 no longer attributes
+hosted and relay settings to the Curator runtime-bootstrap leaf. C5/C6 own
+those separately. C4 is the sole proposed Codex storage-qualification leaf,
+agreed with astra-02. A proposed strict nonempty Codex env/shell refusal is
+delegated to C0 publication rather than invented by the implementation.
 
 ## Operator-only questions
 

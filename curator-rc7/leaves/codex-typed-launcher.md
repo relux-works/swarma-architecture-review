@@ -30,15 +30,18 @@ not an alternate settings transport.
 
 ## Dependencies, paths and cross-repository handoff
 
-Depends on carrier publication, C2 release and C1-compatible fixtures. Serialize
+Depends on [C0](rc7-carrier-publication.md) carrier publication with L15-0
+reconciliation, C2 release and C1-compatible fixtures. Serialize
 with M4 on `SPEC.md`, `internal/fragment/`, `internal/plan/context.go`,
 `internal/composition/`, `internal/execution/`, `go.mod` and `go.sum`.
 
-**Separate required owners:** skill-project-management must adopt the same
-typed payload at app-server, client, reuse and resume boundaries (CIP-0018
-leaf 5), preserving private tool policy and exclusive MCP base construction;
-swarma-dispatcher must relay it unchanged and reject missing/tampered payload
-(leaf 6). Astra-04's hosted leaves own those implementations. The snapshot
+**Separate required owners:** [C5](codex-hosted-settings.md) assigns
+skill-project-management the same typed payload at app-server, client, reuse
+and resume boundaries (CIP-0018 leaf 5), preserving private tool policy and
+exclusive MCP base construction. [C6](codex-dispatch-settings.md) assigns
+swarma-dispatcher unchanged covered relay and missing/tampered refusal
+(leaf 6). These are distinct from astra-04's Curator bootstrap/verifier leaves;
+neither owner is declared implemented by association. The snapshot
 descriptor does not itself cover credential backend/settings: explicit plan
 coverage is still required. Producer enablement waits for these advertised
 routes; this leaf cannot declare them qualified by association.

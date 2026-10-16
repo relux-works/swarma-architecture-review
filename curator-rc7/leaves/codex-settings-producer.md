@@ -8,8 +8,9 @@
 
 ## Prerequisite, not an implementation choice
 
-Astra-02's coordinated publication leaf must first allocate complete strict
-manifest/lock/marker/fragment carriers. The published v4 permits
+[C0](rc7-carrier-publication.md) must first allocate complete strict
+manifest/lock/marker/fragment carriers, coordinated with L15-0 config/status
+and cross-document reconciliation. The published v4 permits
 `credential_store.config_overrides`; it does not permit top-level
 `codex_settings`. Do not silently extend it or use projection schemas as full
 validators. Recommended successor: selection remains agreement metadata,
@@ -35,6 +36,14 @@ Use the same projection at login and launch; never rewrite native, seed or
 snapshot `config.toml`. Changing policy cannot relabel a running session or
 implicitly migrate credentials.
 
+Proposed C0 renderer rule: requested env/shell output with nonempty Codex
+settings refuses `codex_settings_unsupported` with no partial output, because
+those formats cannot encode the required typed policy. Native/empty Codex
+projections remain usable; Muse retains its expressly defined five-value
+projection. `env login` consumes the typed result directly and never obtains
+it by evaluating shell output. Publish this rule in C0 before implementation
+rather than treating an environment-only result as a settings-bearing launch.
+
 The future inheritance algorithm remains specified, but no synthetic
 nonempty package vocabulary may be enabled merely to demonstrate ties. With
 the current closed vocabulary, correct resolution yields `{}` everywhere.
@@ -59,6 +68,9 @@ Future-key winner/tie tests belong to the future reviewed extension.
 - Missing/unsupported payload refuses with the specified delivery diagnostic;
   qualified supported delivery succeeds. A consumer that rejects all rows
   cannot pass qualification.
+- Explicit file plus requested env/shell refuses with no output under C0;
+  native/empty projection succeeds. The adjacent typed JSON/login path applies
+  the override; a login changed to shell-eval must fail the test.
 
 ## Dependencies, serialization and paths
 

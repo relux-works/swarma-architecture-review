@@ -20,7 +20,7 @@ homes/accounts and synthetic sentinels; never an active native login.
 | Native root suppresses foreign rule fallback; foreign skills persist without exclusion | Only if the real loader exposes pre-inference records | Successful parse, expected fixture contents, or quota/auth failure before loader |
 | Exec exclusion and interactive boolean remove the foreign loader sources with root present | Same condition: observable real loader before any model request | Correct argv without loader observation |
 | Interactive override without native root does not suppress rules fallback | Same conditional real-loader lane | Treating a missing own file as exclusive |
-| Curator link and regular-file snapshot both load native root | Same conditional real-loader lane; use actual Curator materialization when available | A hand-copied file represented as a validated materialize result |
+| Curator link and frozen regular-file snapshot fixture both load native root | Same conditional real-loader lane; fixture is independently checked against the published snapshot contract | Calling the fixture proof that the new materialize command works |
 | Workspace conflict | Record loader order/conflict if observable; model-visible precedence remains unknown without a model run | Inferring behavioral precedence solely from file enumeration |
 | Credential backend/login/refresh or model-visible foreign-content removal | Separate evidence; not established by this exclusion replay | Promoting the input pack's backend facts into loader qualification |
 
@@ -64,9 +64,20 @@ Tests of those consumer refusals are not substitutes for vendor replay.
 
 ## Dependencies and release effect
 
-Can prepare fixtures in parallel with M1. Final actual-materialize replay
-joins the applicable snapshot producer; do not call a fixture an end-to-end
-snapshot qualification. No token-refresh or broker qualification dependency.
+Can prepare fixtures in parallel with M1. For the narrow regular-file loader
+row, freeze a snapshot fixture using the verified Curator root bytes, declared
+XDG placement and published snapshot grammar; check its regular-file closure
+and expected identity independently. Compare real loader observations against
+the real Curator link. File representation and loader behavior are the tested
+property; this does not qualify export provenance, capture locks, publication,
+destination admission or runtime-B protection. A loose arbitrary hand-copy
+without that fixture evidence is insufficient.
+
+This scoped interpretation needs no SNAP-CLI predecessor for M2. The actual
+`env materialize -> Muse loader` integration is a separate required SNAP-CLI
+acceptance row when that command ships, using the same frozen expected bytes;
+it must not be reported as covered by the fixture. No token-refresh or broker
+qualification dependency.
 M2 precedes release of the v4 producer/consumer pair and every release claiming
 1.4.8 qualification. D10 credential-mode admission remains accepted meanwhile.
 

@@ -2,7 +2,8 @@
 
 - **Owner repository:** skill-agents-management.
 - **Normative clauses:** profile-codex-settings §§3–6; CIP-0018 leaf 3;
-  the successor allocation from astra-02's publication leaf.
+  the successor allocation in [C0](rc7-carrier-publication.md), coordinated
+  with L15-0.
 - **Attack surface:** typed launch policy to exact argv and sealed identity.
 - **Size:** M; the mission states v0.5.66 explicitly refuses this capability.
 

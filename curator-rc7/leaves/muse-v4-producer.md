@@ -44,8 +44,11 @@ check detects that defect. Do not read real credentials to assert any row.
 
 ## Dependencies and overlap
 
-Depends on astra-02's shared source/store/isolation policy and applicable
-containing config/marker publication. No dependency on nonempty Codex
+Depends on astra-02's shared source/store/isolation policy and containing
+config publication when accepting the new machine knob. Environments §8.2
+explicitly makes root_context a derived fact, not a new marker member;
+nonsecret backend reporting does not widen released markers. Muse alone
+does not require a successor marker. No dependency on nonempty Codex
 settings, hosted runtime, token refresh, or setup-token delivery.
 Release the producer/consumer pair only after M2 qualification and M3/M4
 consumer readiness; merged dormant code is not a released capability.

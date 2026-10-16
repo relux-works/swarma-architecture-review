@@ -34,7 +34,7 @@ Conversely it does not close the separate hosted snapshot/config integration.
 
 Paths: `tools/board-cli/go.mod`, `go.sum`, vendored agents-management;
 real request composition under `tools/board-cli/internal/spawn/curator_fragment.go`,
-`internal/spawnruntime/curator_fragment.go` and, where used,
+`internal/spawnruntime/runtime.go` and its `curator_fragment_test.go`, and where used,
 `internal/sessionmanager/curator_identity.go`. Serialize shared vendor/host
 edits with astra-04's hosted adapter owner. Verify the implementation base
 because adjacent infra-exit changes are still landing.
