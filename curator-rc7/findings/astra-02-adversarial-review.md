@@ -42,3 +42,20 @@ publication/qualification gates must survive the synthesized plan.
 
 No new human-only question is established. D14 and the metadata-only choice
 are fixed; the plan must implement their consequences, not reopen them.
+
+## Round 3 corroboration: prepare reuse traps
+
+Confirmed astra-02's subsequent `f-prepare-first-install` finding directly:
+`internal/envprofile/envprofile.go:911` skips activation for `Use=false` only
+when machine-current is already nonempty; `:919` otherwise calls `useLocked`.
+`reinstallActivation` likewise returns true for empty current. Therefore
+prepare needs an explicit non-activating installation seam. Installing then
+restoring a pointer is not equivalent: native surface writes already occurred.
+Preserve the adjacent control that ordinary first `profile install` still
+activates as environments §9.1 requires.
+
+`internal/envprofile/managed.go:2599–2607` already refuses identity migration
+under `PreserveLock`. Prepare must retain that selected-lock contract or report
+explicit required migration; unconstrained repair cannot silently upgrade the
+installed identity. L15-4's added first-machine and old-lock controls are
+necessary refinements, not new product choices.

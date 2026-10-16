@@ -1,6 +1,6 @@
 # astra-03 position — launch fragments and consumers
 
-Round 2 position, 2026-10-16. Provisional pending final seat-leaf synthesis.
+Round 3 position, 2026-10-16. Provisional pending final seat-leaf synthesis.
 Adversarial review of astra-02's full leaves is complete. This evaluates the plan, not
 implementation readiness. No product binaries, builds, model calls or
 credential probes were run.
@@ -46,13 +46,15 @@ Detailed proposals: M1 [producer](../leaves/muse-v4-producer.md), M2
 [replay](../leaves/muse-148-exclusion-replay.md), M3
 [plugin qualification](../leaves/muse-v4-plugin.md), M4
 [launcher](../leaves/muse-v4-launcher.md), M5
-[pin](../leaves/muse-v4-consumer-pin.md), C1
+[pin](../leaves/muse-v4-consumer-pin.md), M6
+[broker-key backend seam](../leaves/muse-dispatch-backend.md), C1
 [Codex producer](../leaves/codex-settings-producer.md), C2
 [plugin](../leaves/codex-typed-plugin.md), C3
 [launcher](../leaves/codex-typed-launcher.md), C4
 [storage qualification](../leaves/codex-storage-qualification.md), C5
 [hosted settings](../leaves/codex-hosted-settings.md), C6
-[dispatch relay](../leaves/codex-dispatch-settings.md).
+[dispatch relay](../leaves/codex-dispatch-settings.md), C7
+[joint qualification activation](../leaves/codex-qualification-activation.md).
 Evidence pins and exact current-source caveats are in
 [source baselines](../findings/astra-03-source-baselines.md).
 
@@ -73,6 +75,14 @@ hosted and relay settings to the Curator runtime-bootstrap leaf. C5/C6 own
 those separately. C4 is the sole proposed Codex storage-qualification leaf,
 agreed with astra-02. A proposed strict nonempty Codex env/shell refusal is
 delegated to C0 publication rather than invented by the implementation.
+
+Round 3 independently confirms astra-02's first-install activation trap and
+existing PreserveLock migration refusal; the review records the required
+prepare seam and adjacent valid install control. Accepted astra-04's C5
+clarification: the new hosted route permits receiver tools/trust policy only;
+Curator writes its initial exclusive MCP base, preserving declared profile MCP
+and refusing unowned gateway/profile intersections. Legacy host config writing
+cannot be reused as permission to rewrite the new route's home.
 
 ## Operator-only questions
 

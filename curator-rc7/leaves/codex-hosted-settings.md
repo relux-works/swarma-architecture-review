@@ -11,9 +11,11 @@
 
 Carry the published typed settings block and accepted profile/fragment/plan
 identity through app-server composition, attached client, host reuse and cold
-resume. C2 owns scalar serialization; the host owns private tools/trust/MCP
-policy. Keep those channels disjoint. Do not serialize profile settings into
-native, seed, snapshot or private session `config.toml`.
+resume. C2 owns scalar serialization. The new exact-plan hosted route permits
+only the receiver's declared tools/trust overlay; it cannot change MCP, models,
+profile settings, instruction paths or login. Keep those channels disjoint.
+Do not serialize profile settings into native, seed, snapshot or private
+session `config.toml`.
 
 Fresh host start applies the accepted exact `-c` block. Reuse/resume must match
 that identity or require the normal explicit new-session/restart transition;
@@ -23,10 +25,20 @@ refuse, including equal duplicates. Reject unsupported delivery before any
 provider start rather than allowing a client-side default.
 
 Codex exclusive MCP policy must use an exclusive base document; merging
-`-c mcp_servers={}` is not proof inherited servers were cleared. Preserve the
+`-c mcp_servers={}` is not proof inherited servers were cleared. On the new
+hosted route Curator, through HOST-HOME, is the sole initial base writer. The
+declared profile MCP layer and exactly one declared `-p curator-mcp` remain
+unchanged and verified. A conflicting gateway/profile set refuses unless an
+owning contract specifies the intersection. Preparation supplies the admitted
+policy projection for plugin composition before sealing; the receiver cannot
+construct/rewrite `config.toml`, alter MCP declarations or append overrides.
+
+CIP-0018's earlier private-host config allowance describes a broader existing
+host path; it does not waive local-hosted-launches §4's exact-plan restrictions.
+Keep legacy route tests distinct from the new route's acceptance. Preserve the
 existing seed-revision residuals and the required policy on start and resume.
-Curator's protected runtime preparation/verification is a dependency when
-using the new hosted route; this leaf creates no receiver-owned home inventory.
+Curator's protected runtime preparation/verification is a dependency for the
+new route; this leaf creates no receiver-owned home inventory or config writer.
 
 ## Paired negative tests and controls
 
@@ -39,10 +51,15 @@ using the new hosted route; this leaf creates no receiver-owned home inventory.
 - Raw split/joined config, profile, dotted/quoted/table or RPC competitors
   refuse even when equal; unrelated host policy remains functional.
 - Seed/native/private config stays unchanged as regards profile settings;
-  valid host-owned policy stays in its independently admitted channel.
+  valid tools/trust policy stays in its independently admitted channel. A
+  receiver config write or MCP change on the new route refuses; Curator's
+  initial prepared base and later native runtime-owned writes remain valid.
 - A conflicting inherited MCP server remains demonstrable under the unsafe
-  empty-table control; the exclusive host base excludes it on both start and
-  resume. Schema/argv-only fake success is not vendor loader qualification.
+  empty-table control; the Curator-prepared exclusive base excludes ambient
+  servers on both start and resume while preserving declared profile MCP.
+  Conflicting gateway/profile declarations refuse instead of deleting either
+  side; compatible declared input succeeds. Schema/argv-only fake success is
+  not vendor loader qualification.
 - Unsupported successor/revision or unavailable materialization/runtime
   contract refuses without provider execution; published supported tuple
   succeeds using its real production path and protected identity.
