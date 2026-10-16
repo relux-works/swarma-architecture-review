@@ -16,4 +16,11 @@ Do not conclude a missing Muse factory from the stale project-management working
 
 No vendor web research was needed to establish these normative ownership and implementation seams. Claims about future provider behavior remain explicitly qualification-dependent.
 
+Round 2 source refresh supplied by the convener (read-only, no pull by this seat):
+
+- `sources/skill-project-management` at `ab63db82365cdf9229ad60f72cc82997cbbe5043`: `hosted_control.go:5–32` still unconditionally refuses the exact hosted plan; actual daemon construction registers musepty. `claude_host.go:486–531` takes `provenance.ManagedHome`, validates it against the fragment and applies it as `CLAUDE_CONFIG_DIR`; this is managed-home provenance, not immutable snapshot evidence. `codex_host.go:1703–1751` retains receiver-side config rendering and auth linkage on the legacy route. No new snapshot capability is inferred from these legacy improvements.
+- `sources/skill-agents-management` at `acae871c0d53cd580cfef1863a75c58e59b59690` (v0.5.66): `pkg/agentic/curator_context.go:725` explicitly keeps Codex credential-store application false; `systems/muse/personal_context.go:20` qualifies only `1.4.7-R6101.1`, with the actual build rechecked by `systems/muse/seal.go:218`. v4 shape support is verified; Muse 1.4.8 and explicit Codex store execution are still separate gates.
+
+These replace the stale HEADs as neighbour implementation evidence; older source entries above remain labeled historical. New moving-head news in the room is not silently substituted for these pins.
+
 Artifacts: SNAP-ID, SNAP-LOCK, SNAP-CLOSURE, SNAP-PUBLISH, SNAP-CLI; HOST-HOME-SPEC, HOST-HOME-CODE; findings `snapshot-helper-boundaries.md` and `hosted-home-seam.md`. PLAN synthesis remains astra-01-owned.
