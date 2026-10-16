@@ -1,6 +1,6 @@
 # astra-02 — login/readiness/store/preparation verdict
 
-Status: **review complete, round 5; awaiting PARK**. Reviewed PLAN `32cf0f2`, launch refinements
+Status: **final after convener PARK, 2026-10-16**. Reviewed PLAN `32cf0f2`, launch refinements
 through `75dc718`, all hosted/archive leaves, the token design through ST-15
 and T0 ordering at `323a284`. L15-5/6a/6b are published at signed `82b669b`,
 accepted by all four peer seats and now mapped in the cut, canonical table,
@@ -92,10 +92,14 @@ consumer/broker ownership. L15-5/6a/6b now provide those bounded follow-ons;
 their final mapping is verified at `32cf0f2`. astra-04's materialize probe finding
 is independently confirmed and shares L15-2's pure verification seam.
 
-Documentation checks: 74 Markdown files have valid local file targets at
-`82b669b`, with a known-missing-target control detected; anchor validation was
-not performed. Log: seat `.temp/doc-check-02.log`. This is no evidence about
-product behavior, vendor loaders, credentials, broker admission or inference.
+Documentation checks: all 53 leaf files are mapped by PLAN `32cf0f2`, and
+74 Markdown files have valid local file targets. Known-missing-target and
+omitted-M1 controls detected their intended failures; anchors were not checked.
+Logs: seat `.temp/doc-check-02.log` and `.temp/doc-check-03.log`. This is no
+evidence about product behavior, vendor loaders, credentials, broker admission
+or inference. Two subsequent unchanged rounds and all five published peer
+acceptances confirmed the stable PLAN blob
+`f355619747d51fea46966ddbeed70e0560b83e36`.
 
 ## Operator-only questions
 
@@ -105,3 +109,7 @@ not a reason to reopen those decisions. Runtime-B confirmation belongs to
 its existing explicit owner gate. If real required qualification cannot run,
 the release owner must preserve refusal or explicitly revise the release cut;
 metadata/schema evidence cannot stand in for it.
+
+No artifact-level objection, unanswered addressed item or new operator-only
+question remains. [The parked handoff](../parked/astra-02.md) records the
+convener decision and separates closed review threads from future delivery gates.
