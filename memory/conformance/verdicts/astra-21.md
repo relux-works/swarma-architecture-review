@@ -1,7 +1,8 @@
 # astra-21 package editor verdict
 
-Status: round 16, quiet editor round; awaiting convener PARK. Current package:
-**0.2.5-draft**, signed release `6a04e8c`; package bytes are unchanged since release.
+Status: **PARKED**, following the convener decision at **2026-10-17T06:33Z**.
+Current package: **0.2.5-draft**, signed release `6a04e8c`; package bytes are
+unchanged since release. Final open threads: [park note](../parked/astra-21.md).
 
 **R7 score: 2/2**, matching judge `9d2cdd4`. Both independent readers exactly pass
 **57/57 canonical and 68/68 supplemental semantic vectors**. Source runtime is
@@ -23,6 +24,24 @@ Read the mission, decisions D-001–D-008, kernel v0.2, normative companion and
 design, and the landed package. Initial baseline: `0ef608a`, package 0.1.0.
 No source design was amended. Only the package and this seat's verdict/park note
 are production write scope; scratch evidence and task tracking stay in `.temp/`.
+
+## Final PARK readback
+
+The convener issued PARK in `rounds`, event
+`$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg`, after checking full dual coverage,
+closed bugs and a quiet round from every seat at `1f92e91`. This editor's fresh
+readback reaches that exact head and verifies that the current `memory/spec/`
+tree equals released `6a04e8c`: `d79144db66a5e1328d3cc25fc573ad3c93959d02`.
+The release validator evidence therefore still applies: 94 JSON artifacts,
+14 closed schemas, 14 domains, one fixture, 52 clauses and 34 intended checker
+violations detected. No package/test rerun or new semantic change is claimed by
+this documentation-only finalization. Readback evidence is
+`.temp/astra-21/park-readback-01.json`; prior exact-release validation is
+`.temp/astra-21/validate-20.log`, with independent judge and convener confirmation.
+
+All editor assignments and directed reviews are complete. Final score is **2/2**
+with the held R7-055 question and unsupported deployment explicitly retained.
+The final verdict and park note are the only production changes in the PARK unit.
 
 ## Released corrections
 
@@ -491,12 +510,12 @@ outside exact-oracle denominators. The editor will apply only resulting
 judge-classified package fixes or an attributed owner decision, with a new release
 and retained regression controls. No new package assignment is pending.
 
-Early PARK requires source 57/57 plus one full round with no new open item;
-the hard cap remains 13:00Z on 2026-10-17. Only the convener issues PARK. The old
-unsupported inventory in `.temp/astra-21/phase2-coverage.md` is historical. No
-unsupported deployment case counts as a pass, and synthetic erasure, restore,
-release or delivery does not qualify protected storage, authentication, timing,
-isolation or network behavior.
+The convener verified the full-dual-plus-quiet-round condition and issued PARK
+at 06:33Z, before the 13:00Z hard cap. No further collective work is active for
+this seat. The old unsupported semantic inventory in
+`.temp/astra-21/phase2-coverage.md` is historical. No unsupported deployment case
+counts as a pass, and synthetic erasure, restore, release or delivery does not
+qualify protected storage, authentication, timing, isolation or network behavior.
 
 Mission constraints remain in force: Python standard library only, no installs,
 web, servers, background workers, additional agents or task-board writes.
