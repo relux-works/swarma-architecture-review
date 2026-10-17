@@ -256,6 +256,45 @@ class ErasureControls(unittest.TestCase):
         self.assertEqual(a.query(v["query"])["items"], [])
         self.assertEqual(a.runtime["erasure_generation"], 1)
 
+    # A newly witnessed deletion advances the protected generation even when
+    # the backup has no local erase history. Both derivative writer variants
+    # refuse atomically; an independent current-generation write still commits.
+    def test_new_restore_obligation_fences_late_writers(self):
+        v = fixture("S26")
+        recovery = fixture("S25")
+        a = Adapter(v["initial_state"], "control")
+        self.assertEqual(a.runtime["erased"], [])
+        self.assertEqual(a.runtime["fences"], [])
+        self.apply(a, recovery["operations"][1])
+        reconcile = copy.deepcopy(recovery["operations"][2])
+        reconcile["external_witness"] = True
+        self.assertEqual(self.apply(a, reconcile)["outcome"], "reconciled")
+        self.assertEqual(a.runtime["erasure_generation"], 1)
+        self.assertEqual(a.runtime["erased"], [{"id": "rec:a", "version": 1}])
+        self.assertEqual(a.runtime["fences"], a.runtime["erased"])
+        self.assertEqual(a.query(v["query"])["items"], [])
+        for generation, code in ((0, "stale_generation"), (1, "erasure_fenced")):
+            with self.subTest(generation=generation):
+                op = copy.deepcopy(v["operations"][1])
+                op["expected_generation"] = generation
+                before = copy.deepcopy(a.__dict__)
+                with self.assertRaisesRegex(Refusal, "^" + code + "$"):
+                    Transactions(a).apply(op)
+                self.assertEqual(a.__dict__, before)
+        independent = copy.deepcopy(v["initial_state"])
+        fact = next(f for f in independent["policy"]["lineage_facts"]
+                    if f["output"] == {"id": "rec:derived", "version": 1})
+        fact.update(kind="direct", inputs=[], complete=True)
+        b = Adapter(independent, "control")
+        self.apply(b, recovery["operations"][1])
+        self.apply(b, reconcile)
+        op = copy.deepcopy(v["operations"][1])
+        op["expected_generation"] = 1
+        op["proposals"][0]["envelope"]["lineage"] = []
+        self.assertEqual(Transactions(b).apply(op)["outcome"], "admitted")
+        self.assertIn(key({"id": "rec:derived", "version": 1}), b.records)
+        self.assertEqual(b.runtime["erased"], [{"id": "rec:a", "version": 1}])
+
     # A complete witness cannot make an unreachable controlled payload purged;
     # reconciliation stays atomic/fenced until all affected sinks are reachable.
     def test_restore_unreachable_custody_stays_fenced(self):

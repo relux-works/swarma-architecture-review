@@ -1,0 +1,39 @@
+{
+  "scope": "Focused R7-058 source late-writer coverage; evaluator implementation unchanged from 946cbd8. Prior 128-control green evidence is reused for unchanged groups; this run executes all 12 erasure groups, including one new restored-current-obligation group. The first full 68-semantic supplemental run also reruns the five comparator controls.",
+  "checkout": "cb71146d4bac727798a1a2c1f427dd97cfa50cc4",
+  "source_commit": "946cbd85c8fe2404917eaef448156e9c30f5b771",
+  "package": "0.2.5-draft",
+  "command": "PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/erasure_checks.py",
+  "exit_code": 0,
+  "output": "test_changed_context_before_replay_metadata (__main__.ErasureControls.test_changed_context_before_replay_metadata) ... ok\ntest_empty_receipt_replay_stays_immutable (__main__.ErasureControls.test_empty_receipt_replay_stays_immutable) ... ok\ntest_invalid_and_unauthorized_are_atomic (__main__.ErasureControls.test_invalid_and_unauthorized_are_atomic) ... ok\ntest_late_writers_and_independent_positive (__main__.ErasureControls.test_late_writers_and_independent_positive) ... ok\ntest_new_restore_obligation_fences_late_writers (__main__.ErasureControls.test_new_restore_obligation_fences_late_writers) ... ok\ntest_partial_unreachable_and_independent_custody (__main__.ErasureControls.test_partial_unreachable_and_independent_custody) ... ok\ntest_receipt_metadata_does_not_reduce_purge (__main__.ErasureControls.test_receipt_metadata_does_not_reduce_purge) ... ok\ntest_receipt_replay_and_current_authority (__main__.ErasureControls.test_receipt_replay_and_current_authority) ... ok\ntest_replay_metadata_loss_and_changed_intent (__main__.ErasureControls.test_replay_metadata_loss_and_changed_intent) ... ok\ntest_restore_fence_and_current_reconciliation (__main__.ErasureControls.test_restore_fence_and_current_reconciliation) ... ok\ntest_restore_unreachable_custody_stays_fenced (__main__.ErasureControls.test_restore_unreachable_custody_stays_fenced) ... ok\ntest_unknown_lineage_and_future_fact_boundary (__main__.ErasureControls.test_unknown_lineage_and_future_fact_boundary) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.187s\n\nOK\n",
+  "modules": {
+    "adapter.py": "6215fcc2f9bf57f083fd7fc34a5eab2a04e543c02886806f77849f2896affbdf",
+    "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+    "authority_projection_checks.py": "2165891fc3c3ee67ae800e5b37034e7abca20abb2430ca5c79fa1df0eb676248",
+    "availability_checks.py": "6deadc90d5e3d6beea3233aed6866dc1ea0fc1b48a95a236f371cfd8cfca47d7",
+    "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+    "boundary_checks.py": "d7f4a8dc0572054468924d7b1723e8d92881d914e256d4fe4617152c3d439cc1",
+    "deadline_checks.py": "232ac12a7ebe446eb33e4519ca2a1353aeff8de7b1cdc8f567a93851321df2a0",
+    "erasure.py": "4234f96b04c1d793c3e5c5f064b0fd8854acecd90846735bef66c627a3ba2d81",
+    "erasure_checks.py": "38503cf5fcdee17773c13d8f6895d8d2c3964f5069796842e37f2102a087736f",
+    "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+    "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+    "impact_checks.py": "f437cda9614027c128e48eb5cf7508134293221926e6aa472ae1024fa97bd45c",
+    "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+    "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+    "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+    "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+    "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+    "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+    "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+    "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+    "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+    "transactions.py": "6bc9a57351c1f923654e459521bd8b5c850d6c2cfdda25e5ffad2c874f08827d"
+  },
+  "changed_module_names_since_original_source": [
+    "erasure_checks.py"
+  ],
+  "prior_control_evidence": "runs/erase-priority-controls-corrected.json",
+  "new_claim": "A newly learned current-complete restore obligation fences both old-generation and current-generation derived admission atomically across every adapter attribute; a valid independent current-generation write succeeds. Native API checks exact Refusal codes; wire refusal encoding is separately exercised by existing exact vectors.",
+  "limits": "Synthetic trusted witness and custody only; no physical purge, deployment durability or background worker isolation qualification."
+}
