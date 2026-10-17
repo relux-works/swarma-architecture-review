@@ -1972,3 +1972,20 @@ Local evidence: `.temp/judge-r055-round03-source-controls-01.json`,
 `judge-r055-round03-source-*-01.log` files in the astra-27 seat. This verifies
 source-derived controls only. Canonical 0.2.6 and both complete vector reports
 remain pending; R7-055 stays verification-pending and the current score is 1/2.
+
+
+## Reopened round 4 — unchanged source historical regression verified
+
+Astra-22's signed `0bf20dc` reports 68/68 semantic and one unsupported deployment
+case against the unchanged 0.2.5 corpus. Judge independently reruns all 69 rows:
+input hashes, exact normalized outputs and statuses match the committed report.
+The entire checkout package tree equals `6a04e8c`, avoiding the source runner's
+documented limitation that `--package` alone does not relocate transaction
+Shapes. Any later historical run with a changed runtime must keep both grammar
+paths pinned in an isolated checkout. No input or expected output is migrated.
+
+Evidence: seat `.temp/astra22-judge-r055-round04-cases-0.2.5.{md,json}` and
+`.temp/judge-r055-round04-source-historical-review-01.json`; producer
+`impl-astra-22/runs/d009-0.2.5-regression-first.json` and its provenance companion.
+Runtime remains `946cbd8`. Current canonical 0.2.6 coverage remains pending;
+this historical regression is not included in its denominator. No new finding.
