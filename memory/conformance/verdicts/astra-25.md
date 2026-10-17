@@ -1,10 +1,11 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 35; collective active, NO PARK. Seat identity:
+Status: phase 2, round 36; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Both evaluators now pass every canonical semantic
-vector, but the new restore supplementary cases fail in package. The prior 2/2 at judge `b1ae299` used the original
+vector and all current owned supplementary cases; R7-058 judge closure and
+the convener completion gate remain pending. The prior 2/2 at judge `b1ae299` used the original
 supported-vector rubric; it was never a claim that both evaluators passed all 57.
 
 ## Seat output and dispositions
@@ -26,7 +27,7 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; both exact pairs now pass at source dbf4892 and package 23b4d74 |
 | [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 fixed at 23290b3; judge and seat independently verified |
 | [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | R7-054 closed at6a04e8c and052 at4a14a56; package053 at23b4d74 independently verified and judge-closed at13e3d73 |
-| [ASTRA25-12](../cases/astra-25-restore-current-obligations.md) | Current outside-domain restore obligations must survive an older local erasure inventory | R7-058 package implementation open; five exact fixtures, source5/5 and package2/5 |
+| [ASTRA25-12](../cases/astra-25-restore-current-obligations.md) | Current outside-domain restore obligations must survive an older local erasure inventory | R7-058 correction104fbe8 independently verified; five exact fixtures and full state/late-writer controls pass; judge closure pending |
 
 ## Current evidence
 
@@ -56,7 +57,7 @@ independent defect count.
 
 | Latest recorded owned 0.2.5 semantic runs | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Package runtime at `23b4d74` | 30 | 3 | 0 |
+| Package runtime at `104fbe8` | 33 | 0 | 0 |
 | Source runtime at `946cbd8` | 33 | 0 | 0 |
 
 Each evaluator reports the one owned deployment fixture unsupported. Both previously
@@ -136,15 +137,20 @@ ASTRA25-12 first preserves four native restore observations per reader. Judge
 `$M8NvqvBJqj0P6G_HX3wtl3-FVKIbSUxxSZFXB9YCyvE` classifies R7-058 as package
 implementation bug. Five exact supplemental fixtures now encode new current
 obligations, unreachable custody, known/empty positives and unaffected B.
-Source passes all five; unchanged package fails new, unreachable and independent
-variants. Both false-witness/global-fence refusals and known/empty controls agree.
+Source passes all five; original package fails new, unreachable and independent
+variants. Package104fbe8 now passes all five unchanged fixtures and every earlier
+owned case. Both false-witness/global-fence refusals and known/empty controls agree.
 Full native first snapshots and first exact outputs remain immutable. Three independent native late-writer controls extend R7-058: source rejects
 stale-generation and current erased-dependency writes atomically while admitting
-a reviewed independent current write. Package accepts the stale derivative and
+a reviewed independent current write. Original package accepts the stale derivative and
 rejects both generation1 writers because newly learned disposition generation
-was never applied. Full first inputs/states are frozen separately; no vector
-denominator changed. Source is33/33 owned semantic; package30/33.
-R7-058 correction/review remains necessary;
+was never applied. Corrected104fbe8 passes the unchanged independent three-case
+harness and all four original native restore traces. Full first and corrected
+inputs/states are frozen separately; both native harness hashes and all input
+bytes match. Fresh canonical57/57 and all34product/checker tests pass, including
+unknown known-input closure, unaffected custody, repeated recovery and atomic
+refusals. Every module byte-matches104fbe8. Source and package each pass33/33
+owned semantic cases; R7-058 judge closure remains pending;
 no package prose or owner decision is required. Existing R7-055 is separate.
 
 ## Phase-2 gate and remaining work

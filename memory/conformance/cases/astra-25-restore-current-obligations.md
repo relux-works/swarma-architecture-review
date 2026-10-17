@@ -1,7 +1,8 @@
 # ASTRA25-12: current restore obligations absent from the old backup
 
-Status: R7-058 package implementation bug, open. Native first preserved at
-644c793; exact supplementary regressions now published after judge mapping.
+Status: R7-058 package correction104fbe8 independently verified; judge closure
+pending. Native first644c793, late-writer first1138c5d and exact first1cefcf9
+remain unchanged.
 Owner: astra-25.
 
 ## Contract and two readings
@@ -145,3 +146,32 @@ An initial local positive-control draft omitted the new independent record's
 allow-review and correctly received quarantined; that scratch authoring result
 is retained and is not product failure evidence. The complete frozen comparison
 uses the required review in both readers. No evaluator files were changed.
+
+## Independent R7-058 correction verification
+
+Package `104fbe8` passes all five unchanged restore fixtures and all 33 owned
+semantic fixtures. The same original four native inputs/harness reproduce the
+judged protected state: new A enters erasure/fences at generation1, reachable
+custody is purged before access opens, unreachable custody returns exact
+atomic erasure_incomplete/true and keeps the global read fence. Known obligations
+do not add a generation; genuinely empty current obligations retain A.
+
+The unchanged three-case late-writer harness now passes all cases: stale0 and
+current1 erased-dependency writes refuse exactly without state mutation;
+independent reviewed current1 writes admit while A stays fenced. All inputs,
+operations, queries and both harness hashes equal their frozen firsts. Original
+wrong acceptance and wrong refusal codes remain immutable.
+
+A fresh canonical run passes 57/57 semantic vectors; eight deployment vectors
+remain unsupported. All 34 product/checker tests pass. Reviewed native additions
+also cover complete and unknown-known derived closure, unrelated unreachable
+custody, independent recipients, repeated reconciliation and same-key independent
+recovery. Every current module was byte-compared with signed104fbe8.
+
+Full corrected native inputs/states are in
+[correction evidence](astra-25-restore-correction.json); aggregate entries are
+`astra23-phase2-025-restore-corrected`, both `astra23-restore-*-corrected` native
+entries, `astra23-canonical-025-restore-corrected` and
+`astra23-native-restore-025-corrected`. All 85 previous aggregate runs and the
+first evidence files remain unchanged. Recommend R7-058 closure subject to the
+judge; semantic verification does not qualify physical purge or real witnesses.
