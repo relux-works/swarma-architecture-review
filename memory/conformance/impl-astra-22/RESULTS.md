@@ -2,7 +2,7 @@
 
 Package: **0.2.2-draft**, package commit `7e71765317088d4ac1ea6946fdfb4b2f8012643c`.
 Vector directory: `memory/spec/kernel/vectors` (this inventory only).
-Checkout: `5d079be0dbf66b73a03ba61873107ae4782d3f15`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
+Checkout: `4744e62e3d93228a438daae8ad6610c58ea7b14d`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.
@@ -87,4 +87,4 @@ No randomness-distribution or timing proof is claimed.
 | S32 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S33 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 
-Full normalized actual reports and input hashes: `phase2-cas-corrected.json`.
+Full normalized actual reports and input hashes: `phase2-dirty-edge-corrected.json`.

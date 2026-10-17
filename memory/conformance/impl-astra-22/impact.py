@@ -7,8 +7,11 @@ from transactions import key, ref
 
 
 def dependencies(record):
-    return [key(p["source"] if p["kind"] == "source" else p["literal"]["assertion"])
-            for p in record["body"]["premises"]]
+    # Registration itself and its certificate are inputs to the target's path,
+    # alongside the literal/source premises. Revision of any can invalidate it.
+    return ([key(p["source"] if p["kind"] == "source" else p["literal"]["assertion"])
+             for p in record["body"]["premises"]] + [key(ref(record))]
+            + ([key(record["body"]["check"])] if record["body"]["check"] else []))
 
 
 def retired(records, cut, eligible):

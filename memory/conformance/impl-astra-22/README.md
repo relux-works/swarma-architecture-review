@@ -138,10 +138,12 @@ item before PARK; the historical supported-vector score is not that completion.
 
 ## Registered dirty and review impact
 
-`impact.py` computes retained-cause eligibility over the graph immediately before each revision under current authorization. This traversal does not manufacture a witness or clear global dirty state. `python3 memory/conformance/impl-astra-22/impact_checks.py` runs six controls for hidden/current/historical causes, necessary premises, later path withdrawal, cross-schema review and finite closure. Canonical B01/S17 and the unchanged hidden/visible dirty pair pass. Reports are under `runs/phase2-dirty-*`; logs remain in `.temp/astra-22/`.
+`impact.py` computes retained-cause eligibility over the graph immediately before each revision under current authorization. This traversal does not manufacture a witness or clear global dirty state. `python3 memory/conformance/impl-astra-22/impact_checks.py` runs nine controls for hidden/current/historical causes, necessary premises, later path withdrawal, cross-schema review and finite closure. Canonical B01/S17 and the unchanged hidden/visible dirty pair pass. Reports are under `runs/phase2-dirty-*`; logs remain in `.temp/astra-22/`.
 
 ## Captures and delivery boundary
 
 `boundary.py` simulates selected-item delivery authorization over immutable captured views and protected bindings; it sends no external bytes. Live revoke events preserve pinned policy and frozen views. Run `python3 memory/conformance/impl-astra-22/boundary_checks.py` for eight controls, including selected/excluded scope, current rights, expiry, erasure/restore and binding authority. P06/P12 and the exact selected-forwarding adversary pair pass. Declassification and erasure operations still report unsupported pending their separate mappings.
 
 Authoritative CAS now chooses a unique maximal receipt over the full exact slot before applying local transition tokens. The thirteen transaction controls preserve ambiguous/stale atomic refusals, unique current head, challenge and exact-retry precedence; first and corrected R7-040 cases are recorded in `runs/phase2-cas-*` and `DIVERGENCES.md`.
+
+Registered invalidation treats the justification and its certificate as inputs to the target path alongside its premises. R7-043 exact judge fixtures and first/corrected reports are retained under `fixtures/dirty-rule-certificate/` and `runs/dirty-rule-certificate-*`; nine impact controls include transitive, hidden, challenge, replay and recomputation neighbors.

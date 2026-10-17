@@ -1,8 +1,8 @@
 # R7 verdict — astra-22
 
 Status: Phase 2 active; no PARK. Source coverage is 49/57 canonical semantic
-vectors. The judge has independently verified 45/57 through the import unit;
-dirty and delivery extensions are submitted for verification. Score: **1/2**.
+vectors. The judge has independently verified 47/57 through the dirty/review unit;
+delivery and correction extensions are submitted for verification. Score: **1/2**.
 
 The source-only baseline was frozen at `4d4ef45` before PACKAGE LANDED.
 Its SHA-256 is `cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
@@ -15,7 +15,7 @@ Current package: **0.2.2-draft**, `7e71765317088d4ac1ea6946fdfb4b2f8012643c`.
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 49 | 0 | 8 |
 | Canonical deployment | 0 | 0 | 8 |
-| Supplemental semantic (41 migrated cases) | 31 | 1 | 9 |
+| Supplemental semantic (43 migrated cases) | 33 | 1 | 9 |
 | Supplemental deployment | 0 | 0 | 1 |
 
 Current outputs: `impl-astra-22/RESULTS.*`, `runs/phase2-delivery-first.*`,
@@ -34,8 +34,8 @@ selected-item delivery/revocation. Canonical additions S07/S23/B01/S17/P06/P12
 pass; hidden/visible dirty and selected/excluded delivery adversary pairs pass.
 Worst-case proof-diagram growth remains unbounded by this semantic model.
 
-33 source, 8 adapter, 13 transaction, 4 proof, 6 impact, 8 boundary and 5 harness
-controls pass (77 total; relevant suites rerun per unit). Claims and limits are
+33 source, 8 adapter, 13 transaction, 4 proof, 9 impact, 8 boundary and 5 harness
+controls pass (80 total; relevant suites rerun per unit). Claims and limits are
 beside each test. Core SHA-256:
 `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 Logs and chronology: `impl-astra-22/WORKLOG.md`; first/corrected failure evidence:
@@ -51,3 +51,8 @@ restore, hidden-load/availability operations. Changes and audience proof-referen
 disclosure also remain explicit unsupported API paths. No protected deployment,
 physical erasure, timing isolation, random-distribution or crash-durability
 qualification is claimed; a semantic delivery receipt sends no external bytes.
+
+R7-043 rule/certificate invalidation is corrected with all three exact judge
+probes passing and nine impact controls; first evidence4744e62 is unchanged.
+Reports: `runs/dirty-rule-certificate-corrected.*` and
+`runs/phase2-dirty-edge-cases-corrected.*`. Independent closure is pending.
