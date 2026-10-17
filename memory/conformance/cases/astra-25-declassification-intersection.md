@@ -1,0 +1,61 @@
+# ASTRA25-02: retained declassification evidence is not a current joint release
+
+Status: source-contract regression case; package not yet landed.
+Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
+
+## Clauses
+
+Kernel §§7.1–7.2, 6.4 and 9.3; P05/P06/P11/P13. Derived content inherits all
+input constraints. Each policy owner lifts only its own constraint. A pinned
+`declassification` assessment records a decision; it neither owns that authority
+nor replaces the applicability check before each new disclosure.
+
+## Minimal separating input
+
+```text
+A@1: synthetic restricted input controlled by owner OA
+B@1: synthetic restricted input controlled by owner OB
+T@1(A@1, B@1) -> D@1, output schema summary@1
+Complete adapter-controlled lineage of D: [A@1, B@1]
+Release target: audience X, purpose P
+EA: valid assessment of OA's release decision for that exact tuple
+EB: retained assessment of OB's earlier release decision for that exact tuple
+Current policy: OA's decision applies; OB's decision has been revoked
+Operation: new disclosure of D to X for P
+```
+
+The output is a synthetic assertion, not real personal information. No other
+decision or independently admitted release exists. The retained EA/EB assessment
+bytes and their historical signatures are unchanged.
+
+## Two readings and outputs
+
+| Observation | Stored positive assessments are standing permission | Every owner's current decision must still apply |
+| --- | --- | --- |
+| New D disclosure | allowed | refused; D payload absent |
+| Historical EB check result | pass | pass as historical evidence only |
+| B's constraint | assumed lifted forever | still effective |
+
+The first reading treats EB's immutable historical result as live authorization.
+Both readings know the complete lineage, so no missing-lineage assumption is
+needed to separate them. The disclosure response must not expose protected owner
+or input identifiers merely to explain refusal.
+
+## Recommendation and controls
+
+Use current decisions of every constrained owner, over integration-established
+lineage. Positive control: both exact decisions currently apply, so this release
+is allowed while A/B raw bytes and protected lineage remain hidden. Negative
+neighbors: remove EB entirely; change only audience, purpose, input version,
+transformation version or output-schema version; substitute a model
+`semantic_review` for EB. None grants the missing exact decision.
+
+The case does not require memory to revoke grants or send anything. The component
+performing disclosure applies current policy; memory records evidence and change.
+
+## Evidence and limits
+
+No package/evaluator failure is claimed before package inspection. The positive
+and negative controls establish a semantic authorization contract. Real policy
+authenticity, provider forwarding and sink enforcement require separate
+deployment qualification. Package-format JSON will be added where representable.
