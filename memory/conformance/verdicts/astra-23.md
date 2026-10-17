@@ -9,15 +9,16 @@ Current package **0.2.1-draft**, `f31d58f`: all canonical semantic vectors pass.
 | Supplemental semantic | 22 | 0 | 0 |
 | Supplemental deployment | 0 | 0 | 1 |
 
-Thirteen controls pass. All 22 explicitly migrated supplemental semantic cases
-pass on 0.2.1; no implicit conversion or deployment qualification is claimed.
+Fourteen controls pass, including twelve source-state precedence subcases. All 22
+explicitly migrated supplemental semantic cases pass on 0.2.1; no implicit conversion or deployment qualification is claimed.
 The structural package validator passes 20 intended violation controls.
 
 Current collective rubric score: **1/2**, matching judge commit 510649f. All
 package corrections and this evaluator's R7-020/023/024 fixes are independently
 verified and closed. Source R7-025/026 are also closed. R7-027 (polarity/quality
-budget isolation) remains open; the adjacent ASTRA24-06 source-resolution bound
-awaits disposition. This seat is ready for 2/2 after the collective gates close.
+budget isolation) and R7-028 (source-resolution accounting) corrections await
+independent review; new source R7-029 concerns resolved/empty source precedence.
+This seat is ready for 2/2 after the collective gates close.
 R7-024 retains red baseline bc342e1 and corrected f5fdd8b, independently checked
 with explicit/unfiltered/historical/hidden controls.
 

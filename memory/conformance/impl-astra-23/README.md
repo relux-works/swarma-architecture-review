@@ -75,4 +75,6 @@ publication currentness only to authorized publication-source associations.
 Explicit-target history is restricted to the selected sequence identities.
 RELEASE-0.2.1-FIRST preserves the pre-fix R7-024 report; FIRST-RUN preserves the
 original package-only independence baseline. Current canonical results are 57/57
-semantic with eight deployment cases unsupported; thirteen controls pass.
+semantic with eight deployment cases unsupported; fourteen controls pass. The
+source-state precedence control covers resolved, policy-denied, lost and empty
+source lists without upgrading evidence, including real current-source exhaustion.

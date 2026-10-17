@@ -111,6 +111,47 @@ class Semantics(unittest.TestCase):
         self.assertEqual(result["items"][0]["support"]["evaluation"], "complete")
         self.assertEqual(result["cutoffs"], [])
 
+    # K-EVAL-5: resolved or empty sources precede independent/retained fallbacks without
+    # upgrading evidence. These S32 neighbors also preserve policy denial and current-source limits.
+    def test_source_state_availability_precedence(self):
+        cases = []
+        for requirement, fallback in (("independent", "independent_attestation"),
+                                      ("retained", "prior_assessment_only")):
+            for availability in ("available", "denied", "lost", "empty"):
+                state = "resolvable_now" if availability in ("available", "empty") else fallback
+                cases.append((requirement, availability, 0, state, []))
+        cases.extend([
+            ("current", "available", 1, "resolvable_now", []),
+            ("current", "available", 0, "resolvable_now", ["source_limit"]),
+            ("current", "empty", 0, "resolvable_now", []),
+            ("current", "lost", 1, "prior_assessment_only", ["source_unavailable"]),
+        ])
+        for requirement, availability, bound, expected_state, cutoffs in cases:
+            with self.subTest(requirement=requirement, availability=availability, bound=bound):
+                v = vector("S32")
+                records = {r["envelope"]["id"]: r for r in v["initial_state"]["records"]}
+                assessment = records["rec:att"]["body"]
+                assessment["source_requirement"] = requirement
+                if availability == "empty":
+                    assessment["sources"] = []
+                records["rec:s"]["body"]["availability"] = (
+                    "resolvable" if availability in ("available", "denied") else "erased")
+                v["initial_state"]["policy"]["source_access"][0]["resolvable"] = availability in ("available", "lost")
+                v["query"]["scope"]["targets"] = [{"id": "rec:attested", "version": 1}]
+                v["query"]["bounds"]["source_resolutions"] = bound
+                e = engine(v)
+                self.assertTrue(e.grammar.matches(e.state, e.grammar.schemas["fixture"]["properties"]["initial_state"]))
+                before = copy.deepcopy(e.state)
+                result = e.read(v["query"])
+                support = result["items"][0]["support"]
+                self.assertEqual(support["source_state"], expected_state)
+                self.assertEqual(support["witness"], "not_found" if cutoffs else "present")
+                self.assertEqual(support["evaluation"], "incomplete" if cutoffs else "complete")
+                self.assertEqual(support["evidence_qualification"], [] if cutoffs else ["semantic_review"])
+                self.assertEqual(result["items"][0]["oppose"]["witness"], "not_found")
+                self.assertEqual(result["cutoffs"], cutoffs)
+                self.assertEqual(e.state, before)
+
     # R7-020: authorized coverage uses the closed ref field; no declaration remains unknown.
     # A planted declaration spelling must fail both the exact comparison and closed view grammar.
     def test_coverage_mapping(self):

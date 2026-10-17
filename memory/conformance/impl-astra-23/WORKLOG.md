@@ -199,3 +199,27 @@ will prove semantic differences and forbidden effects are detected.
   source budget family. The new resolution case awaits its disposition.
 - Log: `.temp/impl-astra-23/supplemental-021-05.log`. No code or expectation edit;
   canonical 57/57 and 13-control evidence remain unchanged.
+
+## Round 10 — source-state precedence regression control
+
+- New judge finding R7-029 concerns the independent/retained fallback priority
+  when all sources are available, including the vacuous empty list. Verify this
+  evaluator from K-EVAL-5 and canonical S32, without reading source code or the
+  judge's private probe directory.
+- Required controls: available and empty lists resolve now; unavailable source
+  preserves independent/retained fallback; evidence qualification must not be
+  upgraded by availability. Current-required zero resolution must remain capped.
+
+### Round 10 outcome
+
+- Added one clause-derived product test with twelve subcases. All pass without
+  evaluator changes: independent/retained with resolved, denied, lost and empty
+  lists; current positive, zero-limit, empty-list exemption and unavailable source.
+- Each subcase checks closed snapshot grammar, exact source state, witness,
+  completeness, unchanged semantic-review qualification, no opposite witness,
+  exact cutoff and unchanged state. This is bounded synthetic evidence only.
+- Ten product plus four checker controls pass. Fresh report hashes include this
+  test; canonical remains 57/57 and supplemental 22/22 semantic. Deployment 8+1
+  unsupported. Immutable first/adapted-first reports are untouched.
+- Logs: semantics-precedence-01.log, controls-07.log, canonical-round10-01.log,
+  supplemental-round10-01.log under `.temp/impl-astra-23/`.

@@ -127,6 +127,6 @@ Implementation SHA-256:
 - `evaluator.py`: `8bc6ae4535b4b3b59f612488d80638496b72b55b90ce7e2e74009a6d8fe95e24`
 - `run_vectors.py`: `20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a`
 - `test_controls.py`: `6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083`
-- `test_semantics.py`: `6794b43e8ab9613398474a22776d77e8392d84f673b04111ecaee9f9a57423e4`
+- `test_semantics.py`: `2343a6ca9a034a051844b29cde7047b3c8ca7baf36dc67ac8e488ab167f03fc3`
 
 Full actual reports, exact differences and vector digests are in the adjacent JSON report.
