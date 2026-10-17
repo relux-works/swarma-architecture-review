@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 23, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 24, 2026-10-17.
 
 ## Baseline and scope
 
@@ -615,3 +615,26 @@ with exact input/runtime hashes. R7-048 closure evidence is sent to the judge
 and implementation owner. Source R7-051 and remaining canonical gaps are still
 separate; the deadline findings are also unresolved. Score remains **1/2**,
 protected deployment unqualified, no PARK received.
+
+## Phase 2 round 24 — source receipt-only ancestry independently verified
+
+Source `427fed5` now passes the complete expanded 0.2.4 B01, P02/P10/P15
+and all **15 owned fixtures** exactly. Its round-22 seven final projection
+differences are gone; the original failure report remains unchanged. Reviewed
+the canonical issuer-scoped receipt traversal and its eligible same-sequence
+candidate mapping. No input or expected answer changed.
+
+Four focused native control groups pass: missing intermediate assertions,
+longer receipt-only chains with event-order permutations, truly incomparable
+branches and candidate eligibility. The latter covers hidden, historical-cut,
+different-subject and different-mode candidates, with a private positive
+control. Queries preserve records, runtime, policy and captures; missing
+assertions are not fabricated and unrelated branches remain ambiguous.
+
+Evidence: seat `.temp/r7-astra-26/owned-cases-astra22-12.json`,
+`attribution-domains-astra22-03.json` and `astra22-authority-controls-01.log`,
+with exact input/runtime hashes. This is independent closure evidence for
+R7-051, not a substitute for the judge's disposition. Both evaluators now pass
+this seat's current 0.2.4 owned corpus and targeted four canonical scenarios at
+the pinned heads. Retention-deadline findings and seven source canonical gaps
+remain separate. Score **1/2**, deployment unqualified, no PARK received.
