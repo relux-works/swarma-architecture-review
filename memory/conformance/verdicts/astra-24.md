@@ -1,13 +1,14 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 22; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 23; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.3-draft` at `23290b3`; all owned fixtures explicitly migrated.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
-companion and design, and the released package. This seat authored nine synthetic
-semantic cases with thirteen exact package-format vectors, including focused controls. It did not modify
+companion and design, and the released package. This seat authored ten synthetic
+semantic cases with thirteen exact package-format vectors and three newly
+separating authority-succession contract probes, including focused controls. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
 
@@ -24,6 +25,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
 | ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package `53266dd` and source `99b5a85` independently verified; both judge-closed |
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
+| ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Both implementations accept forbidden writes; classification and exact refusal mapping pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -354,11 +356,24 @@ at `f6c339d`; their exact event identifiers are retained in the relevant case
 and round handoff. Canonical retention repairs and expanded source coverage
 remain separate from these verified closures.
 
+## Round 23 authority-succession admission separation
+
+Both evaluators at `d077064` accept B01 replacements with an unrelated canonical
+receipt and with the prior receipt reused. Each commits both records, advances
+the cut, dirties the registered dependent and stores idempotency state. The
+unchanged ordered B01 control also succeeds. K-REV-3 forbids the two negative
+writes, independently of any exact refusal-code choice. Three probes and their
+first complete reports are committed with ASTRA24-10; structural/state checks
+pass. Judge/editor adjudication is requested because the closed refusal table
+does not explicitly map missing succession between existing canonical receipts.
+No exact-output vectors or new oracle are claimed before that mapping resolves.
+
 ## Provisional R7 row and remaining work
 
 **Phase 2 R7: 1/2.** Both evaluators pass the thirteen owned fixtures at their
-recorded verification heads. Full 0.2.3 dual coverage, formal remaining judge
-closures and other collective repairs remain pending. Protected deployment
+recorded verification heads. The new authority-succession probes show forbidden
+writes in both evaluators. Full 0.2.3 dual coverage, classification and other
+collective repairs remain pending. Protected deployment
 is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes

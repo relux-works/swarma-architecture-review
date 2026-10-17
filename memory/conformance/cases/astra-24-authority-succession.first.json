@@ -1,0 +1,395 @@
+{
+  "astra-22": {
+    "checkout": "d07706451fd7b91ad009747c23a2bc178c1d941c",
+    "package": "0.2.3-draft",
+    "input_sha256": "5dcc51600aaed1a2253c9c8ebbde951556521ccea982a55fa3f60d055965ecd4",
+    "implementation_hashes": {
+      "adapter.py": "bf163decd6ca3b463da6959ca40dcdcdc49ea45c576be28640e879cf4ced413a",
+      "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+      "boundary.py": "8f6baefe8cc77e19fd50555550117655d57ebd95e182fc7aa78bc4f558900158",
+      "boundary_checks.py": "057cca3daba4bf03ffbf8acd87bda3a0f5a9b9a97088539d0714af434917457b",
+      "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+      "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+      "impact_checks.py": "5285af6df7e8554c6726a87fd4219056e0a2cceb3d6e61e741a40550c1aca2a6",
+      "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+      "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+      "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+      "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+      "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+      "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+      "transactions.py": "084e8ae14d2525145025ba641c37f97ec67aca5884179c3ce39e33e0eaa75b37"
+    },
+    "probes": {
+      "ordered-control": {
+        "operation_result": {
+          "type": "receipt",
+          "operation": "revise",
+          "outcome": "revised",
+          "receipt_handle": "ee9c6761a7edf1d99f0ea3d6ded0f284",
+          "refs": [
+            {
+              "id": "rec:d",
+              "version": 2
+            },
+            {
+              "id": "rec:decision-replace",
+              "version": 1
+            }
+          ],
+          "custody": [],
+          "erasure_status": null
+        },
+        "state_unchanged": false,
+        "record_inventory": [
+          {
+            "id": "rec:d",
+            "version": 1
+          },
+          {
+            "id": "rec:d",
+            "version": 2
+          },
+          {
+            "id": "rec:decision-replace",
+            "version": 1
+          },
+          {
+            "id": "rec:dependent",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt1",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt2",
+            "version": 1
+          },
+          {
+            "id": "rec:review-dependent",
+            "version": 1
+          }
+        ],
+        "memory_cut": 102,
+        "dirty": [
+          {
+            "id": "rec:dependent",
+            "version": 1
+          }
+        ],
+        "idempotency_entries": 1
+      },
+      "incomparable": {
+        "operation_result": {
+          "type": "receipt",
+          "operation": "revise",
+          "outcome": "revised",
+          "receipt_handle": "02b34e4a3c2586a42d0579ced90a37af",
+          "refs": [
+            {
+              "id": "rec:d",
+              "version": 2
+            },
+            {
+              "id": "rec:decision-replace",
+              "version": 1
+            }
+          ],
+          "custody": [],
+          "erasure_status": null
+        },
+        "state_unchanged": false,
+        "record_inventory": [
+          {
+            "id": "rec:d",
+            "version": 1
+          },
+          {
+            "id": "rec:d",
+            "version": 2
+          },
+          {
+            "id": "rec:decision-replace",
+            "version": 1
+          },
+          {
+            "id": "rec:dependent",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt1",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt2",
+            "version": 1
+          },
+          {
+            "id": "rec:review-dependent",
+            "version": 1
+          }
+        ],
+        "memory_cut": 102,
+        "dirty": [
+          {
+            "id": "rec:dependent",
+            "version": 1
+          }
+        ],
+        "idempotency_entries": 1
+      },
+      "same-receipt": {
+        "operation_result": {
+          "type": "receipt",
+          "operation": "revise",
+          "outcome": "revised",
+          "receipt_handle": "78f8f5ae0ec1059a10d0db671916d15f",
+          "refs": [
+            {
+              "id": "rec:d",
+              "version": 2
+            },
+            {
+              "id": "rec:decision-replace",
+              "version": 1
+            }
+          ],
+          "custody": [],
+          "erasure_status": null
+        },
+        "state_unchanged": false,
+        "record_inventory": [
+          {
+            "id": "rec:d",
+            "version": 1
+          },
+          {
+            "id": "rec:d",
+            "version": 2
+          },
+          {
+            "id": "rec:decision-replace",
+            "version": 1
+          },
+          {
+            "id": "rec:dependent",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt1",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt2",
+            "version": 1
+          },
+          {
+            "id": "rec:review-dependent",
+            "version": 1
+          }
+        ],
+        "memory_cut": 102,
+        "dirty": [
+          {
+            "id": "rec:dependent",
+            "version": 1
+          }
+        ],
+        "idempotency_entries": 1
+      }
+    }
+  },
+  "astra-23": {
+    "checkout": "d07706451fd7b91ad009747c23a2bc178c1d941c",
+    "package": "0.2.3-draft",
+    "input_sha256": "5dcc51600aaed1a2253c9c8ebbde951556521ccea982a55fa3f60d055965ecd4",
+    "implementation_hashes": {
+      "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+      "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+      "engine.py": "a6926a1a49a65b20cc670f3910e3cdab598a5dd8431f100ee5e34d088a51111f",
+      "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+      "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+      "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+      "test_semantics.py": "20d7b7b82b6adc1cc3fb12a7ea406f9995f0511f0ec922a152a4e4e81c3644c7"
+    },
+    "probes": {
+      "ordered-control": {
+        "operation_result": {
+          "type": "receipt",
+          "operation": "revise",
+          "outcome": "revised",
+          "receipt_handle": "7e7361e3255b173cbf086c955be0d2e8",
+          "refs": [
+            {
+              "id": "rec:d",
+              "version": 2
+            },
+            {
+              "id": "rec:decision-replace",
+              "version": 1
+            }
+          ],
+          "custody": [],
+          "erasure_status": null
+        },
+        "state_unchanged": false,
+        "record_inventory": [
+          {
+            "id": "rec:d",
+            "version": 1
+          },
+          {
+            "id": "rec:d",
+            "version": 2
+          },
+          {
+            "id": "rec:decision-replace",
+            "version": 1
+          },
+          {
+            "id": "rec:dependent",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt1",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt2",
+            "version": 1
+          },
+          {
+            "id": "rec:review-dependent",
+            "version": 1
+          }
+        ],
+        "memory_cut": 102,
+        "dirty": [
+          {
+            "id": "rec:dependent",
+            "version": 1
+          }
+        ],
+        "idempotency_entries": 1
+      },
+      "incomparable": {
+        "operation_result": {
+          "type": "receipt",
+          "operation": "revise",
+          "outcome": "revised",
+          "receipt_handle": "1d67bd434a61823879aef8e03da05477",
+          "refs": [
+            {
+              "id": "rec:d",
+              "version": 2
+            },
+            {
+              "id": "rec:decision-replace",
+              "version": 1
+            }
+          ],
+          "custody": [],
+          "erasure_status": null
+        },
+        "state_unchanged": false,
+        "record_inventory": [
+          {
+            "id": "rec:d",
+            "version": 1
+          },
+          {
+            "id": "rec:d",
+            "version": 2
+          },
+          {
+            "id": "rec:decision-replace",
+            "version": 1
+          },
+          {
+            "id": "rec:dependent",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt1",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt2",
+            "version": 1
+          },
+          {
+            "id": "rec:review-dependent",
+            "version": 1
+          }
+        ],
+        "memory_cut": 102,
+        "dirty": [
+          {
+            "id": "rec:dependent",
+            "version": 1
+          }
+        ],
+        "idempotency_entries": 1
+      },
+      "same-receipt": {
+        "operation_result": {
+          "type": "receipt",
+          "operation": "revise",
+          "outcome": "revised",
+          "receipt_handle": "5f25e21da1c3c01ba818aace1890e3d0",
+          "refs": [
+            {
+              "id": "rec:d",
+              "version": 2
+            },
+            {
+              "id": "rec:decision-replace",
+              "version": 1
+            }
+          ],
+          "custody": [],
+          "erasure_status": null
+        },
+        "state_unchanged": false,
+        "record_inventory": [
+          {
+            "id": "rec:d",
+            "version": 1
+          },
+          {
+            "id": "rec:d",
+            "version": 2
+          },
+          {
+            "id": "rec:decision-replace",
+            "version": 1
+          },
+          {
+            "id": "rec:dependent",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt1",
+            "version": 1
+          },
+          {
+            "id": "rec:receipt2",
+            "version": 1
+          },
+          {
+            "id": "rec:review-dependent",
+            "version": 1
+          }
+        ],
+        "memory_cut": 102,
+        "dirty": [
+          {
+            "id": "rec:dependent",
+            "version": 1
+          }
+        ],
+        "idempotency_entries": 1
+      }
+    }
+  }
+}
