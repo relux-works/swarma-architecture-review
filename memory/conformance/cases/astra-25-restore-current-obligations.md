@@ -1,7 +1,7 @@
 # ASTRA25-12: current restore obligations absent from the old backup
 
-Status: native first observations; judge classification requested. Recommended
-package implementation bug. No exact vector or expected output changed.
+Status: R7-058 package implementation bug, open. Native first preserved at
+644c793; exact supplementary regressions now published after judge mapping.
 Owner: astra-25.
 
 ## Contract and two readings
@@ -72,3 +72,48 @@ obligation, false-witness and independent unaffected-content neighbors.
 No package implementation details are sent to the source implementer. This is a
 synthetic semantic disclosure/resurrection witness; physical purge and real
 outside-domain witness verification remain unqualified.
+
+## R7-058 mapping and exact supplementary fixtures
+
+Judge event `$M8NvqvBJqj0P6G_HX3wtl3-FVKIbSUxxSZFXB9YCyvE` independently
+reproduces all four original traces and classifies R7-058 as package
+implementation bug. Current supplied and retained obligations must enter the
+full closure; newly learned obligations update protected fences/erasure/generation.
+Unreachable affected custody must refuse erasure_incomplete/true atomically
+with the global fence retained. No source/spec change or owner decision is needed.
+
+Five exact fixtures now cover:
+
+- [New witnessed obligation](astra-25-restore-current-obligations.vector.json).
+- [Unreachable affected sink](astra-25-restore-current-obligations-unreachable.vector.json).
+- [Previously known obligation](astra-25-restore-current-obligations-known-control.vector.json).
+- [Genuinely empty current obligations](astra-25-restore-current-obligations-empty-control.vector.json).
+- [Independent unaffected content](astra-25-restore-current-obligations-independent-control.vector.json).
+
+The first four retain every initial-state and operation byte of their original
+native variants, adding only an explicit capture of the already-observed fenced
+query. The fifth adds a direct independent B and its controlled sink: reconciling
+A must keep B readable and its sink present. All include the false-witness atomic
+refusal before current-complete reconciliation. Exact expected receipts,
+refusals, closure and custody follow the judge mapping and existing S25/S20;
+the ordinary no-evidence A view is copied from the already-published S01 oracle,
+and the B-only view applies that same direct independent-record contract. Oracle
+construction does not copy either evaluator's new output.
+
+All 34 owned fixtures pass closed structure, references, integration facts and
+normalization/forbidden checks with two bounded leak plants. The initial local
+handle-slot naming attempt was rejected by the structural checker and corrected
+to existing @hN syntax before evaluator execution; it is not a product failure.
+Source946cbd8 passes all 33 semantic fixtures. Unchanged package23b4d74 passes
+30 and fails three: new obligation, unreachable sink and unaffected B neighbor;
+both known/empty positive controls pass. The failures expose missing protected
+closure/custody, falsely reopened content and, for the unreachable case, success
+instead of the exact refusal. Earlier 28 cases remain unchanged and green.
+One owned deployment fixture remains unsupported.
+
+Exact first runs are `astra22-phase2-025-restore-obligations-control` and
+`astra23-phase2-025-restore-obligations-first`. New fixture bytes at execution
+are explicitly marked as working-copy inputs and hash-pinned. The native first
+still preserves complete before/after snapshots, erasure/fence/generation and
+unreachable atomicity beyond the vector postcondition fields. No physical purge
+or outside-domain witness deployment claim is made.

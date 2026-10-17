@@ -202,3 +202,7 @@ Runs `astra22-phase2-025-erase-conflict-corrected`,
 `astra22-native-erasure-025-corrected` retain the review evidence. All first
 failures and fixture bytes remain unchanged. Recommend judge closure of R7-057;
 ASTRA25-12 restore obligations remain a separate package finding.
+
+Judge `$gEHHYy2OeM-zzow_LLsQk2oL17CygOcHKE1ZmXyb1wI`, signed e3d44df,
+closes R7-057 at946cbd8 after full exact/native reproduction. First wrong-code
+observations and both author-owned exact inputs remain unchanged.

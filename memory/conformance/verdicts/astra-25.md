@@ -1,15 +1,15 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 33; collective active, NO PARK. Seat identity:
+Status: phase 2, round 34; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Both evaluators now pass every canonical semantic
-vector, but native finding closure remains incomplete. The prior 2/2 at judge `b1ae299` used the original
+vector, but the new restore supplementary cases fail in package. The prior 2/2 at judge `b1ae299` used the original
 supported-vector rubric; it was never a claim that both evaluators passed all 57.
 
 ## Seat output and dispositions
 
-Twelve case documents and twenty-nine exact fixtures (twenty-eight semantic, one deployment)
+Twelve case documents and thirty-four exact fixtures (thirty-three semantic, one deployment)
 are published. All initial source readings and later failures remain in git and
 [`astra-25-evaluator-results.json`](../cases/astra-25-evaluator-results.json).
 
@@ -21,22 +21,22 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | External witness must be current and complete | R7-008 fixed@cde5754 for fixture meaning; real deployment remains unsupported |
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Hidden revision cannot expose protected global dirty state | R7-018 fixed@f31d58f; hidden and authorized-dirty traces pass |
 | [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md) | Opposite quality cannot spend existence counters | R7-027 fixed@4e647ea; both owned traces and ASTRA24-05 controls pass |
-| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 fixed at package 7e71765 / runtime a016781; judge and seat independently verified; separate R7-057 source correction946cbd8 independently verified; judge closure pending |
+| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 fixed at package 7e71765 / runtime a016781; judge and seat independently verified; R7-057 source correction946cbd8 independently verified and judge-closed at e3d44df |
 | [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source d077064 / R7-037 package 4af0360 independently verified and judge-closed at 7446ba5 |
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; both exact pairs now pass at source dbf4892 and package 23b4d74 |
 | [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 fixed at 23290b3; judge and seat independently verified |
 | [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | R7-054 closed at6a04e8c and052 at4a14a56; package053 at23b4d74 independently verified and judge-closed at13e3d73 |
-| [ASTRA25-12](../cases/astra-25-restore-current-obligations.md) | Current outside-domain restore obligations must survive an older local erasure inventory | Native package resurrection/premature reconciliation reproduced; judge classification requested |
+| [ASTRA25-12](../cases/astra-25-restore-current-obligations.md) | Current outside-domain restore obligations must survive an older local erasure inventory | R7-058 package implementation open; five exact fixtures, source5/5 and package2/5 |
 
 ## Current evidence
 
-The twenty-nine owned fixtures explicitly use package `0.2.5-draft` (`6a04e8c`).
+The thirty-four owned fixtures explicitly use package `0.2.5-draft` (`6a04e8c`).
 Prior fixtures migrated by semantic_profile only. Seven new expiry vectors
 encode the judge-mapped refusal; their original complete bytes are also frozen.
 All pass closed structure, references, accepted-write integration facts,
 normalization and forbidden checks. Current canonical validation passes 65
 vectors, 52 clauses and 34 intended checker controls. Local structural log:
-`.temp/astra25-vector-structure-18.log`.
+`.temp/astra25-vector-structure-20.log`.
 
 R7-042 now accepts the valid future-fact state while rejecting complete/unknown
 admitted dangling inputs and an accepted write missing its input. Both runtimes
@@ -56,8 +56,8 @@ independent defect count.
 
 | Latest recorded owned 0.2.5 semantic runs | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Package runtime at `23b4d74` | 28 | 0 | 0 |
-| Source runtime at `946cbd8` | 28 | 0 | 0 |
+| Package runtime at `23b4d74` | 30 | 3 | 0 |
+| Source runtime at `946cbd8` | 33 | 0 | 0 |
 
 Each evaluator reports the one owned deployment fixture unsupported. Both previously
 passed all six independent storage/replay controls each for scoped grants. The
@@ -123,8 +123,7 @@ positive controls. The first source run fails only the intended code in each; pa
 both. Source946cbd8 now passes both unchanged fixtures and all 28 owned semantic
 cases, 11 native erasure groups, the independent original seven-operation probe
 and 57 canonical semantic cases. Four correction runs preserve module/input
-hashes and exact refusal-state/original-receipt guarantees. Judge closure is
-recommended. The owned semantic denominator is 28; no old output changed. R7-056
+hashes and exact refusal-state/original-receipt guarantees. Judge e3d44df closes R7-057 at946cbd8. No old output changed. R7-056
 correction 87beb46 now passes independent review: five availability groups,
 26 owned semantic vectors and all 57 canonical semantic vectors. Only the two
 current availability facts are changed by the authorized transition; the four
@@ -133,15 +132,15 @@ cuts, receipts and captures. The original failing witness remains immutable.
 Latest runs are the three `astra22-*-025-availability-corrected` entries; every
 current module was byte-compared to the correction. Judge e2a797d closes R7-056 at 87beb46.
 
-ASTRA25-12 adds four native restore observations per reader, outside exact vector
-counts. A current complete witness supplies A absent from the old snapshot's
-local erased inventory: source reconciles A and its custody, while package
-reopens with A readable and both payload/backup still present. With an unreachable
-sink, source refuses atomically while package still claims reconciliation.
-Known-old-obligation and genuinely empty-current-obligation controls agree;
-false witnesses and restore-fenced reads refuse correctly. Full first inputs and
-states are frozen; package implementation classification is requested before
-adding exact fixtures. No current witness deployment evidence is claimed.
+ASTRA25-12 first preserves four native restore observations per reader. Judge
+`$M8NvqvBJqj0P6G_HX3wtl3-FVKIbSUxxSZFXB9YCyvE` classifies R7-058 as package
+implementation bug. Five exact supplemental fixtures now encode new current
+obligations, unreachable custody, known/empty positives and unaffected B.
+Source passes all five; unchanged package fails new, unreachable and independent
+variants. Both false-witness/global-fence refusals and known/empty controls agree.
+Full native first snapshots and first exact outputs remain immutable. Source is
+33/33 owned semantic; package30/33. R7-058 correction/review remains necessary;
+no package prose or owner decision is required. Existing R7-055 is separate.
 
 ## Phase-2 gate and remaining work
 
