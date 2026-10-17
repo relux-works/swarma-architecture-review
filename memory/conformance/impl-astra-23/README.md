@@ -1,0 +1,52 @@
+# astra-23 package-only evaluator
+
+Independent Python standard-library implementation of `memory/spec/`. The first
+implementation and full report are produced before source-design, companion,
+notes, inputs, other-evaluator, ledger or divergence-topic intake. It neither
+imports the package's authoring helpers nor selects behavior by vector IDs.
+
+`engine.py` accepts only the initial state, operations and query. It models atomic
+state transitions; `evaluator.py` computes authorized bounded evidence; `common.py`
+handles exact references, canonical JSON, schema shapes and refusals. The runner
+alone loads expected outputs and normalization. Initial snapshots are trusted
+admitted synthetic inputs, as required by K-API-2; this is not a production intake
+validator or a protected deployment.
+
+## Tools and commands
+
+Python 3 is the only runtime dependency. Run from the repository root:
+
+```sh
+python3 -B memory/conformance/impl-astra-23/test_controls.py
+python3 -B memory/conformance/impl-astra-23/run_vectors.py
+```
+
+The runner reads every JSON vector under `memory/spec/kernel/vectors/` and writes
+`RESULTS.md` and `RESULTS.json` here. Each semantic vector executes from a fresh
+deep-copied state. Every deployment vector is explicitly unsupported for actual
+qualification; simulated transitions cannot prove host, transport or custody
+boundaries. A nonzero runner exit means at least one execution or comparison fails.
+
+For a pinned package snapshot, supply `--spec-root PATH --package-commit SHA`.
+`--output PATH.md` keeps additional versioned reports separate. `FIRST-RUN.md`
+and `FIRST-RUN.json` preserve the independent baseline. Git records and publishes
+signed seat-owned artifacts; a2a carries round markers and divergence notices.
+Readiness/check logs and the initial package copy live in `.temp/`.
+
+## Exact comparison
+
+All operation results, final results and postconditions are compared recursively
+with typed JSON equality. Handle normalization replaces only declared paths;
+syntax, equality, distinctness, forbidden predicates and equivalent-output pairs
+are checked. Output shapes are checked against the published closed schemas.
+All exact field differences are retained in both reports. The bounded checker
+controls plant semantic, forbidden-effect and equality violations with valid
+controls. A single run does not prove uniform randomness or timing isolation.
+
+## Scope and limitations
+
+The finite fixture API is implemented without external execution, source reads,
+network access or live publication. Policy facts are admitted test inputs. Results
+report observed conformance, including defects and unsupported qualification;
+they do not establish service security. Known discrepancies are retained for judge
+classification before semantic implementation changes.
