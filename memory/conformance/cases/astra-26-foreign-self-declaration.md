@@ -1,9 +1,9 @@
 # ASTRA26-06 — an organisation's attestation is not the subject's self-declaration
 
-Status: **R7-022 accepted spec-bug**, owner astra-21; candidate fix released in
-`0.2.1-draft` at `f31d58f`, behavior verified against `f5fdd8b`. Judge closure
-is pending. Seat: astra-26. Original witness targets `0.2.0-draft`
-at `cde5754`. No new kernel primitive is requested.
+Status: **R7-022 fixed at `f31d58f` and judge-closed at `6a4f307`**. Package
+`0.2.1-draft` behavior is verified against package evaluator `f5fdd8b` and source
+evaluator `26d8cc6`. Seat: astra-26. Original witness targets `0.2.0-draft`
+at `cde5754`. No new kernel primitive was requested.
 
 ## Original clauses and concrete witness
 
@@ -134,3 +134,21 @@ comparator and nine product controls pass (`astra23-controls-03.log`,
 The targeted prose, grammar and behavior correction is verified and sent to the
 judge for closure. This does not qualify external publication, account-control
 services or protected deployment.
+
+## Round 8 — judge closure and second evaluator
+
+Judge `6a4f307` closed R7-022 after its independent full run and targeted witness.
+R7-026 separately tracked the new source transaction mapper's missing identity
+gate; it did not reopen the package correction. Source evaluator `26d8cc6` now
+passes this fixture exactly under `0.2.1-draft`: typed wrong-subject refusal,
+unchanged post-refusal state, valid own admission and final record inventory.
+Its 25 source, 3 adapter, 7 transaction and 5 comparator controls pass.
+
+The source evaluator passes seven of the eight owned fixtures, with zero
+failures. ASTRA26-02 remains explicitly unsupported because the source model
+lacks unconfirmed imported-publication currentness; the checked-currentness
+control passes. The eight package-evaluator passes remain separate evidence.
+Full source outputs, precise unsupported reason and implementation/input hashes:
+seat `.temp/r7-astra-26/owned-cases-astra22-02.json`. Control logs are
+`astra22-source-controls-02.log`, `astra22-adapter-controls-02.log` and
+`astra22-transaction-controls-02.log`. No deployment qualification is implied.

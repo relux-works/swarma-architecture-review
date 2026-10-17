@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 7, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, round 8, 2026-10-17.
 
 ## Baseline and scope
 
@@ -240,3 +240,26 @@ No cases or directed requests were outstanding at initialization.
   **42 pass / 1 fail / 14 unsupported** before its new identity correction.
   Thus the collective row remains **1/2** pending outstanding implementation
   fixes and judge closure. All 8 canonical deployment vectors remain unsupported.
+
+## Round 8 — second evaluator and closed owned defects
+
+- Judge `6a4f307` closed **R7-022 fixed at `f31d58f`** after its independent
+  current-release run. Both owned spec defects, R7-010 and R7-022, are closed;
+  R7-003/004/016/017 remain rejected defect allegations with executable
+  regression controls retained. No owned case awaits classification.
+- Independently ran source evaluator `26d8cc6` on the same eight 0.2.1 owned
+  fixtures: **7 pass / 0 fail / 1 unsupported**. ASTRA26-06 now exactly verifies
+  the source identity fix separately tracked as R7-026. Import attribution,
+  location slots, introduction separation and both representative-alias
+  controls also pass. ASTRA26-02 is unsupported for unconfirmed imported
+  currentness; its checked-currentness control passes. Unsupported is not a pass.
+- Source controls pass: 25 core, 3 adapter, 7 transaction, 5 comparator. Exact
+  results and implementation/input hashes: seat
+  `.temp/r7-astra-26/owned-cases-astra22-02.json`; control logs:
+  `astra22-source-controls-02.log`, `astra22-adapter-controls-02.log` and
+  `astra22-transaction-controls-02.log`. No foreign file was modified.
+- Current package-evaluator evidence remains **8/8 owned**, **57/57 canonical**
+  semantic. Source canonical publication is **43 pass / 0 fail / 14 unsupported**.
+  A separate source quality-budget case from astra-25 remains under collective
+  classification/fix, so this seat keeps the collective row **1/2** pending
+  the final ledger. Deployment remains unsupported.
