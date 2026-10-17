@@ -1,5 +1,63 @@
 # Package releases
 
+## 0.2.3-draft
+
+Corrects judge-classified R7-039 (missing retention wire scope) and R7-042
+(premature existence checks on future integration facts). The inventory remains
+65 vectors, 57 semantic and 8 deployment, with 52 clauses and 14 schemas.
+
+Breaking wire change: admit, admit_raw, revise and declassify require
+`context.retention_context: {audience, purpose}`. The authenticated actor is the
+fixed storage principal. Retain must match that actor, each output/input record's
+exact space and id, and this single audience/purpose. Traverse complete content
+inputs and incomplete-lineage known lower bounds transitively, using the admitted
+pre-state plus the whole atomic batch. Future integration facts alone do not make
+a record present. Storage scope is independent of onward disclosure labels;
+empty labels can be retained but cannot grant disclosure. No operation, read/use,
+metadata or release permission substitutes for retain.
+
+Live revocations now also accept `right: retain`, under the existing exact
+principal/audience/purpose scope across records and spaces governed by that
+policy. This blocks new retention and authorized write replay; it does not itself
+revoke read/use/forward or erase stored records. Context is canonical intent.
+Exact replay rechecks current retain authority over the original output/input
+closure and either returns the unchanged receipt or refuses `not_authorized`
+without state mutation. An authorized context change under the same key conflicts.
+
+Migration: explicitly bind every write's intended retention scope. Canonical
+writes use public/read where that actor already has grants; P03's observer and
+the narrowed P11/P13 controls use private/read. This is a deliberate fixture
+choice, not a default that implementations may infer. All previous expected
+reports are unchanged apart from profile version except P11 and P13.
+
+P11 pairs exact principal/space/record/audience/purpose refusals with narrow
+private/read admission despite broader disclosure labels. It also checks direct
+and transitive input authority, no committed cut or reserved key after refusal,
+exact later-stamp replay, changed-context conflict and retain-revoked replay/new
+write refusal. Read permission and the private view survive a retain-only
+revocation. P13 retains unknown-lineage known-input checks, a future-input refusal
+followed by same-key whole-batch success, an input appearing later in proposal
+order, and empty-label storage with no disclosed item. The canonical inventory
+checks are supplemented by implementer full-state assertions for refused writes;
+the vector postcondition shape does not expose every internal state component.
+
+The checker defers input existence only when an integration fact's output is not
+yet admitted. Admitted complete and unknown-lineage lower bounds still require
+actual inputs. Accepted operation checks include prior successful writes and the
+whole current batch. Duplicate/direct-fact integrity remains unchanged. The
+ASTRA25-10 pre-fix false positive was reproduced before correction; its independent
+fixture and expected outputs remain untouched.
+
+Validation: 94 JSON artifacts and 32 intended checker violations. New controls
+cover all four required contexts, forbidden principal override, unauthorized
+receipt output, an accepted batch missing an input, and dangling complete/unknown
+admitted inputs. The unchanged package evaluator produces the intended P11/P13
+red result: 55 semantic passes, two failures, zero unsupported; deployment eight
+unsupported. Isolated authorized P11/P13 traces pass every expected field,
+including same-batch input resolution and non-disclosure. This is regression
+evidence, not a corrected evaluator conformance claim. Independent 0.2.3 behavior
+and adversary migration remain required.
+
 ## 0.2.2-draft
 
 Corrects judge-classified R7-031: erase authority and full protected erasure closure do not authorize disclosure of hidden closure identifiers. K-ERASE-2 now agrees with K-API-1 and the source metadata contract. The inventory stays 65 vectors (57 semantic / 8 deployment), 52 clauses and 14 schemas.

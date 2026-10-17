@@ -1,12 +1,14 @@
 {
   "id": "P13",
-  "title": "Cited public evidence is not complete model lineage",
+  "title": "Known lineage bounds retention across an atomic batch and empty labels",
   "profile": "semantic",
   "clauses": [
     "K-DISC-1",
     "K-ENV-3",
     "K-PROJ-1",
-    "K-NI-1"
+    "K-NI-1",
+    "K-AUTH-1",
+    "K-API-1"
   ],
   "initial_state": {
     "records": [
@@ -327,7 +329,20 @@
         },
         {
           "output": {
-            "id": "rec:model-tainted",
+            "id": "rec:model-empty",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "model",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:model-stage",
             "version": 1
           },
           "profile": {
@@ -338,6 +353,24 @@
           "inputs": [
             {
               "id": "rec:private-input",
+              "version": 1
+            }
+          ],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:model-tainted",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "model",
+          "inputs": [
+            {
+              "id": "rec:model-stage",
               "version": 1
             },
             {
@@ -407,7 +440,6 @@
             "erase",
             "forward",
             "read",
-            "retain",
             "revise",
             "use"
           ],
@@ -427,7 +459,6 @@
             "erase",
             "forward",
             "read",
-            "retain",
             "revise",
             "use"
           ],
@@ -447,7 +478,6 @@
             "erase",
             "forward",
             "read",
-            "retain",
             "revise",
             "use"
           ],
@@ -467,7 +497,6 @@
             "erase",
             "forward",
             "read",
-            "retain",
             "revise",
             "use"
           ],
@@ -475,6 +504,38 @@
             "*"
           ],
           "metadata": true
+        },
+        {
+          "principal": "subj:h1",
+          "space": "space:main",
+          "audience": "aud:private",
+          "purpose": "purpose:read",
+          "rights": [
+            "retain"
+          ],
+          "records": [
+            "rec:model-clean",
+            "rec:model-empty",
+            "rec:model-stage",
+            "rec:model-tainted",
+            "rec:model-unknown",
+            "rec:private-input",
+            "rec:public-input"
+          ],
+          "metadata": false
+        },
+        {
+          "principal": "subj:h1",
+          "space": "space:main",
+          "audience": "aud:private",
+          "purpose": "purpose:missing-known-input",
+          "rights": [
+            "retain"
+          ],
+          "records": [
+            "rec:model-unknown"
+          ],
+          "metadata": false
         }
       ],
       "representations": [],
@@ -482,6 +543,22 @@
         {
           "record": {
             "id": "rec:model-clean",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:model-empty",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:model-stage",
             "version": 1
           },
           "reviewer": "subj:h1",
@@ -600,7 +677,86 @@
       "context": {
         "actor": "subj:h1",
         "at": "2026-10-17T00:00:00Z",
-        "admission_class": "semantic_inference"
+        "admission_class": "semantic_inference",
+        "retention_context": {
+          "audience": "aud:private",
+          "purpose": "purpose:missing-known-input"
+        }
+      },
+      "idempotency_key": "key:1",
+      "proposals": [
+        {
+          "envelope": {
+            "id": "rec:model-unknown",
+            "version": 1,
+            "kind": "assertion",
+            "schema": {
+              "id": "schema:decision_proposal",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "representation_ref": null,
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "space": "space:main",
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "lineage": [
+              {
+                "id": "rec:public-input",
+                "version": 1
+              }
+            ],
+            "disclosure": {
+              "audiences": [
+                "aud:private",
+                "aud:public"
+              ],
+              "purposes": [
+                "purpose:publish",
+                "purpose:read"
+              ],
+              "retain_until": null,
+              "field_classes": [
+                "public"
+              ],
+              "declassification": []
+            },
+            "context": "real"
+          },
+          "body": {
+            "statement_kind": "proposal",
+            "slot": "[]",
+            "content": [
+              {
+                "field": "value",
+                "value": "candidate without complete input tracking"
+              }
+            ],
+            "authority_receipt": null
+          }
+        }
+      ],
+      "expected_generation": 0
+    },
+    {
+      "op": "admit",
+      "context": {
+        "actor": "subj:h1",
+        "at": "2026-10-17T00:00:00Z",
+        "admission_class": "semantic_inference",
+        "retention_context": {
+          "audience": "aud:private",
+          "purpose": "purpose:read"
+        }
       },
       "idempotency_key": "key:1",
       "proposals": [
@@ -780,6 +936,354 @@
             ],
             "authority_receipt": null
           }
+        },
+        {
+          "envelope": {
+            "id": "rec:model-empty",
+            "version": 1,
+            "kind": "assertion",
+            "schema": {
+              "id": "schema:decision_proposal",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "representation_ref": null,
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "space": "space:main",
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "lineage": [],
+            "disclosure": {
+              "audiences": [],
+              "purposes": [],
+              "retain_until": null,
+              "field_classes": [
+                "public"
+              ],
+              "declassification": []
+            },
+            "context": "real"
+          },
+          "body": {
+            "statement_kind": "proposal",
+            "slot": "[]",
+            "content": [
+              {
+                "field": "value",
+                "value": "retained without onward disclosure"
+              }
+            ],
+            "authority_receipt": null
+          }
+        }
+      ],
+      "expected_generation": 0
+    },
+    {
+      "op": "admit",
+      "context": {
+        "actor": "subj:h1",
+        "at": "2026-10-17T00:00:00Z",
+        "admission_class": "semantic_inference",
+        "retention_context": {
+          "audience": "aud:private",
+          "purpose": "purpose:read"
+        }
+      },
+      "idempotency_key": "key:1",
+      "proposals": [
+        {
+          "envelope": {
+            "id": "rec:model-tainted",
+            "version": 1,
+            "kind": "assertion",
+            "schema": {
+              "id": "schema:decision_proposal",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "representation_ref": null,
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "space": "space:main",
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "lineage": [
+              {
+                "id": "rec:public-input",
+                "version": 1
+              }
+            ],
+            "disclosure": {
+              "audiences": [
+                "aud:private",
+                "aud:public"
+              ],
+              "purposes": [
+                "purpose:publish",
+                "purpose:read"
+              ],
+              "retain_until": null,
+              "field_classes": [
+                "public"
+              ],
+              "declassification": []
+            },
+            "context": "real"
+          },
+          "body": {
+            "statement_kind": "proposal",
+            "slot": "[]",
+            "content": [
+              {
+                "field": "value",
+                "value": "candidate with private context"
+              }
+            ],
+            "authority_receipt": null
+          }
+        },
+        {
+          "envelope": {
+            "id": "rec:model-clean",
+            "version": 1,
+            "kind": "assertion",
+            "schema": {
+              "id": "schema:decision_proposal",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "representation_ref": null,
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "space": "space:main",
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "lineage": [
+              {
+                "id": "rec:public-input",
+                "version": 1
+              }
+            ],
+            "disclosure": {
+              "audiences": [
+                "aud:private",
+                "aud:public"
+              ],
+              "purposes": [
+                "purpose:publish",
+                "purpose:read"
+              ],
+              "retain_until": null,
+              "field_classes": [
+                "public"
+              ],
+              "declassification": []
+            },
+            "context": "real"
+          },
+          "body": {
+            "statement_kind": "proposal",
+            "slot": "[]",
+            "content": [
+              {
+                "field": "value",
+                "value": "candidate from only public context"
+              }
+            ],
+            "authority_receipt": null
+          }
+        },
+        {
+          "envelope": {
+            "id": "rec:model-unknown",
+            "version": 1,
+            "kind": "assertion",
+            "schema": {
+              "id": "schema:decision_proposal",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "representation_ref": null,
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "space": "space:main",
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "lineage": [
+              {
+                "id": "rec:public-input",
+                "version": 1
+              }
+            ],
+            "disclosure": {
+              "audiences": [
+                "aud:private",
+                "aud:public"
+              ],
+              "purposes": [
+                "purpose:publish",
+                "purpose:read"
+              ],
+              "retain_until": null,
+              "field_classes": [
+                "public"
+              ],
+              "declassification": []
+            },
+            "context": "real"
+          },
+          "body": {
+            "statement_kind": "proposal",
+            "slot": "[]",
+            "content": [
+              {
+                "field": "value",
+                "value": "candidate without complete input tracking"
+              }
+            ],
+            "authority_receipt": null
+          }
+        },
+        {
+          "envelope": {
+            "id": "rec:model-stage",
+            "version": 1,
+            "kind": "assertion",
+            "schema": {
+              "id": "schema:decision_proposal",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "representation_ref": null,
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "space": "space:main",
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "lineage": [
+              {
+                "id": "rec:private-input",
+                "version": 1
+              }
+            ],
+            "disclosure": {
+              "audiences": [
+                "aud:private"
+              ],
+              "purposes": [
+                "purpose:publish",
+                "purpose:read"
+              ],
+              "retain_until": null,
+              "field_classes": [
+                "public",
+                "restricted"
+              ],
+              "declassification": []
+            },
+            "context": "real"
+          },
+          "body": {
+            "statement_kind": "proposal",
+            "slot": "[]",
+            "content": [
+              {
+                "field": "value",
+                "value": "same-batch private intermediate"
+              }
+            ],
+            "authority_receipt": null
+          }
+        },
+        {
+          "envelope": {
+            "id": "rec:model-empty",
+            "version": 1,
+            "kind": "assertion",
+            "schema": {
+              "id": "schema:decision_proposal",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "representation_ref": null,
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "space": "space:main",
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "lineage": [],
+            "disclosure": {
+              "audiences": [],
+              "purposes": [],
+              "retain_until": null,
+              "field_classes": [
+                "public"
+              ],
+              "declassification": []
+            },
+            "context": "real"
+          },
+          "body": {
+            "statement_kind": "proposal",
+            "slot": "[]",
+            "content": [
+              {
+                "field": "value",
+                "value": "retained without onward disclosure"
+              }
+            ],
+            "authority_receipt": null
+          }
         }
       ],
       "expected_generation": 0
@@ -806,6 +1310,10 @@
             {
               "id": "rec:model-unknown",
               "version": 1
+            },
+            {
+              "id": "rec:model-empty",
+              "version": 1
             }
           ]
         },
@@ -822,7 +1330,7 @@
           "version": 1
         },
         "cut": {
-          "memory": 103,
+          "memory": 105,
           "sources": []
         },
         "valid_at": "2026-10-17T00:00:00Z",
@@ -867,7 +1375,7 @@
       "version": 1
     },
     "cut": {
-      "memory": 103,
+      "memory": 105,
       "sources": []
     },
     "valid_at": "2026-10-17T00:00:00Z",
@@ -886,6 +1394,16 @@
   "expected": {
     "operation_results": [
       {
+        "type": "refusal",
+        "code": "not_authorized",
+        "retryable": false
+      },
+      {
+        "type": "refusal",
+        "code": "invalid_reference",
+        "retryable": false
+      },
+      {
         "type": "receipt",
         "operation": "admit",
         "outcome": "admitted",
@@ -893,6 +1411,14 @@
         "refs": [
           {
             "id": "rec:model-clean",
+            "version": 1
+          },
+          {
+            "id": "rec:model-empty",
+            "version": 1
+          },
+          {
+            "id": "rec:model-stage",
             "version": 1
           },
           {
@@ -909,7 +1435,7 @@
       },
       {
         "type": "view",
-        "semantic_profile": "0.2.2-draft",
+        "semantic_profile": "0.2.3-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -1073,7 +1599,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.2-draft",
+      "semantic_profile": "0.2.3-draft",
       "projection_rule": {
         "id": "projection:public",
         "version": 1
@@ -1173,6 +1699,14 @@
           "version": 1
         },
         {
+          "id": "rec:model-empty",
+          "version": 1
+        },
+        {
+          "id": "rec:model-stage",
+          "version": 1
+        },
+        {
           "id": "rec:model-tainted",
           "version": 1
         },
@@ -1211,28 +1745,43 @@
       "path": "/result/items/0/content/0/value",
       "test": "equals",
       "value": "candidate without complete input tracking"
+    },
+    {
+      "path": "/operation_results/0/type",
+      "test": "equals",
+      "value": "receipt"
+    },
+    {
+      "path": "/operation_results/1/type",
+      "test": "equals",
+      "value": "receipt"
+    },
+    {
+      "path": "/operation_results/3/items",
+      "test": "size_equals",
+      "value": 3
     }
   ],
   "normalization": {
     "scheme": "fresh_uniform_128_bit_hex",
     "fresh_handles": [
-      "/operation_results/0/receipt_handle",
-      "/operation_results/1/authorized_snapshot_handle",
-      "/operation_results/1/items/0/support/authorized_snapshot_handle",
-      "/operation_results/1/items/0/oppose/authorized_snapshot_handle",
-      "/operation_results/1/items/1/support/authorized_snapshot_handle",
-      "/operation_results/1/items/1/oppose/authorized_snapshot_handle",
+      "/operation_results/2/receipt_handle",
+      "/operation_results/3/authorized_snapshot_handle",
+      "/operation_results/3/items/0/support/authorized_snapshot_handle",
+      "/operation_results/3/items/0/oppose/authorized_snapshot_handle",
+      "/operation_results/3/items/1/support/authorized_snapshot_handle",
+      "/operation_results/3/items/1/oppose/authorized_snapshot_handle",
       "/result/authorized_snapshot_handle",
       "/result/items/0/support/authorized_snapshot_handle",
       "/result/items/0/oppose/authorized_snapshot_handle"
     ],
     "equal_handles": [
       [
-        "/operation_results/1/authorized_snapshot_handle",
-        "/operation_results/1/items/0/support/authorized_snapshot_handle",
-        "/operation_results/1/items/0/oppose/authorized_snapshot_handle",
-        "/operation_results/1/items/1/support/authorized_snapshot_handle",
-        "/operation_results/1/items/1/oppose/authorized_snapshot_handle"
+        "/operation_results/3/authorized_snapshot_handle",
+        "/operation_results/3/items/0/support/authorized_snapshot_handle",
+        "/operation_results/3/items/0/oppose/authorized_snapshot_handle",
+        "/operation_results/3/items/1/support/authorized_snapshot_handle",
+        "/operation_results/3/items/1/oppose/authorized_snapshot_handle"
       ],
       [
         "/result/authorized_snapshot_handle",
@@ -1242,8 +1791,8 @@
     ],
     "distinct_handles": [
       [
-        "/operation_results/0/receipt_handle",
-        "/operation_results/1/authorized_snapshot_handle",
+        "/operation_results/2/receipt_handle",
+        "/operation_results/3/authorized_snapshot_handle",
         "/result/authorized_snapshot_handle"
       ]
     ],

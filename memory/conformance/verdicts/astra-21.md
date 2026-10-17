@@ -1,15 +1,15 @@
 # astra-21 package editor verdict
 
-Status: round 5, Phase 2 active; no PARK. New release: 0.2.2-draft for R7-031.
+Status: round 6, Phase 2 active; no PARK. New release: 0.2.3-draft for R7-039/042.
 
-**Released package: 0.2.2-draft. Phase 2 provisional score: 1/2.**
-R7-031 now has an explicit receipt-scope correction; independent new-release
-behavioral verification is pending. The first nine editor-owned spec bugs remain
-judge-closed at `cde5754`/`f31d58f`. Last independently verified dual coverage was
-43/57 on 0.2.1; the source proof extension reports 44/57, still awaiting review.
-At `b1ae299`, the original supported-vector rubric scored 2/2 with 21 fixed and
-eight rejected items. Phase 2 introduced further findings and the stronger full
-dual-coverage gate; that earlier score remains historical evidence only.
+**Released package: 0.2.3-draft. Phase 2 provisional score: 1/2.**
+Explicit retention scope and future-fact checker correction are ready for
+independent exact-release behavior review. The first nine editor-owned spec bugs
+remain judge-closed at cde5754/f31d58f. R7-031 is judge-closed
+at ee18c3f and independently verified by the editor on frozen 0.2.2. At judge
+round 19/ee18c3f verified dual coverage is 47/57 on 0.2.2; source 5d079be reports
+49/57 pending review. Historical original-rubric 2/2 at b1ae299 does not satisfy
+the stronger Phase 2 full dual-coverage gate.
 The judge owns the final [score](../R7-SCORE.md) and [ledger](../LEDGER.md).
 
 ## Scope and independence
@@ -58,6 +58,42 @@ red evidence, not a corrected evaluator pass. Evidence: BUILD_NOTES/RELEASES,
 `.temp/astra-21/validate-12.log`, `regeneration-03.log`,
 `expected-delta-022-01.log` and `package-evaluator-022-red.md` / `.json`.
 
+## Round 6 — 0.2.3 retention and future-input correction
+
+R7-039 adds required context.retention_context to admit/admit_raw/revise/declassify.
+The actor is the fixed principal; retain matches exact per-record space/id and
+one storage audience/purpose over every output and transitive known input.
+Same-batch inputs, incomplete-lineage lower bounds, empty onward labels, retain
+revocation, canonical intent and current-authorized replay are explicit. Storage
+scope does not grant read/use/metadata/forward or widen onward disclosure.
+
+R7-042 defers integration-input existence only for future, unadmitted outputs.
+Admitted complete/unknown inputs and successful hypothetical batches still need
+actual records. Duplicate/direct-fact integrity is unchanged. ASTRA25-10's old
+false positive was reproduced and the unchanged fixture's state/fact/normalization
+checks now pass. Canonical P13 includes a future-input refusal followed by
+same-key success with the whole atomic batch.
+
+Validation passes: 94 JSON artifacts, 14 schemas, 65 vectors (57 semantic / 8
+deployment), 52 clauses, 32 intended checker violations. All JSON regeneration is
+byte-identical. Only P11/P13 expected reports change after profile normalization.
+Unchanged runtime 53266dd gives the intended 55/2/0 semantic red result on the
+explicitly uncommitted candidate, failing only those extended vectors; all 8
+deployment cases remain unsupported. Isolated valid P11/P13 traces match every
+expected field. Full-state refusal controls and exact released behavior remain
+implementation/review obligations, not claims established by structural checks.
+Commands, evidence paths and limits: [BUILD_NOTES](../../spec/checks/BUILD_NOTES.md)
+and [RELEASES](../../spec/RELEASES.md).
+
+Requested R7-031 independent verification: at runtime 53266dd, including receipt
+fix a016781, the editor materialized the exact frozen package 7e71765 in own scratch.
+Canonical 57/57 and all 3 unchanged author-migrated ASTRA25-07 receipt fixtures pass.
+Targeted receipt scope/replay product controls also pass, including state equality
+after refused replay. No 0.2.3 candidate bytes were used. Reports preserve code and
+input hashes: .temp/astra-21/package-evaluator-022-verified.md/json and
+receipt-022-verified.md/json; logs include exit 0 and receipt-product-controls-01.log.
+This corroborates adversary 6b4248a and judge closure at ee18c3f.
+
 ## Previous 0.2.1 validation and execution evidence
 
 `python3 memory/spec/checks/validate.py` passes: 94 JSON artifacts, 14 closed
@@ -104,8 +140,8 @@ The convener's Phase 2 decision is event
 B01/B07/P05/P06/P08/P12/S07/S17/S20/S23/S24/S25/S26/S27. Adversaries target those
 clauses and the v0.2 delta. The editor will apply resulting judge-classified
 package fixes with preserved regression controls and a versioned 0.2.x release.
-R7-031 is implemented in 0.2.2; await judge verification and explicitly migrated
-adversary controls. Other newly classified implementation defects remain with
+R7-031 is independently verified on 0.2.2. R7-039/042 are corrected in 0.2.3;
+await exact-release evaluator adaptation and explicitly migrated adversary controls. Other newly classified implementation defects remain with
 their evaluator owners; no expected answer was changed to match an evaluator.
 
 Early PARK now requires source 57/57 plus one full round with no new open item;

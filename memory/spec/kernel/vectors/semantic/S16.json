@@ -452,7 +452,11 @@
       "context": {
         "actor": "subj:h1",
         "at": "2026-10-17T00:00:00Z",
-        "admission_class": "semantic_inference"
+        "admission_class": "semantic_inference",
+        "retention_context": {
+          "audience": "aud:public",
+          "purpose": "purpose:read"
+        }
       },
       "idempotency_key": "key:1",
       "proposals": [
@@ -586,7 +590,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.2-draft",
+      "semantic_profile": "0.2.3-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

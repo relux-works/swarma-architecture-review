@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE='urn:bounded-evidence:0.2.2:'
+BASE='urn:bounded-evidence:0.2.3:'
 ERRORS=[]
 class Invalid(ValueError): pass
 
@@ -148,7 +148,9 @@ def check_state(s,documents):
     for f in facts:
         require(len(f['inputs'])==len({rkey(r) for r in f['inputs']}),'duplicate integration input')
         if f['kind']=='direct':require(not f['inputs'] and f['complete'],'direct lineage is not complete and empty')
-        for r in f['inputs']:exists(r,'integration input')
+        # Future-proposal evidence is not an admitted record; its inputs are checked at intake.
+        if rkey(f['output']) in known:
+            for r in f['inputs']:exists(r,'integration input')
     owners=s['policy']['constraint_owners']
     require(len(owners)==len({rkey(o['input']) for o in owners}),'duplicate constraint owner binding')
     for o in owners:
@@ -220,7 +222,8 @@ def check_state(s,documents):
 
 def check_admission_facts(v):
     # Accepted writes need independently supplied integration facts; deliberate refusals may omit them.
-    facts={rkey(f['output']) for f in v['initial_state']['policy']['lineage_facts']}
+    facts={rkey(f['output']):f for f in v['initial_state']['policy']['lineage_facts']}
+    admitted={ref_of(r) for r in v['initial_state']['records']}
     for operation,result in zip(v['operations'],v['expected']['operation_results']):
         if result.get('type')!='receipt':continue
         op=operation['op'];proposals=[]
@@ -230,6 +233,11 @@ def check_admission_facts(v):
         elif op=='declassify':proposals=operation['assessments']+[operation['output']]
         for proposal in proposals:
             require(ref_of(proposal) in facts,'accepted proposal missing integration fact '+str(ref_of(proposal)))
+        available=admitted|{ref_of(p) for p in proposals}
+        for proposal in proposals:
+            for r in facts[ref_of(proposal)]['inputs']:
+                require(rkey(r) in available,'accepted proposal has absent content input '+str(rkey(r)))
+        admitted=available
 
 def forbidden_true(report,predicate):
     actual=pointer(report,predicate['path'])
@@ -335,6 +343,35 @@ def controls(validator,vectors):
     pred=next(x for x in positive['forbidden'] if x['path']=='/operation_results/0/refs/1/id')
     require(forbidden_true(report,pred),'erasure receipt hidden-ref plant not detected')
     cases.append('erasure-receipt-hidden-reference')
+    # Every closed storage operation needs context, and actor identity cannot be overridden.
+    variants=validator.schemas[BASE+'vector']['properties']['operations']['items']['oneOf']
+    for name in ['admit','admit_raw','revise','declassify']:
+        schema=next(x for x in variants if x['properties']['op'].get('const')==name)
+        positive=next(o for v in vectors.values() for o in v['operations'] if o['op']==name)
+        validator.check(positive,schema)
+        op=copy.deepcopy(positive);del op['context']['retention_context']
+        rejected(name+'-requires-retention-context',lambda:validator.check(op,schema),"missing ['retention_context']")
+    positive=vectors['P11'];validator.check(positive,validator.schemas[BASE+'vector'])
+    schema=next(x for x in variants if x['properties']['op'].get('const')=='admit')
+    op=copy.deepcopy(positive['operations'][8]);op['context']['retention_context']['principal']='principal:other'
+    rejected('retention-principal-cannot-be-overridden',lambda:validator.check(op,schema),"unknown fields ['principal']")
+    report=copy.deepcopy(positive['expected']);report['operation_results'][0]=copy.deepcopy(report['operation_results'][8])
+    pred=next(x for x in positive['forbidden'] if x['path']=='/operation_results/0/type')
+    require(forbidden_true(report,pred),'retention unauthorized-write plant not detected')
+    cases.append('retention-unauthorized-write')
+    # Future facts are permitted; accepted batches and admitted snapshots still require actual inputs.
+    positive=vectors['P13'];docs={schema_ref(d):d for d in positive['initial_state']['domain_schemas']}
+    check_state(positive['initial_state'],docs);check_admission_facts(positive)
+    plant=copy.deepcopy(positive)
+    plant['operations'][2]['proposals']=[p for p in plant['operations'][2]['proposals'] if p['envelope']['id']!='rec:model-stage']
+    rejected('accepted-batch-needs-actual-input',lambda:check_admission_facts(plant),'accepted proposal has absent content input')
+    for complete in [True,False]:
+        state=copy.deepcopy(vector['initial_state']);e=state['records'][0]['envelope']
+        fact=next(f for f in state['policy']['lineage_facts'] if rkey(f['output'])==(e['id'],e['version']))
+        missing=dict(id='rec:absent-content-input',version=1)
+        fact.update(kind='model',complete=complete,inputs=[missing]);e['lineage']=[missing] if complete else 'unknown'
+        docs={schema_ref(d):d for d in state['domain_schemas']}
+        rejected('admitted-input-must-exist-'+str(complete),lambda:check_state(state,docs),'dangling integration input')
     return len(cases)
 
 def main():

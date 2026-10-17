@@ -97,3 +97,21 @@ R7-014 orders necessary-premise composition separately from sufficient-alternati
 ## 0.2.2-draft receipt scope
 
 R7-031 resolves the contradictory unqualified closure list in K-ERASE-2 under the existing recipient-authorized metadata rule. Erase has an explicit audience/purpose receipt_context and the authenticated actor as recipient. Visibility is computed before new erasure effects; full protected closure is independent of the visible list. Authorized structural tombstones can appear in a later authorized receipt without reconstructing payload. Context is part of canonical intent, and exact retry is refused if its stored metadata is no longer authorized. These are wire/profile choices implementing the existing constraint, not new erasure authority or an owner architecture decision. See P08 and RELEASES.md.
+
+## 0.2.3-draft retention scope
+
+R7-039 binds every storage operation to an explicit actor-bound retention context.
+Neither existential matching across disclosure labels nor retain in every label
+is the rule. Exact current per-record output and transitive known-input authority
+uses the single admitted storage context, independent of read/use/forward and
+onward disclosure. Empty disclosure labels remain non-disclosable; known inputs
+of incomplete lineage remain subject to retention. Same-batch records may supply
+inputs regardless of array order; future facts alone cannot. Retain revocation
+and exact current-authorized replay are explicit. This closes the wire binding
+for the source's existing explicit retention-purpose requirement.
+
+R7-042 corrects the structural checker, not the evaluator contract: future
+proposal facts were already allowed, but existence was incorrectly required
+before their operation. Admitted snapshots and successful hypothetical batches
+still require actual inputs, including unknown-lineage known lower bounds. See
+P11/P13, RELEASES.md and the retained independent ASTRA25-10 fixture.

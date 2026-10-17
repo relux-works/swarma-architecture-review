@@ -79,12 +79,12 @@ def audience_item(i,handle):
 
 def view(items=(),q=None,current=None,historical=(),review=(),cutoffs=(),explanation=None,changes=None):
  q=q or Q()
- return dict(type='view',semantic_profile='0.2.2-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
+ return dict(type='view',semantic_profile='0.2.3-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
 def refused(code): return dict(type='refusal',code=code,retryable=code in ['version_conflict','policy_mismatch','stale_generation','erasure_incomplete','publication_stale','unavailable'])
 def receipt(op,rs=(),outcome=None,custody=(),status=None,handle='@receipt'):
  return dict(type='receipt',operation=op,outcome=outcome or dict(admit='admitted',revise='revised',erase='purged',declassify='declassified',revoke='revoked',revoke_declassification='revoked',restore='fenced',deliver='delivered',control='proceeded',load='proceeded',set_availability='availability_changed')[op],receipt_handle=handle,refs=sorted([rr(x) if 'envelope' in x else x for x in rs],key=key),custody=sorted(custody),erasure_status=status)
-def ctx(actor=H,cls='machine_observation'): return dict(actor=actor,at=T,admission_class=cls)
-def admit(rs,key='key:1',actor=H,cls='machine_observation',generation=0): return dict(op='admit',context=ctx(actor,cls),idempotency_key=key,proposals=[proposal(x) for x in rs],expected_generation=generation)
+def ctx(actor=H,cls='machine_observation',aud=PUB,purpose=READ): return dict(actor=actor,at=T,admission_class=cls,retention_context=dict(audience=aud,purpose=purpose))
+def admit(rs,key='key:1',actor=H,cls='machine_observation',generation=0,aud=PUB,purpose=READ): return dict(op='admit',context=ctx(actor,cls,aud,purpose),idempotency_key=key,proposals=[proposal(x) for x in rs],expected_generation=generation)
 def revise(r,new=None,actor=H,key='key:revise',expected=None): return dict(op='revise',context=ctx(actor),idempotency_key=key,revision=proposal(r),replacement=proposal(new) if new else None,expected_version=expected or r['body']['target'],expected_generation=0)
 def capture(q): return dict(op='capture',query=cp(q))
 def erase(targets,boundary=(),key='key:erase',aud=PRIV,purpose=READ): return dict(op='erase',actor=H,at=T,idempotency_key=key,targets=[rr(x) for x in targets],boundary=list(boundary),receipt_context=dict(audience=aud,purpose=purpose))
@@ -269,7 +269,7 @@ s['policy']['lineage_facts'] += lineage_facts([foreign,own]);qo=Q('interest',tar
 emit('P02','Representation and subject identity cannot be invented for self-declarations',s,q,view([item(a)],q),['K-ENV-2','K-REV-1','K-ENV-1','K-ENV-3'],ops=[revise(r,a2,actor=rep),admit([foreign],actor=OBS,cls='self_declaration',key='key:foreign'),admit([own],actor=person,cls='self_declaration',key='key:own'),capture(qo)],results=[refused('representation_invalid'),refused('invalid_domain_value'),receipt('admit',[own]),view([item(own)],qo)],added=[own],forbid=[forbidden('/result/items/0/submitter',value=rep),forbidden('/operation_results/1/type',value='receipt')])
 # P03: later observer assessment stays in its own sequence and perspective.
 a=A('self','gardening',sch='interest',cls='self_declaration');b=A('guess','climbing',sch='interest_hypothesis',issuer=OBS,perspective=pers(OBS,'observer'),private=True,cls='semantic_inference');e=E('observer-review',b,issuer=OBS,perspective=pers(OBS,'observer'),private=True,executor='model',cls='semantic_inference');ro=Rule('projection:observer',OBS,pers(OBS,'observer'),'observer_model');s=state([a],schemas=['interest_hypothesis'],rules=[Rule(),ro],review=[b,e]);s['policy']['grants'] += [grant(OBS,aud=PRIV)];q=Q('interest',cut=102);qo=Q('interest_hypothesis',rule='projection:observer',aud=PRIV,cut=102)
-emit('P03','Later observer evidence cannot replace the issuer sequence',s,q,view([item(a)],q),['K-REV-1','K-ENV-1','K-PROJ-1'],ops=[admit([b,e],actor=OBS,cls='semantic_inference'),capture(qo)],results=[receipt('admit',[b,e]),view([item(b,['origin:observer-review'])],qo)],added=[b,e],forbid=[forbidden('/result/items/0/issuer',value=OBS)])
+emit('P03','Later observer evidence cannot replace the issuer sequence',s,q,view([item(a)],q),['K-REV-1','K-ENV-1','K-PROJ-1'],ops=[admit([b,e],actor=OBS,cls='semantic_inference',aud=PRIV),capture(qo)],results=[receipt('admit',[b,e]),view([item(b,['origin:observer-review'])],qo)],added=[b,e],forbid=[forbidden('/result/items/0/issuer',value=OBS)])
 # P04: freshness applies to both channels without negating a statement.
 confirmed='2026-09-17T00:00:00Z';until='2026-09-24T00:00:00Z';a=A('location',sch='location',fields={'kind':'current','value':'synthetic:district-a'},private=True,confirmed=confirmed,cls='self_declaration');e=E('ep',a,private=True);s=state([a,e]);q=Q('location',aud=PRIV)
 qf=Q('location',aud=PRIV,now='2026-09-23T23:59:59Z');qb=Q('location',aud=PRIV,now=until)
@@ -330,9 +330,29 @@ for n,rs in enumerate([[a2,r1],[a3,r2]],1):
  for x in rs:x['envelope']['representation_ref']=dict(id='delegation:'+str(n),version=1,checked=True);x['envelope']['submitter']=reps[n-1]
 s=state([a],review=[a2,r1,r2]);s['policy']['grants'] += [grant(x) for x in reps];s['policy']['representations']=[dict(ref=R('delegation:'+str(n)),issuer=H,submitter=x,space=SPACE,relations=['replace'],valid=True) for n,x in enumerate(reps,1)];q=Q('interest',cut=102)
 emit('P10','Concurrent representatives receive one commit and one version conflict',s,q,view([item(a2)],q,historical=[a]),['K-REV-1','K-ENV-2','K-API-1','K-TIME-1'],ops=[revise(r1,a2,actor=reps[0],key='key:first'),capture(Q('interest',cut=101)),revise(r2,a3,actor=reps[1],key='key:second')],results=[receipt('revise',[r1,a2]),refused('invalid_time'),refused('version_conflict')],added=[r1,a2],forbid=[forbidden('/result/items/0/content/0/value',value='rowing')])
-# P11: label inheritance, not the author's proposed public tag, determines disclosure.
-a=A('private','synthetic private',private=True);b=A('paraphrase','synthetic rewording',lineage=[rr(a)]);s=state([a],review=[b]);q=Q(cut=101);qp=Q(aud=PRIV,targets=[b],cut=101)
-emit('P11','A public-labelled paraphrase inherits private input restrictions',s,q,view(),['K-DISC-1','K-AUTH-1','K-ENV-3'],ops=[admit([b]),capture(qp)],results=[receipt('admit',[b]),view([item(b)],qp)],added=[b],forbid=[forbidden('/result/items','size_equals',1)])
+# P11: exact storage scope is independent of read/use and inherited onward labels.
+root=A('retained-root','synthetic retained input',private=True)
+a=A('private','synthetic private',private=True,lineage=[rr(root)])
+b=A('paraphrase','synthetic rewording',lineage=[rr(a)])
+probe=A('scope-probe','synthetic direct probe')
+s=state([root,a],review=[b,probe]);q=Q(cut=101);qp=Q(aud=PRIV,targets=[b],cut=101)
+for g in s['policy']['grants']:g['rights'].remove('retain')
+def retain_grant(records,purpose=READ,aud=PRIV):
+ g=grant(aud=aud,purpose=purpose);g.update(rights=['retain'],records=sorted(x['envelope']['id'] for x in records),metadata=False);return g
+s['policy']['grants'] += [retain_grant([root,a,b,probe]),retain_grant([root,a,b],purpose='purpose:storage-alt'),retain_grant([root,a,probe],purpose='purpose:missing-output'),retain_grant([root,b],purpose='purpose:missing-direct-input'),retain_grant([a,b],purpose='purpose:missing-transitive-input')]
+other='principal:other';other_space='space:other'
+for actor,space in [(other,SPACE),(H,other_space)]:
+ g=grant(actor,space=space,aud=PRIV);g.update(rights=['admit'],metadata=False);s['policy']['grants'].append(g)
+foreign=cp(probe);foreign['envelope'].update(issuer=other,submitter=other,perspective=pers(other))
+elsewhere=cp(probe);elsewhere['envelope']['space']=other_space
+denied=[admit([foreign],actor=other,aud=PRIV),admit([elsewhere],aud=PRIV),admit([b],aud=PUB),admit([b],aud=PRIV,purpose=PUBLISH),admit([b],aud=PRIV,purpose='purpose:missing-output'),admit([b],aud=PRIV,purpose='purpose:missing-direct-input'),admit([b],aud=PRIV,purpose='purpose:missing-transitive-input')]
+allowed=admit([b],aud=PRIV);retry=cp(allowed);retry['context']['at']='2026-10-17T00:00:01Z'
+changed=cp(allowed);changed['context']['retention_context']['purpose']='purpose:storage-alt'
+revoke_retain=dict(op='revoke',actor=H,at=T,principal=H,audience=PRIV,purpose=READ,right='retain')
+fresh=cp(allowed);fresh['idempotency_key']='key:after-revocation'
+ops=denied+[capture(qp),allowed,retry,changed,capture(qp),revoke_retain,cp(retry),fresh,capture(qp)]
+results=[refused('not_authorized') for _ in denied]+[refused('invalid_time'),receipt('admit',[b]),receipt('admit',[b]),refused('idempotency_conflict'),view([item(b)],qp),receipt('revoke'),refused('not_authorized'),refused('not_authorized'),view([item(b)],qp)]
+emit('P11','Exact retention scope admits a private derivative without widening disclosure',s,q,view([],q),['K-DISC-1','K-AUTH-1','K-ENV-3','K-API-1','K-API-2','K-TIME-1'],ops=ops,results=results,added=[b],replays=[(8,9)],pairs=[('/operation_results/11','/operation_results/15')],forbid=[forbidden('/result/items','size_equals',1)]+[forbidden(f'/operation_results/{n}/type',value='receipt') for n in list(range(8))+[10,13,14]]+[forbidden('/postconditions/record_refs','size_equals',4)])
 
 # P12: one frozen historical response survives, but current permission does not.
 a=A('snapshot-interest','gardening',sch='interest',cls='self_declaration')
@@ -349,15 +369,24 @@ b=A('public-input','synthetic public card')
 tainted=A('model-tainted','candidate with private context',sch='decision_proposal',lineage=[rr(b)],cls='semantic_inference')
 clean=A('model-clean','candidate from only public context',sch='decision_proposal',lineage=[rr(b)],cls='semantic_inference')
 unknown=A('model-unknown','candidate without complete input tracking',sch='decision_proposal',lineage=[rr(b)],cls='semantic_inference')
+stage=A('model-stage','same-batch private intermediate',sch='decision_proposal',private=True,lineage=[rr(a)],cls='semantic_inference')
+empty=A('model-empty','retained without onward disclosure',sch='decision_proposal',cls='semantic_inference')
+empty['envelope']['disclosure'].update(audiences=[],purposes=[])
 rule=Rule('projection:public',family='audience_projection',aud=PUB,purpose=PUBLISH)
-s=state([a,b],schemas=['decision_proposal'],rules=[Rule(),rule],review=[tainted,clean,unknown])
+s=state([a,b],schemas=['decision_proposal'],rules=[Rule(),rule],review=[tainted,clean,unknown,stage,empty])
 s['policy']['handles']=[dict(subject=H,space=SPACE,audience=PUB,handle='subj:model-output')]
 for f in s['policy']['lineage_facts']:
- if f['output']==rr(tainted): f.update(kind='model',inputs=[rr(a),rr(b)],complete=True)
+ if f['output']==rr(tainted): f.update(kind='model',inputs=sorted([rr(stage),rr(b)],key=key),complete=True)
  if f['output']==rr(unknown): f.update(kind='model',inputs=[rr(b)],complete=False)
-q=Q('decision_proposal',rule='projection:public',purpose=PUBLISH,cut=103)
-qp=Q('decision_proposal',aud=PRIV,targets=[tainted,unknown],cut=103)
-emit('P13','Cited public evidence is not complete model lineage',s,q,view([audience_item(item(clean),'subj:model-output')],q),['K-DISC-1','K-ENV-3','K-PROJ-1','K-NI-1'],ops=[admit([tainted,clean,unknown],cls='semantic_inference'),capture(qp)],results=[receipt('admit',[tainted,clean,unknown]),view([item(tainted),item(unknown)],qp)],added=[tainted,clean,unknown],forbid=[forbidden('/result/items','size_equals',3),forbidden('/result/items/0/content/0/value',value='candidate with private context'),forbidden('/result/items/0/content/0/value',value='candidate without complete input tracking')])
+for g in s['policy']['grants']:g['rights'].remove('retain')
+batch=[tainted,clean,unknown,stage,empty]
+s['policy']['grants'] += [retain_grant([a,b]+batch),retain_grant([unknown],purpose='purpose:missing-known-input')]
+q=Q('decision_proposal',rule='projection:public',purpose=PUBLISH,cut=105)
+qp=Q('decision_proposal',aud=PRIV,targets=[tainted,unknown,empty],cut=105)
+missing_known=admit([unknown],cls='semantic_inference',aud=PRIV,purpose='purpose:missing-known-input')
+future_only=admit([tainted,clean,unknown,empty],cls='semantic_inference',aud=PRIV)
+allowed=admit(batch,cls='semantic_inference',aud=PRIV)
+emit('P13','Known lineage bounds retention across an atomic batch and empty labels',s,q,view([audience_item(item(clean),'subj:model-output')],q),['K-DISC-1','K-ENV-3','K-PROJ-1','K-NI-1','K-AUTH-1','K-API-1'],ops=[missing_known,future_only,allowed,capture(qp)],results=[refused('not_authorized'),refused('invalid_reference'),receipt('admit',batch),view([item(tainted),item(unknown)],qp)],added=batch,forbid=[forbidden('/result/items','size_equals',3),forbidden('/result/items/0/content/0/value',value='candidate with private context'),forbidden('/result/items/0/content/0/value',value='candidate without complete input tracking'),forbidden('/operation_results/0/type',value='receipt'),forbidden('/operation_results/1/type',value='receipt'),forbidden('/operation_results/3/items','size_equals',3)])
 # P14: a refused collision creates no contradictory knowledge or additional record.
 base=next(x for x in VECTORS if x['id']=='P10')
 s=cp(base['initial_state']);q=cp(base['query'])

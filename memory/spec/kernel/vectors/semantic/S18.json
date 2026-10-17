@@ -289,7 +289,11 @@
       "context": {
         "actor": "subj:h1",
         "at": "2026-10-17T00:00:00Z",
-        "admission_class": "machine_observation"
+        "admission_class": "machine_observation",
+        "retention_context": {
+          "audience": "aud:public",
+          "purpose": "purpose:read"
+        }
       },
       "idempotency_key": "key:raw",
       "raw_json": "{\"proposals\": [{\"envelope\": {\"id\": \"rec:a\", \"version\": 1, \"kind\": \"assertion\", \"schema\": {\"id\": \"schema:assumption\", \"version\": 1}, \"subject\": \"subj:h1\", \"issuer\": \"subj:h1\", \"representation_ref\": null, \"perspective\": {\"kind\": \"own\", \"principal\": \"subj:h1\"}, \"space\": \"space:main\", \"valid\": {\"kind\": \"known\", \"from\": \"2026-09-01T00:00:00Z\", \"to\": null, \"precision\": \"second\"}, \"confirmed_at\": \"2026-10-17T00:00:00Z\", \"lineage\": [], \"disclosure\": {\"audiences\": [\"aud:private\", \"aud:public\"], \"purposes\": [\"purpose:publish\", \"purpose:read\"], \"retain_until\": null, \"field_classes\": [\"public\"], \"declassification\": []}, \"context\": \"real\"}, \"body\": {\"statement_kind\": \"fact\", \"slot\": \"[]\", \"content\": [{\"field\": \"value\", \"value\": \"alpha\"}], \"authority_receipt\": null}, \"unexpected\": true}]}",
@@ -349,7 +353,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.2-draft",
+      "semantic_profile": "0.2.3-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

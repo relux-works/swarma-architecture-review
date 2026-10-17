@@ -628,7 +628,11 @@
       "context": {
         "actor": "subj:h1",
         "at": "2026-10-17T00:00:00Z",
-        "admission_class": "machine_observation"
+        "admission_class": "machine_observation",
+        "retention_context": {
+          "audience": "aud:public",
+          "purpose": "purpose:read"
+        }
       },
       "idempotency_key": "key:1",
       "proposals": [
@@ -906,7 +910,11 @@
       "context": {
         "actor": "subj:h1",
         "at": "2026-10-17T00:00:00Z",
-        "admission_class": "machine_observation"
+        "admission_class": "machine_observation",
+        "retention_context": {
+          "audience": "aud:public",
+          "purpose": "purpose:read"
+        }
       },
       "idempotency_key": "key:revise",
       "revision": {
@@ -1142,7 +1150,7 @@
     "operation_results": [
       {
         "type": "view",
-        "semantic_profile": "0.2.2-draft",
+        "semantic_profile": "0.2.3-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -1288,7 +1296,7 @@
       },
       {
         "type": "view",
-        "semantic_profile": "0.2.2-draft",
+        "semantic_profile": "0.2.3-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -1408,7 +1416,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.2-draft",
+      "semantic_profile": "0.2.3-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

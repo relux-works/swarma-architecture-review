@@ -1,4 +1,4 @@
-# Swarma adapter contract — 0.2.2-draft
+# Swarma adapter contract — 0.2.3-draft
 
 Destination: the platform architecture repository beside the handoff-package
 contract. This is a reviewable draft in the R7 package; it does not publish or
@@ -17,6 +17,7 @@ of complete, incomplete, conflicted premises, stale, current or unavailable.
 | Submitter | Set from authenticated intake; ignore client attempts to supply protected submitter or recorded fields. | Transport authentication and current admission policy |
 | Representation | Resolve exact representation_ref with the policy owner, checking issuer, submitter, generation, scope, relation and expiry. Record the checked reference; do not maintain an independent delegation registry. Failure is representation_invalid. | Existing delegation/policy owner |
 | Space and audience | Bind space to an existing policy scope; evaluate separate read, use, retain, forward and write predicates and live revocations. Use per-audience subject/principal aliases for publication. | Existing broker/trust and disclosure-policy owners |
+| Retention intent | Supply explicit context.retention_context for every storage operation, bound to its authenticated actor. Check exact current retain scope for every output and transitive known input, including same-batch and incomplete-lineage lower bounds. Preserve that intent for authorized replay; do not derive it from a later query or onward labels. | Existing storage/disclosure-policy owner; no new read/use/forward permission |
 | Recorded sequence | Assign only memory's internal transaction sequence. Never equate it to a source sequence or expose it as a public cursor. | Each source's independent ordered ledger |
 | Source owner and exact revision | Resolve through the owning system's approved read interface, with current rights. Preserve source owner, exact revision, provenance, original issuer and carrier. | Canonical source writer |
 | Authority receipt | Verify against the deciding authority's canonical record and predecessor order. A mirror, signed delivery or memory reviewer cannot mint adopted/accepted status. | Reviewed decision register or relevant board/domain decision authority |
@@ -55,7 +56,7 @@ meaning, not an unauthorized extension of an existing platform wire schema:
 | Field | Required value or meaning |
 | --- | --- |
 | classification | Literal `data` |
-| semantic_profile | Literal `0.2.2-draft` |
+| semantic_profile | Literal `0.2.3-draft` |
 | view | The closed kernel View, retaining every polarity field and item attribution |
 | scope_binding | Protected binding to recipient, audience, purpose, source frontiers and policy; disclose only admitted metadata |
 | provenance_binding | Protected per-item issuer, submitter, source owner/revision, class, qualification and lineage; retain attribution through every summary, expansion and reimport |

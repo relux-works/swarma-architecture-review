@@ -1,4 +1,4 @@
-# Bounded evidence memory 0.2.2-draft
+# Bounded evidence memory 0.2.3-draft
 
 This document and the closed schemas and vectors are one contract. MUST, MUST NOT,
 REQUIRED, SHALL, SHALL NOT, SHOULD and MAY have their RFC 2119 meanings. A heading
@@ -267,6 +267,11 @@ Rule applicability includes its validity, context, active revision and policy.
 A grant matches principal, space, audience, purpose and record id (`*` means all
 records in that grant). Current runtime revocations override matching grants. Revocations are separate
 immutable authorization events and MUST NOT rewrite the pinned policy revision.
+Their exact principal/audience/purpose/right scope applies to every record and
+space governed by that policy; this draft does not give a revocation a narrower
+record or space selector. `retain` is independently revocable, like `read` and
+`forward`. A retain revocation blocks new retention and authorized write replay;
+it does not itself revoke another right or run an erasure job.
 Read and use MUST both hold before a record contributes
 to any query. Its disclosure must also include the query audience and purpose.
 Metadata is disclosed only with `metadata: true`. This draft has no partial
@@ -283,6 +288,25 @@ declassify rights are independent. A hidden premise makes its rule ineligible;
 it MUST NOT consume logical budget, appear as a gap, or change any public field.
 Evidence policy/version mismatch returns `policy_mismatch`. Projection/schema
 lookup is against admitted public configuration, not a hidden-record oracle.
+
+Every admit, admit_raw, revise and declassify context MUST supply
+`retention_context: {audience, purpose}`. Its fixed principal is context.actor;
+there is no principal override. For every proposed output and every transitive
+known content input, retain MUST hold for that actor, that record's exact space
+and id, and both fields of this one context. A matching grant may name `*` but
+unrelated principals, spaces, records, audiences or purposes cannot supply it.
+Check each record independently against current grants and revocations. The
+operation right, read/use, metadata permission, a lineage fact, a representation
+or a release assessment does not substitute for retain. Missing retain yields
+`not_authorized` for the entire operation, with no partial writes.
+
+This is a storage scope, independent of the output's onward disclosure labels.
+Do not require retain in every labelled audience/purpose, and do not search
+labels or a later query for any convenient granted scope. Empty disclosure
+intersections can still be stored under an explicitly authorized retention
+context; they remain non-disclosable. Retain alone grants no read, use, metadata,
+forwarding or declassification permission. Existing deadlines and erasure
+fences still apply; neither context nor a release widens them.
 
 ### K-PROJ-1 — Projection grammar
 
@@ -530,6 +554,18 @@ Initial complete snapshots MUST retain the corresponding integration facts;
 the fixture's facts for future proposals are protected admission evidence,
 not already-admitted output records. Partial facts cannot be upgraded by copying their citations. No lineage fact grants read/use/retain rights.
 
+For a write, resolve known inputs against the admitted pre-state plus every
+proposal in that same atomic batch, independent of proposal array order. An
+integration fact for a future output does not make that output present. Each
+known input must resolve to an exact record in this hypothetical post-batch
+state; otherwise return `invalid_reference` with no write. Initial admitted
+records require all their known inputs in the initial snapshot, while protected
+facts reserved for future proposals may refer to not-yet-admitted inputs.
+Retention checks traverse the complete fact's inputs or an incomplete fact's
+known lower bound, recursively through those resolved records' facts. Unknown
+lineage never waives authority for a known input. Logical support edges alone
+do not create content inputs, and no right is invented for unknown inputs.
+
 ### K-DISC-2 — Declassification
 
 The caller needs declassify, admit and retain rights. `declassify.assessments`
@@ -687,12 +723,19 @@ An operation MUST validate its entire batch against the hypothetical post-batch
 state before committing anything. The idempotency identity is actor, space, key;
 canonical request includes the complete authenticated intent except the key
 itself and the intake stamp (`context.at`, or top-level `at` for erase), which
-is not client intent. An erase request includes its entire receipt_context in
+is not client intent. The complete retention_context is canonical intent for
+admit, admit_raw, revise and declassify. An erase request includes its entire receipt_context in
 canonical intent; changing that context under the same identity is a conflict.
 Actor and admission class remain part of that intent. A retry with a later intake
 stamp MUST replay the original receipt and preserve the original recorded time.
 Same identity and identical canonical request MUST replay the exact receipt,
 including handle, even if current head changed, subject to current authorization.
+For an admission/revision/declassification replay, the original outputs and
+their known content-input closure MUST still pass the exact retention context's
+current authorization checks. Failure is `not_authorized` with no write, without
+redacting, regenerating or overwriting the original receipt. A different retention
+context is a different request; an otherwise authorized change under the same
+identity is `idempotency_conflict`. A denied attempt creates no replay entry.
 For an erase replay, every ref in the stored receipt must still satisfy the
 receipt metadata test in K-ERASE-2; otherwise return `not_authorized` with no
 write. Never redact, regenerate or overwrite the stored receipt to make a replay
@@ -715,7 +758,8 @@ parse raw_json as an object containing only a proposals array, then use the
 surrounding authenticated context, key and generation exactly as for admit. Restore, reconciliation, delivery and request_check exercise
 boundary contracts; revoke_declassification records an external policy event;
 load, set_availability and control are harness stimuli, not
-kernel powers. Validation order is: JSON/shape/profile; policy and actor rights;
+kernel powers. Validation order is: JSON/shape/profile; policy and actor rights
+(including exact retention authority for resolved outputs and known inputs);
 idempotency replay/conflict; representation/review; erasure generation/fence;
 reference/schema/content/time/context; authority/CAS; rule/cycle; resource limits.
 Within one class use input order, then field-name order. The first violation
