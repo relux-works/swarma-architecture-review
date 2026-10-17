@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 37; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 38; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.5-draft` at `6a04e8c`; all twenty owned exact fixtures explicitly migrated.
 
 ## Scope and method
@@ -32,8 +32,8 @@ were derived from the contract and never supplied to the execution APIs.
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
-histories and implementers' immutable run reports. No source ambiguity has been
-established by these cases.
+histories and implementers' immutable run reports. ASTRA24-12 is the sole
+established source ambiguity and remains held for the owner.
 
 ## Round 7 execution evidence
 
@@ -707,14 +707,58 @@ ASTRA25-12 external restore-obligation native witness at `644c793` is a separate
 unadjudicated finding, with no exact oracle claimed here. R7-055 remains held for
 Ivan and outside exact denominators.
 
+## Round 38 independent current restore-obligation correction review
+
+At exact candidate `104fbe8`, complete canonical S25 and the five adjudicated
+ASTRA25-12 fixtures pass with zero differences or forbidden matches. Every
+supplemental input is byte-identical to `1cefcf9`. The report retains all actuals,
+input hashes and implementation module hashes; execution receives no expected
+values. Four package comparer controls and three focused restore groups pass.
+
+The corrected reconciliation uses the truthful current supplied obligation
+closure, retains coverage of known local erasures, and checks affected controlled
+custody reachability before any mutation. Newly learned deletion refs enter the
+protected erased/fence inventories and advance generation before purge and
+reopening. Known and genuinely empty obligations, repeated recovery, unaffected
+content and external/unaffected custody remain supported.
+
+The native groups cover the original four restore traces, complete/incomplete
+known derivation closure, reachable/unreachable controlled custody, and late
+writes. Unreachable recovery preserves the complete refusal state and global
+fence. A generation-0 derivative refuses `stale_generation`, retryable true;
+a current-generation derivative refuses `erasure_fenced`, retryable false.
+Both preserve all state, captures and bindings, while an unrelated reviewed
+current-generation write with the same key succeeds. These bounded controls
+verify the corrected semantic transition, not physical purge or witness freshness.
+
+A proposed neighbor with an incomplete inventory falsely marked as a true
+current-complete external witness was rejected before execution: K-ERASE-3
+requires that trusted fact to be false for incomplete inventories. It cannot
+establish a valid semantic divergence. The analysis is persisted in seat-local
+`research-restore-review-boundary.md`; no inconsistent oracle was created.
+
+Evidence: `.temp/astra23-restore-current-corrected-01.json/.log` and
+`.temp/astra23-restore-current-controls-01.json/.log`. This unit executed six
+exact fixtures and three native groups, not another full corpus. Prior full
+canonical and owned runs remain pinned to their documented heads. Original
+`644c793`, `b805582` and `1138c5d` first evidence and all owned fixtures are
+unchanged.
+
+Judge `e3d44df` formally closes R7-057 at `946cbd8`. Fresh ledger/score readback
+at signed `9d2cdd4` also closes R7-058 at `104fbe8`: the judge independently
+verifies both evaluators on 57 canonical and 68 supplemental semantic vectors,
+with 47 fixed items, ten rejected and the one held owner question. This is
+attributed full-corpus evidence; our own Round 38 review is the focused scope
+above. No new case or package change arose from this review.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Both evaluators independently pass all 57 canonical
-semantic vectors and the twenty owned exact fixtures at their documented 0.2.5
-heads. R7-053 and R7-056 are judge-closed; R7-057 correction is independently
-verified and awaits closure. A separate current restore-obligation witness
-awaits adjudication. Issuer ambiguity R7-055 remains held for an owner decision
-with no exact oracle. Protected deployment is unqualified.
+**Phase 2 R7: 2/2.** Judge `9d2cdd4` verifies full dual canonical and supplemental
+semantic coverage and no open specification or implementation bugs. This seat's
+independent full canonical, twenty owned and later focused correction evidence
+is pinned above. Issuer ambiguity R7-055 remains held for Ivan with no chosen
+exact oracle and outside executable denominators. The eight canonical and one
+supplemental protected-deployment cases remain unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
