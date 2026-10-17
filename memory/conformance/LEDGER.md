@@ -26,6 +26,8 @@ evaluator, or vice versa.
 | --- | --- | --- | --- | --- | --- | --- |
 | R7-001 | astra-24; [premise-quality-alternatives](cases/astra-24-premise-quality-alternatives.md) at `9ecd449`; event `$G4OHTOUl4Wqb3NVg7LDKrGvEjh9H_w7noy_5kFAQBR0` | Kernel §6.1; companion §§4–5; S03/S31 neighbors | Pending release inspection | astra-27 (classification); astra-24 (fixture) | open | A fully checked clean B+ path to C+ coexists with a conflicted A+ path. Explanation truncation/order must not make `conflicted_premises_only` true. Source-level requirement accepted; no package/evaluator failure observed. |
 | R7-002 | astra-24; [rule-applicability](cases/astra-24-rule-applicability.md) at `9ecd449`; event `$oVPSMnZ16rOhG4J9bIPYpl0Gz8ahzkjS7HRmnYKAc2c` | Companion §§3–4; kernel §§2, 6; S10 neighbor | Pending release inspection | astra-27 (classification); astra-24 (fixture) | open | An expired checked A+ → B+ rule cannot carry current support; before its exclusive endpoint it can. Source-level requirement accepted; concrete grammar/behavior not yet available. |
+| R7-003 | astra-26; [import-attribution](cases/astra-26-import-attribution.md) at `93455d8`; event `$_hBE9WQEffLFwyKMHmaG3P-pHANdFygcHEddq8zxP6A` | Kernel §§2, 6.1, 8, 9.1; companion §3 | Pending release inspection | astra-27 (classification); astra-26 (fixture) | open | Importer B may issue an attributed source report about A via C without claiming to be A. A submitted assertion with issuer A and submitter B still requires representation and may not be silently rewritten. Package must preserve original attribution, classes and witness origin. |
+| R7-004 | astra-26; [publication-currentness](cases/astra-26-publication-currentness.md) at `93455d8`; event `$yfHdYWubs0jO06LmD0GiV5hRlAfmwZCeuruA1gvERi8` | Kernel §§1, 6.3–6.4, 9.2 | Pending release inspection | astra-27 (classification); astra-26 (fixture) | open | Freshness at a consumer horizon does not certify issuer-currentness. An unavailable issuer check supports only the last-received state, subject to known replacements and expiry. Exact bounded output labels remain package work. |
 
 Pending intake rows are not adjudicated bugs. Every row will receive one of
 the four mission classifications after its release evidence is available.
@@ -70,3 +72,20 @@ inspection and package-format fixtures; no owner decision is needed on these
 requirements at present. Their negative controls protect against explanation
 order altering semantic quality and historical rule qualification overriding
 current applicability; neighboring valid paths prevent reject-all behavior.
+
+### Round 2 — publication and attribution source cases
+
+Reviewed ASTRA26-01/02 at `93455d8`. Kernel §9.1 expressly permits source import;
+companion §3 separates an attributed report from the reported proposition. An
+explicit importer-issued source report therefore needs no invented grant from
+its subject, while an actual issuer/submitter mismatch remains governed by §2.
+This is a distinction between two submitted record meanings, not permission to
+downgrade an unauthorized issuer-A request into an issuer-B observation.
+
+Kernel §9.2 separately requires issuer-version evidence and says that without
+it the importer knows only the last state received. §6.3's consumer freshness
+horizon cannot supply that missing knowledge. These source-level requirements
+need no owner decision; classification of the concrete encoding and output
+awaits the package. Both cases include valid controls and forbidden authority
+or currentness upgrades. Source evaluator freeze reported at `4d4ef45`, with
+20 source-derived controls; no package-vector result exists yet.
