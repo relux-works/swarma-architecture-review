@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 10 in progress, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 11 in progress, 2026-10-17.
 
 ## Baseline and scope
 
@@ -348,3 +348,15 @@ seats own implementation changes, disclosure/erasure and semantic-budget attacks
   and the new publication/delivery differences remain unresolved. The earlier
   2/2 supported-vector score is preserved as the phase-1 historical result.
   Protected deployment remains unqualified.
+
+## Phase 2 round 11 — three classified implementation defects
+
+Judge independently reproduced and accepted both new cases: ASTRA26-07 becomes
+R7-032 (source astra-22) and R7-033 (package astra-23); ASTRA26-08 becomes
+R7-034 (package astra-23). All are implementation defects under existing clauses,
+with no package edit or owner decision needed. First failing fixtures/outputs
+remain preserved at `837591e` and in the round-10 reports. Requested boundary
+and authorization controls are recorded in the case documents. Corrections
+and exact-head regression evidence are pending; current score remains **1/2**.
+Source proof enumeration has independently reported dual canonical coverage
+44/57; it does not close these publication/delivery findings.

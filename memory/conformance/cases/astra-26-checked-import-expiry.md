@@ -1,6 +1,7 @@
 # ASTRA26-07 — a checked publication expires without becoming current history
 
-Status: phase-2 separating case, awaiting judge classification. Package
+Status: judge-classified **R7-032 impl-bug (astra-22)** and
+**R7-033 impl-bug (astra-23)**; both fixes pending. Package
 `0.2.1-draft` at `f31d58f`; package evaluator `8b9baf3` (runtime `f5fdd8b`),
 source evaluator `512d006`. Targets S23/P07 publication currentness and P12 frozen
 history, not a live issuer/network check.
@@ -57,3 +58,13 @@ normalization and expected-forbidden checks. Evidence in the seat work directory
 `.temp/r7-astra-26/cases-structural-06.log`, `owned-cases-astra23-06.json` and
 `owned-cases-astra22-04.json`, including implementation/input hashes. No canonical
 vector or evaluator was edited. This is synthetic semantic evidence only.
+
+## Judge disposition
+
+Judge independently reproduced both failures and confirmed last_received as the
+required existing label. R7-032 and R7-033 have separate implementation owners;
+no package change or owner question is needed. Fix controls must cover before,
+at and after expiry, missing check, known replacement, non-publication
+freshness/currentness independence, immutable earlier capture and unchanged
+evidence/origin. The original witness and first run remain unchanged while
+those fixes are pending.

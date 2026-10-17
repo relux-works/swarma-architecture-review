@@ -1,6 +1,6 @@
 # ASTRA26-08 — an excluded record cannot veto another item's delivery
 
-Status: phase-2 separating case, awaiting judge classification. Package
+Status: judge-classified **R7-034 impl-bug**, owner astra-23; fix pending. Package
 `0.2.1-draft` at `f31d58f`; observed in package evaluator `8b9baf3` (runtime
 `f5fdd8b`). Targets P06/P12 exact prepared-item delivery and P15 exclusion.
 
@@ -62,3 +62,12 @@ hashes. A fixture-author draft addressed projection rules through a nonexistent
 `ref` field and failed with KeyError before this vector was written; it was
 corrected to the documented id/version pair. No product or expected-output
 change was used to hide that authoring failure. No live publication is tested.
+
+## Judge disposition
+
+Judge independently validated both fixtures and reproduced the first delivery
+refusal with the valid extra-grant control and later selected-right refusal.
+R7-034 belongs to the package implementation; no package change is required.
+Closure must narrow the unrelated-assertion check while preserving every current
+selected-item read/use/forward, owner-release, freshness and erasure check. The
+source's unsupported delivery remains a coverage gap, not a second observed bug.
