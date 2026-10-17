@@ -1,7 +1,7 @@
 # ASTRA25-10: future integration inputs are checked at admission
 
-Status: R7-042 checker correction independently verified at `23290b3`; judge
-closure pending. Current fixture `0.2.3-draft`; original failure `0.2.2` at
+Status: R7-042 checker correction independently verified and judge-closed at
+`23290b3`. Current fixture `0.2.3-draft`; original failure `0.2.2` at
 `7e71765`. Owner: astra-25.
 
 ## Clauses and separating input
@@ -91,3 +91,7 @@ Evidence: `checker-future-lineage-023-corrected`, `astra22-phase2-023-first`,
 and `astra23-phase2-023-first`. No evaluator or original expected report was
 altered to produce this correction. The earlier rejecting result remains in
 `checker-future-lineage-022`; this change does not erase the regression witness.
+
+Judge closure `$VnpOe2mi3GgXbmhsUHB1BX-Eu0mxKhwbHU7aOMnsqIk` verifies all the
+above controls plus unchanged duplicate/direct-fact integrity and exact
+regeneration. R7-042 is closed; runtime retention remains separate.

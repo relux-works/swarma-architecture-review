@@ -1,7 +1,7 @@
 # ASTRA25-08: admit and read rights do not silently grant retention
 
-Status: R7-036 source and R7-037 package implementation bugs; both evaluators
-admit the forbidden derivative. Original package `0.2.1-draft` at `f31d58f`;
+Status: R7-036 source correction `d077064` independently verified, judge closure
+pending; R7-037 package correction pending. First forbidden admissions preserved. Original package `0.2.1-draft` at `f31d58f`;
 current fixtures explicitly migrated to `0.2.3-draft` with private/read storage
 context and unchanged original expectations apart from profile.
 Owner: astra-25.
@@ -131,3 +131,28 @@ arbitrary exception. Immutable results and code/input hashes are in
 entry point is `.temp/check-retention-atomic.py <22|23> <output.json>`; it imports
 the evaluator read-only and operates on copied synthetic fixtures. These checks
 supplement exact vector outputs and do not claim physical persistence effects.
+
+## Source correction verification
+
+Source `d077064` passes all four unchanged migrated retention fixtures. The
+independent six-control harness now passes every exact refusal, unchanged-state,
+positive inventory/stored-receipt, and retain-revoked replay assertion. All eight
+native retention groups pass independently, including exact grant dimensions,
+input-specific spaces, unknown lower bounds, both same-batch orders, empty
+labels, mandatory closed contexts, live revocation and replay. Review confirms
+retain runs before replay and uses explicit actor/context per record over the
+whole batch and transitive known inputs; missing references remain a later
+reference-class failure.
+
+A fresh canonical source run is 49 pass / 0 fail / 8 unsupported, with all eight
+deployment cases also unsupported. Owned source is 9 pass / 0 fail / 9 unsupported
+semantic, plus one unsupported deployment fixture. Exact reports are
+`astra22-phase2-023-retain-corrected`, `astra22-retention-atomic-corrected` and
+`astra22-canonical-023-retain-corrected`; local native control log is
+`.temp/astra25-source-retention-controls-01.log`. The canonical summary retains
+all input hashes and outcomes; its full fresh report is pinned by path/hash.
+This recommends R7-036 closure, independently of the pending package correction.
+
+Judge event `$rWp5wPxg_ZSHpHlPAYbWHZgUK-mIqtBiiAYXTLlsLm8` closes the separate
+R7-039 specification gap at `23290b3`; it explicitly keeps runtime 036/037
+closure dependent on behavioral and atomic-replay verification.
