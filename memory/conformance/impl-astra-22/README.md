@@ -49,6 +49,9 @@ write any external authority, journal, publisher or retained payload store.
   have comparable precision and representation; the model does not invent them.
 - Complete evaluation is over registered authorized dependencies only.
   Corpus coverage defaults to `unknown` and needs an explicit declared value.
+- R7-029 gives resolved or vacuously empty source sets `resolvable_now` before
+  considering independent-attestation fallback for unavailable bytes. This changes
+  source availability summary, never the evidence qualification.
 - Independent origin identity survives copies; the model returns a root set,
   not a confidence score. It never turns witness counts into decision authority.
 - The literal snapshot placeholder represents a predeclared normalization of

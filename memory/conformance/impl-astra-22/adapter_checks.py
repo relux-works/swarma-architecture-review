@@ -9,6 +9,24 @@ from adapter import Adapter
 
 
 class AssociationControls(unittest.TestCase):
+    # R7-029 exact wire probes: empty/resolvable named sources use resolvable_now;
+    # unavailable independent sources remain attested, with unchanged root kind.
+    def test_independent_source_precedence(self):
+        base = Path(__file__).resolve().parent / "fixtures"
+        fixture = json.loads((base / "independent-resolvable-judge-first.json").read_text())
+        for name, state in fixture["states"].items():
+            with self.subTest(name=name):
+                item = Adapter(state, "control").query(fixture["query"])["items"][0]
+                self.assertEqual(item["support"]["source_state"], fixture["expected_support_source_state"][name])
+                self.assertEqual(item["support"]["evidence_qualification"], ["semantic_review"])
+                self.assertEqual(item["support"]["witness"], "present")
+                self.assertEqual(item["support"]["evaluation"], "complete")
+                self.assertEqual(item["oppose"]["witness"], "not_found")
+        empty = json.loads((base / "independent-vacuous-source-first.json").read_text())
+        item = Adapter(empty["initial_state"], "control").query(empty["query"])["items"][0]
+        self.assertEqual(item["support"]["source_state"], "resolvable_now")
+        self.assertEqual(item["support"]["evidence_qualification"], ["semantic_review"])
+
     # R7-028: wire source bounds are clamped by policy and count original source
     # references across synthetic groups. Only found paths add derived provenance.
     def test_source_limit_wire_mapping(self):

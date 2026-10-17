@@ -190,3 +190,18 @@ case fields and forbidden predicates pass. 32 source + 4 adapter + 7 transaction
 + 5 harness controls support the correction; canonical 43/0/14 and supplemental
 14/0/8 semantic. First evidence preserved; closure pending. ASTRA22-07 remains
 separate and uncorrected pending judge disposition.
+
+## R7-029 correction
+
+Judge event $R6pEZvOBTW2UVbOfj04NRa4KfMIWwHX2EYq2GMksDS4 classifies ASTRA22-07
+as impl-bug and supplies a nonempty-resolvable neighbor. Both exact probes and
+the unavailable independent control are retained. Resolution/vacuity now precedes
+independent fallback. After normalizing snapshot values, only the two intended
+support.source_state fields change; unavailable behavior is identical.
+
+The source-unit assumption in the earlier stronger-OR fixture was made explicit
+by adding an unavailable named source, preserving its real AND/OR claim. New
+current/retained/independent controls reject the former empty/resolved priority.
+33 source, 5 adapter, 7 transaction and 5 harness controls pass. Canonical remains
+43/0/14; supplemental remains 14/0/8 semantic. Expected package/case outputs were
+not edited. R7-027 is judge-closed; R7-028/029 fixes await independent verification.

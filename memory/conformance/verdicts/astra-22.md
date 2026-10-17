@@ -1,7 +1,7 @@
 # R7 verdict — astra-22
 
-Status: all supported current semantic vectors agree; R7-028 fix awaits independent
-review; ASTRA22-07 source-state precedence awaits classification. No other evaluator was read.
+Status: all supported current semantic vectors agree; R7-028/029 fixes await independent
+review. R7-027 is judge-closed. No other evaluator was read.
 
 The source-only baseline was frozen at `4d4ef45` before package access. Its
 SHA-256 is `cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
@@ -19,14 +19,16 @@ Current package: 0.2.1-draft, `f31d58f58d05de2ae4159dedaacfa1e32bdc656d`.
 
 R7-027 separates per-polarity existence budgets from independent opposite-quality
 walks. All three affected adversarial fixtures pass without increased bounds.
-32 source, 4 adapter, 7 transaction and 5 harness controls pass, including red/green
+33 source, 5 adapter, 7 transaction and 5 harness controls pass, including red/green
 regressions, real exhaustion, both signed directions, memoization and quality
 uncertainty. Current core SHA-256:
-`4ee2c9010143a21fd124d443421472a6b60245927c02eb8d8663984518d8aaeb`.
+`bd0f09fd93fa4d82af6ac5ec4338bd9dec05fde32ddd82262c73df2369224550`.
 Evidence: `RESULTS.*`, `runs/cases-0.2.1-first.*`,
 `runs/cases-0.2.1-corrected.*`, `runs/cases-source-budget-*.json`,
 `fixtures/independent-vacuous-source-first.json`, `DIVERGENCES.md` and `WORKLOG.md`.
-R7-028 enforces distinct current-source visits; R7-027 is independently verified.
+R7-028 enforces distinct current-source visits. R7-029 corrects source-state
+precedence; exact empty/nonempty/unavailable probes are retained in
+`runs/independent-source-*.json`. Both fixes await judge closure.
 
 R7 score: **1/2** pending judge closure and collective gates. Unsupported paths
 remain explicit (exact proof enumeration, dirty closure, publication operations,

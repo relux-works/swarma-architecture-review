@@ -248,6 +248,28 @@ class SourceClaims(unittest.TestCase):
         model.roots[0]["retained"] = False
         self.assertEqual(model.evaluate("A")["support"]["witness"], "not_found")
 
+    # R7-029: resolved/empty sources take precedence over independent fallback.
+    # Current and retained neighbors retain their witness/qualification contracts.
+    def test_resolved_and_vacuous_sources_before_independent_fallback(self):
+        for requirement in ("current", "retained", "independent"):
+            for availability in (None, "resolvable", "unavailable", "erased"):
+                with self.subTest(requirement=requirement, availability=availability):
+                    r = root("r", "A", retained=requirement != "current", independent=requirement == "independent")
+                    sources = []
+                    if availability is not None:
+                        r["source"] = "S"
+                        sources = [{"id": "S", "availability": availability}]
+                    result = Evaluator([claim("A")], [r], sources=sources).evaluate("A", {"source_budget": 1})
+                    current_failure = requirement == "current" and availability in ("unavailable", "erased")
+                    support = result["support"]
+                    self.assertEqual(support["witness"], "not_found" if current_failure else "present")
+                    self.assertEqual(support["evaluation"], "incomplete" if current_failure else "complete")
+                    expected = ("resolvable_now" if availability in (None, "resolvable") else
+                                "independent_attestation" if requirement == "independent" else "prior_assessment_only")
+                    self.assertEqual(support["source_state"], expected)
+                    self.assertEqual(support["evidence_qualification"], [] if current_failure else ["semantic_review"])
+                    self.assertEqual(result["oppose"]["witness"], "not_found")
+
     # R7-011: a failed current-source check is incomplete; retained/independent
     # assessments remain usable, while hidden source inputs produce no cutoff.
     def test_current_source_failure_is_not_completed_absence(self):
@@ -305,7 +327,10 @@ class SourceClaims(unittest.TestCase):
                 self.assertEqual(result["source_state"], expected)
                 self.assertEqual(result["witness"], "present")
                 self.assertEqual(result["evaluation"], "complete")
-                model.roots.append(root("strong", "C", independent=True))
+                # The stronger independent path still names unavailable bytes;
+                # an empty source set instead has vacuous resolvable_now state.
+                model.sources["strong-source"] = {"id": "strong-source", "availability": "erased"}
+                model.roots.append(root("strong", "C", independent=True, source="strong-source"))
                 strong = model.evaluate("C")["support"]["source_state"]
                 self.assertEqual(strong, "resolvable_now" if expected == "resolvable_now" else "independent_attestation")
 

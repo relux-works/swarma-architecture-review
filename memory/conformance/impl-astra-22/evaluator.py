@@ -225,8 +225,8 @@ class Evaluator:
                     state.roots.add(root.get("origin", root["id"]))
                     state.assessment_refs.add(root["id"])
                     state.source_states.add(
-                        "independent_attestation" if root.get("independent", False)
-                        else "resolvable_now" if availability == "resolvable"
+                        "resolvable_now" if availability == "resolvable"
+                        else "independent_attestation" if root.get("independent", False)
                         else "prior_assessment_only")
                     state.proof_count += 1
                 for rule in rule_index.get(current, []):

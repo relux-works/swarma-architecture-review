@@ -1,9 +1,9 @@
 {
-  "checkout_commit": "f2d233a2533b1b28e528b5531f361495cea896b9",
+  "checkout_commit": "c923ebd0a1b3842b3ff597a8b559008bcf5d6138",
   "package_commit": "f31d58f58d05de2ae4159dedaacfa1e32bdc656d",
   "package_version": "0.2.1-draft",
   "vector_directory": "memory/spec/kernel/vectors",
-  "core_sha256": "4ee2c9010143a21fd124d443421472a6b60245927c02eb8d8663984518d8aaeb",
+  "core_sha256": "bd0f09fd93fa4d82af6ac5ec4338bd9dec05fde32ddd82262c73df2369224550",
   "totals": {
     "semantic": {
       "pass": 43,

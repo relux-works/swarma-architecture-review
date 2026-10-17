@@ -264,3 +264,40 @@ Current supplemental is 14/0/8 semantic, 1 deployment unsupported
 Original f2d233a source-budget report remains unchanged. R7-028 awaits independent
 verification; separately reported ASTRA22-07 vacuous-source precedence remains
 unchanged pending classification.
+
+## R7-029 precedence correction unit (in progress)
+
+Judge confirmed R7-029 as impl-bug and supplied a separately validated nonempty
+resolvable/unavailable source pair. Preserve exact judge data in
+`fixtures/independent-resolvable-judge-first.json`; own c923ebd reproduction is
+`runs/independent-source-first.json`. The unavailable independent case correctly
+passes, while resolvable and empty named-source variants wrongly return
+independent_attestation. Add finite current/retained/independent source-state
+controls and exact wire probes before swapping the precedence. Keep evidence
+qualification and R7-028 source-visit obligations unchanged. Correct the old
+stronger-OR fixture to name an unavailable source so its original independent
+fallback claim remains valid under the released rule.
+
+## R7-029 correction verified
+
+Resolved/vacuous source state now precedes independent fallback. The two exact
+wire probes change only support.source_state after snapshot-value normalization;
+the unavailable positive control has no semantic change. Paired full outputs and
+field deltas: `runs/independent-source-first.json` and
+`runs/independent-source-corrected.json`. Original judge input and empty-source
+probe remain unchanged.
+
+33 source controls and five adapter controls pass (`source-checks-14.log`,
+`adapter-checks-10.log`), with intended red-before failures in
+`source-checks-13-red.log` and `adapter-checks-09-red.log`. Current/retained/
+independent cases keep their qualification and failure semantics. The previous
+stronger-OR test now explicitly names unavailable bytes for its independent
+alternative; it no longer accidentally asserts the invalid empty-set precedence.
+R7-028 counters remain covered. Seven transaction controls are unchanged; five
+harness controls pass on each run (50 total controls).
+
+Canonical f31d58f: 43/0/14 semantic and eight deployment unsupported
+(`vector-run-10.log`). Supplemental: 14/0/8 semantic and one deployment unsupported
+(`runs/cases-0.2.1-current.*`, `case-run-08.log`). Core SHA-256
+bd0f09fd93fa4d82af6ac5ec4338bd9dec05fde32ddd82262c73df2369224550.
+R7-027 is judge-closed at 56e5909. R7-028 and R7-029 await independent closure.
