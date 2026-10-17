@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 19; collective active, NO PARK. Seat identity:
+Status: phase 2, round 20; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Full dual semantic coverage and new finding
@@ -22,7 +22,7 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Hidden revision cannot expose protected global dirty state | R7-018 fixed@f31d58f; hidden and authorized-dirty traces pass |
 | [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md) | Opposite quality cannot spend existence counters | R7-027 fixed@4e647ea; both owned traces and ASTRA24-05 controls pass |
 | [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 fixed at package 7e71765 / runtime a016781; judge and seat independently verified |
-| [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source d077064 independently verified; R7-037 package pending; R7-039 spec closed |
+| [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source d077064 / R7-037 package 4af0360 independently verified; judge runtime closures pending |
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; package pair passes, source erasure unsupported |
 | [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 fixed at 23290b3; judge and seat independently verified |
 
@@ -52,19 +52,19 @@ independent defect count.
 
 | Current owned 0.2.3 semantic runs | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Package runtime at `08c4b9a` | 16 | 2 | 0 |
+| Package runtime at `4af0360` | 18 | 0 | 0 |
 | Source runtime at `d077064` | 9 | 0 | 9 |
 
-Each evaluator reports the one owned deployment fixture unsupported. The remaining two package
-failures are original and transitive-unknown ASTRA25-08 retention cases. Source
-passes both and all six independent storage/replay controls, plus eight native
-retention groups; its fresh canonical run is 49/0/8 semantic.
+Each evaluator reports the one owned deployment fixture unsupported. Both implementations now pass every owned semantic fixture they
+support and all six independent storage/replay controls each. Source also passes
+eight native retention groups and canonical49/0/8; package passes all26 product/
+checker controls and canonical57/57. Unsupported source cases remain explicit.
 Receipt primary/authorized/unrelated-purpose traces still pass in package;
 hidden/visible dirty traces still pass in both. Source `3722327` also passed nine
 impact controls independently, including the separate rule/check correction;
 earlier six controls did not cover that additional R7-043 failure.
 
-Exact new-release runs are `astra23-phase2-023-first`,
+Exact new-release runs are `astra23-phase2-023-retain-corrected`,
 `astra22-phase2-023-retain-corrected`, and `checker-future-lineage-023-corrected` in the
 evidence JSON. Earlier phase-1, phase-2 and release-specific runs remain immutable,
 pinned by package, evaluator and input hashes. Working-copy additions at execution
@@ -87,9 +87,8 @@ passes all 49 supported vectors under 0.2.3; eight remain explicitly unsupported
 judge owns current collective totals; this seat does not infer success for
 unsupported operations or unfinished implementations.
 
-Obtain judge closure for verified source R7-036 and verify the pending package
-R7-037 runtime correction, including transitive known-input authority and
-current-authorized replay. Rerun owned regressions as source release/erasure
+Obtain judge closures for independently verified R7-036/037. Both support
+exact scoped retention and current-authorized replay on the tested fixtures. Rerun owned regressions as source release/erasure
 support arrives. Finalize verdict and park note only after actual convener PARK.
 
 No real protected-deployment qualification is claimed by semantic publication,

@@ -20203,6 +20203,910 @@
       "summary_note": "Passing actual payloads omitted; exact per-vector hashes, statuses and empty differences retained. Full fresh report remains at the local path/hash; evaluator-owned canonical reports also persist the complete behavior.",
       "full_report_path": ".temp/astra25-source-canonical-023-retain.json",
       "full_report_sha256": "c5b33574a9fe117b71cf79d0b27eb1624ccb06e958642d7ba32960ec07cd4102"
+    },
+    "astra23-phase2-023-retain-corrected": {
+      "package_version": "0.2.3-draft",
+      "package_commit": "23290b3a96a469d5190cb71b0e20139896b89236",
+      "evaluator_commit": "4af0360979a31e661e5c528474dd5dcb410266e3",
+      "fixture_commit": "dffc67896910ed6187978e77591585ebc848348c",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+        "engine.py": "cca7a0544c903e521b093c0906bc1e6e092bfe90e54284c7c122e522b344b450",
+        "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "3189cb141f3d464c3bdc35117b2bfa189557f2920b434f12d634316275516bcb"
+      },
+      "scope": "Owned adversarial fixtures. Evaluator receives only initial state, operations and query; comparator receives expected output. No evaluator files were changed. Deployment unsupported is not a pass.",
+      "vectors": [
+        {
+          "id": "ASTRA25-02",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
+          "vector_sha256": "8be575f77123e9620096e7293546ec8ba100c2c9fe49b8dccbdb868fd50608f1",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-authorized-control.vector.json",
+          "vector_sha256": "a4c781e1cf03674e6e504870b7343f59876aa6e30d098165bfb072e2474901a6",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07-PURPOSE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-other-purpose.vector.json",
+          "vector_sha256": "5510b218f8bec0ec3bb9b8cde98c5524b08c010cd6a3b894648dce42f5ffcf62",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata.vector.json",
+          "vector_sha256": "a2af225247cac11fe8ae2622df2b5dc45eedd015240350a8557058ceaa979704",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-10",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-future-lineage-input.vector.json",
+          "vector_sha256": "d680e90c4558be51def453d8aa59fbcd0e1b3b550588bad115c80ad1cc7270f5",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-05-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "vector_sha256": "79d225ad306ef479f1c4314a8f2f15b12bdac1cc6657c96df6682a342949631f",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-05",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
+          "vector_sha256": "ca750f050d93b9dd7837a72397db12f36bf7a9cd81341aed27c68fa4263fa547",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-01",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
+          "vector_sha256": "1d8ed97b99529b53634c74fa533181494c37808a4754d9c523ba416eccab044b",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-06",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-quality-budget-isolation.vector.json",
+          "vector_sha256": "fd5d53c8186da5891539f428df18ae401f7564f2ffe8c87911c383f9e7b1ea56",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-authorized-control.vector.json",
+          "vector_sha256": "97a77b3ab36034278f5170e2cd4d0414425c1cf2c57664a3da9eb51db4fcc99c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown-control.vector.json",
+          "vector_sha256": "9db48b9c26def00c5c6381f6762d7cd7d463f96a48555ecd4f43cbbd761e277d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown.vector.json",
+          "vector_sha256": "51a77c625d846b116add222a90348687d7253d4a3246759a4c274c6994b791de",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority.vector.json",
+          "vector_sha256": "7c3707b5962027e536e4dbe21210b98ac338e6ed1b7620bf610b4e71b3bc15e6",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-04",
+          "profile": "deployment",
+          "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
+          "vector_sha256": "bb925f83023ce9d322842ba755c346d5c5b9e6fc5d4306e756b634b67de11445",
+          "status": "unsupported",
+          "reason": "Requires real protected deployment, current witness and failure-domain evidence; modeled state transitions are insufficient."
+        },
+        {
+          "id": "ASTRA25-03-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
+          "vector_sha256": "167bf6e46ae7ab2e1910f322498b6c81a49835229799a0d5874ce32bfc3baf6e",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-03-FENCE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
+          "vector_sha256": "e2d2cc76a86d5ccbfcfc434fc48edd8c81563472a8506ee1cd62011340506a47",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-03",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
+          "vector_sha256": "19c1f338f3862e8b552b243c1aefa5fbc0db6a491b141e898cdee9b39299e35f",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-09-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure-independent-control.vector.json",
+          "vector_sha256": "bb81c70747945f8c675be703499b51f313a5bfd00b542b11b7dfd1fabb78d42a",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-09",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure.vector.json",
+          "vector_sha256": "4151d5473d2b851d22e891d0d6dd6fcbc198b5bee225ddf047ba774b8d94a5ab",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "pass": 18
+        },
+        "deployment": {
+          "unsupported": 1
+        }
+      }
+    },
+    "astra23-retention-atomic-corrected": {
+      "package_version": "0.2.3-draft",
+      "package_commit": "23290b3a96a469d5190cb71b0e20139896b89236",
+      "evaluator_commit": "4af0360979a31e661e5c528474dd5dcb410266e3",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+        "engine.py": "cca7a0544c903e521b093c0906bc1e6e092bfe90e54284c7c122e522b344b450",
+        "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "3189cb141f3d464c3bdc35117b2bfa189557f2920b434f12d634316275516bcb"
+      },
+      "fixture_sha256": {
+        "astra-25-retention-authority.vector.json": "7c3707b5962027e536e4dbe21210b98ac338e6ed1b7620bf610b4e71b3bc15e6",
+        "astra-25-retention-authority-authorized-control.vector.json": "97a77b3ab36034278f5170e2cd4d0414425c1cf2c57664a3da9eb51db4fcc99c",
+        "astra-25-retention-authority-transitive-unknown.vector.json": "51a77c625d846b116add222a90348687d7253d4a3246759a4c274c6994b791de",
+        "astra-25-retention-authority-transitive-unknown-control.vector.json": "9db48b9c26def00c5c6381f6762d7cd7d463f96a48555ecd4f43cbbd761e277d"
+      },
+      "scope": "Synthetic single-operation storage atomicity and current-retain replay on two owned pairs. No evaluator writes or physical storage qualification.",
+      "controls": [
+        {
+          "case": "ASTRA25-08",
+          "check": "atomic_retention_refusal",
+          "status": "pass",
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "changed_state_components": []
+        },
+        {
+          "case": "ASTRA25-08-CONTROL",
+          "check": "matching_retain_admits",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "9722d4e7c3aefc53e0120c6cd29d62ce",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        },
+        {
+          "case": "ASTRA25-08-CONTROL",
+          "check": "revoked_retain_replay",
+          "status": "pass",
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "changed_state_components": []
+        },
+        {
+          "case": "ASTRA25-08-UNKNOWN",
+          "check": "atomic_retention_refusal",
+          "status": "pass",
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "changed_state_components": []
+        },
+        {
+          "case": "ASTRA25-08-UNKNOWN-CONTROL",
+          "check": "matching_retain_admits",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "2bf228eff0372edb7897c57bae726c6d",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        },
+        {
+          "case": "ASTRA25-08-UNKNOWN-CONTROL",
+          "check": "revoked_retain_replay",
+          "status": "pass",
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "changed_state_components": []
+        }
+      ]
+    },
+    "astra23-canonical-023-retain-corrected": {
+      "package_version": "0.2.3-draft",
+      "package_commit": "23290b3a96a469d5190cb71b0e20139896b89236",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+        "engine.py": "cca7a0544c903e521b093c0906bc1e6e092bfe90e54284c7c122e522b344b450",
+        "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "3189cb141f3d464c3bdc35117b2bfa189557f2920b434f12d634316275516bcb"
+      },
+      "vectors": [
+        {
+          "id": "B04",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B04.json",
+          "vector_sha256": "a0f216e556ef434ac624e4870d93abed849e71497c9bc9f1e19336dd41e907a6",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B05",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B05.json",
+          "vector_sha256": "bf76a2683878511a50ced1e3b078e1d361dc65cc88a5de22ca6a826d9b09fa52",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B06",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B06.json",
+          "vector_sha256": "4e7bd849028c38842941efa078c9ad5e75ca00342122065e39e2d3cd1887b0c6",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B09",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B09.json",
+          "vector_sha256": "f1980557f450172f736b432f9d5c6ce82332f85a343cccb9b2d33d368a384e5a",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B10",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B10.json",
+          "vector_sha256": "9c797598a540a16a1b0b6798198a15617edb6e5bee603b4a3e00df3dc9649880",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B11",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B11.json",
+          "vector_sha256": "c246532c1ed6526d078762048ffa15e83977df75abbe18003bab96d9c3a98fda",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B16",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B16.json",
+          "vector_sha256": "95cb4544d4c679e27156d26c6c19ba33d56ae962f7f31072c9cc75583c6eba0a",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B17",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B17.json",
+          "vector_sha256": "835ba01fb221776ec7143037aae18189aef5e59d451c71c311eaafc4cd8d9576",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B01",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B01.json",
+          "vector_sha256": "183b319ca375cafad7306d71b4034270ece49f0b0cd62603c2e24c27dc6bae89",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B02",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B02.json",
+          "vector_sha256": "74bd8dfda20aec649a1e4295e6b9d281384beb3808f4984b6422dd149403bb64",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B03",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B03.json",
+          "vector_sha256": "bc76781ba77687f08e6f9398db83f78840c38869ddd475521bbcf77e4fadd1e4",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B07",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B07.json",
+          "vector_sha256": "bcbe3886d7ba5abc2482c73a0973e30f25c25e52eb43370bf1484ec960800d20",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B08",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B08.json",
+          "vector_sha256": "12b7695158f1a8d0355cf72ab3318f9f8a40cd7012d0cc21c74282b7577e9c46",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B12",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B12.json",
+          "vector_sha256": "c874b5b5085104bafe0747786cca7c6abdd76616cc0fc7d6a99850ddf1da99e7",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B13",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B13.json",
+          "vector_sha256": "541c7cb78436c6db2d9bfc2b1a309bd54abcdf4179091af40ce18190e61e4457",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B14",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B14.json",
+          "vector_sha256": "50db7311d2c08aafa064bccbf111a4de4f5f620d98023847896bc9a1c878bdd2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B15",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B15.json",
+          "vector_sha256": "bc99a2174743d187fef5f23965e9a45c3a716dbd95b1aee87de46882b8d0438a",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P01",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P01.json",
+          "vector_sha256": "e2acf4811742c24722b9b93f7422b7d165251af492bf854439160cfa19580831",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P02",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P02.json",
+          "vector_sha256": "1f2a10c148972c1b98295c22f5534d710a291ae4170b95cd57602843c73e3c93",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P03",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P03.json",
+          "vector_sha256": "55ec3d6204f999db51ed2109b64c74cd0e77aef260894ab33521caec796a3f8a",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P04",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P04.json",
+          "vector_sha256": "7d81f22adbf08d26eeb7af6b487ee143126e63f9ac88af083c260220ad27c1db",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P05",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P05.json",
+          "vector_sha256": "5cbb2a26016ee352c750dcc4488dc51d5c2cbe78b3300075d6b61051830a1a30",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P06",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P06.json",
+          "vector_sha256": "68afd53161cef72cbad7e9a6c95fb6b035cf7d80af7e5918258a4c90459a9a63",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P07",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P07.json",
+          "vector_sha256": "1b61803a180aef60eb3874b215d0b211fd8633f5e662a34a9ac689210a88f26e",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P08",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P08.json",
+          "vector_sha256": "a7ce99aa8173b15e6c1e3917686e1981a36810c96300ccd8a9b07830b31f35cf",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P09",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P09.json",
+          "vector_sha256": "f393674e19de093fc5749ff44fe9b6062a9b75be0d53ebf4bdbbe1c9fe42b9ba",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P10",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P10.json",
+          "vector_sha256": "61b088f5bb3e5b7927db1e2778746ba322a2c738f5a52509c8b63a0c0b8a02a8",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P11",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P11.json",
+          "vector_sha256": "f8f940678dfbe6852ea4c83020720f63bf89b69c376b90d6e50ba92104c162ab",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P12",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P12.json",
+          "vector_sha256": "42adf980d66014077fb2bbeb08a2a9f58f18e9dbc9c7354ea8c18b262a893c63",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P13",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P13.json",
+          "vector_sha256": "3f4fcc39216f8d9ef250dd50e7bfe7283c7818112ccff7d9947bc31cb3e51916",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P14",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P14.json",
+          "vector_sha256": "eb30f05303e258985264923e6b0cec87a6cc7bee0e7ac2490c475261e2e9168d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P15",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P15.json",
+          "vector_sha256": "f64ba36c353081cb6aeee5727fa2cc4492b9d259e509f72bb8f028f2ea0a322a",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S01",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S01.json",
+          "vector_sha256": "f276cb50ad334829c35d04b2d4ec3535f71f13bdad53528fdd439c9c3dcba06d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S02",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S02.json",
+          "vector_sha256": "2c8101954c424f6d0e4941f2f86f1d262c3e9e31b4f4b410fa6d02f191a27c68",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S03",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S03.json",
+          "vector_sha256": "7e3a18c556f17bf99efa3e53a7923be94b685d6383eefb8a7a141bfc247a5f1c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S04",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S04.json",
+          "vector_sha256": "89fe5248db80d052aee68e5b3b841795f7e27cebf41ccae52d1055d605bd91e6",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S05",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S05.json",
+          "vector_sha256": "6b2711d56eb29882e4eb098fc2d4da3f3c9b8426c923adfe9826bf9cb4087e03",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S06",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S06.json",
+          "vector_sha256": "b6c7c6dfc165cecc818739c99f0fb41a195dd5c383369512a054afd656800a49",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S07",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S07.json",
+          "vector_sha256": "9cc5d825fb6aca8bff25c695312ac0cc2fcdaa0b881bd9be730f6e38bd541e8e",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S08",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S08.json",
+          "vector_sha256": "84246d3abfb93a572167599e478e6176fa5505991ab9041e0aaaa9d39778178c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S09",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S09.json",
+          "vector_sha256": "cd46aef720563e48cddbe0d3eb3a1438c500c8f3730d014f84a2236f47831710",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S10",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S10.json",
+          "vector_sha256": "c35cfdc9bc39bd1ca236dc857ca265e56c1b3b7cff0513c77765bb98d98a5be7",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S11",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S11.json",
+          "vector_sha256": "1dc10cfe425a002b150bc55ef7a1ddfb3c17e28d71040d2446d47474642f06a2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S12",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S12.json",
+          "vector_sha256": "3ed480ef4460554615783b2d69c97ebce0dcee9eba6d713b18923d016633e2b6",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S13",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S13.json",
+          "vector_sha256": "2f2f47bd4f22d7a154ec19b67153966e20cf6ed9b09f5c3e01088d5867834a10",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S14",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S14.json",
+          "vector_sha256": "4d2dc84a8ebb95870cfc72787f23c7d6fd450610c6c23fe2502d8e2105b69ecb",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S15",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S15.json",
+          "vector_sha256": "8f537268648c76d0e218502a86d2e2708d25a5bf5f724e44989a3c4893e211c2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S16",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S16.json",
+          "vector_sha256": "7a31da4a1b46f6a28d7832aa2abe5f21453b491f6237dca79ae1084d13425909",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S17",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S17.json",
+          "vector_sha256": "80fb611d05a742ddd13e88d5bfe7296c952877626c61a14cb59aeef8ad4b317b",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S18",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S18.json",
+          "vector_sha256": "faf0945feb50a7c81b331657b15613c8bd9e70283479ef777653a0433808370b",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S19",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S19.json",
+          "vector_sha256": "50cd53519b95e6959ded39feec3b304586caad971187a1e49335d334856b2547",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S20",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S20.json",
+          "vector_sha256": "6fbe927ba6a12a0f8f7138e4056679289b8da993f2450c5e8bfdb2b3485c0875",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S21",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S21.json",
+          "vector_sha256": "b11c984a2b98fe4a6bbbf9a26ff2eeb4e367092578a4b27daffb062ece01e877",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S22",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S22.json",
+          "vector_sha256": "2130241dc1a97f33c89e767f33c687093c2549fb01ba7565ecfe8f7815bdc487",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S23",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S23.json",
+          "vector_sha256": "f3e62facae73e40d95cc3855960c8e465631fc99b2fb604effbf6acdfa7ca515",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S24",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S24.json",
+          "vector_sha256": "3216706db82cd053cfa4d9a8fc1c7b222c696ca3c936679a40fd1a22f595ebd2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S25",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S25.json",
+          "vector_sha256": "6117598835e5c2090b7e8dbce6b7d645d52ab44f855ced313e56e021ac528d0b",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S26",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S26.json",
+          "vector_sha256": "bdf8c4d90405a358a614735079cc6d816bd3559dd88353db43878f48fce86f55",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S27",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S27.json",
+          "vector_sha256": "f92e4325642c5f46b3206ca5f7a81dc08194d0e2fdb1fdf17745dd3a18b9da1f",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S28",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S28.json",
+          "vector_sha256": "7b9f5e60547b24d4ef15ef3747a3a95a63bf7988ce382a0fcb71c5d1202259e2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S29",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S29.json",
+          "vector_sha256": "0e9459632915218fce46921d28751f421ad7c6025fa903138d4d883c417b74c0",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S30",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S30.json",
+          "vector_sha256": "2ffe9b4a73bde8c693df27c7f483c2f02a95a60d185add98ae9ed39090e854ec",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S31",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S31.json",
+          "vector_sha256": "da86e5fb1773c63c99d7c49e41c44c1d20b8e484695e1ac24085dffea96b8672",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S32",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S32.json",
+          "vector_sha256": "d488b5698fbf9d4ee113536af5bb2c8de5fb9d66316968b39f8cf7a2a03bb643",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S33",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S33.json",
+          "vector_sha256": "35461d132ab163abb762281e4166930c17c41caafc6e7460a6ed1e1f71145343",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "pass": 57
+        },
+        "deployment": {
+          "unsupported": 8
+        }
+      },
+      "summary_note": "Passing actual payloads omitted; exact input hashes, statuses and empty differences retained. Full fresh report is pinned by local path and SHA256.",
+      "full_report_path": ".temp/astra25-package-canonical-023-retain.json",
+      "full_report_sha256": "46b989aea8039b6e247acd873c019f9f1d6dca7d92b81bd201bc6b5db64f905c"
     }
   }
 }

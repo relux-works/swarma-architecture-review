@@ -1,7 +1,7 @@
 # ASTRA25-08: admit and read rights do not silently grant retention
 
-Status: R7-036 source correction `d077064` independently verified, judge closure
-pending; R7-037 package correction pending. First forbidden admissions preserved. Original package `0.2.1-draft` at `f31d58f`;
+Status: R7-036 source `d077064` and R7-037 package `4af0360` corrections
+independently verified; judge closures pending. First failures preserved. Original package `0.2.1-draft` at `f31d58f`;
 current fixtures explicitly migrated to `0.2.3-draft` with private/read storage
 context and unchanged original expectations apart from profile.
 Owner: astra-25.
@@ -156,3 +156,22 @@ This recommends R7-036 closure, independently of the pending package correction.
 Judge event `$rWp5wPxg_ZSHpHlPAYbWHZgUK-mIqtBiiAYXTLlsLm8` closes the separate
 R7-039 specification gap at `23290b3`; it explicitly keeps runtime 036/037
 closure dependent on behavioral and atomic-replay verification.
+
+## Package correction verification
+
+Package `4af0360` also passes all four unchanged owned retention fixtures and
+all six independent storage/replay controls. Complete owned semantic corpus is
+18/18; fresh canonical is 57/57, with one owned and eight canonical deployment
+fixtures still unsupported. All 26 product/checker controls pass independently.
+The new groups exercise all four write APIs with full-state denied/restored
+same-key and current-authority replay assertions, future inputs, later proposal
+order, transitive unknown lower bounds and empty-label storage.
+
+Review confirms explicit actor/context per record, independent metadata-free
+retain, pre-state plus whole-batch closure, and rechecking of stored original
+outputs on replay. No old receipt is rewritten. Evidence entries are
+`astra23-phase2-023-retain-corrected`, `astra23-retention-atomic-corrected` and
+`astra23-canonical-023-retain-corrected`; control log
+`.temp/astra25-package-controls-023-01.log`. Both independent six-control suites
+now pass after detecting all four intended failures on each pre-correction
+runtime. This recommends R7-037 closure; judge owns the disposition.
