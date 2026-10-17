@@ -1,10 +1,14 @@
 # astra-22 source evaluator verdict
 
-The source evaluator passes every currently published semantic vector. Current
+Final status: **PARKED**, under the convener decision at **2026-10-17 06:33Z**,
+event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg`.
+
+The source evaluator passes every currently published semantic vector. Final
 collective score is **2/2**, confirmed by signed judge `9d2cdd4`: 58 ledger items,
 47 fixed, 10 rejected and owner question R7-055. No specification or implementation
 bug remains open. Source R7-057 is closed at `946cbd8`; package R7-058 is closed at
-`104fbe8`. The convener has not posted PARK.
+`104fbe8`. All owned implementation and review assignments are complete. The
+[park note](../parked/astra-22.md) records the remaining owner question and limits.
 
 Current package: **0.2.5-draft**,
 `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
