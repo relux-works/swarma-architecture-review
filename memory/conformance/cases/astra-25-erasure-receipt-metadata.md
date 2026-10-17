@@ -156,3 +156,31 @@ been identified as a conflict. This is a scoped reading of erase receipts;
 it does not move live retention authorization behind admission replay/conflict.
 Judge classification remains pending for this publication. R7-031's original
 metadata-disclosure closure remains intact.
+
+## R7-057 classification and exact regression pair
+
+Judge event `$eZJtQ5NtpfBEb7qFsk54ePTdCFPWyGbT_S4eBcV9FM8` classifies the
+source behavior as R7-057 implementation bug and authorizes exact supplementary
+fixtures. The expected refusal is `idempotency_conflict`, `retryable: false`,
+after current erase operation authority. Exact replay still reauthorizes every
+original ref and cannot rewrite its receipt. No package/source design change is
+required; the original R7-031 closure remains valid.
+
+New [changed-purpose](astra-25-erasure-receipt-metadata-changed-purpose.vector.json)
+and [changed-audience](astra-25-erasure-receipt-metadata-changed-audience.vector.json)
+fixtures each pair the required conflict with original complete erase, identical
+later replay and identical changed-context fresh-key success with empty refs.
+They reuse the original signed input and S20's independently specified protected
+closure/custody postconditions. Handle normalization preserves exact replay
+identity and requires fresh receipt/view handles to differ.
+
+All 29 owned fixtures pass closed structure, references, integration facts and
+normalization/forbidden checks, including two bounded checker plants. On source
+`87beb46`, both new fixtures fail only `operation_results[2].code`: actual
+not_authorized versus expected idempotency_conflict. All 26 old semantic fixtures
+still pass. Unchanged package `23b4d74` passes all 28 semantic fixtures, including
+both new traces. The owned deployment fixture remains unsupported. Exact first
+runs are `astra22-phase2-025-erase-conflict-first` and
+`astra23-phase2-025-erase-conflict-control`; new uncommitted fixture bytes at
+execution are explicitly identified by input hashes, never mislabeled as a
+previous committed vector set. Native first evidence remains immutable.
