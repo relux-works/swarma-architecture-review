@@ -1,8 +1,8 @@
 # ASTRA24-04: derived witness loses its exact source reference
 
-Status: confirmed R7-023 implementation bug, owner astra-23.
+Status: R7-023 fixed at `7c765fe`, independently verified; judge-closed at `73ebb62`.
 Owner: astra-24. Tested implementation: astra-23 `0008dc3`; matched package
-`0.1.0-draft` at `0ef608a`. The committed fixture uses current 0.2.0 grammar.
+`0.1.0-draft` at `0ef608a`. The committed fixture now uses 0.2.1 grammar; historical runs below retain their stated profiles.
 
 ## Clauses and two readings
 
@@ -97,3 +97,27 @@ covering ASTRA24-04, the ASTRA24-03 provenance rows and the implementer's own
 report. Exact expected outputs stand. The requested repair preserves sources
 from found premise paths while excluding hidden/unfound candidates and unrelated
 same-origin copies. Implementation fix and follow-up verification remain pending.
+
+## 0.2.1 verification — round 7
+
+The fixture now supplies explicit `policy.subject_principals` and empty
+`runtime.dirty_causes`, with the 0.2.1 semantic profile. Its semantic expectations
+are unchanged. Closed grammar, references, normalization and intended forbidden
+plants pass in `.temp/case-vectors-validate-09.log`.
+
+Current fixture SHA-256: `a6ed86068752d579b6426f0dfba610a1f50415a46c0e3323f6ce05cbf63b0558`.
+At checkout `4fadedd`, package evaluator fix `7c765fe` passes the entire
+fixture. Source evaluator also passes the entire fixture.
+Exact reports: `.temp/astra23-owned-cases-03.json` and
+`.temp/astra22-owned-cases-08.json`. Executors receive no expected outputs.
+
+The formerly failing derived B reference now equals the direct A reference;
+exact, paired and forbidden checks all pass. The implementer
+`test_semantics.Semantics.test_derived_source_references` independently passes
+positive direct/derived controls and hidden-source, failed-assessment and
+unrelated same-origin-copy negative controls under this release. Evidence:
+`.temp/astra23-derived-controls-02.log`. The prior `-01.log` records only an
+incorrect-working-directory import failure, not a product result. Judge `73ebb62`
+closed R7-023 after its own pinned verification. Original failing reports remain.
+
+These are semantic fixture results, not protected deployment qualification.

@@ -1,81 +1,76 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: active, round 6. Source baseline: `95f974b`; kernel draft v0.2.
+Status: active, round 7. Source baseline `95f974b`, kernel v0.2; current package
+`0.2.1-draft` released at `f31d58f`.
 
 ## Scope and method
 
-Read the complete R7 mission, owner decisions D-001–D-008, kernel v0.2,
-the bounded-support companion and bounded-evidence design. This seat owns
-semantic counterexamples and their package-format vectors, not the package,
-evaluators or divergence ledger. Only synthetic, non-sensitive fixtures are used.
+Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
+companion and design, and the released package. This seat authored four synthetic
+semantic counterexamples and exact package-format vectors. It did not modify
+specification, evaluators, ledger or another seat's artifacts. Expected outputs
+were derived from the contract and never supplied to the execution APIs.
 
-The initial audit targets independent polarity completeness, existential versus
-universal premise-quality claims, one-way registered rules, exact revision
-authority and authority ordering, unknown and half-open valid time, freshness,
-and the separation of write collision, ambiguous currentness and evidence conflict.
+## Findings and disposition
 
-## Round evidence
+| Case | Finding | Disposition |
+| --- | --- | --- |
+| ASTRA24-01 | Clean alternative survives truncated explanation | R7-001 rejected as spec defect; regression retained |
+| ASTRA24-02 | Checked rule expires at its exclusive endpoint; another root may survive | R7-002 rejected as spec defect; regression retained |
+| ASTRA24-03 | Mixed necessary AND states must be combined before OR preference | R7-014 release verified; judge closure pending. R7-015 source fix judge-closed |
+| ASTRA24-04 | Derived witness must retain exact authorized premise sources | R7-023 fixed `7c765fe`, judge-closed `73ebb62` |
 
-- Round 0: `memory/spec/` is absent at baseline `95f974b`; no package conformance
-  result is claimed. Source reading and a2a onboarding are complete.
-- Tracking and tool-readiness evidence: seat-local `.temp/tasks.md`,
-  `.temp/tool-readiness-01.log` and `.temp/a2a-readiness-01.log`.
-- No evaluator, deployment qualification or external effect is claimed by this seat.
+ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
+All original failures and earlier-profile evidence are retained in the case
+histories and implementers' immutable run reports. No source ambiguity has been
+established by these cases.
 
-- Round 1: submitted source-contract cases ASTRA24-01 (alternative-path
-  premise quality) and ASTRA24-02 (rule applicability at a half-open endpoint).
-  They are counterexample proposals, not observed evaluator failures.
+## Current execution evidence
 
-## Package review and R7 row
-
-Release `0.1.0-draft` at `0ef608a` passes the structural checker: 61 vectors
-(53 semantic, 8 deployment), 14 closed schemas, 49 covered clauses, 13 intended
-checker-violation controls. This is structural evidence only.
-
-K-EVAL-4 and K-RULE-2/K-TIME-1 already specify the recommended readings in
-ASTRA24-01/R7-001 and ASTRA24-02/R7-002. Both owned exact JSON fixtures are
-structurally valid; they include full-versus-truncated explanation and
-inclusive-start/pre-end/exclusive-end controls, respectively. Their expected
-outputs were authored from the contract, without using either evaluator.
-
-**Provisional R7: 1 at this baseline.** The package now exists and validates;
-independent semantic execution and the editor's kernel-v0.2 update remain
-pending. R7-001 and R7-002 are rejected as package-defect allegations; their regression
-fixtures remain. ASTRA24-03 now asks the judge to close source-state aggregation
-inside a mixed AND witness (independent A, retained-only B). Its structurally
-valid exact fixture records the proposed prior-only result and direct-root
-controls. The source evaluator exhibits the proposed ASTRA24-03 state disagreement;
-its owner independently recorded ASTRA22-04. Judge classification is R7-014 (`spec-bug`, package editor) and R7-015
-(`impl-bug`, source implementer). The source fix `fb7df98` passes the full owned counterexample and the judge
-closed R7-015. Package clarification R7-014 still awaits its next release. No source ambiguity has been established.
-The judge owns the collective score. No protected deployment is qualified.
-
-## Owned-vector execution
-
-Both current implementations ran identical 0.2.0 fixtures at checkout
-`dcde639`. Source changes: `8b97e1e`; package implementation adaptation:
-`1439219`, with supplemental report `103ce15`.
+Identical owned 0.2.1 fixtures ran at checkout `4fadedd`. Source core SHA-256:
+`8738b80fbe1b12cd56c62f9095c541b19f18203bf9bc147fba1ca95e5c7432d9`;
+source adapter SHA-256:
+`cd7db027d81a7632d76a84d5d8b35327d8a1382ed5ae5d3a1b9233045bdb1205`.
+Package evaluator SHA-256:
+`c73f7f4e32045fcbb0039b49d2417c59b71ee40eba2e4cf62386eb6faa907dea`;
+package engine SHA-256:
+`601939ae52a7ecd7ed7395c27f40862ec5b756f2be78fa020a3e9644a681bda2`.
 
 | Case | Source evaluator | Package evaluator |
 | --- | --- | --- |
 | ASTRA24-01 | unsupported: exact proof enumeration | pass |
 | ASTRA24-02 | pass, including surviving alternative | pass |
-| ASTRA24-03 | pass; R7-015 closed | AND/OR states correct; derived source refs missing |
-| ASTRA24-04 | pass | fail: same derived source refs defect |
+| ASTRA24-03 | pass: direct states, mixed AND, stronger OR, exact source refs | pass |
+| ASTRA24-04 | pass: exact direct/derived source refs | pass |
 
-ASTRA24-03/04 and the package implementer's reported provenance divergence
-are the single confirmed R7-023 implementation bug, owned by astra-23. The minimal A -> B fixture preserves
-S on the direct A capture but loses it on B in the package implementation.
-The implementation fix remains pending; no duplicate defect is counted.
+Both evaluators additionally pass expanded canonical S32 exactly. Its fixture
+SHA-256 is `832a9da6e8b11bbfa3761934da8912b81d9e1cb3d817aee8bad6710c8fc6f3ff`.
+K-EVAL-5 now explicitly states weakest state within each necessary AND path and
+strongest state between complete OR alternatives. R7-014 is behaviorally verified.
+The package implementation's direct/derived, hidden-source, failed-assessment
+and unrelated same-origin-copy controls also pass under the current grammar.
 
-All four fixtures validate structurally and detect intended forbidden-value
-plants. Package 0.2.0 structural validation passes 65 vectors (57 semantic /
-8 deployment), 52 clauses and 16 intended checker controls. Full independent
-read behavior is reported separately from these structural and synthetic checks.
-No protected deployment has been qualified.
+Seat-local reports: `.temp/astra22-owned-cases-08.json`,
+`.temp/astra23-owned-cases-03.json`, `.temp/astra22-s32-01.json`,
+`.temp/astra23-s32-01.json`, `.temp/astra23-derived-controls-02.log`.
+The first attempt to invoke the focused native control used the wrong working
+directory (`-01.log`); that setup error is not semantic evidence.
 
-## Remaining work
+All four owned fixtures pass structural checks and intended forbidden-value
+plants (`.temp/case-vectors-validate-09.log`). Package structural validation passes
+65 vectors (57 semantic / 8 deployment), 52 clauses and 20 intended checker
+controls (`.temp/package-validate-03.log`). Structural validation does not execute
+an evaluator or qualify deployment behavior.
 
-Continue reviewing package semantics; obtain independent runs on the owned
-vectors and judge dispositions; verify any accepted repairs; remain in the round protocol
-until the convener posts PARK, then finalize this verdict and the park note.
+## Provisional R7 row and remaining work
+
+**R7: 1/2.** The package exists and validates; all supported owned cases pass,
+but collective release verification and open ledger work remain. Judge round 10
+reported five candidate spec fixes pending behavioral evidence; R7-024 was then
+classified as a package-implementation historical-selection bug. This seat's
+local green regressions do not establish the collective score-2 gates.
+
+Remain in the round protocol, answer directed items and verify accepted changes
+until the convener posts PARK. Finalize this verdict and the park note then.
+No protected deployment is qualified. Tracking and tool-readiness evidence is
+in seat-local `.temp/tasks.md` and `.temp/*readiness*.log`.

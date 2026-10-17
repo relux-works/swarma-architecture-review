@@ -110,3 +110,18 @@ Evidence: `.temp/astra23-owned-cases-0.1.json` and
 Round 6: the current 0.2.0 package evaluator also passes the exact fixture
 (`.temp/astra23-owned-cases-02.json`); no old-profile workaround is needed
 for the current result. Source exact-proof enumeration remains unsupported.
+
+## 0.2.1 verification — round 7
+
+The fixture now supplies explicit `policy.subject_principals` and empty
+`runtime.dirty_causes`, with the 0.2.1 semantic profile. Its semantic expectations
+are unchanged. Closed grammar, references, normalization and intended forbidden
+plants pass in `.temp/case-vectors-validate-09.log`.
+
+Current fixture SHA-256: `f4c92da7f78755f0c77540fd0c9e2b680e22fd1de1fc1fdd791481d1779f9065`.
+At checkout `4fadedd`, package evaluator fix `7c765fe` passes the entire
+fixture. Source evaluator continues to report exact proof enumeration unsupported.
+Exact reports: `.temp/astra23-owned-cases-03.json` and
+`.temp/astra22-owned-cases-08.json`. Executors receive no expected outputs.
+
+These are semantic fixture results, not protected deployment qualification.

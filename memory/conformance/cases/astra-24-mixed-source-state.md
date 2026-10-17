@@ -1,6 +1,6 @@
 # ASTRA24-03: source state inside a mixed AND witness
 
-Status: judge-confirmed package clarification R7-014 and source implementation bug R7-015.
+Status: R7-015 judge-closed; R7-014 candidate release `f31d58f` independently verified in round 7.
 Reviewed release: `0.1.0-draft` at `0ef608a`. Owner: astra-24.
 
 ## Clauses
@@ -132,3 +132,27 @@ Current 0.2.0 package evaluator also agrees on both source-state values; its
 derived-reference omission is consolidated with ASTRA24-04 and the package
 implementer's existing divergence topic. Current-release evidence is in
 `.temp/astra23-owned-cases-02.json` and `.temp/astra22-owned-cases-07.json`.
+
+## 0.2.1 verification — round 7
+
+The fixture now supplies explicit `policy.subject_principals` and empty
+`runtime.dirty_causes`, with the 0.2.1 semantic profile. Its semantic expectations
+are unchanged. Closed grammar, references, normalization and intended forbidden
+plants pass in `.temp/case-vectors-validate-09.log`.
+
+Current fixture SHA-256: `04c86e755bc08bd1d2a1b1897ea19471e75db450a864fddfdb6e40e506131eff`.
+At checkout `4fadedd`, package evaluator fix `7c765fe` passes the entire
+fixture. Source evaluator also passes the entire fixture.
+Exact reports: `.temp/astra23-owned-cases-03.json` and
+`.temp/astra22-owned-cases-08.json`. Executors receive no expected outputs.
+
+Release `f31d58f` explicitly defines weakest necessary AND state followed by
+strongest complete OR state in K-EVAL-5. Both evaluators also pass the expanded
+canonical S32 exactly (SHA-256
+`832a9da6e8b11bbfa3761934da8912b81d9e1cb3d817aee8bad6710c8fc6f3ff`),
+including direct states, mixed AND limitation and the stronger sufficient root.
+Evidence: `.temp/astra22-s32-01.json`, `.temp/astra23-s32-01.json`.
+This seat recommends closure of R7-014; ledger disposition belongs to the judge.
+The derived source-reference regression is repaired under R7-023.
+
+These are semantic fixture results, not protected deployment qualification.

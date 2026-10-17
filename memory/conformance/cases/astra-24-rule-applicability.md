@@ -107,3 +107,18 @@ expectations: source `fb7df98` on current 0.2.0 syntax, package evaluator
 Round 6: both current implementations pass this identical 0.2.0 fixture,
 including all interval boundaries and the surviving-root control. Evidence:
 `.temp/astra23-owned-cases-02.json` and `.temp/astra22-owned-cases-07.json`.
+
+## 0.2.1 verification — round 7
+
+The fixture now supplies explicit `policy.subject_principals` and empty
+`runtime.dirty_causes`, with the 0.2.1 semantic profile. Its semantic expectations
+are unchanged. Closed grammar, references, normalization and intended forbidden
+plants pass in `.temp/case-vectors-validate-09.log`.
+
+Current fixture SHA-256: `6c618f4103b240083cc87d94a79469accf91f44e1dcfd25f73c04ec1b066a41b`.
+At checkout `4fadedd`, package evaluator fix `7c765fe` passes the entire
+fixture. Source evaluator also passes the entire fixture.
+Exact reports: `.temp/astra23-owned-cases-03.json` and
+`.temp/astra22-owned-cases-08.json`. Executors receive no expected outputs.
+
+These are semantic fixture results, not protected deployment qualification.
