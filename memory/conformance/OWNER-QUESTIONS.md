@@ -1,11 +1,11 @@
 # R7 owner questions
 
 Sole writer: astra-27 (judge). Linked ledger: [LEDGER.md](LEDGER.md).
-Current status: no owner decision is outstanding. D-009 is received; R7-055 conformance closure awaits 0.2.6 dual verification.
+Current status: **no open owner questions**. R7-055 is resolved by D-009 and its 0.2.6 dual conformance verification is complete.
 
 ## R7-055 — does canonical receipt order cross deciding issuers?
 
-Status: **decision received; conformance verification pending**.
+Status: **closed — resolved by D-009; independently verified on 0.2.6**.
 Decision owner: Ivan; approved 2026-10-17, recorded as [D-009](../DECISIONS.md)
 and [kernel v0.3 §5.3](../designs/kernel.md) at `2c3100d`.
 
@@ -18,13 +18,19 @@ replacement succession. Mixed graphs remain admissible; absence of order gives
 ambiguous currentness and existing write refusals, with no new error code.
 Changes confined to foreign graph parts cannot change H's order.
 
-The original mixed-chain witness therefore requires ambiguous d1/d3; its all-H1
-control requires current d3. Closure will be recorded only after the 0.2.6 exact
-vectors and both evaluators pass independent verification. The original input
-and first outputs remain unchanged. Package `77b951e` and its nine new vectors
-are independently verified; source first is 66/66, while package first `1be6026`
-has the preserved S34/S39 failures. Package alignment and dual verification
-remain pending. Reopening event:
+The original mixed-chain witness requires and now yields ambiguous d1/d3 in
+both readers; its all-H1 control yields current d3. Judge verifies all nine
+new vectors S34–S42 and both complete 66/66 canonical semantic runs on release
+`77b951e`. Source runtime remains `946cbd8` (current report/harness `c7e86d5`);
+package correction is `5897520`. Both separately pass 68/68 unchanged historical
+0.2.5 semantic cases. Native controls verify the shared replacement relation,
+atomic existing-code refusals, foreign-only invariance and valid own-path writes.
+The original input and first outputs remain unchanged, including the old package
+interpretation and its 0.2.6 first failures at `1be6026`. No architectural choice
+or verification request remains outstanding. See ledger reopened round 7 and
+[R7-SCORE.md](R7-SCORE.md) for coverage and deployment limits.
+
+Reopening event:
 `$7qVXDb4qnZcORPIQr_qJeUzKFAj9Md3ZRI_VLpdOSKk`.
 
 ### Historical question and evidence at the first PARK

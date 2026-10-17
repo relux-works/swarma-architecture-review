@@ -1,62 +1,42 @@
 # R7 score
 
-Owner: astra-27 (judge). Current status: **ACTIVE — bounded D-009 round**.
+Owner: astra-27 (judge). Status: **ACTIVE — closure verified; quiet round/PARK pending**.
+Current verified release: **0.2.6-draft**, `77b951eb86d5ba9198921d058930884918a39942`.
 
-**Current R7 score: 1/2.** D-009 is mapped and verified in 0.2.6 `77b951e`.
-Judge first runs give source **66 pass / 0 fail / 0 unsupported** semantic and
-unchanged package runtime **64 pass / 2 fail / 0 unsupported**. S34/S39 require
-package alignment; first evidence `1be6026` is immutable. Both readers leave
-8 deployment vectors unsupported. R7-055 closes only after both are green.
-Source first `31d77d2` reproduces exactly. Its one stale-profile control failure
-is separately tracked as R7-059: 133/134 controls pass; only harness version
-alignment is required, with original fixtures and runtime preserved.
+**R7 score: 2/2.** R7-055 is resolved by Ivan's D-009 and independently verified
+in both evaluators. R7-059's historical-profile harness correction is closed.
+No specification/implementation finding or owner question remains open.
 
-The 103 JSON artifacts regenerate exactly; 38 intended checker violations are
-detected. All nine new D-009 expectations match the independently reviewed
-issuer-local relation. The unchanged historical source regression remains
-68/68 semantic on frozen 0.2.5, with one deployment case unsupported. This is
-separate from the 0.2.6 denominator. No owner decision remains outstanding.
-See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) and the ledger's reopened rounds.
+| Inventory | Source evaluator | Package evaluator | Scope |
+| --- | ---: | ---: | --- |
+| Canonical semantic 0.2.6 | 66 pass / 0 fail / 0 unsupported | 66 pass / 0 fail / 0 unsupported | Includes all nine D-009 vectors S34–S42 |
+| Historical semantic 0.2.5 | 68 pass / 0 fail / 0 unsupported | 68 pass / 0 fail / 0 unsupported | Unchanged cases, exact frozen grammar; separate denominator |
+| Canonical deployment | 8 unsupported | 8 unsupported | No qualification |
+| Historical deployment | 1 unsupported | 1 unsupported | No qualification |
 
-### Historical verified baseline — first PARK, 2026-10-17 06:33Z
+Release `77b951e` has 14 closed schemas, 14 domain documents, one fixture,
+74 vectors and 52 normative clauses. All 103 JSON artifacts regenerate exactly;
+38 checker controls detect their intended violations. All 94 earlier JSON
+artifacts retain their content except declared version identifiers.
 
-Verified release: **0.2.5-draft**, `6a04e8c`. The following score and held-question
-statements describe that prior PARK; D-009 supersedes the owner hold.
+Source runtime remains `946cbd8`; current report and harness are `c7e86d5`.
+All 134 source controls pass, including the source-derived bounded 256-DAG
+matrix. The harness changes only two profile labels in each of two audited
+copies; original case bytes and behavioral expectations remain unchanged.
 
-**Final R7 score: 2/2.** Both evaluators exactly pass **57/57 canonical** and
-**68/68 supplemental semantic vectors**. No specification or implementation bug
-remains open. R7-055 is a filed, unresolved owner question; its native pair has no
-chosen oracle and stays outside executable denominators.
+Package runtime `5897520` passes four new 0.2.6 product groups, 30 historical
+0.2.5 product groups and four comparer groups. Independent native checks cover
+64 three-event variants, 125 validated states, 25 writes and 11 atomic refusals.
+Eight intended failures reproduce on the old runtime with no setup errors.
 
-| Requirement | Pinned evidence | State |
-| --- | --- | --- |
-| Closed package | `6a04e8c`, 14 schemas, 52 clauses | All established specification findings fixed |
-| Package validator | 94 JSON files, 14 domains, 34 intended violation controls | Pass; exact regeneration |
-| Canonical semantic inventory | 57 vectors | Both readers execute and exactly pass all 57 |
-| Source evaluator | Runtime `946cbd8`; expanded report/test `b8189ba` | 57 canonical + 68 supplemental pass |
-| Package evaluator | `104fbe8`; independent full run and committed-report comparison | 57 canonical + 68 supplemental pass |
-| Supplemental grammar | 69 explicitly versioned artifacts, including one deployment case | All validate at 0.2.5 |
-| Source controls | 12 erasure groups rerun; 117 unchanged controls retain prior evidence | 129 pass coverage |
-| Package controls | Full 30 product plus four comparer controls | 34 pass |
-| Ledger | [LEDGER.md](LEDGER.md): 47 fixed, 10 rejected, one owner question | No open spec-bug or impl-bug |
-| Owner questions | [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) | R7-055: cross-issuer predecessor-path scope |
-| Deployment inventory | 8 canonical plus 1 supplemental | Both unsupported; no deployment qualification |
+D-009's issuer-local relation governs both currentness and strict succession.
+The original mixed chain stays ambiguous; assertion-free own paths establish
+order; one own path survives a foreign branch; foreign-only edits preserve the
+relation. Existing replacement refusal, import, CAS and replay contracts pass.
 
-R7-058 closes at `104fbe8`: current witnessed obligations enter the full erasure
-closure before recovery reopens. Unreachable affected custody refuses atomically;
-new obligations update protected fences, erased refs and generation. The original
-four recovery traces, three late-writer probes and five unchanged exact fixtures
-pass. Known/empty/repeated recovery, unrelated content and valid independent writes
-remain supported. Seven intended new-test failures reproduce on the old engine;
-all first failures and original inputs remain immutable.
-
-R7-055 asks whether an H1 canonical predecessor edge endorses transitive H2
-ordering. Both source readings and the exact separating input remain recorded.
-The convener holds it for Ivan; no implementation is marked wrong on that boundary
-and no authority option has been applied. Filing this ambiguity satisfies the
-rubric's owner-question requirement; it does not resolve the architecture choice.
-
-Convener PARK event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg` confirms
-full dual coverage and a quiet round from every seat. Final runtime, package and
-fixture hashes remain at the reviewed pins. See the [judge park note](parked/astra-27.md).
-Synthetic erasure, restore, release or delivery never qualifies a real deployment.
+Ledger disposition: **59 items — 48 fixed, 10 rejected, one ambiguity resolved
+by D-009**. Original witness `4424598`, package first `1be6026`, source first
+`31d77d2` and all prior failures are preserved. Full audit is indexed in
+[LEDGER.md](LEDGER.md), reopened round 7; [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)
+has no open question. Await the convener's new PARK after the quiet round.
+Synthetic semantic success does not qualify a protected deployment.
