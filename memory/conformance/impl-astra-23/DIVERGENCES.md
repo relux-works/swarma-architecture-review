@@ -46,9 +46,16 @@ in the selected grammar is explicitly unsupported in that report, not a pass.
 - **ASTRA25-05 / R7-018: spec-bug.** Global dirty produces observable dirty
   cutoffs, missing witness and review flags after a hidden revision. The visible
   dirty positive control passes. Wait for package projection-scoped dirty rules.
-- **ASTRA24-03: derived source-reference omission, classification requested.**
+- **ASTRA24-03/04 / R7-023: impl-bug, corrected in round 3.**
   Channel source-state aggregation already matches the proposed mixed AND and
   stronger OR controls, but `/operation_results/1/items/0/source_refs` and
   `/result/items/0/source_refs` omit `rec:s/1`. The evaluator currently gathers
   only directly associated sources, not the sources on found derived paths.
   Exact reports: `SUPPLEMENTAL-0.1.0.md`/JSON; no vector/expected edits.
+
+R7-023 correction propagates the sources on found proof paths into the item.
+Ten controls now pass, including the previously red exact-ref regression and
+direct/derived, hidden-source, failed-path and unrelated-copy boundaries. On
+migrated 0.2.0 cases the current supplemental result is 17 semantic pass / 2 fail
+(R7-018 and R7-022); one deployment case remains unsupported. The original
+pre-correction reports and source hashes remain in commit 103ce15.

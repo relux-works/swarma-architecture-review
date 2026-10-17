@@ -85,3 +85,23 @@ will prove semantic differences and forbidden effects are detected.
   ASTRA24-03 reveals derived source-reference omission (classification requested).
 - B01 now classified R7-021 spec-bug. Acknowledged; evaluator remains unchanged.
 - Logs: `.temp/impl-astra-23/supplemental-01.log`, `supplemental-legacy-01.log`.
+
+## Round 3 — R7-023 derived source-reference correction
+
+- Judge classified the shared ASTRA24-03/04 omission as R7-023 impl-bug.
+- The direct/derived regression fails at the exact missing source_refs assertion
+  before the implementation change (`.temp/impl-astra-23/derived-ref-red-01.log`).
+- Fix scope: union separately authorized sources from found proof paths into
+  item metadata; preserve direct-source behavior and public redaction.
+- Negative boundaries: hidden sources, unsuccessful paths and unrelated copies
+  must not become derived source metadata or evidence roots.
+
+### Round 3 outcome
+
+- Corrected R7-023: ASTRA24-03/04 now pass, with mixed/stronger source-state
+  controls unchanged. Six product plus four checker tests pass.
+- Canonical 0.2.0 remains 54/57 with only package defects R7-019/021.
+- Fully migrated supplemental 0.2.0: 17/19 semantic pass; R7-018/022 differ;
+  one deployment case unsupported. No grammar-incompatible cases remain in this run.
+- Logs: derived-ref-green-01.log, controls-04.log, canonical-round3-01.log and
+  supplemental-03.log under `.temp/impl-astra-23/`.

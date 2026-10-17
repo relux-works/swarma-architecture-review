@@ -381,13 +381,16 @@ class Evaluation:
                          "usable_until": self.freshness(r)[1], "currentness": statuses[key(r)],
                          "authority_receipt": b["authority_receipt"], "incompatible_with": self.incompatible(r, candidates, statuses),
                          "needs_review": key(r) in required, "source_refs": refs(self.associated_sources(r))})
+            found_sources = set()
             for polarity in ("support", "oppose"):
                 item[polarity] = self.channel(r, polarity, handle)
                 w = self.walk(r, polarity)
                 cutoffs.update(w["cutoffs"])
                 for path in w["paths"]:
+                    found_sources.update(path["sources"])
                     proof = refs(path["nodes"])
                     proofs[cjson(proof)] = proof
+            item["source_refs"] = refs([*item["source_refs"], *found_sources])
             if public:
                 def alias(principal):
                     found = next((h["handle"] for h in self.p["handles"] if h["subject"] == principal
