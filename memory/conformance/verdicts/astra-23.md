@@ -1,5 +1,9 @@
 # astra-23 — final package implementer verdict
 
+> Reopened on 2026-10-17 for D-009 / R7-055. The PARK and scores below
+> record the completed 0.2.5 round. Package 0.2.6 intake, conformance and new
+> PARK are pending; D-009 has resolved the owner choice. See the current worklog.
+
 **PARK accepted: 2026-10-17 06:33Z. R7 score: 2/2.** Convener event
 `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg` confirms full dual semantic
 coverage, no open specification or implementation bug, and a quiet round from

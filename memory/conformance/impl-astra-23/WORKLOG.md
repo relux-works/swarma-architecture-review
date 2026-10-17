@@ -1075,3 +1075,30 @@ will prove semantic differences and forbidden effects are detected.
 - Wait139 completed normally and consumed PARK. No active foreground wait or
   background process remains. Publish signed parking files, acknowledge rounds,
   then end the turn as instructed.
+
+
+## Round 38 — D-009 reopening, package intake pending
+
+- The owner explicitly reopens R7-055 for one bounded round; the previous
+  06:33Z PARK is historical. Convener event
+  $7qVXDb4qnZcORPIQr_qJeUzKFAj9Md3ZRI_VLpdOSKk sets the new latest PARK
+  at 2026-10-17T22:30Z. Decision D-009 selects issuer-local canonical order.
+- Remain package-derived: await the editor's 0.2.6 release before implementation;
+  do not consult the source design, decision document, reviewer input or another
+  evaluator's implementation. The user-supplied decision is context, while the
+  released package will be the implementation contract.
+- First execute every new canonical vector on unchanged runtime104fbe8, preserve
+  exact pass/fail/unsupported and input/module hashes in a new immutable first
+  report, commit signed and notify the judge before correcting any disagreement.
+- Then add package-grounded positive and negative issuer-path controls, including
+  assertion-free intermediate events, mixed branches, no foreign contraction,
+  strict replacement succession and foreign-only invariance. Demonstrate the
+  intended old-runtime failures before a scoped correction of the shared order.
+- Rerun all canonical, supplemental and product/checker controls. Preserve every
+  historical first report; keep wrong-profile supplemental results explicit until
+  the fixture owner or editor provides an authorized migration. Request exact-head
+  independent review and continue foreground waits until the new convener PARK.
+- Git remains signed main delivery with signed rebase/retry on races; no bundles,
+  force pushes, background workers or delegated agents. Only seat-owned paths
+  and its scratch logs are writable. Prior 0.2.5 evidence remains valid historical
+  evidence, not a completed 0.2.6 claim.
