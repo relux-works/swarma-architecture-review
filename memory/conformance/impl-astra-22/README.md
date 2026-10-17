@@ -82,6 +82,15 @@ its claim and material limits. They include nearby positive/negative examples,
 post-refusal state comparisons and bounded comparator/JSON-parser control plants.
 Logs are under `.temp/astra-22/`; progress is in `WORKLOG.md`.
 
+Explicit storage-scope controls run with
+`PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/retention_checks.py`.
+Admission/revision require the released actor-bound `retention_context` for
+every output and known transitive integration input, including unknown lower
+bounds and same-batch inputs. Current retention authority is checked before
+receipt replay. Metadata and onward disclosure labels are independent. The
+immutable first0.2.3 run is `runs/0.2.3-first.*`; corrected evidence is
+`runs/phase2-retention-corrected.*` and `runs/phase2-retention-cases-corrected.*`.
+
 After PACKAGE LANDED, the wire adapter and runner were added:
 
 ```sh

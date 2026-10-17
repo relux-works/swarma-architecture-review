@@ -184,6 +184,7 @@ class Transactions:
         space = next(iter(spaces))
         if not any(g["principal"] == actor and g["space"] == space and mode in g["rights"] for g in policy["grants"]):
             raise Refusal("not_authorized")
+        self.retention(proposals, op["context"])
         identity = (actor, space, op["idempotency_key"])
         intent = copy.deepcopy(op)
         intent.pop("idempotency_key")
@@ -326,6 +327,34 @@ class Transactions:
                                        "receipt": copy.deepcopy(result)})
         return result
 
+    def known_inputs(self, record):
+        facts = [f for f in self.adapter.policy.get("lineage_facts", []) if f["output"] == ref(record)]
+        if facts:
+            return facts[0]["inputs"]
+        lineage = record["envelope"]["lineage"]
+        return lineage if lineage != "unknown" else []
+
+    def retention(self, proposals, context):
+        """Check storage authority before replay; no view/disclosure inference."""
+        state = self.adapter.records | {key(ref(p)): p for p in proposals}
+        scope = context["retention_context"] | {"principal": context["actor"]}
+        seen = set()
+
+        def visit(record):
+            identity = key(ref(record))
+            if identity in seen:
+                return
+            seen.add(identity)
+            if not self.adapter.granted(record, scope, "retain", metadata=False):
+                raise Refusal("not_authorized")
+            for source in self.known_inputs(record):
+                # The reference-validation class refuses missing inputs later.
+                # A future fact alone supplies neither a record nor authority.
+                if key(source) in state:
+                    visit(state[key(source)])
+        for proposal in proposals:
+            visit(proposal)
+
     def inherit(self, proposal, inputs, state):
         disclosure = proposal["envelope"]["disclosure"]
         seen = set()
@@ -335,18 +364,15 @@ class Transactions:
             if k in seen:
                 return
             seen.add(k)
-            source = state[k]["envelope"]
+            record = state[k]
+            source = record["envelope"]
             other = source["disclosure"]
             for dimension in ("audiences", "purposes"):
                 disclosure[dimension] = sorted(set(disclosure[dimension]) & set(other[dimension]))
             disclosure["field_classes"] = sorted(set(disclosure["field_classes"]) | set(other["field_classes"]))
             dates = [d for d in (disclosure["retain_until"], other["retain_until"]) if d is not None]
             disclosure["retain_until"] = min(dates) if dates else None
-            lineage = source["lineage"]
-            if lineage == "unknown":
-                facts = [f for f in self.adapter.policy.get("lineage_facts", []) if f["output"] == reference]
-                lineage = facts[0]["inputs"] if facts else []
-            for parent in lineage:
+            for parent in self.known_inputs(record):
                 if key(parent) not in state:
                     raise Refusal("invalid_reference")
                 inherit_one(parent)

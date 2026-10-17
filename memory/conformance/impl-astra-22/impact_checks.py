@@ -27,7 +27,7 @@ class ImpactControls(unittest.TestCase):
     def test_changed_rule_and_certificate(self):
         for name in ("rule", "certificate"):
             with self.subTest(name=name):
-                vector = json.loads((BASE / "fixtures/dirty-rule-certificate" / (name + ".vector.json")).read_text())
+                vector = json.loads((BASE / "fixtures/dirty-rule-certificate-v0.2.3" / (name + ".vector.json")).read_text())
                 adapter = Adapter(vector["initial_state"], "control")
                 writer = Transactions(adapter)
                 result = writer.apply(vector["operations"][0])
@@ -45,7 +45,7 @@ class ImpactControls(unittest.TestCase):
     # effect; the private control remains dirty. Challenges invalidate nothing.
     def test_rule_check_visibility_and_challenge(self):
         for name in ("rule", "certificate"):
-            vector = json.loads((BASE / "fixtures/dirty-rule-certificate" / (name + ".vector.json")).read_text())
+            vector = json.loads((BASE / "fixtures/dirty-rule-certificate-v0.2.3" / (name + ".vector.json")).read_text())
             initial = copy.deepcopy(vector["initial_state"])
             target = vector["operations"][0]["revision"]["body"]["target"]
             changed = next(r for r in initial["records"] if ref(r) == target)
@@ -70,7 +70,7 @@ class ImpactControls(unittest.TestCase):
     # A changed rule reaches downstream registered consumers transitively;
     # pre-cause and recomputed snapshots must not invent an unresolved cause.
     def test_transitive_rule_cause_history_and_recompute(self):
-        vector = json.loads((BASE / "fixtures/dirty-rule-certificate/rule.vector.json").read_text())
+        vector = json.loads((BASE / "fixtures/dirty-rule-certificate-v0.2.3/rule.vector.json").read_text())
         initial = copy.deepcopy(vector["initial_state"])
         c = copy.deepcopy(next(r for r in initial["records"] if r["envelope"]["id"] == "rec:b"))
         j = copy.deepcopy(next(r for r in initial["records"] if r["envelope"]["id"] == "rec:j"))

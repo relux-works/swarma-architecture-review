@@ -102,7 +102,7 @@ class AtomicControls(unittest.TestCase):
     # R7-030: an admitted snapshot replays the exact old receipt across intake
     # times, rejects changed intent, and preserves all records/runtime state.
     def test_initial_idempotency_snapshot(self):
-        data = json.loads((Path(__file__).parent / "fixtures/persisted-idempotency-judge-first.json").read_text())
+        data = json.loads((Path(__file__).parent / "fixtures/persisted-idempotency-v0.2.3.json").read_text())
         adapter = Adapter(data["initial_state"], "control")
         writer = Transactions(adapter)
         before = copy.deepcopy((adapter.records, adapter.runtime))
@@ -133,7 +133,7 @@ class AtomicControls(unittest.TestCase):
     # Actor, space and key each isolate an existing receipt. Each different
     # identity admits a valid neighboring record and preserves the original entry.
     def test_idempotency_identity_scope(self):
-        data = json.loads((Path(__file__).parent / "fixtures/persisted-idempotency-judge-first.json").read_text())
+        data = json.loads((Path(__file__).parent / "fixtures/persisted-idempotency-v0.2.3.json").read_text())
         for dimension in ("actor", "space", "key"):
             with self.subTest(dimension=dimension):
                 adapter = Adapter(data["initial_state"], "control")
@@ -149,7 +149,10 @@ class AtomicControls(unittest.TestCase):
                     proposal["envelope"]["space"] = "space:other"
                 else:
                     op["idempotency_key"] = "key:other"
-                grant = copy.deepcopy(adapter.policy["grants"][0])
+                storage = op["context"]["retention_context"]
+                grant = copy.deepcopy(next(g for g in adapter.policy["grants"]
+                                           if g["audience"] == storage["audience"]
+                                           and g["purpose"] == storage["purpose"]))
                 grant.update(principal=op["context"]["actor"], space=proposal["envelope"]["space"])
                 adapter.policy["grants"].append(grant)
                 fact = copy.deepcopy(adapter.policy["lineage_facts"][0])
@@ -165,7 +168,7 @@ class AtomicControls(unittest.TestCase):
     # Current actor/space admission authority precedes replay; unrelated rights
     # cannot reveal an old receipt and refusal changes no state.
     def test_idempotency_current_authorization(self):
-        data = json.loads((Path(__file__).parent / "fixtures/persisted-idempotency-judge-first.json").read_text())
+        data = json.loads((Path(__file__).parent / "fixtures/persisted-idempotency-v0.2.3.json").read_text())
         adapter = Adapter(data["initial_state"], "control")
         grants = copy.deepcopy(adapter.policy["grants"])
         for grant in adapter.policy["grants"]:
@@ -285,7 +288,7 @@ class AtomicControls(unittest.TestCase):
         v = fixture("P11")
         adapter = Adapter(v["initial_state"], "control")
         writer = Transactions(adapter)
-        result = writer.apply(v["operations"][0])
+        result = writer.apply(v["operations"][8])
         derivative = adapter.records[key(result["refs"][0])]
         self.assertEqual(derivative["envelope"]["lineage"], [{"id": "rec:private", "version": 1}])
         self.assertNotIn("aud:public", derivative["envelope"]["disclosure"]["audiences"])

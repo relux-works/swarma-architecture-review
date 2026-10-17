@@ -1,13 +1,13 @@
 {
-  "checkout_commit": "bd75f4fa86f1779850713a1b5d64d789427ea4bd",
+  "checkout_commit": "97990250ecd826ee6dee5ba0aba0543e7981ca1d",
   "package_commit": "23290b3a96a469d5190cb71b0e20139896b89236",
   "package_version": "0.2.3-draft",
   "vector_directory": "memory/spec/kernel/vectors",
   "core_sha256": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
   "totals": {
     "semantic": {
-      "pass": 47,
-      "fail": 2,
+      "pass": 49,
+      "fail": 0,
       "unsupported": 8
     },
     "deployment": {
@@ -3126,29 +3126,50 @@
       "actual": {
         "operation_results": [
           {
-            "type": "receipt",
-            "operation": "admit",
-            "outcome": "admitted",
-            "receipt_handle": "e2e2a556b8deb79a77dbf4a2660b3f78",
-            "refs": [
-              {
-                "id": "rec:scope-probe",
-                "version": 1
-              }
-            ],
-            "custody": [],
-            "erasure_status": null
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
           },
           {
             "type": "refusal",
-            "code": "duplicate_record",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "invalid_time",
             "retryable": false
           },
           {
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "4fbf083ab62c12d8a5485cbb1ba5683f",
+            "receipt_handle": "<fresh>",
             "refs": [
               {
                 "id": "rec:paraphrase",
@@ -3159,66 +3180,18 @@
             "erasure_status": null
           },
           {
-            "type": "refusal",
-            "code": "idempotency_conflict",
-            "retryable": false
-          },
-          {
-            "type": "refusal",
-            "code": "idempotency_conflict",
-            "retryable": false
-          },
-          {
-            "type": "refusal",
-            "code": "idempotency_conflict",
-            "retryable": false
-          },
-          {
-            "type": "refusal",
-            "code": "idempotency_conflict",
-            "retryable": false
-          },
-          {
-            "type": "view",
-            "semantic_profile": "0.2.3-draft",
-            "projection_rule": {
-              "id": "projection:main",
-              "version": 1
-            },
-            "evidence_policy": {
-              "id": "evidence:1",
-              "version": 1
-            },
-            "policy": {
-              "id": "policy:1",
-              "version": 1
-            },
-            "authorized_snapshot_handle": "3f6efa68e8dc4a4690d9e7908300209d",
-            "data_classification": "data",
-            "items": [],
-            "currentness": "none",
-            "historical": [],
-            "review_required": [],
-            "explanation": {
-              "status": "complete",
-              "paths": [],
-              "reason": null
-            },
-            "cutoffs": [],
-            "changes": {
-              "state": "initial",
-              "refs": []
-            }
-          },
-          {
-            "type": "refusal",
-            "code": "idempotency_conflict",
-            "retryable": false
-          },
-          {
-            "type": "refusal",
-            "code": "idempotency_conflict",
-            "retryable": false
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "<fresh>",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
           },
           {
             "type": "refusal",
@@ -3242,8 +3215,74 @@
             },
             "authorized_snapshot_handle": "<fresh>",
             "data_classification": "data",
-            "items": [],
-            "currentness": "none",
+            "items": [
+              {
+                "ref": {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "machine_observation",
+                "statement_kind": "fact",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "synthetic rewording"
+                  }
+                ],
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
             "historical": [],
             "review_required": [],
             "explanation": {
@@ -3268,12 +3307,12 @@
           },
           {
             "type": "refusal",
-            "code": "idempotency_conflict",
+            "code": "not_authorized",
             "retryable": false
           },
           {
             "type": "refusal",
-            "code": "duplicate_record",
+            "code": "not_authorized",
             "retryable": false
           },
           {
@@ -3293,8 +3332,74 @@
             },
             "authorized_snapshot_handle": "<fresh>",
             "data_classification": "data",
-            "items": [],
-            "currentness": "none",
+            "items": [
+              {
+                "ref": {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "machine_observation",
+                "statement_kind": "fact",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "synthetic rewording"
+                  }
+                ],
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
             "historical": [],
             "review_required": [],
             "explanation": {
@@ -3354,10 +3459,6 @@
             {
               "id": "rec:retained-root",
               "version": 1
-            },
-            {
-              "id": "rec:scope-probe",
-              "version": 1
             }
           ],
           "erased_refs": [],
@@ -3367,393 +3468,9 @@
           "external_effects": []
         }
       },
-      "differences": [
-        {
-          "path": "$.operation_results[0].code",
-          "expected": "not_authorized",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[0].custody",
-          "expected": "<absent>",
-          "actual": []
-        },
-        {
-          "path": "$.operation_results[0].erasure_status",
-          "expected": "<absent>",
-          "actual": null
-        },
-        {
-          "path": "$.operation_results[0].operation",
-          "expected": "<absent>",
-          "actual": "admit"
-        },
-        {
-          "path": "$.operation_results[0].outcome",
-          "expected": "<absent>",
-          "actual": "admitted"
-        },
-        {
-          "path": "$.operation_results[0].receipt_handle",
-          "expected": "<absent>",
-          "actual": "e2e2a556b8deb79a77dbf4a2660b3f78"
-        },
-        {
-          "path": "$.operation_results[0].refs",
-          "expected": "<absent>",
-          "actual": [
-            {
-              "id": "rec:scope-probe",
-              "version": 1
-            }
-          ]
-        },
-        {
-          "path": "$.operation_results[0].retryable",
-          "expected": false,
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[0].type",
-          "expected": "refusal",
-          "actual": "receipt"
-        },
-        {
-          "path": "$.operation_results[1].code",
-          "expected": "not_authorized",
-          "actual": "duplicate_record"
-        },
-        {
-          "path": "$.operation_results[2].code",
-          "expected": "not_authorized",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[2].custody",
-          "expected": "<absent>",
-          "actual": []
-        },
-        {
-          "path": "$.operation_results[2].erasure_status",
-          "expected": "<absent>",
-          "actual": null
-        },
-        {
-          "path": "$.operation_results[2].operation",
-          "expected": "<absent>",
-          "actual": "admit"
-        },
-        {
-          "path": "$.operation_results[2].outcome",
-          "expected": "<absent>",
-          "actual": "admitted"
-        },
-        {
-          "path": "$.operation_results[2].receipt_handle",
-          "expected": "<absent>",
-          "actual": "4fbf083ab62c12d8a5485cbb1ba5683f"
-        },
-        {
-          "path": "$.operation_results[2].refs",
-          "expected": "<absent>",
-          "actual": [
-            {
-              "id": "rec:paraphrase",
-              "version": 1
-            }
-          ]
-        },
-        {
-          "path": "$.operation_results[2].retryable",
-          "expected": false,
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[2].type",
-          "expected": "refusal",
-          "actual": "receipt"
-        },
-        {
-          "path": "$.operation_results[3].code",
-          "expected": "not_authorized",
-          "actual": "idempotency_conflict"
-        },
-        {
-          "path": "$.operation_results[4].code",
-          "expected": "not_authorized",
-          "actual": "idempotency_conflict"
-        },
-        {
-          "path": "$.operation_results[5].code",
-          "expected": "not_authorized",
-          "actual": "idempotency_conflict"
-        },
-        {
-          "path": "$.operation_results[6].code",
-          "expected": "not_authorized",
-          "actual": "idempotency_conflict"
-        },
-        {
-          "path": "$.operation_results[7].authorized_snapshot_handle",
-          "expected": "<absent>",
-          "actual": "3f6efa68e8dc4a4690d9e7908300209d"
-        },
-        {
-          "path": "$.operation_results[7].changes",
-          "expected": "<absent>",
-          "actual": {
-            "state": "initial",
-            "refs": []
-          }
-        },
-        {
-          "path": "$.operation_results[7].code",
-          "expected": "invalid_time",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[7].currentness",
-          "expected": "<absent>",
-          "actual": "none"
-        },
-        {
-          "path": "$.operation_results[7].cutoffs",
-          "expected": "<absent>",
-          "actual": []
-        },
-        {
-          "path": "$.operation_results[7].data_classification",
-          "expected": "<absent>",
-          "actual": "data"
-        },
-        {
-          "path": "$.operation_results[7].evidence_policy",
-          "expected": "<absent>",
-          "actual": {
-            "id": "evidence:1",
-            "version": 1
-          }
-        },
-        {
-          "path": "$.operation_results[7].explanation",
-          "expected": "<absent>",
-          "actual": {
-            "status": "complete",
-            "paths": [],
-            "reason": null
-          }
-        },
-        {
-          "path": "$.operation_results[7].historical",
-          "expected": "<absent>",
-          "actual": []
-        },
-        {
-          "path": "$.operation_results[7].items",
-          "expected": "<absent>",
-          "actual": []
-        },
-        {
-          "path": "$.operation_results[7].policy",
-          "expected": "<absent>",
-          "actual": {
-            "id": "policy:1",
-            "version": 1
-          }
-        },
-        {
-          "path": "$.operation_results[7].projection_rule",
-          "expected": "<absent>",
-          "actual": {
-            "id": "projection:main",
-            "version": 1
-          }
-        },
-        {
-          "path": "$.operation_results[7].retryable",
-          "expected": false,
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[7].review_required",
-          "expected": "<absent>",
-          "actual": []
-        },
-        {
-          "path": "$.operation_results[7].semantic_profile",
-          "expected": "<absent>",
-          "actual": "0.2.3-draft"
-        },
-        {
-          "path": "$.operation_results[7].type",
-          "expected": "refusal",
-          "actual": "view"
-        },
-        {
-          "path": "$.operation_results[8].code",
-          "expected": "<absent>",
-          "actual": "idempotency_conflict"
-        },
-        {
-          "path": "$.operation_results[8].custody",
-          "expected": [],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[8].erasure_status",
-          "expected": null,
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[8].operation",
-          "expected": "admit",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[8].outcome",
-          "expected": "admitted",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[8].receipt_handle",
-          "expected": "@h1",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[8].refs",
-          "expected": [
-            {
-              "id": "rec:paraphrase",
-              "version": 1
-            }
-          ],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[8].retryable",
-          "expected": "<absent>",
-          "actual": false
-        },
-        {
-          "path": "$.operation_results[8].type",
-          "expected": "receipt",
-          "actual": "refusal"
-        },
-        {
-          "path": "$.operation_results[9].code",
-          "expected": "<absent>",
-          "actual": "idempotency_conflict"
-        },
-        {
-          "path": "$.operation_results[9].custody",
-          "expected": [],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[9].erasure_status",
-          "expected": null,
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[9].operation",
-          "expected": "admit",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[9].outcome",
-          "expected": "admitted",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[9].receipt_handle",
-          "expected": "@h1",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[9].refs",
-          "expected": [
-            {
-              "id": "rec:paraphrase",
-              "version": 1
-            }
-          ],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[9].retryable",
-          "expected": "<absent>",
-          "actual": false
-        },
-        {
-          "path": "$.operation_results[9].type",
-          "expected": "receipt",
-          "actual": "refusal"
-        },
-        {
-          "path": "$.operation_results[11].currentness",
-          "expected": "current",
-          "actual": "none"
-        },
-        {
-          "path": "$.operation_results[11].items.length",
-          "expected": 1,
-          "actual": 0
-        },
-        {
-          "path": "$.operation_results[13].code",
-          "expected": "not_authorized",
-          "actual": "idempotency_conflict"
-        },
-        {
-          "path": "$.operation_results[14].code",
-          "expected": "not_authorized",
-          "actual": "duplicate_record"
-        },
-        {
-          "path": "$.operation_results[15].currentness",
-          "expected": "current",
-          "actual": "none"
-        },
-        {
-          "path": "$.operation_results[15].items.length",
-          "expected": 1,
-          "actual": 0
-        },
-        {
-          "path": "$.postconditions.record_refs.length",
-          "expected": 3,
-          "actual": 4
-        },
-        {
-          "path": "forbidden:/operation_results/0/type",
-          "expected": "predicate false",
-          "actual": {
-            "path": "/operation_results/0/type",
-            "test": "equals",
-            "value": "receipt"
-          }
-        },
-        {
-          "path": "forbidden:/operation_results/2/type",
-          "expected": "predicate false",
-          "actual": {
-            "path": "/operation_results/2/type",
-            "test": "equals",
-            "value": "receipt"
-          }
-        },
-        {
-          "path": "forbidden:/postconditions/record_refs",
-          "expected": "predicate false",
-          "actual": {
-            "path": "/postconditions/record_refs",
-            "test": "size_equals",
-            "value": 4
-          }
-        }
-      ],
-      "status": "fail",
-      "reason": "67 exact differences"
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "P12": {
       "file": "memory/spec/kernel/vectors/semantic/P12.json",
@@ -3935,11 +3652,37 @@
       "actual": {
         "operation_results": [
           {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "invalid_reference",
+            "retryable": false
+          },
+          {
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "586797c45a244a606e21c8e9bb5053be",
+            "receipt_handle": "<fresh>",
             "refs": [
+              {
+                "id": "rec:model-clean",
+                "version": 1
+              },
+              {
+                "id": "rec:model-empty",
+                "version": 1
+              },
+              {
+                "id": "rec:model-stage",
+                "version": 1
+              },
+              {
+                "id": "rec:model-tainted",
+                "version": 1
+              },
               {
                 "id": "rec:model-unknown",
                 "version": 1
@@ -3949,475 +3692,187 @@
             "erasure_status": null
           },
           {
-            "type": "refusal",
-            "code": "idempotency_conflict",
-            "retryable": false
-          },
-          {
-            "type": "refusal",
-            "code": "idempotency_conflict",
-            "retryable": false
-          },
-          {
-            "type": "refusal",
-            "code": "invalid_time",
-            "retryable": false
+            "type": "view",
+            "semantic_profile": "0.2.3-draft",
+            "projection_rule": {
+              "id": "projection:main",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "<fresh>",
+            "data_classification": "data",
+            "items": [
+              {
+                "ref": {
+                  "id": "rec:model-tainted",
+                  "version": 1
+                },
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "semantic_inference",
+                "statement_kind": "proposal",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "candidate with private context"
+                  }
+                ],
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              },
+              {
+                "ref": {
+                  "id": "rec:model-unknown",
+                  "version": 1
+                },
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "semantic_inference",
+                "statement_kind": "proposal",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "candidate without complete input tracking"
+                  }
+                ],
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [],
+            "review_required": [],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
           }
         ],
         "result": {
-          "type": "refusal",
-          "code": "invalid_time",
-          "retryable": false
-        },
-        "postconditions": {
-          "record_refs": [
-            {
-              "id": "rec:model-unknown",
-              "version": 1
-            },
-            {
-              "id": "rec:private-input",
-              "version": 1
-            },
-            {
-              "id": "rec:public-input",
-              "version": 1
-            }
-          ],
-          "erased_refs": [],
-          "custody_present": [],
-          "dirty": [],
-          "control_observations": [],
-          "external_effects": []
-        }
-      },
-      "differences": [
-        {
-          "path": "$.operation_results[0].code",
-          "expected": "not_authorized",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[0].custody",
-          "expected": "<absent>",
-          "actual": []
-        },
-        {
-          "path": "$.operation_results[0].erasure_status",
-          "expected": "<absent>",
-          "actual": null
-        },
-        {
-          "path": "$.operation_results[0].operation",
-          "expected": "<absent>",
-          "actual": "admit"
-        },
-        {
-          "path": "$.operation_results[0].outcome",
-          "expected": "<absent>",
-          "actual": "admitted"
-        },
-        {
-          "path": "$.operation_results[0].receipt_handle",
-          "expected": "<absent>",
-          "actual": "586797c45a244a606e21c8e9bb5053be"
-        },
-        {
-          "path": "$.operation_results[0].refs",
-          "expected": "<absent>",
-          "actual": [
-            {
-              "id": "rec:model-unknown",
-              "version": 1
-            }
-          ]
-        },
-        {
-          "path": "$.operation_results[0].retryable",
-          "expected": false,
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[0].type",
-          "expected": "refusal",
-          "actual": "receipt"
-        },
-        {
-          "path": "$.operation_results[1].code",
-          "expected": "invalid_reference",
-          "actual": "idempotency_conflict"
-        },
-        {
-          "path": "$.operation_results[2].code",
-          "expected": "<absent>",
-          "actual": "idempotency_conflict"
-        },
-        {
-          "path": "$.operation_results[2].custody",
-          "expected": [],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[2].erasure_status",
-          "expected": null,
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[2].operation",
-          "expected": "admit",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[2].outcome",
-          "expected": "admitted",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[2].receipt_handle",
-          "expected": "@h1",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[2].refs",
-          "expected": [
-            {
-              "id": "rec:model-clean",
-              "version": 1
-            },
-            {
-              "id": "rec:model-empty",
-              "version": 1
-            },
-            {
-              "id": "rec:model-stage",
-              "version": 1
-            },
-            {
-              "id": "rec:model-tainted",
-              "version": 1
-            },
-            {
-              "id": "rec:model-unknown",
-              "version": 1
-            }
-          ],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[2].retryable",
-          "expected": "<absent>",
-          "actual": false
-        },
-        {
-          "path": "$.operation_results[2].type",
-          "expected": "receipt",
-          "actual": "refusal"
-        },
-        {
-          "path": "$.operation_results[3].authorized_snapshot_handle",
-          "expected": "@h2",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].changes",
-          "expected": {
-            "state": "initial",
-            "refs": []
+          "type": "view",
+          "semantic_profile": "0.2.3-draft",
+          "projection_rule": {
+            "id": "projection:public",
+            "version": 1
           },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].code",
-          "expected": "<absent>",
-          "actual": "invalid_time"
-        },
-        {
-          "path": "$.operation_results[3].currentness",
-          "expected": "current",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].cutoffs",
-          "expected": [],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].data_classification",
-          "expected": "data",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].evidence_policy",
-          "expected": {
+          "evidence_policy": {
             "id": "evidence:1",
             "version": 1
           },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].explanation",
-          "expected": {
-            "status": "complete",
-            "paths": [],
-            "reason": null
-          },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].historical",
-          "expected": [],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].items",
-          "expected": [
-            {
-              "ref": {
-                "id": "rec:model-tainted",
-                "version": 1
-              },
-              "subject": "subj:h1",
-              "issuer": "subj:h1",
-              "submitter": "subj:h1",
-              "perspective": {
-                "kind": "own",
-                "principal": "subj:h1"
-              },
-              "representation_ref": null,
-              "admission_class": "semantic_inference",
-              "statement_kind": "proposal",
-              "content": [
-                {
-                  "field": "value",
-                  "value": "candidate with private context"
-                }
-              ],
-              "valid": {
-                "kind": "known",
-                "from": "2026-09-01T00:00:00Z",
-                "to": null,
-                "precision": "second"
-              },
-              "confirmed_at": "2026-10-17T00:00:00Z",
-              "usable_until": null,
-              "currentness": "current",
-              "authority_receipt": null,
-              "incompatible_with": [],
-              "needs_review": false,
-              "source_refs": [],
-              "support": {
-                "witness": "not_found",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "@h2",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
-              },
-              "oppose": {
-                "witness": "not_found",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "@h2",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
-              }
-            },
-            {
-              "ref": {
-                "id": "rec:model-unknown",
-                "version": 1
-              },
-              "subject": "subj:h1",
-              "issuer": "subj:h1",
-              "submitter": "subj:h1",
-              "perspective": {
-                "kind": "own",
-                "principal": "subj:h1"
-              },
-              "representation_ref": null,
-              "admission_class": "semantic_inference",
-              "statement_kind": "proposal",
-              "content": [
-                {
-                  "field": "value",
-                  "value": "candidate without complete input tracking"
-                }
-              ],
-              "valid": {
-                "kind": "known",
-                "from": "2026-09-01T00:00:00Z",
-                "to": null,
-                "precision": "second"
-              },
-              "confirmed_at": "2026-10-17T00:00:00Z",
-              "usable_until": null,
-              "currentness": "current",
-              "authority_receipt": null,
-              "incompatible_with": [],
-              "needs_review": false,
-              "source_refs": [],
-              "support": {
-                "witness": "not_found",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "@h2",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
-              },
-              "oppose": {
-                "witness": "not_found",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "@h2",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
-              }
-            }
-          ],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].policy",
-          "expected": {
+          "policy": {
             "id": "policy:1",
             "version": 1
           },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].projection_rule",
-          "expected": {
-            "id": "projection:main",
-            "version": 1
-          },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].retryable",
-          "expected": "<absent>",
-          "actual": false
-        },
-        {
-          "path": "$.operation_results[3].review_required",
-          "expected": [],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].semantic_profile",
-          "expected": "0.2.3-draft",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[3].type",
-          "expected": "view",
-          "actual": "refusal"
-        },
-        {
-          "path": "$.postconditions.record_refs.length",
-          "expected": 7,
-          "actual": 3
-        },
-        {
-          "path": "$.postconditions.record_refs[0].id",
-          "expected": "rec:model-clean",
-          "actual": "rec:model-unknown"
-        },
-        {
-          "path": "$.postconditions.record_refs[1].id",
-          "expected": "rec:model-empty",
-          "actual": "rec:private-input"
-        },
-        {
-          "path": "$.postconditions.record_refs[2].id",
-          "expected": "rec:model-stage",
-          "actual": "rec:public-input"
-        },
-        {
-          "path": "$.result.authorized_snapshot_handle",
-          "expected": "@h3",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.changes",
-          "expected": {
-            "state": "initial",
-            "refs": []
-          },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.code",
-          "expected": "<absent>",
-          "actual": "invalid_time"
-        },
-        {
-          "path": "$.result.currentness",
-          "expected": "current",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.cutoffs",
-          "expected": [],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.data_classification",
-          "expected": "data",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.evidence_policy",
-          "expected": {
-            "id": "evidence:1",
-            "version": 1
-          },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.explanation",
-          "expected": {
-            "status": "complete",
-            "paths": [],
-            "reason": null
-          },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.historical",
-          "expected": [],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.items",
-          "expected": [
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
             {
               "ref": null,
               "subject": "subj:model-output",
@@ -4459,7 +3914,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "@h3",
+                "authorized_snapshot_handle": "<fresh>",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4474,63 +3929,68 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "@h3",
+                "authorized_snapshot_handle": "<fresh>",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
               }
             }
           ],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.policy",
-          "expected": {
-            "id": "policy:1",
-            "version": 1
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
           },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.projection_rule",
-          "expected": {
-            "id": "projection:public",
-            "version": 1
-          },
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.retryable",
-          "expected": "<absent>",
-          "actual": false
-        },
-        {
-          "path": "$.result.review_required",
-          "expected": [],
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.semantic_profile",
-          "expected": "0.2.3-draft",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.result.type",
-          "expected": "view",
-          "actual": "refusal"
-        },
-        {
-          "path": "forbidden:/operation_results/0/type",
-          "expected": "predicate false",
-          "actual": {
-            "path": "/operation_results/0/type",
-            "test": "equals",
-            "value": "receipt"
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
           }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "rec:model-clean",
+              "version": 1
+            },
+            {
+              "id": "rec:model-empty",
+              "version": 1
+            },
+            {
+              "id": "rec:model-stage",
+              "version": 1
+            },
+            {
+              "id": "rec:model-tainted",
+              "version": 1
+            },
+            {
+              "id": "rec:model-unknown",
+              "version": 1
+            },
+            {
+              "id": "rec:private-input",
+              "version": 1
+            },
+            {
+              "id": "rec:public-input",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
         }
-      ],
-      "status": "fail",
-      "reason": "56 exact differences"
+      },
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "P14": {
       "file": "memory/spec/kernel/vectors/semantic/P14.json",

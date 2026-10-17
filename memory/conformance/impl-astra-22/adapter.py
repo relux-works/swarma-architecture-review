@@ -48,7 +48,7 @@ class Adapter:
         self.captures = {}
         self.writer = None
 
-    def granted(self, record, query, right):
+    def granted(self, record, query, right, metadata=True):
         envelope = record["envelope"]
         if any(event["principal"] == query["principal"] and event["audience"] == query["audience"]
                and event["purpose"] == query["purpose"] and event["right"] == right
@@ -57,7 +57,7 @@ class Adapter:
         for grant in self.policy["grants"]:
             if (grant["principal"] == query["principal"] and grant["space"] == envelope["space"]
                     and grant["audience"] == query["audience"] and grant["purpose"] == query["purpose"]
-                    and right in grant["rights"] and grant["metadata"]
+                    and right in grant["rights"] and (grant["metadata"] or not metadata)
                     and ("*" in grant["records"] or envelope["id"] in grant["records"])):
                 return True
         return False

@@ -70,7 +70,7 @@ class BoundaryControls(unittest.TestCase):
         for suffix in ("", "-control"):
             path = BASE.parent / ("cases/astra-26-excluded-forward-right" + suffix + ".vector.json")
             vector = json.loads(path.read_text())
-            actual = Adapter(vector["initial_state"], "0.2.2-draft").execute(vector["operations"], vector["query"])
+            actual = Adapter(vector["initial_state"], "0.2.3-draft").execute(vector["operations"], vector["query"])
             self.assertEqual(compare(actual, vector["expected"], vector["normalization"], vector["forbidden"])[1], [])
 
     # Exact expiry is stale; fresh delivery does not refresh the saved horizon
