@@ -15,15 +15,17 @@ Current package: **0.2.2-draft**, `7e71765317088d4ac1ea6946fdfb4b2f8012643c`.
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 49 | 0 | 8 |
 | Canonical deployment | 0 | 0 | 8 |
-| Supplemental semantic (38 migrated cases) | 26 | 3 | 9 |
+| Supplemental semantic (41 migrated cases) | 31 | 1 | 9 |
 | Supplemental deployment | 0 | 0 | 1 |
 
 Current outputs: `impl-astra-22/RESULTS.*`, `runs/phase2-delivery-first.*`,
-`runs/phase2-delivery-cases-first.*`. The three supplemental failures are the
-two authority-head CAS witnesses under R7-040 and retention authority R7-036.
-Their original full outputs are preserved; no expected answer was edited.
+`runs/phase2-cas-corrected.*`, `runs/phase2-cas-cases-corrected.*`. The sole
+current supplemental failure is retention authority R7-036. R7-040 authority-head
+CAS is corrected and awaits independent closure; original full failures remain
+preserved at e38c37c/5d079be. No expected answer was edited.
 R7-036 depends on the judge-classified missing retention scope R7-039, for which
-an explicit actor-bound wire context is being released. R7-040 is queued next.
+an explicit actor-bound wire context is being released. R7-040 now rejects ambiguous/stale candidates atomically while retaining unique-head,
+challenge and exact-replay controls.
 
 Phase-2 support now includes exact proof families without full path enumeration,
 checked/expired/unconfirmed/replaced import currentness, authorized retained dirty
@@ -32,8 +34,8 @@ selected-item delivery/revocation. Canonical additions S07/S23/B01/S17/P06/P12
 pass; hidden/visible dirty and selected/excluded delivery adversary pairs pass.
 Worst-case proof-diagram growth remains unbounded by this semantic model.
 
-33 source, 8 adapter, 11 transaction, 4 proof, 6 impact, 8 boundary and 5 harness
-controls pass (75 total; relevant suites rerun per unit). Claims and limits are
+33 source, 8 adapter, 13 transaction, 4 proof, 6 impact, 8 boundary and 5 harness
+controls pass (77 total; relevant suites rerun per unit). Claims and limits are
 beside each test. Core SHA-256:
 `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 Logs and chronology: `impl-astra-22/WORKLOG.md`; first/corrected failure evidence:

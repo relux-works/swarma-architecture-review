@@ -221,3 +221,7 @@ Judge event $d-fCrpCafaGdZmlnjrNnqpKXqFOs7Um-npNJhPU8IJ8 classifies expired impo
 ## ASTRA24-08 — Ambiguous authoritative head accepted by CAS
 
 During dirty coverage, the unchanged0.2.2 adversary pair independently reproduces the source defect: the primary returns revised plus a stored withdrawal instead of version_conflict/unchanged inventory; unique-head control passes. Exact first data is runs/phase2-dirty-targeted-first.json, with twelve comparison differences and all implementation/input hashes. The head helper follows target revision links without establishing a unique authoritative slot head. Await judge classification before correcting; no expectation changed.
+
+## R7-040 correction
+
+Judge $jWF7PS9bJWLBKtoGF2OqBiJIlvcfYJB7WzuI6j5fxPw classifies ambiguous and historical authoritative candidate acceptance as one source implementation bug. The head helper now selects a unique maximal canonical receipt over the exact full slot before following local CAS transitions. Target naming cannot resolve incomparability or select a historical candidate. Original first outputs remain e38c37c and5d079be; corrected exact four-case family is in runs/phase2-cas-cases-corrected.*. Thirteen transaction controls pass, including atomic full-state refusal, unique head, challenge, later common-successor admission and exact replay precedence; red-before evidence is transaction-checks-11-red.log. Canonical49/0/8 unchanged, current41-case supplement31/1/9. No expected output changed; independent closure pending.

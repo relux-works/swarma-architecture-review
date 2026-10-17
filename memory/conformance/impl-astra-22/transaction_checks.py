@@ -18,6 +18,71 @@ def fixture(name):
 
 
 class AtomicControls(unittest.TestCase):
+    # R7-040: ambiguous and historical authority candidates refuse atomically;
+    # a uniquely ordered current candidate and challenge exemption still succeed.
+    def test_authority_slot_cas(self):
+        base = Path(__file__).resolve().parents[1] / "cases"
+        for suffix, outcome in (("", None), ("-stale", None), ("-control", "revised"),
+                                ("-challenge", "challenged")):
+            with self.subTest(suffix=suffix):
+                v = json.loads((base / ("astra-24-ambiguous-cas" + suffix + ".vector.json")).read_text())
+                adapter = Adapter(v["initial_state"], "control")
+                writer = Transactions(adapter)
+                before = copy.deepcopy((adapter.records, adapter.runtime, adapter.policy))
+                if outcome is None:
+                    with self.assertRaisesRegex(Refusal, "version_conflict"):
+                        writer.apply(v["operations"][-1])
+                    self.assertEqual((adapter.records, adapter.runtime, adapter.policy), before)
+                else:
+                    self.assertEqual(writer.apply(v["operations"][-1])["outcome"], outcome)
+                    self.assertEqual(adapter.runtime["dirty"], [])
+                    self.assertEqual(len(adapter.records), len(before[0]) + 1)
+
+    # A later admitted authority event can resolve incomparable candidates.
+    # Exact old receipt replay precedes a newly advanced authority head/CAS.
+    def test_authority_advancement_and_replay(self):
+        base = Path(__file__).resolve().parents[1] / "cases"
+        v = json.loads((base / "astra-24-ambiguous-cas-control.vector.json").read_text())
+        adapter = Adapter(v["initial_state"], "control")
+        writer = Transactions(adapter)
+        original_op = v["operations"][-1]
+        first = writer.apply(original_op)
+        source = copy.deepcopy(adapter.records[key({"id": "rec:receipt3", "version": 1})])
+        decision = copy.deepcopy(adapter.records[key({"id": "rec:d", "version": 3})])
+        source["envelope"]["id"] = "rec:receipt4"
+        source["body"]["object"] = "object:receipt4"
+        decision["envelope"]["version"] = 4
+        decision["body"]["authority_receipt"] = ref(source)
+        for proposal in (source, decision):
+            for field in ("recorded", "submitter", "admission_class"):
+                proposal["envelope"].pop(field)
+            adapter.policy["reviews"].append({"record": ref(proposal), "reviewer": "subj:h1", "result": "allow"})
+            adapter.policy["lineage_facts"].append({"output": ref(proposal), "profile": {"id": "integration:synthetic", "version": 1},
+                                                    "kind": "direct", "inputs": [], "complete": True})
+        adapter.policy["authority_events"].append({"receipt": ref(source), "issuer": "subj:h1",
+                                                   "predecessors": [{"id": "rec:receipt2", "version": 1},
+                                                                    {"id": "rec:receipt3", "version": 1}], "canonical": True})
+        admission = {"op": "admit", "context": copy.deepcopy(original_op["context"]), "idempotency_key": "key:later-authority",
+                     "proposals": [source, decision], "expected_generation": 0}
+        self.assertEqual(writer.apply(admission)["outcome"], "admitted")
+        before = copy.deepcopy((adapter.records, adapter.runtime, adapter.policy))
+        self.assertEqual(writer.apply(original_op), first)
+        self.assertEqual((adapter.records, adapter.runtime, adapter.policy), before)
+        later = copy.deepcopy(original_op)
+        later["idempotency_key"] = "key:latest-withdraw"
+        later["expected_version"] = ref(decision)
+        later["revision"]["envelope"]["id"] = "rec:withdraw-latest"
+        later["revision"]["body"]["target"] = ref(decision)
+        proposal = later["revision"]
+        adapter.policy["reviews"].append({"record": ref(proposal), "reviewer": "subj:h1", "result": "allow"})
+        adapter.policy["lineage_facts"].append({"output": ref(proposal), "profile": {"id": "integration:synthetic", "version": 1},
+                                               "kind": "direct", "inputs": [], "complete": True})
+        self.assertEqual(writer.apply(later)["outcome"], "revised")
+        # The same common successor also produces one head from the original
+        # incomparable receipt graph, independently of memory arrival order.
+        adapter.policy["authority_events"][2]["predecessors"] = [{"id": "rec:receipt1", "version": 1}]
+        self.assertEqual(writer.head(decision, adapter.records), ref(later["revision"]))
+
     # R7-030: an admitted snapshot replays the exact old receipt across intake
     # times, rejects changed intent, and preserves all records/runtime state.
     def test_initial_idempotency_snapshot(self):

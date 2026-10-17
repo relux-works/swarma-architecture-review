@@ -123,6 +123,32 @@ class Transactions:
         return canonical(result)
 
     def head(self, target, state):
+        if target["body"].get("statement_kind") == "decision_record":
+            sequence = self.sequence(target)
+            events = {key(e["receipt"]): e for e in self.adapter.policy["authority_events"]
+                      if e["canonical"] and e["issuer"] == target["envelope"]["issuer"]}
+            candidates = [r for r in state.values() if r["envelope"]["kind"] == "assertion"
+                          and r["body"]["statement_kind"] == "decision_record" and self.sequence(r) == sequence
+                          and r["body"]["authority_receipt"] is not None
+                          and key(r["body"]["authority_receipt"]) in events]
+            old = set()
+            for candidate in candidates:
+                frontier = list(events[key(candidate["body"]["authority_receipt"])]["predecessors"])
+                seen = set()
+                while frontier:
+                    parent = key(frontier.pop())
+                    if parent in seen:
+                        continue
+                    seen.add(parent)
+                    old.add(parent)
+                    if parent in events:
+                        frontier.extend(events[parent]["predecessors"])
+            heads = [r for r in candidates if key(r["body"]["authority_receipt"]) not in old]
+            if len(heads) != 1:
+                return None
+            # Local transitions advance this unique authority head's CAS token;
+            # a historical candidate's transition cannot replace that selection.
+            target = heads[0]
         token = ref(target)
         for record in sorted(state.values(), key=lambda r: r["envelope"]["recorded"]["sequence"]):
             if record["envelope"]["kind"] != "revision":

@@ -1,5 +1,5 @@
 {
-  "checkout_commit": "e38c37c6123aaca775695ac885133742295591ee",
+  "checkout_commit": "5d079be0dbf66b73a03ba61873107ae4782d3f15",
   "package_commit": "7e71765317088d4ac1ea6946fdfb4b2f8012643c",
   "package_version": "0.2.2-draft",
   "vector_directory": "memory/spec/kernel/vectors",
