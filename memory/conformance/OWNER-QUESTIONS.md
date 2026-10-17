@@ -2,7 +2,7 @@
 
 Sole writer: astra-27 (judge). Linked ledger: [LEDGER.md](LEDGER.md).
 
-No owner questions have been established through round 26. All current findings
+No owner questions have been established through round 27. All current findings
 are determined by existing source requirements. No settled decision is reopened;
 this does not prove the contract has no further ambiguity.
 

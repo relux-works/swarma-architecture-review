@@ -1325,3 +1325,40 @@ R7-052/053 and exact package mapping R7-054 remain open; native first evidence
 and adjudication are unchanged. No owner question. Source canonical gaps remain
 B07, P08, S20, S24, S25, S26 and S27; deployment remains eight canonical plus one
 supplemental unsupported on both. Score 1/2, phase 2 active; no PARK.
+
+## Round 27 — exact expiry regression vectors admitted
+
+The seven author-owned ASTRA25-11 vectors at signed `4c7ee50` make the prior
+native expiry finding executable under the judge's explicit mapping, while the
+0.2.5 clarification remains pending. They add five negative and two positive
+vectors without adding a new defect. All 62 current artifacts validate; the
+semantic supplemental inventory is now 61. Original seven vector hashes match
+the frozen first-input bundle, and native `604af18` evidence is byte-identical.
+
+Independent full supplemental runs at source `427fed5` and package `942bdee`
+give 48/5/8 and 56/5/0. Every prior row, input hash and exact output is unchanged
+after declared normalization. Only ASTRA25-11, OWN, REPLAY, UNKNOWN and BATCH
+fail. BEFORE and BATCH-CONTROL pass, as does the existing null-deadline control.
+These are R7-052/053 regression witnesses, not unrelated new findings.
+
+Separate native per-operation checks isolate each expected refusal from any
+prior forbidden write. Both runtimes pass three positive admission checks and
+fail all seven negative attempts: at/after inherited expiry, own expiry, a
+transitive known ancestor through unknown lineage, both same-batch proposal
+orders, and expired exact replay. Every fresh negative wrongly admits records;
+late replay returns the original success with unchanged state, which still fails
+the required refusal. Full before/after semantic state is retained, including
+replay storage, captures and package bindings. The script does not count a crash,
+arbitrary error or state equality alone as correct expiry rejection.
+
+Evidence in judge seat `.temp/`: `astra{22,23}-judge-round27-cases.json`,
+`judge-round27-corpus-comparison-01.json`, `judge-round27-case-validation-01.json`,
+`judge-round27-deadline-atomic.py`,
+`astra{22,23}-judge-round27-deadline-atomic-first.json`,
+`judge-round27-atomic-summary-01.json` and `judge-round27-first-integrity-01.json`.
+
+Ledger remains 54 items: 41 fixed, 10 rejected, R7-052/053 implementation and
+R7-054 mapping open. Canonical release/runtime bytes are unchanged; round-26
+50/57 dual coverage and 106/28 established controls remain the verified baseline,
+not a claim that the new expiry controls pass. No owner question, no deployment
+qualification, score 1/2; continue until PARK.
