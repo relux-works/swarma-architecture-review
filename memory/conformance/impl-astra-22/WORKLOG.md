@@ -18,8 +18,9 @@ control this seat.
 
 1. Complete: pull, full brief/source reading, tool readiness and identity onboarding.
 2. Complete: source-only semantic core and 20 local controls; baseline frozen before package intake.
-3. Pending: after PACKAGE LANDED, write a wire adapter and run every package vector
-   without changing the frozen core to match expected answers.
+3. Complete: PACKAGE LANDED event `$byrILfhj-Gjsp7famnjMP2EvJbP8t9WBhwRblTS_pGk`
+   opened the read boundary. First adapter and full inventory run preserve the
+   frozen core unchanged.
 4. Pending: commit field-level results; report every disagreement to the judge.
 5. Pending: apply only classified implementation corrections, rerun releases,
    finalize verdict and park note on PARK, and acknowledge in rounds.
@@ -54,3 +55,16 @@ on a real assertion; the model correctly excluded it. The fixture was corrected
 to make both simulated. No package was inspected to fix this fixture.
 Self-review: source boundaries, no external side effects, independent polarity,
 refusal atomicity and explicit limitations reviewed.
+
+## First package run
+
+Package 0.1.0-draft at 0ef608ae279a9bc209ad78ffdc72dbbbdc828f8f. All 61 vectors
+loaded: semantic 17 pass / 7 fail / 29 unsupported; deployment 0 pass / 0 fail /
+8 unsupported. Exact results and normalized actual outputs are preserved in
+`runs/0.1.0-first.md` and `.json`. Core SHA-256 is unchanged.
+
+No transaction mapping is claimed yet; capture/recall are supported. Exact proof
+paths, cross-assertion incompatibility, audience redaction, imported-currentness
+and dirty closure remain explicit gaps. Five runner control plants passed.
+Disagreements are grouped in DIVERGENCES.md and are sent to the judge before any
+correction. No expected value or vector identifier is passed into the adapter.

@@ -69,7 +69,21 @@ PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/source_checks
 The controls use `unittest` from the Python standard library. Each test states
 its claim and material limits. They include nearby positive/negative examples,
 post-refusal state comparisons and bounded comparator/JSON-parser control plants.
-Logs are under `.temp/astra-22/`; progress is in `WORKLOG.md`. The package runner
-and committed `RESULTS.md` will be added only after PACKAGE LANDED and format
-inspection. Git publishes signed commits to main as required by the mission;
+Logs are under `.temp/astra-22/`; progress is in `WORKLOG.md`.
+
+After PACKAGE LANDED, the wire adapter and runner were added:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/run_vectors.py
+```
+
+This loads every package vector and writes `RESULTS.md` and `RESULTS.json` in this
+directory. `--package PATH` selects a different package checkout; `--out PATH`
+selects the report destination. `runs/0.1.0-first.*` preserves the first comparison.
+The executor receives no vector identifier or expected answer. Unsupported paths
+are explicit, and every supported response and postcondition is compared exactly
+after only the vector's declared normalization. Divergences are documented before
+fixing them. The initial adapter deliberately exposes the frozen core's gaps.
+
+Git publishes signed commits to main as required by the mission;
 a2a supplies rounds, divergence reports and PARK coordination.
