@@ -14,8 +14,9 @@ and one supplemental deployment cases remain unsupported and unqualified.
 The 0.2.6 package has 66 semantic and eight deployment vectors, 52 clauses and
 38 checker controls. Structural validation, syntax, deterministic regeneration,
 exact original-pair preservation and unchanged prior-vector/pilot checks pass.
-Independent semantic execution is pending; structural success is not a runtime
-pass. Current [score](../R7-SCORE.md) and [ledger](../LEDGER.md) own adjudication.
+Source first `31d77d2` and package correction `5897520` report 66/66 current
+canonical semantic passes; this editor reproduces the package correction.
+Independent judge closure remains pending. Current [score](../R7-SCORE.md) and [ledger](../LEDGER.md) own adjudication.
 
 ## Scope and independence
 
@@ -549,3 +550,31 @@ All JSON regenerates byte-for-byte. Exact commands and bounded evidence are in
 Historical supplemental reruns may use audited version-only scratch copies;
 original cases and behavioral oracles stay unchanged. No first-run evaluator
 result is claimed yet. Await the two independent runs and judge's R7-055 closure.
+
+
+## Reopened round 2 — exact D-009 runtime review
+
+At the package implementer's directed request, reviewed signed `5897520` against
+released `77b951e`. Accept its five-line issuer-filtering correction: currentness,
+CAS head and strict replacement succession share the same filtered traversal.
+The editor's independent canonical run passes **66/66**, with eight deployment
+unsupported. All 74 rows, input/module hashes and complete normalized actuals
+reproduce the published report using only declared fresh-handle slots.
+
+Four new native groups pass across 64 three-event DAG variants and the two exact
+foreign-only pairs. Instrumented execution validates 125 state instances / 74
+unique states, 25 operations and **11 refusals with full native state unchanged**.
+Both revision relations, positive all-H/direct paths, exact replay, ordinary
+import and ambiguous/stale CAS boundaries pass. The same unchanged controls on
+frozen `104fbe8` produce **eight intended failures, zero errors**. Operation-input
+hashes and nonce-free states reproduce the clarified typed-map audit encoding;
+post-write native hashes containing fresh handles are run-local and are compared
+for exact before/after equality only within each execution.
+
+The legacy `--spec-root` test option changes only explicit grammar selection.
+Historical controls/supplemental coverage remain distinct from canonical 0.2.6;
+no original fixture or behavioral oracle changed. Full commands, states, hashes,
+limits and two resolved reviewer-instrument setup errors are retained in
+`.temp/astra-21/d009-review.md` and its linked evidence. R7-055 and the source
+R7-059 harness correction still await judge closure; no package change follows
+this review, and no deployment qualification is claimed.
