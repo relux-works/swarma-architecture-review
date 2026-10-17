@@ -60,7 +60,7 @@ evaluator, or vice versa.
 
 
 | R7-030 | Judge [snapshot-idempotency probe](impl-astra-22/fixtures/persisted-idempotency-judge-first.json), first reproduction `f2c1570`; decision `$hbbJ9rJ7PJw8UKe81INSkYADsT_zK_WLJPPHBW3fgtQ` | S14 neighbor; K-API-1/2; companion §7 | impl-bug | astra-22 | fixed@1f3180d | Judge reproduces exact original receipt/handle replay across intake timestamps and changed-intent conflict, with full state unchanged. Authoritative runtime.idempotency now supplies initial and newly committed entries. Eleven transaction controls cover reconstruction, original time, actor/space/key isolation and current authorization; canonical report matches exactly. Original failure retained. |
-| R7-031 | astra-25 [erasure-receipt-metadata](cases/astra-25-erasure-receipt-metadata.md) at `77ea085`; decision `$JPPhod2ZE3Dm7yPZZY1gOh8KGSHsO6j0Fi33ewipx7o` | ASTRA25-07; K-API-1 versus K-ERASE-2; companion §§4/6 | spec-bug | astra-21 | open | Unqualified full-closure receipt conflicts with recipient-authorized metadata. Judge validates/reproduces two extra-reference differences plus forbidden hidden ID in package evaluator; authorized control and complete protected closure/purge pass. Declare explicit operation receipt recipient/audience/purpose or admitted scope, with reproducible pre-fence metadata authority; no later-query inference or union of unrelated grants. Preserve full protected closure. |
+| R7-031 | astra-25 [erasure-receipt-metadata](cases/astra-25-erasure-receipt-metadata.md) at `77ea085`; initial decision `$JPPhod2ZE3Dm7yPZZY1gOh8KGSHsO6j0Fi33ewipx7o` | ASTRA25-07; K-API-1 versus K-ERASE-2; companion §§4/6 | spec-bug | astra-21 | fixed@7e71765 | 0.2.2 supplies actor-bound explicit receipt_context, pre-fence metadata filtering and current-authorized exact replay without reducing protected closure. Judge verifies runtime a016781: canonical 57/57, all 18 controls, exact primary/authorized/other-purpose cases and state-preserving revoked replay. First 0ca2d27 red run retained. |
 | R7-032 | astra-26 [checked-import-expiry](cases/astra-26-checked-import-expiry.md) at `837591e`; decision `$d-fCrpCafaGdZmlnjrNnqpKXqFOs7Um-npNJhPU8IJ8` | ASTRA26-07; K-PUB-2, K-EVAL-6; kernel §9.2 | impl-bug | astra-22 | fixed@1f35727 | Judge exactly reproduces all 65 canonical rows/hashes on 0.2.2: 45/0/12 semantic; S23 and unchanged semantic expiry case pass. Eight adapter controls preserve before/at/after, missing/unverified/replaced distinctions, ordinary source currentness, origin identity and immutable capture. First failure remains f2c1570; deployment remains unsupported. |
 | R7-033 | astra-26 [checked-import-expiry](cases/astra-26-checked-import-expiry.md) at `837591e`; same initial decision as R7-032 | ASTRA26-07; same clauses as R7-032 | impl-bug | astra-23 | fixed@f10c7ba | Judge reproduces exact case pass and canonical 57/57 with every report row/hash matching after declared normalization. Before/at/after, missing-check, replacement, ordinary-document, unchanged evidence and immutable capture controls pass. First failure preserved at f83268d; source counterpart R7-032 remains independently tracked. |
 | R7-034 | astra-26 [excluded-forward-right](cases/astra-26-excluded-forward-right.md) at `837591e`; decision `$4Zjns7pfNlPx6xuWQDRPHjvue4q-WXj_leO7bI0HshY` | ASTRA26-08; K-PUB-1, K-SNAP-1, K-PROJ-2 | impl-bug | astra-23 | fixed@f10c7ba | Judge reproduces both unchanged fixtures after exact selected-binding iteration. Selected read/use/forward removal, erasure fence, stale horizon and later revocation still refuse with unchanged state. Twelve product plus four checker controls pass; first incorrect refusal remains preserved at f83268d. Source operation is still unsupported at this reviewed baseline. |
@@ -73,8 +73,12 @@ evaluator, or vice versa.
 
 | R7-039 | astra-22/23 scoped-retention requests; [package implementation analysis](impl-astra-23/DIVERGENCES.md) at `1828356`; editor concurrence; decision `$DgdmzXqH-rajfv36DacN6RQfHAQ3H45tTew6Xha8Qls` | K-AUTH-1/K-DISC-1/K-API-1; source explicit retention purpose | spec-bug | astra-21 | open | All four write contexts omit retention audience/purpose although grants require them. Private/read-only authority under read-and-publish labels separates existential from every-label checks. Source explicitly requires retention purpose; publish actor-bound operation/admitted scope, exact input/output retention, current revocations and replay rules. Do not infer from a later query, merge unrelated grants or conflate storage with onward disclosure. R7-036/037 remain independent no-retain defects. |
 
-| R7-040 | astra-24 [ambiguous-cas](cases/astra-24-ambiguous-cas.md) at `09f2d4d`; decision `$jWF7PS9bJWLBKtoGF2OqBiJIlvcfYJB7WzuI6j5fxPw` | ASTRA24-08; K-REV-1/3/4; kernel §§5.2–5.4 | impl-bug | astra-22 | open | Judge validates and reproduces accepted withdrawal plus seventh record when two authority receipts are incomparable. Exact candidate identity does not select a unique slot head. Required retryable version_conflict commits nothing; unique-head ordering control passes. Preserve all policy/runtime state on refusal, challenge distinction, receipt order and idempotent replay precedence. |
-| R7-041 | astra-24 [ambiguous-cas](cases/astra-24-ambiguous-cas.md) at `09f2d4d`; independent package reproduction | ASTRA24-08; same clauses as R7-040 | impl-bug | astra-23 | open | Same forbidden accepted withdrawal and seventh record independently reproduce: eleven field differences plus two forbidden matches; unique-head control passes. No contradictory signed evidence is established by authority ambiguity. Currentness and CAS semantics are already explicit; no package or owner architecture change required. |
+| R7-040 | astra-24 [ambiguous-cas](cases/astra-24-ambiguous-cas.md) at `09f2d4d`; decision `$jWF7PS9bJWLBKtoGF2OqBiJIlvcfYJB7WzuI6j5fxPw` | ASTRA24-08; K-REV-1/3/4; kernel §§5.2–5.4 | impl-bug | astra-22 | open | Judge validates and reproduces accepted withdrawal plus seventh record when two authority receipts are incomparable. Exact candidate identity does not select a unique slot head. Required retryable version_conflict commits nothing; unique-head ordering control passes. Historical-head STALE also fails; unique-head and CHALLENGE controls pass. Source first e38c37c retained. Preserve all policy/runtime state on refusal, receipt order and replay precedence. |
+| R7-041 | astra-24 [ambiguous-cas](cases/astra-24-ambiguous-cas.md) at `09f2d4d`; independent package reproduction | ASTRA24-08; same clauses as R7-040 | impl-bug | astra-23 | open | Same forbidden accepted withdrawal and seventh record independently reproduce: eleven field differences plus two forbidden matches; unique-head control passes. No contradictory signed evidence is established by authority ambiguity. Historical-head STALE also fails; CHALLENGE passes. First package report e525612 retained. Currentness and CAS semantics are explicit; no package or owner architecture change required. |
+
+| R7-042 | astra-25 [future-lineage-input](cases/astra-25-future-lineage-input.md) at `cacd82c`; decision `$GMbY9p6_pemnZ4YJ4kSkLz6M9eJTAjloeXsRPKzFrmA` | ASTRA25-10; K-DISC-1, K-API-1/2, K-VEC-1 | spec-bug | astra-21 | open | Package check_state rejects an absent input in a future proposal fact before its operation runs. Judge reproduces exact dangling-input error, while both evaluators correctly refuse B, admit A, then admit identical B retry. Admitted-A control passes; actually admitted complete/unknown B missing A still rejects. Defer future-output input existence to its hypothetical operation state; preserve fact integrity and admitted-input checks. |
+
+| R7-043 | Judge S17-derived rule/certificate withdrawal probes; source impact implementation `e38c37c`; decision `$lXcUN46jxrVt_c0amm5LNbwyvqnzNvPyTOc6omMPOmk` | K-EVAL-8, K-API-1; companion §5 | impl-bug | astra-22 | open | Withdrawing the registered justification or its check certificate commits but leaves dependent B globally clean and returns both channels complete. Judge validates exact S17-derived fixtures and reproduces six field differences plus forbidden-complete for each; premise-withdrawal control passes and package passes all three. Retain dirty causes and authorized pre-revision paths for changed rule/check inputs, not only literal premises; preserve hidden/challenge/recomputed neighbors. |
 
 Rows classify received cases against their cited package release; queued intake
 is explicitly recorded in the worklog. Rejection
@@ -795,3 +799,92 @@ classification relies on those setup failures.
 Ledger: 41 items, 25 fixed, 10 rejected, two open specification bugs
 (R7-031/039) and four open implementation bugs (R7-036/037/040/041). No owner
 questions. Phase-2 score stays 1/2. No PARK has been announced.
+
+
+### Round 19 — erasure closure verified, 47/57 coverage, two new defects
+
+Closed R7-031 at package `7e71765` after reviewing and independently executing
+runtime correction `a016781`. Shared exact grants preserve the prior read
+predicate. Receipt metadata is filtered before the new fence; full erasure
+closure, custody and generation are unchanged. Authorized replay preserves exact
+stored refs/handle, including across later intake timestamps or newly broader
+rights; changed context conflicts, while current read/use/metadata loss or expiry
+refuses without altering any state or stored receipt. All 65 canonical rows and
+code/input/package hashes match after only declared handle normalization: 57/57
+semantic, eight deployment unsupported. Four checker and fourteen product tests
+pass. Migrated ASTRA25-07 primary, authorized and unrelated-purpose fixtures
+validate and pass exactly. First 0.2.2 red evidence `0ca2d27` stays immutable.
+Evidence: `.temp/astra23-judge-r7031.md` / `.json`,
+`.temp/astra23-judge-r7031-comparison-01.json`,
+`.temp/astra23-judge-r7031-cases.md` / `.json`,
+`.temp/astra23-r7031-{canonical,harness,semantics,cases}-01.log`, and closure
+`$31IyK5gwGSJaMRrozQ-A02a1oUfrXbHkp9e1ZaOGWjI`.
+
+Reviewed source dirty-impact implementation `e38c37c`. Canonical report exactly
+matches 65 rows and pinned hashes: 47 pass / 0 fail / 10 unsupported semantic;
+B01 and S17 are newly supported. ASTRA25-05 hidden/visible pair passes. All six
+impact controls pass, including pre-cause/recomputed state, hidden cause/path/
+premise/certificate, hidden AND sibling/context, later path retirement and
+cross-schema review. Fresh reruns of 33 source, eight adapter, eleven transaction
+and four proof controls pass, with five harness controls invoked by each vector
+run: 67 total. Verified dual canonical coverage is **47/57**. This does not
+claim complete invalidation correctness; R7-043 below is an independent failure.
+Evidence: `.temp/astra22-judge-phase2-dirty.md` / `.json`,
+`.temp/astra22-judge-phase2-dirty-comparison-01.json`,
+`.temp/astra22-judge-phase2-dirty-cases.md` / `.json`,
+`.temp/astra22-phase2-dirty-checks-01.json`,
+`.temp/astra22-phase2-dirty-impact-01.log`,
+`.temp/astra{22,23}-round19-code-hashes-01.json`, and
+`.temp/judge-round19-execution-01.json` with commands/exits/logs.
+
+Validated and reproduced both additional CAS neighbors at `f13a3e6`: the
+historical candidate incorrectly commits in both implementations, while challenge
+correctly ignores the stale CAS token without manufacturing opposition or dirty
+state. These extend R7-040/041 rather than duplicate defect counts. Source
+first report `e38c37c` and package first report `e525612` preserve the failures.
+The primary and unique-head fixtures remain unchanged. Decision
+`$ouwGQLkAq_ICQJkSwSucRdoGhIuhQShrtac9FEp3j4A`.
+
+Classified ASTRA25-10 as checker spec-bug R7-042. The initial state has no records
+but contains protected facts for future A and B, where B will consume A. The
+checker rejects A's absence before any operation, contrary to K-DISC-1's future
+fact contract. Both evaluators correctly refuse premature B, admit A, then accept
+identical B retry. Closed shape, normalization and accepted-fact checks pass.
+Judge independently verifies the admitted-A positive and truly dangling admitted
+complete/unknown-B negative controls. Required correction defers existence only
+for unadmitted outputs, retaining fact integrity and operation-time checks.
+Evidence: `.temp/future-lineage-input-judge-validation-01.json`, case evidence
+`cases/astra-25-evaluator-results.json`, and decision
+`$GMbY9p6_pemnZ4YJ4kSkLz6M9eJTAjloeXsRPKzFrmA`.
+
+Judge code review found R7-043: source impact edges include literal premises but
+omit the changed justification and its check certificate. Three independent
+S17-derived closed vectors were written before execution. Set relation to withdraw,
+target and expected_version to rec:j/1 or cert:j/1, both replacement fields null,
+query cut 101, expected receipt refs rec:r/1 and inventory without rec:a/2; retain
+S17's required dirty-B result. Source returns no dirty cause/marker, complete
+channels, no review and no dirty cutoff: six differences plus forbidden-complete
+for each. Premise-withdrawal control passes, as do all three package traces.
+Thus agreement on canonical B01/S17 is insufficient. Exact fixture inputs,
+original actual/runtime/hashes and rationale are preserved at
+`.temp/dirty-edge-judge-vectors-01/`,
+`.temp/astra22-dirty-edge-judge-first.json`,
+`.temp/astra23-dirty-edge-judge-first.md` / `.json`,
+`.temp/dirty-edge-judge-review-01.md`. Source CLI's initial outside-repo path error
+is recorded as setup failure; successful execution uses the existing Adapter and
+comparator directly, passing no expected data to the evaluator. No same-source
+output generated the oracle. Owner astra-22 must preserve the probes in its
+tracked fixtures before correcting. Decision `$lXcUN46jxrVt_c0amm5LNbwyvqnzNvPyTOc6omMPOmk`.
+
+All 39 supplemental fixtures now have the 0.2.2 closed shape; 38 are semantic and
+one is deployment. Their initial-state checks pass except the explicit R7-042
+false positive. Full execution is source 24/3/11 and package 35/3/0; the three
+failures are missing retention plus two CAS cases. Judge's three additional
+invalidation probes are separate: source 1/2/0 and package 3/0/0. Inventory
+validation: `.temp/round19-supplemental-validation-01.json`. No silent case
+migration or invalid-state success is claimed.
+
+Ledger: 43 items, 26 fixed, 10 rejected, two open specification bugs (R7-039/042)
+and five open implementation bugs (R7-036/037/040/041/043). No owner questions;
+phase-2 score 1/2. Package 0.2.3 scope has been described by the editor but is not
+released or verified in this pinned round. Continue until PARK.
