@@ -977,3 +977,41 @@ will prove semantic differences and forbidden effects are detected.
 - Logs: restore-current-first-01.log and restore-current-integrity-02.log under
   .temp/impl-astra-23/. Current exact vectors remain57/57canonical and63/63
   supplemental; the new native defect remains separate pending adjudication.
+
+## Round 36 — R7-058 restore reconciliation correction
+
+- Judge classifies ASTRA25-12 as package impl-bug058 after independent four-trace
+  reproduction. Existing K-ERASE-1/2/3 require current witnessed plus retained
+  obligations and full closure before reopening; no package or owner change.
+- First b805582 is committed. Add red product tests before runtime correction:
+  original four traces; transitive known/unknown lineage with independent content
+  and uncontrolled custody; unreachable atomicity; generation/late-writer fences.
+- New current obligations must update erased/fence/generation state. False or
+  incomplete evidence and unreachable affected controlled sinks must preserve
+  the global restore fence and full state, with exact erasure_incomplete/true.
+  Genuine empty/current-known recovery and repeated reconciliation remain valid.
+- Preserve existing current-witness coverage of locally retained erasures. Keep
+  source evaluator code unread, original reports immutable and author fixtures
+  unchanged. R7-057 is separately closed at946cbd8/e3d44df;055 stays held.
+
+### Round 36 red controls and exact fixture first
+
+- Three new native groups produce seven intended pre-correction assertion failures:
+  missing new erasure state, false unreachable reconciliation, complete/unknown
+  derived custody omissions and a forbidden stale-generation derivative commit.
+  No setup error occurs. After the scoped candidate change, all three groups and
+  all30product plus4checker controls pass. Runtime candidate is not yet published.
+- The candidate uses the supplied current-witness closure, retains the existing
+  coverage guard for known deletions, rejects unreachable sinks before mutation,
+  records full erased/fence closure and advances generation only for new deletions.
+- Author1cefcf9 then publishes five exact current0.2.5 fixtures. Preserve their
+  first full execution on an isolated, byte-exact own23b4d74 runtime before the
+  correction is committed: PHASE2-RESTORE-VECTORS-FIRST is65pass/3fail/0unsupported
+  semantic, with one deployment unsupported. Only new/unreachable/independent
+  fail; known/empty and every previous63case pass. All forbidden differences stay.
+- This exact-fixture first was generated after local native correction work,
+  using frozen pre-correction modules; the original native first b805582 predates
+  all correction work. No artifact, fixture or module was silently rewritten.
+- Logs: restore-current-red-01.log, restore-current-green-01.log,
+  restore-current-native-01.log, controls-16.log, restore-vectors-first-01.log
+  (expected exit1). Frozen own modules are .temp/impl-astra-23/runtime-23b4d74/.

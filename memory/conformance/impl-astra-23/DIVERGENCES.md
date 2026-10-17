@@ -485,3 +485,17 @@ actual and state/hash evidence is preserved before correction. Judge disposition
 and exact fixture mapping are pending; no inferred output oracle or source
 implementation intake. Canonical/supplemental success does not waive this native
 resurrection/disclosure witness or qualify physical purge.
+
+### R7-058 classification and exact first
+
+Judge classifies ASTRA25-12 as package implementation bug058 under existing
+K-ERASE-1/2/3. Current witnessed and retained full closure must be reconciled
+before reopening, with atomic erasure_incomplete/true and continued global fence
+for unreachable affected custody. Newly learned deletion updates protected
+erased/fence/generation state. Known/empty/unaffected/late-writer neighbors remain
+required; no package prose edit or owner decision is needed.
+
+PHASE2-RESTORE-VECTORS-FIRST freezes all68current supplemental semantic cases
+on original23b4d74:65pass/3fail, only new/unreachable/independent restore traces.
+Known/empty and all63prior cases pass. Author1cefcf9 fixture bytes are unchanged;
+one deployment remains unsupported. Native b805582 first remains immutable.

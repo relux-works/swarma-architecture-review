@@ -6,12 +6,15 @@ the R7-053 live-retention correction. Judge13e3d73 independently closes the
 correction at23b4d74, reproducing every report row, input/module hash and full
 normalized actual, all31controls and ten separate deadline operation checks.
 
-A separate native ASTRA25-12 restore defect is now reproduced and unresolved:
+Judge classifies ASTRA25-12 as unresolved package implementation bug R7-058:
 current witnessed deletion A absent from the old snapshot inventory is ignored,
 including an unreachable affected sink. Reconciliation opens disclosure with A
 readable and both sinks present. PHASE2-RESTORE-CURRENT-FIRST preserves all four
 original traces and full state; known/empty obligations and false-witness/fenced
-read controls remain intact. Judge classification and exact fixtures are pending.
+read controls remain intact. Five exact author1cefcf9 fixtures are now published;
+PHASE2-RESTORE-VECTORS-FIRST on unchanged23b4d74 is65/3/0 across68supplemental
+semantics, failing only new/unreachable/independent traces. The correction is in
+progress. The63-case report below predates these five additional cases.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
@@ -48,9 +51,9 @@ oracle or runtime change is inferred, and the pair stays outside vector totals.
 Phase1 supported score was2/2 (judgeb1ae299). Phase2 remains **1/2, active**.
 Both evaluators independently verify 57/57 canonical and the prior 61/61
 supplemental semantics (package 23b4d74, corrected source 87beb46). Judge
-e2a797d closes native source recovery R7-056. Source-only R7-057 erase-context
-priority remains open at that ledger revision; its two new author-owned exact
-fixtures pass on unchanged package runtime, bringing this report to 63/63.
+e2a797d closes native source recovery R7-056, and e3d44df closes source R7-057
+at946cbd8. Both readers verified the63-case supplemental inventory at that point;
+new R7-058 restore cases and their correction are a separate subsequent gate.
 Early PARK still requires a full round without a new open item; hard cap13:00Z.
 Deployment remains unqualified.
 
