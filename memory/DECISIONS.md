@@ -86,6 +86,39 @@ Each space is a git repository with a policy file. Where an agent space is hoste
 
 One new repository `swarma-memory` in Go: kernel module, the `memory` CLI and the skill. Curator installs the CLI through the skill. Separate modules can be split out later.
 
+## D-015…D-021. Agent memory, session excerpts, keys, sync, trust, conflicts, v1 scope (2026-10-18)
+
+- **Question put:** the second design round in `notes/v1-architecture-draft.md` (agent memory class, promotion, signatures, archive, sync, shared memory, trust model).
+- **Decisions (Ivan, in session, voice transcript):** «ок» (agent memory class); «только кусочек который был записан в сессии должен стать дискретной сущностью … но в идеале сохранять референс на нее в виде идентификатора сессии и индекса сообщения»; «временно, пока вся сварм не готова, да, мы можем агенту выдавать свой ключ. Точнее, агент сам себе генерирует ключ»; «синхронизацию берем»; «Если напираемся на конфликт … выводится на эскалацию, и ответственные за конфликты … разрешают конфликт, дальше работа происходит»; «Про модель доверия … Берем»; on scope: «Пока склоняюсь к тому, что агенты, которые наши, доверенные, имеют память, и мы ей управляем. Агенты приходят, которые со стороны. Наверное, они как бы эфемерные сущности без памяти» with the request to record the questions and risks.
+
+### D-015. Agent memory is its own class
+
+The agent's own working knowledge (observations, choices made in its work, rejected hypotheses) is the class "agent memory", held in the agent space (owner, issuer and perspective = the agent). It is not personal data about people.
+
+### D-016. What comes from a session is a discrete record with a session locator
+
+When an agent records something from a session, the record carries that piece itself (the statement or an admitted non-sensitive excerpt), because the session may be deleted. It also keeps a source reference to the session: runtime, session id and message position (the message id where the runtime has one, otherwise the message index in the session's stored sequence) plus a digest of the message. If the session is later deleted, the record stays and its source becomes unavailable. This is an agent-authored record, not raw journal intake (D-005 stands).
+
+### D-017. Temporary per-agent keys until the key holder exists
+
+Until the platform key holder exists, each agent generates its own signing key and signs its records with it. The key holder replaces this when it arrives.
+
+### D-018. Sync protocol
+
+The engine provides `memory sync`, per-space cursors and `memory changes --since`; the skill tells the agent when to use them: sync and recall at task start, sync before every write, changes at checkpoints and before finishing, write what was learned at the end. A space directory in the platform space maps identities and projects to space locations and access.
+
+### D-019. Trust model of the first version
+
+Every record is signed by its submitter; every reader verifies signature, schema, the space policy and revision authority, and ignores (but reports) records that fail. The protected service stays for sensitive data, guaranteed erasure and enforcement before write.
+
+### D-020. Conflicts that affect further work go to escalation
+
+A conflict between decisions that the current work depends on is not left standing as two parallel views. The work step that depends on it stops and the conflict is escalated to those responsible for resolving it, when they are part of the trusted system; they resolve it with a new decision, and work continues. Memory itself still escalates and wakes no one: the agent or orchestrator that meets the conflict raises it through the platform's escalation path. The resolution supersedes the conflicting decisions under the existing order rules.
+
+### D-021. Scope of the first version (owner's leaning, open questions recorded)
+
+Our own trusted agents have memory, and the owners manage it. Agents that come from outside are ephemeral and have no memory of their own in the first version. The questions and risks this leaves are recorded in `OPEN-QUESTIONS.md`.
+
 ## Proposed next steps (not decisions)
 
 - **Done 2026-10-17:** the R7 package (`memory/spec/` 0.2.5-draft) and the adversarial collective (seven astra-max seats instead of a triad, by Ivan's order); both evaluators pass 57/57 canonical semantic vectors. R7-055 resolved by D-009; package 0.2.6-draft, both evaluators 66/66. Next: the platform book ch. 09 correction (D-001), then the documentary pilot on 10–30 Swarma decisions.
