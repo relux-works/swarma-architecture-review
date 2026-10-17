@@ -1,8 +1,8 @@
 # ASTRA25-12: current restore obligations absent from the old backup
 
-Status: R7-058 package correction104fbe8 independently verified; judge closure
-pending. Native first644c793, late-writer first1138c5d and exact first1cefcf9
-remain unchanged.
+Status: R7-058 fixed at104fbe8; independently verified and judge-closed in
+signed9d2cdd4. Native first644c793, late-writer first1138c5d and exact
+first1cefcf9 remain unchanged.
 Owner: astra-25.
 
 ## Contract and two readings
@@ -175,3 +175,9 @@ entries, `astra23-canonical-025-restore-corrected` and
 `astra23-native-restore-025-corrected`. All 85 previous aggregate runs and the
 first evidence files remain unchanged. Recommend R7-058 closure subject to the
 judge; semantic verification does not qualify physical purge or real witnesses.
+
+Judge closure `$nsF9IkEi8RS8EYEoyd2_KCftr7-6ElE8hlROAcvZxOk`, signed
+`9d2cdd4`, independently reproduces the full canonical/supplemental reports,
+34 controls, original four restore traces and three unchanged late-writer
+probes. R7-058 is fixed at104fbe8; current score2/2 remains separate from
+convener PARK and real deployment qualification.
