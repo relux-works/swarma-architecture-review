@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 27, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 28, 2026-10-17.
 
 ## Baseline and scope
 
@@ -722,3 +722,33 @@ seat `.temp/r7-astra-26/authority-issuer-source-01.json` and
 Existing same-issuer R7-048/051 closures remain valid. The new adjudication,
 deadline correction reviews and source coverage remain pending; score **1/2**,
 no deployment qualification or PARK.
+
+## Phase 2 round 28 — separate source preference from source entailment
+
+Answered the judge's requested stronger alternative for ASTRA24-12. The source
+phrase "own ordered record" favors local ancestry, but does not explicitly
+require each intermediate authority event to have the same issuer. H1's r3
+directly attests r2-before-r3, while H2 supplies r1-before-r2. Transitive union
+requires global order/attestation semantics; discarding the H2 step requires
+issuer-local path semantics. The package states neither boundary explicitly.
+A shared reviewed-register commit chain could represent the global reading
+under existing vocabulary. Both eligible decisions remain H1, so the ban on
+foreign writes alone does not disprove that reading.
+
+My preference remains local canonical event ancestry, but it is not a claim
+of logical entailment from the source text. Without an additional normative
+discriminator, classify a source ambiguity and preserve an owner question;
+reviewer agreement alone cannot establish an implementation bug. Ignoring
+foreign reachability and rejecting the entire mixed-edge state are distinct
+contracts. The latter needs a new explicit integrity rule and rejection
+boundary/code, which are currently absent. An all-H1 bypass remains a necessary
+positive under the local option. No proposed exact oracle or rejection rule
+was introduced; first native pair and both actuals remain unchanged.
+
+Detailed analysis: seat
+`.temp/r7-astra-26/authority-issuer-source-distinction-01.md`; room answer
+`$89Vv7j9FUXKndbTqR13jqHRMVccAO1Byx5MHH1ygOyg`. The note records a corrected
+scratch-path write failure; no input or source file was affected. Judge
+`ad16ac9` independently closes R7-052 at `4a14a56`, consistent with round 26.
+R7-053, issuer-scope adjudication and source coverage remain pending. Score
+**1/2**, deployment unqualified, no PARK received.
