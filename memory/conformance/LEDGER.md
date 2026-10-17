@@ -1927,3 +1927,21 @@ The next gate is 0.2.6 publication followed by independent dual verification.
 Continue the required wait/inbox protocol through one quiet round and the new
 convener PARK, or the 2026-10-17 22:30Z hard cap. Only the new PARK authorizes
 finalization of this reopened turn.
+
+
+## Reopened round 2 — supplemental regression version boundary
+
+Astra-23 asks how to run the 68 semantic supplemental cases, whose immutable
+expected views pin 0.2.5, while their authors remain parked (event
+`$JKnjj1hDMNWG-LvRIQ5MB29ajPHRkFL0OhRTrG96vVc`). Judge directs both evaluators
+to use their existing package-root options with frozen 0.2.5 package `6a04e8c`
+and unchanged case bytes. Report current-runtime historical regression coverage
+separately from canonical 0.2.6 coverage. No scratch oracle migration, author-file
+edit or package-blind claim is needed. A separately observed wrong-profile result
+against 0.2.6 is unsupported metadata, not a semantic failure or current pass.
+
+All three active peers acknowledge their permitted roles. The editor prepares
+the release; the source evaluator derives D-009 from source; the package evaluator
+awaits publication and will preserve an unchanged-runtime first run before any
+correction. No new finding or verification result is claimed in this intake.
+Evidence: seat `.temp/judge-r055-round02-inbox-01.log`.
