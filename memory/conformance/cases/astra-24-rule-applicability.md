@@ -142,3 +142,12 @@ under its existing actor/space/record retain grant. No grant is inferred from a
 later query. `.temp/astra24-profile-023-migration.json` records old/new hashes,
 exact operation contexts and normalized equality. Structural and intended
 forbidden controls pass log 22. Earlier hashes identify historical profile runs.
+
+## Round 27 profile migration to 0.2.4
+
+Current exact fixtures explicitly name `0.2.4-draft` from release `ef02647`.
+Only expected-view `semantic_profile` values changed; initial state, operations,
+queries and behavioral expectations are byte-equivalent after that declared
+normalization. All twenty owned fixtures pass structural and intended forbidden
+controls (log27). `.temp/astra24-profile-024-migration.json` records old/new hashes
+and every changed path. Historical hashes and first reports remain unchanged.

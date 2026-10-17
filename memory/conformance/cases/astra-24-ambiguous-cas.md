@@ -209,3 +209,12 @@ Judge decision `$tmfi_3vaCFABPnbEDIekguKbs5okvS5uAK-igNNYZng` closes R7-040 at
 `99b5a85` after independent frozen 0.2.2 verification of all five CAS cases,
 14 transaction controls and canonical 49/0/8. This seat separately verifies the
 explicitly migrated 0.2.3 cases above; the two release claims remain distinct.
+
+## Round 27 profile migration to 0.2.4
+
+Current exact fixtures explicitly name `0.2.4-draft` from release `ef02647`.
+Only expected-view `semantic_profile` values changed; initial state, operations,
+queries and behavioral expectations are byte-equivalent after that declared
+normalization. All twenty owned fixtures pass structural and intended forbidden
+controls (log27). `.temp/astra24-profile-024-migration.json` records old/new hashes
+and every changed path. Historical hashes and first reports remain unchanged.

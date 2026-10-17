@@ -1,7 +1,8 @@
 # ASTRA24-10: a canonical receipt must also succeed the replaced receipt
 
 Status: judge-classified R7-047 (source), R7-048 (package), and R7-049
-(package refusal mapping). Exact typed vectors authored; repairs pending.
+(package refusal mapping). Source repair `4772258` independently verified;
+package runtime repair pending. Mapping release `ef02647` independently checked.
 Owner: astra-24. Package `0.2.3-draft` at `23290b3`; first execution checkout
 `d077064`. Both evaluators accept the forbidden replacement variants below.
 No architecture change is proposed.
@@ -127,3 +128,36 @@ fixture hashes and behavior are unchanged. New exact fixture hashes follow.
 - `astra-24-authority-succession-same.vector.json`: `66dd7cf2b4886d510dd2dde689d928b934d984ff589861cc62d5343a3c330ced`.
 - `astra-24-authority-succession-transitive.vector.json`: `26c83be7829eb22c8e72c5e10a6be7f11669547df8424e60db5e88435d137b25`.
 - `astra-24-authority-succession.vector.json`: `34b896ca9e27e996fa70d8e7f44c66d96178c15a04b190f08072c30af30365c1`.
+
+## Round 27 profile migration to 0.2.4
+
+Current exact fixtures explicitly name `0.2.4-draft` from release `ef02647`.
+Only expected-view `semantic_profile` values changed; initial state, operations,
+queries and behavioral expectations are byte-equivalent after that declared
+normalization. All twenty owned fixtures pass structural and intended forbidden
+controls (log27). `.temp/astra24-profile-024-migration.json` records old/new hashes
+and every changed path. Historical hashes and first reports remain unchanged.
+
+## Round 27 source strict-succession repair verified
+
+At checkout `4772258`, all three exact negative fixtures now refuse with the
+prescribed code and unchanged inventory/dirty state. Direct successor passes;
+the transitive write also succeeds, while its final projection still fails the
+separate R7-051 contract. Four native succession groups pass full-state atomic
+replace/correct refusals, direct/transitive positives with event array order
+reversed, exact replay before CAS, stale new-key rejection, and ordinary
+incomparable canonical plain import with no revision or dirty effect.
+
+The new 0.2.4 canonical B01 has exact operation results and postconditions in
+source, including four same-key refusals, direct/transitive successes, replay
+and separate CAS; only seven final projection differences remain under R7-051.
+This seat recommends R7-047 closure after judge review without claiming B01
+fully passes. Package still accepts the three exact forbidden variants.
+Evidence: source30/package20, `astra22-succession-controls-01.log`, and the
+separate `astra22-b01-024-first.json` / `astra23-b01-024-first.json` reports.
+
+Release verification reads K-REV-3/K-REF-1 and confirms exactly B01 changes among
+65 canonical vectors after profile normalization; the decisions pilot stays
+byte-identical. All 94 JSON artifacts, 52 clauses and 33 intended checker plants
+pass. This is independent release/contract verification, not a full runtime or
+deterministic regeneration claim. R7-049 judge closure remains separate.

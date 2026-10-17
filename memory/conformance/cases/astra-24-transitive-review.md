@@ -108,3 +108,12 @@ with their owners. Original package first failure `08c4b9a` remains immutable.
 Judge decision `$FUaN_53BaXJmAS0URtEd8DTcbnlzmmLxJ_z4s3DG0yk` closes R7-045 at
 `f6c339d` after its own unchanged 0.2.2 exact case, native review controls and
 canonical 57/57 run. This seat independently verified the migrated 0.2.3 input.
+
+## Round 27 profile migration to 0.2.4
+
+Current exact fixtures explicitly name `0.2.4-draft` from release `ef02647`.
+Only expected-view `semantic_profile` values changed; initial state, operations,
+queries and behavioral expectations are byte-equivalent after that declared
+normalization. All twenty owned fixtures pass structural and intended forbidden
+controls (log27). `.temp/astra24-profile-024-migration.json` records old/new hashes
+and every changed path. Historical hashes and first reports remain unchanged.

@@ -1,6 +1,6 @@
 # ASTRA24-11: authority order traverses receipt-only intermediate events
 
-Status: source-only projection divergence; judge classification pending.
+Status: judge-classified R7-051 source implementation bug; correction pending.
 Owner: astra-24. Package `0.2.3-draft`; first exact execution at `a970a95`.
 No write, replacement, challenge or CAS operation is performed in either vector.
 
@@ -70,3 +70,18 @@ non-interference or arbitrary authority graphs.
 
 - `astra-24-receipt-only-order-control.vector.json` SHA-256: `e357454d4d7919c51bea3b383a010e5f93260dbfc4bcf25f8cbf5c3ee00beeb0`.
 - `astra-24-receipt-only-order.vector.json` SHA-256: `1e2c14dd3ce47a3885565cc10793256516d751c63e5c5a6ad3c2095dae134815`.
+
+## Round 27 profile migration to 0.2.4
+
+Current exact fixtures explicitly name `0.2.4-draft` from release `ef02647`.
+Only expected-view `semantic_profile` values changed; initial state, operations,
+queries and behavioral expectations are byte-equivalent after that declared
+normalization. All twenty owned fixtures pass structural and intended forbidden
+controls (log27). `.temp/astra24-profile-024-migration.json` records old/new hashes
+and every changed path. Historical hashes and first reports remain unchanged.
+
+Judge decision `$lL-KfgsFVYJ8Kpol9-2KlrnISzbIcOa-A7-1Pv5Z2-k` independently
+reproduces the transitive projection in a fresh read-only snapshot and assigns
+R7-051 to source. ASTRA24-11 and ASTRA24-10-TRANSITIVE are the same family.
+Source `4772258` fixes only replacement admission; both projection witnesses
+remain failing after explicit 0.2.4 migration. Package passes both exactly.

@@ -1,7 +1,7 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 26; no PARK. Source baseline `95f974b`, kernel v0.2; current package
-`0.2.3-draft` at `23290b3`; all owned fixtures explicitly migrated.
+Status: Phase 2 active, round 27; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+`0.2.4-draft` at `ef02647`; all owned fixtures explicitly migrated.
 
 ## Scope and method
 
@@ -25,8 +25,8 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
 | ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package `53266dd` and source `99b5a85` independently verified; both judge-closed |
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
-| ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | R7-047/048 implementation bugs and R7-049 refusal mapping accepted; exact negative writes fail both |
-| ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | Source read-only projection fails; package passes; classification pending |
+| ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Source R7-047 verified `4772258`; package R7-048 pending; mapping release R7-049 verified `ef02647` |
+| ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | R7-051 source impl-bug accepted; both projection witnesses remain failing, package passes |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -420,13 +420,37 @@ eighteen inputs are unchanged. The case retains exact first paired results
 and module hashes in a committed first-report artifact. Source implementation
 classification is requested under K-REV-3, with no architecture change.
 
+## Round 27 explicit 0.2.4 migration and source succession repair
+
+All twenty owned fixtures migrate by expected-view profile values only; complete
+normalized equality and exact old/new hashes are recorded in the migration
+ledger. Structural log27 passes every shape/reference/normalization/inventory
+and intended forbidden control. Original native first reports remain untouched.
+At checkout `4772258`, owned results are source 18/2 and package 17/3.
+
+Source R7-047 passes every exact negative and four focused native succession
+groups covering full-state atomic refusal, replace/correct, direct/transitive
+positives, reversed event storage, replay/CAS and ordinary incomparable imports.
+The transitive positive writes correctly but has the still-open R7-051 projection
+result. Canonical 0.2.4 B01 matches all source operation results and postconditions;
+its seven differences are final projection fields only. Package B01 remains red
+from forbidden writes. Evidence: source30/package20, succession-controls01 and
+both B01 0.2.4 first reports. Source R7-047 closure is recommended after judge
+review; it does not imply projection closure.
+
+Release `ef02647` makes the adjudicated refusal explicit. Independent normalized
+comparison confirms only B01 changes among 65 vectors; the decisions pilot stays
+byte-identical. Package validation passes 94 JSON artifacts, 52 clauses and
+33 intended checker plants. No full evaluator or generator-equivalence claim
+is inferred from these checks. Exact source projection classification R7-051
+and its independent judge event are persisted in ASTRA24-11.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Twenty owned vectors currently yield source 15/5 and
-package 17/3 at the recorded head. Authority-succession admission repairs and
-its exact-code release remain pending; the separately isolated source projection
-finding requires disposition. Full dual canonical coverage remains incomplete.
-Protected deployment is unqualified.
+**Phase 2 R7: 1/2.** Twenty owned vectors yield source 18/2 and package 17/3
+at the recorded 0.2.4 head. Source projection R7-051 and package succession
+R7-048 remain failing; formal source/mapping closures and full dual canonical
+coverage remain pending. Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
