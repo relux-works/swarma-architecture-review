@@ -3,7 +3,7 @@
 Status: Phase 2 active; no PARK. Source executes and passes49/57 canonical
 semantic vectors on0.2.3. Eight remain explicitly unsupported. Score: **1/2**.
 Judge independently verified the49-vector delivery expansion on pinned0.2.2;
-retention correction awaits review. R7-040 and R7-043 are judge-closed.
+retention correction is judge-closed atd077064. R7-040 and R7-043 are also closed.
 
 The source-only baseline was frozen at `4d4ef45` before PACKAGE LANDED,
 SHA-256 `cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
@@ -29,7 +29,7 @@ transitive integration input, including unknown lower bounds and same-batch
 inputs. Current retain revocation blocks new writes and replay while preserving
 old receipts and read/use rights. All four retention cases and eight new control
 groups pass. Outputs with empty disclosure labels remain privately storable under
-explicit authority. Judge closure remains pending.
+explicit authority. Judge closure is recorded atd077064.
 
 Phase-2 additions include exact proof families, import-check currentness,
 eligible retained dirty causes and transitive review, immutable captures and
@@ -66,3 +66,9 @@ refused. Supplemental37/1/8. First reports: `phase2-declassification-first.*`
 and `phase2-declassification-cases-first.*`; cause is omitted K-JSON-2 digest
 framing. Correction is pending classification; preceding49/0/8 table is the
 completed retention unit, not a passing claim for this expansion.
+
+Nine release control groups and their immutable red-before output are in
+`release_checks.py` and `runs/release-controls-first.json`. Two raw-digest
+negative plants wrongly admit; valid framed controls refuse at the same defect.
+R7-047 authority succession is judge-classified and queued after this unit;
+R7-049 exact canonical refusal mapping is assigned to the editor.
