@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 25; collective active, NO PARK. Seat identity:
+Status: phase 2, round 26; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Full dual semantic coverage and new finding
@@ -25,7 +25,7 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source d077064 / R7-037 package 4af0360 independently verified and judge-closed at 7446ba5 |
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; package pair passes, source erasure unsupported |
 | [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 fixed at 23290b3; judge and seat independently verified |
-| [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | R7-052/053 open; R7-054 release 6a04e8c independently verified, judge closure pending; five owned negative vectors fail each runtime |
+| [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | R7-054 judge-closed at6a04e8c; source052 at4a14a56 independently verified; package053 verification pending |
 
 ## Current evidence
 
@@ -56,28 +56,31 @@ independent defect count.
 | Latest recorded owned 0.2.5 semantic runs | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Package runtime at `942bdee` (tree `0c1b5ca`) | 21 | 5 | 0 |
-| Source runtime at `427fed5` (tree `c9e1faf`) | 13 | 5 | 8 |
+| Source runtime at `4a14a56` | 18 | 0 | 8 |
 
 Each evaluator reports the one owned deployment fixture unsupported. Both previously
 passed all six independent storage/replay controls each for scoped grants. The
 source framing correction now passes both owned directions and canonical P05;
 all nine native release groups pass, including raw-digest refusal with full state
-preservation. Fresh 0.2.5 canonical runs are source49/1/7 and package56/1/0;
-both executed failures are now P11 expiry. Authority B01 passes in both; judge
+preservation. Fresh source 0.2.5 canonical is50/0/7 after the deadline fix;
+package remains56/1/0 at the last verified pre-correction head, failing P11 expiry. Authority B01 passes in both; judge
 closed its remaining implementation defects and verified 0.2.4 totals 50/0/7
 and 57/57. Seven canonical source gaps remain.
 The seven ASTRA25-11 exact vectors are now in the owned denominator: both
-positive controls pass, while five expiry negative vectors fail each runtime.
+positive controls pass in both; source now passes all five negative vectors,
+while the last verified package head fails them.
 The earlier five native observations remain outside vector totals.
 Receipt primary/authorized/unrelated-purpose traces still pass in package;
 hidden/visible dirty traces still pass in both. Source `3722327` also passed nine
 impact controls independently, including the separate rule/check correction;
 earlier six controls did not cover that additional R7-043 failure.
 
-Exact latest expiry runs are `astra22-phase2-025-deadline-first` and
-`astra23-phase2-025-deadline-first`; both `deadline-atomic-025-first` entries preserve
-three positive passes and seven intended expiry failures per runtime, including
-exact replay refusal and full state invariants. Earlier release runs are
+Exact latest source runs are `astra22-phase2-025-deadline-corrected`,
+`astra22-deadline-atomic-corrected` and the canonical/native correction entries.
+All seven expiry vectors, ten independent state checks and six native deadline
+groups pass, including all four write APIs. Both earlier `deadline-atomic-025-first`
+entries preserve three positive passes and seven intended failures each. Package
+first `astra23-phase2-025-deadline-first` remains the last verified package run. Earlier release runs are
 `astra22-phase2-024-release-corrected`,
 `astra23-phase2-024-owned`, `astra22-release-controls-024-corrected` and both
 `canonical-024-first` entries. Prior `astra22-phase2-release-digest-first` and
@@ -100,7 +103,8 @@ requires 57/57 canonical semantic vectors on both independent evaluators, then
 one full round with no new open item. Judge `536f54c` records the stronger gate.
 Phase-1 dual coverage was 43/57; judge-verified 0.2.3 dual coverage reached50/57
 when R7-050 closed and remains judge-verified after both B01 fixes on 0.2.4.
-Current 0.2.5 P11 introduces expiry traces and fails on both pre-correction runtimes.
+Current 0.2.5 P11 passes corrected source and still fails the last independently
+verified package head.
 Seven canonical source operations remain
 unsupported. The judge owns collective totals; unsupported never means pass.
 
@@ -110,8 +114,9 @@ at its current descendant. R7-052/053 and the narrow R7-054 mapping are
 classified: expiry requires not_authorized/false before replay, with unchanged
 state and original receipt. The explicit 0.2.5 release is independently verified:
 only P11 changes beyond version, its original 16 operations/results remain, and
-all 34 checker controls pass. R7-054 closure is recommended; verify both runtime
-corrections against preserved first vectors and full-state controls. Rerun owned
+all 34 checker controls pass. Judge closed R7-054. Source R7-052 correction is
+independently verified and closure recommended; verify package R7-053 against
+preserved first vectors and full-state controls. Rerun owned
 regressions as source erasure support arrives. Finalize verdict and park note only after actual PARK.
 
 No real protected-deployment qualification is claimed by semantic publication,

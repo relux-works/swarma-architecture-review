@@ -121,3 +121,27 @@ These results verify the amended specification and its separating witnesses,
 not runtime correction. Evidence keys end in `025-deadline-first`,
 `deadline-atomic-025-first`, `canonical-025-first` and `astra25-release-025-audit`.
 R7-054 closure is recommended to the judge; R7-052/053 remain implementation work.
+
+## Source correction verification
+
+Source `4a14a56` passes all seven unchanged expiry vectors under0.2.5. The ten
+independent operation-level checks now all pass: exact denial, no partial records,
+no cuts/dirty/custody/replay mutations, preserved original receipt, and valid
+before-deadline/output-first-batch successes. The whole owned source semantic
+corpus is18 pass /0 fail /8 unsupported. Fresh canonical is50 pass /0 fail /
+7 unsupported; all deployment boundaries remain unsupported.
+
+All six source native deadline groups also pass. They exercise admit, admit_raw,
+revise and declassify, including each proposed output, complete and incomplete
+known ancestry, both batch orders, live/expired replay, null/unrelated expired
+records and authorization precedence over duplicate-reference rejection. The
+per-proposal deadline gate executes before traversal deduplication and idempotency;
+the tested late retries preserve the prior receipt. These are concrete fixture
+and state checks, not a physical-purge claim. Evidence runs are
+`astra22-phase2-025-deadline-corrected`, `astra22-deadline-atomic-corrected`,
+`astra22-canonical-025-deadline-corrected` and
+`astra22-native-deadline-025-corrected`.
+
+Judge event `$SbEXLoMfdvIL1PJIOlfGVne-nAiumUitpRJTZRnx5Z4` closes R7-054 at
+`6a04e8c`. This seat recommends R7-052 closure at `4a14a56` on the verified
+coverage above. Package R7-053 correction remains a separate verification unit.
