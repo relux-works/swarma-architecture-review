@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 27; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 28; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.4-draft` at `ef02647`; all owned fixtures explicitly migrated.
 
 ## Scope and method
@@ -25,7 +25,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
 | ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package `53266dd` and source `99b5a85` independently verified; both judge-closed |
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
-| ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Source R7-047 verified `4772258`; package R7-048 pending; mapping release R7-049 verified `ef02647` |
+| ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Source R7-047 verified `4772258`; package R7-048 verified `942bdee`; mapping release R7-049 verified `ef02647` |
 | ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | R7-051 source impl-bug accepted; both projection witnesses remain failing, package passes |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
@@ -445,12 +445,24 @@ byte-identical. Package validation passes 94 JSON artifacts, 52 clauses and
 is inferred from these checks. Exact source projection classification R7-051
 and its independent judge event are persisted in ASTRA24-11.
 
+## Round 28 package authority succession verified
+
+Package `942bdee` passes all twenty unchanged owned 0.2.4 fixtures and the full
+expanded B01 report with zero differences or harness violations. Three focused
+native methods cover atomic replace/correct negative classes and same-key
+recovery, direct/transitive successor positives, replay and distinct CAS, ordinary
+incomparable import, and the prior slot-head CAS regression. Exact input/module
+hashes and results are preserved in package21, B01-024-fixed and package
+succession-controls01. Original first failures remain intact. R7-048 closure
+is recommended after judge review; source R7-051 and other-seat deadline
+corrections remain independent.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Twenty owned vectors yield source 18/2 and package 17/3
-at the recorded 0.2.4 head. Source projection R7-051 and package succession
-R7-048 remain failing; formal source/mapping closures and full dual canonical
-coverage remain pending. Protected deployment is unqualified.
+**Phase 2 R7: 1/2.** The twenty owned vectors pass in package at `942bdee`;
+last source verification remains 18/2 with R7-051 projection failures. Formal
+remaining closures, other collective repairs and full dual canonical coverage
+remain pending. Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.

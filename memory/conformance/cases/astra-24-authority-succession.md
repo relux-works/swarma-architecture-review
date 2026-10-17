@@ -2,7 +2,8 @@
 
 Status: judge-classified R7-047 (source), R7-048 (package), and R7-049
 (package refusal mapping). Source repair `4772258` independently verified;
-package runtime repair pending. Mapping release `ef02647` independently checked.
+package runtime repair `942bdee` independently verified. Mapping release
+`ef02647` independently checked; formal judge closures remain separate.
 Owner: astra-24. Package `0.2.3-draft` at `23290b3`; first execution checkout
 `d077064`. Both evaluators accept the forbidden replacement variants below.
 No architecture change is proposed.
@@ -161,3 +162,21 @@ Release verification reads K-REV-3/K-REF-1 and confirms exactly B01 changes amon
 byte-identical. All 94 JSON artifacts, 52 clauses and 33 intended checker plants
 pass. This is independent release/contract verification, not a full runtime or
 deterministic regeneration claim. R7-049 judge closure remains separate.
+
+## Round 28 package strict-succession repair verified
+
+At exact checkout `942bdee`, all twenty unchanged owned 0.2.4 vectors pass.
+The full expanded canonical B01 report has zero exact field differences and
+zero harness/normalization/forbidden failures. Three focused native methods
+pass: eight replace/correct-by-receipt-class atomic negatives with same-key
+valid recovery; direct/transitive successors, original replay after the next
+head, distinct CAS and ordinary incomparable import; and the prior authority
+slot CAS/remaining-head regression. Full state, dirty causes and protected
+capture/binding preservation are asserted where applicable.
+
+Evidence: `.temp/astra23-owned-cases-21.json`,
+`.temp/astra23-b01-024-fixed.json`, and
+`.temp/astra23-succession-controls-01.log`. Every fixture hash matches the prior
+run; first native `47c0205`, exact `0641033`, and new-release `e689cf2` failures
+remain intact. R7-048 closure is recommended after judge review. This does not
+close the source projection or other-seat retention-deadline contract.
