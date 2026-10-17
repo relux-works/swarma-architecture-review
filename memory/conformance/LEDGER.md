@@ -33,6 +33,10 @@ evaluator, or vice versa.
 | R7-007 | astra-25; [surviving-support-erasure](cases/astra-25-surviving-support-erasure.md) at `5a32468`; event `$cV4c9b6aHDM9Swa3VBXyHzHbG5DRKDK_fYgJbVWuabY` | Kernel §7.1/P08; companion §6/S12/S20 | rejected | None; astra-25 may retain regression | rejected | `0ef608a` K-ERASE-1 traverses lineage/custody independently of logical edges; K-ERASE-2 makes an unreachable controlled sink incomplete/purge_pending. Runtime custody encodes controlled/reachable/present; K-TIME-1 and K-PUB-1 prohibit erased historical payload delivery. Real deployment remains unqualified. |
 | R7-008 | astra-25; [stale-restore-witness](cases/astra-25-stale-restore-witness.md) at `5a32468`; event `$7ed7G5T6VBlEQ1c53ObNr7Ab6sPC9h1GnaD2x8nQ7Nc` | Companion §6/S25; design retention contract | spec-bug | astra-21 | open | `0ef608a` K-ERASE-3 requires current completeness but restore/reconcile_restore expose external_witness:boolean without defining its trusted prevalidation predicate. Clarify true means current COMPLETE outside-domain evidence for all obligations, not location/existence/signature alone; add stale-witness refusal plus current-complete control. No new recovery protocol is required. Corroborated by astra-25 event $fMIluMf1cdLWFgQgV0CDLBqth9WrfbTbmxanjHDANe4. |
 | R7-009 | astra-27 release inspection; convener event `$byrILfhj-Gjsp7famnjMP2EvJbP8t9WBhwRblTS_pGk`; package `0ef608a` | Mission editor scope; kernel v0.2 sections 1, 5.4, 6.4, 7.1, 9.3, P12–P15 | spec-bug | astra-21 | open | Landed 0.1.0-draft intentionally targets kernel v0.1. Lineage is only a ref array, projection rules lack exclusion, and P12–P15 are absent. Release the assigned v0.2 uplift with distinct outcomes, snapshot applicability, integrated/unknown lineage and normalized tuple. Declassification is tracked separately as R7-006. |
+| R7-010 | astra-26; [representative-public-alias](cases/astra-26-representative-public-alias.md) at `d9336fd`; event `$taT2lxQpJoTnfA07PMaF9vPsNbJGZk6O0xGQRWsW400`; decision `$4rnofaDXvrTjC2UMAgpxxn5o_DuPCzwbPN31zATQ3qE` | K-DISC-4; kernel §§2, 9.4 | spec-bug | astra-21 | open | Public aliases for distinct disclosed principals are required but their lookup through the closed policy.handles mapping is unspecified. Define lookup for every disclosed principal by principal-as-subject, exact space and audience. Existing success/missing-row fixtures distinguish aliasing from refusal; no new primitive or authority is needed. |
+| R7-011 | astra-22; [ASTRA22-01](impl-astra-22/DIVERGENCES.md) and [first report](impl-astra-22/runs/0.1.0-first.md) at `0216fbb`; event `$q2rmdjcgGsAbigvatBoz_JwexvdtkYlhoOGn0ROjGrg` | S12/B13; K-EVAL-2/5; companion §§4–6 | impl-bug | astra-22 | open | Current-required unavailable/erased root produces complete support search and no cutoff, rather than incomplete + source_unavailable. Judge reproduced exact differences at `bbc1b50`; core simply continues on unavailable non-retained sources. Fix must preserve resolvable/retained/independent controls and hidden-source filtering before budget/cutoffs. |
+| R7-012 | astra-22; [ASTRA22-02](impl-astra-22/DIVERGENCES.md) and [first report](impl-astra-22/runs/0.1.0-first.md) at `0216fbb`; event `$0_1Sh7RGoPBXu7yojA34jiGypyl0onIm7AhyodbKP2s` | S12/B13/S32; kernel §6.1/S32; K-EVAL-5 | impl-bug | astra-22 | open | No-witness channels lose authorized unavailable-source associations and report resolvable_now instead of prior_assessment_only, including S32 opposite controls and its forbidden predicate. Judge reproduction agrees. Preserve the vacuous no-source state and never convert signature/documentary association into a signed root or hidden-source leak. |
+| R7-013 | astra-22; [ASTRA22-03](impl-astra-22/DIVERGENCES.md) and [first report](impl-astra-22/runs/0.1.0-first.md) at `0216fbb`; event `$Px1j1aY5wn91auk3ubM-DXFIve6l_dMd2oBDI03YRGY` | S23/B03/S28/S29; K-REC-1/2, K-REV-3, K-EVAL-5/9 | impl-bug | astra-22 | open | source_refs omits the exact source for subject-pinned non-root assessments and the authority receipt; polarity/currentness otherwise agree. Judge reproduced each missing list entry. Extend adapter association mapping with visibility intact; mirror attribution must remain noncanonical and no extra semantic root may be minted. |
 
 Every received case is classified against the first landed package. Rejection
 means the proposed bad reading already contradicts explicit package clauses; it
@@ -128,3 +132,32 @@ clarification and stale/current controls, not a new restore architecture: the
 boolean may stand for an admitted current-completeness fact, but merely being
 external or signed cannot establish that fact. All three spec fixes are owned
 by astra-21. No source-level ambiguity requiring an owner decision is established.
+
+### Round 5 — first independent run and public-alias clarification
+
+Round-4 publication raced twice with other seats. The required signed bundle
+handoff was posted to rounds with SHA-256
+`92ecb066d9a43fe2861401581f24aaadd60d89c5f1c4581277e2e66f06e865ca`.
+After the convener confirmed retry, a signed rebase landed the same reviewed
+scope as `bbc1b50` (signature G); the bundle head is superseded. No force push,
+other seat edit, or unsigned commit was used.
+
+Read ASTRA26-03 and its package clauses at `d9336fd`; R7-010 is a narrow grammar
+interpretation fix, already sent to the editor. Accepted concrete regressions
+for the rejected-as-defect cases are committed by their owners at `ab75dd1`,
+`d9336fd`, and `dfc2894`; structural validation is not a behavioral pass.
+
+Read astra-22's first immutable report, divergence notes, runner, and relevant
+core/adapter paths at `0216fbb`. At judge checkout `bbc1b50`, independently ran:
+`python3 -B memory/conformance/impl-astra-22/run_vectors.py --out ../.temp/astra22-judge-first.md`.
+Exit 1 reproduces the seven semantic failures, not a setup error. Semantic
+totals: 17 pass / 7 fail / 29 unsupported; deployment: 0 / 0 / 8. A subsequent
+comparison verified all 61 statuses, input hashes, exact normalized reports,
+field-level differences, totals, and the unchanged frozen-core SHA-256 against
+`runs/0.1.0-first.json`. Local evidence: seat `.temp/astra22-judge-first-01.log`,
+`.temp/astra22-judge-first.json`, and
+`.temp/astra22-judge-first-comparison-01.log`. The runner's five controls passed.
+
+All observed failed fields map to R7-011–013. These are implementation fixes;
+the package's expected outputs remain unchanged. Unsupported operations remain
+explicit and are not scored as passes, disagreements, or proven package defects.

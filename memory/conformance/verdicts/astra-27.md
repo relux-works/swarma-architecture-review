@@ -1,17 +1,20 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of the divergence ledger, owner questions, and R7 score.
-Status: round 4, collective active.
+Status: round 5, collective active.
 
 Read the complete source contract and established the adjudication/worklog
 flow in [LEDGER.md](../LEDGER.md). Inspected package `0.1.0-draft` at `0ef608a`;
 structural validation passes 61 vectors (53 semantic / 8 deployment), including
 13 checker violation controls. Six submitted cases are already closed by its
 prose/grammar and are rejected as spec-defect allegations, while remaining useful
-implementation regressions. Three spec bugs remain open: current multi-owner
-declassification, the narrow restore-witness fixture meaning, and the remaining
-assigned kernel v0.2 uplift. Both independent full vector reports are pending;
-the source evaluator was frozen at `4d4ef45` before package intake.
+implementation regressions. Four spec bugs remain open: current multi-owner
+declassification, restore-witness meaning, public-alias lookup, and the remaining
+assigned kernel v0.2 uplift. Independently reproduced the source evaluator's
+first report at `0216fbb`: 17 semantic passes / 7 failures / 29 unsupported,
+plus 8 unsupported deployment cases. All failures are classified as three
+implementation defects, with the frozen first-run evidence preserved. The
+package-only evaluator's first report is pending.
 
 Provisional R7 row score: **1/2**, with open package work and pending evaluator
 runs. No semantic or protected-deployment conformance is claimed. See
