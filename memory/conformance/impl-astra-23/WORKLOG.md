@@ -616,3 +616,15 @@ will prove semantic differences and forbidden effects are detected.
   invariant, but typed refusal mapping remains explicitly pending.
 - Existing57/57canonical and46/46supplemental counts exclude these new probes;
   no exact-vector pass/fail or new expected code is manufactured.
+
+## Round 23 — independent closure recorded; succession mapping pending
+
+- Judge independently closed R7-037 at4af0360: current0.2.3 canonical57/57 and
+  supplemental46/46 exactly reproduced with26controls and unchanged first reports.
+  The shortened package label23290b3 resolves uniquely to the full release; the
+  literal metadata difference is recorded, not silently normalized as semantics.
+- Judge independently closed R7-046 at3ce8ee3 using original0.2.2 and migrated
+  0.2.3 actor/binding/state controls. Source R7-036 separately closed atd077064;
+  current verified dual canonical coverage is49/57 on0.2.3.
+- New succession probes at47c0205 remain separate pending typed-refusal mapping.
+  No runtime change, new vector pass or Phase2 completion is claimed.

@@ -339,3 +339,10 @@ incomparable import remains a distinct valid behavior.
 No exact typed refusal oracle is yet asserted: K-REF-1's canonical-receipt wording
 needs judge/editor disposition for an existing but non-successor receipt. Await that
 mapping before correction. Current vector pass counts exclude these new probes.
+
+### Independent retention and actor closures
+
+Judge closed R7-037 at4af0360 with exact0.2.3 canonical/supplemental reproduction,
+all26controls and unchanged first evidence. R7-046 is separately closed at3ce8ee3,
+including frozen0.2.2 and migrated0.2.3 actor/binding controls. The authority-succession
+probe at47c0205 remains a separate pending classification/code-mapping issue.

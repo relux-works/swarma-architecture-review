@@ -88,7 +88,7 @@ The 0.2.2 erase API binds structural receipt refs to its explicit receipt_contex
 and intake clock. It checks current authorization on exact replay, preserves the
 stored receipt, and retains full protected purge even when no refs are disclosed.
 RELEASE-0.2.2-FIRST preserves the pre-adaptation 56/57 result. Retention scope
-R7-039 is resolved by the0.2.3 storage context; the R7-037 correction awaits independent review.
+R7-039 is resolved by the0.2.3 storage context; the R7-037 correction is independently closed at4af0360.
 
 Authority-slot CAS now shares sequence identity and receipt partial-order selection
 with projection currentness. Ambiguous and historical candidates refuse atomically;
@@ -112,3 +112,7 @@ authorization on exact replay. Retain is independent of metadata and onward labe
 PHASE2-RETENTION-023-FIRST preserves original and unknown-ancestor failures. Older
 release reports are historical and must be reproduced with their recorded runtime
 revision; current intake does not infer missing legacy contexts.
+
+PHASE2-SUCCESSION-FIRST records a later authoritative-replacement probe that
+accepts non-successor receipts. Its typed refusal mapping is pending; those probes
+are not included in the canonical/supplemental vector totals.
