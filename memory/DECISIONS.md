@@ -46,6 +46,19 @@ One canonical package: normative prose, closed schemas and executable conformanc
 - **Meaning:** the kernel stays domain-free with five records; profiles, intents, discovery cards, matching, catalogs and introductions are a domain package and services above it. The kernel gains the envelope roles (subject, issuer, submitter, representation reference, perspective, admission class), domain-schema cardinality and incompatibility rules, revision authority per issuer sequence with expected-version concurrency, named projection rules, freshness, lineage-inherited disclosure with declassification by the policy owner, and the boundary to publication. Real profiles still wait for D-003 and D-006.
 - **Artifact:** `designs/kernel.md` (the consolidated kernel contract, draft v0.1), with vectors S28–S33 and P01–P11.
 
+## D-009. R7-055: issuer-local canonical order (2026-10-17)
+
+- **Question put:** owner question R7-055 (`conformance/OWNER-QUESTIONS.md`). Two decisions d1 and d3 of issuer H1 are connected only through a predecessor event of H2 (`r1(H1) <- r2(H2) <- r3(H1)`). Kernel §5.3 did not say whether a foreign event on the predecessor path orders H1's decisions; the two evaluators split (`ambiguous_current` vs current d3). Options: only H1 events order H1's decisions (judge and lane recommendation), or H1's edge adopts the global predecessor order. The forwarded review `inputs/REVIEW-R7-055.ru.md` recommends the first, with refinements.
+- **Decision (Ivan, in session):** «Давай, утверждаю.» (to the issuer-local option in the reviewer's formulation, as put by the lane)
+- **Rule:**
+  - Currentness and the strict-replacement-succession check use one relation: the canonical order of the deciding issuer H. A qualifying predecessor path consists entirely of events whose protected policy authority-event issuer is H, including intermediate events with no assertion attached.
+  - Formally, with `V_H` the events issued by H and `E_H = E ∩ (V_H × V_H)`: `a ≺_H b` iff `(b, a) ∈ E_H⁺`. Not `E⁺` restricted to H endpoints.
+  - One such path suffices. Cross-issuer edges create no transitive order for H; removing a foreign event never creates a bypass edge; foreign branches do not cancel an existing all-H path.
+  - Mixed states are not refused merely for mixing issuers; existing integrity rules stay. A missing qualifying path means "required order not established", not an invalid state; write outcomes follow the existing refusal contract, with no new error code.
+  - For the separating input (single path through H2) the order of H1 is not established: d1 and d3 stay `ambiguous_current` candidates; neither becomes historical on that path.
+  - Invariant: on admissible states with an unchanged H subgraph, changes confined to foreign parts of the graph never change `≺_H`.
+- **Scope:** R7-055 only. D-001…D-008, single-issuer fixes, protected event attribution and all other checks stand. No cross-authority order adoption, no authority transfer, no new delegation, no local/global switch; a shared multi-authority register would be a separately versioned extension.
+
 ## Proposed next steps (not decisions)
 
 - **Done 2026-10-17:** the R7 package (`memory/spec/` 0.2.5-draft) and the adversarial collective (seven astra-max seats instead of a triad, by Ivan's order); both evaluators pass 57/57 canonical semantic vectors. Pending owner question R7-055 (`conformance/OWNER-QUESTIONS.md`). Next: Ivan's R7-055 decision, the platform book ch. 09 correction (D-001), then the documentary pilot on 10–30 Swarma decisions.
