@@ -1,7 +1,10 @@
 # astra-22 source evaluator verdict
 
-Position: **R7 1/2 pending independent coverage review, remaining judge decisions
-and the Phase-2 quiet-round/PARK condition**. No PARK has been received.
+The source evaluator passes every currently published semantic vector. Judge
+`e3d44df` closes R7-057 at signed source `946cbd8` and records a rubric score of
+**2/2 at that closure**. Collective completion remains pending: ASTRA25-12 is
+unclassified native intake, R7-055 is an owner question, and the convener has not
+posted PARK.
 
 Current package: **0.2.5-draft**,
 `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
@@ -10,64 +13,54 @@ Current package: **0.2.5-draft**,
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 57 | 0 | 0 |
 | Canonical deployment | 0 | 0 | 8 |
-| Supplemental semantic (63, author-owned exact fixtures) | 63 | 0 | 0 |
+| Supplemental semantic | 63 | 0 | 0 |
 | Supplemental deployment | 0 | 0 | 1 |
 
-Evidence: `impl-astra-22/RESULTS.*`, `runs/phase2-erasure-first.*`,
-`runs/phase2-erasure-cases-current.*`. Current R7-057 correction reports are
-`runs/phase2-erase-priority-corrected.*` and `phase2-erase-priority-cases-current.*`.
-Author66233ab added two exact purpose/audience regressions; both pass unchanged.
-The initial mixed-profile supplemental
-41/20/0 is retained in `phase2-erasure-cases-first.*`; author24's explicit27303e4
-profile migration alone resolves those20differences. No oracle is edited.
+Current reports are [canonical](../impl-astra-22/runs/phase2-erase-priority-corrected.md)
+and [supplemental](../impl-astra-22/runs/phase2-erase-priority-cases-current.md).
+All 128 controls pass: source 33, adapter 8, transaction 14, proof 4, impact 9,
+boundary 8, retention 8, release 9, succession 4, authority projection 4,
+deadline 6, erasure 11, availability 5, harness 5. Full outputs and module hashes
+are in [control evidence](../impl-astra-22/runs/erase-priority-controls-corrected.json).
+Judge independently reproduces both complete reports, every module/input hash,
+the controls and original neighboring native probes.
 
-The evaluator was independently frozen from kernel/companion/design before
-PACKAGE LANDED. Source baseline4d4ef45, every first disagreement and classified
-correction remain retained. Current source core SHA-256:
+The independent source baseline `4d4ef45` was frozen from kernel, companion and
+design before PACKAGE LANDED. No foreign evaluator implementation has been read
+or executed. Current source core SHA-256 is
 `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
-No foreign evaluator implementation was read.
+Every first disagreement and classified correction remains retained in
+[WORKLOG](../impl-astra-22/WORKLOG.md) and the committed run artifacts. Historical
+mixed-profile failures are explicitly distinguished from semantic defects.
 
-New coverage maps admitted content/custody erasure closure, metadata-filtered
-receipts, current authorized replay, generation and late-writer fencing, partial
-and unreachable custody, initial-backup restore and current-witness reconciliation.
-It preserves tombstone inventory and independent recipients. Load and availability
-stimuli preserve logical non-interference; control only records observations.
+Judge-closed source defects are R7-011/012/013/015, 025/026/027/028/029, 030, 032,
+036, 040, 043, 047, 050, 051, 052, 056 and 057. The latest correction checks current
+erase authority first, detects changed intent before replay metadata, and
+reauthorizes stored refs only for exact replay. Original `0529814` and the five
+expanded pre-fix wrong-code failures remain unchanged. Exact replay, immutable
+empty receipts, fresh empty-ref erasure and complete refusal state are preserved.
 
-All128controls pass: source33,adapter8,transaction14,proof4,impact9,boundary8,
-retention8,release9,succession4,authority-projection4,deadline6,erasure11,
-availability5,harness5. Exact native outputs and module hashes are in
-`runs/erase-priority-controls-corrected.json`; prior125green outputs remain
-`runs/availability-controls-corrected.json` and initial124green outputs remain
-`runs/erasure-controls-first.json`. Chronology/claims/limits: `WORKLOG.md`.
+Own [ASTRA25-12 observations](../impl-astra-22/runs/restore-current-obligations-native-first.json)
+reproduce the author's four unchanged input traces on `946cbd8`. A current
+external obligation absent from the old snapshot enters the source erasure
+closure and purges both controlled sinks. An unreachable affected sink causes
+an atomic incomplete refusal and keeps restored reads fenced. Known and empty
+obligation controls remain distinct. All 22 source modules match the reviewed
+head. These are observations outside exact pass/fail denominators; classification
+of the package discrepancy is pending, and no source change is proposed.
 
-Judge-closed source defects:011/012/013/015,025/026/027/028/029,030,032,036,040,043,
-047,050,051,052,056. Deadline052 is closed at4a14a56; native firstc9e1faf and exact
-old-source0.2.5 first49/1/7 remain unchanged. R7-055/ASTRA24-12 cross-issuer
-ancestry is a filed owner question held for Ivan; issuer-local source behavior
-stays unchanged. Exact own native observations and full-state preservation are
-in `runs/authority-issuer-native-first.json`, outside pass/fail denominators. Judge13e3d73 closes package053@23b4d74 and independently verifies this source
-coverage57/57+61/61. Source056 is closed at87beb46 by judgee2a797d;057 correction awaits closure.
+R7-055 / ASTRA24-12 remains held for Ivan's attributed decision. The source
+preserves issuer-local receipt ancestry. The mixed-issuer pair has no imposed
+oracle and is excluded from exact denominators; both readings and full own
+observations remain in [native evidence](../impl-astra-22/runs/authority-issuer-native-first.json).
 
-Remaining unmapped non-canonical API paths: changes, audience proof-reference
+Remaining unmapped non-canonical API paths are changes, audience proof-reference
 disclosure and request_check. Proof families can grow exponentially. No protected
-deployment, physical deletion, timing isolation, randomness qualification or crash
-durability is claimed. Semantic delivery sends no external bytes; restore witness
-and custody facts are trusted fixture inputs. Phase-1 historical2/2 was narrower
-and is not Phase-2 completion.
+deployment, physical deletion, timing isolation, randomness qualification or
+crash durability is claimed. Delivery sends no external bytes; custody and
+outside-domain witness facts are trusted fixture inputs. Semantic controls do
+not qualify these deployment properties.
 
-R7-056/ASTRA22-08 correction updates current public availability for every
-authorized transition, including initial degraded -> available. Four state pairs
-and current authorization/full-state neighbors now pass. Original native red
-dbf4892 and expanded transition matrix are immutable. Judgee2a797d independently closes this correction at87beb46;
-original failures remain unchanged. No infrastructure recovery is claimed.
-
-R7-057/ASTRA22-09 correction returns idempotency_conflict,false for changed
-erase intent after current operation authority. Stored-ref metadata applies only
-to exact replay. Original0529814 and five expanded red cases remain unchanged;
-all128controls and both new exact author regressions pass. Full state, original
-receipt, revoked replay and fresh-empty-ref guarantees remain.057 closure is
-pending independent judge review.
-
-Historical grammar note: --package selects vectors/profile but transaction
-shape validation uses this checkout. Use a matching isolated checkout for older
-grammar reproduction; all current025evidence uses matching live grammar.
+Historical grammar limitation: `--package` selects vectors/profile, while
+transaction shape validation uses this checkout. Reproduce older grammars in a
+matching isolated checkout. Every current 0.2.5 report uses matching live grammar.
