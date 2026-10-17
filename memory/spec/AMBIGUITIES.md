@@ -93,3 +93,7 @@ Kernel v0.2 closes the source questions about snapshot applicability, integratio
 ## 0.2.1-draft clarifications
 
 R7-014 orders necessary-premise composition separately from sufficient-alternative preference. R7-018 adds protected unresolved dirty causes and query-authorized impact; global dirty inventory does not imply a visible cause. R7-019 scopes publication currentness to actual publication sources. R7-021 repairs a missing B01 integration fact with no oracle change. R7-022 separates explicit subject/principal identity from aliases and opaque names, and gives the organisation attestation its own fact meaning. See RELEASES.md for grammar and controls. These are source-contract corrections, not new owner design choices.
+
+## 0.2.2-draft receipt scope
+
+R7-031 resolves the contradictory unqualified closure list in K-ERASE-2 under the existing recipient-authorized metadata rule. Erase has an explicit audience/purpose receipt_context and the authenticated actor as recipient. Visibility is computed before new erasure effects; full protected closure is independent of the visible list. Authorized structural tombstones can appear in a later authorized receipt without reconstructing payload. Context is part of canonical intent, and exact retry is refused if its stored metadata is no longer authorized. These are wire/profile choices implementing the existing constraint, not new erasure authority or an owner architecture decision. See P08 and RELEASES.md.

@@ -1,5 +1,17 @@
 # Package releases
 
+## 0.2.2-draft
+
+Corrects judge-classified R7-031: erase authority and full protected erasure closure do not authorize disclosure of hidden closure identifiers. K-ERASE-2 now agrees with K-API-1 and the source metadata contract. The inventory stays 65 vectors (57 semantic / 8 deployment), 52 clauses and 14 schemas.
+
+Breaking wire change: every erase operation requires `receipt_context: {audience, purpose}`. The authenticated actor is its fixed recipient. Resolve exact current read/use/metadata and disclosure permission before the new fence; no later query supplies this context and unrelated audience/purpose grants cannot be combined. Existing erased payloads do not automatically revoke approved structural metadata, so a separately authorized later receipt may still name its tombstone. The full protected closure, fences and custody dispositions remain mandatory regardless of which refs are disclosed.
+
+The receipt context is canonical idempotency intent. Changing it under the same actor/space/key is `idempotency_conflict`. Exact authorized retry preserves the original receipt and handle. If any stored receipt ref is no longer metadata-authorized in that same context, retry returns `not_authorized` without a write; it does not redact, regenerate or overwrite the original receipt.
+
+Migration: explicitly choose the intended audience/purpose for each erase operation. Existing canonical erases use private/read, preserving their original authorized lists. P08 deliberately gives private/read metadata only for the sensitive target and private/publish metadata for both target and derivative. It proves filtered receipt plus full purge, exact replay, changed-context conflict, an authorized full-list control and read-revoked replay refusal. Of 65 expected reports, only P08 changes after normalizing the profile version.
+
+Validation: 94 JSON artifacts, 23 intended checker violations. New plants reject missing receipt context and a recipient override, and detect the hidden-ref forbidden outcome. The unchanged pre-fix package evaluator produces the intended P08 red witness (metadata leak and revoked replay), while all other 56 semantic vectors still pass; this is regression detection, not a corrected behavioral pass. Independent implementers must align to this release and rerun. No protected deployment is qualified.
+
 ## 0.2.1-draft
 
 Corrects judge-classified R7-014, R7-018, R7-019, R7-021 and R7-022. The canonical set remains 65 vectors: 57 semantic and 8 deployment; 52 clauses. Grammar and semantic profile identifiers advance together.

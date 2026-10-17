@@ -1083,7 +1083,11 @@
           "version": 2
         }
       ],
-      "boundary": []
+      "boundary": [],
+      "receipt_context": {
+        "audience": "aud:private",
+        "purpose": "purpose:read"
+      }
     }
   ],
   "query": {
@@ -1138,7 +1142,7 @@
     "operation_results": [
       {
         "type": "view",
-        "semantic_profile": "0.2.1-draft",
+        "semantic_profile": "0.2.2-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -1284,7 +1288,7 @@
       },
       {
         "type": "view",
-        "semantic_profile": "0.2.1-draft",
+        "semantic_profile": "0.2.2-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -1404,7 +1408,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.1-draft",
+      "semantic_profile": "0.2.2-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

@@ -1371,7 +1371,7 @@
       },
       {
         "type": "view",
-        "semantic_profile": "0.2.1-draft",
+        "semantic_profile": "0.2.2-draft",
         "projection_rule": {
           "id": "projection:public",
           "version": 1
@@ -1490,7 +1490,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.1-draft",
+      "semantic_profile": "0.2.2-draft",
       "projection_rule": {
         "id": "projection:public",
         "version": 1

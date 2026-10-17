@@ -50,7 +50,7 @@ clauses. A citation does not claim exhaustive testing of every sentence.
 | P05 | semantic | K-DISC-1, K-DISC-2, K-DISC-4, K-JSON-2, K-PUB-1 | kernel §§7.2,9.1–9.2, §12 P05; profiles gaps A4 |
 | P06 | semantic | K-PUB-1, K-AUTH-1 | kernel §9.3, §12 P06; profiles gaps A5 |
 | P07 | semantic | K-DISC-3, K-PUB-2, K-EVAL-3 | kernel §§6.1,9.2, §12 P07; profiles gaps A5 |
-| P08 | semantic | K-ERASE-1, K-ERASE-2, K-DISC-1 | kernel §7.1, §12 P08; profiles gaps A4 |
+| P08 | semantic | K-ERASE-1, K-ERASE-2, K-DISC-1, K-API-1, K-AUTH-1 | kernel §7.1, §12 P08; profiles gaps A4 |
 | P09 | semantic | K-DISC-4, K-DISC-2, K-NI-1 | kernel §9.4, §12 P09; profiles gaps A5 |
 | P10 | semantic | K-REV-1, K-ENV-2, K-API-1, K-TIME-1 | kernel §5.2, §12 P10; profiles gaps A3 |
 | P11 | semantic | K-DISC-1, K-AUTH-1, K-ENV-3 | kernel §7.1, §12 P11; profiles gaps A4 |

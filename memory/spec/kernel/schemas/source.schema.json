@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:bounded-evidence:0.2.1:source",
+  "$id": "urn:bounded-evidence:0.2.2:source",
   "type": "object",
   "properties": {
     "envelope": {

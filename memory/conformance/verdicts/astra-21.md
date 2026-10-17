@@ -1,13 +1,15 @@
 # astra-21 package editor verdict
 
-Status: round 4, Phase 2 active; no PARK. Review baseline: `b1ae299`.
+Status: round 5, Phase 2 active; no PARK. New release: 0.2.2-draft for R7-031.
 
-**Released package: 0.2.1-draft at `f31d58f`. Phase 2 provisional score: 1/2;
-dual canonical coverage is 43/57.** All nine editor-owned spec bugs are
-judge-closed. At `b1ae299`, all 29 classified items are disposed: 21 fixed and
-eight rejected, with no owner question. The original supported-vector rubric
-scored 2/2; the convener explicitly requires full dual coverage for Phase 2.
-The earlier score is historical evidence, not completion of the expanded gate.
+**Released package: 0.2.2-draft. Phase 2 provisional score: 1/2.**
+R7-031 now has an explicit receipt-scope correction; independent new-release
+behavioral verification is pending. The first nine editor-owned spec bugs remain
+judge-closed at `cde5754`/`f31d58f`. Last independently verified dual coverage was
+43/57 on 0.2.1; the source proof extension reports 44/57, still awaiting review.
+At `b1ae299`, the original supported-vector rubric scored 2/2 with 21 fixed and
+eight rejected items. Phase 2 introduced further findings and the stronger full
+dual-coverage gate; that earlier score remains historical evidence only.
 The judge owns the final [score](../R7-SCORE.md) and [ledger](../LEDGER.md).
 
 ## Scope and independence
@@ -36,7 +38,27 @@ Judge-closed R7-014/018/019/021/022 at `6a4f307`. Release and migration details:
 [RELEASES.md](../../spec/RELEASES.md). B01's semantic expected report is unchanged;
 only B03/B07/P02/P15/S23/S24/S32 intentionally change expectations in this release.
 
-## Validation and execution evidence
+## Round 5 — 0.2.2 receipt correction
+
+R7-031 requires erase receipt_context with audience/purpose and the authenticated
+actor as recipient. Exact pre-fence metadata authorization restricts only visible
+refs; full protected closure, fences and custody remain unchanged. Canonical
+intent includes context; exact replay requires current metadata authorization,
+otherwise a no-write not_authorized refusal preserves the stored receipt.
+P08 adds denied/authorized purpose controls, exact replay, context conflict and
+revoked replay. Only P08's expected report changes after profile normalization.
+
+Structural validation and deterministic regeneration pass: 94 JSON artifacts,
+14 schemas, 65 vectors (57 semantic / 8 deployment), 52 clauses and 23 checker
+controls. Missing context, recipient override and hidden-ref plants detect their
+intended violations. The unchanged pre-fix package evaluator passes 56 semantic
+vectors and fails only P08 for the intended metadata leak/revoked-replay reasons;
+all protected purge effects and authorized controls still match. This is retained
+red evidence, not a corrected evaluator pass. Evidence: BUILD_NOTES/RELEASES,
+`.temp/astra-21/validate-12.log`, `regeneration-03.log`,
+`expected-delta-022-01.log` and `package-evaluator-022-red.md` / `.json`.
+
+## Previous 0.2.1 validation and execution evidence
 
 `python3 memory/spec/checks/validate.py` passes: 94 JSON artifacts, 14 closed
 schemas, 14 domain documents, one fixture corpus, 52 normative clauses and
@@ -82,7 +104,9 @@ The convener's Phase 2 decision is event
 B01/B07/P05/P06/P08/P12/S07/S17/S20/S23/S24/S25/S26/S27. Adversaries target those
 clauses and the v0.2 delta. The editor will apply resulting judge-classified
 package fixes with preserved regression controls and a versioned 0.2.x release.
-No new package edit is currently requested; `f31d58f` remains the stable baseline.
+R7-031 is implemented in 0.2.2; await judge verification and explicitly migrated
+adversary controls. Other newly classified implementation defects remain with
+their evaluator owners; no expected answer was changed to match an evaluator.
 
 Early PARK now requires source 57/57 plus one full round with no new open item;
 the hard cap remains 13:00Z on 2026-10-17. Only the convener issues PARK. The exact

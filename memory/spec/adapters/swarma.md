@@ -1,4 +1,4 @@
-# Swarma adapter contract — 0.2.1-draft
+# Swarma adapter contract — 0.2.2-draft
 
 Destination: the platform architecture repository beside the handoff-package
 contract. This is a reviewable draft in the R7 package; it does not publish or
@@ -22,7 +22,7 @@ of complete, incomplete, conflicted premises, stale, current or unavailable.
 | Authority receipt | Verify against the deciding authority's canonical record and predecessor order. A mirror, signed delivery or memory reviewer cannot mint adopted/accepted status. | Reviewed decision register or relevant board/domain decision authority |
 | Evidence policy | Pin admitted check kinds, exact objects, rules, policy and environment. Model review remains semantic_review. | The named reviewer/check owner; existing execution authority |
 | Source origin | Authenticate original root bindings so reimports, catalog copies and paraphrases cannot appear independent. | Original declarant and admitted source-binding authority |
-| Custody and erasure | Register payload, index, summary, cache, export, diagnostic and qualified backup lineage. Fence before purge; keep restore closed until outside-domain evidence is reconciled. | Each custody owner, including external recipients |
+| Custody and erasure | Register payload, index, summary, cache, export, diagnostic and qualified backup lineage. Bind erase receipt audience/purpose explicitly to its authenticated actor, filter metadata before fencing, and retain full protected closure. Fence before purge; keep restore closed until outside-domain evidence is reconciled. | Each custody owner, including external recipients |
 
 The following source distinctions are mandatory:
 
@@ -55,7 +55,7 @@ meaning, not an unauthorized extension of an existing platform wire schema:
 | Field | Required value or meaning |
 | --- | --- |
 | classification | Literal `data` |
-| semantic_profile | Literal `0.2.1-draft` |
+| semantic_profile | Literal `0.2.2-draft` |
 | view | The closed kernel View, retaining every polarity field and item attribution |
 | scope_binding | Protected binding to recipient, audience, purpose, source frontiers and policy; disclose only admitted metadata |
 | provenance_binding | Protected per-item issuer, submitter, source owner/revision, class, qualification and lineage; retain attribution through every summary, expansion and reimport |

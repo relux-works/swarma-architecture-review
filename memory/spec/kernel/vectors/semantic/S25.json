@@ -385,7 +385,11 @@
       "boundary": [
         "custody:payload",
         "custody:backup"
-      ]
+      ],
+      "receipt_context": {
+        "audience": "aud:private",
+        "purpose": "purpose:read"
+      }
     },
     {
       "op": "restore",

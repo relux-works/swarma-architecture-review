@@ -1,11 +1,13 @@
 {
   "id": "P08",
-  "title": "Sensitive synthetic payload and controlled derivatives are purged",
+  "title": "Complete erasure does not grant hidden receipt metadata",
   "profile": "semantic",
   "clauses": [
     "K-ERASE-1",
     "K-ERASE-2",
-    "K-DISC-1"
+    "K-DISC-1",
+    "K-API-1",
+    "K-AUTH-1"
   ],
   "initial_state": {
     "records": [
@@ -304,7 +306,7 @@
             "use"
           ],
           "records": [
-            "*"
+            "rec:sensitive"
           ],
           "metadata": true
         },
@@ -347,6 +349,19 @@
             "*"
           ],
           "metadata": true
+        },
+        {
+          "principal": "subj:h1",
+          "space": "space:main",
+          "audience": "aud:private",
+          "purpose": "purpose:read",
+          "rights": [
+            "erase"
+          ],
+          "records": [
+            "*"
+          ],
+          "metadata": false
         }
       ],
       "representations": [],
@@ -519,7 +534,7 @@
       "op": "erase",
       "actor": "subj:h1",
       "at": "2026-10-17T00:00:00Z",
-      "idempotency_key": "key:erase",
+      "idempotency_key": "key:limited",
       "targets": [
         {
           "id": "rec:sensitive",
@@ -533,7 +548,116 @@
         "custody:payload",
         "custody:summary",
         "custody:telemetry"
-      ]
+      ],
+      "receipt_context": {
+        "audience": "aud:private",
+        "purpose": "purpose:read"
+      }
+    },
+    {
+      "op": "erase",
+      "actor": "subj:h1",
+      "at": "2026-10-17T00:00:00Z",
+      "idempotency_key": "key:limited",
+      "targets": [
+        {
+          "id": "rec:sensitive",
+          "version": 1
+        }
+      ],
+      "boundary": [
+        "custody:backup",
+        "custody:cache",
+        "custody:export",
+        "custody:payload",
+        "custody:summary",
+        "custody:telemetry"
+      ],
+      "receipt_context": {
+        "audience": "aud:private",
+        "purpose": "purpose:read"
+      }
+    },
+    {
+      "op": "erase",
+      "actor": "subj:h1",
+      "at": "2026-10-17T00:00:00Z",
+      "idempotency_key": "key:limited",
+      "targets": [
+        {
+          "id": "rec:sensitive",
+          "version": 1
+        }
+      ],
+      "boundary": [
+        "custody:backup",
+        "custody:cache",
+        "custody:export",
+        "custody:payload",
+        "custody:summary",
+        "custody:telemetry"
+      ],
+      "receipt_context": {
+        "audience": "aud:private",
+        "purpose": "purpose:publish"
+      }
+    },
+    {
+      "op": "erase",
+      "actor": "subj:h1",
+      "at": "2026-10-17T00:00:00Z",
+      "idempotency_key": "key:full",
+      "targets": [
+        {
+          "id": "rec:sensitive",
+          "version": 1
+        }
+      ],
+      "boundary": [
+        "custody:backup",
+        "custody:cache",
+        "custody:export",
+        "custody:payload",
+        "custody:summary",
+        "custody:telemetry"
+      ],
+      "receipt_context": {
+        "audience": "aud:private",
+        "purpose": "purpose:publish"
+      }
+    },
+    {
+      "op": "revoke",
+      "actor": "subj:h1",
+      "at": "2026-10-17T00:00:00Z",
+      "principal": "subj:h1",
+      "audience": "aud:private",
+      "purpose": "purpose:publish",
+      "right": "read"
+    },
+    {
+      "op": "erase",
+      "actor": "subj:h1",
+      "at": "2026-10-17T00:00:00Z",
+      "idempotency_key": "key:full",
+      "targets": [
+        {
+          "id": "rec:sensitive",
+          "version": 1
+        }
+      ],
+      "boundary": [
+        "custody:backup",
+        "custody:cache",
+        "custody:export",
+        "custody:payload",
+        "custody:summary",
+        "custody:telemetry"
+      ],
+      "receipt_context": {
+        "audience": "aud:private",
+        "purpose": "purpose:publish"
+      }
     }
   ],
   "query": {
@@ -590,6 +714,53 @@
           {
             "id": "rec:sensitive",
             "version": 1
+          }
+        ],
+        "custody": [
+          "custody:backup",
+          "custody:cache",
+          "custody:export",
+          "custody:payload",
+          "custody:summary",
+          "custody:telemetry"
+        ],
+        "erasure_status": "purged_within_boundary"
+      },
+      {
+        "type": "receipt",
+        "operation": "erase",
+        "outcome": "purged",
+        "receipt_handle": "@h1",
+        "refs": [
+          {
+            "id": "rec:sensitive",
+            "version": 1
+          }
+        ],
+        "custody": [
+          "custody:backup",
+          "custody:cache",
+          "custody:export",
+          "custody:payload",
+          "custody:summary",
+          "custody:telemetry"
+        ],
+        "erasure_status": "purged_within_boundary"
+      },
+      {
+        "type": "refusal",
+        "code": "idempotency_conflict",
+        "retryable": false
+      },
+      {
+        "type": "receipt",
+        "operation": "erase",
+        "outcome": "purged",
+        "receipt_handle": "@h3",
+        "refs": [
+          {
+            "id": "rec:sensitive",
+            "version": 1
           },
           {
             "id": "rec:summary",
@@ -605,11 +776,25 @@
           "custody:telemetry"
         ],
         "erasure_status": "purged_within_boundary"
+      },
+      {
+        "type": "receipt",
+        "operation": "revoke",
+        "outcome": "revoked",
+        "receipt_handle": "@h4",
+        "refs": [],
+        "custody": [],
+        "erasure_status": null
+      },
+      {
+        "type": "refusal",
+        "code": "not_authorized",
+        "retryable": false
       }
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.1-draft",
+      "semantic_profile": "0.2.2-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1
@@ -622,7 +807,7 @@
         "id": "policy:1",
         "version": 1
       },
-      "authorized_snapshot_handle": "@h2",
+      "authorized_snapshot_handle": "@h5",
       "data_classification": "data",
       "items": [],
       "currentness": "none",
@@ -676,18 +861,43 @@
       "path": "/postconditions/custody_present",
       "test": "contains",
       "value": "custody:export"
+    },
+    {
+      "path": "/operation_results/0/refs/1/id",
+      "test": "equals",
+      "value": "rec:summary"
+    },
+    {
+      "path": "/operation_results/2/type",
+      "test": "equals",
+      "value": "receipt"
+    },
+    {
+      "path": "/operation_results/5/type",
+      "test": "equals",
+      "value": "receipt"
     }
   ],
   "normalization": {
     "scheme": "fresh_uniform_128_bit_hex",
     "fresh_handles": [
       "/operation_results/0/receipt_handle",
+      "/operation_results/1/receipt_handle",
+      "/operation_results/3/receipt_handle",
+      "/operation_results/4/receipt_handle",
       "/result/authorized_snapshot_handle"
     ],
-    "equal_handles": [],
+    "equal_handles": [
+      [
+        "/operation_results/0/receipt_handle",
+        "/operation_results/1/receipt_handle"
+      ]
+    ],
     "distinct_handles": [
       [
         "/operation_results/0/receipt_handle",
+        "/operation_results/3/receipt_handle",
+        "/operation_results/4/receipt_handle",
         "/result/authorized_snapshot_handle"
       ]
     ],

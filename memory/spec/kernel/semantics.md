@@ -1,4 +1,4 @@
-# Bounded evidence memory 0.2.1-draft
+# Bounded evidence memory 0.2.2-draft
 
 This document and the closed schemas and vectors are one contract. MUST, MUST NOT,
 REQUIRED, SHALL, SHALL NOT, SHOULD and MAY have their RFC 2119 meanings. A heading
@@ -686,11 +686,17 @@ delivery only, never which premise a recipient internally used.
 An operation MUST validate its entire batch against the hypothetical post-batch
 state before committing anything. The idempotency identity is actor, space, key;
 canonical request includes the complete authenticated intent except the key
-itself and context.at, which is a fresh intake stamp rather than client intent.
+itself and the intake stamp (`context.at`, or top-level `at` for erase), which
+is not client intent. An erase request includes its entire receipt_context in
+canonical intent; changing that context under the same identity is a conflict.
 Actor and admission class remain part of that intent. A retry with a later intake
 stamp MUST replay the original receipt and preserve the original recorded time.
 Same identity and identical canonical request MUST replay the exact receipt,
-including handle, even if current head changed. Different request is
+including handle, even if current head changed, subject to current authorization.
+For an erase replay, every ref in the stored receipt must still satisfy the
+receipt metadata test in K-ERASE-2; otherwise return `not_authorized` with no
+write. Never redact, regenerate or overwrite the stored receipt to make a replay
+authorized. Different request is
 `idempotency_conflict`. Refused attempts commit no records, sequences, dirty flags
 or idempotency entries. A successful batch commits records, lineage/custody
 entries and dirty marking atomically. No received receipt means no assumed commit;
@@ -757,9 +763,29 @@ controlled affected sink, or an unreachable affected sink, yields an `erase`
 receipt with outcome `incomplete` and status `purge_pending`, while access stays
 closed. Only reachable sinks named in the requested boundary are purged in that attempt.
 Complete reachable closure yields `purged` and `purged_within_boundary`; a later
-request with a different key may finish an incomplete purge. The receipt lists
-the full fenced record closure and the controlled custody sinks accounted for
-in that attempt, both sorted. Re-erasing a fenced target never reopens access.
+request with a different key may finish an incomplete purge.
+
+Every erase request MUST supply `receipt_context: {audience, purpose}`. Its
+recipient is exactly the authenticated `actor`; no other recipient can be named.
+The current admitted policy and live revocations govern that exact context,
+independently of any later query. Before applying the new fence or purge, filter
+the full record closure through ordinary per-record K-AUTH-1 read/use/metadata
+permission for actor, record space, receipt audience and receipt purpose, and the
+record's applicable disclosure constraints. Never combine grants from different
+audiences or purposes. Erase authority and policy ownership do not imply this
+metadata permission. This test concerns approved structural refs only: existing
+payload erasure or a fence does not itself revoke an otherwise authorized
+structural identifier, and it never permits reconstruction of erased bytes.
+
+Receipt `refs` is exactly the sorted metadata-authorized subset, possibly empty.
+The protected closure, `erased_refs`, generation, fencing and custody accounting
+MUST still cover every affected record, including omitted refs. Do not weaken
+purge or turn it into a refusal merely because some refs are undisclosable.
+The receipt's sorted `custody` lists only controlled affected sinks accounted for
+in that attempt and named in the caller's requested boundary; independent
+recipients never enter that list. Context changes are separate canonical intents;
+exact replay requires the current authorization check in K-API-1.
+Re-erasing a fenced target never reopens access.
 Independent recipients are explicitly outside that promise and are never listed
 as purged controlled sinks. No source-owner erasure is claimed without its receipt.
 A receipt may preserve approved opaque ids and loss of replayability; it MUST NOT

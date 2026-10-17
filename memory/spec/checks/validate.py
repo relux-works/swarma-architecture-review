@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE='urn:bounded-evidence:0.2.1:'
+BASE='urn:bounded-evidence:0.2.2:'
 ERRORS=[]
 class Invalid(ValueError): pass
 
@@ -324,6 +324,17 @@ def controls(validator,vectors):
     rejected('initial-self-declaration-requires-identity',lambda:check_state(state,docs),'self-declaration lacks subject issuer identity')
     state=copy.deepcopy(positive);state['policy']['subject_principals']=[]
     rejected('equal-id-spelling-is-not-identity',lambda:check_state(state,docs),'self-declaration lacks subject issuer identity')
+    # Erase receipts require an exact context; a recipient override and hidden refs are forbidden.
+    erase_schema=next(x for x in validator.schemas[BASE+'vector']['properties']['operations']['items']['oneOf'] if x['properties']['op'].get('const')=='erase')
+    positive=vectors['P08'];validator.check(positive,validator.schemas[BASE+'vector'])
+    op=copy.deepcopy(positive['operations'][0]);del op['receipt_context']
+    rejected('erase-requires-receipt-context',lambda:validator.check(op,erase_schema),"missing ['receipt_context']")
+    op=copy.deepcopy(positive['operations'][0]);op['receipt_context']['recipient']='principal:other'
+    rejected('erase-recipient-cannot-be-overridden',lambda:validator.check(op,erase_schema),"unknown fields ['recipient']")
+    report=copy.deepcopy(positive['expected']);report['operation_results'][0]['refs'].append(dict(id='rec:summary',version=1))
+    pred=next(x for x in positive['forbidden'] if x['path']=='/operation_results/0/refs/1/id')
+    require(forbidden_true(report,pred),'erasure receipt hidden-ref plant not detected')
+    cases.append('erasure-receipt-hidden-reference')
     return len(cases)
 
 def main():
