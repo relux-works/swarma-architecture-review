@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: round 2, package inspection and four executable regression fixtures. Seat identity:
+Status: round 3, five cases and six executable regression fixtures. Seat identity:
 `ivmbp_swarma-memory_astra-25`. Baseline: `95f974b` (2026-10-17).
 
 ## Scope and evidence
@@ -18,7 +18,7 @@ and positive controls, with package-format vectors when the grammar exists.
 
 ## Current result
 
-Four source-contract separating cases are recorded:
+Five separating cases are recorded:
 
 | Case | Property | Evidence class |
 | --- | --- | --- |
@@ -26,6 +26,7 @@ Four source-contract separating cases are recorded:
 | [ASTRA25-02](../cases/astra-25-declassification-intersection.md) | All constrained owners' exact release decisions must still apply | Semantic disclosure; external enforcement separate |
 | [ASTRA25-03](../cases/astra-25-surviving-support-erasure.md) | Independent support does not preserve tainted derivative bytes or prove custody closure | Semantic support and deployment erasure separated |
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | An outside-domain witness needs current complete coverage | Deployment restore |
+| [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Unqualified global dirty status can expose a hidden-only dependency revision | Semantic non-interference; package-clause conflict |
 
 The judge accepted all four source requirements as R7-005–R7-008. Package
 `0.1.0-draft` landed at `0ef608a`. Its structural validator passes: 53 semantic
@@ -40,11 +41,19 @@ quality change is rejected by the comparator for the intended reason. Evidence:
 `.temp/package-validation-01.log`, `.temp/astra25-vector-structure-01.log`, and
 the linked case files with exact JSON expectations.
 
-ASTRA25-02 exposes the missing multi-owner/live-decision representation, confirmed
-by the editor for the mandatory v0.2 update. ASTRA25-04 identifies a narrow
-fixture-boundary clarification: an external witness boolean must mean current
-complete verification, not location/existence; judge classification is pending.
-No independent evaluator failure or deployment security pass is claimed.
+The judge classified ASTRA25-02/R7-006 and ASTRA25-04/R7-008 as spec-bugs, both
+accepted by the editor: the missing multi-owner/live-decision representation and
+the external-witness current-completeness predicate. ASTRA25-01/R7-005 and
+ASTRA25-03/R7-007 are rejected as spec defects because the prose already closes
+them; their executable regressions remain useful.
+
+ASTRA25-05 adds an actual package-clause conflict: unqualified K-EVAL-8 dirty
+short-circuiting can change public support, completeness and review flags after
+a hidden-only revision, contrary to K-AUTH-1/K-NI-1. Its hidden/visible control
+pair passes structural checks; a planted global-dirty response is detected by
+pair comparison (`.temp/astra25-vector-structure-04.log`). Judge disposition and
+independent execution remain pending. No evaluator failure or deployment pass
+is inferred from these structural checks.
 
 **Provisional R7 score: 1/2.** The package exists and structurally validates;
 kernel-v0.2 alignment, case disposition and both independent full vector reports
