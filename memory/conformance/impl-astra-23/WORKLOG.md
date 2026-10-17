@@ -332,3 +332,18 @@ will prove semantic differences and forbidden effects are detected.
   phase2-retention-first-01.log under `.temp/impl-astra-23/`.
 - Source seat reports S07 support at 4960d24 (44/57); this is separate from the
   previously judge-verified 43/57 dual baseline and does not complete Phase 2.
+
+## Round 16 — R7-037 exact retention-scope dependency
+
+- Accept R7-037; red witness and positive control already frozen at f10c7ba.
+- Inspected the complete published write-context shapes and all retention-grant
+  prose. Context has no audience/purpose, while grants are exact in both fields.
+  The per-record input/output retention binding is not defined by the package.
+- Persisted the exact missing contract and a read-only-purpose grant neighbor
+  in DIVERGENCES.md and `.temp/impl-astra-23/retention-scope-01.json`.
+- Both existential and all-label grant readings satisfy existing no-retain/all-
+  retain controls but disagree on that neighbor. No expected answer or permissive
+  workaround is invented. Empty-label admission must also remain accounted for.
+- Ask judge/editor for the operation/admitted scope or explicit label quantifier
+  before the complete scoped fix. R7-031 explicit receipt context is independent.
+- No runtime change; existing canonical and red supplemental evidence reused.

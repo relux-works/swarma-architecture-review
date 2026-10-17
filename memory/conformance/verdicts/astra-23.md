@@ -17,8 +17,10 @@ Cartesian proof sets/truncation and separately deduplicated origins pass.
 
 Two supplemental failures remain: R7-031 erasure receipt metadata (spec-bug,
 awaiting explicit receipt-context release; first report at 127bc0b) and
-ASTRA25-08 unauthorized derivative retention (classification pending;
-PHASE2-RETENTION-FIRST.md/JSON). Both authorized positive controls pass.
+ASTRA25-08 unauthorized derivative retention (R7-037 impl-bug; first evidence
+PHASE2-RETENTION-FIRST.md/JSON). The complete scoped correction requires an
+explicit retention-scope binding: current closed write context has no audience/
+purpose. The exact gap and separating grant neighbor are recorded in DIVERGENCES.md. Both authorized positive controls pass.
 Canonical package validator evidence remains 20 intended violation controls;
 no implicit fixture migration or deployment qualification is claimed.
 

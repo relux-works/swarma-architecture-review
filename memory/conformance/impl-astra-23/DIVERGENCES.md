@@ -150,3 +150,44 @@ K-AUTH-1/K-DISC-1 retain-authority boundary awaits judge classification; no sile
 admission correction or expected-value change. Current supplemental corpus:
 28 pass / 2 fail / 0 unsupported semantic (R7-031 plus ASTRA25-08), one deployment
 unsupported. Topic: `div-astra25-retention-authority`.
+
+### R7-037 classification and precise admission-scope gap
+
+Judge classified ASTRA25-08 as package impl-bug R7-037 (source R7-036).
+The no-retain witness is decisive: it must refuse atomically and remains frozen
+at f10c7ba. Implementing the required scoped neighbors exposes a narrower missing
+package rule, not a reason to deny that established implementation defect.
+
+Evidence in 0.2.1 f31d58f:
+
+- K-AUTH-1 grants match principal, space, audience, purpose and record id. An
+  operation grant does not bypass per-record retention. K-DISC-1 integration
+  facts grant no retain right; transitive input constraints continue to apply.
+- All four closed admission contexts (admit_raw, admit, revise, declassify) in
+  vector.schema.json contain exactly actor, at and admission_class. They carry
+  no retention audience/purpose or admitted scope reference.
+- Proposed/effective labels contain sets of permitted audiences/purposes, not
+  a selected authenticated retention intent. K-DISC-1 also permits a record with
+  an empty disclosure intersection, so treating visible disclosure as the sole
+  authority to store it would require a separate rule.
+- No package prose specifies an existential versus universal grant obligation
+  over these sets, a per-output/input scope mapping, or another fixed write
+  scope. A later query is a separate request and cannot supply missing intake
+  authority retroactively.
+
+A separating neighbor of ASTRA25-08 grants retain only to the exact actor/space
+and records, for aud:private + purpose:read, while the input and effective output
+permit both read and publish. Existential matching over their labels accepts;
+requiring authority for every labelled purpose rejects. Both readings reject the
+original no-retain input and accept its all-retain positive control. The existing
+operation context selects neither. Fixture fragment is persisted at
+`.temp/impl-astra-23/retention-scope-01.json`; no expected verdict is invented.
+
+Needed before the complete scoped correction: a published deterministic rule
+binding admission retention authority to an explicit operation/admitted scope,
+or an exact defined relation to each output/input label, including empty labels,
+live revocations and transitive known/unknown lineage. Explicit scope enables
+purpose-specific rejection; a label-based rule needs a declared quantifier and
+must preserve the stated non-disclosable-record contract. A space-wide any-retain
+shortcut would fail the judge's unrelated-purpose/record negative requirement.
+Requested judge/editor disposition; runtime remains unchanged pending that rule.
