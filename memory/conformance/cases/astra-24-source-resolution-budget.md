@@ -1,6 +1,6 @@
 # ASTRA24-06: zero source-resolution allowance cannot yield a current-required witness
 
-Status: R7-028 impl-bug; source fix `c923ebd` independently verified, judge closure pending.
+Status: R7-028 fixed at `c923ebd`, independently verified and judge-closed at `b1ae299`.
 Owner: astra-24. Package `0.2.1-draft` at `f31d58f`; execution checkout `f39af13`.
 
 ## Clauses and two readings

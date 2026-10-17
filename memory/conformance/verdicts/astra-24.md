@@ -1,12 +1,12 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: active, round 12. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 13; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.1-draft` released at `f31d58f`.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
-companion and design, and the released package. This seat authored six synthetic
+companion and design, and the released package. This seat authored seven synthetic
 semantic counterexamples and exact package-format vectors. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
@@ -20,7 +20,8 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-03 | Mixed necessary AND states must be combined before OR preference | R7-014 fixed `f31d58f`, judge-closed `6a4f307`; R7-015 judge-closed |
 | ASTRA24-04 | Derived witness must retain exact authorized premise sources | R7-023 fixed `7c765fe`, judge-closed `73ebb62` |
 | ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 fixed `4e647ea`, judge-closed `56e5909` |
-| ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028; source fix `c923ebd` independently verified |
+| ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
+| ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | Phase 2 regression; package pass, source exact-proof unsupported |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -157,13 +158,42 @@ Judge ledger `56e5909` closes R7-027. R7-028 has a positive independent closure
 reply but its ledger successor and R7-029 final review are pending in this
 checkout. No new fixture, package edit or expected-answer change in this round.
 
+## Phase 2 scope and round 13
+
+Convener event `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc` explicitly
+withholds PARK and requires all 57 canonical semantic vectors to pass both
+implementations, followed by a full round without a new open item. The original
+supported-vector 2/2 at judge `b1ae299` is preserved as historical evidence; it
+was not a claim of complete dual coverage. Current dual coverage is **43/57**.
+
+Source gaps: B01, B07, P05, P06, P08, P12, S07, S17, S20, S23, S24, S25,
+S26 and S27. This seat focuses on exact proof enumeration, dirty/review behavior,
+and the v0.2 distinction between write collision, ambiguous currentness and
+signed evidence conflict. Disclosure and publication adversary scopes remain
+with their existing owners. Unsupported inputs are coverage gaps, not fabricated
+implementation defects.
+
+ASTRA24-07 adds a tight four-root/one-rule Cartesian proof fixture: four exact
+proof sets, two root origins, complete evidence under a three-path rendering cap.
+The package evaluator passes; source exact proof enumeration is unsupported.
+The seven owned cases now give package 7 pass and source 5 pass / 0 fail / 2
+unsupported. Exact reports: `.temp/astra22-owned-cases-15.json`,
+`.temp/astra23-owned-cases-08.json`; structural and intended-forbidden checks:
+`.temp/case-vectors-validate-13.log`. Original six expected results are unchanged.
+
+Initial inspection of projection exclusion found explicit subtraction from
+review refs plus audience redaction, so no new case was fabricated for that
+hypothesis. Narrow review-list scope remains under source audit without an
+asserted defect. Research is persisted in `.temp/phase2-review-scope-notes.md`
+and `.temp/phase2-unsupported-inventory.json`.
+
 ## Provisional R7 row and remaining work
 
-**R7: 1/2 pending judge's final ledger.** All supported owned cases pass and
-this seat's targeted R7-029 review is green. The published ledger at this checkout
-still lists the final two source defects open; a successful producer report
-alone does not close them. Exact proof enumeration and protected deployment
-remain explicitly unsupported in the source lane where recorded.
+**Phase 2 R7: 1/2.** Dual canonical coverage is 43/57, while package coverage
+is 57/57 and all supported source vectors pass. The 14 remaining source cases
+must execute before the stronger completion claim; protected deployment remains
+unsupported. All phase-1 classified bugs are closed, and the new proof regression
+does not allege an additional defect.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
