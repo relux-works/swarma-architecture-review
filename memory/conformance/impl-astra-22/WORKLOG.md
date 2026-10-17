@@ -351,3 +351,7 @@ unchanged in `runs/phase1-accepted.*` before replacing current RESULTS.
 Newly directed R7-030 persisted-idempotency defect is queued as the next unit,
 separate from coverage. ASTRA25-07 erasure-receipt disclosure is noted for the
 later erasure unit pending judge disposition. No other evaluator code was read.
+
+## R7-030 persisted idempotency (in progress)
+
+Preserved the complete judge snapshot/probe as fixtures/persisted-idempotency-judge-first.json. Independent reproduction on 4960d24 records three duplicate_record refusals instead of two exact receipt replays and an idempotency_conflict; runs/persisted-idempotency-first.json retains complete actual output and unchanged-state evidence. Use runtime.idempotency as the authoritative store, including admitted initial snapshots and successful commits. Add red-before controls for initial and reconstructed replay, original handle/time, changed intent, actor/space/key isolation and current operation authorization. Import-currentness R7-032 and the newly reported retention case are queued behind this committed unit; proof Cartesian regression will be included in the next supplemental run.

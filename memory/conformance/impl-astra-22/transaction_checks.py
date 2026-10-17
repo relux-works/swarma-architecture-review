@@ -18,6 +18,87 @@ def fixture(name):
 
 
 class AtomicControls(unittest.TestCase):
+    # R7-030: an admitted snapshot replays the exact old receipt across intake
+    # times, rejects changed intent, and preserves all records/runtime state.
+    def test_initial_idempotency_snapshot(self):
+        data = json.loads((Path(__file__).parent / "fixtures/persisted-idempotency-judge-first.json").read_text())
+        adapter = Adapter(data["initial_state"], "control")
+        writer = Transactions(adapter)
+        before = copy.deepcopy((adapter.records, adapter.runtime))
+        for op in data["operations"][:2]:
+            self.assertEqual(writer.apply(op), data["expected_operation_results"][0])
+        with self.assertRaisesRegex(Refusal, "idempotency_conflict"):
+            writer.apply(data["operations"][2])
+        self.assertEqual((adapter.records, adapter.runtime), before)
+
+    # A successful write persists a complete replay entry. Reconstructing the
+    # semantic adapter retains the handle and first recorded time; this is not
+    # a process crash/durable-storage qualification.
+    def test_successful_idempotency_reconstruction(self):
+        v = fixture("S14")
+        adapter = Adapter(v["initial_state"], "control")
+        result = Transactions(adapter).apply(v["operations"][0])
+        self.assertEqual(len(adapter.runtime["idempotency"]), 1)
+        self.assertEqual(adapter.runtime["idempotency"][0]["receipt"], result)
+        snapshot = copy.deepcopy(v["initial_state"])
+        snapshot.update(records=list(adapter.records.values()), runtime=adapter.runtime)
+        restored = Adapter(snapshot, "control")
+        before = copy.deepcopy((restored.records, restored.runtime))
+        self.assertEqual(Transactions(restored).apply(v["operations"][1]), result)
+        self.assertEqual((restored.records, restored.runtime), before)
+        e = restored.records[key(result["refs"][0])]["envelope"]
+        self.assertEqual(e["recorded"]["at"], v["operations"][0]["context"]["at"])
+
+    # Actor, space and key each isolate an existing receipt. Each different
+    # identity admits a valid neighboring record and preserves the original entry.
+    def test_idempotency_identity_scope(self):
+        data = json.loads((Path(__file__).parent / "fixtures/persisted-idempotency-judge-first.json").read_text())
+        for dimension in ("actor", "space", "key"):
+            with self.subTest(dimension=dimension):
+                adapter = Adapter(data["initial_state"], "control")
+                original = copy.deepcopy(adapter.runtime["idempotency"][0])
+                op = copy.deepcopy(data["operations"][0])
+                proposal = op["proposals"][0]
+                proposal["envelope"]["id"] = "rec:neighbor"
+                if dimension == "actor":
+                    op["context"]["actor"] = "subj:other"
+                    proposal["envelope"]["issuer"] = "subj:other"
+                    proposal["envelope"]["perspective"]["principal"] = "subj:other"
+                elif dimension == "space":
+                    proposal["envelope"]["space"] = "space:other"
+                else:
+                    op["idempotency_key"] = "key:other"
+                grant = copy.deepcopy(adapter.policy["grants"][0])
+                grant.update(principal=op["context"]["actor"], space=proposal["envelope"]["space"])
+                adapter.policy["grants"].append(grant)
+                fact = copy.deepcopy(adapter.policy["lineage_facts"][0])
+                fact["output"] = ref(proposal)
+                adapter.policy["lineage_facts"].append(fact)
+                adapter.policy["reviews"].append({"record": ref(proposal), "reviewer": op["context"]["actor"], "result": "allow"})
+                result = Transactions(adapter).apply(op)
+                self.assertEqual(result["outcome"], "admitted")
+                self.assertEqual(result["refs"], [ref(proposal)])
+                self.assertEqual(adapter.runtime["idempotency"][0], original)
+                self.assertEqual(len(adapter.runtime["idempotency"]), 2)
+
+    # Current actor/space admission authority precedes replay; unrelated rights
+    # cannot reveal an old receipt and refusal changes no state.
+    def test_idempotency_current_authorization(self):
+        data = json.loads((Path(__file__).parent / "fixtures/persisted-idempotency-judge-first.json").read_text())
+        adapter = Adapter(data["initial_state"], "control")
+        grants = copy.deepcopy(adapter.policy["grants"])
+        for grant in adapter.policy["grants"]:
+            grant["rights"].remove("admit")
+        neighbor = copy.deepcopy(grants[0])
+        neighbor["principal"] = "subj:other"
+        adapter.policy["grants"].append(neighbor)
+        before = copy.deepcopy((adapter.records, adapter.runtime))
+        with self.assertRaisesRegex(Refusal, "not_authorized"):
+            Transactions(adapter).apply(data["operations"][0])
+        self.assertEqual((adapter.records, adapter.runtime), before)
+        adapter.policy["grants"] = grants
+        self.assertEqual(Transactions(adapter).apply(data["operations"][0]), data["expected_operation_results"][0])
+
     # R7-026: wrong-subject, equal-spelling-without-binding and non-own
     # self-declarations refuse atomically. Distinct bound identities are valid.
     def test_self_declaration_identity(self):
