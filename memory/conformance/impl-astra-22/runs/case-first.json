@@ -1,0 +1,902 @@
+{
+  "astra-24-mixed-source-state.vector.json": {
+    "status": "fail",
+    "differences": [
+      {
+        "path": "$.operation_results[0].items[0].oppose.source_state",
+        "expected": "prior_assessment_only",
+        "actual": "resolvable_now"
+      },
+      {
+        "path": "$.operation_results[0].items[1].oppose.source_state",
+        "expected": "prior_assessment_only",
+        "actual": "resolvable_now"
+      },
+      {
+        "path": "$.result.items[0].source_refs.length",
+        "expected": 1,
+        "actual": 0
+      },
+      {
+        "path": "$.result.items[0].support.source_state",
+        "expected": "prior_assessment_only",
+        "actual": "independent_attestation"
+      },
+      {
+        "path": "forbidden:/result/items/0/support/source_state",
+        "expected": "predicate false",
+        "actual": {
+          "path": "/result/items/0/support/source_state",
+          "test": "equals",
+          "value": "independent_attestation"
+        }
+      }
+    ],
+    "actual": {
+      "operation_results": [
+        {
+          "type": "view",
+          "semantic_profile": "0.1.0-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:a",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "alpha"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [
+                {
+                  "id": "rec:s",
+                  "version": 1
+                }
+              ],
+              "support": {
+                "witness": "present",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "clean_path",
+                "evidence_qualification": [
+                  "semantic_review"
+                ],
+                "source_state": "independent_attestation",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [
+                  "origin:att"
+                ],
+                "independent_root_count": 1
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            },
+            {
+              "ref": {
+                "id": "rec:b",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "beta"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [
+                {
+                  "id": "rec:s",
+                  "version": 1
+                }
+              ],
+              "support": {
+                "witness": "present",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "clean_path",
+                "evidence_qualification": [
+                  "semantic_review"
+                ],
+                "source_state": "prior_assessment_only",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [
+                  "origin:ret"
+                ],
+                "independent_root_count": 1
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        }
+      ],
+      "result": {
+        "type": "view",
+        "semantic_profile": "0.1.0-draft",
+        "projection_rule": {
+          "id": "projection:main",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "authorized_snapshot_handle": "<fresh>",
+        "data_classification": "data",
+        "items": [
+          {
+            "ref": {
+              "id": "rec:c",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "submitter": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "representation_ref": null,
+            "admission_class": "machine_observation",
+            "statement_kind": "fact",
+            "content": [
+              {
+                "field": "value",
+                "value": "gamma"
+              }
+            ],
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "usable_until": null,
+            "currentness": "current",
+            "authority_receipt": null,
+            "incompatible_with": [],
+            "needs_review": false,
+            "source_refs": [],
+            "support": {
+              "witness": "present",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "clean_path",
+              "evidence_qualification": [
+                "formal_entailment",
+                "semantic_review"
+              ],
+              "source_state": "independent_attestation",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "<fresh>",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [
+                "origin:att",
+                "origin:ret"
+              ],
+              "independent_root_count": 2
+            },
+            "oppose": {
+              "witness": "not_found",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "not_fully_checked",
+              "evidence_qualification": [],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "<fresh>",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [],
+              "independent_root_count": 0
+            }
+          }
+        ],
+        "currentness": "current",
+        "historical": [],
+        "review_required": [],
+        "explanation": {
+          "status": "complete",
+          "paths": [],
+          "reason": null
+        },
+        "cutoffs": [],
+        "changes": {
+          "state": "initial",
+          "refs": []
+        }
+      },
+      "postconditions": {
+        "record_refs": [
+          {
+            "id": "cert:j",
+            "version": 1
+          },
+          {
+            "id": "rec:a",
+            "version": 1
+          },
+          {
+            "id": "rec:att",
+            "version": 1
+          },
+          {
+            "id": "rec:b",
+            "version": 1
+          },
+          {
+            "id": "rec:c",
+            "version": 1
+          },
+          {
+            "id": "rec:j",
+            "version": 1
+          },
+          {
+            "id": "rec:ret",
+            "version": 1
+          },
+          {
+            "id": "rec:s",
+            "version": 1
+          }
+        ],
+        "erased_refs": [],
+        "custody_present": [],
+        "dirty": [],
+        "control_observations": [],
+        "external_effects": []
+      }
+    }
+  },
+  "astra-24-premise-quality-alternatives.vector.json": {
+    "status": "unsupported",
+    "reason": "Frozen core has no exact proof-path enumeration or changes output"
+  },
+  "astra-24-rule-applicability.vector.json": {
+    "status": "pass",
+    "differences": [],
+    "actual": {
+      "operation_results": [
+        {
+          "type": "view",
+          "semantic_profile": "0.1.0-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:b",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "beta"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "present",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "clean_path",
+                "evidence_qualification": [
+                  "formal_entailment",
+                  "semantic_review"
+                ],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [
+                  "origin:ep"
+                ],
+                "independent_root_count": 1
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        {
+          "type": "view",
+          "semantic_profile": "0.1.0-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:b",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "beta"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "present",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "clean_path",
+                "evidence_qualification": [
+                  "formal_entailment",
+                  "semantic_review"
+                ],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [
+                  "origin:ep"
+                ],
+                "independent_root_count": 1
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        }
+      ],
+      "result": {
+        "type": "view",
+        "semantic_profile": "0.1.0-draft",
+        "projection_rule": {
+          "id": "projection:main",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "authorized_snapshot_handle": "<fresh>",
+        "data_classification": "data",
+        "items": [
+          {
+            "ref": {
+              "id": "rec:b",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "submitter": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "representation_ref": null,
+            "admission_class": "machine_observation",
+            "statement_kind": "fact",
+            "content": [
+              {
+                "field": "value",
+                "value": "beta"
+              }
+            ],
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "usable_until": null,
+            "currentness": "current",
+            "authority_receipt": null,
+            "incompatible_with": [],
+            "needs_review": false,
+            "source_refs": [],
+            "support": {
+              "witness": "not_found",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "not_fully_checked",
+              "evidence_qualification": [],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "<fresh>",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [],
+              "independent_root_count": 0
+            },
+            "oppose": {
+              "witness": "not_found",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "not_fully_checked",
+              "evidence_qualification": [],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "<fresh>",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [],
+              "independent_root_count": 0
+            }
+          }
+        ],
+        "currentness": "current",
+        "historical": [],
+        "review_required": [],
+        "explanation": {
+          "status": "complete",
+          "paths": [],
+          "reason": null
+        },
+        "cutoffs": [],
+        "changes": {
+          "state": "initial",
+          "refs": []
+        }
+      },
+      "postconditions": {
+        "record_refs": [
+          {
+            "id": "cert:j",
+            "version": 1
+          },
+          {
+            "id": "rec:a",
+            "version": 1
+          },
+          {
+            "id": "rec:b",
+            "version": 1
+          },
+          {
+            "id": "rec:ep",
+            "version": 1
+          },
+          {
+            "id": "rec:j",
+            "version": 1
+          }
+        ],
+        "erased_refs": [],
+        "custody_present": [],
+        "dirty": [],
+        "control_observations": [],
+        "external_effects": []
+      }
+    }
+  },
+  "astra-25-hidden-premise-quality.vector.json": {
+    "status": "unsupported",
+    "reason": "Unmapped frozen-core transaction operations: admit"
+  },
+  "astra-25-surviving-support-erasure-complete-control.vector.json": {
+    "status": "unsupported",
+    "reason": "Unmapped frozen-core transaction operations: erase"
+  },
+  "astra-25-surviving-support-erasure-current-generation.vector.json": {
+    "status": "unsupported",
+    "reason": "Unmapped frozen-core transaction operations: admit, erase"
+  },
+  "astra-25-surviving-support-erasure.vector.json": {
+    "status": "unsupported",
+    "reason": "Unmapped frozen-core transaction operations: erase"
+  },
+  "astra-26-import-attribution.vector.json": {
+    "status": "unsupported",
+    "reason": "Unmapped frozen-core transaction operations: admit"
+  },
+  "astra-26-publication-currentness-checked.vector.json": {
+    "status": "pass",
+    "differences": [],
+    "actual": {
+      "operation_results": [],
+      "result": {
+        "type": "view",
+        "semantic_profile": "0.1.0-draft",
+        "projection_rule": {
+          "id": "projection:main",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "authorized_snapshot_handle": "<fresh>",
+        "data_classification": "data",
+        "items": [
+          {
+            "ref": {
+              "id": "rec:interest",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "submitter": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "representation_ref": null,
+            "admission_class": "imported_publication",
+            "statement_kind": "self_declaration",
+            "content": [
+              {
+                "field": "value",
+                "value": "gardening"
+              }
+            ],
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "usable_until": "2026-10-18T00:00:00Z",
+            "currentness": "current",
+            "authority_receipt": null,
+            "incompatible_with": [],
+            "needs_review": false,
+            "source_refs": [
+              {
+                "id": "rec:copy1",
+                "version": 1
+              },
+              {
+                "id": "rec:copy2",
+                "version": 1
+              },
+              {
+                "id": "rec:copy3",
+                "version": 1
+              }
+            ],
+            "support": {
+              "witness": "present",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "clean_path",
+              "evidence_qualification": [
+                "semantic_review"
+              ],
+              "source_state": "resolvable_now",
+              "freshness": "fresh",
+              "authorized_snapshot_handle": "<fresh>",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [
+                "origin:declaration"
+              ],
+              "independent_root_count": 1
+            },
+            "oppose": {
+              "witness": "not_found",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "not_fully_checked",
+              "evidence_qualification": [],
+              "source_state": "resolvable_now",
+              "freshness": "fresh",
+              "authorized_snapshot_handle": "<fresh>",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [],
+              "independent_root_count": 0
+            }
+          }
+        ],
+        "currentness": "current",
+        "historical": [],
+        "review_required": [],
+        "explanation": {
+          "status": "complete",
+          "paths": [],
+          "reason": null
+        },
+        "cutoffs": [],
+        "changes": {
+          "state": "initial",
+          "refs": []
+        }
+      },
+      "postconditions": {
+        "record_refs": [
+          {
+            "id": "rec:copy-review1",
+            "version": 1
+          },
+          {
+            "id": "rec:copy-review2",
+            "version": 1
+          },
+          {
+            "id": "rec:copy-review3",
+            "version": 1
+          },
+          {
+            "id": "rec:copy1",
+            "version": 1
+          },
+          {
+            "id": "rec:copy2",
+            "version": 1
+          },
+          {
+            "id": "rec:copy3",
+            "version": 1
+          },
+          {
+            "id": "rec:interest",
+            "version": 1
+          }
+        ],
+        "erased_refs": [],
+        "custody_present": [],
+        "dirty": [],
+        "control_observations": [],
+        "external_effects": []
+      }
+    }
+  },
+  "astra-26-publication-currentness.vector.json": {
+    "status": "unsupported",
+    "reason": "Frozen core has no imported-publication currentness state"
+  },
+  "astra-26-representative-public-alias-missing.vector.json": {
+    "status": "unsupported",
+    "reason": "Frozen core has no full audience item redaction/alias output"
+  },
+  "astra-26-representative-public-alias.vector.json": {
+    "status": "unsupported",
+    "reason": "Frozen core has no full audience item redaction/alias output"
+  }
+}

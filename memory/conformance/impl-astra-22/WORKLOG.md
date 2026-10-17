@@ -68,3 +68,12 @@ paths, cross-assertion incompatibility, audience redaction, imported-currentness
 and dirty closure remain explicit gaps. Five runner control plants passed.
 Disagreements are grouped in DIVERGENCES.md and are sent to the judge before any
 correction. No expected value or vector identifier is passed into the adapter.
+
+## Supplemental adversarial inventory
+
+At checkout a46eb98, ran all 12 currently published case vectors with the same
+unchanged core and adapter: 2 pass, 1 fail, 9 unsupported. Exact evidence:
+`runs/case-first.json`. ASTRA24-02 rule applicability and ASTRA26-02 checked import
+control pass. ASTRA24-03 exposes ASTRA22-04 (AND-path source-state aggregation)
+and additional occurrences of ASTRA22-02/03. This remains separate from the
+canonical package totals and all failures are sent for classification.

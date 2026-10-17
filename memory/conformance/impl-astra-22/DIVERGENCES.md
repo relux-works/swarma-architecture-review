@@ -51,3 +51,20 @@ transactions, exact explanation paths, cross-assertion incompatibility, audience
 redaction and dirty closure. Their full reasons are in the report. They are not
 passes or package defects. Eight protected deployment vectors remain unsupported
 because this seat does not exercise an actual protected deployment.
+
+## ASTRA22-04 — AND-path source state is flattened across premises
+
+Adversarial case `astra-24-mixed-source-state.vector.json` at `a46eb98` was run
+against the same frozen core. Expected conclusion support source state is
+`prior_assessment_only`; actual is `independent_attestation`. The core unions
+source states across premises, then applies the preference that should apply
+between complete alternative paths. One independent premise does not remove the
+other retained-only premise's dependency on unavailable source bytes.
+
+Recommended classification: impl-bug, subject to the judge's disposition of
+ASTRA24-03. This run also reproduces ASTRA22-02 on two opposite channels, and
+extends ASTRA22-03: derived conclusion source_refs misses its premise source.
+Raw normalized actual reports and all fields: `runs/case-first.json`. Source
+qualification must be joined across all AND premises before comparing OR paths;
+provenance association must traverse found paths without exposing hidden inputs.
+No correction has been applied.
