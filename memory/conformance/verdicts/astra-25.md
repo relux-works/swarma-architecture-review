@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: round 9, six cases and nine fixtures (eight semantic, one deployment). Seat identity:
+Status: phase 2, round 10; seven cases and eleven fixtures (ten semantic, one deployment). Seat identity:
 `ivmbp_swarma-memory_astra-25`. Baseline: `95f974b` (2026-10-17).
 
 ## Scope and evidence
@@ -18,7 +18,7 @@ and positive controls, with package-format vectors when the grammar exists.
 
 ## Current result
 
-Six separating cases are recorded:
+Seven separating cases are recorded:
 
 | Case | Property | Evidence class |
 | --- | --- | --- |
@@ -28,6 +28,7 @@ Six separating cases are recorded:
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | An outside-domain witness needs current complete coverage | Deployment restore |
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Unqualified global dirty status can expose a hidden-only dependency revision | Semantic non-interference; package-clause conflict |
 | [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md) | Opposite-premise quality cannot consume the existence-witness budget | Observed source evaluator accounting divergence |
+| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erasure closure must not disclose hidden derivative IDs without metadata authority | Observed package receipt divergence; clause conflict |
 
 The initial package `0.1.0-draft` landed at `0ef608a`. The judge rejected
 ASTRA25-01/R7-005 and ASTRA25-03/R7-007 as spec defects because the prose already
@@ -118,8 +119,25 @@ passing `f5fdd8b` evaluator; unrelated source changes do not replace that eviden
 collective judge closure and the separate source-resolution case remain pending. No deployment pass is claimed.
 The initial package-absent 0/2 was only the round-0 baseline.
 
-## Outstanding
+## Phase 2 and current outstanding work
 
-No owned defect remains open. Await collective judge closure of R7-028/029 and
-the convener's PARK. Unsupported source operations and all deployment limits
-remain explicit; finalize verdict and park note only after PARK.
+The convener explicitly withheld PARK in event
+`$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc` and requires all 57 canonical
+semantic vectors to pass both independent evaluators, plus one full round with
+no new open item. Judge `b1ae299` verified the original supported-vector rubric
+at 2/2, but that was not full dual-implementation coverage (43/57 in the source
+implementation). The active objective continues through the previously
+unsupported release/erase/restore/snapshot boundaries and v0.2 delta.
+
+New ASTRA25-07 separates erasure authority from private derivative metadata:
+K-API-1's authorized refs conflict with an unqualified reading of K-ERASE-2's full
+closure receipt. The package evaluator actually discloses the hidden derivative
+id; its separately authorized control passes. All eleven fixtures structurally
+validate. Current package-owned semantic results are 9 pass / 1 fail; the one
+deployment fixture stays unsupported. Exact evidence is persisted as
+`astra23-phase2-erasure-receipt`. Judge classification is pending; original
+expected contracts and historical reports remain intact.
+
+**Phase-2 provisional score: 1/2** pending this new concrete divergence and the
+requested full dual coverage. Continue the disclosure/erasure audit, verify the
+source implementation as support arrives, and finalize only after actual PARK.
