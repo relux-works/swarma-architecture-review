@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 30, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 31, 2026-10-17.
 
 ## Baseline and scope
 
@@ -813,3 +813,27 @@ R7-055 is now a filed owner question, explicitly held for Ivan by the convener.
 Both native issuer readings stay preserved, with no authority edit or assumed
 oracle and no addition to pass/fail denominators. R7-053 formal closure and the
 new recovery defect remain pending; score **1/2**, no PARK received.
+
+## Phase 2 round 31 — initial availability recovery correction verified
+
+Judge classifies the preserved recovery failure as R7-056, a source implementation
+bug. Independently reviewed `87beb46`: the authorized set_availability branch
+now updates the current public availability fact as well as its existing runtime
+stimulus, after owner/shape/coarse-policy checks. No authority-order behavior or
+fixture changed.
+
+All five availability control groups now pass, including the original failing
+transition embedded in the expanded four-transition matrix. Only the requested
+public/runtime availability facts change; policy pins, grants, admitted records,
+cuts, receipts and captures remain as expected. Wrong owner, undeclared coarse
+disclosure and malformed state still refuse atomically. Hidden load preserves
+the public view, and control observations remain data with no external effects.
+Canonical S27 also passes exactly with its forbidden and normalization checks.
+
+Evidence: seat `.temp/r7-astra-26/astra22-availability-controls-02.log` and
+`s27-astra22-01.json`, with exact input/module hashes. The original 4-pass/1-fail
+report remains immutable. This focused verification covers the one-line mutation
+and its neighbors; the complete source corpus remains the separately pinned
+round-30 evidence, not a claimed fresh rerun. Recommend R7-056 closure subject
+to the judge's gates. New erase-context priority review remains separate; R7-055
+stays held for Ivan without an oracle. Score **1/2**, no deployment or PARK claim.
