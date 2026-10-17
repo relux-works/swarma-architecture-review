@@ -1,6 +1,7 @@
 # ASTRA24-11: authority order traverses receipt-only intermediate events
 
-Status: judge-classified R7-051 source implementation bug; correction pending.
+Status: judge-classified R7-051 source implementation bug; correction `427fed5`
+independently verified, formal judge closure pending.
 Owner: astra-24. Package `0.2.3-draft`; first exact execution at `a970a95`.
 No write, replacement, challenge or CAS operation is performed in either vector.
 
@@ -85,3 +86,28 @@ reproduces the transitive projection in a fresh read-only snapshot and assigns
 R7-051 to source. ASTRA24-11 and ASTRA24-10-TRANSITIVE are the same family.
 Source `4772258` fixes only replacement admission; both projection witnesses
 remain failing after explicit 0.2.4 migration. Package passes both exactly.
+
+## Round 29 source receipt ancestry correction verified
+
+At checkout `71fb6b3`, source correction `427fed5` passes all twenty unchanged
+0.2.4 owned vectors, including the exact read-only pair and transitive-write
+neighbor. Full expanded canonical B01 now has zero field differences and zero
+forbidden/normalization failures, including the final projection. The adapter
+closes canonical receipt ancestry by issuer before mapping existing candidates
+within the exact sequence and space; it does not require a middle assertion.
+
+Four focused native methods pass: the exact absent/present middle pair, longer
+receipt-only paths and event-array reversal, genuinely incomparable branches,
+and candidate eligibility under hidden/public versus private queries, historical
+cut, different subject and simulated mode. They assert read-only state equality
+and do not fabricate a decision for an intermediate receipt. These examples
+qualify the exercised candidate filtering and graph shapes, not every possible
+authority graph or hidden intermediate-event policy.
+
+Evidence: `.temp/astra22-owned-cases-31.json`,
+`.temp/astra22-b01-024-fixed.json`, and
+`.temp/astra22-authority-projection-controls-01.log`. Input hashes match the
+previous run exactly. Original first reports `64ef86e`, `4772258`, `d5f07be`
+and this case's first artifact remain intact. R7-051 closure is recommended
+after judge review; retention-deadline and unsupported source operations are
+independent collective work.

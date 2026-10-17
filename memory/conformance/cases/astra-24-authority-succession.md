@@ -180,3 +180,9 @@ Evidence: `.temp/astra23-owned-cases-21.json`,
 run; first native `47c0205`, exact `0641033`, and new-release `e689cf2` failures
 remain intact. R7-048 closure is recommended after judge review. This does not
 close the source projection or other-seat retention-deadline contract.
+
+Round 29 additionally verifies source projection correction `427fed5`: the full
+ASTRA24-10-TRANSITIVE result and expanded canonical 0.2.4 B01 now pass exactly,
+as do all twenty owned source fixtures. The separate R7-051 evidence and focused
+limits are recorded in [ASTRA24-11](astra-24-receipt-only-order.md). No input or
+behavioral expectation changed to obtain this result.

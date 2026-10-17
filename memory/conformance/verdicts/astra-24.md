@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 28; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 29; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.4-draft` at `ef02647`; all owned fixtures explicitly migrated.
 
 ## Scope and method
@@ -26,7 +26,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package `53266dd` and source `99b5a85` independently verified; both judge-closed |
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
 | ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Source R7-047 verified `4772258`; package R7-048 verified `942bdee`; mapping release R7-049 verified `ef02647` |
-| ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | R7-051 source impl-bug accepted; both projection witnesses remain failing, package passes |
+| ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | R7-051 source correction `427fed5` independently verified; both exact witnesses pass |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -457,12 +457,28 @@ succession-controls01. Original first failures remain intact. R7-048 closure
 is recommended after judge review; source R7-051 and other-seat deadline
 corrections remain independent.
 
+## Round 29 source receipt ancestry verified
+
+Source `427fed5` at checkout `71fb6b3` passes all twenty unchanged owned fixtures
+and the full expanded 0.2.4 B01 with zero differences or forbidden/normalization
+failures. Four focused native ancestry methods pass absent/present intermediates,
+longer receipt-only paths and event ordering, genuine incomparability, and
+candidate eligibility for hidden/private, historical cut, subject and mode.
+Read-only state equality is preserved. This is bounded regression evidence,
+not a universal authority-graph or protected deployment claim.
+
+Exact input/module hashes and results remain in source31, B01-024-fixed and
+source authority-projection-controls01; first failures are unchanged. R7-051
+closure is recommended after judge review. All eleven owned cases now have
+passing exact vectors in both implementations at their documented corrected
+heads. Retention deadlines and remaining source canonical gaps are separate.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** The twenty owned vectors pass in package at `942bdee`;
-last source verification remains 18/2 with R7-051 projection failures. Formal
-remaining closures, other collective repairs and full dual canonical coverage
-remain pending. Protected deployment is unqualified.
+**Phase 2 R7: 1/2.** Both evaluators pass all twenty owned vectors and full B01
+at their documented corrected 0.2.4 heads. Formal remaining closures, other
+collective repairs and full dual canonical coverage remain pending. Protected
+deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
