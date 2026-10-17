@@ -237,3 +237,21 @@ green coverage is 129 using this focused run and prior evidence for unchanged
 groups. Judge `9d2cdd4` verifies that evidence and closes package R7-058; current
 canonical coverage remains 57/57. See the seat verdict for PARK and owner-question
 status rather than treating semantic green reports as deployment qualification.
+
+## D-009 issuer-local order
+
+Kernel v0.3 section 5.3 and DECISIONS.md D-009 choose canonical reachability in
+the issuer's induced event graph. Existing source runtime `946cbd8` already
+implements that relation for projection, CAS head and strict replacement
+succession on admitted states. Source-derived controls run with:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/d009_checks.py
+```
+
+They cover the original separating pair, assertion-free intermediates, foreign
+branches, induced-graph invariance, 256 bounded DAG cases and atomic write
+refusals paired with valid replacements. `runs/d009-source-controls-first.json`
+records the freshly rerun 134 controls before 0.2.6 intake. A bounded global-order
+mutation control is preserved separately in `runs/d009-comparator-plant.json`;
+it is test-sensitivity evidence, not a runtime change or deployment proof.

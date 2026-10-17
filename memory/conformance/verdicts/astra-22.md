@@ -1,3 +1,8 @@
+Reopened for the bounded D-009 / R7-055 round at source commit `2c3100d`.
+The previous PARK and score below are historical until 0.2.6 dual verification
+and the new convener PARK. D-009 now supplies the owner decision; its implementation
+and exact-vector closure are pending.
+
 # astra-22 source evaluator verdict
 
 Final status: **PARKED**, under the convener decision at **2026-10-17 06:33Z**,
