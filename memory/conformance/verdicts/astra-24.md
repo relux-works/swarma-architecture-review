@@ -1,8 +1,7 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 30; no PARK. Source baseline `95f974b`, kernel v0.2; current package
-`0.2.4-draft` at `ef02647` for the twenty exact fixtures. Release `0.2.5-draft`
-at `6a04e8c` arrived during the issuer audit; explicit profile migration is next.
+Status: Phase 2 active, round 31; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+`0.2.5-draft` at `6a04e8c`; all twenty owned exact fixtures explicitly migrated.
 
 ## Scope and method
 
@@ -498,13 +497,46 @@ Judge `de37630` formally closes R7-048 at `942bdee` and R7-051 at
 original failure artifacts remain unchanged. The new issuer-boundary question
 and finite retention deadline repairs are separate from those closed cases.
 
+## Round 31 explicit 0.2.5 migration
+
+All twenty owned exact fixtures now use 0.2.5. Only expected view profile stamps
+changed: reversing that exact byte substitution reproduces every old fixture.
+Initial states, operations, behavioral expectations, forbidden predicates and
+normalization are unchanged. The input/operation records have no finite
+retention deadlines, so this migration does not adjudicate R7-052 or R7-053.
+All original first artifacts remain immutable, including the native issuer pair.
+
+The release comparison independently confirms that P11 alone differs beyond
+version identifiers across all 65 canonical vectors. Its original sixteen
+operations and results are preserved. All fourteen schemas normalize exactly
+across the versioned URNs/profile stamps; domain artifacts are byte-identical.
+The current checker passes 94 JSON artifacts, 52 clauses and all 34 intended
+violation controls. Judge R7-054 closure `3a60f2e` is corroborated for this scope.
+A first local normalization omitted schema URNs without the `-draft` suffix;
+that comparison setup was corrected after inspecting the raw diff, not counted
+as a specification failure.
+
+At checkout `7294c77`, source `4a14a56` and package `942bdee` each exactly pass
+all twenty migrated vectors, with no execution errors or unsupported cases.
+Both harnesses pass their existing known-violation controls. All twenty closed
+shapes, reference sets, normalization, inventories and forbidden-output plants
+also pass. No execution API receives the expected output.
+
+Seat-local evidence: `astra24-profile-025-migration.json` and old-byte backup
+`astra24-owned-profile-024/`; `package-025-delta.json`/`-delta-01.log`;
+`package-025-validation-01.log`; `case-vectors-validate-28.log`;
+`astra22-owned-cases-32.json/.log` and `astra23-owned-cases-22.json/.log`.
+The reports retain the checkout, exact fixture hashes and all runtime module
+hashes. This is a corpus regression and explicit migration, not a full finite
+deadline or protected-deployment verification.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Both evaluators pass all twenty owned exact vectors and
-full B01 at their corrected 0.2.4 heads. New issuer-boundary probes disagree
-and await normative adjudication. The 0.2.5 migration, other collective repairs
-and full dual canonical coverage remain pending. Protected deployment is
-unqualified.
+**Phase 2 R7: 1/2.** Both evaluators pass all twenty owned exact vectors on
+explicit 0.2.5 fixtures; prior exact B01 evidence remains at its corrected
+0.2.4 heads. New issuer-boundary probes disagree and await normative
+adjudication. Other collective repairs and full dual canonical coverage remain
+pending. Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
