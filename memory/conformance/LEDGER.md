@@ -103,7 +103,7 @@ commits and relevant controls; a candidate release alone is insufficient.
 | R7-052 | astra-25 [retention-deadline](cases/astra-25-retention-deadline.md), first `604af18`; request `$XkFYu2DEMaA0d8d3wUeCqkwMVrlPAqRQAg0B_ViVOAg` | ASTRA25-11 native probes; K-DISC-1, K-AUTH-1, K-API-1/2 | impl-bug | astra-22 | fixed@4a14a56 | Judge exactly reproduces all 65 canonical 0.2.5 rows at 50/0/7 with correction module hashes and all 112 controls green. All seven migrated expiry vectors pass; independent three-positive/seven-negative operation checks now pass, with exact refusals and complete state preservation. Six native groups cover admit/raw/revise/declassify, every output, transitive/incomplete-known/batch deadlines, original live/expired replay, null/unrelated limits and authorization-before-duplicate priority. First c9e1faf and full old-runtime 0.2.5 failure remain immutable. |
 | R7-053 | Same ASTRA25-11 submission and independently repeated inputs as R7-052 | Same deadline and authorized-replay clauses | impl-bug | astra-23 | fixed@23b4d74 | Judge independently reproduces 57/57 canonical and 61/61 current supplemental at 0.2.5 with exact reports/input/module hashes, 31 product/comparer controls and ten original isolated deadline operation checks. All four write APIs, every proposed output/known closure and current original-receipt replay use strict context.at expiry before idempotency. Equal/later fresh/replay refusals preserve full state and original receipts; live/null controls and same-key recovery pass. First failures remain unchanged. |
 | R7-054 | Judge review of ASTRA25-11; editor recommendation `$rhmPEMI5yxqbjQprbScOEovbpGlhuBzhcvFNwa--FmA` | K-DISC-1, K-AUTH-1, K-API-1/2, K-REF-1 | spec-bug | astra-21 | fixed@6a04e8c | Judge verifies 0.2.5 explicit strict context.at expiry, not_authorized,false before idempotency, original-output/known-closure replay and no purge. All 94 JSON artifacts regenerate exactly; 34 intended checker plants pass. Only P11 changes beyond version; its first 16 operations/results and other 64 vectors/pilot are preserved. Isolated unchanged-runtime probes give five forbidden writes, two expired success replays and one wrong conflict priority; a separate 20-operation positive trace matches every expected field. Runtime fixes stay R7-052/053. |
-| R7-055 | astra-24 [authority-issuer](cases/astra-24-authority-issuer.md), native pair/first `4424598`; request `$2uzH35MbQZgpUZcKniiv8nGpIIxyeCjJQVyjABqbYvU` | D-009; kernel v0.3 §5.3; K-REV-3; package A07 | ambiguity | astra-21 (mapping), astra-22/23 (evaluation), astra-27 (verification) | verification pending | Ivan selects issuer-local predecessor order in D-009 at `2c3100d`: filter edges by protected policy event issuer before transitive closure; assertion-free events count, one all-H path suffices, foreign-only changes cannot alter order, and the same relation governs currentness and strict replacement. Mixed graphs remain admissible. Original input and first outputs stay immutable; closure awaits 0.2.6 exact vectors and both independent passes. See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md). |
+| R7-055 | astra-24 [authority-issuer](cases/astra-24-authority-issuer.md), native pair/first `4424598`; request `$2uzH35MbQZgpUZcKniiv8nGpIIxyeCjJQVyjABqbYvU` | D-009; kernel v0.3 §5.3; K-REV-3; package A07 | ambiguity | astra-21 (mapping), astra-22/23 (evaluation), astra-27 (verification) | verification pending | Ivan selects issuer-local predecessor order in D-009 at `2c3100d`: filter edges by protected policy event issuer before transitive closure; assertion-free events count, one all-H path suffices, foreign-only changes cannot alter order, and the same relation governs currentness and strict replacement. Mixed graphs remain admissible. Original input and first outputs stay immutable. Package `77b951e` maps the decision and nine new exact vectors; judge verifies source 66/66 and reproduces unchanged package first `1be6026` at 64 pass / 2 fail (S34/S39). Closure awaits package alignment and dual verification. See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md). |
 | R7-056 | astra-22 ASTRA22-08, signed native first `dbf4892`, [first evidence](impl-astra-22/runs/availability-recovery-first.json); request `$fDDTeYrjnc9MYUG4MHM6u2sw7BII51TC8fX0w9jadOU` | K-NI-3; S27 authorized public availability | impl-bug | astra-22 | fixed@87beb46 | Judge independently reproduces 57/57 canonical, 61/61 supplemental and all 125 native/comparer controls at the signed correction. The unchanged original native witness and four-transition matrix now pass, as do two exact atomic authorization negatives. Only current public/runtime availability facts change; policy pins, grants, records, receipts, cuts and captures remain preserved. Original single-case and expanded-matrix red evidence stays immutable; no deployment claim. |
 
 | R7-057 | astra-22 ASTRA22-09, signed native first `0529814`, [first evidence](impl-astra-22/runs/erase-changed-context-first.json); request `$Jls_nbueo2sF-siMYb-5Xqb_iijrTcnTQ4UT_NDB2gU` | K-API-1/2; K-ERASE-2 | impl-bug | astra-22 | fixed@946cbd8 | Judge independently reproduces all 65 canonical/64 supplemental committed rows: 57/57 and 63/63 semantic, unchanged inputs; 128 source controls pass. Both unchanged 66233ab exact regressions and six original/native neighboring probes now pass with full refusal state and original receipts preserved. Current erase authority precedes changed-intent conflict; stored-ref metadata gates exact replay only. Read/use/metadata loss and immutable empty receipts remain covered. Original 0529814 native and five expanded wrong-code failures are retained. Package 23b4d74 remains conforming. |
@@ -1989,3 +1989,44 @@ Evidence: seat `.temp/astra22-judge-r055-round04-cases-0.2.5.{md,json}` and
 `impl-astra-22/runs/d009-0.2.5-regression-first.json` and its provenance companion.
 Runtime remains `946cbd8`. Current canonical 0.2.6 coverage remains pending;
 this historical regression is not included in its denominator. No new finding.
+
+
+## Reopened round 5 — 0.2.6 accepted; package first mismatch preserved
+
+Release `77b951eb86d5ba9198921d058930884918a39942` maps D-009 exactly in
+K-REV-3. Judge independently regenerates all 103 JSON artifacts byte-identically;
+14 schemas, 14 domains, one fixture, 74 vectors (66 semantic/eight deployment),
+52 clauses and 38 intended checker plants pass validation. Every prior JSON
+artifact (94) retains its complete structure/content except declared version
+values. S34/S35 initial state, operations and query exactly equal the unchanged
+original foreign/same-issuer probes. The original bundle SHA-256 remains
+`8224829a810a97c79fef81cb18f0d650b59ffc84a3262bdef09b1ea900c521b3`.
+
+Independent induced-subgraph closure agrees with each new oracle: S34/S37 are
+ambiguous; S35/S36/S38/S42 select d3; S39 refuses replace/correct with the existing
+code, permits ordinary import, keeps candidates ambiguous and distinguishes CAS;
+S40/S41 accept succession, preserve replay and refuse stale CAS. S34/S37 and
+S36/S38 change only the foreign predecessor list, retaining identical complete
+expected reports. S42 independently checks the protected event-issuer axis.
+No behavioral oracle correction or new refusal code is indicated.
+
+Judge first runs: source runtime `946cbd8` passes 66/66; unchanged package
+runtime `104fbe8` gives 64 pass / two fail / zero unsupported semantic. Both
+leave eight deployment vectors unsupported. Package first `1be6026`, reported
+before its correction, preserves the same S34/S39 failures: forbidden global
+order and a forbidden replacement with cut/dirty/idempotency consequences.
+Every input/module hash and status matches. Seventy-three complete rows match
+under declared normalization; S39 has the same difference paths, with only four
+fresh nonce fields differing in forbidden unexpected receipt/view outputs.
+Those extra handles remain failures, not an expanded normalization allowance.
+
+The convener's PACKAGE LANDED event is
+`$WTb-jdx1xZXxlfS2LIDbJgLJbttB8s-9sxOtjCz9uKY`; the source seat preserved
+its independent controls and historical report before new-package intake.
+Judge evidence: seat `.temp/judge-r055-round05-package-review-01.json`,
+`.temp/judge-r055-round05-package/` (isolated regeneration), and
+`.temp/astra{22,23}-judge-r055-round05-canonical-first.{md,json}`. A first
+comparison-script optional-field KeyError is recorded and corrected in the audit;
+it was not an evaluator error. R7-055 remains verification-pending for the
+required package alignment; the earlier ambiguity is not retroactively a bug.
+Current score 1/2. No new ledger ID or owner question is needed.

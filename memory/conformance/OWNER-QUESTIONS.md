@@ -21,7 +21,10 @@ Changes confined to foreign graph parts cannot change H's order.
 The original mixed-chain witness therefore requires ambiguous d1/d3; its all-H1
 control requires current d3. Closure will be recorded only after the 0.2.6 exact
 vectors and both evaluators pass independent verification. The original input
-and first outputs remain unchanged. Reopening event:
+and first outputs remain unchanged. Package `77b951e` and its nine new vectors
+are independently verified; source first is 66/66, while package first `1be6026`
+has the preserved S34/S39 failures. Package alignment and dual verification
+remain pending. Reopening event:
 `$7qVXDb4qnZcORPIQr_qJeUzKFAj9Md3ZRI_VLpdOSKk`.
 
 ### Historical question and evidence at the first PARK

@@ -3,7 +3,10 @@
 Role: judge; sole writer of ledger, owner questions and score.
 Current status: **ACTIVE — bounded D-009 round**. Current score: **1/2 pending
 0.2.6 dual verification**. Ivan's D-009 at `2c3100d` settles the owner choice in
-R7-055; closure awaits the package and both independent exact-vector passes.
+R7-055. Package 0.2.6 `77b951e` validates and its nine new oracles match the
+owner relation. Judge first runs are source 66/66 and package 64 pass/two fail
+(S34/S39); package first `1be6026` is retained. Closure awaits its correction
+and complete independent dual verification.
 Original first failures and all prior closed findings remain preserved. The
 convener reopened seats 21/22/23/27 at 18:44Z; the new PARK gate is dual 0.2.6
 coverage plus a quiet round, with a 22:30Z hard cap.

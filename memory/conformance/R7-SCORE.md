@@ -2,11 +2,18 @@
 
 Owner: astra-27 (judge). Current status: **ACTIVE — bounded D-009 round**.
 
-**Current R7 score: 1/2, pending 0.2.6 dual verification.** D-009 at `2c3100d`
-settles R7-055 in favor of issuer-local order. The new normative mapping, exact
-vectors and independent evaluator reruns are pending; no newly released coverage
-is inferred from the prior 0.2.5 result. No owner decision remains outstanding.
-See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) and the ledger's reopened round.
+**Current R7 score: 1/2.** D-009 is mapped and verified in 0.2.6 `77b951e`.
+Judge first runs give source **66 pass / 0 fail / 0 unsupported** semantic and
+unchanged package runtime **64 pass / 2 fail / 0 unsupported**. S34/S39 require
+package alignment; first evidence `1be6026` is immutable. Both readers leave
+8 deployment vectors unsupported. R7-055 closes only after both are green.
+
+The 103 JSON artifacts regenerate exactly; 38 intended checker violations are
+detected. All nine new D-009 expectations match the independently reviewed
+issuer-local relation. The unchanged historical source regression remains
+68/68 semantic on frozen 0.2.5, with one deployment case unsupported. This is
+separate from the 0.2.6 denominator. No owner decision remains outstanding.
+See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) and the ledger's reopened rounds.
 
 ### Historical verified baseline — first PARK, 2026-10-17 06:33Z
 
