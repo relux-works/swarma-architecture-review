@@ -179,3 +179,20 @@ f31d58f now gives 43 pass / 0 fail / 14 unsupported semantic, 8 deployment
 unsupported (`vector-run-07.log`). Source core unchanged. Original report remains
 immutable. These fixes require judge closure; exact dirty/proof/publication/erasure
 coverage still remains explicitly unsupported.
+
+## Budget-isolation investigation (in progress)
+
+ASTRA25-06 independently reproduced on 26d8cc6 against f31d58f. Current complete
+supplemental inventory: 10 pass / 2 fail / 8 unsupported semantic, one deployment
+unsupported. Both failures (ASTRA25-01 visible control and ASTRA25-06 minimal
+paired case) show the same shared existence/quality budget defect. Immutable
+report: `runs/cases-0.2.1-first.*`; log: `case-run-04.log`.
+
+The source core currently spends shared counters across both polarity channels
+and the dependency closure. K-EVAL-2/4 require separate requested-literal walks
+and independent opposite-quality walks. New source regression is red for that
+exact property (`source-checks-07-red.log`); its nearby real AND-budget boundary
+passes, preventing an unlimited-budget correction. No product correction yet;
+classification requested in div-astra25-quality-budget. Planned correction keeps
+finite admitted DAG semantics, current-source incompleteness, exact found-path
+provenance and AND/OR source qualification while separating each walk's counters.

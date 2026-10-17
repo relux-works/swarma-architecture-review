@@ -129,3 +129,14 @@ before committing. Seven transaction controls pass; the three intended identity
 violations were observed failing before the fix. P02 now exactly passes. Current
 0.2.1 totals are 43 pass / 0 fail / 14 unsupported semantic. Both new fixes await
 independent judge verification; historical first evidence is unchanged.
+
+## ASTRA25-06 — Shared quality/existence budget (source defect)
+
+Source 26d8cc6 independently reproduces adversary astra-25's case on f31d58f:
+one A+ root and one checked A+ -> B+ rule suffice for B+, while A- is an
+independent quality lookup. The shared topological counter visits A- first and
+loses B+ at roots=1; roots=2 succeeds. Exact report and negative predicates are
+retained in `runs/cases-0.2.1-first.*`. ASTRA25-01's visible control exposes the
+same property; its hidden pair remains equal, so this is not a demonstrated
+hidden-data leak. New unit regression is red before correction and a two-root
+AND boundary remains correctly limited. Awaiting judge classification.

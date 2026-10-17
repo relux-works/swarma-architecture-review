@@ -32,6 +32,37 @@ class SourceClaims(unittest.TestCase):
         self.assertEqual(b["oppose"]["witness"], "not_found")
         self.assertEqual(model.evaluate("C")["support"]["witness"], "not_found")
 
+    # ASTRA25-06: an opposite-quality root cannot consume the existence walk's
+    # one-root allowance. Both polarities also receive independent allowances.
+    def test_quality_and_polarity_budgets_are_independent(self):
+        model = Evaluator([claim(k) for k in "AB"],
+                          [root("a-", "A", "oppose"), root("a+", "A")],
+                          [rule("ab", "B", "A")])
+        one = model.evaluate("B", {"root_budget": 1, "rule_budget": 1})
+        two = model.evaluate("B", {"root_budget": 2, "rule_budget": 1})
+        self.assertEqual(one, two)
+        self.assertEqual(one["support"]["witness"], "present")
+        self.assertEqual(one["support"]["premise_quality"], "conflicted_premises_only")
+        self.assertEqual(one["cutoffs"], [])
+        for sign in ("support", "oppose"):
+            channel = model.evaluate("A", {"root_budget": 1})[sign]
+            self.assertEqual(channel["witness"], "present")
+            self.assertEqual(channel["evaluation"], "complete")
+
+    # Separate quality accounting does not make existence unbounded. A second
+    # necessary positive root exceeds one slot; with two slots the AND succeeds.
+    def test_existence_budget_still_bounds_required_roots(self):
+        model = Evaluator([claim(k) for k in "ABC"],
+                          [root("a+", "A"), root("b+", "B")],
+                          [rule("abc", "C", "A", "B")])
+        limited = model.evaluate("C", {"root_budget": 1, "rule_budget": 1})
+        self.assertEqual(limited["support"]["witness"], "not_found")
+        self.assertEqual(limited["support"]["evaluation"], "incomplete")
+        self.assertEqual(limited["cutoffs"], ["root_limit"])
+        valid = model.evaluate("C", {"root_budget": 2, "rule_budget": 1})
+        self.assertEqual(valid["support"]["witness"], "present")
+        self.assertEqual(valid["support"]["evaluation"], "complete")
+
     # Withdrawal removes only the selected support path, never creates opposition.
     def test_alternatives_and_withdrawal(self):
         roots = [root(k, k, withdrawn_at=2 if k == "B" else None) for k in "ABDE"]
