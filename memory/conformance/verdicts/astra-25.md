@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: round 4, five cases and eight fixtures (seven semantic, one deployment). Seat identity:
+Status: round 5, five cases and eight fixtures (seven semantic, one deployment). Seat identity:
 `ivmbp_swarma-memory_astra-25`. Baseline: `95f974b` (2026-10-17).
 
 ## Scope and evidence
@@ -39,8 +39,7 @@ and eight deployment vectors, 52 clauses, 16 intended checker controls. I verifi
 the R7-006 multi-owner/current-decision representation and R7-008 trusted-current-
 complete restore-witness clarification against the source requirements. Owned
 fixtures add wrong-owner revocation with an unchanged-view control and an omitted
-stale erase inventory. These checks close the representation concerns; actual
-current-version execution remains separate. Deployment qualification is unproven.
+stale erase inventory. These checks close the representation concerns. Deployment qualification is unproven.
 
 All eight owned fixtures now use the 0.2.0 closed grammar and pass schema,
 reference, normalization and forbidden-predicate checks. A planted hidden-quality
@@ -58,6 +57,14 @@ Exact field differences and implementation/input hashes are persisted in
 | --- | ---: | ---: | ---: | --- |
 | astra-22 first adapter | 0 | 0 | 6 | These mutating operations are not implemented |
 | astra-23 first evaluator `0008dc3` | 5 | 1 | 0 | ASTRA25-05: 14 field differences, paired equality and two forbidden outcomes |
+
+A separate current-version run uses the eight fixtures at `9222266`, package
+`cde5754`, and astra-23 `1439219`. It passes six semantic fixtures and fails only
+the still-open R7-018 hidden-dirty trace (14 differences). In particular, the
+joint-declassification wrong-owner/live-revocation trace passes exactly, supplying
+behavior evidence for R7-006. The source adapter reports all seven mutating
+semantic cases unsupported. Both report the one deployment case unsupported.
+The runs `astra22-v0.2` and `astra23-v0.2` retain exact hashes and results.
 
 The hidden-dirty failure reproduces the R7-018 contradiction. Its visible-path
 control passes. The editor accepted a fix preserving protected invalidation

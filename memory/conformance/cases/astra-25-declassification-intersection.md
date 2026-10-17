@@ -1,7 +1,7 @@
 # ASTRA25-02: retained declassification evidence is not a current joint release
 
 Status: R7-006 spec-bug; 0.2.0 candidate package fix verified structurally,
-independent current-version execution pending.
+independent current-version behavior verified.
 Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
 
 ## Clauses
@@ -93,5 +93,12 @@ real adapter establishes lineage merely from submitted citations.
 
 The complete trace passes the 0.2.0 closed schemas, state references, normalization
 and forbidden predicates. This verifies the candidate's representation and
-expected contract; independent current-version behavior remains to be run.
+expected contract.
 Authenticity and real sink enforcement remain deployment obligations.
+
+Independent execution against astra-23 at `1439219`, package `cde5754`, passes
+this entire semantic trace exactly, including the wrong-owner no-effect control,
+correct-owner revocation, refusal of another delivery and unchanged effect count.
+Run `astra23-v0.2` in `astra-25-evaluator-results.json` records code/input hashes.
+The source adapter explicitly reports declassification unsupported. This is
+behavior evidence for R7-006; real authorization enforcement remains unqualified.
