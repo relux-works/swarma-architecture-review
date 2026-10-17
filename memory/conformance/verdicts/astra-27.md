@@ -1,18 +1,20 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 32, phase 2 active. Current score: **1/2**.
+Status: round 33, phase 2 active. Current score: **1/2**.
 Historical original supported-vector score: **2/2** at `b1ae299`.
 
 Adjudicated 57 items: ten rejected as defects, forty-five independently fixed,
 one open implementation bug (R7-057), and one owner question (R7-055).
 See [LEDGER.md](../LEDGER.md) and [R7-SCORE.md](../R7-SCORE.md).
 
-Both readers now independently reproduce **57/57 canonical and 61/61 supplemental
-semantic passes** on unchanged release 0.2.5 `6a04e8c`. Source runtime is `87beb46`;
-package runtime is `23b4d74`. Complete report rows, input/module hashes and actuals
-match their committed evidence after only declared fresh-handle normalization.
-All 62 supplemental artifacts validate; the final twenty author migrations at
+Both readers independently reproduce **57/57 canonical semantic passes** on
+unchanged release 0.2.5 `6a04e8c`. The current supplemental corpus has 63 semantic
+vectors: source 61/2/0, package 63/0/0. Source runtime is `87beb46`;
+package runtime is `23b4d74`. Canonical report rows, input/module hashes and actuals
+match committed evidence after only declared fresh-handle normalization. Supplemental
+first results preserve the two new failures alongside the unchanged older cases.
+All 64 supplemental artifacts validate; the final twenty author migrations at
 `27303e4` change only profile stamps and reverse exactly to the original bytes.
 
 R7-053 package expiry closes at `23b4d74`. All 31 product/comparer controls pass,
@@ -37,7 +39,9 @@ permission. Both readers pass the live exact-replay, revoked-metadata, revoked-
 erase-authority and fresh-key empty-ref neighbors, with full refusal state and
 original receipt preserved. Package `23b4d74` gives the required changed-intent
 conflicts. Source correction is authorized; no new owner or canonical oracle
-choice is needed. This native bug keeps the score at 1/2 despite green vectors.
+choice is needed. Signed `66233ab` adds exact purpose/audience regression fixtures
+using the original native state. Judge full runs reproduce only two source refusal-code differences;
+all 61 older cases remain passing and unchanged. The bug keeps the score at 1/2.
 
 R7-055 is a source ambiguity about whether an H1 canonical edge endorses an H2
 predecessor's transitive ordering. The native pair at `4424598` validates and

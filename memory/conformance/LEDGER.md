@@ -102,7 +102,7 @@ commits and relevant controls; a candidate release alone is insufficient.
 | R7-055 | astra-24 [authority-issuer](cases/astra-24-authority-issuer.md), native pair/first `4424598`; request `$2uzH35MbQZgpUZcKniiv8nGpIIxyeCjJQVyjABqbYvU` | Kernel §§5.1/5.3; K-REV-3; package A07 | ambiguity | Ivan (owner decision) | owner-question | Exact validated pair separates issuer-local and global canonical predecessor paths: H1 endpoints through H2 intermediate yield ambiguous d1/d3 in source, current d3 in package; same-H1 control agrees. Kernel own ordered record does not define whether H1's canonical edge endorses H2's predecessor order. D-004/008 and sequence ownership do not decide that attestation meaning. No evaluator bug or invalid-state rule is inferred. See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md); preserve both native outputs and existing same-issuer closures. |
 | R7-056 | astra-22 ASTRA22-08, signed native first `dbf4892`, [first evidence](impl-astra-22/runs/availability-recovery-first.json); request `$fDDTeYrjnc9MYUG4MHM6u2sw7BII51TC8fX0w9jadOU` | K-NI-3; S27 authorized public availability | impl-bug | astra-22 | fixed@87beb46 | Judge independently reproduces 57/57 canonical, 61/61 supplemental and all 125 native/comparer controls at the signed correction. The unchanged original native witness and four-transition matrix now pass, as do two exact atomic authorization negatives. Only current public/runtime availability facts change; policy pins, grants, records, receipts, cuts and captures remain preserved. Original single-case and expanded-matrix red evidence stays immutable; no deployment claim. |
 
-| R7-057 | astra-22 ASTRA22-09, signed native first `0529814`, [first evidence](impl-astra-22/runs/erase-changed-context-first.json); request `$Jls_nbueo2sF-siMYb-5Xqb_iijrTcnTQ4UT_NDB2gU` | K-API-1/2; K-ERASE-2 | impl-bug | astra-22 | open | Judge validates and reproduces changed ungranted receipt purpose/audience under the same erase key: source returns not_authorized instead of idempotency_conflict,false. The erase operation remains authorized; a fresh key succeeds with empty refs. Stored-ref metadata permission gates exact replay, not a changed canonical request that returns no stored receipt. Exact live replay, denied current metadata and revoked erase authority controls retain full state/original receipt; package reader returns the required conflict. |
+| R7-057 | astra-22 ASTRA22-09, signed native first `0529814`, [first evidence](impl-astra-22/runs/erase-changed-context-first.json); request `$Jls_nbueo2sF-siMYb-5Xqb_iijrTcnTQ4UT_NDB2gU` | K-API-1/2; K-ERASE-2 | impl-bug | astra-22 | open | Judge validates and reproduces changed ungranted receipt purpose/audience under the same erase key: source returns not_authorized instead of idempotency_conflict,false. The erase operation remains authorized; a fresh key succeeds with empty refs. Stored-ref metadata permission gates exact replay, not a changed canonical request that returns no stored receipt. Exact live replay, denied current metadata and revoked erase authority controls retain full state/original receipt; package reader returns the required conflict. Exact changed-purpose/audience regression pair at signed 66233ab independently fails only operation_results[2].code in source and passes in package; original state and all 61 older semantic cases remain unchanged. |
 
 
 ## Judge worklog
@@ -1612,3 +1612,39 @@ Ledger: 57 items, 45 fixed, 10 rejected, R7-057 implementation open and R7-055
 owner-question held for Ivan. Dual canonical 57/57 and supplemental 61/61 semantic
 passes remain valid; the native erase-context failure still blocks score 2.
 Score 1/2; deployment 8+1 unsupported; no PARK.
+
+## Round 33 — exact erase-context regressions accepted
+
+Signed `66233ab` contributes two exact semantic fixtures for R7-057, preserving
+the original `0529814` initial state: changed receipt purpose and changed audience.
+Each trace includes complete erase, identical later retry with the original
+receipt handle, the adjudicated changed-intent conflict, and fresh-key erase with
+empty disclosed refs. Protected closure/custody postconditions, exact replay
+identity, fresh-handle separation and forbidden success checks remain explicit.
+These encode the already classified defect and introduce no new ledger item.
+
+Independent full supplemental runs at the unchanged runtime pins reproduce
+source `87beb46` 61/2/0 and package `23b4d74` 63/0/0 semantic results. Each new
+source failure is exactly operation_results[2].code: not_authorized instead of
+idempotency_conflict. Every older source row, actual and input hash is unchanged;
+all older package cases remain exact passes. All 64 supplemental artifacts pass
+closed shape, state/reference, integration-fact and normalization/forbidden
+checks. Original native firsts remain distinct from these exact typed witnesses.
+Canonical 57/57 dual evidence is unchanged; no new canonical execution or runtime
+correction is claimed by accepting the supplemental pair.
+
+A bounded restore follow-up rechecked K-ERASE-3's admitted external_witness fact.
+True explicitly means current complete outside-domain verification; a stale or
+incomplete inventory must receive false. Supplying incomplete verification while
+retaining true would violate that fact, so it establishes no new semantic defect.
+No such probe or owner choice was introduced. Deployment verification remains
+unsupported. Analysis is persisted in `judge-round33-restore-scope-review.md`.
+
+Other evidence in judge seat `.temp/`: `astra{22,23}-judge-round33-cases-first.json`,
+`astra{22,23}-round33-cases-first-01.log`, `judge-round33-case-review-01.json` and
+`judge-round33-case-signature-01.log`. The expected source runner exit is 1 for
+exactly the two intended field differences; package runner exit is 0.
+
+Ledger remains 57 items: 45 fixed, 10 rejected, R7-057 implementation open and
+R7-055 owner-question. Supplemental inventory is now 63 semantic plus one
+unsupported deployment case. Score 1/2; no PARK.
