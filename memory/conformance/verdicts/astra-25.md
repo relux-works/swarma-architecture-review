@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 16; collective active, NO PARK. Seat identity:
+Status: phase 2, round 17; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Full dual semantic coverage and new finding
@@ -9,7 +9,7 @@ supported-vector rubric; it was never a claim that both evaluators passed all 57
 
 ## Seat output and dispositions
 
-Ten case documents and seventeen exact fixtures (sixteen semantic, one deployment)
+Ten case documents and nineteen exact fixtures (eighteen semantic, one deployment)
 are published. All initial source readings and later failures remain in git and
 [`astra-25-evaluator-results.json`](../cases/astra-25-evaluator-results.json).
 
@@ -21,46 +21,50 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | External witness must be current and complete | R7-008 fixed@cde5754 for fixture meaning; real deployment remains unsupported |
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Hidden revision cannot expose protected global dirty state | R7-018 fixed@f31d58f; hidden and authorized-dirty traces pass |
 | [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md) | Opposite quality cannot spend existence counters | R7-027 fixed@4e647ea; both owned traces and ASTRA24-05 controls pass |
-| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 spec-bug, R7-031 fixed at package 7e71765 / runtime a016781; judge and seat independently verified |
-| [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source / R7-037 package impl-bugs; separate R7-039 explicit retention-context spec-bug pending |
+| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 fixed at package 7e71765 / runtime a016781; judge and seat independently verified |
+| [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source / R7-037 package impl-bugs; R7-039 context released at 23290b3; original and transitive-unknown failures retained |
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; package pair passes, source erasure unsupported |
-| [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 checker spec-bug; both runtimes pass, correction pending |
+| [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 correction 23290b3 independently verified; judge closure pending |
 
 ## Current evidence
 
-The owned fixtures explicitly use package `0.2.2-draft` (`7e71765`). Sixteen
-pass closed structure, references, normalization and forbidden checks. ASTRA25-10
-passes shape/normalization/accepted-fact checks but is rejected by `check_state`
-for a future integration input; this is the new checker finding, not a pass.
-The admitted-dangling-input negative control is also correctly rejected beside
-an accepted existing-input control. Current canonical validation remains green:
-65 vectors, 52 clauses, 23 checker controls. Local structural log:
-`.temp/astra25-vector-structure-11.log`.
+The nineteen owned fixtures explicitly use package `0.2.3-draft` (`23290b3`).
+All pass closed structure, references, accepted-write integration facts,
+normalization and forbidden checks. Current canonical validation passes 65
+vectors, 52 clauses and 32 intended checker controls. Local structural log:
+`.temp/astra25-vector-structure-13.log`.
 
-All previous expected reports survive migration unchanged except profile version.
-Every owned erase explicitly uses actor-bound private/read receipt context;
-ASTRA25-07 adds only A-specific matching metadata authority. Its new unrelated
-publish-purpose neighbor still requires A-only receipt and complete A/D purge.
-The hidden-quality and global-dirty violation plants remain detected.
+R7-042 now accepts the valid future-fact state while rejecting complete/unknown
+admitted dangling inputs and an accepted write missing its input. Both runtimes
+retain the exact invalid-reference/refusal-then-same-key-success sequence.
+Earlier false-positive evidence remains immutable.
 
-| Current owned semantic corpus | Pass | Fail | Unsupported |
+Every owned write explicitly uses actor-bound private/read retention context;
+existing grants cover it except intentional negative cases. No old expected
+report changed except profile version. The added ASTRA25-08-UNKNOWN pair checks
+transitive known-input retention through an unknown intermediate: a publish-only
+grant for the ancestor is insufficient; restoring matching read-purpose retain
+alone admits the private derivative. Both pre-adaptation runtimes fail this
+negative and pass the positive. These extend existing R7-036/037, not a new
+independent defect count.
+
+| First owned 0.2.3 semantic run | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Package runtime at `a016781` | 15 | 1 | 0 |
-| Source runtime at `3722327` | 6 | 1 | 9 |
+| Package runtime at `08c4b9a` | 16 | 2 | 0 |
+| Source runtime at `bd75f4f` | 7 | 2 | 9 |
 
-Each evaluator reports the one owned deployment fixture unsupported. The remaining failure in both is ASTRA25-08 missing retain authority.
-ASTRA25-07 primary, authorized and unrelated-purpose traces now all pass in the
-package evaluator; canonical57/57 and all18 package controls pass independently. ASTRA25-09 retains both package passes. ASTRA25-10 passes both
-runtimes, including the missing-input refusal followed by successful exact retry.
-Source `3722327` preserves both unchanged ASTRA25-05 traces after the separate
-rule/check correction; all nine impact controls pass independently. Earlier six
-controls did not cover that additional R7-043 failure.
+Each evaluator reports the one owned deployment fixture unsupported. The two
+failures in both are original and transitive-unknown ASTRA25-08 retention cases.
+Receipt primary/authorized/unrelated-purpose traces still pass in package;
+hidden/visible dirty traces still pass in both. Source `3722327` also passed nine
+impact controls independently, including the separate rule/check correction;
+earlier six controls did not cover that additional R7-043 failure.
 
-Exact current runs are `astra23-phase2-022-receipt-corrected` and
-`astra22-phase2-rule-check-dirty`, plus `checker-future-lineage-022`, in the evidence
-JSON. Earlier phase-1, phase-2 and 0.2.1 future-input runs remain immutable entries,
-pinned by package, evaluator and input hashes. Working-copy fixture additions at
-execution are labeled and identified by hashes, not claimed as committed inputs.
+Exact new-release runs are `astra23-phase2-023-first`,
+`astra22-phase2-023-first`, and `checker-future-lineage-023-corrected` in the
+evidence JSON. Earlier phase-1, phase-2 and release-specific runs remain immutable,
+pinned by package, evaluator and input hashes. Working-copy additions at execution
+are labeled and identified by hashes, not claimed as committed inputs.
 
 Phase-1 independent checks verified R7-006 release behavior, R7-018 hidden/visible
 dirty behavior, and R7-027's original unchanged regressions plus 29 source
@@ -74,13 +78,15 @@ explicitly lacked those operations; unsupported was never counted as a pass.
 Convener event `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc` withholds PARK and
 requires 57/57 canonical semantic vectors on both independent evaluators, then
 one full round with no new open item. Judge `536f54c` records the stronger gate.
-Phase-1 dual coverage was 43/57; judge-verified coverage is 47/57; current source candidate is 49/57. The
+Phase-1 dual coverage was 43/57; last 0.2.2 judge-verified coverage is 47/57 and the later source candidate is
+49/57. Fresh full 0.2.3 reports remain pending. The
 judge owns current collective totals; this seat does not infer success for
 unsupported operations or unfinished implementations.
 
-Verify released retention-scope R7-039 and checker R7-042 corrections, then
-R7-036/037 runtime fixes, including transitive known-input authority. Rerun owned
-regressions as source release/erasure support arrives. Finalize verdict and park note only after actual convener PARK.
+Obtain judge closure for verified R7-042; verify R7-039 exact-release behavior
+and R7-036/037 runtime fixes, including transitive known-input authority and
+current-authorized replay. Rerun owned regressions as source release/erasure
+support arrives. Finalize verdict and park note only after actual convener PARK.
 
 No real protected-deployment qualification is claimed by semantic publication,
 erasure, custody, restore, revocation or delivery traces. Actual witness freshness,

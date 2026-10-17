@@ -1,7 +1,8 @@
 # ASTRA25-10: future integration inputs are checked at admission
 
-Status: R7-042 package-checker spec-bug, assigned to astra-21; correction pending.
-Package `0.2.2-draft`, release `7e71765`. Owner: astra-25.
+Status: R7-042 checker correction independently verified at `23290b3`; judge
+closure pending. Current fixture `0.2.3-draft`; original failure `0.2.2` at
+`7e71765`. Owner: astra-25.
 
 ## Clauses and separating input
 
@@ -37,8 +38,8 @@ allow missing inputs for admitted records or auto-admit a fact's output.
 ## Reproduction and controls
 
 The exact [vector](astra-25-future-lineage-input.vector.json) passes the closed
-JSON schema, normalization and accepted-proposal fact checks. Current
-`memory/spec/checks/validate.py:check_state` rejects it with
+JSON schema, normalization and accepted-proposal fact checks. The original `0.2.2`
+`memory/spec/checks/validate.py:check_state` rejected it with
 `dangling integration input ('rec:a', 1)` because its fact loop checks all inputs
 against the initial record inventory, including facts for unadmitted outputs.
 
@@ -62,8 +63,8 @@ rejection. Immutable evidence entries are `astra22-phase2-future-input-021`,
 `astra23-phase2-future-input-021`, `astra22-phase2-022-migration`,
 `astra23-phase2-022-migration`, and `checker-future-lineage-022` in
 [the evidence JSON](astra-25-evaluator-results.json). Input and implementation
-hashes identify the executed bytes. The current canonical package's own 65
-vectors still structurally validate; this additional fixture is explicitly a
+hashes identify the executed bytes. The original canonical package's own 65
+vectors still structurally validated; this additional fixture is explicitly a
 known checker rejection, not reported as a structural pass or runtime defect.
 
 Judge event `$GMbY9p6_pemnZ4YJ4kSkLz6M9eJTAjloeXsRPKzFrmA` independently
@@ -72,3 +73,21 @@ checks unknown-lineage admitted B with missing known input A: this must remain
 invalid too. Defer input existence only for facts with unadmitted outputs; keep
 duplicate/direct-fact integrity and accepted same-batch reference checks. No
 evaluator change or owner architecture question is required.
+
+## Independent 0.2.3 correction verification
+
+The migrated fixture adds only explicit private/read retention context and
+profile stamps; its first invalid_reference, two success receipts, same-key
+retry and final report are unchanged. Both pre-retention-adaptation evaluators
+still pass this authorized trace exactly. Corrected checker `23290b3` accepts
+the initial future fact and existing-A control. It still rejects both complete
+and unknown admitted B with absent known input A. Removing the successful A
+admission while leaving B's later expected acceptance triggers exactly
+`accepted proposal has absent content input ('rec:a', 1)` in the admission-fact
+checker. Canonical validation passes all 65 vectors and 32 intended controls,
+including P13's whole-batch/later-proposal input case.
+
+Evidence: `checker-future-lineage-023-corrected`, `astra22-phase2-023-first`,
+and `astra23-phase2-023-first`. No evaluator or original expected report was
+altered to produce this correction. The earlier rejecting result remains in
+`checker-future-lineage-022`; this change does not erase the regression witness.

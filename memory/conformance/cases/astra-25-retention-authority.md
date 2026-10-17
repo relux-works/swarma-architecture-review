@@ -2,7 +2,8 @@
 
 Status: R7-036 source and R7-037 package implementation bugs; both evaluators
 admit the forbidden derivative. Original package `0.2.1-draft` at `f31d58f`;
-current fixtures explicitly migrated to `0.2.2-draft` with only profile changes.
+current fixtures explicitly migrated to `0.2.3-draft` with private/read storage
+context and unchanged original expectations apart from profile.
 Owner: astra-25.
 
 ## Clauses and minimal input
@@ -74,3 +75,39 @@ all-disclosure-label scope cannot be inferred. That follow-up needs an explicit
 package rule before scoped-neighbor expectations; it does not invalidate this
 case, whose grants contain no retain permission in any scope. Never derive the
 operation scope from a later query or combine unrelated grants.
+
+## Explicit storage scope and transitive unknown-input controls
+
+Release `0.2.3-draft` (`23290b3`) closes the R7-039 wire gap. All owned writes
+explicitly choose private/read for the authenticated actor. Existing grants
+supply that scope in positive traces; no grant was added to the original
+no-retain witness. Context is canonical intent and retain revocation is live.
+All previous expected reports remain unchanged except profile version.
+
+The new [transitive-unknown negative](astra-25-retention-authority-transitive-unknown.vector.json)
+and [positive control](astra-25-retention-authority-transitive-unknown-control.vector.json)
+combine this contract with the v0.2 incomplete-lineage lower bound:
+
+```text
+A is private. Admitted U has lineage=unknown, with trusted known input A.
+New deterministic D consumes U under explicit private/read retention context.
+Exact retain grant covers U and D; another private/publish retain grant covers A.
+Negative: refuse not_authorized, with no D admitted.
+Positive: add only A to the private/read retain grant; admit private D.
+```
+
+Retain grants use metadata=false, independently of the existing read/use grants.
+The unchanged public query remains empty in both. The complete positive grants
+cover the finite known closure; they do not turn unknown lineage into complete
+lineage or permit publication. Canonical P11 has complete transitive inputs and
+P13 has direct unknown lower bounds; this pair checks their composition through
+an already-admitted unknown intermediate. It extends R7-036/037 regression scope,
+not a new specification claim or independent defect count.
+
+All nineteen owned fixtures pass the `0.2.3` closed grammar, state references,
+accepted-write facts, normalization and forbidden checks. Pre-adaptation package
+runtime at `08c4b9a` and source at `bd75f4f` both wrongly admit D in the new negative
+while passing its positive. Package has 12 exact field differences plus both
+forbidden predicates. Original no-retain failures remain too. First valid new-
+release runs are `astra23-phase2-023-first` and `astra22-phase2-023-first` in the
+evidence JSON; runtime correction and full-state refusal verification are pending.
