@@ -275,6 +275,29 @@ class Engine:
             if closure == before:
                 return closure
 
+    def authorize_retention(self, proposed, context, original=False):
+        records = self.index()
+        if not original:
+            records.update({key(r): r for r in proposed})
+        scope = {"principal": context["actor"],
+                 "audience": context["retention_context"]["audience"],
+                 "purpose": context["retention_context"]["purpose"]}
+        facts = {key(f["output"]): f for f in self.state["policy"].get("lineage_facts", [])}
+        pending = [records.get(key(r)) for r in proposed] if original else list(proposed)
+        seen = set()
+        while pending:
+            record = pending.pop()
+            if record is None or not record_grant(self, record, scope, "retain", metadata=False):
+                raise Refused("not_authorized")
+            identity = key(record)
+            if identity in seen:
+                continue
+            seen.add(identity)
+            inputs = facts[identity]["inputs"] if identity in facts else lineage_inputs(self, record)
+            # Missing records remain reference-validation errors after policy/idempotency checks;
+            # a protected future fact never materializes its absent output as an input record.
+            pending.extend(records[key(r)] for r in inputs if key(r) in records)
+
     def admission(self, op):
         kind, ctx = op["op"], op["context"]
         p, rt = self.state["policy"], self.state["runtime"]
@@ -296,8 +319,10 @@ class Engine:
         space, actor = proposed[0]["envelope"]["space"], ctx["actor"]
         if not self.write_right(actor, space, kind) or (kind == "declassify" and (not self.write_right(actor, space, "admit") or not self.write_right(actor, space, "retain"))):
             raise Refused("not_authorized")
+        self.authorize_retention(proposed, ctx)
         replay, identity, request = self.idempotency(op, actor, space)
         if replay is not None:
+            self.authorize_retention(proposed, ctx, original=True)
             return replay
         relation = op["revision"]["body"]["relation"] if kind == "revise" else "admit"
         for r in proposed:

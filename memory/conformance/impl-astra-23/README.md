@@ -75,7 +75,7 @@ publication currentness only to authorized publication-source associations.
 Explicit-target history is restricted to the selected sequence identities.
 RELEASE-0.2.1-FIRST preserves the pre-fix R7-024 report; FIRST-RUN preserves the
 original package-only independence baseline. Pinned 0.2.2 canonical results are 57/57
-semantic with eight deployment cases unsupported; twenty-three controls pass. The
+semantic with eight deployment cases unsupported; twenty-six controls pass. The
 source-state precedence control covers resolved, policy-denied, lost and empty
 source lists without upgrading evidence, including real current-source exhaustion.
 
@@ -88,7 +88,7 @@ The 0.2.2 erase API binds structural receipt refs to its explicit receipt_contex
 and intake clock. It checks current authorization on exact replay, preserves the
 stored receipt, and retains full protected purge even when no refs are disclosed.
 RELEASE-0.2.2-FIRST preserves the pre-adaptation 56/57 result. Retention scope
-R7-039 and the separate no-retain defect R7-037 remain open pending a release.
+R7-039 is resolved by the0.2.3 storage context; the R7-037 correction awaits independent review.
 
 Authority-slot CAS now shares sequence identity and receipt partial-order selection
 with projection currentness. Ambiguous and historical candidates refuse atomically;
@@ -102,6 +102,13 @@ state. PHASE2-COVERAGE-REVIEW-FIRST preserves both prior failures.
 
 Delivery validates the authenticated actor against the saved projection principal
 before using its binding. Frozen 0.2.2 regression evidence is separately retained
-in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current 0.2.3 RESULTS exposes pending
-P11/P13 retention adaptation; RELEASE-0.2.3-FIRST and PHASE2-ACTOR-FIRST retain
-the unchanged-runtime first results.
+in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current0.2.3 RESULTS passes57/57canonical semantics and SUPPLEMENTAL passes all46
+semantic cases; deployment remains unsupported. RELEASE-0.2.3-FIRST and
+PHASE2-ACTOR-FIRST retain the unchanged-runtime first results.
+
+All four intake APIs enforce explicit actor-bound retention_context over each
+output and transitive known content input, with whole-batch resolution and current
+authorization on exact replay. Retain is independent of metadata and onward labels.
+PHASE2-RETENTION-023-FIRST preserves original and unknown-ancestor failures. Older
+release reports are historical and must be reproduced with their recorded runtime
+revision; current intake does not infer missing legacy contexts.

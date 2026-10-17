@@ -306,3 +306,23 @@ independent correction review is pending.
 
 Pinned0.2.2:57/57canonical,43/1/0 supplemental,23controls; deployment8+1unsupported.
 Current0.2.3:55/2/0canonical before the separate scoped-retention correction.
+
+### R7-037 correction against released0.2.3
+
+Exact actor/space/record/audience/purpose retain authority now gates every proposed
+output and transitive known integration input, including incomplete-lineage lower
+bounds and whole-batch inputs. The guard reads protected facts, not model citations,
+and does not use onward disclosure labels, metadata permission or a later query.
+Missing inputs remain typed reference failures at the published stage. Current
+retain revocations block new writes and unchanged receipt replay atomically; the
+stored original outputs/input closure is rechecked and the stored receipt is intact.
+
+All four write APIs have unrelated-record retain negatives and restored-grant
+same-key positive controls. Exact-scope, unknown-ancestor, future-input, same-batch,
+empty-label, changed-context and revoked-replay cases pass with full no-write state
+checks. Twenty-six product/checker controls,57/57canonical and46/46supplemental
+semantic vectors pass under0.2.3. Deployment8+1 stays unsupported. First5416283,
+6861fec and originalf10c7ba failures remain unchanged; judge closure is pending.
+
+Judge separately closed R7-044/045 atf6c339d and specification039/042 at23290b3.
+Actor-binding046 has adversary verification at7b9f0dd, pending judge disposition.

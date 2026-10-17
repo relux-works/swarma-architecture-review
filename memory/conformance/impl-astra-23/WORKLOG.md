@@ -571,3 +571,28 @@ will prove semantic differences and forbidden effects are detected.
   purpose A cannot authorize the exact requested storage scope. Metadata=false
   retain grants in the positive are valid and must not require read/use metadata.
 - Log: retention-023-first-01.log (intended exit1). Runtime3ce8ee3 is unchanged.
+
+### Round 21 correction outcome
+
+- Baseline6861fec preserves both migrated retention failures; canonical first5416283
+  is unchanged. New native controls first produce17 intended assertions in
+  retention-red-02.log. Red01's receipt/code indexing noise is explicitly excluded.
+- Exact retain authority now traverses proposed outputs plus recursively resolved
+  protected integration inputs in pre-state+whole batch; unknown lower bounds are
+  retained. The fixed actor/context uses metadata-independent retain grants and
+  current revocations before idempotency. Replay additionally checks stored outputs
+  and their current known closure without changing the original receipt.
+- Missing inputs stay invalid_reference at their declared validation stage;
+  future facts do not materialize records. Canonical intent already includes the
+  entire context, so otherwise authorized context changes conflict as required.
+- Explicitly migrated the own P13 lineage test to released operation2 and the new
+  model-stage intermediate. Public fixture bytes/oracles are unchanged. Green01's
+  stale direct-input assertion is an instrument migration failure, not a runtime bug.
+- All22product+4checker controls pass under current0.2.3. Canonical57/57 and all
+  46semantic supplemental cases pass; deployment8+1unsupported. Package validator
+  passes94JSON/65vectors/52clauses and32intended violation controls.
+- Logs: retention-green-02.log, canonical-round21-01.log,
+  supplemental-round21-01.log, controls-13.log and package-023-01.log.
+- Judge closed R7-044/045 atf6c339d and specification039/042 at23290b3; source040/043
+  are separately closed. R7-046 independently verified by26 at7b9f0dd. R7-037
+  current behavior now awaits independent review; source reports49/0/8 on0.2.3.

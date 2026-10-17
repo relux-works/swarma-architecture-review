@@ -4,7 +4,7 @@ import copy
 import pathlib
 import unittest
 
-from common import Grammar, Refused, ref, strict_loads
+from common import Grammar, Refused, cjson, ref, strict_loads
 from engine import Engine
 from run_vectors import compare, package_version
 
@@ -524,6 +524,88 @@ class Semantics(unittest.TestCase):
                 self.assertEqual(e.state, revoked)
                 self.assertEqual(e.captures, before[1])
 
+    # K-AUTH-1/K-API-1: exact storage scope rejects atomically before reserving a key;
+    # authorized same-key intake/replay succeeds, then retain-only revocation blocks replay.
+    def test_retention_scoped_atomicity(self):
+        v = vector("P11")
+        with self.subTest(exact_fixture=True):
+            self.assertEqual(compare(engine(v).execute(v["operations"], v["query"]), v,
+                                     Grammar(SPEC / "kernel/schemas")), ([], []))
+        for i in range(7):
+            with self.subTest(denied_scope=i):
+                e = engine(v)
+                before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+                self.assertEqual(e.operation(v["operations"][i], i), v["expected"]["operation_results"][i])
+                self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+        e = engine(v)
+        first = e.operation(v["operations"][8], 8)
+        self.assertEqual(first["outcome"], "admitted")
+        before = copy.deepcopy(e.state)
+        self.assertEqual(e.operation(v["operations"][9], 9), first)
+        self.assertEqual(e.state, before)
+        self.assertEqual(e.operation(v["operations"][10], 10)["code"], "idempotency_conflict")
+        self.assertEqual(e.state, before)
+        e.operation(v["operations"][12], 12)
+        for i in (13, 14):
+            before = copy.deepcopy(e.state)
+            self.assertEqual(e.operation(v["operations"][i], i), v["expected"]["operation_results"][i])
+            self.assertEqual(e.state, before)
+            self.assertEqual(e.state["runtime"]["idempotency"][0]["receipt"], first)
+        self.assertTrue(e.read(v["operations"][15]["query"])["items"])
+
+    # All four write APIs require record-scoped retain despite an unrelated retain grant;
+    # refused attempts leave all state intact and a restored grant permits the same-key retry.
+    def test_retention_all_write_apis(self):
+        for name, index, raw in (("P11", 8, False), ("P11", 8, True), ("P14", 0, False), ("P05", 1, False)):
+            with self.subTest(vector=name, raw=raw):
+                v = vector(name)
+                op = copy.deepcopy(v["operations"][index])
+                if raw:
+                    op["raw_json"] = cjson({"proposals": op.pop("proposals")})
+                    op["op"] = "admit_raw"
+                e = engine(v)
+                grants = copy.deepcopy(e.state["policy"]["grants"])
+                for g in e.state["policy"]["grants"]:
+                    if "retain" in g["rights"]: g["records"] = ["rec:unrelated"]
+                before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+                self.assertEqual(e.operation(op, 0), {"type": "refusal", "code": "not_authorized", "retryable": False})
+                self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+                e.state["policy"]["grants"] = grants
+                first = e.operation(op, 1)
+                self.assertEqual(first["type"], "receipt")
+                for g in e.state["policy"]["grants"]:
+                    if "retain" in g["rights"]: g["records"] = ["rec:unrelated"]
+                op["context"]["at"] = "2026-10-17T00:00:01Z"
+                before = copy.deepcopy(e.state)
+                self.assertEqual(e.operation(op, 2), {"type": "refusal", "code": "not_authorized", "retryable": False})
+                self.assertEqual(e.state, before)
+                self.assertEqual(e.state["runtime"]["idempotency"][-1]["receipt"], first)
+
+    # K-DISC-1: known lower bounds traverse unknown intermediates; future facts are not
+    # records, while whole-batch later inputs and empty-label storage remain valid controls.
+    def test_retention_known_batch_inputs(self):
+        v = vector("P13")
+        with self.subTest(exact_fixture=True):
+            self.assertEqual(compare(engine(v).execute(v["operations"], v["query"]), v,
+                                     Grammar(SPEC / "kernel/schemas")), ([], []))
+        for i in (0, 1):
+            with self.subTest(denied_input=i):
+                e = engine(v)
+                before = copy.deepcopy(e.state)
+                self.assertEqual(e.operation(v["operations"][i], i), v["expected"]["operation_results"][i])
+                self.assertEqual(e.state, before)
+                self.assertEqual(e.operation(v["operations"][2], 2)["outcome"], "admitted")
+        base = SPEC.parent / "conformance/cases"
+        for suffix in ("", "-authorized-control", "-transitive-unknown", "-transitive-unknown-control"):
+            with self.subTest(known_lineage=suffix):
+                case = strict_loads((base / ("astra-25-retention-authority" + suffix + ".vector.json")).read_text())
+                e = engine(case)
+                before = copy.deepcopy(e.state)
+                self.assertEqual(compare(e.execute(case["operations"], case["query"]), case,
+                                         Grammar(SPEC / "kernel/schemas")), ([], []))
+                if suffix in ("", "-transitive-unknown"):
+                    self.assertEqual(e.state, before)
+
     # R7-020: authorized coverage uses the closed ref field; no declaration remains unknown.
     # A planted declaration spelling must fail both the exact comparison and closed view grammar.
     def test_coverage_mapping(self):
@@ -566,15 +648,16 @@ class Semantics(unittest.TestCase):
         v = vector("P13")
         e = engine(v)
         report = e.execute(v["operations"], v["query"])
-        self.assertEqual(report["operation_results"][0]["outcome"], "admitted")
+        self.assertEqual(report["operation_results"][2]["outcome"], "admitted")
         self.assertEqual([i["content"][0]["value"] for i in report["result"]["items"]], ["candidate from only public context"])
         records = {r["envelope"]["id"]: r for r in e.state["records"]}
         self.assertEqual(records["rec:model-unknown"]["envelope"]["lineage"], "unknown")
-        self.assertIn({"id": "rec:private-input", "version": 1}, records["rec:model-tainted"]["envelope"]["lineage"])
+        self.assertIn({"id": "rec:model-stage", "version": 1}, records["rec:model-tainted"]["envelope"]["lineage"])
+        self.assertIn({"id": "rec:private-input", "version": 1}, records["rec:model-stage"]["envelope"]["lineage"])
         e = engine(v)
         e.state["policy"]["lineage_facts"] = [f for f in e.state["policy"]["lineage_facts"] if f["output"]["id"] != "rec:model-clean"]
         before = copy.deepcopy(e.state)
-        self.assertEqual(e.operation(v["operations"][0], 0)["code"], "invalid_reference")
+        self.assertEqual(e.operation(v["operations"][2], 2)["code"], "invalid_reference")
         self.assertEqual(e.state, before)
 
     # K-PROJ-2: one version excludes an item; both old audience and issuer projections remain intact.
