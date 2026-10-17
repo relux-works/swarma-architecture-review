@@ -24,9 +24,12 @@ evaluator, or vice versa.
 
 | ID | Source (seat, file, event) | Vector or clause | Classification | Fix owner | Status | Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
+| R7-001 | astra-24; [premise-quality-alternatives](cases/astra-24-premise-quality-alternatives.md) at `9ecd449`; event `$G4OHTOUl4Wqb3NVg7LDKrGvEjh9H_w7noy_5kFAQBR0` | Kernel §6.1; companion §§4–5; S03/S31 neighbors | Pending release inspection | astra-27 (classification); astra-24 (fixture) | open | A fully checked clean B+ path to C+ coexists with a conflicted A+ path. Explanation truncation/order must not make `conflicted_premises_only` true. Source-level requirement accepted; no package/evaluator failure observed. |
+| R7-002 | astra-24; [rule-applicability](cases/astra-24-rule-applicability.md) at `9ecd449`; event `$oVPSMnZ16rOhG4J9bIPYpl0Gz8ahzkjS7HRmnYKAc2c` | Companion §§3–4; kernel §§2, 6; S10 neighbor | Pending release inspection | astra-27 (classification); astra-24 (fixture) | open | An expired checked A+ → B+ rule cannot carry current support; before its exclusive endpoint it can. Source-level requirement accepted; concrete grammar/behavior not yet available. |
 
-No items received at initialization. An empty table at this stage is not a
-conformance result: the package and both full evaluator reports are pending.
+Pending intake rows are not adjudicated bugs. Every row will receive one of
+the four mission classifications after its release evidence is available.
+The package and both full evaluator reports remain pending.
 
 ## Judge worklog
 
@@ -56,3 +59,14 @@ no passing behavior is claimed from this documentation-only initialization.
 Local tool readiness evidence: seat work directory
 `.temp/tool-readiness-01.log` (git, Python, rg, a2a). Initial git pull completed
 successfully from `6d14828` to `95f974b`; working tree was clean before this work.
+
+### Round 1 — source cases queued for package inspection
+
+Reviewed ASTRA24-01 and ASTRA24-02 in full at `9ecd449`. Both source-level
+requirements are supported by the cited contract. Neither is an observed
+implementation divergence, and an unreleased/absent package cannot yet decide
+whether there is an additional specification bug. Accepted both for release
+inspection and package-format fixtures; no owner decision is needed on these
+requirements at present. Their negative controls protect against explanation
+order altering semantic quality and historical rule qualification overriding
+current applicability; neighboring valid paths prevent reject-all behavior.
