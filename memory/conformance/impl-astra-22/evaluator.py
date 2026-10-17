@@ -155,9 +155,12 @@ class Evaluator:
         roots = [r for r in self.roots if applicable(r, query)
                  and literal(r["target"])[0] in visible
                  and (not r.get("source") or (r["source"] in self.sources
-                      and applicable(self.sources[r["source"]], query)))]
+                      and applicable(self.sources[r["source"]], query)))
+                 and all(s in self.sources and applicable(self.sources[s], query)
+                         for s in r.get("source_members", []))]
         root_budget = query.get("root_budget", float("inf"))
         rule_budget = query.get("rule_budget", float("inf"))
+        source_budget = query.get("source_budget", float("inf"))
         order = lambda record: tuple(record.get("reference_order", (record["id"], 0)))
         root_index, rule_index = {}, {}
         for root in sorted(roots, key=order):
@@ -180,6 +183,7 @@ class Evaluator:
             if requested in full_walks:
                 return full_walks[requested]
             used = {"roots": 0, "rules": 0}
+            resolved_sources = set()
             memo = {}
 
             def visit(current):
@@ -195,6 +199,20 @@ class Evaluator:
                         state.cutoffs.add("root_limit")
                         continue
                     used["roots"] += 1
+                    if not root.get("retained", True) and not root.get("independent", False):
+                        members = root.get("source_members", [root["source"]] if root.get("source") else [])
+                        limited = False
+                        for source_id in sorted(set(members), key=lambda s: order(self.sources[s])):
+                            if source_id in resolved_sources:
+                                continue
+                            if len(resolved_sources) >= source_budget:
+                                limited = True
+                                state.complete = False
+                                state.cutoffs.add("source_limit")
+                            else:
+                                resolved_sources.add(source_id)
+                        if limited:
+                            continue
                     source = self.sources.get(root.get("source"), {})
                     availability = source.get("availability", "resolvable")
                     if availability != "resolvable" and not root.get("retained", True):

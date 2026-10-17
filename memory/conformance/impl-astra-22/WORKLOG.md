@@ -237,3 +237,30 @@ the empty-set case resolvable_now. The S32-derived closed-shape input and actual
 Only the independent assessment source list was emptied and the query targets
 its assertion; no canonical vector or expected output was edited. Submit to
 judge before swapping precedence or changing the old source-unit assumption.
+
+## R7-028 source-resolution correction verified
+
+Judge assigned R7-028 separately from the closed R7-027. Adapter now passes the
+minimum query/policy source allowance and each assessment's original source refs.
+Each independent walk memoizes distinct current-required resolutions; synthetic
+availability groups never collapse separate source visits. Hidden sources are
+filtered before work. Retained and independent evidence do not spend a current
+source allowance. A skipped resolution removes that witness's qualifications and
+derived provenance and propagates source_limit/incompleteness.
+
+32 source controls pass (`source-checks-12.log`), including red-before zero/group
+exhaustion (`source-checks-10-red.log`), repeated and multiple distinct sources,
+per-polarity/quality source counters, visible quality uncertainty and hidden
+single/group sources. Four adapter controls pass (`adapter-checks-08.log`); the
+new wire control verifies policy clamping and original-source deduplication across
+separate synthetic groups, with found-path provenance only. Seven transaction
+controls from `transaction-checks-05.log` are unaffected; every runner invocation
+passes five comparison controls.
+
+Canonical f31d58f is 43/0/14 semantic, 8 deployment unsupported (`vector-run-09.log`).
+Current supplemental is 14/0/8 semantic, 1 deployment unsupported
+(`runs/cases-source-budget-corrected.*`, `case-run-07.log`). Source SHA-256:
+4ee2c9010143a21fd124d443421472a6b60245927c02eb8d8663984518d8aaeb.
+Original f2d233a source-budget report remains unchanged. R7-028 awaits independent
+verification; separately reported ASTRA22-07 vacuous-source precedence remains
+unchanged pending classification.

@@ -33,7 +33,9 @@ write any external authority, journal, publisher or retained payload store.
 - The original finite topological pass had shared polarity/quality counters.
   R7-027 replaces it with independent per-polarity depth-first walks, stable
   reference order and within-walk literal memoization. Opposite-quality walks
-  receive fresh bounds; real root/rule exhaustion remains visible.
+  receive fresh bounds; real root/rule exhaustion remains visible. R7-028 adds
+  distinct current-source visits per walk, clamped by query and policy, while
+  retained/independent assessments are exempt from current-resolution work.
 - A clean witnessed path takes precedence over a conflicted alternative.
   Without a witness, premise quality is `not_fully_checked`. After R7-012,
   authorized unavailable source associations remain `prior_assessment_only`;

@@ -177,3 +177,16 @@ canonical expected-output edit before classification. A prior source-level
 stronger-alternative test encoded the same assumption; correction must preserve
 its actual mixed-AND/OR claim while giving that independent alternative an
 unavailable named source, and add empty/resolved/unavailable precedence controls.
+
+## R7-028 correction
+
+Judge event $_nHN4l4lurg4x7z88Ie7my2bKrY65tHxu33Tb4NG5j8 classifies ASTRA24-06
+as a separate impl-bug. Adapter/core now enforce min(query, policy) distinct
+current-source visits within each independent walk. Synthetic source groups carry
+the original references; repeated resolution shares its visit, hidden candidates
+cost nothing and retained/independent evidence is exempt. Zero-budget failure
+withholds the unsupported witness and its derived source provenance. All exact
+case fields and forbidden predicates pass. 32 source + 4 adapter + 7 transaction
++ 5 harness controls support the correction; canonical 43/0/14 and supplemental
+14/0/8 semantic. First evidence preserved; closure pending. ASTRA22-07 remains
+separate and uncorrected pending judge disposition.

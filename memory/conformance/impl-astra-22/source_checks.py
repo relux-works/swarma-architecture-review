@@ -109,6 +109,71 @@ class SourceClaims(unittest.TestCase):
         self.assertEqual(valid["support"]["witness"], "present")
         self.assertEqual(valid["support"]["evaluation"], "complete")
 
+    # R7-028: current-required sources cost distinct visits per walk. Zero
+    # refuses the witness; repeated source use costs one; two sources need two.
+    def test_current_source_budget_and_distinct_memo(self):
+        model = Evaluator([claim("A")], [root("a", "A", source="S", retained=False)],
+                          sources=[{"id": "S"}, {"id": "T"}])
+        stopped = model.evaluate("A", {"source_budget": 0})
+        self.assertEqual(stopped["support"]["witness"], "not_found")
+        self.assertEqual(stopped["support"]["evaluation"], "incomplete")
+        self.assertEqual(stopped["support"]["witness_assessments"], [])
+        self.assertEqual(stopped["cutoffs"], ["source_limit"])
+        self.assertEqual(model.evaluate("A", {"source_budget": 1})["support"]["witness"], "present")
+        model.roots.append(root("b", "A", source="S", retained=False))
+        repeated = model.evaluate("A", {"source_budget": 1})
+        self.assertEqual(repeated["support"]["witness_assessments"], ["a", "b"])
+        self.assertEqual(repeated["support"]["evaluation"], "complete")
+        model.roots[-1]["source"] = "T"
+        distinct = model.evaluate("A", {"source_budget": 1})
+        self.assertEqual(distinct["support"]["witness_assessments"], ["a"])
+        self.assertEqual(distinct["support"]["evaluation"], "incomplete")
+        self.assertEqual(model.evaluate("A", {"source_budget": 2})["support"]["evaluation"], "complete")
+
+    # Each original member of a multi-source assessment costs a visit; a
+    # synthetic availability group is not one resolution. Retained/independent
+    # assessments consume no current-source visits, even with unavailable bytes.
+    def test_source_groups_and_retained_exemption(self):
+        model = Evaluator([claim("A")],
+                          [root("a", "A", source="group", source_members=["S", "T"], retained=False)],
+                          sources=[{"id": "S"}, {"id": "T"}, {"id": "group"}])
+        self.assertEqual(model.evaluate("A", {"source_budget": 1})["support"]["witness"], "not_found")
+        self.assertEqual(model.evaluate("A", {"source_budget": 2})["support"]["witness"], "present")
+        model.sources["group"]["availability"] = "erased"
+        for independent in (False, True):
+            model.roots[0].update(retained=True, independent=independent)
+            result = model.evaluate("A", {"source_budget": 0})
+            self.assertEqual(result["support"]["witness"], "present")
+            self.assertEqual(result["support"]["evaluation"], "complete")
+            self.assertEqual(result["cutoffs"], [])
+
+    # Source allowances, like root allowances, are separate for displayed
+    # polarities and opposite-quality walks. Hidden source candidates cost zero.
+    def test_source_budget_independent_walks_and_hidden_filter(self):
+        roots = [root("a+", "A", source="S", retained=False),
+                 root("a-", "A", "oppose", source="T", retained=False)]
+        sources = [{"id": "S"}, {"id": "T"}, {"id": "H", "visible": False}]
+        model = Evaluator([claim(k) for k in "AB"], roots, [rule("ab", "B", "A")], sources)
+        query = {"source_budget": 1}
+        for sign in ("support", "oppose"):
+            self.assertEqual(model.evaluate("A", query)[sign]["witness"], "present")
+            self.assertEqual(model.evaluate("A", query)[sign]["evaluation"], "complete")
+        result = model.evaluate("B", query)
+        self.assertEqual(result["support"]["witness"], "present")
+        self.assertEqual(result["support"]["premise_quality"], "conflicted_premises_only")
+        self.assertEqual(result["cutoffs"], [])
+        before = model.evaluate("A", query)
+        model.roots.insert(0, root("hidden", "A", source="H", retained=False))
+        model.roots.append(root("hidden-group", "A", source="S", source_members=["S", "H"], retained=False))
+        self.assertEqual(model.evaluate("A", query), before)
+        model.sources["U"] = {"id": "U"}
+        next(r for r in model.roots if r["id"] == "a-")["source_members"] = ["T", "U"]
+        uncertain = model.evaluate("B", query)
+        self.assertEqual(uncertain["support"]["witness"], "present")
+        self.assertEqual(uncertain["support"]["evaluation"], "complete")
+        self.assertEqual(uncertain["support"]["premise_quality"], "not_fully_checked")
+        self.assertEqual(uncertain["cutoffs"], [])
+
     # Withdrawal removes only the selected support path, never creates opposition.
     def test_alternatives_and_withdrawal(self):
         roots = [root(k, k, withdrawn_at=2 if k == "B" else None) for k in "ABDE"]

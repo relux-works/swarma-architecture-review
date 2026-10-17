@@ -128,7 +128,8 @@ class Adapter:
               "perspective": json.dumps(rule["perspective"], sort_keys=True),
               "qualifications": self.policy["evidence"]["root_kinds"],
               "root_budget": min(query["bounds"]["roots"], self.policy["limits"]["read"]["roots"]),
-              "rule_budget": min(query["bounds"]["rules"], self.policy["limits"]["read"]["rules"])}
+              "rule_budget": min(query["bounds"]["rules"], self.policy["limits"]["read"]["rules"]),
+              "source_budget": min(query["bounds"]["source_resolutions"], self.policy["limits"]["read"]["source_resolutions"])}
         normalized = {k: self.normalized(r, query) for k, r in self.records.items()}
         if audience:
             for k, record in self.records.items():
@@ -191,6 +192,7 @@ class Adapter:
                             and pins["environment"] == self.policy["evidence"]["environment_pin"]
                             and (b["usable_until"] is None or query["now"] < b["usable_until"]))
                 root = dict(nr, target=[target, b["target"]["polarity"]], qualification=b["check_kind"],
+                            source_members=source_keys,
                             origin=b["origin"], result=b["result"], admitted=admitted,
                             retained=b["source_requirement"] != "current", independent=b["source_requirement"] == "independent")
                 root["visible"] = root["visible"] and source_visible

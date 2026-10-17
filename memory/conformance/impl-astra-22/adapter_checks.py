@@ -9,6 +9,52 @@ from adapter import Adapter
 
 
 class AssociationControls(unittest.TestCase):
+    # R7-028: wire source bounds are clamped by policy and count original source
+    # references across synthetic groups. Only found paths add derived provenance.
+    def test_source_limit_wire_mapping(self):
+        path = Path(__file__).resolve().parents[1] / "cases/astra-24-source-resolution-budget.vector.json"
+        fixture = json.loads(path.read_text())
+        initial = copy.deepcopy(fixture["initial_state"])
+        query = copy.deepcopy(fixture["operations"][0]["query"])
+        limited = copy.deepcopy(initial)
+        limited["policy"]["limits"]["read"]["source_resolutions"] = 0
+        result = Adapter(limited, "control").query(query)
+        self.assertEqual(result["items"][0]["support"]["witness"], "not_found")
+        self.assertEqual(result["cutoffs"], ["source_limit"])
+        self.assertEqual(result["items"][0]["source_refs"], [])
+        original = next(r for r in initial["records"] if r["envelope"]["kind"] == "assessment" and r["body"]["sources"])
+        repeated = copy.deepcopy(original)
+        repeated["envelope"]["id"] = "rec:repeated-source-control"
+        repeated["envelope"]["recorded"]["sequence"] = 98
+        repeated["body"]["origin"] = "origin:repeated-source-control"
+        initial["records"].append(repeated)
+        fact = copy.deepcopy(next(f for f in initial["policy"]["lineage_facts"]
+                                  if f["output"]["id"] == original["envelope"]["id"]))
+        fact["output"] = {"id": repeated["envelope"]["id"], "version": repeated["envelope"]["version"]}
+        initial["policy"]["lineage_facts"].append(fact)
+        result = Adapter(initial, "control").query(query)
+        self.assertEqual(result["items"][0]["support"]["independent_root_count"], 2)
+        self.assertEqual(result["items"][0]["support"]["evaluation"], "complete")
+        original_source = next(r for r in initial["records"] if r["envelope"]["kind"] == "source")
+        source = copy.deepcopy(original_source)
+        source["envelope"]["id"] = "rec:distinct-source-control"
+        source["envelope"]["recorded"]["sequence"] = 97
+        initial["records"].append(source)
+        fact = copy.deepcopy(next(f for f in initial["policy"]["lineage_facts"]
+                                  if f["output"]["id"] == original_source["envelope"]["id"]))
+        fact["output"] = {"id": source["envelope"]["id"], "version": source["envelope"]["version"]}
+        initial["policy"]["lineage_facts"].append(fact)
+        repeated["body"]["sources"] = [{"id": source["envelope"]["id"], "version": source["envelope"]["version"]}]
+        result = Adapter(initial, "control").query(query)
+        self.assertEqual(result["items"][0]["support"]["independent_root_count"], 1)
+        self.assertEqual(result["items"][0]["support"]["evaluation"], "incomplete")
+        self.assertEqual(result["cutoffs"], ["source_limit"])
+        self.assertNotIn(repeated["body"]["sources"][0], result["items"][0]["source_refs"])
+        query["bounds"]["source_resolutions"] = 2
+        result = Adapter(initial, "control").query(query)
+        self.assertEqual(result["items"][0]["support"]["independent_root_count"], 2)
+        self.assertEqual(result["items"][0]["support"]["evaluation"], "complete")
+
     # R7-025: explicit targets include history only from their own sequences.
     # Unfiltered selection retains other visible history; displayed old targets
     # are not duplicated, and hidden old records do not appear in history.
