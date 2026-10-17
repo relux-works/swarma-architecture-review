@@ -41,6 +41,9 @@ evaluator, or vice versa.
 | R7-015 | astra-22; [ASTRA22-04](impl-astra-22/DIVERGENCES.md), [case-first report](impl-astra-22/runs/case-first.json) at `b3c7ac9`; event `$OvHSZtZ_OnDnssWZ_HeCEWgQ2WUGsdZya6Wu9jd6qOY` | ASTRA24-03; same clauses as R7-014 | impl-bug | astra-22 | open | Frozen core unions all premise source states and chooses any independent/current state, upgrading C despite an essential retained-only B. Judge probe at `a17c231` reproduces independent_attestation versus prior_assessment_only. Fix AND composition separately from OR preference, with all-current/all-independent and independent alternative controls; preserve witness and completeness. |
 | R7-016 | astra-26; [location-slots](cases/astra-26-location-slots.md) at `0c278b5`; event `$eQoI5RcBquCz3xymwrB0I0rS_ybnvNc9tOzeNAXrPuU` | Kernel §§4, 11.2; K-DOM-2/3; location schema | rejected | None; retained regression | rejected | The package explicitly keys single location sequences and incompatibilities by kind/slot. Residence and current location coexist; the flat reading contradicts the declared grammar. Source evaluator reports unsupported, not pass; the scenario remains useful additional coverage. |
 | R7-017 | astra-26; [relationship-introductions](cases/astra-26-relationship-introductions.md) at `0c278b5`; event `$ZgkB3vgHDwZo1pwpJZPrV4Wk0IM6-5vDaRslUDCSnaw` | Kernel §11.2; K-SCOPE-1; profiles domain requirements | rejected | None; retained regression | rejected | Existing distinct schemas and no_derived_consent forbid deriving openness from relationship status or granting action from an enabled flag. Explicit enabled=true/adult_opt_in=false remains storable attributed data with no contact effects. No new spec defect; source adapter reports admit unsupported. |
+| R7-018 | astra-25; [hidden-dirty-invalidation](cases/astra-25-hidden-dirty-invalidation.md) at `3045117`; event `$Y8BhmZnTDuBgOd71Z8nUDZn7rESyagj1V-VPqysc-h4` | K-EVAL-8 versus K-AUTH-1/K-NI-1; kernel §7.3, companion §4/S24 | spec-bug | astra-21 | open | Global runtime.dirty plus unconditional dirty output leaks a hidden same-space revision through witness, completeness, review and cutoffs. Scope disclosed invalidation to eligible dependency/impact paths while preserving protected global dirtiness and real visible dirty-before-fresh behavior. Hidden/visible pair is valid; judge independently detects planted dirty-output leakage. |
+| R7-019 | astra-23; [first run](impl-astra-23/FIRST-RUN.md) at `0008dc3`; event `$mGGmzxiZYa6di3hh8P1sCmVbUCjZVm_yc3jKRUsc05k` | B03/S23; K-ENV-3, K-REC-1, K-PUB-2 | spec-bug | astra-21 (clause); astra-23 (alignment) | open | Package-only reader applies imported-currentness to admission_class=imported_publication, giving last_received; vectors expect current for an attributed mirror report with source_kind=mirror. Explicitly bind K-PUB-2 to actual publication-source associations and distinguish own report-sequence currentness from unverified external event authority. Provenance class alone cannot supply that boundary. Judge reproduces both fields; no owner architecture question. |
+| R7-020 | astra-23; [first run](impl-astra-23/FIRST-RUN.md) at `0008dc3`; event `$I0tMpcP1ctw6Uco1iMi0_ElgUiDZ09Y86eiYgF7W0Gk` | S30; K-EVAL-3; closed view corpus_coverage shape | impl-bug | astra-23 | open | Declared coverage emits declaration instead of the required ref, on both polarity records. Judge reproduces all four field differences and closed-schema failure. Correct the output mapping; preserve unknown coverage, exact authorized declaration refs and output-schema control. Expected vector remains unchanged. |
 
 Every received case is classified against the first landed package. Rejection
 means the proposed bad reading already contradicts explicit package clauses; it
@@ -189,3 +192,35 @@ Read both newly submitted profile regressions at `0c278b5`. R7-016/017 reject
 their bad readings as already forbidden; their scenario coverage is retained.
 All source fixes preserve the immutable first-run report. Editor acknowledgments
 confirm R7-006/008/010 are being addressed in the next release.
+
+### Round 7 — package-only first run and hidden invalidation
+
+Independence boundary: astra-23 committed its complete first run and evaluator at
+`0008dc3` before reading design/companion/notes/inputs, other implementation,
+ledger or divergence threads, as stated in its worklog/verdict. Its 0.1.0 run
+has 50/53 semantic passes, three failures, zero semantic unsupported; all eight
+deployment cases are unsupported. The judge reconstructed the exact old package
+from `git archive 0ef608a memory/spec` into its own scratch directory, then ran:
+`python3 -B memory/conformance/impl-astra-23/run_vectors.py --spec-root ../.temp/package-0.1.0/memory/spec --package-commit 0ef608ae279a9bc209ad78ffdc72dbbbdc828f8f --output ../.temp/astra23-judge-first.md`.
+Exit 1 reproduces the reported semantic failures. All 61 statuses, vector and
+implementation hashes, exact differences/check failures and complete actual
+reports match after only declared fresh-handle normalization. Evidence: seat
+`.temp/astra23-judge-first-01.log`, `.temp/astra23-judge-first.json`, and
+`.temp/astra23-judge-first-comparison-01.log`. B03/S23 expose the package's
+publication-class applicability gap (R7-019); S30 is a closed-field implementation
+error (R7-020). Neither justifies changing expected answers to match a runner.
+
+Reviewed ASTRA25-05 in full. Source non-interference takes precedence over the
+package's global dirty shortcut; invalidation is not an authorized disclosure
+of a hidden revision. Both hidden and visible control vectors passed the judge's
+independent shape/reference/normalization checks; replacing the hidden result
+with the visible dirty result was rejected specifically for unequal normalized
+outputs. Evidence: seat `.temp/hidden-dirty-case-review-01.log`. R7-018 is a
+spec contradiction, not a measured evaluator failure or timing claim.
+
+Package `0.2.0-draft` landed at `cde5754`: structural validator exit 0, 94 JSON
+files, 65 vectors (57 semantic / 8 deployment), 52 clauses and 16 intended
+checker controls. Log: seat `.temp/package-validate-02.log`. The editor reports
+candidate fixes for R7-006/008/009/010; behavioral verification and exact delta
+review remain pending, so these rows are not yet marked fixed. R7-014 is accepted
+for the next release. The original 0.1.0 reports do not claim a 0.2.0 run.
