@@ -28,6 +28,10 @@ evaluator, or vice versa.
 | R7-002 | astra-24; [rule-applicability](cases/astra-24-rule-applicability.md) at `9ecd449`; event `$oVPSMnZ16rOhG4J9bIPYpl0Gz8ahzkjS7HRmnYKAc2c` | Companion §§3–4; kernel §§2, 6; S10 neighbor | Pending release inspection | astra-27 (classification); astra-24 (fixture) | open | An expired checked A+ → B+ rule cannot carry current support; before its exclusive endpoint it can. Source-level requirement accepted; concrete grammar/behavior not yet available. |
 | R7-003 | astra-26; [import-attribution](cases/astra-26-import-attribution.md) at `93455d8`; event `$_hBE9WQEffLFwyKMHmaG3P-pHANdFygcHEddq8zxP6A` | Kernel §§2, 6.1, 8, 9.1; companion §3 | Pending release inspection | astra-27 (classification); astra-26 (fixture) | open | Importer B may issue an attributed source report about A via C without claiming to be A. A submitted assertion with issuer A and submitter B still requires representation and may not be silently rewritten. Package must preserve original attribution, classes and witness origin. |
 | R7-004 | astra-26; [publication-currentness](cases/astra-26-publication-currentness.md) at `93455d8`; event `$yfHdYWubs0jO06LmD0GiV5hRlAfmwZCeuruA1gvERi8` | Kernel §§1, 6.3–6.4, 9.2 | Pending release inspection | astra-27 (classification); astra-26 (fixture) | open | Freshness at a consumer horizon does not certify issuer-currentness. An unavailable issuer check supports only the last-received state, subject to known replacements and expiry. Exact bounded output labels remain package work. |
+| R7-005 | astra-25; [hidden-premise-quality](cases/astra-25-hidden-premise-quality.md) at `5a32468`; event `$D58DR3_cFp-0TYJp-WFZHS95MPjO_CdsU00kf3SSL0w` | Kernel §§6.1, 7.3; S13/S24/S27 | Pending release inspection | astra-27 (classification); astra-25 (fixture) | open | Hidden A- in the same space cannot alter quality of authorized A+ → B+. Quality, budget and all disclosed metadata use the authorized graph. Explicitly admitting A- is the positive disclosure control. |
+| R7-006 | astra-25; [declassification-intersection](cases/astra-25-declassification-intersection.md) at `5a32468`; event `$JRP0ZTvwmvjdy9dVvzatgS824Y1K6qZGjz5Az3_rSMw` | Kernel §§6.4, 7.1–7.2, 9.3 | Pending release inspection | astra-27 (classification); astra-25 (fixture) | open | Retained assessments from OA/OB do not authorize new disclosure after OB revokes its exact release. Every constrained owner's currently applicable decision is necessary; model review cannot substitute. |
+| R7-007 | astra-25; [surviving-support-erasure](cases/astra-25-surviving-support-erasure.md) at `5a32468`; event `$cV4c9b6aHDM9Swa3VBXyHzHbG5DRKDK_fYgJbVWuabY` | Kernel §7.1/P08; companion §6/S12/S20 | Pending release inspection | astra-27 (classification); astra-25 (fixture) | open | Independent B may preserve C support while A-derived summaries/indexes/cached views require fencing and erasure. An unreachable controlled sink prevents completed erasure. Deployment qualification remains separate. |
+| R7-008 | astra-25; [stale-restore-witness](cases/astra-25-stale-restore-witness.md) at `5a32468`; event `$7ed7G5T6VBlEQ1c53ObNr7Ab6sPC9h1GnaD2x8nQ7Nc` | Companion §6/S25; design retention contract | Pending release inspection | astra-27 (classification); astra-25 (fixture) | open | A genuinely external but stale witness covering e4 cannot establish completeness after acknowledged erasure e5. Restore remains closed until current coverage and reconciliation are established; a boolean external-witness flag is insufficient evidence. |
 
 Pending intake rows are not adjudicated bugs. Every row will receive one of
 the four mission classifications after its release evidence is available.
@@ -89,3 +93,15 @@ need no owner decision; classification of the concrete encoding and output
 awaits the package. Both cases include valid controls and forbidden authority
 or currentness upgrades. Source evaluator freeze reported at `4d4ef45`, with
 20 source-derived controls; no package-vector result exists yet.
+
+### Round 3 — disclosure and erasure source cases
+
+Reviewed ASTRA25-01–04 at `5a32468`. All four recommended constraints follow
+explicit normative boundaries: authorized-graph computation, current per-owner
+release decisions, content/custody lineage independent of support, and current
+restore reconciliation against outside-domain evidence. No source ambiguity
+is established by these pairs. The release inspection must distinguish missing
+grammar/prose from an actual evaluator defect and from a properly declared
+unsupported deployment claim. Synthetic state transitions alone do not prove
+real sink deletion, rollback resistance or isolation. The adjacent positive
+controls in each case prevent a deny-all implementation from qualifying.
