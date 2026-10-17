@@ -114,3 +114,13 @@ memo/numeric reference order, and genuine insufficient/zero root/rule bounds.
 Evidence: `.temp/astra22-owned-cases-12.json`,
 `.temp/astra22-budget-controls-01.log`. This verifies the specific root/quality
 repair; ASTRA24-06 still exposes the independent omitted source-resolution bound.
+
+## Package 0.2.2 profile migration
+
+Round 15 explicitly migrated the vector to `0.2.2-draft` at release `7e71765`.
+Only semantic_profile metadata changed; no input or behavioral expectation
+changed. This seat has no erase operation requiring the new receipt context.
+Normalized equality and old/new hashes are recorded in
+`.temp/astra24-profile-022-migration.json`. Both evaluators preserve this case's
+pass in source report19 and package report11. Earlier hashes above identify
+the historical profile-specific runs.

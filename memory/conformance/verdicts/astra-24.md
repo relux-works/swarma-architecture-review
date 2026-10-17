@@ -1,13 +1,13 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 14; no PARK. Source baseline `95f974b`, kernel v0.2; current package
-`0.2.1-draft` released at `f31d58f`.
+Status: Phase 2 active, round 15; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+`0.2.2-draft` released at `7e71765`.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
-companion and design, and the released package. This seat authored seven synthetic
-semantic counterexamples and exact package-format vectors. It did not modify
+companion and design, and the released package. This seat authored eight synthetic
+semantic cases with nine exact package-format vectors, including a paired control. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
 
@@ -22,6 +22,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 fixed `4e647ea`, judge-closed `56e5909` |
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
+| ASTRA24-08 | An ambiguous authority slot has no valid exact-candidate CAS head | Both evaluators wrongly commit; unique-head control passes; judge pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -210,12 +211,34 @@ allows cross-schema review dependents. A stricter target-local product preferenc
 cannot substitute for a contractual invariant. No fixture or requirement was
 changed for that hypothesis.
 
+## Round 15 ambiguous-head counterexample and 0.2.2 migration
+
+ASTRA24-08 combines authoritative currentness with compare-and-set admission.
+Both implementations incorrectly accept withdrawal of one exact candidate while
+the authority slot has two incomparable heads. K-REV-1 requires version_conflict
+and no mutation. The pair's ordered-authority control accepts the identical
+withdrawal and returns the correct new-cut view. Both original ambiguity and
+write refusal stay separate from signed evidence conflict. Judge intake pending.
+
+Current owned execution at `7e71765`: **8 pass / 1 fail / 0 unsupported** for
+each evaluator. The same two forbidden effects occur in both: accepted receipt
+and an extra persisted revision. First valid failures and the passing control
+were preserved before the package release migration; omitted-review setup
+failures are explicitly distinguished in the case. Exact reports: source19 and
+package11, structural/control log17, all under seat-local `.temp/`.
+
+All nine vectors explicitly migrate to package0.2.2 by changing only profile
+metadata. Normalized input/expectation equality and hashes are persisted in
+`.temp/astra24-profile-022-migration.json`; no erase receipt migration applies
+to this corpus. Prior seven behavioral expectations remain unchanged and pass.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** The stronger dual-coverage gate and open Phase 2 repairs
-remain pending; the latest source owner reports 44/57 canonical pass, while the
-package baseline is 57/57. Both implementations pass all seven of this seat's
-unchanged regression cases. Deployment remains unsupported and unqualified.
+**Phase 2 R7: 1/2.** Both evaluators fail the new ambiguous-head refusal;
+classification and correction are pending. The stronger dual-coverage gate and
+other Phase 2 repairs remain open. Do not carry the older package57/57 baseline
+forward as a current0.2.2 claim before its owner reruns the changed erasure vector.
+Deployment remains unsupported and unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.

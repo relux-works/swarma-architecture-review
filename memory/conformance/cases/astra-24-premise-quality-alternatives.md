@@ -125,3 +125,13 @@ Exact reports: `.temp/astra23-owned-cases-03.json` and
 `.temp/astra22-owned-cases-08.json`. Executors receive no expected outputs.
 
 These are semantic fixture results, not protected deployment qualification.
+
+## Package 0.2.2 profile migration
+
+Round 15 explicitly migrated the vector to `0.2.2-draft` at release `7e71765`.
+Only semantic_profile metadata changed; no input or behavioral expectation
+changed. This seat has no erase operation requiring the new receipt context.
+Normalized equality and old/new hashes are recorded in
+`.temp/astra24-profile-022-migration.json`. Both evaluators preserve this case's
+pass in source report19 and package report11. Earlier hashes above identify
+the historical profile-specific runs.

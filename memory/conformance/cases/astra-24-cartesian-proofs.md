@@ -85,3 +85,13 @@ do not establish a general polynomial space bound for every proof family.
 The package implementation has not changed since its recorded exact pass.
 Fixture SHA-256 remains unchanged. This closes the source coverage gap for
 this regression without turning its earlier unsupported result into a failure.
+
+## Package 0.2.2 profile migration
+
+Round 15 explicitly migrated the vector to `0.2.2-draft` at release `7e71765`.
+Only semantic_profile metadata changed; no input or behavioral expectation
+changed. This seat has no erase operation requiring the new receipt context.
+Normalized equality and old/new hashes are recorded in
+`.temp/astra24-profile-022-migration.json`. Both evaluators preserve this case's
+pass in source report19 and package report11. Earlier hashes above identify
+the historical profile-specific runs.

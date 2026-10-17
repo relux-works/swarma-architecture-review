@@ -160,3 +160,13 @@ These are semantic fixture results, not protected deployment qualification.
 Round 9 disposition update: judge `6a4f307` closes R7-014 fixed at `f31d58f`
 after exact current-release independent S32 execution. No owned semantic
 expectation changed. R7-015 and derived-provenance R7-023 remain closed.
+
+## Package 0.2.2 profile migration
+
+Round 15 explicitly migrated the vector to `0.2.2-draft` at release `7e71765`.
+Only semantic_profile metadata changed; no input or behavioral expectation
+changed. This seat has no erase operation requiring the new receipt context.
+Normalized equality and old/new hashes are recorded in
+`.temp/astra24-profile-022-migration.json`. Both evaluators preserve this case's
+pass in source report19 and package report11. Earlier hashes above identify
+the historical profile-specific runs.
