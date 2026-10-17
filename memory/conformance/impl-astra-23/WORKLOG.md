@@ -666,3 +666,31 @@ will prove semantic differences and forbidden effects are detected.
   .temp/impl-astra-23/succession-vectors-first-01.log (intended exit1).
 - Freeze this exact baseline before correction; original native first47c0205 and
   all other earlier first reports remain unchanged.
+
+## Round 26 — queued retention-deadline first probes
+
+- Receive ASTRA25-11 at604af18 while the succession correction awaits0.2.4.
+  Preserve an independent unchanged-runtime execution of its five closed-input
+  probes; do not invent expiry refusal code/order or exact replay semantics.
+- Fresh before/at/after input deadline, output-own deadline and expired replay
+  are separately recorded with entire state and dirty-since snapshots per operation.
+  Deadline correction, if classified, stays queued behind the succession unit.
+
+### Round 26 first results and released successor contract
+
+- PHASE2-DEADLINE-FIRST preserves every probe's whole state and native dirty-since:
+  at/after inherited expiry and at output expiry each admit D, records1->2,
+  cut100->101, one replay receipt. Before-deadline control admits; expired replay
+  returns its prior receipt with state unchanged. Code/order/replay mapping pending.
+- The pull had already included release0.2.4/ef02647 before this native run;
+  report labels explicitly record that checker/runtime profile and unchanged
+  author0.2.3 input bytes. Initial scratch markdown's old hard-coded label was
+  corrected before publication; no semantic input or runtime change occurred.
+- Read the full published0.2.4 amendment/release delta. New canonical B01 covers
+  four same-key missing/prior/identical/incomparable refusals, unchanged view/cut,
+  direct/transitive successors, exact replay after next head and stale new-key CAS.
+- RELEASE-0.2.4-FIRST freezes56/1/0semantic with onlyB01 failing on unchanged4af0360;
+  eight deployment remain unsupported. Runtime correction follows this committed
+  full-release baseline; supplemental authors must migrate profiles explicitly.
+- Logs: deadline-first-01.log (superseded metadata label), deadline-first-02.log,
+  release-024-first-01.log (intended exit1). Original first artifacts untouched.

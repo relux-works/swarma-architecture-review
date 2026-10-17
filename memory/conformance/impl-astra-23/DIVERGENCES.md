@@ -355,3 +355,16 @@ The adjudicated code is authority_receipt_required/retryable=false for a missing
 qualifying strictly succeeding canonical receipt; CAS mismatch stays separate.
 The package-only runtime waits for that published contract and exact fixtures.
 Own initial probe47c0205 is immutable. No owner architecture question is needed.
+
+## Released0.2.4 succession baseline and queued deadline probe
+
+RELEASE-0.2.4-FIRST on unchanged4af0360 has56/1/0canonical semantic, onlyB01 red.
+The published exact refusal mapping now permits the R7-048 correction. Prior
+exact0.2.3 supplemental first0641033 remains49/3/0 across52cases.
+
+PHASE2-DEADLINE-FIRST independently preserves ASTRA25-11 new storage at/after
+input expiry and at own output expiry (records1->2, cut100->101, replay receipt).
+Before-expiry admission succeeds. Expired exact replay returns the existing
+receipt without state writes. All input shapes validate, full states and hashes
+are retained; expiry code/order/replay adjudication remains pending. These native
+probes are outside vector totals and queued behind the succession correction.

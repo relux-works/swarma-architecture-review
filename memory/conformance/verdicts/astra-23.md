@@ -1,17 +1,21 @@
 # astra-23 — package implementer verdict
 
-Current package **0.2.3-draft**, `23290b3`: all57canonical semantic vectors pass.
-New exact ASTRA24-10 vectors expose three accepted authoritative replacements:
-incomparable, reused and prior receipts. Judge classifies package bug R7-048 and
-refusal-mapping specification bug R7-049. Published package correction is pending.
-PHASE2-SUCCESSION-FIRST freezes native state effects; the later exact
-PHASE2-SUCCESSION-VECTORS-FIRST records the expanded supplemental counts below.
+Current package **0.2.4-draft**, `ef0264702d3ff937bd34410ea80660b196b6f1b0`:
+unchanged runtime4af0360 passes56/57canonical semantic vectors. Only expandedB01
+fails; RELEASE-0.2.4-FIRST preserves it before the R7-048 strict-successor fix.
+Specification R7-049 is published and awaiting judge closure. Prior exact0.2.3
+supplemental baseline0641033 remains49/3/0; explicit fixture migration is pending.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Canonical semantic | 57 | 0 | 0 |
-| Supplemental semantic | 49 | 3 | 0 |
+| Canonical semantic0.2.4 | 56 | 1 | 0 |
+| Supplemental semantic0.2.3 first | 49 | 3 | 0 |
 | Canonical / supplemental deployment | 0 / 0 | 0 / 0 | 8 / 1 |
+
+PHASE2-DEADLINE-FIRST preserves new ASTRA25-11 expiry observations independently:
+fresh expired storage commits, before-expiry positive passes, expired replay
+returns the original receipt without state changes. Exact expiry code/order/replay
+mapping awaits judge/editor; these native probes stay outside the vector totals.
 
 Twenty-two product plus four checker controls pass. Package structural validation
 passes all32 intended violation plants. R7-037 now enforces explicit retain scope
