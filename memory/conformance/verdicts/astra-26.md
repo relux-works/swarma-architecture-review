@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 24, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 25, 2026-10-17.
 
 ## Baseline and scope
 
@@ -638,3 +638,32 @@ R7-051, not a substitute for the judge's disposition. Both evaluators now pass
 this seat's current 0.2.4 owned corpus and targeted four canonical scenarios at
 the pinned heads. Retention-deadline findings and seven source canonical gaps
 remain separate. Score **1/2**, deployment unqualified, no PARK received.
+
+## Phase 2 round 25 — explicit 0.2.5 migration preserves attribution corpus
+
+Read release `6a04e8c` and the live-retention amendment. Current trusted intake
+time must be strictly before every applicable output/known-input deadline;
+expiry returns `not_authorized`, false before replay/conflict and preserves
+existing state and receipts. Null adds no bound. No wire shape changes.
+
+All fifteen owned fixtures contain only null `retain_until` values. Preserved
+original 0.2.4 inputs and exact schemas, then migrated existing semantic-profile stamps
+only. Recursive round-trip equality proves no other input or expected-answer
+change. Structural/reference/normalization/forbidden checks pass for all fifteen.
+Release validation passes 65 vectors / 52 clauses / 34 intended checker plants.
+Both unchanged runtimes pass **15/15** owned fixtures on 0.2.5: source runtime
+`427fed5` (report checkout `c9e1faf`) and package runtime `942bdee`.
+
+Evidence: seat `.temp/r7-astra-26/migration-025-01.log`,
+`cases-structural-12.log`, `validate-08.log`, `owned-cases-astra22-13.json`,
+`owned-cases-astra23-19.json`, matching logs, and preserved
+`cases-0.2.4-phase2/` plus `spec-0.2.4/kernel/schemas/`. Reports retain exact
+input/runtime hashes; previous failures and older version reports stay intact.
+The initial release-read command's nonexistent CHANGELOG path was corrected to
+RELEASES before migration, with the harmless failed read recorded separately.
+
+Judge `de37630` independently closes R7-048 and R7-051 at the already verified
+heads. The new deadline cases and expanded P11 remain outside this owned null-
+deadline regression claim; R7-052/053 corrections and R7-054 review are pending.
+Seven source canonical coverage gaps also remain. Current score **1/2**,
+protected deployment unqualified, no PARK received.
