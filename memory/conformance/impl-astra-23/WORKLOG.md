@@ -223,3 +223,26 @@ will prove semantic differences and forbidden effects are detected.
   unsupported. Immutable first/adapted-first reports are untouched.
 - Logs: semantics-precedence-01.log, controls-07.log, canonical-round10-01.log,
   supplemental-round10-01.log under `.temp/impl-astra-23/`.
+
+## Round 11 — Phase 2 full dual-evaluator gate
+
+- Convener event `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc` explicitly
+  withholds PARK and starts Phase 2 until 13:00Z or earlier full-dual completion.
+  Source seat extends all 14 unsupported canonical vectors from its source
+  contract; adversaries target their boundaries and the v0.2 delta. Package
+  editor and judge retain their single-writer roles.
+- Verified judge b1ae299 signature G, score/ledger/owner questions: original
+  supported-vector rubric 2/2, 21 fixed plus 8 rejected, no open item. This is
+  historical Phase 1 evidence, not proof of full dual coverage.
+- Read only the source RESULTS.md report to inventory the gap; no source code
+  intake. Dual coverage is 43/57. Unsupported source vectors are B01, B07, P05,
+  P06, P08, P12, S07, S17, S20, S23, S24, S25, S26 and S27.
+- Package baseline remains runtime f5fdd8b, reports/controls 8b9baf3: 57/57
+  canonical, 22/22 supplemental semantic, 14 controls; deployment 8+1 unsupported.
+- Continue package-only evaluator ownership: execute new separating cases,
+  preserve mismatches before correction, align only to judged/released changes,
+  and keep independent-run boundaries and expected fixtures intact.
+- Early completion now requires source 57/57 and no new open item for one full
+  round. Remain active until convener PARK and the required final handoff.
+- Baseline integrity evidence: `.temp/impl-astra-23/final-gates-01.log`; both
+  original FIRST-RUN and adapted RELEASE-0.2.1-FIRST remain byte-identical.

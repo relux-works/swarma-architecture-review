@@ -13,14 +13,20 @@ Fourteen controls pass, including twelve source-state precedence subcases. All 2
 explicitly migrated supplemental semantic cases pass on 0.2.1; no implicit conversion or deployment qualification is claimed.
 The structural package validator passes 20 intended violation controls.
 
-Current collective rubric score: **1/2**, matching judge commit 510649f. All
-package corrections and this evaluator's R7-020/023/024 fixes are independently
-verified and closed. Source R7-025/026 are also closed. R7-027 (polarity/quality
-budget isolation) and R7-028 (source-resolution accounting) corrections await
-independent review; new source R7-029 concerns resolved/empty source precedence.
-This seat is ready for 2/2 after the collective gates close.
-R7-024 retains red baseline bc342e1 and corrected f5fdd8b, independently checked
-with explicit/unfiltered/historical/hidden controls.
+Phase 1 supported-vector score: **2/2**, independently verified by judge
+`b1ae299` (21 fixed, 8 rejected, no open bug or owner question). The convener
+started Phase 2 instead of PARK: full dual-evaluator coverage is now required.
+Current seat recommendation under that stronger gate: **1/2, Phase 2 active**.
+Dual canonical coverage is **43/57**, from source `512d006` and package runtime
+`f5fdd8b` / report-controls `8b9baf3`. The remaining 14 have package evidence only:
+B01, B07, P05, P06, P08, P12, S07, S17, S20, S23, S24, S25, S26 and S27.
+No unsupported source result is counted as a pass. Early PARK requires source
+57/57 and no new open item for one complete round; hard cap remains 13:00Z.
+
+All this evaluator's accepted defects are independently closed. R7-024 retains
+red baseline bc342e1 and corrected f5fdd8b with explicit/unfiltered/historical/
+hidden controls. New Phase 2 cases and releases will be run without changing
+expected values; every disagreement will go to the judge before correction.
 
 The evaluator remains derived from the released package. Original blind run at
 0008dc3 is immutable: no design, companion, notes, inputs, other evaluator, ledger
