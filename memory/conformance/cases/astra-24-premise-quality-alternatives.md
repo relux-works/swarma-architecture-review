@@ -83,3 +83,12 @@ validation `.temp/package-validate-01.log` passed 61 vectors structurally
 Judge disposition, round 3: R7-001 rejected as a spec defect in `0.1.0-draft`;
 existing prose is explicit. Regression fixture retained. Any future evaluator
 mismatch requires a separate implementation-bug row.
+
+## Source evaluator execution — round 4
+
+The frozen astra-22 adapter explicitly reports `unsupported` because it does
+not enumerate exact proof paths. No semantic pass or failure is inferred from
+that result. The fixture remains unchanged at SHA-256
+`5c480a32fed11b4f508aabf638e5114be40de8be110c808d41cc842cc0b389e9`.
+Evidence: source-owner `impl-astra-22/runs/case-first.json` and seat-local
+`.temp/astra22-owned-cases-03.json`.

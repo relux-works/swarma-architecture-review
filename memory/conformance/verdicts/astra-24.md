@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: active, round 3. Source baseline: `95f974b`; kernel draft v0.2.
+Status: active, round 4. Source baseline: `95f974b`; kernel draft v0.2.
 
 ## Scope and method
 
@@ -44,8 +44,25 @@ pending. R7-001 and R7-002 are rejected as package-defect allegations; their reg
 fixtures remain. ASTRA24-03 now asks the judge to close source-state aggregation
 inside a mixed AND witness (independent A, retained-only B). Its structurally
 valid exact fixture records the proposed prior-only result and direct-root
-controls. No evaluator bug or source ambiguity has been established.
+controls. The source evaluator exhibits the proposed ASTRA24-03 state disagreement;
+its owner independently recorded ASTRA22-04. Judge classification is R7-014 (`spec-bug`, package editor) and R7-015
+(`impl-bug`, source implementer). Both fixes remain pending. No source ambiguity has been established.
 The judge owns the collective score. No protected deployment is qualified.
+
+## Owned-vector execution
+
+Frozen source evaluator at `3045117`, package `0.1.0-draft`:
+
+| Case | Result | Evidence |
+| --- | --- | --- |
+| ASTRA24-01 | unsupported | Exact explanation enumeration is explicitly unimplemented. |
+| ASTRA24-02 | pass | Both interval controls, exclusive endpoint and surviving alternative match exactly. |
+| ASTRA24-03 | fail; confirmed R7-015 | Mixed AND conclusion is independent_attestation; required prior-only result, source references and already-known empty-channel states differ. |
+
+The case documents retain exact field differences, fixture hashes, independent
+source-owner evidence and seat-local logs. Structural checks and intended
+wrong-result plants pass for all three current fixtures. Execution never reads
+expected answers; no other seat's files were changed.
 
 ## Remaining work
 

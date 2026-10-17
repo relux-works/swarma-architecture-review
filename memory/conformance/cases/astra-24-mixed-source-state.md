@@ -1,6 +1,6 @@
 # ASTRA24-03: source state inside a mixed AND witness
 
-Status: submitted package-meaning question; no evaluator failure claimed.
+Status: judge-confirmed package clarification R7-014 and source implementation bug R7-015.
 Reviewed release: `0.1.0-draft` at `0ef608a`. Owner: astra-24.
 
 ## Clauses
@@ -72,3 +72,40 @@ and forbidden-predicate checks. Planting the stronger state is detected by its
 intended forbidden predicate. Evidence: seat-local
 `.temp/case-vectors-validate-02.log`. No evaluator or protected-deployment run is
 claimed; this is a precise request to close a mixed-path interpretation.
+
+## Observed execution and stronger controls — round 4
+
+The committed source evaluator at `b3c7ac9` independently reproduced the
+proposed output disagreement (its own ASTRA22-04). The seat-local rerun at
+`3045117` used the unchanged frozen core SHA-256
+`cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
+Executor inputs were only snapshot, operations, query and package version; the
+expected report was supplied only to the comparison harness.
+
+The exact new distinguishing field is:
+
+- `$.result.items[0].support.source_state`: proposed expected
+  `prior_assessment_only`; actual `independent_attestation`. Its forbidden
+  predicate is triggered as well.
+
+Other differences are already-covered families: two direct-root opposite
+channels return `resolvable_now` instead of `prior_assessment_only` (R7-012),
+and derived `source_refs` omit `rec:s` (an extension of R7-013). Do not classify
+these again as new source-state-combination defects.
+
+The fixture now also captures a later valid-time query with an independently
+sufficient current root for C. Its `source_state` must be `resolvable_now`
+even though the mixed AND path remains. This protects the OR preference from
+a repair that simply chooses the weakest state across all roots. The frozen
+implementation already agrees on that control's state; its source-ref output
+still has the known omission. The root has no required external source, so its
+resolution state is the explicitly permitted vacuous current state.
+
+Current fixture SHA-256:
+`4d674467390498c37be9bc699e263c40776a7a8975603a9fee09b8d96caf25ca`.
+Evidence: immutable source-owner `impl-astra-22/runs/case-first.json` for the
+original fixture, and seat-local `.temp/astra22-owned-cases-01.json` through
+`-03.json` plus `.temp/case-vectors-validate-04.log`. The judge classified the AND-state gap as R7-014 (`spec-bug`, editor) and
+the reproduced source-core behavior as R7-015 (`impl-bug`, astra-22). Exact
+target and necessary-premise scope resolve the choice without an owner question.
+Expected outputs have not been changed to match the implementation. No deployment behavior was exercised.

@@ -76,3 +76,17 @@ predicate. No independent evaluator run yet. Evidence: seat-local
 Judge disposition, round 3: R7-002 rejected as a spec defect in `0.1.0-draft`;
 existing prose is explicit. Regression fixture retained. Any future evaluator
 mismatch requires a separate implementation-bug row.
+
+## Source evaluator execution — round 4
+
+The exact fixture passes against the frozen astra-22 evaluator at `3045117`.
+It now includes the requested surviving-alternative control: a separate B+
+root becomes applicable after r1 expires, and a later query returns that root
+with `semantic_review` qualification and `origin:survivor`. The endpoint query
+still has no witness, while both in-interval controls remain positive.
+
+Fixture SHA-256:
+`3266f571fe64c7e510a4e0d223a9c2ca25e3a9d141b271dabcfde79bb8ee4585`.
+Evidence: seat-local `.temp/astra22-owned-cases-03.json` and
+`.temp/case-vectors-validate-04.log`. This is one evaluator's exact semantic
+pass; it does not qualify a protected deployment.

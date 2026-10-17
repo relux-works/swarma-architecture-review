@@ -361,6 +361,87 @@
           "usable_until": null,
           "declassification": null
         }
+      },
+      {
+        "envelope": {
+          "id": "rec:survivor",
+          "version": 1,
+          "kind": "assessment",
+          "schema": null,
+          "subject": "subj:h1",
+          "issuer": "subj:h1",
+          "submitter": "subj:h1",
+          "representation_ref": null,
+          "perspective": {
+            "kind": "own",
+            "principal": "subj:h1"
+          },
+          "admission_class": "machine_observation",
+          "space": "space:main",
+          "valid": {
+            "kind": "known",
+            "from": "2026-10-12T00:00:00Z",
+            "to": null,
+            "precision": "second"
+          },
+          "confirmed_at": "2026-10-17T00:00:00Z",
+          "recorded": {
+            "sequence": 8,
+            "at": "2026-10-17T00:00:00Z"
+          },
+          "lineage": [],
+          "disclosure": {
+            "audiences": [
+              "aud:private",
+              "aud:public"
+            ],
+            "purposes": [
+              "purpose:publish",
+              "purpose:read"
+            ],
+            "retain_until": null,
+            "field_classes": [
+              "public"
+            ],
+            "declassification": null
+          },
+          "context": "real"
+        },
+        "body": {
+          "check_kind": "semantic_review",
+          "executor": "human",
+          "result": "pass",
+          "pins": {
+            "subject": {
+              "id": "rec:b",
+              "version": 1
+            },
+            "rule": {
+              "id": "check:semantic_review",
+              "version": 1
+            },
+            "policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "environment": {
+              "id": "environment:1",
+              "version": 1
+            }
+          },
+          "target": {
+            "assertion": {
+              "id": "rec:b",
+              "version": 1
+            },
+            "polarity": "support"
+          },
+          "sources": [],
+          "origin": "origin:survivor",
+          "source_requirement": "current",
+          "usable_until": null,
+          "declassification": null
+        }
       }
     ],
     "domain_schemas": [
@@ -576,6 +657,14 @@
           },
           "reviewer": "subj:h1",
           "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:survivor",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
         }
       ],
       "evidence": {
@@ -733,6 +822,57 @@
           "sources": []
         },
         "valid_at": "2026-10-10T23:59:59Z",
+        "now": "2026-10-17T00:00:00Z",
+        "mode": "real",
+        "bounds": {
+          "roots": 32,
+          "rules": 32,
+          "source_resolutions": 32,
+          "explanations": 8
+        },
+        "usable_until": null,
+        "render": "full",
+        "since": null
+      }
+    },
+    {
+      "op": "capture",
+      "query": {
+        "kind": "recall",
+        "principal": "subj:h1",
+        "purpose": "purpose:read",
+        "audience": "aud:public",
+        "scope": {
+          "space": "space:main",
+          "subject": "subj:h1",
+          "schema": {
+            "id": "schema:assumption",
+            "version": 1
+          },
+          "targets": [
+            {
+              "id": "rec:b",
+              "version": 1
+            }
+          ]
+        },
+        "projection_rule": {
+          "id": "projection:main",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "cut": {
+          "memory": 100,
+          "sources": []
+        },
+        "valid_at": "2026-10-12T00:00:00Z",
         "now": "2026-10-17T00:00:00Z",
         "mode": "real",
         "bounds": {
@@ -1002,6 +1142,108 @@
           "state": "initial",
           "refs": []
         }
+      },
+      {
+        "type": "view",
+        "semantic_profile": "0.1.0-draft",
+        "projection_rule": {
+          "id": "projection:main",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "authorized_snapshot_handle": "@h3",
+        "data_classification": "data",
+        "items": [
+          {
+            "ref": {
+              "id": "rec:b",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "submitter": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "representation_ref": null,
+            "admission_class": "machine_observation",
+            "statement_kind": "fact",
+            "content": [
+              {
+                "field": "value",
+                "value": "beta"
+              }
+            ],
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "usable_until": null,
+            "currentness": "current",
+            "authority_receipt": null,
+            "incompatible_with": [],
+            "needs_review": false,
+            "source_refs": [],
+            "support": {
+              "witness": "present",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "clean_path",
+              "evidence_qualification": [
+                "semantic_review"
+              ],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "@h3",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [
+                "origin:survivor"
+              ],
+              "independent_root_count": 1
+            },
+            "oppose": {
+              "witness": "not_found",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "not_fully_checked",
+              "evidence_qualification": [],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "@h3",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [],
+              "independent_root_count": 0
+            }
+          }
+        ],
+        "currentness": "current",
+        "historical": [],
+        "review_required": [],
+        "explanation": {
+          "status": "complete",
+          "paths": [],
+          "reason": null
+        },
+        "cutoffs": [],
+        "changes": {
+          "state": "initial",
+          "refs": []
+        }
       }
     ],
     "result": {
@@ -1019,7 +1261,7 @@
         "id": "policy:1",
         "version": 1
       },
-      "authorized_snapshot_handle": "@h3",
+      "authorized_snapshot_handle": "@h4",
       "data_classification": "data",
       "items": [
         {
@@ -1066,7 +1308,7 @@
             "evidence_qualification": [],
             "source_state": "resolvable_now",
             "freshness": "not_applicable",
-            "authorized_snapshot_handle": "@h3",
+            "authorized_snapshot_handle": "@h4",
             "dependency_coverage": "registered_only",
             "witness_roots": [],
             "independent_root_count": 0
@@ -1081,7 +1323,7 @@
             "evidence_qualification": [],
             "source_state": "resolvable_now",
             "freshness": "not_applicable",
-            "authorized_snapshot_handle": "@h3",
+            "authorized_snapshot_handle": "@h4",
             "dependency_coverage": "registered_only",
             "witness_roots": [],
             "independent_root_count": 0
@@ -1123,6 +1365,10 @@
         {
           "id": "rec:j",
           "version": 1
+        },
+        {
+          "id": "rec:survivor",
+          "version": 1
         }
       ],
       "erased_refs": [],
@@ -1152,6 +1398,11 @@
       "path": "/operation_results/1/items/0/support/witness",
       "test": "equals",
       "value": "not_found"
+    },
+    {
+      "path": "/operation_results/2/items/0/support/witness",
+      "test": "equals",
+      "value": "not_found"
     }
   ],
   "normalization": {
@@ -1163,6 +1414,9 @@
       "/operation_results/1/authorized_snapshot_handle",
       "/operation_results/1/items/0/support/authorized_snapshot_handle",
       "/operation_results/1/items/0/oppose/authorized_snapshot_handle",
+      "/operation_results/2/authorized_snapshot_handle",
+      "/operation_results/2/items/0/support/authorized_snapshot_handle",
+      "/operation_results/2/items/0/oppose/authorized_snapshot_handle",
       "/result/authorized_snapshot_handle",
       "/result/items/0/support/authorized_snapshot_handle",
       "/result/items/0/oppose/authorized_snapshot_handle"
@@ -1179,6 +1433,11 @@
         "/operation_results/1/items/0/oppose/authorized_snapshot_handle"
       ],
       [
+        "/operation_results/2/authorized_snapshot_handle",
+        "/operation_results/2/items/0/support/authorized_snapshot_handle",
+        "/operation_results/2/items/0/oppose/authorized_snapshot_handle"
+      ],
+      [
         "/result/authorized_snapshot_handle",
         "/result/items/0/support/authorized_snapshot_handle",
         "/result/items/0/oppose/authorized_snapshot_handle"
@@ -1188,6 +1447,7 @@
       [
         "/operation_results/0/authorized_snapshot_handle",
         "/operation_results/1/authorized_snapshot_handle",
+        "/operation_results/2/authorized_snapshot_handle",
         "/result/authorized_snapshot_handle"
       ]
     ],
