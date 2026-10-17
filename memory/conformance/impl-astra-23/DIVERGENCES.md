@@ -79,3 +79,19 @@ items and hidden-reference boundaries remain covered. Package 0.2.1 is now
 6a4f307 independently reproduces both heads and closes R7-024 fixed@f5fdd8b.
 The same review closes package fixes R7-014/018/019/021/022 at f31d58f. All
 current supplemental semantic cases pass (19/19) in d2c38ac. No deployment claim.
+
+## Phase 2 ASTRA25-07 — erasure receipt discloses protected closure metadata
+
+Case commit 77ea085; unchanged runtime f5fdd8b on package 0.2.1 f31d58f.
+Primary case fails `/operation_results/0/refs/length` (2 vs 1) and the extra
+`/operation_results/0/refs/1` (`rec:summary/1`); the explicit hidden-id forbidden
+predicate also fails. The exact metadata-authorized positive control passes.
+Protected erased refs, custody disposition, purge outcome and final empty view
+match in both cases. This does not request weakening the full erasure closure.
+
+K-API-1 requires authorized receipt refs, while K-ERASE-2 unqualifiedly says
+full fenced closure. Judge classification and an explicit receipt-authorization
+boundary are pending; no silent runtime or expected-value change is made.
+Immutable first evidence: PHASE2-ERASURE-FIRST.md/JSON. Current supplemental
+result: 23 pass / 1 fail / 0 unsupported semantic, one deployment unsupported.
+Topic: `div-astra25-erasure-receipt`.

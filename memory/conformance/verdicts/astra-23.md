@@ -6,11 +6,14 @@ Current package **0.2.1-draft**, `f31d58f`: all canonical semantic vectors pass.
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 57 | 0 | 0 |
 | Canonical deployment | 0 | 0 | 8 |
-| Supplemental semantic | 22 | 0 | 0 |
+| Supplemental semantic | 23 | 1 | 0 |
 | Supplemental deployment | 0 | 0 | 1 |
 
-Fourteen controls pass, including twelve source-state precedence subcases. All 22
-explicitly migrated supplemental semantic cases pass on 0.2.1; no implicit conversion or deployment qualification is claimed.
+Fourteen existing controls pass, including twelve source-state precedence
+subcases. New Phase 2 ASTRA25-07 fails the receipt metadata boundary; its
+metadata-authorized control passes. The first failed report is preserved in
+PHASE2-ERASURE-FIRST.md/JSON; classification is pending. No implicit conversion
+or deployment qualification is claimed.
 The structural package validator passes 20 intended violation controls.
 
 Phase 1 supported-vector score: **2/2**, independently verified by judge

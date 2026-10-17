@@ -246,3 +246,23 @@ will prove semantic differences and forbidden effects are detected.
   round. Remain active until convener PARK and the required final handoff.
 - Baseline integrity evidence: `.temp/impl-astra-23/final-gates-01.log`; both
   original FIRST-RUN and adapted RELEASE-0.2.1-FIRST remain byte-identical.
+
+## Round 12 — Phase 2 erasure receipt authority separating case
+
+- Intake ASTRA25-07 and its metadata-authorized positive control from signed
+  77ea085. The claim separates protected full erase closure from authorized
+  receipt metadata; source clauses K-API-1 and K-ERASE-2 require judge review.
+- Reproduce and commit the first exact run before any semantic correction.
+  Preserve full protected purge/fencing while comparing public receipt refs.
+
+### Round 12 outcome
+
+- Reproduced ASTRA25-07 exactly: only the extra protected derivative receipt ref
+  and length differ, with the intended hidden-id forbidden failure. The fully
+  authorized control and all other current cases pass: 23/1/0 semantic,
+  one deployment unsupported. Canonical 57/57 baseline remains unchanged.
+- Preserve PHASE2-ERASURE-FIRST.md/JSON before classification or correction;
+  SUPPLEMENTAL.md/JSON now reports the same current failed corpus honestly.
+- No implementation change. Await judge disposition of K-API-1/K-ERASE-2 and
+  the exact actor/metadata binding. Protected closure must remain complete.
+- Log: `.temp/impl-astra-23/phase2-erasure-first-01.log` (expected runner exit 1).

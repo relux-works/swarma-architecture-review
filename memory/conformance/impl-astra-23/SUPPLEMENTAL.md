@@ -9,7 +9,7 @@ distinctness are checked first. No runtime distribution or timing claim is made.
 
 | Profile | Pass | Fail | Unsupported | Total |
 | --- | ---: | ---: | ---: | ---: |
-| semantic | 22 | 0 | 0 | 22 |
+| semantic | 23 | 1 | 0 | 24 |
 | deployment | 0 | 0 | 1 | 1 |
 
 Deployment unsupported means no qualification claim; modeled semantic erasure
@@ -26,6 +26,8 @@ and publication transitions do not exercise live authentication, storage or deli
 | ASTRA24-02 | semantic | pass |
 | ASTRA24-06 | semantic | pass |
 | ASTRA25-02 | semantic | pass |
+| ASTRA25-07-CONTROL | semantic | pass |
+| ASTRA25-07 | semantic | fail |
 | ASTRA25-05-CONTROL | semantic | pass |
 | ASTRA25-05 | semantic | pass |
 | ASTRA25-01 | semantic | pass |
@@ -42,6 +44,12 @@ and publication transitions do not exercise live authentication, storage or deli
 | ASTRA26-05 | semantic | pass |
 | ASTRA26-03-CONTROL | semantic | pass |
 | ASTRA26-03 | semantic | pass |
+
+### ASTRA25-07
+
+- `/operation_results/0/refs/length`: actual `2`; expected `1`.
+- `/operation_results/0/refs/1`: actual `{"id":"rec:summary","version":1}`; expected `"<missing>"`.
+- forbidden predicate matched: {"path":"/operation_results/0/refs/1/id","test":"equals","value":"rec:summary"}
 
 ### ASTRA25-04
 
