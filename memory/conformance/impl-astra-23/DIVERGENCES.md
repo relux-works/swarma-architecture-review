@@ -346,3 +346,12 @@ Judge closed R7-037 at4af0360 with exact0.2.3 canonical/supplemental reproductio
 all26controls and unchanged first evidence. R7-046 is separately closed at3ce8ee3,
 including frozen0.2.2 and migrated0.2.3 actor/binding controls. The authority-succession
 probe at47c0205 remains a separate pending classification/code-mapping issue.
+
+### R7-048/049 classification
+
+Judge decision at2026-10-17T05:18:07Z classifies the accepted writes as R7-048
+(package implementation) and the exact code wording as R7-049 (specification).
+The adjudicated code is authority_receipt_required/retryable=false for a missing
+qualifying strictly succeeding canonical receipt; CAS mismatch stays separate.
+The package-only runtime waits for that published contract and exact fixtures.
+Own initial probe47c0205 is immutable. No owner architecture question is needed.

@@ -628,3 +628,18 @@ will prove semantic differences and forbidden effects are detected.
   current verified dual canonical coverage is49/57 on0.2.3.
 - New succession probes at47c0205 remain separate pending typed-refusal mapping.
   No runtime change, new vector pass or Phase2 completion is claimed.
+
+## Round 24 — R7-048 strict authority succession correction
+
+- Judge classifies the preserved ASTRA24-10 failure as package implementation
+  R7-048, source R7-047 and exact refusal-mapping specification R7-049.
+- Wait for the editor's published K-REV-3/K-REF-1 amendment and authored exact
+  vectors before adapting this package-derived runtime. Preserve the first new
+  release/vector execution before correction as usual.
+- Required negative boundary: incomparable, identical and prior receipts refuse
+  authoritative replacement with authority_receipt_required/retryable=false,
+  without records, cut, dirty state or idempotency changes. CAS mismatch remains
+  version_conflict; exact successful replay retains its earlier precedence.
+- Pair with direct/transitive successors, ordinary incomparable decision import,
+  valid retry after a refusal and existing withdrawal/challenge/CAS controls.
+- Current runtime4af0360 and reports remain unchanged while publication is pending.

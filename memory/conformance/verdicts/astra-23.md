@@ -2,8 +2,8 @@
 
 Current package **0.2.3-draft**, `23290b3`: all canonical and published supplemental
 semantic vectors pass. New ASTRA24-10 contract probes expose accepted authoritative
-replacements with incomparable/reused receipts; their exact refusal mapping is
-pending judge/editor disposition. PHASE2-SUCCESSION-FIRST freezes the forbidden
+replacements with incomparable/reused receipts; judge classifies package bug R7-048 and
+refusal-mapping specification bug R7-049. Published correction is pending. PHASE2-SUCCESSION-FIRST freezes the forbidden
 state effects. Those probes are outside the vector counts below.
 
 | Profile | Pass | Fail | Unsupported |
