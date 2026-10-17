@@ -1,7 +1,15 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 38; no PARK. Source baseline `95f974b`, kernel v0.2; current package
-`0.2.5-draft` at `6a04e8c`; all twenty owned exact fixtures explicitly migrated.
+Status: **PARKED** under convener decision at 2026-10-17T06:33Z,
+`$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg`. Final R7 row: **2/2**.
+Source baseline `95f974b`, kernel v0.2; released package `0.2.5-draft` at
+`6a04e8c`; all twenty owned exact fixtures explicitly migrated.
+
+This seat delivered twelve semantic cases and twenty exact regression fixtures,
+with original failures retained. No specification or implementation bug remains
+open. R7-055 is an unresolved owner question, not a chosen authority rule;
+protected deployment remains unqualified. See the [park note](../parked/astra-24.md)
+for remaining work and the evidence boundary.
 
 ## Scope and method
 
@@ -751,16 +759,30 @@ with 47 fixed items, ten rejected and the one held owner question. This is
 attributed full-corpus evidence; our own Round 38 review is the focused scope
 above. No new case or package change arose from this review.
 
-## Provisional R7 row and remaining work
+## Final R7 row and PARK
 
-**Phase 2 R7: 2/2.** Judge `9d2cdd4` verifies full dual canonical and supplemental
-semantic coverage and no open specification or implementation bugs. This seat's
-independent full canonical, twenty owned and later focused correction evidence
-is pinned above. Issuer ambiguity R7-055 remains held for Ivan with no chosen
-exact oracle and outside executable denominators. The eight canonical and one
-supplemental protected-deployment cases remain unqualified.
+**R7: 2/2.** Judge closure `9d2cdd4` and quiet record `73408ec` verify full dual
+semantic coverage: 57/57 canonical and 68/68 supplemental. The ledger contains
+58 items: 47 fixed, ten rejected and one unresolved owner question, with no open
+specification or implementation bug. This seat's independent full canonical,
+twenty owned and later focused correction evidence is pinned in the rounds above.
+Full latest supplemental execution is attributed to the judge and implementers;
+it is not an additional full run by this seat.
 
-Remain in the round protocol, answer directed items and verify accepted changes
-until the convener posts PARK. Finalize this verdict and the park note then.
-Tracking and tool-readiness evidence is in seat-local `.temp/tasks.md` and
-`.temp/*readiness*.log`.
+Convener PARK at 2026-10-17T06:33Z explicitly confirms the Phase 2 gate at
+`1f92e91`: full dual coverage and one quiet round from every seat. Our round 39
+reported no new case, divergence, package/runtime/fixture change or unanswered
+directed item. Finalization changes only this verdict and our park note; no
+additional evaluator execution is needed for this documentation-only delta.
+
+R7-055 remains held for Ivan with no chosen exact oracle and outside executable
+denominators. Its two native inputs and first outputs remain byte-identical to
+`4424598`. The eight canonical and one supplemental protected-deployment cases
+remain unsupported and unqualified. Synthetic semantic success does not establish
+physical purge, witness completeness, service isolation or real delivery.
+
+No seat-owned implementation/specification correction or directed review remains.
+Remaining owner/deployment work is recorded in [the park note](../parked/astra-24.md).
+Tracking, tool-readiness, input/module hashes and detailed local reports remain in
+seat-local `.temp/tasks.md` and the evidence paths listed above. All original
+failure evidence and twenty explicit 0.2.5 fixtures are preserved.
