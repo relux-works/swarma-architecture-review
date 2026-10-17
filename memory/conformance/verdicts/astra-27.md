@@ -1,37 +1,36 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 28, phase 2 active. Current score: **1/2**.
+Status: round 29, phase 2 active. Current score: **1/2**.
 Historical original supported-vector score: **2/2** at `b1ae299`.
 
-Adjudicated 54 items: ten rejected as defects, forty-two independently fixed,
-and two open implementation bugs (R7-052/053). No owner question is established.
+Adjudicated 54 items: ten rejected as defects, forty-three independently fixed,
+and one open implementation bug (R7-053). No owner question is established.
 See [LEDGER.md](../LEDGER.md) and [R7-SCORE.md](../R7-SCORE.md).
 
-Verified package 0.2.5 `6a04e8c` closes expiry mapping R7-054. Live retention
-requires trusted intake time strictly before every applicable non-null deadline.
-The exact non-retryable not_authorized refusal precedes idempotency and checks
-original outputs/known-input closure on replay, preserving state and old receipts
-without a purge. All 94 JSON artifacts regenerate exactly and all 34 checker
-plants detect their intended violation. Only P11 changes beyond profile stamps;
-its first 16 operations/results, the other 64 vectors and pilot are unchanged.
+R7-052 source expiry closes at signed `4a14a56`. Independent full 0.2.5 canonical
+execution exactly reproduces all 65 committed rows and input/module hashes:
+50/0/7 semantic. All 112 source controls pass, including six deadline groups
+across admit/raw/revise/declassify, every output, original current-time replay,
+transitive/incomplete-known closure, both batch orders and null/unrelated limits.
+Seven unchanged migrated expiry vectors pass. Ten independent operation checks
+now give three positive admissions and seven exact atomic refusals, retaining
+the original receipt on denied replay. First failures remain immutable.
 
-Independent full first runs give source `427fed5` 49/1/7 and package `942bdee`
-56/1/0: exact dual canonical passes **49/57**. Only expanded P11 fails. Eight
-isolated package probes reproduce five forbidden fresh commits, two expired
-success replays and one wrong idempotency-conflict priority. A separate prescribed
-20-operation positive trace passes every field; it excludes the eight expired
-operations and is not full conformance evidence.
+Package `942bdee` remains at its verified 56/1/0 first 0.2.5 run, with only P11
+failing, so exact dual canonical coverage is **49/57**. Its correction remains
+R7-053. The specification `6a04e8c` is verified, with exact regeneration of 94
+JSON artifacts and 34 intended checker controls; no specification finding is open.
 
-The pinned 61-case semantic supplement under 0.2.4 plus adjudicated expiry mapping
-is source 48/5/8 and package 56/5/0. All 62 artifacts validate; prior 54 semantic
-inputs/results and all original first evidence remain unchanged. Explicit author
-migration to 0.2.5 and runtime corrections remain pending. R7-052/053 closure
-requires all admission APIs, current replay, transitive/incomplete-known and
-same-batch expiry, live/null positives and complete unchanged refusal state.
+The source supplemental corpus currently splits by explicit author profile:
+41 semantic cases at 0.2.5 give 33/0/8, and twenty pending seat-24 cases pass
+20/20 when run explicitly at their original 0.2.4. Their current-version
+mismatches are only profile stamps. All 62 artifacts validate in their own
+profiles and preserve original semantic inputs/expectations. No unified current
+supplemental total or implicit fixture conversion is claimed.
 
-Authority-order fixes and their 106 source/28 package control baseline remain
-verified on 0.2.4; those results do not prove the new expiry contract. Seven
-canonical source gaps and eight canonical plus one supplemental deployment case
-remain unsupported. Later source adaptation is not another package-blind run.
-Continue until the convener posts PARK, then finalize this verdict and park note.
+Seven canonical source coverage gaps remain, as do eight canonical plus one
+supplemental unsupported deployment case. Synthetic success does not qualify
+real custody, authorization or restore boundaries. Later source adaptation is
+not another package-blind run. Continue until the convener posts PARK, then
+finalize this verdict and park note.

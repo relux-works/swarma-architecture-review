@@ -96,7 +96,7 @@ does not discard useful implementation regression fixtures. Both independent
 first reports are committed and reproduced. Fix closures below reference exact
 commits and relevant controls; a candidate release alone is insufficient.
 
-| R7-052 | astra-25 [retention-deadline](cases/astra-25-retention-deadline.md), first `604af18`; request `$XkFYu2DEMaA0d8d3wUeCqkwMVrlPAqRQAg0B_ViVOAg` | ASTRA25-11 native probes; K-DISC-1, K-AUTH-1, K-API-1/2 | impl-bug | astra-22 | open | Judge independently reproduces before/at/after/own-expiry and late replay at source `4772258`: three fresh expired writes add D, cut and replay state; late exact replay succeeds despite expired retention. Before-expiry control succeeds. Require live retention for every resolved output/known-input closure at trusted intake time, with atomic not_authorized,false including replay. Native probes are outside vector totals. |
+| R7-052 | astra-25 [retention-deadline](cases/astra-25-retention-deadline.md), first `604af18`; request `$XkFYu2DEMaA0d8d3wUeCqkwMVrlPAqRQAg0B_ViVOAg` | ASTRA25-11 native probes; K-DISC-1, K-AUTH-1, K-API-1/2 | impl-bug | astra-22 | fixed@4a14a56 | Judge exactly reproduces all 65 canonical 0.2.5 rows at 50/0/7 with correction module hashes and all 112 controls green. All seven migrated expiry vectors pass; independent three-positive/seven-negative operation checks now pass, with exact refusals and complete state preservation. Six native groups cover admit/raw/revise/declassify, every output, transitive/incomplete-known/batch deadlines, original live/expired replay, null/unrelated limits and authorization-before-duplicate priority. First c9e1faf and full old-runtime 0.2.5 failure remain immutable. |
 | R7-053 | Same ASTRA25-11 submission and independently repeated inputs as R7-052 | Same deadline and authorized-replay clauses | impl-bug | astra-23 | open | Package runtime `4af0360` independently reproduces the same three forbidden fresh commits and expired successful replay. All input states and operations validate; first results remain immutable. Required refusal preserves the original receipt and complete state, without triggering an erasure job. Before-deadline and unbounded positive neighbors remain required. |
 | R7-054 | Judge review of ASTRA25-11; editor recommendation `$rhmPEMI5yxqbjQprbScOEovbpGlhuBzhcvFNwa--FmA` | K-DISC-1, K-AUTH-1, K-API-1/2, K-REF-1 | spec-bug | astra-21 | fixed@6a04e8c | Judge verifies 0.2.5 explicit strict context.at expiry, not_authorized,false before idempotency, original-output/known-closure replay and no purge. All 94 JSON artifacts regenerate exactly; 34 intended checker plants pass. Only P11 changes beyond version; its first 16 operations/results and other 64 vectors/pilot are preserved. Isolated unchanged-runtime probes give five forbidden writes, two expired success replays and one wrong conflict priority; a separate 20-operation positive trace matches every expected field. Runtime fixes stay R7-052/053. |
 
@@ -1413,3 +1413,48 @@ Evidence in judge seat `.temp/`: `judge-round28-package-review-01.json`,
 Ledger: 54 items, 42 fixed, 10 rejected, R7-052 and R7-053 implementation open.
 No owner question. Seven source canonical gaps and eight canonical plus one
 supplemental deployment case remain unsupported. Score 1/2, no PARK.
+
+## Round 29 — source deadline correction verified
+
+R7-052 closes at signed `4a14a56`. Independent full canonical 0.2.5 execution
+reproduces all 65 committed rows and input/module hashes: 50/0/7 semantic.
+Expanded P11 passes. Every established source control and six new deadline
+groups pass, for 112 total including the five comparison-harness controls.
+
+The native groups cover admit, admit_raw, revise and declassify, checking each
+proposed output independently. A still-live exact retry preserves its original
+receipt; equality/after expiry refuses without writes or purge, including a fresh
+key. Transitive complete and incomplete-known closure, both batch orders, null
+and unrelated deadlines, and repeated-proposal authorization precedence retain
+valid positive controls. The shared traversal checks each proposed envelope
+before deduplicating recursive input work; a later duplicate cannot hide an
+expired output. The correction preserves the grant/scope and erasure contracts.
+
+All seven unchanged migrated expiry vectors pass. Independent judge probes
+reuse the original semantic operations and now pass all ten checks: three
+positive admissions and seven exact non-retryable not_authorized refusals with
+complete before/after state equality. Expired replay retains its original stored
+receipt. First native and typed failures remain unchanged; no oracle is relaxed.
+
+At this verification checkout the supplemental corpus intentionally has two
+explicit profiles. Forty-one semantic cases from seats 25/26 use 0.2.5 and give
+33/0/8; twenty seat-24 cases still use 0.2.4. Each of those twenty passes exactly
+when explicitly executed with its original profile. Running them as 0.2.5 produces
+only semantic_profile field mismatches, independently enumerated in the evidence;
+these are not twenty implementation defects. No input is silently rewritten and
+no unified 0.2.5 supplemental pass total is claimed before author migration.
+All 62 artifacts validate against their own declared profile, and profile-only
+migration round-trips to the preserved original corpus.
+
+Evidence in judge seat `.temp/`: `astra22-round29-execution-01.json`,
+`astra22-judge-round29-canonical.json`, `astra22-judge-round29-mixed-cases.json`,
+`astra22-judge-round29-pending024-cases.json`,
+`astra22-judge-round29-deadline-atomic-corrected.json`,
+`judge-round29-profile-validation-01.json`, `judge-round29-source-comparison-01.json`
+and `judge-round29-source-signature-01.log`.
+
+Ledger: 54 items, 43 fixed, 10 rejected. Only R7-053 package expiry remains open.
+Package `942bdee` still has its verified 56/1/0 first 0.2.5 result, so dual exact
+canonical coverage remains 49/57 despite source P11 recovery. Seven source
+canonical gaps and eight canonical plus one supplemental deployment case remain
+unsupported. No owner question; score 1/2, no PARK.
