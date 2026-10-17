@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 15; collective active, NO PARK. Seat identity:
+Status: phase 2, round 16; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Full dual semantic coverage and new finding
@@ -21,10 +21,10 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | External witness must be current and complete | R7-008 fixed@cde5754 for fixture meaning; real deployment remains unsupported |
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Hidden revision cannot expose protected global dirty state | R7-018 fixed@f31d58f; hidden and authorized-dirty traces pass |
 | [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md) | Opposite quality cannot spend existence counters | R7-027 fixed@4e647ea; both owned traces and ASTRA24-05 controls pass |
-| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 spec-bug, context released at 7e71765; correction a016781 independently verified, judge closure pending |
+| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 spec-bug, R7-031 fixed at package 7e71765 / runtime a016781; judge and seat independently verified |
 | [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source / R7-037 package impl-bugs; separate R7-039 explicit retention-context spec-bug pending |
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; package pair passes, source erasure unsupported |
-| [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | Both evaluators pass; package checker falsely rejects initial state; judge classification pending |
+| [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 checker spec-bug; both runtimes pass, correction pending |
 
 ## Current evidence
 
@@ -46,17 +46,18 @@ The hidden-quality and global-dirty violation plants remain detected.
 | Current owned semantic corpus | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Package runtime at `a016781` | 15 | 1 | 0 |
-| Source runtime at `e38c37c` | 6 | 1 | 9 |
+| Source runtime at `3722327` | 6 | 1 | 9 |
 
 Each evaluator reports the one owned deployment fixture unsupported. The remaining failure in both is ASTRA25-08 missing retain authority.
 ASTRA25-07 primary, authorized and unrelated-purpose traces now all pass in the
 package evaluator; canonical57/57 and all18 package controls pass independently. ASTRA25-09 retains both package passes. ASTRA25-10 passes both
 runtimes, including the missing-input refusal followed by successful exact retry.
-Source `e38c37c` newly passes both unchanged ASTRA25-05 hidden/visible traces;
-its six impact controls also pass independently.
+Source `3722327` preserves both unchanged ASTRA25-05 traces after the separate
+rule/check correction; all nine impact controls pass independently. Earlier six
+controls did not cover that additional R7-043 failure.
 
 Exact current runs are `astra23-phase2-022-receipt-corrected` and
-`astra22-phase2-dirty-coverage`, plus `checker-future-lineage-022`, in the evidence
+`astra22-phase2-rule-check-dirty`, plus `checker-future-lineage-022`, in the evidence
 JSON. Earlier phase-1, phase-2 and 0.2.1 future-input runs remain immutable entries,
 pinned by package, evaluator and input hashes. Working-copy fixture additions at
 execution are labeled and identified by hashes, not claimed as committed inputs.
@@ -73,14 +74,13 @@ explicitly lacked those operations; unsupported was never counted as a pass.
 Convener event `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc` withholds PARK and
 requires 57/57 canonical semantic vectors on both independent evaluators, then
 one full round with no new open item. Judge `536f54c` records the stronger gate.
-Phase-1 dual coverage was 43/57; current source candidate is 47/57, pending judge verification. The
+Phase-1 dual coverage was 43/57; judge-verified coverage is 47/57; current source candidate is 49/57. The
 judge owns current collective totals; this seat does not infer success for
 unsupported operations or unfinished implementations.
 
-Obtain judge closure for verified erase receipt correction. Follow the
-retention-scope package decision and R7-036/037 fixes, obtain the future-fact
-checker disposition, and rerun owned regressions as source release/erasure
-support arrives. Finalize verdict and park note only after actual convener PARK.
+Verify released retention-scope R7-039 and checker R7-042 corrections, then
+R7-036/037 runtime fixes, including transitive known-input authority. Rerun owned
+regressions as source release/erasure support arrives. Finalize verdict and park note only after actual convener PARK.
 
 No real protected-deployment qualification is claimed by semantic publication,
 erasure, custody, restore, revocation or delivery traces. Actual witness freshness,

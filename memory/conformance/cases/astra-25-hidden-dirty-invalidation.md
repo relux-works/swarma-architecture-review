@@ -133,3 +133,11 @@ cross-schema review. Protected dirty causes remain recorded; public reads do
 not clear them. Exact owned run is `astra22-phase2-dirty-coverage` in the owned
 evidence JSON; control log is `.temp/astra25-source-impact-controls-01.log`.
 This expands source execution coverage; it does not qualify timing or deployment.
+
+Source `3722327` preserves both owned traces after its separate R7-043 correction.
+All nine impact controls pass independently, including newly added rule/check
+withdrawals, private-positive/public-hidden outcomes, challenge non-invalidation,
+transitive closure, historical cut and cleared recomputation. These specifically
+extend the earlier six-control evidence; that earlier green suite did not cover
+R7-043. Log `.temp/astra25-source-impact-controls-02.log`; exact owned result
+`astra22-phase2-rule-check-dirty`. Judge owns R7-043 closure.

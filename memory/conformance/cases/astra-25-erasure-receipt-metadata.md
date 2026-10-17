@@ -1,7 +1,7 @@
 # ASTRA25-07: erasure authority does not authorize hidden closure metadata
 
 Status: R7-031 spec-bug; explicit receipt-context correction released in
-`0.2.2-draft` at `7e71765`, behavior independently verified at `a016781`; judge closure pending. Original
+`0.2.2-draft` at `7e71765`, behavior independently verified at `a016781` and closed by judge. Original
 `0.2.1-draft` witness at `f31d58f` remains preserved.
 Owner: astra-25.
 
@@ -116,3 +116,8 @@ original receipt only when currently authorized. Exact evidence entries are
 `.temp/astra25-package-controls-022-01.log`. This verifies the tested semantic
 receipt contract; it does not establish physical purge or general side-channel
 isolation. Judge owns final R7-031 closure.
+
+Judge closure `$31IyK5gwGSJaMRrozQ-A02a1oUfrXbHkp9e1ZaOGWjI` independently
+reproduces all canonical results, all 18 controls and all three owned receipt
+traces. R7-031 is fixed at package `7e71765` with runtime `a016781`; first red
+evidence remains immutable.

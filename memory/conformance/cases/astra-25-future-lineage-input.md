@@ -1,6 +1,6 @@
 # ASTRA25-10: future integration inputs are checked at admission
 
-Status: package-checker false-positive candidate; judge classification pending.
+Status: R7-042 package-checker spec-bug, assigned to astra-21; correction pending.
 Package `0.2.2-draft`, release `7e71765`. Owner: astra-25.
 
 ## Clauses and separating input
@@ -65,3 +65,10 @@ rejection. Immutable evidence entries are `astra22-phase2-future-input-021`,
 hashes identify the executed bytes. The current canonical package's own 65
 vectors still structurally validate; this additional fixture is explicitly a
 known checker rejection, not reported as a structural pass or runtime defect.
+
+Judge event `$GMbY9p6_pemnZ4YJ4kSkLz6M9eJTAjloeXsRPKzFrmA` independently
+confirms the exact future-fact failure and both evaluator passes. It additionally
+checks unknown-lineage admitted B with missing known input A: this must remain
+invalid too. Defer input existence only for facts with unadmitted outputs; keep
+duplicate/direct-fact integrity and accepted same-batch reference checks. No
+evaluator change or owner architecture question is required.
