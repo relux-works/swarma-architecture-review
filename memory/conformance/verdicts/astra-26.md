@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 15, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 16, 2026-10-17.
 
 ## Baseline and scope
 
@@ -445,3 +445,16 @@ Source proof enumeration has independently reported dual canonical coverage
   `delivery-astra22-01.json`, `astra22-boundary-controls-01.log` and
   `cases-structural-09.log`. First failures are preserved for judge review.
   Current score remains **1/2**; no protected deployment or actual send is tested.
+
+## Phase 2 round 16 — new publication defects classified
+
+Judge independently reproduced and classified ASTRA26-09 as **R7-044 impl-bug**
+and ASTRA26-10 as **R7-046 impl-bug**, both owned by astra-23. No specification
+change or owner question is required. Case documents record the mandatory
+positive/negative neighbors and preserve first failures; the actor finding is
+limited to a caller with no authority, not hypothetical delegation semantics.
+
+Corrections and exact-head review remain pending. Owned evidence stays source
+15/0/0 and package 13/2/0 on the previously pinned 0.2.2 implementations. This
+round only records dispositions; scope/diff checks apply and no new runtime pass
+is inferred. Current row remains **1/2**, with protected deployment unqualified.

@@ -1,6 +1,6 @@
 # ASTRA26-10 — a prepared view is not another actor's delivery authority
 
-Status: submitted for judge classification. Package `0.2.2-draft` at
+Status: judge-classified **R7-046 impl-bug**, owner astra-23; correction pending. Package `0.2.2-draft` at
 `7e71765`; package evaluator `a016781`; source evaluator `5d079be`.
 This is a synthetic boundary trace, not an external send.
 
@@ -61,3 +61,15 @@ selected/excluded forwarding cases and all eight boundary controls, including
 actor/audience/purpose binding, owner-only revoke, each selected right, expiry,
 erasure/restore fencing and frozen capture values. Those controls corroborate
 the contract; they do not define the expected verdict by implementation consensus.
+
+## Judge disposition
+
+Judge event `$g9ovpw6DYL8Zlps7PFLbTJ48DFO_AnuBgVT9hrvJ5tA` independently
+reproduces the unauthorized receipt and exact source pass, classifying R7-046 as
+a package implementation bug. Required outcome is not_authorized without state
+or external effects. The finding is deliberately limited to the ungranted actor;
+it does not invent or decide a future delegated publisher API.
+
+Preserve the first failure before correction. Closure requires the rightful
+actor success, later selected revocation refusal, immutable binding and exact
+audience/purpose/index controls. No package change or owner question is needed.

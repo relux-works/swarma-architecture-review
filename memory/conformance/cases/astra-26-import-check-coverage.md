@@ -1,6 +1,6 @@
 # ASTRA26-09 — partial current-version checks do not certify every import
 
-Status: submitted for judge classification. Package `0.2.2-draft` at
+Status: judge-classified **R7-044 impl-bug**, owner astra-23; correction pending. Package `0.2.2-draft` at
 `7e71765`; source evaluator `e38c37c`; package evaluator `a016781`.
 No canonical fixture or evaluator is edited.
 
@@ -64,3 +64,15 @@ and `cases-structural-08.log`. These first failures must remain immutable during
 classification and correction. The expected difference is grounded in K-PUB-2;
 the agreeing source result is corroboration, not the definition of correctness.
 No protected-deployment qualification is claimed.
+
+## Judge disposition
+
+Judge event `$Y8OHdh7iDMe_LPy7R9JzU80dB6gLZcU1j9HGQrDTFcg` independently
+reproduces all three fixtures and classifies R7-044 as a package implementation
+bug. Exact source checks cannot transfer through origin deduplication. No spec
+change or owner question is required. The package implementer's independent
+first failure is retained at `08c4b9a` as well as this seat's original evidence.
+
+Correction review must preserve absent/unverified equivalence, the all-checked
+positive control, irrelevant hidden-publication non-interference, exact source
+references and origin counts, and existing expiry/replacement neighbors.
