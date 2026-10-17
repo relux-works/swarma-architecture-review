@@ -58,3 +58,10 @@ erasure/restore and load/availability stimuli. Changes and audience proof-refere
 disclosure also remain unsupported API paths. No protected deployment, physical
 erasure, timing isolation, randomness qualification or crash durability is claimed.
 Semantic delivery sends no external bytes.
+
+R7-052 deadline enforcement first native evidence is preserved in
+`runs/deadline-native-first.json` and `runs/deadline-controls-first.json`:
+three expired fresh writes commit, expired replay returns success, and six
+control groups expose17intended failures. Judge explicitly requires
+not_authorized,false before idempotency with no purge;054 release pending.
+These native probes are outside the canonical/supplemental vector denominator.
