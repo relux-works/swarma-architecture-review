@@ -72,17 +72,27 @@ class AvailabilityControls(unittest.TestCase):
                     op["state"] = "hidden-resource-error"
                 self.denied(a, op, code)
 
-    # Owner recovery must also work when degradation is already admitted in the
-    # initial public availability state, not only after this process set it.
+    # All four public transitions follow the requested state, including initial
+    # degradation. Only the public/runtime availability facts may change.
     def test_initial_degraded_state_can_recover(self):
-        v = fixture("S27")
-        v["initial_state"]["policy"]["public_availability"] = "degraded"
-        a = Adapter(v["initial_state"], "control")
-        self.assertEqual(a.query(v["query"])["code"], "unavailable")
-        op = copy.deepcopy(v["operations"][3])
-        op["state"] = "available"
-        self.assertEqual(Erasure(a).apply(op)["outcome"], "availability_changed")
-        self.assertEqual(a.query(v["query"])["type"], "view")
+        for initial in ("available", "degraded"):
+            for requested in ("available", "degraded"):
+                with self.subTest(initial=initial, requested=requested):
+                    v = fixture("S27")
+                    v["initial_state"]["policy"]["public_availability"] = initial
+                    a = Adapter(v["initial_state"], "control")
+                    before = snapshot(a)
+                    op = copy.deepcopy(v["operations"][3])
+                    op["state"] = requested
+                    self.assertEqual(Erasure(a).apply(op)["outcome"], "availability_changed")
+                    before[1]["memory_available"] = requested == "available"
+                    before[2]["public_availability"] = requested
+                    self.assertEqual(snapshot(a), before)
+                    result = a.query(v["query"])
+                    if requested == "available":
+                        self.assertEqual(result["type"], "view")
+                    else:
+                        self.assertEqual(result, {"type": "refusal", "code": "unavailable", "retryable": True})
 
     # The harness can observe authorized control while memory is unavailable;
     # it records no external effect and does not enact stop/park/revocation.

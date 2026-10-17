@@ -36,6 +36,7 @@ class Erasure:
         if mode == "set_availability":
             if self.adapter.policy["availability_disclosure"] != "coarse_unavailable":
                 raise Refusal("not_authorized")
+            self.adapter.policy["public_availability"] = op["state"]
             self.adapter.runtime["memory_available"] = op["state"] == "available"
             return receipt(mode, "availability_changed")
         if mode == "control":

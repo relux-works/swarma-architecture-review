@@ -206,7 +206,9 @@ profile migration). The initial124passing native/comparator controls are recorde
 audience proof-reference disclosure and request_check remain unmapped wire paths
 outside these semantic inventories.
 
-An additional initial-degraded recovery control currently fails, preserved in
-`runs/availability-recovery-first.json`. The success receipt does not reopen the
-public state; judge classification is pending before correction. Canonical and
-supplemental totals above do not include this native probe.
+R7-056 corrects the additional initial-degraded recovery failure preserved in
+`runs/availability-recovery-first.json`. All four current public state transitions
+now match the requested state; the original and expanded red witnesses remain.
+All125controls pass in `runs/availability-controls-corrected.json`; current exact
+vector reports are `runs/phase2-availability-corrected.*` and
+`runs/phase2-availability-cases-corrected.*`.

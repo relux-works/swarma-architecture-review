@@ -14,7 +14,9 @@ Current package: **0.2.5-draft**,
 | Supplemental deployment | 0 | 0 | 1 |
 
 Evidence: `impl-astra-22/RESULTS.*`, `runs/phase2-erasure-first.*`,
-`runs/phase2-erasure-cases-current.*`. The initial mixed-profile supplemental
+`runs/phase2-erasure-cases-current.*`. Current R7-056 correction reports are
+`runs/phase2-availability-corrected.*` and `phase2-availability-cases-corrected.*`.
+The initial mixed-profile supplemental
 41/20/0 is retained in `phase2-erasure-cases-first.*`; author24's explicit27303e4
 profile migration alone resolves those20differences. No oracle is edited.
 
@@ -30,10 +32,11 @@ and unreachable custody, initial-backup restore and current-witness reconciliati
 It preserves tombstone inventory and independent recipients. Load and availability
 stimuli preserve logical non-interference; control only records observations.
 
-Initial124controls pass: source33,adapter8,transaction14,proof4,impact9,boundary8,
+All125controls pass: source33,adapter8,transaction14,proof4,impact9,boundary8,
 retention8,release9,succession4,authority-projection4,deadline6,erasure8,
-availability4,harness5. Exact native outputs and module hashes are in
-`runs/erasure-controls-first.json`; chronology/claims/limits in `WORKLOG.md`.
+availability5,harness5. Exact native outputs and module hashes are in
+`runs/availability-controls-corrected.json`; initial124green outputs remain
+`runs/erasure-controls-first.json`. Chronology/claims/limits: `WORKLOG.md`.
 
 Judge-closed source defects:011/012/013/015,025/026/027/028/029,030,032,036,040,043,
 047,050,051,052. Deadline052 is closed at4a14a56; native firstc9e1faf and exact
@@ -49,12 +52,11 @@ durability is claimed. Semantic delivery sends no external bytes; restore witnes
 and custody facts are trusted fixture inputs. Phase-1 historical2/2 was narrower
 and is not Phase-2 completion.
 
-New ASTRA22-08 native probe exposes an additional failing recovery control:
-initial public_availability=degraded remains unavailable after authorized
-set_availability available succeeds. Exact inputs/state/actuals and module hashes
-are frozen in `runs/availability-recovery-first.json`; prior124controls pass,
-this125thfails. It is outside both semantic vector denominators. No silent fix;
-judge classification is requested before correction.
+R7-056/ASTRA22-08 correction updates current public availability for every
+authorized transition, including initial degraded -> available. Four state pairs
+and current authorization/full-state neighbors now pass. Original native red
+dbf4892 and expanded transition matrix are immutable. All125controls are green;
+judge closure remains pending. No infrastructure recovery is claimed.
 
 ASTRA22-09 also preserves an unclassified native priority question in
 `runs/erase-changed-context-first.json`: a changed ungranted receipt purpose
