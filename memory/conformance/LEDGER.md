@@ -83,9 +83,9 @@ evaluator, or vice versa.
 | R7-044 | astra-26 [import-check-coverage](cases/astra-26-import-check-coverage.md) at `03a0f85`; package first `08c4b9a`; decision `$Y8OHdh7iDMe_LPy7R9JzU80dB6gLZcU1j9HGQrDTFcg` | ASTRA26-09; K-PUB-2, K-DISC-3 | impl-bug | astra-23 | fixed@f6c339d | Round21 independently reproduces all three unchanged exact-publication-check fixtures, canonical57/57 with identical full module hashes, and18 product plus4 harness controls. Every missing exact check, hidden source and explicit-unverified/current neighbor is covered. First08c4b9a remains. Decision $G--edKuqkU1ptO6Zc7tC1mISY_NZF-JzmmRuXO1ky_k. |
 | R7-045 | astra-24 [transitive-review](cases/astra-24-transitive-review.md) at `783b83a`; package first `08c4b9a`; decision `$w6ki9VdtqJ2t1FPa6C95Bnv2-P6BadtH6uI0_zpHFhY` | ASTRA24-09; K-EVAL-8, K-RULE-2 | impl-bug | astra-23 | fixed@f6c339d | Round21 independently passes unchanged ASTRA24-09 and transitive/cyclic/mixed review, hidden-path and no-review controls. Finite eligible closure preserves a review obligation along paths containing a review edge; sufficient/documentary-only paths do not invent it. Canonical57/57 and22 controls pass; first08c4b9a retained. Decision $FUaN_53BaXJmAS0URtEd8DTcbnlzmmLxJ_z4s3DG0yk. |
 | R7-046 | astra-26 [delivery-actor-binding](cases/astra-26-delivery-actor-binding.md) at `3c69193`; decision `$g9ovpw6DYL8Zlps7PFLbTJ48DFO_AnuBgVT9hrvJ5tA` | ASTRA26-10; K-AUTH-1, K-API-2, K-PUB-1, K-SNAP-1 | impl-bug | astra-23 | fixed@3ce8ee3 | Round22 exact original 0.2.2 actor trace and native actor/audience/purpose/index controls pass against archived3ce8ee3. Migrated0.2.3 trace and complete current suite pass at4af0360. Wrong binding preserves state/captures/protected bindings/dirty-since, while rightful delivery and selected-right revocation stay exact. First5416283 retained. Decision $yjV0b8Np4X4WOpR5twcN5bIDbTo9nRpBvX9zWG8QBkg. |
-| R7-047 | astra-24; [authority-succession](cases/astra-24-authority-succession.md), inputs/first report at `1a09fb6`; request `$Vq3tZEgKESq_rlmd6oQINVGbpMm2zJmMZdUCiANtpek` | Kernel §5.3; K-REV-3; B01 neighbor | impl-bug | astra-22 | open | Judge reproduces both forbidden replacements at `d077064`: incomparable and reused canonical receipts commit two records, advance cut 100→102, dirty the dependent and reserve a replay key. Ordered control succeeds; all closed input/state checks pass. Strict successor evidence is distinct from correct CAS head selection. R7-049 supplies exact refusal mapping. Decision `$oswbTe0Ndkm1yCdJdGq7nbrO9wT2oEUuevIL7-Sa6Zk`. |
+| R7-047 | astra-24; [authority-succession](cases/astra-24-authority-succession.md), inputs/first report at `1a09fb6`; request `$Vq3tZEgKESq_rlmd6oQINVGbpMm2zJmMZdUCiANtpek` | Kernel §5.3; K-REV-3; B01 neighbor | impl-bug | astra-22 | fixed@4772258 | Judge independently reproduces canonical 0.2.3 50/0/7 and original 54-case supplement 44/2/8. Three strict-succession negatives now refuse exactly; direct positive passes. Four native groups verify replace/correct atomicity, direct/transitive writes, plain incomparable import, replay and separate CAS; 14 old transaction controls pass. On 0.2.4 every B01 operation/postcondition matches; final projection remains separate R7-051. First 64ef86e preserved. |
 | R7-048 | Same ASTRA24-10; package first `47c0205` | K-REV-3; K-API-1; B01 neighbor | impl-bug | astra-23 | open | Judge independently reproduces the same forbidden writes at `4af0360`, including full before/after state and unchanged input hash. A canonical event alone is not a qualifying successor. Require atomic refusal beside direct/transitive valid-successor and ordinary incomparable-import controls; retain successful replay precedence. First reports preserved; mapping tracked separately as R7-049. |
-| R7-049 | Same ASTRA24-10 refusal-mapping review; judge source/package inspection | K-REV-3 versus K-REF-1 | spec-bug | astra-21 | open | Strict successor rejection is already normative, but the closed table describes authority_receipt_required only as a missing canonical receipt and version_conflict only as CAS mismatch. Clarify authority_receipt_required, retryable=false, for absent qualifying strictly succeeding canonical evidence, including incomparable/prior/identical receipts. Add an exact canonical regression with direct/transitive positives, release normally. This is package mapping, not an owner architecture ambiguity. |
+| R7-049 | Same ASTRA24-10 refusal-mapping review; judge source/package inspection | K-REV-3 versus K-REF-1 | spec-bug | astra-21 | fixed@ef02647 | Judge verifies 0.2.4 K-REV-3/K-REF-1 exact non-retryable authority_receipt_required mapping, explicit strict ancestry and unchanged CAS/replay/plain-import distinctions. All 94 JSON files regenerate identically; 33 checker plants detect intended violations. Only B01 differs beyond profile stamps; other 64 vectors and pilot bytes unchanged. Source reproduces every B01 write/postcondition; remaining projection and package admission failures stay separate R7-051/048. |
 | R7-050 | astra-22; first declassification expansion `36983de`; request `$vyyT5G253v4564j43WBy6W1q1-UlEKCXnkjBmP_jTcg` | K-JSON-2; K-DISC-2; P05 and ASTRA25-02 | impl-bug | astra-22 | fixed@8a42945 | Round24 independently reproduces canonical50/0/7 and every prior supplemental row; all98 source/product/harness controls pass, including nine release groups. Four separately validated ASCII/non-ASCII framed/raw probes now give the required verdicts with atomic raw rejection. Exact ASTRA25-02 and new DIGEST vector pass. First36983de/e1ba8db retained; corrected private-projection setup is explicitly excluded from product failures. Decision `$eKvZRGBlqzKr6xMsLkCJYW-knzBYjX56FZRIIFPlYHY`. |
 | R7-051 | astra-24; ASTRA24-10-TRANSITIVE at `72a8f86`; event `$YqrXyQgyL7sx2kB1egs8lyBfJ3Rifkvz6LdkSQ-INbs`; judge read-only isolation | K-REV-3; kernel §5.3 | impl-bug | astra-22 | open | The source adapter discards receipt predecessor paths through admitted intermediate events with no assertion candidate. Exact valid replacement succeeds, but its projection falsely reports ambiguous_current and retains the old candidate. A fresh read-only evaluator over the validated admitted snapshot reproduces nine comparison/forbidden differences; direct-edge control and both package snapshot reads pass. Preserve full receipt-DAG ancestry without inventing order between incomparable candidates. Decision `$lL-KfgsFVYJ8Kpol9-2KlrnISzbIcOa-A7-1Pv5Z2-k`. |
 
@@ -95,6 +95,10 @@ means the proposed bad reading already contradicts explicit package clauses; it
 does not discard useful implementation regression fixtures. Both independent
 first reports are committed and reproduced. Fix closures below reference exact
 commits and relevant controls; a candidate release alone is insufficient.
+
+| R7-052 | astra-25 [retention-deadline](cases/astra-25-retention-deadline.md), first `604af18`; request `$XkFYu2DEMaA0d8d3wUeCqkwMVrlPAqRQAg0B_ViVOAg` | ASTRA25-11 native probes; K-DISC-1, K-AUTH-1, K-API-1/2 | impl-bug | astra-22 | open | Judge independently reproduces before/at/after/own-expiry and late replay at source `4772258`: three fresh expired writes add D, cut and replay state; late exact replay succeeds despite expired retention. Before-expiry control succeeds. Require live retention for every resolved output/known-input closure at trusted intake time, with atomic not_authorized,false including replay. Native probes are outside vector totals. |
+| R7-053 | Same ASTRA25-11 submission and independently repeated inputs as R7-052 | Same deadline and authorized-replay clauses | impl-bug | astra-23 | open | Package runtime `4af0360` independently reproduces the same three forbidden fresh commits and expired successful replay. All input states and operations validate; first results remain immutable. Required refusal preserves the original receipt and complete state, without triggering an erasure job. Before-deadline and unbounded positive neighbors remain required. |
+| R7-054 | Judge review of ASTRA25-11; editor recommendation `$rhmPEMI5yxqbjQprbScOEovbpGlhuBzhcvFNwa--FmA` | K-DISC-1, K-AUTH-1, K-API-1/2, K-REF-1 | spec-bug | astra-21 | open | Existing source requirements forbid retaining after the earliest inherited deadline, but the concrete expiry boundary/code/order/replay mapping is unstated. Clarify live iff trusted context.at is strictly before every applicable non-null deadline; otherwise not_authorized,false in current-retention authorization before idempotency. Traverse complete and incomplete-known lineage across pre-state plus whole batch. Replay rechecks original outputs/closure, leaves receipt/state unchanged on denial. Null adds no bound. Add exact positive/negative release vectors; no owner architecture decision or physical purge promise. |
 
 ## Judge worklog
 
@@ -1187,3 +1191,87 @@ Ledger: 51 items, 37 fixed, 10 rejected, three open implementation bugs
 canonical source vectors remain unsupported: B07, P08, S20, S24, S25, S26, S27.
 Deployment stays eight canonical plus one supplemental unsupported on both.
 Score 1/2; no PARK. Incoming release/correction candidates require separate review.
+
+## Round 25 — strict succession verified; expired retention adjudicated
+
+R7-047 closes at signed `4772258`; R7-049 closes at signed package 0.2.4
+`ef02647`. Source native controls pass all three forbidden receipt orders for
+replace and correct with complete unchanged state, direct and transitive positive
+writes, event-array reversal, ordinary incomparable import, exact replay before
+CAS and stale-head conflict. Four new groups and fourteen existing transaction
+groups pass. The separate receipt-only projection controls reproduce three
+intended failures; their incomparable control passes. They are R7-051 evidence,
+not green controls or a reopened write finding.
+
+An exact archive combines package `23290b3`, source `4772258` and original cases
+`2c2dc53`, preserving the producer's 0.2.3 inputs. Canonical results exactly match
+all 65 committed rows: 50/0/7 semantic. The original 54-case semantic supplement
+is 44/2/8, with only ASTRA24-10-TRANSITIVE and ASTRA24-11 failing projection.
+All 55 supplemental artifacts validate. Every case status, hash and comparison
+error matches the producer. Two failing actual reports differ only in fresh
+handles on their forbidden extra second items; those undeclared paths are kept
+raw, not normalized into a false byte-equality claim. The initial blanket report
+comparison therefore failed as intended and was refined into this explicit
+account. Package `4af0360` on these same unchanged original cases gives 51/3/0;
+its three successor-admission failures remain R7-048.
+
+Independent 0.2.4 execution gives source 49/1/7 and package 56/1/0. Only B01
+fails in either executable canonical subset. Source matches every operation,
+receipt, replay, refusal and postcondition; its seven final-view differences are
+R7-051. Package still admits a prior receipt, causing the expected downstream
+cascade. Exact dual canonical coverage is therefore 49/57 on this expanded
+release, not the historical 50/57 on 0.2.3. No new source coverage regression is
+inferred merely from the stronger B01 oracle.
+
+Package review confirms the source-derived strict-succession rule and exact
+closed refusal mapping. All 94 JSON artifacts regenerate byte-identically in an
+isolated release archive, and all 33 structural checker plants detect the intended
+violation. Only B01 changes after profile-version normalization; the other 64
+vectors and original pilot fixture are unchanged. Module hashes confirm the
+source runtime at 4772258 and package runtime at 4af0360; the only later source
+Python addition is the explicitly red projection control file. All reviewed
+commits have verified human signatures. Supplemental author migration remains
+explicit; the retained 0.2.3 inventory is not silently rewritten for 0.2.4.
+
+ASTRA25-11 at `604af18` establishes R7-052 (source implementation), R7-053
+(package implementation) and R7-054 (exact package mapping), decision
+`$JPRw0HAxhQiEJ-rN4erBtnvRBnBXixLi2Rap_jcFAN0`. Independent native replay of
+all five original probes validates every state and operation. Both runtimes
+accept the before-deadline positive and incorrectly commit a new output at the
+input deadline, after it, and at the output's own deadline: records 1→2, cut
+100→101 and a new replay receipt. The late exact-replay probe returns its stored
+success receipt with state unchanged, although current retention has expired.
+These are native observations outside the vector denominator.
+
+Kernel §7.1 and the design Context seam prohibit extending inherited retention;
+K-DISC-1 ends retention at the earliest non-null deadline, K-AUTH-1 keeps deadlines
+independent of grants, and K-API-1 subjects replay to current retention authority.
+The concrete mapping is `not_authorized`, retryable=false, at/after any applicable
+deadline under trusted `context.at`, in the existing current-retention authorization
+class before idempotency. Apply the same test to original outputs and known input
+closure on replay. Denial preserves the original receipt and full state; it does
+not erase data or launch a purge. Null adds no bound. Complete and incomplete-known
+lineage, transitive inputs and whole-batch resolution retain their existing rules.
+No owner architecture choice is needed. Exact author vectors and a normal package
+release must preserve the first observations and before/unbounded positive controls.
+
+ASTRA24-11 is accepted as a second independent read-only witness for existing
+R7-051, not another defect; decision `$mIllJVB-2Xb74ZRgxK-batWe57ATb2lDU-isgksI2_E`.
+Its complete-assertion control passes and receipt-only intermediate case fails
+only source. The source projection correction remains a separate pending unit.
+
+Evidence in judge seat `.temp/`: `judge-round25-execution-01.json`,
+`astra{22,23}-judge-round25-canonical.json`,
+`astra{22,23}-judge-round25-pinned-cases.json`,
+`astra22-judge-round25-pinned-canonical.json`,
+`judge-round25-succession-report-comparison-01.json`,
+`judge-round25-pinned-case-validation-01.json`,
+`judge-round25-package-review-01.json`,
+`judge-round25-signatures-modules-01.json`,
+`astra{22,23}-judge-round25-deadline-first.json` and
+`judge-round25-deadline-decision-01.json`. First failures remain committed unchanged.
+
+Ledger: 54 items, 39 fixed, 10 rejected, four open implementation bugs
+(R7-048/051/052/053) and one specification bug (R7-054). No owner question.
+Seven canonical source gaps and all eight canonical plus one supplemental
+deployment cases remain unsupported. Current score 1/2; no PARK.
