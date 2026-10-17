@@ -1,6 +1,6 @@
 # Bounded evidence memory: kernel contract
 
-Owner: the memory lane (`ivmbp_swarma-memory_orch`). Status: **draft v0.1, 2026-10-17**, normative direction for the R7 package (D-007); not a released specification and not implemented. This document consolidates the collective's design and the later inputs into one kernel contract. It changes no meaning of the collective's assembly except where a section says "amends".
+Owner: the memory lane (`ivmbp_swarma-memory_orch`). Status: **draft v0.2, 2026-10-17** (v0.2 adds review 3: snapshot applicability, lineage completeness, declassification evidence, three distinct conflict outcomes, projection exclusion, the normalized input tuple), normative direction for the R7 package (D-007); not a released specification and not implemented. This document consolidates the collective's design and the later inputs into one kernel contract. It changes no meaning of the collective's assembly except where a section says "amends".
 
 Sources, in precedence order where they differ:
 
@@ -8,7 +8,7 @@ Sources, in precedence order where they differ:
 2. This document.
 3. `designs/bounded-support-semantics-astra-03.md` @ 9bafff8 (the companion; its §§3–6 and vectors S01–S27 stay normative unless amended here).
 4. `designs/bounded-evidence.md` @ 5d96e70 (stores and authority table, profiles, APIs, boundary vectors).
-5. Inputs and reconciliations: `inputs/REVIEW-1.ru.md` with `notes/review-1-gaps.md`; `inputs/USECASE-PROFILES.ru.md` with `notes/usecase-profiles-gaps.md`.
+5. Inputs and reconciliations: `inputs/REVIEW-1.ru.md` with `notes/review-1-gaps.md`; `inputs/USECASE-PROFILES.ru.md` with `notes/usecase-profiles-gaps.md`; `inputs/REVIEW-3.ru.md` with `notes/review-3-gaps.md`.
 
 ## 1. Scope
 
@@ -16,7 +16,7 @@ The kernel answers one question: **which admitted sources and explicitly registe
 
 The kernel is domain-free (D-002). It knows records, schemas by reference, projection rules, lineage and disclosure constraints. It does not know decisions, people, agents, profiles, intents, catalogs or matching. Those are **domain packages** above the kernel: a domain package supplies schemas and projection rules, and its own services (a publisher, a catalog, a matching layer) consume views. A domain package never widens the kernel's authority: knowledge grants nothing, starts nothing, wakes nothing and sends nothing.
 
-Portability is a conformance requirement: the same admitted corpus and the same projection rule yield the same semantic result with or without Swarma's dispatcher, board and session host. Profiles (documentary, protected service, embedded) differ in authentication and isolation guarantees, never in the meaning of any output field.
+Portability is a conformance requirement: the same **normalized input tuple** — admitted corpus, exact schema and projection-rule versions, perspective, authorized projection, evaluation cut and logical budget — yields an equivalent semantic result with or without Swarma's dispatcher, board and session host. Equivalence is modulo the declared normalization of fresh opaque handles; implementations given different cuts or rights are not expected to agree. Profiles (documentary, protected service, embedded) differ in authentication and isolation guarantees, never in the meaning of any output field.
 
 ## 2. The record envelope (amends: attribution roles)
 
@@ -83,6 +83,16 @@ An **assertion sequence** is the chain of versions issued by one issuer for one 
 
 `revise` carries `expected_version`. If the sequence head is not that version, the result is a typed `version_conflict` and nothing commits. Two representatives editing from one version: the first commits, the second gets the conflict (vector P10). There is no last-writer-wins, and recorded time never orders authority.
 
+### 5.4 Three outcomes that are never the same thing
+
+| Outcome | Where it appears | Means | Never implies |
+| --- | --- | --- | --- |
+| `version_conflict` | Refusal of a write | The write was based on a version that is no longer the head; nothing committed | That the knowledge is contradictory; it creates no record about the subject (P14) |
+| `ambiguous_current` | A projection result | The authority's record gives no order between two current candidates | A write error, or opposition between the candidates |
+| Evidence conflict | Per-polarity result: `witness: present` on both polarities | Admissible support and opposition both exist | That either record should have been refused; both stay stored |
+
+APIs and renderings keep these three distinct; a client may not map one onto another.
+
 ### 5.3 Decision currentness
 
 For a `decision_record`, the current decision is a projection of the deciding authority's own ordered record (the commit order of a reviewed decision register, the board's revision), cited by exact revision. Memory-side replacements without that authority's receipt stay `proposal`s. Two receipted replacements of one decision with no order between them in the authority's record yield `ambiguous_current`, listing both; neither wins by learned-at time. A decision learned late keeps its authority order, not its arrival order (vectors S28, S29).
@@ -124,15 +134,26 @@ The kernel never picks a "true profile" or "real decision" by counting witnesses
 
 Three times stay distinct: when the proposition holds (`valid`), when the issuer last stated or confirmed it (`confirmed_at`), and until when a consumer will use it without refresh (`usable_until`, from the schema default or the query). Past `usable_until` an item is `stale`: refresh needed, never false, never negative evidence (P04). Intents and availability normally carry a horizon; architecture decisions normally carry none.
 
+### 6.4 Frozen views and snapshots
+
+A frozen view (including a session-start snapshot) is immutable **as a historical artifact bound to its cut**. Its bytes never change; its applicability does. Two cases stay separate:
+
+- **Knowledge moved on** (a decision replaced, a new assessment, `usable_until` passed): the snapshot stays valid history; current state comes from a fresh view. A snapshot item is always rendered with its cut, never as "now".
+- **Use or disclosure was revoked** (an intent closed, onward disclosure revoked, content erased): the component that performs the next delivery or external effect applies current policy and either refuses that operation or rebuilds an admitted context. Memory only reports the change; it never restarts, re-prompts or stops an agent. A cache or prompt-cache optimisation never extends a permission (P12). Bytes already delivered to a model are not recalled.
+
 ## 7. Disclosure and derived information (amends: profiles A4)
 
 ### 7.1 Lineage taint
 
 Every derived record (summary, excerpt, paraphrase, embedding, index entry, cached view, match result) carries its content lineage and **inherits the disclosure constraints of all its inputs**. A label cannot lift them: an agent that read a private record and wrote a paraphrase marked public produces a record that is still private (P11). The same lineage drives erasure (unchanged from the collective).
 
+**Declared lineage is not complete lineage.** The evidence an agent cites is not a list of the content it used. Lineage is computed by the integration from the inputs it controls: for a deterministic transformation, the exact inputs it read; for model output, everything the adapter supplied to that model call (context, tool results, recalled views) as declared by the integration profile. A derived record whose lineage the integration cannot establish carries `lineage: unknown` and is treated as inheriting the most restrictive constraints of the inputs the adapter did supply; it is never publishable by default (P13). The kernel promises lineage only within the integration profile's declared tracking; it makes no claim about what a model knew otherwise.
+
+The first publishing path assembles a card only from admitted structured fields of an `audience_projection`. Free text written by an agent enters only as a `semantic_inference` proposal with its own admission.
+
 ### 7.2 Declassification
 
-Releasing a result computed over private inputs (a city from private coordinates; "will consider the offer" from private preferences) requires a **declassification decision** by the deployment's policy owner, recorded as a `declassification` assessment pinned to the exact inputs, the transformation, the output schema and the audience. The released output is a new assertion whose lineage is protected; the audience can verify the issuer's statement, not the hidden derivation (P05). Memory records the decision; it never makes it.
+Releasing a result computed over private inputs (a city from private coordinates; "will consider the offer" from private preferences) requires a **declassification decision** by the policy owner of each constrained input. A `declassification` assessment is **evidence of that owner's decision**, pinned to the exact inputs, the transformation, the output schema, the audience and the purpose. It is not an authority and does not replace the check before each new disclosure that the decision still applies. A model's judgement that a paraphrase is safe is a `semantic_review`, which can only propose a declassification. When inputs carry constraints of several owners, each owner's decision lifts only that owner's constraint. The released output is a new assertion whose lineage is protected; the audience can verify the issuer's statement, not the hidden derivation (P05). Memory records the decision; it never makes it.
 
 ### 7.3 Non-interference
 
@@ -171,13 +192,15 @@ Memory computes an admitted `audience_projection`. A **publisher** (domain servi
 | Unpublish | Publisher withdraws its publication | Erasure of stored content |
 | Erase stored content | Custody-lineage erasure inside the controlled boundary (collective §6) | Deletion at independent recipients |
 
+A space or audience owner may also **exclude** another issuer's record from its own projections (a person drops an organisation's attestation from their public card) and erase its locally stored copy under its policy. Exclusion is a projection-rule choice, not a revision: the issuer's record and its sequence stay as they were (P15).
+
 ### 9.4 Subject handles
 
 A subject's internal id is never its public id. Each space and audience projection gets its own subject handle; linking two handles of one subject (a professional and a personal profile) is itself a disclosure under §7.2, never a side effect of a shared store (P09).
 
 ## 10. Platform boundaries (unchanged)
 
-The stores and authority table of `designs/bounded-evidence.md` stands: memory cites user manager, broker, dispatcher, session host, board, keeper, a2a/bridge and Curator by exact revision and replaces none of them. Memory reaches an agent only as data: an explicit tool result, or the session-start snapshot as a separate data block with per-item provenance (D-001), never a Curator overlay, `AGENTS.md`, skill root or machine base context. Stop, park, revocation, recovery and acceptance never wait for memory.
+The stores and authority table of `designs/bounded-evidence.md` stands: memory cites user manager, broker, dispatcher, session host, board, keeper, a2a/bridge and Curator by exact revision and replaces none of them. Memory reaches an agent only as data, never as a Curator overlay, `AGENTS.md`, skill root or machine base context. **In the first slice it reaches an agent only as an explicit tool result** (pull); there is no automatic seeding and no change to `swarm-handoff/2`. The session-start snapshot is a later adapter mechanism: D-001 fixes its channel (a separate data block with per-item provenance), not its arrival in the first slice, and §6.4 governs its applicability. Stop, park, revocation, recovery and acceptance never wait for memory.
 
 ## 11. Two scenarios on one kernel
 
@@ -224,7 +247,13 @@ Inherited: companion S01–S27 and the design's 17 boundary vectors. New:
 | P09 | Two subject handles linked in private space | Public projections stay unlinkable | Link leaks via ids, digests or shared references |
 | P10 | Two representatives revise from the same `expected_version` | First commits, second `version_conflict` | Silent last-writer-wins |
 | P11 | Agent paraphrases a private record and labels it public | Derived record inherits private constraints | Label lifts the constraint |
+| P12 | Onward disclosure revoked after a snapshot was built, before the next delivery | Next delivery refuses or rebuilds; snapshot stays as history | Snapshot or prompt cache extends the permission |
+| P13 | Agent used private input A and public card B, cites only B | Lineage from the adapter includes A; result not publishable | Cited evidence taken as complete lineage |
+| P14 | Two representatives' updates collide on `expected_version` | Second write `version_conflict`; no record about the subject; no evidence conflict | Write conflict reported as contradictory knowledge |
+| P15 | Owner excludes an organisation's attestation from their public card | Card omits it; the organisation's record and sequence unchanged | Exclusion recorded as revision or withdrawal of the issuer's record |
+
+P09 explicitly includes the case of two cards that share no fields but would share one global subject id: the public handles must differ and the link stays private.
 
 ## 13. Left for the R7 package
 
-Concrete closed JSON schemas for the envelope and the five records; canonical bytes and digests; the projection-rule grammar; the `decisions` and synthetic `profiles` domain schemas; machine-readable fixtures for S01–S33, P01–P11 and the boundary vectors, with semantic and protected-deployment vectors reported separately; authorization and evidence-policy vocabulary; numeric resource envelopes as deployment inputs.
+Concrete closed JSON schemas for the envelope and the five records, including the three conflict outcomes as distinct codes; canonical bytes and digests; the projection-rule grammar; the `decisions` and synthetic `profiles` domain schemas; machine-readable fixtures for S01–S33, P01–P15 and the boundary vectors, with semantic and protected-deployment vectors reported separately; authorization and evidence-policy vocabulary; numeric resource envelopes as deployment inputs.
