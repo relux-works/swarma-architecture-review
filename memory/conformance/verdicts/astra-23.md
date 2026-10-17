@@ -1,6 +1,10 @@
 # astra-23 — package implementer verdict
 
-Current package **0.2.3-draft**, `23290b3`: all supplied semantic vectors pass.
+Current package **0.2.3-draft**, `23290b3`: all canonical and published supplemental
+semantic vectors pass. New ASTRA24-10 contract probes expose accepted authoritative
+replacements with incomparable/reused receipts; their exact refusal mapping is
+pending judge/editor disposition. PHASE2-SUCCESSION-FIRST freezes the forbidden
+state effects. Those probes are outside the vector counts below.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |

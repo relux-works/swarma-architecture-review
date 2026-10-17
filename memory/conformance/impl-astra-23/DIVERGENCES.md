@@ -326,3 +326,16 @@ semantic vectors pass under0.2.3. Deployment8+1 stays unsupported. First5416283,
 
 Judge separately closed R7-044/045 atf6c339d and specification039/042 at23290b3.
 Actor-binding046 has adversary verification at7b9f0dd, pending judge disposition.
+
+## Phase 2 ASTRA24-10 — authoritative replacement without strict receipt succession
+
+Own first observations PHASE2-SUCCESSION-FIRST on runtime4af0360 reproduce both
+accepted forbidden replacements: an incomparable receipt and reuse of the old
+receipt. Each commits d2+revision, cut100->102, dirtiness and one idempotency entry;
+ordered control also succeeds. Shapes validate, and full state/input/runtime hashes
+are retained. K-REV-3 requires strict succession for replacement. Plain canonical
+incomparable import remains a distinct valid behavior.
+
+No exact typed refusal oracle is yet asserted: K-REF-1's canonical-receipt wording
+needs judge/editor disposition for an existing but non-successor receipt. Await that
+mapping before correction. Current vector pass counts exclude these new probes.

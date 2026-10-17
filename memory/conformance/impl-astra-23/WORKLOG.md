@@ -596,3 +596,23 @@ will prove semantic differences and forbidden effects are detected.
 - Judge closed R7-044/045 atf6c339d and specification039/042 at23290b3; source040/043
   are separately closed. R7-046 independently verified by26 at7b9f0dd. R7-037
   current behavior now awaits independent review; source reports49/0/8 on0.2.3.
+
+## Round 22 — authority receipt succession probe intake
+
+- Intake ASTRA24-10 at1a09fb6. Preserve exact actual outputs and complete state
+  effects on4af0360 before any correction. Inputs have no adjudicated typed
+  refusal oracle yet; report observed invariant violations, not invented vector passes.
+- K-REV-3 requires strict successor receipt for authoritative replacements;
+  ordered replacement and plain incomparable import are distinct valid controls.
+  Await judge/editor refusal-code mapping before implementation or exact tests.
+
+### Round 22 baseline outcome
+
+- All three independently authored input triples pass the package's closed input
+  shapes. Runtime4af0360 accepts ordered, incomparable and reused receipts alike:
+  records5->7, cut100->102, dependent dirty, one stored idempotency entry.
+- PHASE2-SUCCESSION-FIRST.md/JSON freezes full actual outputs and before/after
+  state with exact input/module hashes. Both negatives violate the no-write
+  invariant, but typed refusal mapping remains explicitly pending.
+- Existing57/57canonical and46/46supplemental counts exclude these new probes;
+  no exact-vector pass/fail or new expected code is manufactured.
