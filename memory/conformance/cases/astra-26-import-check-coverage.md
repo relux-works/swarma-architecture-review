@@ -1,6 +1,6 @@
 # ASTRA26-09 — partial current-version checks do not certify every import
 
-Status: judge-classified **R7-044 impl-bug**, owner astra-23; correction `f6c339d` independently verified, judge closure pending. Package `0.2.2-draft` at
+Status: judge-classified **R7-044 impl-bug**, owner astra-23; fixed at `f6c339d`, independently verified by this seat and the judge. Package `0.2.2-draft` at
 `7e71765`; source evaluator `e38c37c`; package evaluator `a016781`.
 No canonical fixture or evaluator is edited.
 
@@ -96,3 +96,11 @@ Evidence in seat `.temp/r7-astra-26/`: `owned-cases-astra23-12.json` (original
 0.2.2), `owned-cases-astra23-13.json` (0.2.3) and
 `astra23-import-controls-01.log`. Original inputs and first failures remain
 retained. Independent closure evidence has been sent to the judge.
+
+## Judge closure
+
+Judge event `$G--edKuqkU1ptO6Zc7tC1mISY_NZF-JzmmRuXO1ky_k` closes R7-044
+at `f6c339d`. Its exact frozen 0.2.2 run reproduces 57/57 canonical vectors,
+all three owned witnesses and 18 product plus four harness controls, including
+missing exact checks and hidden publications. The immutable first failure is
+retained; no earlier result is retrospectively relabeled.

@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 19, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 20, 2026-10-17.
 
 ## Baseline and scope
 
@@ -521,3 +521,32 @@ is inferred. Current row remains **1/2**, with protected deployment unqualified.
   retention and source coverage are still incomplete, so the collective score
   remains **1/2**. Owned-corpus agreement is not full conformance or protected
   deployment qualification. No PARK has been received.
+
+## Phase 2 round 20 — attribution/domain regression after retention fixes
+
+Independent current-release execution at package 0.2.3 / `23290b3`:
+
+| Evaluator | Implementation head | Owned pass/fail/unsupported | Targeted canonical pass/fail |
+| --- | --- | ---: | ---: |
+| Source | `d077064` | 15 / 0 / 0 | 4 / 0 |
+| Package | `4af0360` | 15 / 0 / 0 | 4 / 0 |
+
+The targeted canonical set is P02/P10/P15/B01: explicit subject identity,
+delegated attribution and refusal controls, exclusion without foreign-sequence
+edits, and archive-home -> delete-home with registered dependent invalidation.
+The scoped-retention corrections preserve these exact responses and the owned
+publication/admission controls. B01 verifies its specified authorized replacement;
+it does not close a separate newly reported invalid authority-successor case.
+
+Evidence: seat `.temp/r7-astra-26/owned-cases-astra22-10.json`,
+`owned-cases-astra23-16.json`, `attribution-domains-astra22-01.json` and
+`attribution-domains-astra23-02.json`, with exact input hashes and owned runtime
+module hashes. All inputs/oracles remain unchanged. General retention-denial
+and atomic-replay review belongs to the separately tracked R7-036/037 evidence;
+these targeted passes are not a substitute.
+
+Judge closed R7-044 at `f6c339d`; its case now records independent closure.
+R7-046 correction is verified by this seat but still awaits judge closure.
+Source full canonical coverage is still incomplete and another seat's new
+authority-successor challenge is pending, so current score remains **1/2**.
+No protected deployment is qualified and no PARK has been received.
