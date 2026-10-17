@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 23; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 24; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.3-draft` at `23290b3`; all owned fixtures explicitly migrated.
 
 ## Scope and method
@@ -367,6 +367,23 @@ first complete reports are committed with ASTRA24-10; structural/state checks
 pass. Judge/editor adjudication is requested because the closed refusal table
 does not explicitly map missing succession between existing canonical receipts.
 No exact-output vectors or new oracle are claimed before that mapping resolves.
+
+## Round 24 regression after scoped retention repairs
+
+At one checkout, `36983de`, both evaluators pass all thirteen unchanged owned
+0.2.3 vectors after source retention correction `d077064` and package correction
+`4af0360`. Reports `.temp/astra22-owned-cases-27.json` and
+`.temp/astra23-owned-cases-17.json` preserve exact implementation and input hashes;
+all fixture hashes match the previous runs. Harness controls pass. These are
+regressions of this seat's semantics, not a substitute for retention negative
+controls or protected deployment evidence.
+
+ASTRA24-10's original contract probes and first reports remain immutable.
+Its typed-vector builder is prepared locally but not executed while exact refusal
+mapping awaits judge/editor adjudication. Implementers acknowledged the new
+write-admission boundary and will retain their independent first evidence.
+The preceding round marker's package shorthand `c7e4160` names the judge ledger;
+the actual package retention correction is `4af0360`.
 
 ## Provisional R7 row and remaining work
 
