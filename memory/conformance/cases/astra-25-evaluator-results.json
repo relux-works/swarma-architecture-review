@@ -36362,6 +36362,884 @@
       "exit_code": 0,
       "stdout_stderr": "...............................\n----------------------------------------------------------------------\nRan 31 tests in 2.116s\n\nOK\n",
       "scope": "31 product/checker tests including deadline coverage of all four intake APIs, current replay, original receipt and full state, known-input/batch closure, changed-intent priority and unlimited same-key recovery."
+    },
+    "astra22-phase2-025-erasure-coverage": {
+      "package_version": "0.2.5-draft",
+      "package_commit": "6a04e8cfb1490569cd1de7468d2085dd4840cf51",
+      "evaluator_commit": "ee492af996a8d3933d5b30a1be8b90584c98e761",
+      "fixture_commit": "8edcbfb4aae8112220cb0d9d028b7b09b44efde2",
+      "implementation_sha256": {
+        "adapter.py": "6215fcc2f9bf57f083fd7fc34a5eab2a04e543c02886806f77849f2896affbdf",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "authority_projection_checks.py": "2165891fc3c3ee67ae800e5b37034e7abca20abb2430ca5c79fa1df0eb676248",
+        "availability_checks.py": "6a4f3bc7139682922f76773ed53a7b5404207dd50314890bb5624fc8669a5da5",
+        "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+        "boundary_checks.py": "d7f4a8dc0572054468924d7b1723e8d92881d914e256d4fe4617152c3d439cc1",
+        "deadline_checks.py": "232ac12a7ebe446eb33e4519ca2a1353aeff8de7b1cdc8f567a93851321df2a0",
+        "erasure.py": "2362a28a8d7bd508eee9b92b6c7843dabc1ab5f967b4b230d39849f52e9598ad",
+        "erasure_checks.py": "3d49a25367ca7dcb4c27399d5ae7b297548fcf0f47a4b983764bfc75fd053114",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "f437cda9614027c128e48eb5cf7508134293221926e6aa472ae1024fa97bd45c",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+        "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+        "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+        "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+        "transactions.py": "6bc9a57351c1f923654e459521bd8b5c850d6c2cfdda25e5ffad2c874f08827d"
+      },
+      "scope": "Owned current-version adversarial fixtures; untouched evaluator; five harness controls passed. Deployment unsupported is not a pass.",
+      "vectors": [
+        {
+          "id": "ASTRA25-02-DIGEST",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection-unframed-digest.vector.json",
+          "vector_sha256": "887d1bf31e770a19708c28ee11dac3e24dc389f383784f10861b03369afbdbf6",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-02",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
+          "vector_sha256": "2ef69d89c6da8ccac377693a7cacd9c009fd5dff93ce65bb79ff1e6182edb434",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-07-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-authorized-control.vector.json",
+          "vector_sha256": "02f62cec547995d3a8fd8979527e4f9b13114715db1c03f8e8089f368207ee55",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-07-PURPOSE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-other-purpose.vector.json",
+          "vector_sha256": "6beed39f49ed3798bfe4c5195aa976ac8927dadc4da61481ceb558b42a1314fb",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-07",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata.vector.json",
+          "vector_sha256": "8b7274475b63c85b328c74094d881ba7d4a9b8f435cd6bad7dee750d9a731f0e",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-10",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-future-lineage-input.vector.json",
+          "vector_sha256": "470e2a2babe3e7fb3413c4ce1471549d86c665fe9ad9e7de54e93531e142c464",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-05-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "vector_sha256": "9c052fb12c1a2e0a63142cfaf91b8992a7a1921bb10bc64c85d8ebefafc2b272",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-05",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
+          "vector_sha256": "76dcb515bc762484a67e5d12a986c2315389396a0c36184b7640a27cf144bb9d",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-01",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
+          "vector_sha256": "4759a3b153e5d5088147f33ae071be07aaa72c5d89416a8e93224c8338ea80f9",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-06",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-quality-budget-isolation.vector.json",
+          "vector_sha256": "55522959fa6d42c62a3458aac38e1dbdd8a36db2aa67da1ca6602acab084bccf",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-authorized-control.vector.json",
+          "vector_sha256": "38c334c7321792911053d224b8bc531e85151d98e1d690cd5a1fc5830da3e434",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown-control.vector.json",
+          "vector_sha256": "f1cb43b925c6adf78d0e82a3079331f5bd8860b8dd735d499cf295c541b0dd48",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown.vector.json",
+          "vector_sha256": "f400d210adafdb7282717d16caa6d7f317cffc6454e9b2a60c91848f491297ce",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority.vector.json",
+          "vector_sha256": "a00cc042297337d3b491090bb7d78eab815a43de4e58e94542eae551a90c1fcf",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11-BEFORE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-before-control.vector.json",
+          "vector_sha256": "71374ce5a36a1810218a7ce94e5d65872774b0de6e64b3ac5c71d9b65cf9e5e4",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11-OWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-own.vector.json",
+          "vector_sha256": "4e3b698fde25d5e7357ce3a819790756dbc1c88e9cb9ef2778a86be0ad9686d5",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11-REPLAY",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-replay.vector.json",
+          "vector_sha256": "445aa35368eae9272ae5f0badd5eca1ed7f8a2892b28c7dc30c0abd671334b3f",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11-BATCH-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-same-batch-control.vector.json",
+          "vector_sha256": "452fba37dd5443e4fc0054547de0bce9f3f6e307a50257fbd47bef46ec14a112",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11-BATCH",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-same-batch.vector.json",
+          "vector_sha256": "db0b74e6c11b3ec72dfbc353ce572417c825c0c9c88cc7b74d5d67b10aff7685",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11-UNKNOWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-transitive-unknown.vector.json",
+          "vector_sha256": "c4717e41c89592a5e64864fd89d90f283b9289aec3b2da3939d557f437368e03",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline.vector.json",
+          "vector_sha256": "377aac1809af5f3bd7c26967d7899887e348e2fad37a13a0efb3ebe6b0f22716",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-04",
+          "profile": "deployment",
+          "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
+          "vector_sha256": "d0acc1f7cca9ed2a5c0509e9be822f31c05968a0ba438ef7419a78eb29dc23e9",
+          "status": "unsupported",
+          "reason": "No protected deployment; simulated state cannot qualify current witness and failure-domain boundaries."
+        },
+        {
+          "id": "ASTRA25-03-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
+          "vector_sha256": "ad060835f6f1c1a0be2cbddf9ed72aa7ed93c105e853d3a30b33b34ba5e61ae3",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-03-FENCE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
+          "vector_sha256": "9df0ba528fda9d3b342eff385c458e5aad754bc577e5177290db09e98ab9cf47",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-03",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
+          "vector_sha256": "eee750193e66a311f3a5b93ae7116254cf00e5a9310886c7d1c4029c246ea758",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-09-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure-independent-control.vector.json",
+          "vector_sha256": "baf2de898613ebd3f6e5b0ed83dae8fd8fe83f7a1f5bd8360e78ac544aa1a65a",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-09",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure.vector.json",
+          "vector_sha256": "baab0412173d068800122ec18f36b4fd853b9b564322ca4d456c7998b68b7867",
+          "status": "pass",
+          "differences": []
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "pass": 26
+        },
+        "deployment": {
+          "unsupported": 1
+        }
+      },
+      "implementation_change_commit": "dbf48926bdf7e5505d0806cf38acf078985491b7",
+      "module_comparison": "Every current Python module is byte-identical to dbf4892; later implementation-directory commit ee492af is evidence-only."
+    },
+    "astra22-canonical-025-erasure-coverage": {
+      "checkout_commit": "76a1460ea26893e9dfea3d1bed0bc9e70b3a0b48",
+      "package_commit": "6a04e8cfb1490569cd1de7468d2085dd4840cf51",
+      "package_version": "0.2.5-draft",
+      "vector_directory": "memory/spec/kernel/vectors",
+      "core_sha256": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+      "totals": {
+        "semantic": {
+          "pass": 57,
+          "fail": 0,
+          "unsupported": 0
+        },
+        "deployment": {
+          "pass": 0,
+          "fail": 0,
+          "unsupported": 8
+        }
+      },
+      "vectors": {
+        "B04": {
+          "file": "memory/spec/kernel/vectors/deployment/B04.json",
+          "sha256": "222022a017b32732cdab429262d266de7b97583c6c5d6eff13fd445f302b63ea",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B05": {
+          "file": "memory/spec/kernel/vectors/deployment/B05.json",
+          "sha256": "e6bca3bfad87f375ce8d80e626767d727ccb4918e9bda089641e482110c70ff2",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B06": {
+          "file": "memory/spec/kernel/vectors/deployment/B06.json",
+          "sha256": "5469039a3651cdd775f216f11f7ec1cf64117899bfe839f06e953dedd922a8e5",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B09": {
+          "file": "memory/spec/kernel/vectors/deployment/B09.json",
+          "sha256": "9e05c071ec270ef044df92fc29d4cd046e12b994b7be627a4f86d179a92bb566",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B10": {
+          "file": "memory/spec/kernel/vectors/deployment/B10.json",
+          "sha256": "27313b16f0b3f018765225dbaf67d3e6b31eab3d0884cfc88153061f2586bc35",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B11": {
+          "file": "memory/spec/kernel/vectors/deployment/B11.json",
+          "sha256": "22c21aedc8c0edca1af71b63e892fa42ae33b20eb4f3bba1e06763421ba9bb58",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B16": {
+          "file": "memory/spec/kernel/vectors/deployment/B16.json",
+          "sha256": "95cb4544d4c679e27156d26c6c19ba33d56ae962f7f31072c9cc75583c6eba0a",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B17": {
+          "file": "memory/spec/kernel/vectors/deployment/B17.json",
+          "sha256": "d5366a0174a829a66e07b7f7dbec52e8d2acdc01681b8b32172bfc8ddc172a5a",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B01": {
+          "file": "memory/spec/kernel/vectors/semantic/B01.json",
+          "sha256": "11db0f210dd2e93b5b74444d8639e37a293cb5b8713de10513adc8188d83a37c",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B02": {
+          "file": "memory/spec/kernel/vectors/semantic/B02.json",
+          "sha256": "8a500c53d11537e54a8a101314e578c8c4ac3f92b9cbee82df646eaee9703cb0",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B03": {
+          "file": "memory/spec/kernel/vectors/semantic/B03.json",
+          "sha256": "94655e4fb49a3d5d8cdc357cbac31f24c92cda266b0b6fed6ef9f0cc52aa7644",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B07": {
+          "file": "memory/spec/kernel/vectors/semantic/B07.json",
+          "sha256": "0723481490e12bf6e587753d78980fb094ea2c296b37ff99aa22ebcd50d8455f",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B08": {
+          "file": "memory/spec/kernel/vectors/semantic/B08.json",
+          "sha256": "5c41ec80ad8174e0c644c9537ba3730b450074efc234f5bef529aa22b1469813",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B12": {
+          "file": "memory/spec/kernel/vectors/semantic/B12.json",
+          "sha256": "c087a635bcce1ff307e68ab43ff217956a878f8e80df0dba83717071441e26ca",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B13": {
+          "file": "memory/spec/kernel/vectors/semantic/B13.json",
+          "sha256": "042efe95c6e5f302ad489b7ab5345a917f3aab0aff7c833577eafa8789647022",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B14": {
+          "file": "memory/spec/kernel/vectors/semantic/B14.json",
+          "sha256": "0f385b0a18b1db8b9e44c675a2002601d7faf34689de58fb99fae1138be42747",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B15": {
+          "file": "memory/spec/kernel/vectors/semantic/B15.json",
+          "sha256": "00e0dd0666a697b885af8234a9c006d4e268fe787280391a8dd5ee280af4403d",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P01": {
+          "file": "memory/spec/kernel/vectors/semantic/P01.json",
+          "sha256": "7989fa2edbb86d638da5e67cb07d7d9ef77090f47f7f525548c0f2a3c41a8d20",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P02": {
+          "file": "memory/spec/kernel/vectors/semantic/P02.json",
+          "sha256": "44e6e1e6c146e381d438f9567a393164a9b160b0bb7ee4b66d08edb96c3a31d4",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P03": {
+          "file": "memory/spec/kernel/vectors/semantic/P03.json",
+          "sha256": "cdfa02250a025323736af2af6c7586fbef86e8b9f31bb53efa7db3becae13cab",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P04": {
+          "file": "memory/spec/kernel/vectors/semantic/P04.json",
+          "sha256": "d5ec7f4d4399369ac804c86277709493b8be23474d642eba1145ed3a0936f567",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P05": {
+          "file": "memory/spec/kernel/vectors/semantic/P05.json",
+          "sha256": "23b8fc614c654766375c80b6efeff6db1ec722de2db83a43b2e24c88db398804",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P06": {
+          "file": "memory/spec/kernel/vectors/semantic/P06.json",
+          "sha256": "9d144010a9e2d46f56f03fd84eac85fb8c9d6a67ba8854d6228233370fd4b8a9",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P07": {
+          "file": "memory/spec/kernel/vectors/semantic/P07.json",
+          "sha256": "02b650443be55039843292ffe41b99e95c8ee1766a99586bdcf1eb84d5b17e9d",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P08": {
+          "file": "memory/spec/kernel/vectors/semantic/P08.json",
+          "sha256": "92b326f1a1fdd6ffbd1c9e0fd3e49010b94c2929cb2c83dcc672e5ecdcfaacf8",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P09": {
+          "file": "memory/spec/kernel/vectors/semantic/P09.json",
+          "sha256": "b100dd2624a43b8262f6a2f50917ba069d1f689fee466940a4232d887f5156ed",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P10": {
+          "file": "memory/spec/kernel/vectors/semantic/P10.json",
+          "sha256": "4d911341e586bd3cfc690a70b88538516447ae8b78b615b93f8f457ed546afd7",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P11": {
+          "file": "memory/spec/kernel/vectors/semantic/P11.json",
+          "sha256": "280dbf10816eaf773a9e35d78a0a386b399e68edaa77c8990f62a9111cd6e3cf",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P12": {
+          "file": "memory/spec/kernel/vectors/semantic/P12.json",
+          "sha256": "9ff83ce3b9aba53e8151ad9e267de86c4d75956d2581789fb10ed34cdc0e0c13",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P13": {
+          "file": "memory/spec/kernel/vectors/semantic/P13.json",
+          "sha256": "3f6e1eceea6fb5adcd67948f16898964dc4e4836798c78cda37770456735da4b",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P14": {
+          "file": "memory/spec/kernel/vectors/semantic/P14.json",
+          "sha256": "e75a752476942ce27414ab4ec4378c2c292093d7e0c8095733c114ae62e2c732",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P15": {
+          "file": "memory/spec/kernel/vectors/semantic/P15.json",
+          "sha256": "be279bb15ae280e712f618a6120f085fe3e35075f3d6eeb58a2a6dd2dfb28cb9",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S01": {
+          "file": "memory/spec/kernel/vectors/semantic/S01.json",
+          "sha256": "571e48d652c577e90efbef62abef03ad172934e55983ab2b06349c6e5b9a9f9d",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S02": {
+          "file": "memory/spec/kernel/vectors/semantic/S02.json",
+          "sha256": "71c4dcff0e95e64f7e2cefb64fba45bf5fd8f1b3c5c72a5b5d05d591f4108e5c",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S03": {
+          "file": "memory/spec/kernel/vectors/semantic/S03.json",
+          "sha256": "165c556d0731d1e04fe7d75cdc60c7620896bacbe4cee4ec7cb0e3b9c8c5cb6f",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S04": {
+          "file": "memory/spec/kernel/vectors/semantic/S04.json",
+          "sha256": "b87b29c4b555b2e7ec7aa04dab679cedee8df61d2e7d8177822bd252e6ce3774",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S05": {
+          "file": "memory/spec/kernel/vectors/semantic/S05.json",
+          "sha256": "340a5d73de84cc152bd8808092e7787e154d958f39b860eb84df52e0b38aacea",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S06": {
+          "file": "memory/spec/kernel/vectors/semantic/S06.json",
+          "sha256": "0989b0ee66ec87c17699792d6c11ca52de1ed665646203024715946d76ed6187",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S07": {
+          "file": "memory/spec/kernel/vectors/semantic/S07.json",
+          "sha256": "4d0fee3c26bb2a1c2ce922f7720d2286a3db9c1bba7da6139c5239c62f54d5b0",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S08": {
+          "file": "memory/spec/kernel/vectors/semantic/S08.json",
+          "sha256": "70f5c55c0a607467361d1bf6fea9312d4971fd58a4975f3f2ffb5ab6048f95f9",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S09": {
+          "file": "memory/spec/kernel/vectors/semantic/S09.json",
+          "sha256": "9002393c6451102fea07afe3e6c24ab8a735be34c6c7b36b650e0d290a7acec1",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S10": {
+          "file": "memory/spec/kernel/vectors/semantic/S10.json",
+          "sha256": "979ca22dab893d732dff2ea609046ffff9e88a36b571a651b25619f492b0fb34",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S11": {
+          "file": "memory/spec/kernel/vectors/semantic/S11.json",
+          "sha256": "f0e9cbd0add4c9025f6985dd8a5dda07771461dae6af93c7570546d316fe59f3",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S12": {
+          "file": "memory/spec/kernel/vectors/semantic/S12.json",
+          "sha256": "a4b2bb78f095437b2ced68b2c8ccb39fdd80f884e626235b3f4fd9324a5381b4",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S13": {
+          "file": "memory/spec/kernel/vectors/semantic/S13.json",
+          "sha256": "d27b6247a80a782f7ce9f3eadbb93a160538c78c92954f91fd444affa53d26bd",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S14": {
+          "file": "memory/spec/kernel/vectors/semantic/S14.json",
+          "sha256": "67a26b956bba87a677c8da994ac0cdb0e50c677cd5e4a66543fd6b41200d9eac",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S15": {
+          "file": "memory/spec/kernel/vectors/semantic/S15.json",
+          "sha256": "5da977b0e099aafc881561a0ac12dfa86cf04539a198b0bd2d82ed4254562ee6",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S16": {
+          "file": "memory/spec/kernel/vectors/semantic/S16.json",
+          "sha256": "c2ecbf7e37b7cd67e10f6b151868db5aed8da2a17f546bee9539699313798460",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S17": {
+          "file": "memory/spec/kernel/vectors/semantic/S17.json",
+          "sha256": "245291bd60a5a1513a9f147cdb523763086ec43eee0a47de6c84fbdb69248ecd",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S18": {
+          "file": "memory/spec/kernel/vectors/semantic/S18.json",
+          "sha256": "e7b089edc56473420e16eeb41d5d9ad9a57d027c248d729976259a070d14d3b7",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S19": {
+          "file": "memory/spec/kernel/vectors/semantic/S19.json",
+          "sha256": "38f26ec4b352a1fc82f323681181f34c4ba51b7e0ce6fe4a6c79298028f152b1",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S20": {
+          "file": "memory/spec/kernel/vectors/semantic/S20.json",
+          "sha256": "1eb5232cd1c316d3911a16d8e97c15e070f5fecc440f0127fc43bd62e86b2787",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S21": {
+          "file": "memory/spec/kernel/vectors/semantic/S21.json",
+          "sha256": "bb15c6b3a6c954804e2430ea1e818ba82684c7e8000cf37c302570869e877528",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S22": {
+          "file": "memory/spec/kernel/vectors/semantic/S22.json",
+          "sha256": "59e24b9866ec5d119f83c759460ec4b0b2145940a43c3e895714f5f586b59299",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S23": {
+          "file": "memory/spec/kernel/vectors/semantic/S23.json",
+          "sha256": "414b9f3e2d6eaf5c535c8e0108d676114d0ec08a1dd9a58b1eeb9e5f0b9a39ff",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S24": {
+          "file": "memory/spec/kernel/vectors/semantic/S24.json",
+          "sha256": "452bfc5021de94a4c4a0760836d8db17cdeda64f4fb48ba3c648bd0899835f47",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S25": {
+          "file": "memory/spec/kernel/vectors/semantic/S25.json",
+          "sha256": "6117598835e5c2090b7e8dbce6b7d645d52ab44f855ced313e56e021ac528d0b",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S26": {
+          "file": "memory/spec/kernel/vectors/semantic/S26.json",
+          "sha256": "7aa409f4bf9dc588497ad30f118b3a3c3d50f821275678fc6d973cdfe4dae657",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S27": {
+          "file": "memory/spec/kernel/vectors/semantic/S27.json",
+          "sha256": "db3f11b238175328435ae42540b3063e789690d613f02e88394ee241b30c9284",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S28": {
+          "file": "memory/spec/kernel/vectors/semantic/S28.json",
+          "sha256": "4d0bbf165bcf80b9f162630f79d8c0e197169b2e870ac4ef6f5f0e06493d44de",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S29": {
+          "file": "memory/spec/kernel/vectors/semantic/S29.json",
+          "sha256": "5cd9dd763d0fc776d64b18cd73b18159108a44d64e6c3d0f14123436c7b14058",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S30": {
+          "file": "memory/spec/kernel/vectors/semantic/S30.json",
+          "sha256": "5da57efd3040e91698bc3c03ab214557351925146ff793dd1a3a4f057740d1c4",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S31": {
+          "file": "memory/spec/kernel/vectors/semantic/S31.json",
+          "sha256": "3d191916d6ab70c0bdff000eeb22cf0a680685f26afe389f5f817d126392c8b0",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S32": {
+          "file": "memory/spec/kernel/vectors/semantic/S32.json",
+          "sha256": "9ce45eb1c942cf0dde77ab7d091231931cb03811d42e48b7a013d8c7fe94ed81",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S33": {
+          "file": "memory/spec/kernel/vectors/semantic/S33.json",
+          "sha256": "248edc5efd86df357009ec0e23fee39ca62bf28a9f9227b79ab8a2179669f535",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        }
+      },
+      "implementation_commit": "dbf48926bdf7e5505d0806cf38acf078985491b7",
+      "implementation_sha256": {
+        "adapter.py": "6215fcc2f9bf57f083fd7fc34a5eab2a04e543c02886806f77849f2896affbdf",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "authority_projection_checks.py": "2165891fc3c3ee67ae800e5b37034e7abca20abb2430ca5c79fa1df0eb676248",
+        "availability_checks.py": "6a4f3bc7139682922f76773ed53a7b5404207dd50314890bb5624fc8669a5da5",
+        "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+        "boundary_checks.py": "d7f4a8dc0572054468924d7b1723e8d92881d914e256d4fe4617152c3d439cc1",
+        "deadline_checks.py": "232ac12a7ebe446eb33e4519ca2a1353aeff8de7b1cdc8f567a93851321df2a0",
+        "erasure.py": "2362a28a8d7bd508eee9b92b6c7843dabc1ab5f967b4b230d39849f52e9598ad",
+        "erasure_checks.py": "3d49a25367ca7dcb4c27399d5ae7b297548fcf0f47a4b983764bfc75fd053114",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "f437cda9614027c128e48eb5cf7508134293221926e6aa472ae1024fa97bd45c",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+        "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+        "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+        "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+        "transactions.py": "6bc9a57351c1f923654e459521bd8b5c850d6c2cfdda25e5ffad2c874f08827d"
+      },
+      "full_local_report": ".temp/astra25-source-canonical-025-erasure.json",
+      "full_local_report_sha256": "a8ef359d8741737189768b4785905f79df554a1e7b359a3352e1af1afcc7fcee",
+      "evidence_note": "Passing actual payloads omitted here; exact comparisons, input hashes and full local report are preserved. No deployment qualification."
+    },
+    "astra22-native-erasure-025-first": {
+      "package_commit": "6a04e8cfb1490569cd1de7468d2085dd4840cf51",
+      "implementation_commit": "dbf48926bdf7e5505d0806cf38acf078985491b7",
+      "implementation_sha256": {
+        "adapter.py": "6215fcc2f9bf57f083fd7fc34a5eab2a04e543c02886806f77849f2896affbdf",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "authority_projection_checks.py": "2165891fc3c3ee67ae800e5b37034e7abca20abb2430ca5c79fa1df0eb676248",
+        "availability_checks.py": "6a4f3bc7139682922f76773ed53a7b5404207dd50314890bb5624fc8669a5da5",
+        "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+        "boundary_checks.py": "d7f4a8dc0572054468924d7b1723e8d92881d914e256d4fe4617152c3d439cc1",
+        "deadline_checks.py": "232ac12a7ebe446eb33e4519ca2a1353aeff8de7b1cdc8f567a93851321df2a0",
+        "erasure.py": "2362a28a8d7bd508eee9b92b6c7843dabc1ab5f967b4b230d39849f52e9598ad",
+        "erasure_checks.py": "3d49a25367ca7dcb4c27399d5ae7b297548fcf0f47a4b983764bfc75fd053114",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "f437cda9614027c128e48eb5cf7508134293221926e6aa472ae1024fa97bd45c",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+        "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+        "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+        "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+        "transactions.py": "6bc9a57351c1f923654e459521bd8b5c850d6c2cfdda25e5ffad2c874f08827d"
+      },
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/erasure_checks.py",
+      "test_groups": 8,
+      "exit_code": 0,
+      "stdout_stderr": "test_invalid_and_unauthorized_are_atomic (__main__.ErasureControls.test_invalid_and_unauthorized_are_atomic) ... ok\ntest_late_writers_and_independent_positive (__main__.ErasureControls.test_late_writers_and_independent_positive) ... ok\ntest_partial_unreachable_and_independent_custody (__main__.ErasureControls.test_partial_unreachable_and_independent_custody) ... ok\ntest_receipt_metadata_does_not_reduce_purge (__main__.ErasureControls.test_receipt_metadata_does_not_reduce_purge) ... ok\ntest_receipt_replay_and_current_authority (__main__.ErasureControls.test_receipt_replay_and_current_authority) ... ok\ntest_restore_fence_and_current_reconciliation (__main__.ErasureControls.test_restore_fence_and_current_reconciliation) ... ok\ntest_restore_unreachable_custody_stays_fenced (__main__.ErasureControls.test_restore_unreachable_custody_stays_fenced) ... ok\ntest_unknown_lineage_and_future_fact_boundary (__main__.ErasureControls.test_unknown_lineage_and_future_fact_boundary) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.105s\n\nOK\n",
+      "log_sha256": "8a3679fa9aec12e4678d203060ba4a48fc3204a6735089b8ec73515ccf5fde2c",
+      "scope": "Eight native groups cover protected closure including unknown known-input lower bounds, full purge despite undisclosed refs, partial/unreachable/independent custody, replay/current authority, invalid requests without partial state, late writers and live-independent control, restore fence and current witness, unreachable reconciliation. Synthetic storage only."
+    },
+    "astra22-native-availability-025-first": {
+      "package_commit": "6a04e8cfb1490569cd1de7468d2085dd4840cf51",
+      "implementation_commit": "dbf48926bdf7e5505d0806cf38acf078985491b7",
+      "implementation_sha256": {
+        "adapter.py": "6215fcc2f9bf57f083fd7fc34a5eab2a04e543c02886806f77849f2896affbdf",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "authority_projection_checks.py": "2165891fc3c3ee67ae800e5b37034e7abca20abb2430ca5c79fa1df0eb676248",
+        "availability_checks.py": "6a4f3bc7139682922f76773ed53a7b5404207dd50314890bb5624fc8669a5da5",
+        "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+        "boundary_checks.py": "d7f4a8dc0572054468924d7b1723e8d92881d914e256d4fe4617152c3d439cc1",
+        "deadline_checks.py": "232ac12a7ebe446eb33e4519ca2a1353aeff8de7b1cdc8f567a93851321df2a0",
+        "erasure.py": "2362a28a8d7bd508eee9b92b6c7843dabc1ab5f967b4b230d39849f52e9598ad",
+        "erasure_checks.py": "3d49a25367ca7dcb4c27399d5ae7b297548fcf0f47a4b983764bfc75fd053114",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "f437cda9614027c128e48eb5cf7508134293221926e6aa472ae1024fa97bd45c",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+        "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+        "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+        "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+        "transactions.py": "6bc9a57351c1f923654e459521bd8b5c850d6c2cfdda25e5ffad2c874f08827d"
+      },
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/availability_checks.py",
+      "test_groups": 5,
+      "exit_code": 1,
+      "stdout_stderr": "test_coarse_availability_and_recovery (__main__.AvailabilityControls.test_coarse_availability_and_recovery) ... ok\ntest_control_observation_is_independent_data (__main__.AvailabilityControls.test_control_observation_is_independent_data) ... ok\ntest_hidden_load_has_no_logical_effect (__main__.AvailabilityControls.test_hidden_load_has_no_logical_effect) ... ok\ntest_initial_degraded_state_can_recover (__main__.AvailabilityControls.test_initial_degraded_state_can_recover) ... FAIL\ntest_unauthorized_availability_is_atomic (__main__.AvailabilityControls.test_unauthorized_availability_is_atomic) ... ok\n\n======================================================================\nFAIL: test_initial_degraded_state_can_recover (__main__.AvailabilityControls.test_initial_degraded_state_can_recover)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/iv/Developer/ReluxWorks/swarma-memory-r7/astra-25/swarma-architecture-review/memory/conformance/impl-astra-22/availability_checks.py\", line 85, in test_initial_degraded_state_can_recover\n    self.assertEqual(a.query(v[\"query\"])[\"type\"], \"view\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'refusal' != 'view'\n- refusal\n+ view\n\n\n----------------------------------------------------------------------\nRan 5 tests in 0.052s\n\nFAILED (failures=1)\n",
+      "log_sha256": "e45b74bcda22370a64a0dabba734acec58924070b755081292f1173687b5d6a0",
+      "scope": "Four native groups pass; initial degraded recovery fails exactly refusal != view. Zero setup errors or skips. This is R7-056 product failure, not a green suite. Normal recovery, hidden-load invariance, owner/shape/coarse-policy rejection and data-only control observations are positive/negative neighbors."
+    },
+    "astra22-availability-025-first-reproduction": {
+      "package_commit": "6a04e8cfb1490569cd1de7468d2085dd4840cf51",
+      "implementation_commit": "dbf48926bdf7e5505d0806cf38acf078985491b7",
+      "implementation_sha256": {
+        "adapter.py": "6215fcc2f9bf57f083fd7fc34a5eab2a04e543c02886806f77849f2896affbdf",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "authority_projection_checks.py": "2165891fc3c3ee67ae800e5b37034e7abca20abb2430ca5c79fa1df0eb676248",
+        "availability_checks.py": "6a4f3bc7139682922f76773ed53a7b5404207dd50314890bb5624fc8669a5da5",
+        "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+        "boundary_checks.py": "d7f4a8dc0572054468924d7b1723e8d92881d914e256d4fe4617152c3d439cc1",
+        "deadline_checks.py": "232ac12a7ebe446eb33e4519ca2a1353aeff8de7b1cdc8f567a93851321df2a0",
+        "erasure.py": "2362a28a8d7bd508eee9b92b6c7843dabc1ab5f967b4b230d39849f52e9598ad",
+        "erasure_checks.py": "3d49a25367ca7dcb4c27399d5ae7b297548fcf0f47a4b983764bfc75fd053114",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "f437cda9614027c128e48eb5cf7508134293221926e6aa472ae1024fa97bd45c",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+        "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+        "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+        "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+        "transactions.py": "6bc9a57351c1f923654e459521bd8b5c850d6c2cfdda25e5ffad2c874f08827d"
+      },
+      "original_evidence": "memory/conformance/impl-astra-22/runs/availability-recovery-first.json",
+      "original_sha256": "a70f3e37394393a59d6812cc384e5e8422840585d2c939d46b256ea5de386237",
+      "input_state_validation": "closed initial/operation schemas and admitted-state invariants pass",
+      "before": {
+        "type": "refusal",
+        "code": "unavailable",
+        "retryable": true
+      },
+      "receipt": {
+        "type": "receipt",
+        "operation": "set_availability",
+        "outcome": "availability_changed",
+        "receipt_handle": "c4b5e8ef4ceb19ce43674e5bfbfcefa1",
+        "refs": [],
+        "custody": [],
+        "erasure_status": null
+      },
+      "after": {
+        "type": "refusal",
+        "code": "unavailable",
+        "retryable": true
+      },
+      "post_availability": {
+        "policy": "degraded",
+        "runtime_memory_available": true
+      },
+      "verdict": "Known ASTRA22-08 intended product failure reproduced exactly; success acknowledgement does not restore query availability. No duplicate case or oracle change."
     }
   }
 }
