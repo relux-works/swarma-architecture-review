@@ -48,6 +48,8 @@ One canonical package: normative prose, closed schemas and executable conformanc
 
 ## Proposed next steps (not decisions)
 
+- **Done 2026-10-17:** the R7 package (`memory/spec/` 0.2.5-draft) and the adversarial collective (seven astra-max seats instead of a triad, by Ivan's order); both evaluators pass 57/57 canonical semantic vectors. Pending owner question R7-055 (`conformance/OWNER-QUESTIONS.md`). Next: Ivan's R7-055 decision, the platform book ch. 09 correction (D-001), then the documentary pilot on 10–30 Swarma decisions.
+
 - **R7 package** first, from `designs/kernel.md`: closed schemas for the envelope and the five records, the view disclosure contract, the 17 + 27 vectors as executable fixtures, plus the review-1 gaps (`notes/review-1-gaps.md`: corpus coverage, incompatibility rules, S28/S29, `premise_quality`, source availability states).
 - **Adversarial triad** after the package, under the Codex-only spawn policy: an independent evaluator implementer (`gpt-6.1-sol`, high) that reads only the package, and a divergence-case writer (`gpt-6-astra`, medium); every divergence becomes a package fix or a new vector. The evaluator becomes the core of the pilot's read-only adapter.
 - **Pilot metrics** added to the collective's list: corpus maintenance cost, actualization latency, and a working-task check (does a fresh agent bring back a superseded decision; does it notice the real dependents).

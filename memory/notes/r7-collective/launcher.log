@@ -1,0 +1,9 @@
+2026-10-17T03:23:29Z launcher start pid 26950
+2026-10-17T03:23:29Z started astra-22 wrapper pid 27039 (host children before start: 10)
+2026-10-17T03:24:59Z started astra-24 wrapper pid 47849 (host children before start: 10)
+2026-10-17T03:26:29Z started astra-27 wrapper pid 71531 (host children before start: 9)
+2026-10-17T03:27:59Z started astra-25 wrapper pid 93653 (host children before start: 5)
+2026-10-17T03:29:29Z started astra-26 wrapper pid 15817 (host children before start: 6)
+2026-10-17T03:42:01Z started astra-21 wrapper pid 99423 (host children before start: 10)
+2026-10-17T03:43:31Z started astra-23 wrapper pid 11162 (host children before start: 10)
+2026-10-17T03:45:01Z launcher done

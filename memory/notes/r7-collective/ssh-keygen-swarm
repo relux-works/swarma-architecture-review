@@ -1,0 +1,3 @@
+#!/bin/sh
+# git gpg.ssh.program for R7 seats: sign through the swarm agent even when the login shell resets SSH_AUTH_SOCK.
+SSH_AUTH_SOCK="$HOME/.ssh/agent/swarm.sock" exec /usr/bin/ssh-keygen "$@"
