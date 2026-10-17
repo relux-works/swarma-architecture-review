@@ -2,7 +2,7 @@
 
 Status: R7-006 spec-bug; 0.2.0 candidate package fix verified structurally,
 independent package behavior verified. Source first declassification mapping
-has a separate digest-framing defect, judge-classified R7-050.
+had a separate digest-framing defect R7-050, now fixed at `8a42945`.
 Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
 
 ## Clauses
@@ -135,3 +135,19 @@ in `astra-25-evaluator-results.json`. No existing expected report was edited.
 This is a source implementation mapping defect, separate from the already
 closed R7-006 representation issue. Judge event
 `$Jxqff_h8h6pJHraJVkiriHrvMIYcTlLKLCO1QAjUMuI` classifies R7-050, owner astra-22.
+
+## R7-050 correction verification
+
+Judge event `$eKvZRGBlqzKr6xMsLkCJYW-knzBYjX56FZRIIFPlYHY` closes R7-050 at
+`8a42945`. This seat independently reran both owned directions and canonical P05
+at descendant `4772258`; `releases.py` is unchanged from that fix. All pass.
+The nine native release control groups also pass, including ASCII and non-ASCII
+framed positives and raw negatives, exact owner/pin checks, current revocation,
+immutable captured views, replay and unchanged full state on rejection.
+
+These reruns use released `0.2.4-draft` (`ef02647`). Every owned fixture changed
+only semantic_profile; all other JSON fields were mechanically checked identical.
+No original oracle or first-failure run was replaced. Evidence runs are
+`astra22-phase2-024-release-corrected`, `astra23-phase2-024-owned`, and
+`astra22-release-controls-024-corrected`. The release controls' deadline-label
+inheritance does not prove admission rejects expiry; ASTRA25-11 remains separate.

@@ -22309,6 +22309,3378 @@
       "original_owner_and_assessment_pins_match_framed": true,
       "unframed_differs": true,
       "negative_fixture_sha256": "099dd43d16846b8e571fe2966d083b7cd7360e5c46262dd255c27d4364956224"
+    },
+    "astra22-phase2-024-release-corrected": {
+      "package_version": "0.2.4-draft",
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "evaluator_commit": "4772258d52db70a5cd21f928260aad31dcfdd0b3",
+      "implementation_sha256": {
+        "adapter.py": "9b6677c7dab869bf81d4a07835ced6c43ae2590d10fea86a676dd4c1223602bb",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+        "boundary_checks.py": "057cca3daba4bf03ffbf8acd87bda3a0f5a9b9a97088539d0714af434917457b",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "5285af6df7e8554c6726a87fd4219056e0a2cceb3d6e61e741a40550c1aca2a6",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+        "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+        "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+        "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+        "transactions.py": "fff9dc04a8be92f091cbc6d9f47a2772983867ef3b3930ed50052de5ed605444"
+      },
+      "scope": "Owned current-version adversarial fixtures; untouched evaluator; five harness controls passed. Deployment unsupported is not a pass.",
+      "vectors": [
+        {
+          "id": "ASTRA25-02-DIGEST",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection-unframed-digest.vector.json",
+          "vector_sha256": "062d307030f125732c3e6560ece8a64955b2cd1568438df2c7d7d996ea24b0ca",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-02",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
+          "vector_sha256": "915f68a9e03ccff5d0ce582cecaf37024824be47bedb0ed18b4144e8915208d7",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-07-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-authorized-control.vector.json",
+          "vector_sha256": "92697e97e4edba791763218c19e58c20d18ac0791a0c367049fb059833bb0010",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-07-PURPOSE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-other-purpose.vector.json",
+          "vector_sha256": "7d790726ea1f0ca4f5ab3ba1f02c9024366a9b90e13fbbfa298db0bc8ba35d8d",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-07",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata.vector.json",
+          "vector_sha256": "3eca41aa50eeac9690944da96621c2f6ad807b79bcf222f791fc3759c6531c1d",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-10",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-future-lineage-input.vector.json",
+          "vector_sha256": "b8e3962c8a33f3523f84d843f4a1f71904a331c63232583b0bf8c4e88218aed2",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-05-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "vector_sha256": "8f668df8210970ad5c55821f82f1f9fef4e85a71d8c5a893d95589c87a422e99",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-05",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
+          "vector_sha256": "aea70b2e04d76571a1b0eb7bc41d8765b4e8316b9db2a423543d30c241c6e4ad",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-01",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
+          "vector_sha256": "aa7a0ad28643c28b05ab4720b203dbe4354f1002057ba4f5a61f01549ecaac79",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-06",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-quality-budget-isolation.vector.json",
+          "vector_sha256": "6db93050a9e008bee54013f430d668f49aa1f70b7273b60f488a4838bf960803",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-authorized-control.vector.json",
+          "vector_sha256": "791ff7f9ff65d80f8966783ae3dc5a7609fbc539f8eb84b18b8e27bc04c3b88c",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown-control.vector.json",
+          "vector_sha256": "e6c47ff0ac40c0e824274e28f96f5ccd22e83ad9206c90ae732534bb620149c8",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown.vector.json",
+          "vector_sha256": "c3aafefa028a1469177061f8a4092689d57e6e8ca18e36c703a9478bec77fe2a",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority.vector.json",
+          "vector_sha256": "00c7fd12f8749802d92500c21aa2639551fb210061484d99c71aa6c0bfb2dc97",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-04",
+          "profile": "deployment",
+          "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
+          "vector_sha256": "aefb261795968f2a06c9435e82bd35d9d95988ae704291674e1d670c0442e514",
+          "status": "unsupported",
+          "reason": "No protected deployment; simulated state cannot qualify current witness and failure-domain boundaries."
+        },
+        {
+          "id": "ASTRA25-03-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
+          "vector_sha256": "b0fe46f09466eb6135c0deefbae4d1c8deb5067cac3e1c17a61f7cc9813153e0",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-03-FENCE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
+          "vector_sha256": "c38de4afa8839b2b9f133ceffc3bf9ad9972ab1629ff4996821bb2cc388502f0",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-03",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
+          "vector_sha256": "526c37ba2d99734457755c1f403067405a9f08551d75c5c2599a2459914642f9",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-09-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure-independent-control.vector.json",
+          "vector_sha256": "1354541cb25793998b34cef86d5ece893454430b556c7ba6dab04c7cb2c7f584",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-09",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure.vector.json",
+          "vector_sha256": "100dca2e8b83215c08a71e1eb6d47878c9e2984bc777554478b7535a57d6fe0c",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "pass": 11,
+          "unsupported": 8
+        },
+        "deployment": {
+          "unsupported": 1
+        }
+      },
+      "fixture_base_commit": "6d3fe6102520155039d3f5a5845a6748ff069c0c",
+      "fixture_commit": null,
+      "fixture_worktree_modified": true,
+      "fixture_note": "Input bytes are identified by each vector_sha256; these owned additions/edits were not yet committed at execution."
+    },
+    "astra23-phase2-024-owned": {
+      "package_version": "0.2.4-draft",
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "evaluator_commit": "064103397dd5a0d5164ef06230e5060005cbf78a",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+        "engine.py": "cca7a0544c903e521b093c0906bc1e6e092bfe90e54284c7c122e522b344b450",
+        "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "3189cb141f3d464c3bdc35117b2bfa189557f2920b434f12d634316275516bcb"
+      },
+      "scope": "Owned adversarial fixtures. Evaluator receives only initial state, operations and query; comparator receives expected output. No evaluator files were changed. Deployment unsupported is not a pass.",
+      "vectors": [
+        {
+          "id": "ASTRA25-02-DIGEST",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection-unframed-digest.vector.json",
+          "vector_sha256": "062d307030f125732c3e6560ece8a64955b2cd1568438df2c7d7d996ea24b0ca",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-02",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
+          "vector_sha256": "915f68a9e03ccff5d0ce582cecaf37024824be47bedb0ed18b4144e8915208d7",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-authorized-control.vector.json",
+          "vector_sha256": "92697e97e4edba791763218c19e58c20d18ac0791a0c367049fb059833bb0010",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07-PURPOSE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-other-purpose.vector.json",
+          "vector_sha256": "7d790726ea1f0ca4f5ab3ba1f02c9024366a9b90e13fbbfa298db0bc8ba35d8d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata.vector.json",
+          "vector_sha256": "3eca41aa50eeac9690944da96621c2f6ad807b79bcf222f791fc3759c6531c1d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-10",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-future-lineage-input.vector.json",
+          "vector_sha256": "b8e3962c8a33f3523f84d843f4a1f71904a331c63232583b0bf8c4e88218aed2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-05-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "vector_sha256": "8f668df8210970ad5c55821f82f1f9fef4e85a71d8c5a893d95589c87a422e99",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-05",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
+          "vector_sha256": "aea70b2e04d76571a1b0eb7bc41d8765b4e8316b9db2a423543d30c241c6e4ad",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-01",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
+          "vector_sha256": "aa7a0ad28643c28b05ab4720b203dbe4354f1002057ba4f5a61f01549ecaac79",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-06",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-quality-budget-isolation.vector.json",
+          "vector_sha256": "6db93050a9e008bee54013f430d668f49aa1f70b7273b60f488a4838bf960803",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-authorized-control.vector.json",
+          "vector_sha256": "791ff7f9ff65d80f8966783ae3dc5a7609fbc539f8eb84b18b8e27bc04c3b88c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown-control.vector.json",
+          "vector_sha256": "e6c47ff0ac40c0e824274e28f96f5ccd22e83ad9206c90ae732534bb620149c8",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown.vector.json",
+          "vector_sha256": "c3aafefa028a1469177061f8a4092689d57e6e8ca18e36c703a9478bec77fe2a",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority.vector.json",
+          "vector_sha256": "00c7fd12f8749802d92500c21aa2639551fb210061484d99c71aa6c0bfb2dc97",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-04",
+          "profile": "deployment",
+          "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
+          "vector_sha256": "aefb261795968f2a06c9435e82bd35d9d95988ae704291674e1d670c0442e514",
+          "status": "unsupported",
+          "reason": "Requires real protected deployment, current witness and failure-domain evidence; modeled state transitions are insufficient."
+        },
+        {
+          "id": "ASTRA25-03-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
+          "vector_sha256": "b0fe46f09466eb6135c0deefbae4d1c8deb5067cac3e1c17a61f7cc9813153e0",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-03-FENCE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
+          "vector_sha256": "c38de4afa8839b2b9f133ceffc3bf9ad9972ab1629ff4996821bb2cc388502f0",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-03",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
+          "vector_sha256": "526c37ba2d99734457755c1f403067405a9f08551d75c5c2599a2459914642f9",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-09-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure-independent-control.vector.json",
+          "vector_sha256": "1354541cb25793998b34cef86d5ece893454430b556c7ba6dab04c7cb2c7f584",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-09",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure.vector.json",
+          "vector_sha256": "100dca2e8b83215c08a71e1eb6d47878c9e2984bc777554478b7535a57d6fe0c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "pass": 19
+        },
+        "deployment": {
+          "unsupported": 1
+        }
+      },
+      "fixture_base_commit": "6d3fe6102520155039d3f5a5845a6748ff069c0c",
+      "fixture_commit": null,
+      "fixture_worktree_modified": true,
+      "fixture_note": "Input bytes are identified by each vector_sha256; these owned additions/edits were not yet committed at execution."
+    },
+    "astra22-canonical-024-first": {
+      "checkout_commit": "4772258d52db70a5cd21f928260aad31dcfdd0b3",
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "package_version": "0.2.4-draft",
+      "vector_directory": "memory/spec/kernel/vectors",
+      "core_sha256": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+      "totals": {
+        "semantic": {
+          "pass": 49,
+          "fail": 1,
+          "unsupported": 7
+        },
+        "deployment": {
+          "pass": 0,
+          "fail": 0,
+          "unsupported": 8
+        }
+      },
+      "vectors": {
+        "B04": {
+          "file": "memory/spec/kernel/vectors/deployment/B04.json",
+          "sha256": "045de6e6168b163f8a043ac1852511484ac62c93aae3a0c9a66f40ed04569895",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B05": {
+          "file": "memory/spec/kernel/vectors/deployment/B05.json",
+          "sha256": "caf0d77fbef7b1712f61da1568a75de3183ed822f73118e1f7670a063c7b42c4",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B06": {
+          "file": "memory/spec/kernel/vectors/deployment/B06.json",
+          "sha256": "f65f62661824e95763995b828bdc4d004af71c5dc0a76e3458eb96d1f9394ce3",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B09": {
+          "file": "memory/spec/kernel/vectors/deployment/B09.json",
+          "sha256": "731d84c9ae8fe6ebddc06d0301896e9d0c44defd171cf5ba887db9d48b68f6bc",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B10": {
+          "file": "memory/spec/kernel/vectors/deployment/B10.json",
+          "sha256": "11fa62a6592069877e8f84dbbe5df470daffcd6b9c2ea9cda413901e9a84fbe3",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B11": {
+          "file": "memory/spec/kernel/vectors/deployment/B11.json",
+          "sha256": "a2a51a678bda5ec771a8fb7987c56e98eed25811c3f38d2298fcb6c25be796c4",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B16": {
+          "file": "memory/spec/kernel/vectors/deployment/B16.json",
+          "sha256": "95cb4544d4c679e27156d26c6c19ba33d56ae962f7f31072c9cc75583c6eba0a",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B17": {
+          "file": "memory/spec/kernel/vectors/deployment/B17.json",
+          "sha256": "f923a3dfd49ca7e6bdea06c05a256fa9e6627b5d524a6cba8b4788b619305dad",
+          "status": "unsupported",
+          "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
+        },
+        "B01": {
+          "file": "memory/spec/kernel/vectors/semantic/B01.json",
+          "sha256": "41356c4e4990d999bcf238e37494c5d117cd2505c82b941104daf93465547baf",
+          "actual": {
+            "operation_results": [
+              {
+                "type": "refusal",
+                "code": "authority_receipt_required",
+                "retryable": false
+              },
+              {
+                "type": "refusal",
+                "code": "authority_receipt_required",
+                "retryable": false
+              },
+              {
+                "type": "refusal",
+                "code": "authority_receipt_required",
+                "retryable": false
+              },
+              {
+                "type": "refusal",
+                "code": "authority_receipt_required",
+                "retryable": false
+              },
+              {
+                "type": "view",
+                "semantic_profile": "0.2.4-draft",
+                "projection_rule": {
+                  "id": "projection:main",
+                  "version": 1
+                },
+                "evidence_policy": {
+                  "id": "evidence:1",
+                  "version": 1
+                },
+                "policy": {
+                  "id": "policy:1",
+                  "version": 1
+                },
+                "authorized_snapshot_handle": "<fresh>",
+                "data_classification": "data",
+                "items": [
+                  {
+                    "ref": {
+                      "id": "rec:d",
+                      "version": 1
+                    },
+                    "subject": "subj:h1",
+                    "issuer": "subj:h1",
+                    "submitter": "subj:h1",
+                    "perspective": {
+                      "kind": "own",
+                      "principal": "subj:h1"
+                    },
+                    "representation_ref": null,
+                    "admission_class": "machine_observation",
+                    "statement_kind": "decision_record",
+                    "content": [
+                      {
+                        "field": "value",
+                        "value": "archive_home"
+                      }
+                    ],
+                    "valid": {
+                      "kind": "known",
+                      "from": "2026-09-01T00:00:00Z",
+                      "to": null,
+                      "precision": "second"
+                    },
+                    "confirmed_at": "2026-10-17T00:00:00Z",
+                    "usable_until": null,
+                    "currentness": "current",
+                    "authority_receipt": {
+                      "id": "rec:receipt1",
+                      "version": 1
+                    },
+                    "incompatible_with": [],
+                    "needs_review": false,
+                    "source_refs": [
+                      {
+                        "id": "rec:receipt1",
+                        "version": 1
+                      }
+                    ],
+                    "support": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "<fresh>",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    },
+                    "oppose": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "<fresh>",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    }
+                  }
+                ],
+                "currentness": "current",
+                "historical": [],
+                "review_required": [],
+                "explanation": {
+                  "status": "complete",
+                  "paths": [],
+                  "reason": null
+                },
+                "cutoffs": [],
+                "changes": {
+                  "state": "initial",
+                  "refs": []
+                }
+              },
+              {
+                "type": "refusal",
+                "code": "invalid_time",
+                "retryable": false
+              },
+              {
+                "type": "receipt",
+                "operation": "revise",
+                "outcome": "revised",
+                "receipt_handle": "<fresh>",
+                "refs": [
+                  {
+                    "id": "rec:d",
+                    "version": 2
+                  },
+                  {
+                    "id": "rec:decision-replace",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "view",
+                "semantic_profile": "0.2.4-draft",
+                "projection_rule": {
+                  "id": "projection:main",
+                  "version": 1
+                },
+                "evidence_policy": {
+                  "id": "evidence:1",
+                  "version": 1
+                },
+                "policy": {
+                  "id": "policy:1",
+                  "version": 1
+                },
+                "authorized_snapshot_handle": "<fresh>",
+                "data_classification": "data",
+                "items": [
+                  {
+                    "ref": {
+                      "id": "rec:d",
+                      "version": 2
+                    },
+                    "subject": "subj:h1",
+                    "issuer": "subj:h1",
+                    "submitter": "subj:h1",
+                    "perspective": {
+                      "kind": "own",
+                      "principal": "subj:h1"
+                    },
+                    "representation_ref": null,
+                    "admission_class": "machine_observation",
+                    "statement_kind": "decision_record",
+                    "content": [
+                      {
+                        "field": "value",
+                        "value": "delete_home"
+                      }
+                    ],
+                    "valid": {
+                      "kind": "known",
+                      "from": "2026-09-01T00:00:00Z",
+                      "to": null,
+                      "precision": "second"
+                    },
+                    "confirmed_at": "2026-10-17T00:00:00Z",
+                    "usable_until": null,
+                    "currentness": "current",
+                    "authority_receipt": {
+                      "id": "rec:receipt2",
+                      "version": 1
+                    },
+                    "incompatible_with": [],
+                    "needs_review": false,
+                    "source_refs": [
+                      {
+                        "id": "rec:receipt2",
+                        "version": 1
+                      }
+                    ],
+                    "support": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "<fresh>",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    },
+                    "oppose": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "<fresh>",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    }
+                  }
+                ],
+                "currentness": "current",
+                "historical": [
+                  {
+                    "id": "rec:d",
+                    "version": 1
+                  }
+                ],
+                "review_required": [
+                  {
+                    "id": "rec:dependent",
+                    "version": 1
+                  }
+                ],
+                "explanation": {
+                  "status": "complete",
+                  "paths": [],
+                  "reason": null
+                },
+                "cutoffs": [],
+                "changes": {
+                  "state": "initial",
+                  "refs": []
+                }
+              },
+              {
+                "type": "receipt",
+                "operation": "revise",
+                "outcome": "revised",
+                "receipt_handle": "<fresh>",
+                "refs": [
+                  {
+                    "id": "rec:d",
+                    "version": 3
+                  },
+                  {
+                    "id": "rec:decision-replace-transitive",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "receipt",
+                "operation": "revise",
+                "outcome": "revised",
+                "receipt_handle": "<fresh>",
+                "refs": [
+                  {
+                    "id": "rec:d",
+                    "version": 2
+                  },
+                  {
+                    "id": "rec:decision-replace",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "refusal",
+                "code": "version_conflict",
+                "retryable": true
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "<fresh>",
+              "data_classification": "data",
+              "items": [
+                {
+                  "ref": {
+                    "id": "rec:d",
+                    "version": 2
+                  },
+                  "subject": "subj:h1",
+                  "issuer": "subj:h1",
+                  "submitter": "subj:h1",
+                  "perspective": {
+                    "kind": "own",
+                    "principal": "subj:h1"
+                  },
+                  "representation_ref": null,
+                  "admission_class": "machine_observation",
+                  "statement_kind": "decision_record",
+                  "content": [
+                    {
+                      "field": "value",
+                      "value": "delete_home"
+                    }
+                  ],
+                  "valid": {
+                    "kind": "known",
+                    "from": "2026-09-01T00:00:00Z",
+                    "to": null,
+                    "precision": "second"
+                  },
+                  "confirmed_at": "2026-10-17T00:00:00Z",
+                  "usable_until": null,
+                  "currentness": "ambiguous_current",
+                  "authority_receipt": {
+                    "id": "rec:receipt2",
+                    "version": 1
+                  },
+                  "incompatible_with": [],
+                  "needs_review": false,
+                  "source_refs": [
+                    {
+                      "id": "rec:receipt2",
+                      "version": 1
+                    }
+                  ],
+                  "support": {
+                    "witness": "not_found",
+                    "evaluation": "complete",
+                    "corpus_coverage": {
+                      "kind": "unknown"
+                    },
+                    "premise_quality": "not_fully_checked",
+                    "evidence_qualification": [],
+                    "source_state": "resolvable_now",
+                    "freshness": "not_applicable",
+                    "authorized_snapshot_handle": "<fresh>",
+                    "dependency_coverage": "registered_only",
+                    "witness_roots": [],
+                    "independent_root_count": 0
+                  },
+                  "oppose": {
+                    "witness": "not_found",
+                    "evaluation": "complete",
+                    "corpus_coverage": {
+                      "kind": "unknown"
+                    },
+                    "premise_quality": "not_fully_checked",
+                    "evidence_qualification": [],
+                    "source_state": "resolvable_now",
+                    "freshness": "not_applicable",
+                    "authorized_snapshot_handle": "<fresh>",
+                    "dependency_coverage": "registered_only",
+                    "witness_roots": [],
+                    "independent_root_count": 0
+                  }
+                },
+                {
+                  "ref": {
+                    "id": "rec:d",
+                    "version": 3
+                  },
+                  "subject": "subj:h1",
+                  "issuer": "subj:h1",
+                  "submitter": "subj:h1",
+                  "perspective": {
+                    "kind": "own",
+                    "principal": "subj:h1"
+                  },
+                  "representation_ref": null,
+                  "admission_class": "machine_observation",
+                  "statement_kind": "decision_record",
+                  "content": [
+                    {
+                      "field": "value",
+                      "value": "delete_home"
+                    }
+                  ],
+                  "valid": {
+                    "kind": "known",
+                    "from": "2026-09-01T00:00:00Z",
+                    "to": null,
+                    "precision": "second"
+                  },
+                  "confirmed_at": "2026-10-17T00:00:00Z",
+                  "usable_until": null,
+                  "currentness": "ambiguous_current",
+                  "authority_receipt": {
+                    "id": "rec:receipt3",
+                    "version": 1
+                  },
+                  "incompatible_with": [],
+                  "needs_review": false,
+                  "source_refs": [
+                    {
+                      "id": "rec:receipt3",
+                      "version": 1
+                    }
+                  ],
+                  "support": {
+                    "witness": "not_found",
+                    "evaluation": "complete",
+                    "corpus_coverage": {
+                      "kind": "unknown"
+                    },
+                    "premise_quality": "not_fully_checked",
+                    "evidence_qualification": [],
+                    "source_state": "resolvable_now",
+                    "freshness": "not_applicable",
+                    "authorized_snapshot_handle": "5e61dc40a9aad4f0b8d3f0282df8c730",
+                    "dependency_coverage": "registered_only",
+                    "witness_roots": [],
+                    "independent_root_count": 0
+                  },
+                  "oppose": {
+                    "witness": "not_found",
+                    "evaluation": "complete",
+                    "corpus_coverage": {
+                      "kind": "unknown"
+                    },
+                    "premise_quality": "not_fully_checked",
+                    "evidence_qualification": [],
+                    "source_state": "resolvable_now",
+                    "freshness": "not_applicable",
+                    "authorized_snapshot_handle": "5e61dc40a9aad4f0b8d3f0282df8c730",
+                    "dependency_coverage": "registered_only",
+                    "witness_roots": [],
+                    "independent_root_count": 0
+                  }
+                }
+              ],
+              "currentness": "ambiguous_current",
+              "historical": [
+                {
+                  "id": "rec:d",
+                  "version": 1
+                }
+              ],
+              "review_required": [
+                {
+                  "id": "rec:dependent",
+                  "version": 1
+                }
+              ],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:d",
+                  "version": 1
+                },
+                {
+                  "id": "rec:d",
+                  "version": 2
+                },
+                {
+                  "id": "rec:d",
+                  "version": 3
+                },
+                {
+                  "id": "rec:decision-replace",
+                  "version": 1
+                },
+                {
+                  "id": "rec:decision-replace-transitive",
+                  "version": 1
+                },
+                {
+                  "id": "rec:dependent",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt-bridge",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt-unordered",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt0",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt1",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt2",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt3",
+                  "version": 1
+                },
+                {
+                  "id": "rec:review-dependent",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [
+                {
+                  "id": "rec:dependent",
+                  "version": 1
+                }
+              ],
+              "control_observations": [],
+              "external_effects": []
+            }
+          },
+          "differences": [
+            {
+              "path": "$.result.currentness",
+              "expected": "current",
+              "actual": "ambiguous_current"
+            },
+            {
+              "path": "$.result.historical.length",
+              "expected": 2,
+              "actual": 1
+            },
+            {
+              "path": "$.result.items.length",
+              "expected": 1,
+              "actual": 2
+            },
+            {
+              "path": "$.result.items[0].authority_receipt.id",
+              "expected": "rec:receipt3",
+              "actual": "rec:receipt2"
+            },
+            {
+              "path": "$.result.items[0].currentness",
+              "expected": "current",
+              "actual": "ambiguous_current"
+            },
+            {
+              "path": "$.result.items[0].ref.version",
+              "expected": 3,
+              "actual": 2
+            },
+            {
+              "path": "$.result.items[0].source_refs[0].id",
+              "expected": "rec:receipt3",
+              "actual": "rec:receipt2"
+            }
+          ],
+          "status": "fail",
+          "reason": "7 exact differences"
+        },
+        "B02": {
+          "file": "memory/spec/kernel/vectors/semantic/B02.json",
+          "sha256": "f85bd588c6a0578dc36396dda409eab8860d59d73a1945885755e788e6cb117b",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B03": {
+          "file": "memory/spec/kernel/vectors/semantic/B03.json",
+          "sha256": "17b5eb264026e56ba591e3e8329cc56e836410b661b74e36a220c451c11682c8",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B07": {
+          "file": "memory/spec/kernel/vectors/semantic/B07.json",
+          "sha256": "fd022064ede672328eb7d2f7b10b75095ef376e0cdb2e9b2040ce385893fa044",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        "B08": {
+          "file": "memory/spec/kernel/vectors/semantic/B08.json",
+          "sha256": "571d00906b3a57ab24f5bf6ed273edd1e08a527da8010633fc430d26683498ad",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B12": {
+          "file": "memory/spec/kernel/vectors/semantic/B12.json",
+          "sha256": "b3c572fd4ed332d5d95f775d958075369bce57d0a39f37db77dc6f5c28c56407",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B13": {
+          "file": "memory/spec/kernel/vectors/semantic/B13.json",
+          "sha256": "69bbed727d571f7e42e1899cefc8336302aa557745bb67846bf29e06199963ff",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B14": {
+          "file": "memory/spec/kernel/vectors/semantic/B14.json",
+          "sha256": "c2244a92fed38c5488bd9136371badaa822a51d5fd34e0d7be6083533805c71c",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "B15": {
+          "file": "memory/spec/kernel/vectors/semantic/B15.json",
+          "sha256": "95b4a4fa1ce03b81f01cdfdf3e8bd408b0f3985815600020716bdb0d79d67332",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P01": {
+          "file": "memory/spec/kernel/vectors/semantic/P01.json",
+          "sha256": "abdb6c3dd13ee79641978c268ca085719ddfbffca13c4c70dc906446f0a2354e",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P02": {
+          "file": "memory/spec/kernel/vectors/semantic/P02.json",
+          "sha256": "e3cfbad8f0570417ffa9620097d9abd5fd99f0706fa64c9171d82f779f64259f",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P03": {
+          "file": "memory/spec/kernel/vectors/semantic/P03.json",
+          "sha256": "82f26d7a57858aeb4a03dbbb41316d5aed24ef8ceb64e1dba313b8a8cc361d49",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P04": {
+          "file": "memory/spec/kernel/vectors/semantic/P04.json",
+          "sha256": "b715adc9574b0f0b8dbc55f6cad9eef46149ad484f656ac272d7a88649c3a40a",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P05": {
+          "file": "memory/spec/kernel/vectors/semantic/P05.json",
+          "sha256": "f75efbd78197fc4561ee15b35c361e7589405c42ae7b87fd85e10c8c264cebf9",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P06": {
+          "file": "memory/spec/kernel/vectors/semantic/P06.json",
+          "sha256": "3c2f6c6b8e6c89c3b0d43d67963a19507d511a52922e9311b4096c12bcf50159",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P07": {
+          "file": "memory/spec/kernel/vectors/semantic/P07.json",
+          "sha256": "823b3ab0103d8bf6813d272a8fad1829deb6b99cdcbf2b2c186e9b2c6d11caee",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P08": {
+          "file": "memory/spec/kernel/vectors/semantic/P08.json",
+          "sha256": "a1127c0409c2c5803d4225fe87bb5ef04c1d592752d5357b04f6143a732f5716",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        "P09": {
+          "file": "memory/spec/kernel/vectors/semantic/P09.json",
+          "sha256": "900db59906f8fe95d8d9a69a281e76bc155fa8ed848fac0665d2b4ef18a642d2",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P10": {
+          "file": "memory/spec/kernel/vectors/semantic/P10.json",
+          "sha256": "f214d506c354f8ca7bea15ee18366dff979d4a5989f8ecc477b3ec18e29131c4",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P11": {
+          "file": "memory/spec/kernel/vectors/semantic/P11.json",
+          "sha256": "61fc19b16fa110d82b28a5a08b5c7fd972d1e3722d47097013030dd7400b9819",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P12": {
+          "file": "memory/spec/kernel/vectors/semantic/P12.json",
+          "sha256": "b8c29d59d21bfa0bc3a98716bdf75694b45483c721a63b07843cc35659b4224f",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P13": {
+          "file": "memory/spec/kernel/vectors/semantic/P13.json",
+          "sha256": "c8b09e0f2c17f425ba8356b2fc67dece38855b209c42287209b457d2e10920d0",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P14": {
+          "file": "memory/spec/kernel/vectors/semantic/P14.json",
+          "sha256": "77c3046ea1095c01a670f356c07b26c1e7e4498b649c7c855d77edbb6f4516f0",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "P15": {
+          "file": "memory/spec/kernel/vectors/semantic/P15.json",
+          "sha256": "3a919d93f3bb2a9acb5dc20a12a2366da18159760ecb8913a2491b779c4bfb7c",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S01": {
+          "file": "memory/spec/kernel/vectors/semantic/S01.json",
+          "sha256": "a474089c43f8bc9d4465725804a94936f82cadb3c27b27c6e8a0a5515ed20774",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S02": {
+          "file": "memory/spec/kernel/vectors/semantic/S02.json",
+          "sha256": "fd21c7e4bcc4287e1e780d1e1f383750b2a24d54cf1928bcad12d4af47dceab8",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S03": {
+          "file": "memory/spec/kernel/vectors/semantic/S03.json",
+          "sha256": "8843b1658e5aab97aef52b99f8bdd5e503b090d9bb756a9e8724316218390ad6",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S04": {
+          "file": "memory/spec/kernel/vectors/semantic/S04.json",
+          "sha256": "d1a1d2c179af496ae60b89f9f8f99ed2a68ef3aaaa7c6344f72e03b485d8d720",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S05": {
+          "file": "memory/spec/kernel/vectors/semantic/S05.json",
+          "sha256": "173393bab627a65dc879ff4b3492a5e06c43d12a3b1cdc4db01b80f6f7242e22",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S06": {
+          "file": "memory/spec/kernel/vectors/semantic/S06.json",
+          "sha256": "c5b40b40fcae8b12fbe4c88989a87ed28e1de897da5dd0cd0601ab2d379152bd",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S07": {
+          "file": "memory/spec/kernel/vectors/semantic/S07.json",
+          "sha256": "775c07b2f7bd0913f4f4e3fac3399b75acdd1613d0fab8c507b9ecbe6e341978",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S08": {
+          "file": "memory/spec/kernel/vectors/semantic/S08.json",
+          "sha256": "b74fb0ae781506eaa9569ee9c21a1d6b2e769af1f4a0878ed2ffa8c4736f6504",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S09": {
+          "file": "memory/spec/kernel/vectors/semantic/S09.json",
+          "sha256": "7904974c4eb29f50bc72bdac18753d23161ca161deb3e6519ff1bc37b4865390",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S10": {
+          "file": "memory/spec/kernel/vectors/semantic/S10.json",
+          "sha256": "1f094701a306b14272003c37d2405cb7fe6b71ee40d01f344d58394e2ac6482d",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S11": {
+          "file": "memory/spec/kernel/vectors/semantic/S11.json",
+          "sha256": "4cf7f3f015e9b6d920469b84ee760c7f329b2d4e22dad639adcda5f26fcb5eeb",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S12": {
+          "file": "memory/spec/kernel/vectors/semantic/S12.json",
+          "sha256": "28c6c75a2b8b5afd4d823a1a47633ff235733eeb1419005e53abfe2df97162cb",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S13": {
+          "file": "memory/spec/kernel/vectors/semantic/S13.json",
+          "sha256": "5cc56fe0653d9d071c7a4a6f3b4261de46606ed0841222ad3b02edf8821b9002",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S14": {
+          "file": "memory/spec/kernel/vectors/semantic/S14.json",
+          "sha256": "8eff202dd8381d9985593758da887cfff04a2bd94b66bc8805cb5e83e9edab4d",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S15": {
+          "file": "memory/spec/kernel/vectors/semantic/S15.json",
+          "sha256": "0e10a069f65d13f67279c9d145907c992142e344096922c8e6691ff6ca1b6d81",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S16": {
+          "file": "memory/spec/kernel/vectors/semantic/S16.json",
+          "sha256": "8a02021561f59e7b5ed2eecbf528c592f9143307f18360450bceba775bf849f7",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S17": {
+          "file": "memory/spec/kernel/vectors/semantic/S17.json",
+          "sha256": "cc6e81675c74e834eb6bec71235d6d67f4251869fbb330e63923eafd8e24b654",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S18": {
+          "file": "memory/spec/kernel/vectors/semantic/S18.json",
+          "sha256": "aaa49107411c79aebbbd0908962229ee9cf6b07c990dd3d42bea9ed36bfb6c95",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S19": {
+          "file": "memory/spec/kernel/vectors/semantic/S19.json",
+          "sha256": "e17b2de1085a594d97b5e5f2f64239865e693dd0fc6bd9fb6eac4a747866f88c",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S20": {
+          "file": "memory/spec/kernel/vectors/semantic/S20.json",
+          "sha256": "af77239e5a0734c5cf4b817702b808965b2a959ac0f04d038ac69060d2f565d2",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        "S21": {
+          "file": "memory/spec/kernel/vectors/semantic/S21.json",
+          "sha256": "9909ce3b0ab4f46d536ad603745269474f925c64ca41805ddca0f426b9377c1d",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S22": {
+          "file": "memory/spec/kernel/vectors/semantic/S22.json",
+          "sha256": "8a684dba3b2a362573a220b12e27b3202048e7beb9ab3080fc3cc130967ba005",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S23": {
+          "file": "memory/spec/kernel/vectors/semantic/S23.json",
+          "sha256": "22d3b51be860ed8f4099d84485f0134482aeefcebae9e9f769820204b16fbf57",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S24": {
+          "file": "memory/spec/kernel/vectors/semantic/S24.json",
+          "sha256": "4c16061b7eb13146b8202c799a9e382ea3b0152e742bd8584bf2c4bd93593c5d",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        "S25": {
+          "file": "memory/spec/kernel/vectors/semantic/S25.json",
+          "sha256": "6117598835e5c2090b7e8dbce6b7d645d52ab44f855ced313e56e021ac528d0b",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase, reconcile_restore, restore"
+        },
+        "S26": {
+          "file": "memory/spec/kernel/vectors/semantic/S26.json",
+          "sha256": "6ac2d8b8f39f1f128e45a3f2532843b1e4302a1fbe57fa08c1bd80e4fd1afd1a",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        "S27": {
+          "file": "memory/spec/kernel/vectors/semantic/S27.json",
+          "sha256": "13df0fbe7b1811ed588a3a2742d529c443bfc72e60c0433024a0512913c44671",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: load, set_availability"
+        },
+        "S28": {
+          "file": "memory/spec/kernel/vectors/semantic/S28.json",
+          "sha256": "a5cb88ce8be0908d91864187a12c3a97a3613c34aca2716400737ad6376eabe3",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S29": {
+          "file": "memory/spec/kernel/vectors/semantic/S29.json",
+          "sha256": "d273e475fc066faca22122f72da510eab9f56478588f38e4217f84edadc40e34",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S30": {
+          "file": "memory/spec/kernel/vectors/semantic/S30.json",
+          "sha256": "b488335472e5aae90c379656512e57e8762ba424df01290c247f402979ee57cb",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S31": {
+          "file": "memory/spec/kernel/vectors/semantic/S31.json",
+          "sha256": "029e770015dddf38abef96df11a76072ebb9b91513f26f5d666921e9e6f1086a",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S32": {
+          "file": "memory/spec/kernel/vectors/semantic/S32.json",
+          "sha256": "b2705a6ea8100421b746cfad90fc8c43b3adae805d8061d46000551be787c2ac",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        },
+        "S33": {
+          "file": "memory/spec/kernel/vectors/semantic/S33.json",
+          "sha256": "f40557fea8529d73e090ca426d543fd0dacb7f934d872a951af87fa79e8ee04b",
+          "differences": [],
+          "status": "pass",
+          "reason": "Exact report and forbidden/normalization checks passed."
+        }
+      },
+      "summary_note": "Passing output payloads omitted; status, exact inputs and comparisons retained. All failed outputs retained. Full scratch report hash is pinned.",
+      "full_report_path": ".temp/astra25-source-canonical-024.json",
+      "full_report_sha256": "d2c34186d312ea82c3c216b2a8268b12cafff8ac359c3d74a1d238158530955b"
+    },
+    "astra23-canonical-024-first": {
+      "package_version": "0.2.4-draft",
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+        "engine.py": "cca7a0544c903e521b093c0906bc1e6e092bfe90e54284c7c122e522b344b450",
+        "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "3189cb141f3d464c3bdc35117b2bfa189557f2920b434f12d634316275516bcb"
+      },
+      "vectors": [
+        {
+          "id": "B04",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B04.json",
+          "vector_sha256": "045de6e6168b163f8a043ac1852511484ac62c93aae3a0c9a66f40ed04569895",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B05",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B05.json",
+          "vector_sha256": "caf0d77fbef7b1712f61da1568a75de3183ed822f73118e1f7670a063c7b42c4",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B06",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B06.json",
+          "vector_sha256": "f65f62661824e95763995b828bdc4d004af71c5dc0a76e3458eb96d1f9394ce3",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B09",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B09.json",
+          "vector_sha256": "731d84c9ae8fe6ebddc06d0301896e9d0c44defd171cf5ba887db9d48b68f6bc",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B10",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B10.json",
+          "vector_sha256": "11fa62a6592069877e8f84dbbe5df470daffcd6b9c2ea9cda413901e9a84fbe3",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B11",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B11.json",
+          "vector_sha256": "a2a51a678bda5ec771a8fb7987c56e98eed25811c3f38d2298fcb6c25be796c4",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B16",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B16.json",
+          "vector_sha256": "95cb4544d4c679e27156d26c6c19ba33d56ae962f7f31072c9cc75583c6eba0a",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B17",
+          "profile": "deployment",
+          "path": "kernel/vectors/deployment/B17.json",
+          "vector_sha256": "f923a3dfd49ca7e6bdea06c05a256fa9e6627b5d524a6cba8b4788b619305dad",
+          "status": "unsupported",
+          "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
+        },
+        {
+          "id": "B01",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B01.json",
+          "vector_sha256": "41356c4e4990d999bcf238e37494c5d117cd2505c82b941104daf93465547baf",
+          "status": "fail",
+          "differences": [
+            [
+              "/operation_results/1/code",
+              "<missing>",
+              "authority_receipt_required"
+            ],
+            [
+              "/operation_results/1/custody",
+              [],
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/erasure_status",
+              null,
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/operation",
+              "revise",
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/outcome",
+              "revised",
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/receipt_handle",
+              "dafe5bda5b56daa159e14510c85a2324",
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/refs",
+              [
+                {
+                  "id": "rec:d",
+                  "version": 2
+                },
+                {
+                  "id": "rec:decision-replace",
+                  "version": 1
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/retryable",
+              "<missing>",
+              false
+            ],
+            [
+              "/operation_results/1/type",
+              "receipt",
+              "refusal"
+            ],
+            [
+              "/operation_results/2/code",
+              "idempotency_conflict",
+              "authority_receipt_required"
+            ],
+            [
+              "/operation_results/3/code",
+              "idempotency_conflict",
+              "authority_receipt_required"
+            ],
+            [
+              "/operation_results/5/authorized_snapshot_handle",
+              "dbf841a392091bcfb51bbd591d01e984",
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/changes",
+              {
+                "state": "initial",
+                "refs": []
+              },
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/code",
+              "<missing>",
+              "invalid_time"
+            ],
+            [
+              "/operation_results/5/currentness",
+              "current",
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/cutoffs",
+              [],
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/data_classification",
+              "data",
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/evidence_policy",
+              {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/explanation",
+              {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/historical",
+              [
+                {
+                  "id": "rec:d",
+                  "version": 2
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/items",
+              [
+                {
+                  "subject": "subj:h1",
+                  "issuer": "subj:h1",
+                  "submitter": "subj:h1",
+                  "perspective": {
+                    "kind": "own",
+                    "principal": "subj:h1"
+                  },
+                  "representation_ref": null,
+                  "admission_class": "machine_observation",
+                  "valid": {
+                    "kind": "known",
+                    "from": "2026-09-01T00:00:00Z",
+                    "to": null,
+                    "precision": "second"
+                  },
+                  "confirmed_at": "2026-10-17T00:00:00Z",
+                  "ref": {
+                    "id": "rec:d",
+                    "version": 1
+                  },
+                  "statement_kind": "decision_record",
+                  "content": [
+                    {
+                      "field": "value",
+                      "value": "archive_home"
+                    }
+                  ],
+                  "usable_until": null,
+                  "currentness": "current",
+                  "authority_receipt": {
+                    "id": "rec:receipt1",
+                    "version": 1
+                  },
+                  "incompatible_with": [],
+                  "needs_review": false,
+                  "source_refs": [
+                    {
+                      "id": "rec:receipt1",
+                      "version": 1
+                    }
+                  ],
+                  "support": {
+                    "witness": "not_found",
+                    "evaluation": "complete",
+                    "corpus_coverage": {
+                      "kind": "unknown"
+                    },
+                    "premise_quality": "not_fully_checked",
+                    "evidence_qualification": [],
+                    "source_state": "resolvable_now",
+                    "freshness": "not_applicable",
+                    "authorized_snapshot_handle": "dbf841a392091bcfb51bbd591d01e984",
+                    "dependency_coverage": "registered_only",
+                    "witness_roots": [],
+                    "independent_root_count": 0
+                  },
+                  "oppose": {
+                    "witness": "not_found",
+                    "evaluation": "complete",
+                    "corpus_coverage": {
+                      "kind": "unknown"
+                    },
+                    "premise_quality": "not_fully_checked",
+                    "evidence_qualification": [],
+                    "source_state": "resolvable_now",
+                    "freshness": "not_applicable",
+                    "authorized_snapshot_handle": "dbf841a392091bcfb51bbd591d01e984",
+                    "dependency_coverage": "registered_only",
+                    "witness_roots": [],
+                    "independent_root_count": 0
+                  }
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/policy",
+              {
+                "id": "policy:1",
+                "version": 1
+              },
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/projection_rule",
+              {
+                "id": "projection:main",
+                "version": 1
+              },
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/retryable",
+              "<missing>",
+              false
+            ],
+            [
+              "/operation_results/5/review_required",
+              [
+                {
+                  "id": "rec:dependent",
+                  "version": 1
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/semantic_profile",
+              "0.2.4-draft",
+              "<missing>"
+            ],
+            [
+              "/operation_results/5/type",
+              "view",
+              "refusal"
+            ],
+            [
+              "/operation_results/6/code",
+              "idempotency_conflict",
+              "<missing>"
+            ],
+            [
+              "/operation_results/6/custody",
+              "<missing>",
+              []
+            ],
+            [
+              "/operation_results/6/erasure_status",
+              "<missing>",
+              null
+            ],
+            [
+              "/operation_results/6/operation",
+              "<missing>",
+              "revise"
+            ],
+            [
+              "/operation_results/6/outcome",
+              "<missing>",
+              "revised"
+            ],
+            [
+              "/operation_results/6/receipt_handle",
+              "<missing>",
+              "<fresh-handle>"
+            ],
+            [
+              "/operation_results/6/refs",
+              "<missing>",
+              [
+                {
+                  "id": "rec:d",
+                  "version": 2
+                },
+                {
+                  "id": "rec:decision-replace",
+                  "version": 1
+                }
+              ]
+            ],
+            [
+              "/operation_results/6/retryable",
+              false,
+              "<missing>"
+            ],
+            [
+              "/operation_results/6/type",
+              "refusal",
+              "receipt"
+            ],
+            [
+              "/operation_results/7/historical/0/version",
+              2,
+              1
+            ],
+            [
+              "/operation_results/7/items/0/authority_receipt/id",
+              "rec:receipt1",
+              "rec:receipt2"
+            ],
+            [
+              "/operation_results/7/items/0/content/0/value",
+              "archive_home",
+              "delete_home"
+            ],
+            [
+              "/operation_results/7/items/0/ref/version",
+              1,
+              2
+            ],
+            [
+              "/operation_results/7/items/0/source_refs/0/id",
+              "rec:receipt1",
+              "rec:receipt2"
+            ],
+            [
+              "/operation_results/8/code",
+              "version_conflict",
+              "<missing>"
+            ],
+            [
+              "/operation_results/8/custody",
+              "<missing>",
+              []
+            ],
+            [
+              "/operation_results/8/erasure_status",
+              "<missing>",
+              null
+            ],
+            [
+              "/operation_results/8/operation",
+              "<missing>",
+              "revise"
+            ],
+            [
+              "/operation_results/8/outcome",
+              "<missing>",
+              "revised"
+            ],
+            [
+              "/operation_results/8/receipt_handle",
+              "<missing>",
+              "<fresh-handle>"
+            ],
+            [
+              "/operation_results/8/refs",
+              "<missing>",
+              [
+                {
+                  "id": "rec:d",
+                  "version": 3
+                },
+                {
+                  "id": "rec:decision-replace-transitive",
+                  "version": 1
+                }
+              ]
+            ],
+            [
+              "/operation_results/8/retryable",
+              true,
+              "<missing>"
+            ],
+            [
+              "/operation_results/8/type",
+              "refusal",
+              "receipt"
+            ],
+            [
+              "/operation_results/9/code",
+              "idempotency_conflict",
+              "<missing>"
+            ],
+            [
+              "/operation_results/9/custody",
+              "<missing>",
+              []
+            ],
+            [
+              "/operation_results/9/erasure_status",
+              "<missing>",
+              null
+            ],
+            [
+              "/operation_results/9/operation",
+              "<missing>",
+              "revise"
+            ],
+            [
+              "/operation_results/9/outcome",
+              "<missing>",
+              "revised"
+            ],
+            [
+              "/operation_results/9/receipt_handle",
+              "<missing>",
+              "<fresh-handle>"
+            ],
+            [
+              "/operation_results/9/refs",
+              "<missing>",
+              [
+                {
+                  "id": "rec:d",
+                  "version": 2
+                },
+                {
+                  "id": "rec:decision-replace",
+                  "version": 1
+                }
+              ]
+            ],
+            [
+              "/operation_results/9/retryable",
+              false,
+              "<missing>"
+            ],
+            [
+              "/operation_results/9/type",
+              "refusal",
+              "receipt"
+            ],
+            [
+              "/operation_results/10/code",
+              "duplicate_record",
+              "version_conflict"
+            ],
+            [
+              "/operation_results/10/retryable",
+              false,
+              true
+            ],
+            [
+              "/postconditions/record_refs/length",
+              11,
+              13
+            ],
+            [
+              "/postconditions/record_refs/2/id",
+              "rec:decision-replace",
+              "rec:d"
+            ],
+            [
+              "/postconditions/record_refs/2/version",
+              1,
+              3
+            ],
+            [
+              "/postconditions/record_refs/3/id",
+              "rec:dependent",
+              "rec:decision-replace"
+            ],
+            [
+              "/postconditions/record_refs/4/id",
+              "rec:receipt-bridge",
+              "rec:decision-replace-transitive"
+            ],
+            [
+              "/postconditions/record_refs/5/id",
+              "rec:receipt-unordered",
+              "rec:dependent"
+            ],
+            [
+              "/postconditions/record_refs/6/id",
+              "rec:receipt0",
+              "rec:receipt-bridge"
+            ],
+            [
+              "/postconditions/record_refs/7/id",
+              "rec:receipt1",
+              "rec:receipt-unordered"
+            ],
+            [
+              "/postconditions/record_refs/8/id",
+              "rec:receipt2",
+              "rec:receipt0"
+            ],
+            [
+              "/postconditions/record_refs/9/id",
+              "rec:receipt3",
+              "rec:receipt1"
+            ],
+            [
+              "/postconditions/record_refs/10/id",
+              "rec:review-dependent",
+              "rec:receipt2"
+            ],
+            [
+              "/postconditions/record_refs/11",
+              "<missing>",
+              {
+                "id": "rec:receipt3",
+                "version": 1
+              }
+            ],
+            [
+              "/postconditions/record_refs/12",
+              "<missing>",
+              {
+                "id": "rec:review-dependent",
+                "version": 1
+              }
+            ],
+            [
+              "/result/authorized_snapshot_handle",
+              "<missing>",
+              "<fresh-handle>"
+            ],
+            [
+              "/result/changes",
+              "<missing>",
+              {
+                "state": "initial",
+                "refs": []
+              }
+            ],
+            [
+              "/result/code",
+              "invalid_time",
+              "<missing>"
+            ],
+            [
+              "/result/currentness",
+              "<missing>",
+              "current"
+            ],
+            [
+              "/result/cutoffs",
+              "<missing>",
+              []
+            ],
+            [
+              "/result/data_classification",
+              "<missing>",
+              "data"
+            ],
+            [
+              "/result/evidence_policy",
+              "<missing>",
+              {
+                "id": "evidence:1",
+                "version": 1
+              }
+            ],
+            [
+              "/result/explanation",
+              "<missing>",
+              {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              }
+            ],
+            [
+              "/result/historical",
+              "<missing>",
+              [
+                {
+                  "id": "rec:d",
+                  "version": 1
+                },
+                {
+                  "id": "rec:d",
+                  "version": 2
+                }
+              ]
+            ],
+            [
+              "/result/items",
+              "<missing>",
+              [
+                {
+                  "ref": {
+                    "id": "rec:d",
+                    "version": 3
+                  },
+                  "subject": "subj:h1",
+                  "issuer": "subj:h1",
+                  "submitter": "subj:h1",
+                  "perspective": {
+                    "kind": "own",
+                    "principal": "subj:h1"
+                  },
+                  "representation_ref": null,
+                  "admission_class": "machine_observation",
+                  "statement_kind": "decision_record",
+                  "content": [
+                    {
+                      "field": "value",
+                      "value": "delete_home"
+                    }
+                  ],
+                  "valid": {
+                    "kind": "known",
+                    "from": "2026-09-01T00:00:00Z",
+                    "to": null,
+                    "precision": "second"
+                  },
+                  "confirmed_at": "2026-10-17T00:00:00Z",
+                  "usable_until": null,
+                  "currentness": "current",
+                  "authority_receipt": {
+                    "id": "rec:receipt3",
+                    "version": 1
+                  },
+                  "incompatible_with": [],
+                  "needs_review": false,
+                  "source_refs": [
+                    {
+                      "id": "rec:receipt3",
+                      "version": 1
+                    }
+                  ],
+                  "support": {
+                    "witness": "not_found",
+                    "evaluation": "complete",
+                    "corpus_coverage": {
+                      "kind": "unknown"
+                    },
+                    "premise_quality": "not_fully_checked",
+                    "evidence_qualification": [],
+                    "source_state": "resolvable_now",
+                    "freshness": "not_applicable",
+                    "authorized_snapshot_handle": "<fresh-handle>",
+                    "dependency_coverage": "registered_only",
+                    "witness_roots": [],
+                    "independent_root_count": 0
+                  },
+                  "oppose": {
+                    "witness": "not_found",
+                    "evaluation": "complete",
+                    "corpus_coverage": {
+                      "kind": "unknown"
+                    },
+                    "premise_quality": "not_fully_checked",
+                    "evidence_qualification": [],
+                    "source_state": "resolvable_now",
+                    "freshness": "not_applicable",
+                    "authorized_snapshot_handle": "<fresh-handle>",
+                    "dependency_coverage": "registered_only",
+                    "witness_roots": [],
+                    "independent_root_count": 0
+                  }
+                }
+              ]
+            ],
+            [
+              "/result/policy",
+              "<missing>",
+              {
+                "id": "policy:1",
+                "version": 1
+              }
+            ],
+            [
+              "/result/projection_rule",
+              "<missing>",
+              {
+                "id": "projection:main",
+                "version": 1
+              }
+            ],
+            [
+              "/result/retryable",
+              false,
+              "<missing>"
+            ],
+            [
+              "/result/review_required",
+              "<missing>",
+              [
+                {
+                  "id": "rec:dependent",
+                  "version": 1
+                }
+              ]
+            ],
+            [
+              "/result/semantic_profile",
+              "<missing>",
+              "0.2.4-draft"
+            ],
+            [
+              "/result/type",
+              "refusal",
+              "view"
+            ]
+          ],
+          "checks": [
+            "handle slot missing: /operation_results/6/receipt_handle",
+            "handle slot missing: /operation_results/8/receipt_handle",
+            "handle slot missing: /operation_results/9/receipt_handle",
+            "handle slot missing: /result/authorized_snapshot_handle",
+            "handle slot missing: /result/items/0/support/authorized_snapshot_handle",
+            "handle slot missing: /result/items/0/oppose/authorized_snapshot_handle",
+            "equal_handles violated: ['/result/authorized_snapshot_handle', '/result/items/0/support/authorized_snapshot_handle', '/result/items/0/oppose/authorized_snapshot_handle']",
+            "equal_handles violated: ['/operation_results/6/receipt_handle', '/operation_results/9/receipt_handle']",
+            "distinct_handles violated: ['/operation_results/4/authorized_snapshot_handle', '/operation_results/6/receipt_handle', '/operation_results/7/authorized_snapshot_handle', '/operation_results/8/receipt_handle', '/result/authorized_snapshot_handle']",
+            "forbidden predicate matched: {\"path\":\"/operation_results/1/type\",\"test\":\"equals\",\"value\":\"receipt\"}",
+            "forbidden predicate matched: {\"path\":\"/operation_results/5/type\",\"test\":\"equals\",\"value\":\"view\"}"
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "refusal",
+                "code": "authority_receipt_required",
+                "retryable": false
+              },
+              {
+                "type": "receipt",
+                "operation": "revise",
+                "outcome": "revised",
+                "receipt_handle": "dafe5bda5b56daa159e14510c85a2324",
+                "refs": [
+                  {
+                    "id": "rec:d",
+                    "version": 2
+                  },
+                  {
+                    "id": "rec:decision-replace",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "refusal",
+                "code": "idempotency_conflict",
+                "retryable": false
+              },
+              {
+                "type": "refusal",
+                "code": "idempotency_conflict",
+                "retryable": false
+              },
+              {
+                "type": "view",
+                "semantic_profile": "0.2.4-draft",
+                "projection_rule": {
+                  "id": "projection:main",
+                  "version": 1
+                },
+                "evidence_policy": {
+                  "id": "evidence:1",
+                  "version": 1
+                },
+                "policy": {
+                  "id": "policy:1",
+                  "version": 1
+                },
+                "authorized_snapshot_handle": "31d3ca5d8c9b8c8590700f5d999c7ebe",
+                "data_classification": "data",
+                "items": [
+                  {
+                    "subject": "subj:h1",
+                    "issuer": "subj:h1",
+                    "submitter": "subj:h1",
+                    "perspective": {
+                      "kind": "own",
+                      "principal": "subj:h1"
+                    },
+                    "representation_ref": null,
+                    "admission_class": "machine_observation",
+                    "valid": {
+                      "kind": "known",
+                      "from": "2026-09-01T00:00:00Z",
+                      "to": null,
+                      "precision": "second"
+                    },
+                    "confirmed_at": "2026-10-17T00:00:00Z",
+                    "ref": {
+                      "id": "rec:d",
+                      "version": 1
+                    },
+                    "statement_kind": "decision_record",
+                    "content": [
+                      {
+                        "field": "value",
+                        "value": "archive_home"
+                      }
+                    ],
+                    "usable_until": null,
+                    "currentness": "current",
+                    "authority_receipt": {
+                      "id": "rec:receipt1",
+                      "version": 1
+                    },
+                    "incompatible_with": [],
+                    "needs_review": false,
+                    "source_refs": [
+                      {
+                        "id": "rec:receipt1",
+                        "version": 1
+                      }
+                    ],
+                    "support": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "31d3ca5d8c9b8c8590700f5d999c7ebe",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    },
+                    "oppose": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "31d3ca5d8c9b8c8590700f5d999c7ebe",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    }
+                  }
+                ],
+                "currentness": "current",
+                "historical": [],
+                "review_required": [],
+                "explanation": {
+                  "status": "complete",
+                  "paths": [],
+                  "reason": null
+                },
+                "cutoffs": [],
+                "changes": {
+                  "state": "initial",
+                  "refs": []
+                }
+              },
+              {
+                "type": "view",
+                "semantic_profile": "0.2.4-draft",
+                "projection_rule": {
+                  "id": "projection:main",
+                  "version": 1
+                },
+                "evidence_policy": {
+                  "id": "evidence:1",
+                  "version": 1
+                },
+                "policy": {
+                  "id": "policy:1",
+                  "version": 1
+                },
+                "authorized_snapshot_handle": "dbf841a392091bcfb51bbd591d01e984",
+                "data_classification": "data",
+                "items": [
+                  {
+                    "subject": "subj:h1",
+                    "issuer": "subj:h1",
+                    "submitter": "subj:h1",
+                    "perspective": {
+                      "kind": "own",
+                      "principal": "subj:h1"
+                    },
+                    "representation_ref": null,
+                    "admission_class": "machine_observation",
+                    "valid": {
+                      "kind": "known",
+                      "from": "2026-09-01T00:00:00Z",
+                      "to": null,
+                      "precision": "second"
+                    },
+                    "confirmed_at": "2026-10-17T00:00:00Z",
+                    "ref": {
+                      "id": "rec:d",
+                      "version": 1
+                    },
+                    "statement_kind": "decision_record",
+                    "content": [
+                      {
+                        "field": "value",
+                        "value": "archive_home"
+                      }
+                    ],
+                    "usable_until": null,
+                    "currentness": "current",
+                    "authority_receipt": {
+                      "id": "rec:receipt1",
+                      "version": 1
+                    },
+                    "incompatible_with": [],
+                    "needs_review": false,
+                    "source_refs": [
+                      {
+                        "id": "rec:receipt1",
+                        "version": 1
+                      }
+                    ],
+                    "support": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "dbf841a392091bcfb51bbd591d01e984",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    },
+                    "oppose": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "dbf841a392091bcfb51bbd591d01e984",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    }
+                  }
+                ],
+                "currentness": "current",
+                "historical": [
+                  {
+                    "id": "rec:d",
+                    "version": 2
+                  }
+                ],
+                "review_required": [
+                  {
+                    "id": "rec:dependent",
+                    "version": 1
+                  }
+                ],
+                "explanation": {
+                  "status": "complete",
+                  "paths": [],
+                  "reason": null
+                },
+                "cutoffs": [],
+                "changes": {
+                  "state": "initial",
+                  "refs": []
+                }
+              },
+              {
+                "type": "refusal",
+                "code": "idempotency_conflict",
+                "retryable": false
+              },
+              {
+                "type": "view",
+                "semantic_profile": "0.2.4-draft",
+                "projection_rule": {
+                  "id": "projection:main",
+                  "version": 1
+                },
+                "evidence_policy": {
+                  "id": "evidence:1",
+                  "version": 1
+                },
+                "policy": {
+                  "id": "policy:1",
+                  "version": 1
+                },
+                "authorized_snapshot_handle": "bbd365ade34f4019ed85571ed6f40df5",
+                "data_classification": "data",
+                "items": [
+                  {
+                    "subject": "subj:h1",
+                    "issuer": "subj:h1",
+                    "submitter": "subj:h1",
+                    "perspective": {
+                      "kind": "own",
+                      "principal": "subj:h1"
+                    },
+                    "representation_ref": null,
+                    "admission_class": "machine_observation",
+                    "valid": {
+                      "kind": "known",
+                      "from": "2026-09-01T00:00:00Z",
+                      "to": null,
+                      "precision": "second"
+                    },
+                    "confirmed_at": "2026-10-17T00:00:00Z",
+                    "ref": {
+                      "id": "rec:d",
+                      "version": 1
+                    },
+                    "statement_kind": "decision_record",
+                    "content": [
+                      {
+                        "field": "value",
+                        "value": "archive_home"
+                      }
+                    ],
+                    "usable_until": null,
+                    "currentness": "current",
+                    "authority_receipt": {
+                      "id": "rec:receipt1",
+                      "version": 1
+                    },
+                    "incompatible_with": [],
+                    "needs_review": false,
+                    "source_refs": [
+                      {
+                        "id": "rec:receipt1",
+                        "version": 1
+                      }
+                    ],
+                    "support": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "bbd365ade34f4019ed85571ed6f40df5",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    },
+                    "oppose": {
+                      "witness": "not_found",
+                      "evaluation": "complete",
+                      "corpus_coverage": {
+                        "kind": "unknown"
+                      },
+                      "premise_quality": "not_fully_checked",
+                      "evidence_qualification": [],
+                      "source_state": "resolvable_now",
+                      "freshness": "not_applicable",
+                      "authorized_snapshot_handle": "bbd365ade34f4019ed85571ed6f40df5",
+                      "dependency_coverage": "registered_only",
+                      "witness_roots": [],
+                      "independent_root_count": 0
+                    }
+                  }
+                ],
+                "currentness": "current",
+                "historical": [
+                  {
+                    "id": "rec:d",
+                    "version": 2
+                  }
+                ],
+                "review_required": [
+                  {
+                    "id": "rec:dependent",
+                    "version": 1
+                  }
+                ],
+                "explanation": {
+                  "status": "complete",
+                  "paths": [],
+                  "reason": null
+                },
+                "cutoffs": [],
+                "changes": {
+                  "state": "initial",
+                  "refs": []
+                }
+              },
+              {
+                "type": "refusal",
+                "code": "version_conflict",
+                "retryable": true
+              },
+              {
+                "type": "refusal",
+                "code": "idempotency_conflict",
+                "retryable": false
+              },
+              {
+                "type": "refusal",
+                "code": "duplicate_record",
+                "retryable": false
+              }
+            ],
+            "result": {
+              "type": "refusal",
+              "code": "invalid_time",
+              "retryable": false
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:d",
+                  "version": 1
+                },
+                {
+                  "id": "rec:d",
+                  "version": 2
+                },
+                {
+                  "id": "rec:decision-replace",
+                  "version": 1
+                },
+                {
+                  "id": "rec:dependent",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt-bridge",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt-unordered",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt0",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt1",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt2",
+                  "version": 1
+                },
+                {
+                  "id": "rec:receipt3",
+                  "version": 1
+                },
+                {
+                  "id": "rec:review-dependent",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [
+                {
+                  "id": "rec:dependent",
+                  "version": 1
+                }
+              ],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "B02",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B02.json",
+          "vector_sha256": "f85bd588c6a0578dc36396dda409eab8860d59d73a1945885755e788e6cb117b",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B03",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B03.json",
+          "vector_sha256": "17b5eb264026e56ba591e3e8329cc56e836410b661b74e36a220c451c11682c8",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B07",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B07.json",
+          "vector_sha256": "fd022064ede672328eb7d2f7b10b75095ef376e0cdb2e9b2040ce385893fa044",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B08",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B08.json",
+          "vector_sha256": "571d00906b3a57ab24f5bf6ed273edd1e08a527da8010633fc430d26683498ad",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B12",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B12.json",
+          "vector_sha256": "b3c572fd4ed332d5d95f775d958075369bce57d0a39f37db77dc6f5c28c56407",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B13",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B13.json",
+          "vector_sha256": "69bbed727d571f7e42e1899cefc8336302aa557745bb67846bf29e06199963ff",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B14",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B14.json",
+          "vector_sha256": "c2244a92fed38c5488bd9136371badaa822a51d5fd34e0d7be6083533805c71c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "B15",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/B15.json",
+          "vector_sha256": "95b4a4fa1ce03b81f01cdfdf3e8bd408b0f3985815600020716bdb0d79d67332",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P01",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P01.json",
+          "vector_sha256": "abdb6c3dd13ee79641978c268ca085719ddfbffca13c4c70dc906446f0a2354e",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P02",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P02.json",
+          "vector_sha256": "e3cfbad8f0570417ffa9620097d9abd5fd99f0706fa64c9171d82f779f64259f",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P03",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P03.json",
+          "vector_sha256": "82f26d7a57858aeb4a03dbbb41316d5aed24ef8ceb64e1dba313b8a8cc361d49",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P04",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P04.json",
+          "vector_sha256": "b715adc9574b0f0b8dbc55f6cad9eef46149ad484f656ac272d7a88649c3a40a",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P05",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P05.json",
+          "vector_sha256": "f75efbd78197fc4561ee15b35c361e7589405c42ae7b87fd85e10c8c264cebf9",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P06",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P06.json",
+          "vector_sha256": "3c2f6c6b8e6c89c3b0d43d67963a19507d511a52922e9311b4096c12bcf50159",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P07",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P07.json",
+          "vector_sha256": "823b3ab0103d8bf6813d272a8fad1829deb6b99cdcbf2b2c186e9b2c6d11caee",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P08",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P08.json",
+          "vector_sha256": "a1127c0409c2c5803d4225fe87bb5ef04c1d592752d5357b04f6143a732f5716",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P09",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P09.json",
+          "vector_sha256": "900db59906f8fe95d8d9a69a281e76bc155fa8ed848fac0665d2b4ef18a642d2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P10",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P10.json",
+          "vector_sha256": "f214d506c354f8ca7bea15ee18366dff979d4a5989f8ecc477b3ec18e29131c4",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P11",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P11.json",
+          "vector_sha256": "61fc19b16fa110d82b28a5a08b5c7fd972d1e3722d47097013030dd7400b9819",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P12",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P12.json",
+          "vector_sha256": "b8c29d59d21bfa0bc3a98716bdf75694b45483c721a63b07843cc35659b4224f",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P13",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P13.json",
+          "vector_sha256": "c8b09e0f2c17f425ba8356b2fc67dece38855b209c42287209b457d2e10920d0",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P14",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P14.json",
+          "vector_sha256": "77c3046ea1095c01a670f356c07b26c1e7e4498b649c7c855d77edbb6f4516f0",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "P15",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/P15.json",
+          "vector_sha256": "3a919d93f3bb2a9acb5dc20a12a2366da18159760ecb8913a2491b779c4bfb7c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S01",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S01.json",
+          "vector_sha256": "a474089c43f8bc9d4465725804a94936f82cadb3c27b27c6e8a0a5515ed20774",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S02",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S02.json",
+          "vector_sha256": "fd21c7e4bcc4287e1e780d1e1f383750b2a24d54cf1928bcad12d4af47dceab8",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S03",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S03.json",
+          "vector_sha256": "8843b1658e5aab97aef52b99f8bdd5e503b090d9bb756a9e8724316218390ad6",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S04",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S04.json",
+          "vector_sha256": "d1a1d2c179af496ae60b89f9f8f99ed2a68ef3aaaa7c6344f72e03b485d8d720",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S05",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S05.json",
+          "vector_sha256": "173393bab627a65dc879ff4b3492a5e06c43d12a3b1cdc4db01b80f6f7242e22",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S06",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S06.json",
+          "vector_sha256": "c5b40b40fcae8b12fbe4c88989a87ed28e1de897da5dd0cd0601ab2d379152bd",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S07",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S07.json",
+          "vector_sha256": "775c07b2f7bd0913f4f4e3fac3399b75acdd1613d0fab8c507b9ecbe6e341978",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S08",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S08.json",
+          "vector_sha256": "b74fb0ae781506eaa9569ee9c21a1d6b2e769af1f4a0878ed2ffa8c4736f6504",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S09",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S09.json",
+          "vector_sha256": "7904974c4eb29f50bc72bdac18753d23161ca161deb3e6519ff1bc37b4865390",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S10",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S10.json",
+          "vector_sha256": "1f094701a306b14272003c37d2405cb7fe6b71ee40d01f344d58394e2ac6482d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S11",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S11.json",
+          "vector_sha256": "4cf7f3f015e9b6d920469b84ee760c7f329b2d4e22dad639adcda5f26fcb5eeb",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S12",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S12.json",
+          "vector_sha256": "28c6c75a2b8b5afd4d823a1a47633ff235733eeb1419005e53abfe2df97162cb",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S13",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S13.json",
+          "vector_sha256": "5cc56fe0653d9d071c7a4a6f3b4261de46606ed0841222ad3b02edf8821b9002",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S14",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S14.json",
+          "vector_sha256": "8eff202dd8381d9985593758da887cfff04a2bd94b66bc8805cb5e83e9edab4d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S15",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S15.json",
+          "vector_sha256": "0e10a069f65d13f67279c9d145907c992142e344096922c8e6691ff6ca1b6d81",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S16",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S16.json",
+          "vector_sha256": "8a02021561f59e7b5ed2eecbf528c592f9143307f18360450bceba775bf849f7",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S17",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S17.json",
+          "vector_sha256": "cc6e81675c74e834eb6bec71235d6d67f4251869fbb330e63923eafd8e24b654",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S18",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S18.json",
+          "vector_sha256": "aaa49107411c79aebbbd0908962229ee9cf6b07c990dd3d42bea9ed36bfb6c95",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S19",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S19.json",
+          "vector_sha256": "e17b2de1085a594d97b5e5f2f64239865e693dd0fc6bd9fb6eac4a747866f88c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S20",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S20.json",
+          "vector_sha256": "af77239e5a0734c5cf4b817702b808965b2a959ac0f04d038ac69060d2f565d2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S21",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S21.json",
+          "vector_sha256": "9909ce3b0ab4f46d536ad603745269474f925c64ca41805ddca0f426b9377c1d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S22",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S22.json",
+          "vector_sha256": "8a684dba3b2a362573a220b12e27b3202048e7beb9ab3080fc3cc130967ba005",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S23",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S23.json",
+          "vector_sha256": "22d3b51be860ed8f4099d84485f0134482aeefcebae9e9f769820204b16fbf57",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S24",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S24.json",
+          "vector_sha256": "4c16061b7eb13146b8202c799a9e382ea3b0152e742bd8584bf2c4bd93593c5d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S25",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S25.json",
+          "vector_sha256": "6117598835e5c2090b7e8dbce6b7d645d52ab44f855ced313e56e021ac528d0b",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S26",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S26.json",
+          "vector_sha256": "6ac2d8b8f39f1f128e45a3f2532843b1e4302a1fbe57fa08c1bd80e4fd1afd1a",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S27",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S27.json",
+          "vector_sha256": "13df0fbe7b1811ed588a3a2742d529c443bfc72e60c0433024a0512913c44671",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S28",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S28.json",
+          "vector_sha256": "a5cb88ce8be0908d91864187a12c3a97a3613c34aca2716400737ad6376eabe3",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S29",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S29.json",
+          "vector_sha256": "d273e475fc066faca22122f72da510eab9f56478588f38e4217f84edadc40e34",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S30",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S30.json",
+          "vector_sha256": "b488335472e5aae90c379656512e57e8762ba424df01290c247f402979ee57cb",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S31",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S31.json",
+          "vector_sha256": "029e770015dddf38abef96df11a76072ebb9b91513f26f5d666921e9e6f1086a",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S32",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S32.json",
+          "vector_sha256": "b2705a6ea8100421b746cfad90fc8c43b3adae805d8061d46000551be787c2ac",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "S33",
+          "profile": "semantic",
+          "path": "kernel/vectors/semantic/S33.json",
+          "vector_sha256": "f40557fea8529d73e090ca426d543fd0dacb7f934d872a951af87fa79e8ee04b",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        }
+      ],
+      "summary_note": "Passing output payloads omitted; status, exact inputs and comparisons retained. All failed outputs retained. Full scratch report hash is pinned.",
+      "full_report_path": ".temp/astra25-package-canonical-024.json",
+      "full_report_sha256": "c87498cb630feef9e46a3c9772b37dabae291be3ac7e423aa1f8af5236fe2d44"
+    },
+    "astra22-release-controls-024-corrected": {
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "checkout_commit": "4772258d52db70a5cd21f928260aad31dcfdd0b3",
+      "release_fix_commit": "8a42945",
+      "release_module_unchanged_since_fix": true,
+      "control_source_sha256": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/release_checks.py",
+      "exit_code": 0,
+      "stdout_stderr": "test_current_revocation_and_snapshot (__main__.ReleaseControls.test_current_revocation_and_snapshot) ... ok\ntest_exact_pins_and_executor (__main__.ReleaseControls.test_exact_pins_and_executor) ... ok\ntest_framed_body_digest (__main__.ReleaseControls.test_framed_body_digest) ... ok\ntest_joint_owners_and_order (__main__.ReleaseControls.test_joint_owners_and_order) ... ok\ntest_representation_and_live_decisions (__main__.ReleaseControls.test_representation_and_live_decisions) ... ok\ntest_rights_and_replay (__main__.ReleaseControls.test_rights_and_replay) ... ok\ntest_scope_and_deadline (__main__.ReleaseControls.test_scope_and_deadline) ... ok\ntest_transitive_constraint_owner (__main__.ReleaseControls.test_transitive_constraint_owner) ... ok\ntest_unknown_lineage (__main__.ReleaseControls.test_unknown_lineage) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.139s\n\nOK\n",
+      "scope": "Nine release groups including ASCII/non-ASCII framed/raw verdicts, owner/pin/revocation, preserved snapshot and full refusal state. Deadline-label inheritance tests do not establish expiry rejection; ASTRA25-11 remains separate."
+    },
+    "astra25-profile-only-migration-024": {
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "vectors": [
+        {
+          "name": "astra-25-declassification-intersection-unframed-digest.vector.json",
+          "before": "099dd43d16846b8e571fe2966d083b7cd7360e5c46262dd255c27d4364956224",
+          "after": "062d307030f125732c3e6560ece8a64955b2cd1568438df2c7d7d996ea24b0ca",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-declassification-intersection.vector.json",
+          "before": "8be575f77123e9620096e7293546ec8ba100c2c9fe49b8dccbdb868fd50608f1",
+          "after": "915f68a9e03ccff5d0ce582cecaf37024824be47bedb0ed18b4144e8915208d7",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-erasure-receipt-metadata-authorized-control.vector.json",
+          "before": "a4c781e1cf03674e6e504870b7343f59876aa6e30d098165bfb072e2474901a6",
+          "after": "92697e97e4edba791763218c19e58c20d18ac0791a0c367049fb059833bb0010",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-erasure-receipt-metadata-other-purpose.vector.json",
+          "before": "5510b218f8bec0ec3bb9b8cde98c5524b08c010cd6a3b894648dce42f5ffcf62",
+          "after": "7d790726ea1f0ca4f5ab3ba1f02c9024366a9b90e13fbbfa298db0bc8ba35d8d",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-erasure-receipt-metadata.vector.json",
+          "before": "a2af225247cac11fe8ae2622df2b5dc45eedd015240350a8557058ceaa979704",
+          "after": "3eca41aa50eeac9690944da96621c2f6ad807b79bcf222f791fc3759c6531c1d",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-future-lineage-input.vector.json",
+          "before": "d680e90c4558be51def453d8aa59fbcd0e1b3b550588bad115c80ad1cc7270f5",
+          "after": "b8e3962c8a33f3523f84d843f4a1f71904a331c63232583b0bf8c4e88218aed2",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "before": "79d225ad306ef479f1c4314a8f2f15b12bdac1cc6657c96df6682a342949631f",
+          "after": "8f668df8210970ad5c55821f82f1f9fef4e85a71d8c5a893d95589c87a422e99",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-hidden-dirty-invalidation.vector.json",
+          "before": "ca750f050d93b9dd7837a72397db12f36bf7a9cd81341aed27c68fa4263fa547",
+          "after": "aea70b2e04d76571a1b0eb7bc41d8765b4e8316b9db2a423543d30c241c6e4ad",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-hidden-premise-quality.vector.json",
+          "before": "1d8ed97b99529b53634c74fa533181494c37808a4754d9c523ba416eccab044b",
+          "after": "aa7a0ad28643c28b05ab4720b203dbe4354f1002057ba4f5a61f01549ecaac79",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-quality-budget-isolation.vector.json",
+          "before": "fd5d53c8186da5891539f428df18ae401f7564f2ffe8c87911c383f9e7b1ea56",
+          "after": "6db93050a9e008bee54013f430d668f49aa1f70b7273b60f488a4838bf960803",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-retention-authority-authorized-control.vector.json",
+          "before": "97a77b3ab36034278f5170e2cd4d0414425c1cf2c57664a3da9eb51db4fcc99c",
+          "after": "791ff7f9ff65d80f8966783ae3dc5a7609fbc539f8eb84b18b8e27bc04c3b88c",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-retention-authority-transitive-unknown-control.vector.json",
+          "before": "9db48b9c26def00c5c6381f6762d7cd7d463f96a48555ecd4f43cbbd761e277d",
+          "after": "e6c47ff0ac40c0e824274e28f96f5ccd22e83ad9206c90ae732534bb620149c8",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-retention-authority-transitive-unknown.vector.json",
+          "before": "51a77c625d846b116add222a90348687d7253d4a3246759a4c274c6994b791de",
+          "after": "c3aafefa028a1469177061f8a4092689d57e6e8ca18e36c703a9478bec77fe2a",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-retention-authority.vector.json",
+          "before": "7c3707b5962027e536e4dbe21210b98ac338e6ed1b7620bf610b4e71b3bc15e6",
+          "after": "00c7fd12f8749802d92500c21aa2639551fb210061484d99c71aa6c0bfb2dc97",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-stale-restore-witness.vector.json",
+          "before": "bb925f83023ce9d322842ba755c346d5c5b9e6fc5d4306e756b634b67de11445",
+          "after": "aefb261795968f2a06c9435e82bd35d9d95988ae704291674e1d670c0442e514",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-surviving-support-erasure-complete-control.vector.json",
+          "before": "167bf6e46ae7ab2e1910f322498b6c81a49835229799a0d5874ce32bfc3baf6e",
+          "after": "b0fe46f09466eb6135c0deefbae4d1c8deb5067cac3e1c17a61f7cc9813153e0",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-surviving-support-erasure-current-generation.vector.json",
+          "before": "e2d2cc76a86d5ccbfcfc434fc48edd8c81563472a8506ee1cd62011340506a47",
+          "after": "c38de4afa8839b2b9f133ceffc3bf9ad9972ab1629ff4996821bb2cc388502f0",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-surviving-support-erasure.vector.json",
+          "before": "19c1f338f3862e8b552b243c1aefa5fbc0db6a491b141e898cdee9b39299e35f",
+          "after": "526c37ba2d99734457755c1f403067405a9f08551d75c5c2599a2459914642f9",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-unknown-lineage-erasure-independent-control.vector.json",
+          "before": "bb81c70747945f8c675be703499b51f313a5bfd00b542b11b7dfd1fabb78d42a",
+          "after": "1354541cb25793998b34cef86d5ece893454430b556c7ba6dab04c7cb2c7f584",
+          "only_semantic_profile_changed": true
+        },
+        {
+          "name": "astra-25-unknown-lineage-erasure.vector.json",
+          "before": "4151d5473d2b851d22e891d0d6dd6fcbc198b5bee225ddf047ba774b8d94a5ab",
+          "after": "100dca2e8b83215c08a71e1eb6d47878c9e2984bc777554478b7535a57d6fe0c",
+          "only_semantic_profile_changed": true
+        }
+      ],
+      "scope": "Every field other than semantic_profile is exactly equal to the previous committed fixture."
     }
   }
 }

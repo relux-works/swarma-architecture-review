@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 22; collective active, NO PARK. Seat identity:
+Status: phase 2, round 23; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Full dual semantic coverage and new finding
@@ -16,7 +16,7 @@ are published. All initial source readings and later failures remain in git and
 | Case | Contract | Disposition |
 | --- | --- | --- |
 | [ASTRA25-01](../cases/astra-25-hidden-premise-quality.md) | Hidden opposition cannot taint public quality or budget | R7-005 rejected as spec defect; regression retained; later visible-control accounting fixed under R7-027 |
-| [ASTRA25-02](../cases/astra-25-declassification-intersection.md) | Every constrained owner's live exact release applies | R7-006 fixed@cde5754; package trace passes; R7-050 source digest-framing mapping fails both valid and invalid controls |
+| [ASTRA25-02](../cases/astra-25-declassification-intersection.md) | Every constrained owner's live exact release applies | R7-006 fixed@cde5754; R7-050 fixed@8a42945; both digest directions, P05 and nine release groups independently pass |
 | [ASTRA25-03](../cases/astra-25-surviving-support-erasure.md) | Surviving support does not preserve tainted bytes or close incomplete custody | R7-007 rejected as spec defect; incomplete/complete custody and current-generation fence regressions retained |
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | External witness must be current and complete | R7-008 fixed@cde5754 for fixture meaning; real deployment remains unsupported |
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Hidden revision cannot expose protected global dirty state | R7-018 fixed@f31d58f; hidden and authorized-dirty traces pass |
@@ -29,11 +29,12 @@ are published. All initial source readings and later failures remain in git and
 
 ## Current evidence
 
-The twenty owned fixtures explicitly use package `0.2.3-draft` (`23290b3`).
+The twenty owned fixtures explicitly use package `0.2.4-draft` (`ef02647`).
+Migration changed only semantic_profile; every other JSON field remains equal.
 All pass closed structure, references, accepted-write integration facts,
 normalization and forbidden checks. Current canonical validation passes 65
-vectors, 52 clauses and 32 intended checker controls. Local structural log:
-`.temp/astra25-vector-structure-14.log`.
+vectors, 52 clauses and 33 intended checker controls. Local structural log:
+`.temp/astra25-vector-structure-15.log`.
 
 R7-042 now accepts the valid future-fact state while rejecting complete/unknown
 admitted dangling inputs and an accepted write missing its input. Both runtimes
@@ -47,34 +48,35 @@ transitive known-input retention through an unknown intermediate: a publish-only
 grant for the ancestor is insufficient; restoring matching read-purpose retain
 alone admits the private derivative. Both pre-adaptation runtimes fail this
 negative and pass the positive. A separate six-control storage/replay harness
-per evaluator passes two exact-inventory positives and detects all four known
+per evaluator initially passed two exact-inventory positives and detected all four
 negative violations, including full state mutation and retain-revoked replay. These extend existing R7-036/037, not a new
 independent defect count.
 
-| Current owned 0.2.3 semantic runs | Pass | Fail | Unsupported |
+| Current owned 0.2.4 semantic runs | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Package runtime at `4af0360` | 19 | 0 | 0 |
-| Source release expansion at `36983de` | 9 | 2 | 8 |
+| Source descendant at `4772258` | 11 | 0 | 8 |
 
-Each evaluator reports the one owned deployment fixture unsupported. Both implementations pass all six independent storage/replay controls each.
-The new source release expansion fails the valid framed digest and wrongly
-accepts the raw digest, committing three forbidden records. Package passes both.
-The unchanged source retention implementation passed eight native groups and
-canonical49/0/8 before expansion; judge independently reproduced49/1/7 at36983de.
-Package passed all26 product/checker controls and canonical57/57. Unsupported
-source cases remain explicit.
+Each evaluator reports the one owned deployment fixture unsupported. Both previously
+passed all six independent storage/replay controls each for scoped grants. The
+source framing correction now passes both owned directions and canonical P05;
+all nine native release groups pass, including raw-digest refusal with full state
+preservation. Fresh 0.2.4 canonical runs are source49/1/7 and package56/1/0;
+both remaining executed failures are B01, separately owned succession/projection
+work. The prior 0.2.3 judge-verified totals were source50/0/7 and package57/57.
+ASTRA25-11 expiry probes are outside these vector denominators and remain open.
 Receipt primary/authorized/unrelated-purpose traces still pass in package;
 hidden/visible dirty traces still pass in both. Source `3722327` also passed nine
 impact controls independently, including the separate rule/check correction;
 earlier six controls did not cover that additional R7-043 failure.
 
-Exact current digest runs are `astra22-phase2-release-digest-first` and
-`astra23-phase2-release-digest-control`, with an independently calculated framing
-oracle. Earlier new-release runs are `astra23-phase2-023-retain-corrected`,
-`astra22-phase2-023-retain-corrected`, and `checker-future-lineage-023-corrected` in the
-evidence JSON. Earlier phase-1, phase-2 and release-specific runs remain immutable,
-pinned by package, evaluator and input hashes. Working-copy additions at execution
-are labeled and identified by hashes, not claimed as committed inputs.
+Exact current runs are `astra22-phase2-024-release-corrected`,
+`astra23-phase2-024-owned`, `astra22-release-controls-024-corrected` and both
+`canonical-024-first` entries. Prior `astra22-phase2-release-digest-first` and
+`astra23-phase2-release-digest-control` keep the wrong-framing evidence and
+independent framing oracle. All earlier release-specific runs remain immutable,
+pinned by package, evaluator and input hashes. Working-copy migrations at
+execution are labeled by exact hashes, not claimed as already committed inputs.
 
 Phase-1 independent checks verified R7-006 release behavior, R7-018 hidden/visible
 dirty behavior, and R7-027's original unchanged regressions plus 29 source
@@ -88,19 +90,16 @@ explicitly lacked those operations; unsupported was never counted as a pass.
 Convener event `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc` withholds PARK and
 requires 57/57 canonical semantic vectors on both independent evaluators, then
 one full round with no new open item. Judge `536f54c` records the stronger gate.
-Phase-1 dual coverage was 43/57; last 0.2.2 judge-verified dual coverage is 49/57. Source d077064 independently
-passed all 49 supported vectors under 0.2.3; eight remained explicitly unsupported.
-The subsequent source declassification expansion exposes the new framing defect. The
-judge owns current collective totals; this seat does not infer success for
-unsupported operations or unfinished implementations.
+Phase-1 dual coverage was 43/57; judge-verified 0.2.3 dual coverage reached50/57
+when R7-050 closed. Current 0.2.4 introduces the stricter B01 trace and both fresh
+runs fail that separate authority work. Seven canonical source operations remain
+unsupported. The judge owns collective totals; unsupported never means pass.
 
-Judge `7446ba5` closed independently verified R7-036/037. Both support exact scoped
-retention and current-authorized replay on the tested fixtures. Judge classified
-the source digest defect as R7-050. Verify its correction against both
-unchanged directions. Rerun owned regressions as source erasure support arrives.
-Source correction8a42945 is queued for independent verification after this
-deadline investigation. Classify ASTRA25-11 before creating its typed vectors.
-Finalize verdict and park note only after actual convener PARK.
+Judge `7446ba5` closed independently verified R7-036/037. Judge closed R7-050 at
+`8a42945`, and this seat independently verified both unchanged digest directions
+at its current descendant. Obtain classification and exact refusal mapping for
+ASTRA25-11 before creating typed vectors. Rerun owned regressions as source
+erasure support arrives. Finalize verdict and park note only after actual PARK.
 
 No real protected-deployment qualification is claimed by semantic publication,
 erasure, custody, restore, revocation or delivery traces. Actual witness freshness,
