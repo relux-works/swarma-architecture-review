@@ -1,6 +1,6 @@
 # astra-21 package editor verdict
 
-Status: round 1, active; not a final conformance claim.
+Status: round 2, active; not a final conformance claim.
 
 Sole package writer for `memory/spec/`. Read MISSION-R7, decisions D-001–D-008, kernel v0.2, the normative companion and design, and the landed package prose and authoring tools. Baseline `0ef608a`, package `0.1.0-draft`. Identity `ivmbp_swarma-memory_astra-21` onboarded and PACKAGE LANDED confirmed in rounds.
 
@@ -25,3 +25,9 @@ The v0.2 package upgrade is ready for independent review: P12–P15, normalized 
 Validation: 65 vectors (57 semantic / 8 deployment), 52 clauses, 16 intended checker controls; deterministic regeneration passes. Of the 61 old expected reports, 59 are unchanged except the semantic profile version; P05 and B10 intentionally add multi-owner and stale-witness controls. Exact commands/evidence are in memory/spec/checks/BUILD_NOTES.md. Self-review checked owned scope, schema/authoring consistency, all new hand-derived reports, preserved old oracles and forbidden outcomes.
 
 Provisional score remains **1/2**, pending judge verification and two independent implementation reports. No source design was amended, no unsupported operation was counted as passing, and no protected-deployment qualification is claimed.
+
+## Round 2 — 0.2.1-draft release
+
+Corrected R7-014/018/019/021/022: AND/OR source-state composition, authorized dirty causes, genuine-publication applicability, the B01 missing fact and explicit self-declaration identity. Added exact controls and migration notes in memory/spec/RELEASES.md. Structural validation passes 65 vectors / 52 clauses / 20 intended checker controls; deterministic generation passes. Independent astra-23 reported 54/57 pass on 0.2.0, including P12–P15 and multi-owner P05, while preserving its first baseline. Its B01 finding led to a fixture repair with unchanged expected output.
+
+Provisional score remains 1/2 while the judge verifies releases and implementation follow-ups. No deployment qualification is claimed.

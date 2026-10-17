@@ -1,4 +1,4 @@
-# Bounded evidence memory 0.2.0-draft
+# Bounded evidence memory 0.2.1-draft
 
 This document and the closed schemas and vectors are one contract. MUST, MUST NOT,
 REQUIRED, SHALL, SHALL NOT, SHOULD and MAY have their RFC 2119 meanings. A heading
@@ -16,7 +16,9 @@ corpus, exact schema and projection-rule versions, perspective, authorized
 projection (including current policy facts), evaluation cut and logical budget.
 Identical tuples MUST give equivalent semantic outputs in every deployment
 profile, modulo only the fresh opaque-handle normalization in K-NI-2. Different
-rights or cuts are different inputs and carry no equivalence promise.
+rights or cuts are different inputs and carry no equivalence promise. The tuple
+includes every query parameter affecting those components: consumption `now`,
+valid_at, mode, freshness override and rendering operation are not normalized away.
 
 ### K-JSON-1 — Closed input
 
@@ -49,6 +51,18 @@ namespaces; no parsing of an id grants authority. `(id, version)` is unique in a
 snapshot. All output ordering is by `(id, numeric version)` unless stated otherwise.
 `own` perspective MUST name the issuer; `observer` MUST name the observer issuer.
 A team perspective requires an admitted issuer grant; it does not merge sequences.
+An assertion with statement_kind or admission_class `self_declaration` requires
+an exact trusted `(subject, principal=issuer)` entry in policy.subject_principals
+and an own perspective naming that issuer. This adapter identity evidence is
+independent of public aliases and of opaque ID spelling; even equal strings are
+not proof without the binding. A valid representative changes only submitter,
+never issuer, subject or perspective. Missing identity evidence or a different
+subject yields `invalid_domain_value`; no coercion to another attribution is
+permitted. Already-admitted snapshots obey the same invariant. An organisation's
+statement about another subject uses an appropriate fact/assessment schema, not
+that subject's self-declaration. P02/P10 cover own and delegated declarations;
+P15 retains the organisation's separate fact sequence.
+
 
 ### K-ENV-2 — Authenticated intake
 
@@ -363,7 +377,18 @@ permits a retained, separately authorized immutable assessment after loss of sou
 bytes. `independent` is allowed only for an independently admitted attestation of
 the exact target; it does not reconstruct the old bytes. `source_state` summarizes
 found paths: prefer a fully resolvable path, then an independent attestation path,
-then `prior_assessment_only`. If no witness, use authorized assessment or documentary
+then `prior_assessment_only`. This preference applies to complete sufficient
+paths, not to the union of their roots. Order states from weakest to strongest
+as prior_assessment_only, independent_attestation, resolvable_now. For one AND
+path take the weakest state of every necessary premise path; for OR alternatives
+choose the strongest state among complete witnessed paths. Thus one essential
+retained-only premise prevents an AND path being labelled independently attested,
+while a separate fully resolvable sufficient path may win. For a root, resolved
+named sources (including the vacuous empty set) give resolvable_now; otherwise
+an admitted independent attestation gives independent_attestation, and retained
+assessment evidence gives prior_assessment_only. Certificate validity is already
+required for an eligible rule; it does not upgrade its premises' source states.
+If no witness, use authorized assessment or documentary
 sources associated with the exact target: any unavailable/erased source yields
 `prior_assessment_only`; otherwise `resolvable_now`. With no source at all the
 latter is a vacuous resolution state, MUST NOT be rendered as a verified source.
@@ -399,16 +424,38 @@ record unchanged. This profile has no lossy compact alternative.
 
 Admitting a revision MUST atomically mark transitive registered sufficient-support
 and review-on-change dependents dirty before a new-cut answer can be served.
-Dirty items give both channels `not_found + incomplete`, quality
-`not_fully_checked`, and cutoff `dirty` until explicitly recomputed; historical
-queries before the revision are unaffected. Dirty is runtime data about pending
-recomputation, not a new assertion. `review_required` lists authorized matching dirty assertions and
-assertions with registered review-on-change inputs made historical or withdrawn;
-`needs_review` is true for those and any dirty displayed item. Query selection of
-a revised decision MUST still list its registered review dependents even when
-their schemas differ. This draft's read evaluator does not clear dirty state;
-a fully recalculated state may be supplied as a new complete snapshot. It MUST
-NOT label unvisited reverse-closure remainder clean.
+`runtime.dirty` is a protected global inventory, never a public status. Each
+unresolved cause is retained as `{assertion, revision}` in `runtime.dirty_causes`;
+both exact refs must exist, the cause must be a revision, and each dirty assertion
+must have at least one cause. A revision appends its cause to each affected
+dependent atomically. Recalculation clears only the causes actually recomputed;
+old resolved causes MUST NOT be inferred from all historical revisions later.
+
+For a query, a dirty item is affected only if at least one retained cause has a
+registered dependency/impact path to it eligible in that authorized projection.
+Test the revision, changed target, path justifications, their necessary premises
+and certificates with current read/use/metadata rights, disclosure, perspective,
+context and valid_at before exposing any effect or charging logical work. Use the
+registered edges immediately before that revision to identify its affected path;
+a later withdrawal does not erase the invalidation reason. The revision must be
+at or before the query cut. This protected traversal proves eligibility, not a
+fresh evidence witness. An inaccessible branch or cause cannot qualify it.
+
+Only such query-affected dirty items give both channels `not_found + incomplete`,
+quality `not_fully_checked`, `needs_review: true` and cutoff `dirty`. A dirty item
+with only hidden causes is evaluated normally over its unchanged authorized
+graph; that does not clear global dirtiness or recompute the private projection.
+Historical queries before the cause are unaffected. `review_required` contains
+only authorized query-affected dirty assertions and assertions with eligible
+review-on-change paths to historical/withdrawn inputs. A global dirty bit or
+hidden review edge MUST NOT add a reference or alter any output field.
+
+Querying a revised decision MUST still list eligible registered review dependents
+even when their schemas differ. This draft's read evaluator does not clear dirty
+state; a fully recalculated state may be supplied as a new complete snapshot.
+It MUST NOT label an unvisited affected reverse-closure remainder clean. S24
+keeps global dirtiness while the public projection remains equal and the
+private-authorized control remains dirty/incomplete.
 
 ### K-EVAL-9 — Output order and currentness
 
@@ -615,6 +662,14 @@ Publications MUST contain no memory references, source cuts, handles or hidden
 lineage; the publishing boundary retains only released fields and attribution.
 
 ### K-PUB-2 — Imported currentness
+
+Publication-currentness rules apply only when an assertion has an authorized
+associated source whose `source_kind` is `publication`, through an exact targeted
+assessment/source association or documentary basis. The admission class alone
+MUST NOT trigger them. A current issuer sequence reporting a mirror event may
+remain `current`; this labels the report's sequence, never certifies the external
+event or grants that mirror canonical authority. S23 contrasts such a mirror
+with a genuine unchecked publication source. P07 supplies checked imports.
 
 An imported publication retains its own source revision and original issuer.
 A current import requires an admitted current-version check and an unexpired

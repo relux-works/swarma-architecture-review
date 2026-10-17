@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:bounded-evidence:0.2.0:projection-rule",
+  "$id": "urn:bounded-evidence:0.2.1:projection-rule",
   "oneOf": [
     {
       "type": "object",

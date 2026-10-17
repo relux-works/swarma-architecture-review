@@ -199,6 +199,197 @@
           "role": "documentary_basis",
           "check": null
         }
+      },
+      {
+        "envelope": {
+          "id": "rec:publication-report",
+          "version": 1,
+          "kind": "assertion",
+          "schema": {
+            "id": "schema:decision_proposal",
+            "version": 1
+          },
+          "subject": "subj:h1",
+          "issuer": "principal:observer",
+          "submitter": "principal:observer",
+          "representation_ref": null,
+          "perspective": {
+            "kind": "observer",
+            "principal": "principal:observer"
+          },
+          "admission_class": "imported_publication",
+          "space": "space:main",
+          "valid": {
+            "kind": "known",
+            "from": "2026-09-01T00:00:00Z",
+            "to": null,
+            "precision": "second"
+          },
+          "confirmed_at": "2026-10-17T00:00:00Z",
+          "recorded": {
+            "sequence": 4,
+            "at": "2026-10-17T00:00:00Z"
+          },
+          "lineage": [],
+          "disclosure": {
+            "audiences": [
+              "aud:private",
+              "aud:public"
+            ],
+            "purposes": [
+              "purpose:publish",
+              "purpose:read"
+            ],
+            "retain_until": null,
+            "field_classes": [
+              "public"
+            ],
+            "declassification": []
+          },
+          "context": "real"
+        },
+        "body": {
+          "statement_kind": "proposal",
+          "slot": "[]",
+          "content": [
+            {
+              "field": "value",
+              "value": "published_value"
+            }
+          ],
+          "authority_receipt": null
+        }
+      },
+      {
+        "envelope": {
+          "id": "rec:publication-source",
+          "version": 1,
+          "kind": "source",
+          "schema": null,
+          "subject": "subj:h1",
+          "issuer": "subj:h1",
+          "submitter": "subj:h1",
+          "representation_ref": null,
+          "perspective": {
+            "kind": "own",
+            "principal": "subj:h1"
+          },
+          "admission_class": "imported_publication",
+          "space": "space:main",
+          "valid": {
+            "kind": "known",
+            "from": "2026-09-01T00:00:00Z",
+            "to": null,
+            "precision": "second"
+          },
+          "confirmed_at": "2026-10-17T00:00:00Z",
+          "recorded": {
+            "sequence": 5,
+            "at": "2026-10-17T00:00:00Z"
+          },
+          "lineage": [],
+          "disclosure": {
+            "audiences": [
+              "aud:private",
+              "aud:public"
+            ],
+            "purposes": [
+              "purpose:publish",
+              "purpose:read"
+            ],
+            "retain_until": null,
+            "field_classes": [
+              "public"
+            ],
+            "declassification": []
+          },
+          "context": "real"
+        },
+        "body": {
+          "owner": "system:documents",
+          "source_kind": "publication",
+          "object": "object:publication-source",
+          "revision": "revision:1",
+          "digest": null,
+          "provenance": "imported",
+          "availability": "resolvable",
+          "origin": "origin:publication-source",
+          "original_issuer": "subj:h1",
+          "carrier": "principal:catalog",
+          "excerpt": null,
+          "retention_admission": null
+        }
+      },
+      {
+        "envelope": {
+          "id": "rec:publication-doc",
+          "version": 1,
+          "kind": "justification",
+          "schema": null,
+          "subject": "subj:h1",
+          "issuer": "principal:observer",
+          "submitter": "principal:observer",
+          "representation_ref": null,
+          "perspective": {
+            "kind": "observer",
+            "principal": "principal:observer"
+          },
+          "admission_class": "machine_observation",
+          "space": "space:main",
+          "valid": {
+            "kind": "known",
+            "from": "2026-09-01T00:00:00Z",
+            "to": null,
+            "precision": "second"
+          },
+          "confirmed_at": "2026-10-17T00:00:00Z",
+          "recorded": {
+            "sequence": 6,
+            "at": "2026-10-17T00:00:00Z"
+          },
+          "lineage": [],
+          "disclosure": {
+            "audiences": [
+              "aud:private",
+              "aud:public"
+            ],
+            "purposes": [
+              "purpose:publish",
+              "purpose:read"
+            ],
+            "retain_until": null,
+            "field_classes": [
+              "public"
+            ],
+            "declassification": []
+          },
+          "context": "real"
+        },
+        "body": {
+          "target": {
+            "assertion": {
+              "id": "rec:publication-report",
+              "version": 1
+            },
+            "polarity": "support"
+          },
+          "premises": [
+            {
+              "kind": "source",
+              "source": {
+                "id": "rec:publication-source",
+                "version": 1
+              }
+            }
+          ],
+          "rule": {
+            "id": "rule:publication-doc",
+            "version": 1
+          },
+          "rule_kind": "declared_rationale",
+          "role": "documentary_basis",
+          "check": null
+        }
       }
     ],
     "domain_schemas": [
@@ -285,6 +476,12 @@
       }
     ],
     "policy": {
+      "subject_principals": [
+        {
+          "subject": "subj:h1",
+          "principal": "subj:h1"
+        }
+      ],
       "revision": {
         "id": "policy:1",
         "version": 1
@@ -307,6 +504,45 @@
         {
           "output": {
             "id": "rec:mirror",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:publication-doc",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:publication-report",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:publication-source",
             "version": 1
           },
           "profile": {
@@ -436,6 +672,30 @@
         },
         {
           "record": {
+            "id": "rec:publication-doc",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:publication-report",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:publication-source",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
             "id": "rec:report",
             "version": 1
           },
@@ -465,7 +725,17 @@
       "coverage": [],
       "authority_events": [],
       "handles": [],
-      "imports": [],
+      "imports": [
+        {
+          "source": {
+            "id": "rec:publication-source",
+            "version": 1
+          },
+          "status": "unverified",
+          "successor": null,
+          "checked_at": null
+        }
+      ],
       "public_availability": "available",
       "availability_disclosure": "none",
       "limits": {
@@ -486,6 +756,13 @@
             "version": 1
           },
           "resolvable": true
+        },
+        {
+          "source": {
+            "id": "rec:publication-source",
+            "version": 1
+          },
+          "resolvable": true
         }
       ],
       "external_effect_owners": [
@@ -493,6 +770,7 @@
       ]
     },
     "runtime": {
+      "dirty_causes": [],
       "revoked_declassifications": [],
       "committed_cuts": [
         100
@@ -530,7 +808,12 @@
         "id": "schema:decision_proposal",
         "version": 1
       },
-      "targets": []
+      "targets": [
+        {
+          "id": "rec:report",
+          "version": 1
+        }
+      ]
     },
     "projection_rule": {
       "id": "projection:main",
@@ -565,7 +848,7 @@
     "operation_results": [],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.0-draft",
+      "semantic_profile": "0.2.1-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1
@@ -674,6 +957,18 @@
         },
         {
           "id": "rec:mirror",
+          "version": 1
+        },
+        {
+          "id": "rec:publication-doc",
+          "version": 1
+        },
+        {
+          "id": "rec:publication-report",
+          "version": 1
+        },
+        {
+          "id": "rec:publication-source",
           "version": 1
         },
         {

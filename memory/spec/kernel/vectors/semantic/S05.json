@@ -654,6 +654,12 @@
       }
     ],
     "policy": {
+      "subject_principals": [
+        {
+          "subject": "subj:h1",
+          "principal": "subj:h1"
+        }
+      ],
       "revision": {
         "id": "policy:1",
         "version": 1
@@ -959,6 +965,7 @@
       ]
     },
     "runtime": {
+      "dirty_causes": [],
       "revoked_declassifications": [],
       "committed_cuts": [
         100
@@ -1036,7 +1043,7 @@
     "operation_results": [],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.0-draft",
+      "semantic_profile": "0.2.1-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

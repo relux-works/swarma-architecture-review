@@ -1,10 +1,12 @@
 {
   "id": "P02",
-  "title": "Representative without a valid binding is refused",
+  "title": "Representation and subject identity cannot be invented for self-declarations",
   "profile": "semantic",
   "clauses": [
     "K-ENV-2",
-    "K-REV-1"
+    "K-REV-1",
+    "K-ENV-1",
+    "K-ENV-3"
   ],
   "initial_state": {
     "records": [
@@ -152,9 +154,35 @@
         "family": "issuer_current",
         "audience": null,
         "purpose": null
+      },
+      {
+        "id": "projection:other",
+        "version": 1,
+        "issuer": "principal:person",
+        "perspective": {
+          "kind": "own",
+          "principal": "principal:person"
+        },
+        "sequence_resolution": "issuer_and_authority",
+        "time_policy": "query_cut",
+        "freshness_policy": "query_override_else_schema",
+        "excluded_refs": [],
+        "family": "issuer_current",
+        "audience": null,
+        "purpose": null
       }
     ],
     "policy": {
+      "subject_principals": [
+        {
+          "subject": "subj:h1",
+          "principal": "subj:h1"
+        },
+        {
+          "subject": "subj:separate-handle",
+          "principal": "principal:person"
+        }
+      ],
       "revision": {
         "id": "policy:1",
         "version": 1
@@ -190,6 +218,32 @@
         {
           "output": {
             "id": "rec:r",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:foreign-interest",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:own-interest",
             "version": 1
           },
           "profile": {
@@ -304,6 +358,46 @@
             "*"
           ],
           "metadata": true
+        },
+        {
+          "principal": "principal:observer",
+          "space": "space:main",
+          "audience": "aud:public",
+          "purpose": "purpose:read",
+          "rights": [
+            "admit",
+            "declassify",
+            "erase",
+            "forward",
+            "read",
+            "retain",
+            "revise",
+            "use"
+          ],
+          "records": [
+            "*"
+          ],
+          "metadata": true
+        },
+        {
+          "principal": "principal:person",
+          "space": "space:main",
+          "audience": "aud:public",
+          "purpose": "purpose:read",
+          "rights": [
+            "admit",
+            "declassify",
+            "erase",
+            "forward",
+            "read",
+            "retain",
+            "revise",
+            "use"
+          ],
+          "records": [
+            "*"
+          ],
+          "metadata": true
         }
       ],
       "representations": [
@@ -341,6 +435,22 @@
         {
           "record": {
             "id": "rec:r",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:foreign-interest",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:own-interest",
             "version": 1
           },
           "reviewer": "subj:h1",
@@ -389,6 +499,7 @@
       ]
     },
     "runtime": {
+      "dirty_causes": [],
       "revoked_declassifications": [],
       "committed_cuts": [
         100
@@ -540,6 +651,189 @@
         "version": 1
       },
       "expected_generation": 0
+    },
+    {
+      "op": "admit",
+      "context": {
+        "actor": "principal:observer",
+        "at": "2026-10-17T00:00:00Z",
+        "admission_class": "self_declaration"
+      },
+      "idempotency_key": "key:foreign",
+      "proposals": [
+        {
+          "envelope": {
+            "id": "rec:foreign-interest",
+            "version": 1,
+            "kind": "assertion",
+            "schema": {
+              "id": "schema:interest",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "principal:observer",
+            "representation_ref": null,
+            "perspective": {
+              "kind": "own",
+              "principal": "principal:observer"
+            },
+            "space": "space:main",
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "lineage": [],
+            "disclosure": {
+              "audiences": [
+                "aud:private",
+                "aud:public"
+              ],
+              "purposes": [
+                "purpose:publish",
+                "purpose:read"
+              ],
+              "retain_until": null,
+              "field_classes": [
+                "public"
+              ],
+              "declassification": []
+            },
+            "context": "real"
+          },
+          "body": {
+            "statement_kind": "self_declaration",
+            "slot": "[]",
+            "content": [
+              {
+                "field": "value",
+                "value": "gardening"
+              }
+            ],
+            "authority_receipt": null
+          }
+        }
+      ],
+      "expected_generation": 0
+    },
+    {
+      "op": "admit",
+      "context": {
+        "actor": "principal:person",
+        "at": "2026-10-17T00:00:00Z",
+        "admission_class": "self_declaration"
+      },
+      "idempotency_key": "key:own",
+      "proposals": [
+        {
+          "envelope": {
+            "id": "rec:own-interest",
+            "version": 1,
+            "kind": "assertion",
+            "schema": {
+              "id": "schema:interest",
+              "version": 1
+            },
+            "subject": "subj:separate-handle",
+            "issuer": "principal:person",
+            "representation_ref": null,
+            "perspective": {
+              "kind": "own",
+              "principal": "principal:person"
+            },
+            "space": "space:main",
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "lineage": [],
+            "disclosure": {
+              "audiences": [
+                "aud:private",
+                "aud:public"
+              ],
+              "purposes": [
+                "purpose:publish",
+                "purpose:read"
+              ],
+              "retain_until": null,
+              "field_classes": [
+                "public"
+              ],
+              "declassification": []
+            },
+            "context": "real"
+          },
+          "body": {
+            "statement_kind": "self_declaration",
+            "slot": "[]",
+            "content": [
+              {
+                "field": "value",
+                "value": "pottery"
+              }
+            ],
+            "authority_receipt": null
+          }
+        }
+      ],
+      "expected_generation": 0
+    },
+    {
+      "op": "capture",
+      "query": {
+        "kind": "recall",
+        "principal": "subj:h1",
+        "purpose": "purpose:read",
+        "audience": "aud:public",
+        "scope": {
+          "space": "space:main",
+          "subject": "subj:separate-handle",
+          "schema": {
+            "id": "schema:interest",
+            "version": 1
+          },
+          "targets": [
+            {
+              "id": "rec:own-interest",
+              "version": 1
+            }
+          ]
+        },
+        "projection_rule": {
+          "id": "projection:other",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "cut": {
+          "memory": 101,
+          "sources": []
+        },
+        "valid_at": "2026-10-17T00:00:00Z",
+        "now": "2026-10-17T00:00:00Z",
+        "mode": "real",
+        "bounds": {
+          "roots": 32,
+          "rules": 32,
+          "source_resolutions": 32,
+          "explanations": 8
+        },
+        "usable_until": null,
+        "render": "full",
+        "since": null
+      }
     }
   ],
   "query": {
@@ -554,7 +848,12 @@
         "id": "schema:interest",
         "version": 1
       },
-      "targets": []
+      "targets": [
+        {
+          "id": "rec:interest",
+          "version": 1
+        }
+      ]
     },
     "projection_rule": {
       "id": "projection:main",
@@ -569,7 +868,7 @@
       "version": 1
     },
     "cut": {
-      "memory": 100,
+      "memory": 101,
       "sources": []
     },
     "valid_at": "2026-10-17T00:00:00Z",
@@ -591,11 +890,128 @@
         "type": "refusal",
         "code": "representation_invalid",
         "retryable": false
+      },
+      {
+        "type": "refusal",
+        "code": "invalid_domain_value",
+        "retryable": false
+      },
+      {
+        "type": "receipt",
+        "operation": "admit",
+        "outcome": "admitted",
+        "receipt_handle": "@h1",
+        "refs": [
+          {
+            "id": "rec:own-interest",
+            "version": 1
+          }
+        ],
+        "custody": [],
+        "erasure_status": null
+      },
+      {
+        "type": "view",
+        "semantic_profile": "0.2.1-draft",
+        "projection_rule": {
+          "id": "projection:other",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "authorized_snapshot_handle": "@h2",
+        "data_classification": "data",
+        "items": [
+          {
+            "ref": {
+              "id": "rec:own-interest",
+              "version": 1
+            },
+            "subject": "subj:separate-handle",
+            "issuer": "principal:person",
+            "submitter": "principal:person",
+            "perspective": {
+              "kind": "own",
+              "principal": "principal:person"
+            },
+            "representation_ref": null,
+            "admission_class": "self_declaration",
+            "statement_kind": "self_declaration",
+            "content": [
+              {
+                "field": "value",
+                "value": "pottery"
+              }
+            ],
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "usable_until": null,
+            "currentness": "current",
+            "authority_receipt": null,
+            "incompatible_with": [],
+            "needs_review": false,
+            "source_refs": [],
+            "support": {
+              "witness": "not_found",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "not_fully_checked",
+              "evidence_qualification": [],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "@h2",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [],
+              "independent_root_count": 0
+            },
+            "oppose": {
+              "witness": "not_found",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "not_fully_checked",
+              "evidence_qualification": [],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "@h2",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [],
+              "independent_root_count": 0
+            }
+          }
+        ],
+        "currentness": "current",
+        "historical": [],
+        "review_required": [],
+        "explanation": {
+          "status": "complete",
+          "paths": [],
+          "reason": null
+        },
+        "cutoffs": [],
+        "changes": {
+          "state": "initial",
+          "refs": []
+        }
       }
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.0-draft",
+      "semantic_profile": "0.2.1-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1
@@ -608,7 +1024,7 @@
         "id": "policy:1",
         "version": 1
       },
-      "authorized_snapshot_handle": "@h1",
+      "authorized_snapshot_handle": "@h3",
       "data_classification": "data",
       "items": [
         {
@@ -655,7 +1071,7 @@
             "evidence_qualification": [],
             "source_state": "resolvable_now",
             "freshness": "not_applicable",
-            "authorized_snapshot_handle": "@h1",
+            "authorized_snapshot_handle": "@h3",
             "dependency_coverage": "registered_only",
             "witness_roots": [],
             "independent_root_count": 0
@@ -670,7 +1086,7 @@
             "evidence_qualification": [],
             "source_state": "resolvable_now",
             "freshness": "not_applicable",
-            "authorized_snapshot_handle": "@h1",
+            "authorized_snapshot_handle": "@h3",
             "dependency_coverage": "registered_only",
             "witness_roots": [],
             "independent_root_count": 0
@@ -696,6 +1112,10 @@
         {
           "id": "rec:interest",
           "version": 1
+        },
+        {
+          "id": "rec:own-interest",
+          "version": 1
         }
       ],
       "erased_refs": [],
@@ -707,26 +1127,46 @@
   },
   "forbidden": [
     {
-      "path": "/result/items/0/ref/version",
+      "path": "/result/items/0/submitter",
       "test": "equals",
-      "value": 2
+      "value": "principal:rep1"
+    },
+    {
+      "path": "/operation_results/1/type",
+      "test": "equals",
+      "value": "receipt"
     }
   ],
   "normalization": {
     "scheme": "fresh_uniform_128_bit_hex",
     "fresh_handles": [
+      "/operation_results/2/receipt_handle",
+      "/operation_results/3/authorized_snapshot_handle",
+      "/operation_results/3/items/0/support/authorized_snapshot_handle",
+      "/operation_results/3/items/0/oppose/authorized_snapshot_handle",
       "/result/authorized_snapshot_handle",
       "/result/items/0/support/authorized_snapshot_handle",
       "/result/items/0/oppose/authorized_snapshot_handle"
     ],
     "equal_handles": [
       [
+        "/operation_results/3/authorized_snapshot_handle",
+        "/operation_results/3/items/0/support/authorized_snapshot_handle",
+        "/operation_results/3/items/0/oppose/authorized_snapshot_handle"
+      ],
+      [
         "/result/authorized_snapshot_handle",
         "/result/items/0/support/authorized_snapshot_handle",
         "/result/items/0/oppose/authorized_snapshot_handle"
       ]
     ],
-    "distinct_handles": [],
+    "distinct_handles": [
+      [
+        "/operation_results/2/receipt_handle",
+        "/operation_results/3/authorized_snapshot_handle",
+        "/result/authorized_snapshot_handle"
+      ]
+    ],
     "equivalent_outputs": [],
     "timestamps": "exact",
     "timing_claim": "none"

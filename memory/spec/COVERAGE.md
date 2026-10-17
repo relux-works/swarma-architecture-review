@@ -32,8 +32,8 @@ clauses. A citation does not claim exhaustive testing of every sentence.
 | S20 | semantic | K-DISC-1, K-ERASE-1, K-ERASE-2 | companion §6, §9 S20; kernel §7.1 |
 | S21 | semantic | K-RULE-1, K-RULE-2, K-EVAL-1 | companion §3, §9 S21 |
 | S22 | semantic | K-REC-1, K-REC-3, K-RULE-2 | companion §3, §9 S22 |
-| S23 | semantic | K-REC-1, K-REV-3, K-PROJ-1 | companion §3, §9 S23; design Stores and authority |
-| S24 | semantic | K-NI-1, K-NI-2, K-VEC-2 | companion §4, §9 S24 normalization paragraph; kernel §7.3 |
+| S23 | semantic | K-REC-1, K-REV-3, K-PROJ-1, K-PUB-2 | companion §3, §9 S23; design Stores and authority |
+| S24 | semantic | K-NI-1, K-NI-2, K-VEC-2, K-EVAL-8, K-AUTH-1 | companion §4, §9 S24 normalization paragraph; kernel §7.3 |
 | S25 | semantic | K-ERASE-3, K-ERASE-2 | companion §6, §9 S25; design Retention and derived information |
 | S26 | semantic | K-ERASE-3, K-DISC-1 | companion §6, §9 S26 |
 | S27 | semantic | K-NI-1, K-NI-2, K-NI-3, K-API-3, K-VEC-2 | companion §4, §9 S27 normalization paragraph; design Context seam |
@@ -44,7 +44,7 @@ clauses. A citation does not claim exhaustive testing of every sentence.
 | S32 | semantic | K-EVAL-5, K-REC-2, K-ERASE-1 | kernel §6.1, §12 S32; companion §6 |
 | S33 | semantic | K-DOM-1, K-JSON-1 | kernel §4, §12 S33; companion §3 |
 | P01 | semantic | K-ENV-1, K-ENV-3, K-PROJ-1, K-SCOPE-1 | kernel §§2,6.2,8, §12 P01; profiles gaps A2 |
-| P02 | semantic | K-ENV-2, K-REV-1 | kernel §§2,5.1, §12 P02; profiles gaps A2 |
+| P02 | semantic | K-ENV-2, K-REV-1, K-ENV-1, K-ENV-3 | kernel §§2,5.1, §12 P02; profiles gaps A2 |
 | P03 | semantic | K-REV-1, K-ENV-1, K-PROJ-1 | kernel §§5.1,6.2, §12 P03; profiles gaps A3 |
 | P04 | semantic | K-EVAL-6, K-DOM-1, K-TIME-1 | kernel §6.3, §12 P04; profiles gaps A3 |
 | P05 | semantic | K-DISC-1, K-DISC-2, K-DISC-4, K-JSON-2, K-PUB-1 | kernel §§7.2,9.1–9.2, §12 P05; profiles gaps A4 |

@@ -16,7 +16,7 @@
           "version": 1,
           "kind": "assertion",
           "schema": {
-            "id": "schema:competence",
+            "id": "schema:assumption",
             "version": 1
           },
           "subject": "subj:h1",
@@ -59,16 +59,12 @@
           "context": "real"
         },
         "body": {
-          "statement_kind": "self_declaration",
+          "statement_kind": "fact",
           "slot": "[]",
           "content": [
             {
-              "field": "level",
-              "value": "organisation assessment"
-            },
-            {
-              "field": "skill",
-              "value": "gardening"
+              "field": "value",
+              "value": "organisation attests gardening"
             }
           ],
           "authority_receipt": null
@@ -80,7 +76,7 @@
           "version": 1,
           "kind": "assertion",
           "schema": {
-            "id": "schema:competence",
+            "id": "schema:assumption",
             "version": 1
           },
           "subject": "subj:h1",
@@ -123,16 +119,12 @@
           "context": "real"
         },
         "body": {
-          "statement_kind": "self_declaration",
+          "statement_kind": "fact",
           "slot": "[]",
           "content": [
             {
-              "field": "level",
-              "value": "organisation assessment"
-            },
-            {
-              "field": "skill",
-              "value": "pottery"
+              "field": "value",
+              "value": "organisation attests pottery"
             }
           ],
           "authority_receipt": null
@@ -141,26 +133,20 @@
     ],
     "domain_schemas": [
       {
-        "id": "schema:competence",
+        "id": "schema:assumption",
         "version": 1,
-        "name": "competence",
-        "statement_kind": "self_declaration",
+        "name": "assumption",
+        "statement_kind": "fact",
         "semantics": {
           "establishes": "An attributed statement only.",
           "does_not_establish": [
-            "Established competence without separately scoped evidence"
+            "Unregistered dependencies",
+            "Truth from documentary attribution"
           ]
         },
         "fields": [
           {
-            "name": "skill",
-            "type": "string",
-            "equality": "exact",
-            "required": true,
-            "disclosure_class": "public"
-          },
-          {
-            "name": "level",
+            "name": "value",
             "type": "string",
             "equality": "exact",
             "required": true,
@@ -208,9 +194,7 @@
             ]
           }
         ],
-        "requirements": [
-          "synthetic_only"
-        ]
+        "requirements": []
       }
     ],
     "projection_rules": [
@@ -269,6 +253,12 @@
       }
     ],
     "policy": {
+      "subject_principals": [
+        {
+          "subject": "subj:h1",
+          "principal": "subj:h1"
+        }
+      ],
       "revision": {
         "id": "policy:1",
         "version": 1
@@ -481,6 +471,7 @@
       ]
     },
     "runtime": {
+      "dirty_causes": [],
       "revoked_declassifications": [],
       "committed_cuts": [
         100
@@ -517,7 +508,7 @@
           "space": "space:main",
           "subject": "subj:h1",
           "schema": {
-            "id": "schema:competence",
+            "id": "schema:assumption",
             "version": 1
           },
           "targets": []
@@ -563,7 +554,7 @@
           "space": "space:main",
           "subject": "subj:h1",
           "schema": {
-            "id": "schema:competence",
+            "id": "schema:assumption",
             "version": 1
           },
           "targets": []
@@ -608,7 +599,7 @@
       "space": "space:main",
       "subject": "subj:h1",
       "schema": {
-        "id": "schema:competence",
+        "id": "schema:assumption",
         "version": 1
       },
       "targets": []
@@ -646,7 +637,7 @@
     "operation_results": [
       {
         "type": "view",
-        "semantic_profile": "0.2.0-draft",
+        "semantic_profile": "0.2.1-draft",
         "projection_rule": {
           "id": "projection:card",
           "version": 1
@@ -673,15 +664,11 @@
             },
             "representation_ref": null,
             "admission_class": "machine_observation",
-            "statement_kind": "self_declaration",
+            "statement_kind": "fact",
             "content": [
               {
-                "field": "level",
-                "value": "organisation assessment"
-              },
-              {
-                "field": "skill",
-                "value": "gardening"
+                "field": "value",
+                "value": "organisation attests gardening"
               }
             ],
             "valid": {
@@ -739,15 +726,11 @@
             },
             "representation_ref": null,
             "admission_class": "machine_observation",
-            "statement_kind": "self_declaration",
+            "statement_kind": "fact",
             "content": [
               {
-                "field": "level",
-                "value": "organisation assessment"
-              },
-              {
-                "field": "skill",
-                "value": "pottery"
+                "field": "value",
+                "value": "organisation attests pottery"
               }
             ],
             "valid": {
@@ -811,7 +794,7 @@
       },
       {
         "type": "view",
-        "semantic_profile": "0.2.0-draft",
+        "semantic_profile": "0.2.1-draft",
         "projection_rule": {
           "id": "projection:organisation",
           "version": 1
@@ -841,15 +824,11 @@
             },
             "representation_ref": null,
             "admission_class": "machine_observation",
-            "statement_kind": "self_declaration",
+            "statement_kind": "fact",
             "content": [
               {
-                "field": "level",
-                "value": "organisation assessment"
-              },
-              {
-                "field": "skill",
-                "value": "gardening"
+                "field": "value",
+                "value": "organisation attests gardening"
               }
             ],
             "valid": {
@@ -910,15 +889,11 @@
             },
             "representation_ref": null,
             "admission_class": "machine_observation",
-            "statement_kind": "self_declaration",
+            "statement_kind": "fact",
             "content": [
               {
-                "field": "level",
-                "value": "organisation assessment"
-              },
-              {
-                "field": "skill",
-                "value": "pottery"
+                "field": "value",
+                "value": "organisation attests pottery"
               }
             ],
             "valid": {
@@ -983,7 +958,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.0-draft",
+      "semantic_profile": "0.2.1-draft",
       "projection_rule": {
         "id": "projection:card",
         "version": 2
@@ -1010,15 +985,11 @@
           },
           "representation_ref": null,
           "admission_class": "machine_observation",
-          "statement_kind": "self_declaration",
+          "statement_kind": "fact",
           "content": [
             {
-              "field": "level",
-              "value": "organisation assessment"
-            },
-            {
-              "field": "skill",
-              "value": "pottery"
+              "field": "value",
+              "value": "organisation attests pottery"
             }
           ],
           "valid": {
@@ -1107,7 +1078,7 @@
     {
       "path": "/result/items/0/content/0/value",
       "test": "equals",
-      "value": "gardening"
+      "value": "organisation attests gardening"
     },
     {
       "path": "/postconditions/erased_refs",

@@ -596,6 +596,12 @@
       }
     ],
     "policy": {
+      "subject_principals": [
+        {
+          "subject": "subj:h1",
+          "principal": "subj:h1"
+        }
+      ],
       "revision": {
         "id": "policy:1",
         "version": 1
@@ -919,6 +925,18 @@
       ]
     },
     "runtime": {
+      "dirty_causes": [
+        {
+          "assertion": {
+            "id": "rec:dependent",
+            "version": 1
+          },
+          "revision": {
+            "id": "rec:decision-replace",
+            "version": 1
+          }
+        }
+      ],
       "revoked_declassifications": [],
       "committed_cuts": [
         100

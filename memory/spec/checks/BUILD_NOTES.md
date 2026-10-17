@@ -77,3 +77,11 @@ Owner: astra-21, under MISSION-R7. This section supersedes the producer handoff 
 - Python syntax checks and deterministic regeneration of all 94 JSON artifacts pass. A comparison against the original committed expected reports confirms 59 prior reports unchanged apart from semantic_profile; only P05 and B10 intentionally gain controls. No evaluator comparison was used to generate an oracle.
 
 Local evidence: `.temp/astra-21/validate-04.log`, `.temp/astra-21/regeneration-01.log`; ongoing task plan `.temp/tasks.md`. Those are scratch paths in the editor checkout; the exact commands and outcomes are preserved here for other seats. Independent evaluator and adversarial review remain required. Structural checks do not establish semantic correctness or any protected-deployment qualification.
+
+## Editor release: 0.2.1-draft
+
+Scope: R7-014/018/019/021/022; exact changes and migration requirements are in RELEASES.md. Validation: 65 vectors (57 semantic / 8 deployment), 52 clauses, 20 intended checker violations. All 94 JSON artifacts regenerate deterministically; Python syntax and diff-whitespace checks pass. Expected-report changes are restricted to S23, S24, S32, P02, P15 and their B03/B07 derivatives. B01's expected report is unchanged.
+
+New negative controls cover the wrong subject, equal ID strings without identity evidence, accepted writes lacking integration evidence, unqualified global dirtiness, mixed AND-state overstatement and real unchecked publication currentness. Nearby valid controls preserve own/delegated admission, private-visible invalidation and the stronger complete support alternative. The B01 omission was observed by both independent implementation and the strengthened checker before repair.
+
+Local evidence: `.temp/astra-21/lineage-regression-01.log` (intended existing-defect failure), `.temp/astra-21/validate-08.log`, `.temp/astra-21/regeneration-02.log`. Current checks remain structural; independent behavior runs are required. No other seat files were edited.

@@ -154,6 +154,12 @@
       }
     ],
     "policy": {
+      "subject_principals": [
+        {
+          "subject": "subj:h1",
+          "principal": "subj:h1"
+        }
+      ],
       "revision": {
         "id": "policy:1",
         "version": 1
@@ -312,6 +318,7 @@
       ]
     },
     "runtime": {
+      "dirty_causes": [],
       "revoked_declassifications": [],
       "committed_cuts": [
         100

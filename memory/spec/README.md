@@ -1,6 +1,6 @@
 # Bounded evidence memory — R7 specification package
 
-Version: **0.2.0-draft**. Status: reviewable specification, not an implemented or
+Version: **0.2.1-draft**. Status: reviewable specification, not an implemented or
 security-qualified service. All examples are synthetic or admitted non-sensitive
 architecture examples. There are **52 normative clauses and 65 conformance
 vectors: 57 semantic and 8 protected-deployment checks**.
@@ -13,6 +13,7 @@ close gaps. The kernel is portable; the adapter is a separate consumer contract.
 
 | Artifact | Purpose |
 | --- | --- |
+| [RELEASES.md](RELEASES.md) | Version history, exact grammar migrations and regression evidence |
 | [kernel/semantics.md](kernel/semantics.md) | Normative meanings, algorithms, authorization vocabulary, operation order, refusal codes and fixture execution |
 | `kernel/schemas/` | Fourteen JSON Schema 2020-12 documents, including one additional schema for a reusable fixture corpus |
 | `kernel/vectors/semantic/` | S01–S33, P01–P15 and nine reclassified boundary cases |

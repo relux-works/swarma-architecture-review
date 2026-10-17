@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE='urn:bounded-evidence:0.2.0:'
+BASE='urn:bounded-evidence:0.2.1:'
 ERRORS=[]
 class Invalid(ValueError): pass
 
@@ -140,6 +140,8 @@ def check_state(s,documents):
     require(len(ds)==len(s['domain_schemas']),'duplicate embedded domain')
     for k,d in ds.items():require(k in documents and strict_equal(d,documents[k]),'embedded domain differs from canonical document '+str(k))
     def exists(r,label):require(rkey(r) in known,'dangling '+label+' '+str(rkey(r)))
+    identities={(x['subject'],x['principal']) for x in s['policy']['subject_principals']}
+    require(len(identities)==len(s['policy']['subject_principals']),'duplicate subject identity binding')
     facts=s['policy']['lineage_facts']
     fact_by_output={rkey(f['output']):f for f in facts}
     require(len(fact_by_output)==len(facts),'duplicate integration lineage fact')
@@ -158,6 +160,15 @@ def check_state(s,documents):
         for r in d['pins']['inputs']:exists(r,'release decision input')
     for r in s['runtime']['revoked_declassifications']:
         require(rkey(r) in {rkey(d['ref']) for d in decisions},'unknown revoked release decision')
+    dirty={rkey(r) for r in s['runtime']['dirty']}
+    causes=s['runtime']['dirty_causes']
+    require({rkey(c['assertion']) for c in causes}==dirty,'dirty inventory lacks exact unresolved causes')
+    require(len(causes)==len({(rkey(c['assertion']),rkey(c['revision'])) for c in causes}),'duplicate dirty cause')
+    record_by_ref={ref_of(r):r for r in records}
+    for c in causes:
+        exists(c['assertion'],'dirty assertion');exists(c['revision'],'dirty revision')
+        require(record_by_ref[rkey(c['assertion'])]['envelope']['kind']=='assertion','dirty target is not assertion')
+        require(record_by_ref[rkey(c['revision'])]['envelope']['kind']=='revision','dirty cause is not revision')
     mappings=s['policy']['handles']
     require(len(mappings)==len({(h['subject'],h['space'],h['audience']) for h in mappings}),'duplicate public alias key')
     require(len(mappings)==len({(h['handle'],h['space'],h['audience']) for h in mappings}),'public aliases merge principals')
@@ -174,6 +185,8 @@ def check_state(s,documents):
         if e['kind']=='assertion':
             require(rkey(e['schema']) in ds,'unknown initial assertion schema')
             d=ds[rkey(e['schema'])];require(b['statement_kind']==d['statement_kind'],'assertion statement kind disagrees with schema')
+            if b['statement_kind']=='self_declaration' or e['admission_class']=='self_declaration':
+                require((e['subject'],e['issuer']) in identities and e['perspective']==dict(kind='own',principal=e['issuer']),'self-declaration lacks subject issuer identity')
             fields={x['field']:x['value'] for x in b['content']};declared={x['name']:x for x in d['fields']}
             require(len(fields)==len(b['content']),'duplicate assertion content field')
             require(set(fields)<=set(declared),'unknown content field')
@@ -204,6 +217,19 @@ def check_state(s,documents):
         exists(coverage['assertion'],'coverage target');exists(coverage['declaration'],'coverage declaration')
     for c in s['runtime']['custody']:
         for r in c['inputs']:exists(r,'custody input')
+
+def check_admission_facts(v):
+    # Accepted writes need independently supplied integration facts; deliberate refusals may omit them.
+    facts={rkey(f['output']) for f in v['initial_state']['policy']['lineage_facts']}
+    for operation,result in zip(v['operations'],v['expected']['operation_results']):
+        if result.get('type')!='receipt':continue
+        op=operation['op'];proposals=[]
+        if op=='admit':proposals=operation['proposals']
+        elif op=='admit_raw':proposals=parse(operation['raw_json'])['proposals']
+        elif op=='revise':proposals=[operation['revision']]+([operation['replacement']] if operation['replacement'] else [])
+        elif op=='declassify':proposals=operation['assessments']+[operation['output']]
+        for proposal in proposals:
+            require(ref_of(proposal) in facts,'accepted proposal missing integration fact '+str(ref_of(proposal)))
 
 def forbidden_true(report,predicate):
     actual=pointer(report,predicate['path'])
@@ -283,6 +309,21 @@ def controls(validator,vectors):
     rejected('one-owner-binding-per-input',lambda:check_state(state,documents),'duplicate constraint owner')
     state=copy.deepcopy(vector['initial_state']);state['policy']['handles']=[dict(subject='a',space='s',audience='p',handle='same'),dict(subject='b',space='s',audience='p',handle='same')]
     rejected('alias-does-not-merge-principals',lambda:check_state(state,documents),'aliases merge')
+    # B01 is a regression witness: an accepted revision cannot lack its integration evidence.
+    check_admission_facts(vectors['B01'])
+    plant=copy.deepcopy(vectors['B01']);target=ref_of(plant['operations'][0]['revision'])
+    plant['initial_state']['policy']['lineage_facts']=[f for f in plant['initial_state']['policy']['lineage_facts'] if rkey(f['output'])!=target]
+    rejected('accepted-revision-needs-lineage-fact',lambda:check_admission_facts(plant),'accepted proposal missing integration fact')
+    state=copy.deepcopy(vector['initial_state']);state['runtime']['dirty']=[dict(id='rec:a',version=1)]
+    rejected('dirty-needs-unresolved-cause',lambda:check_state(state,documents),'dirty inventory lacks')
+    # Valid initial own attribution passes; foreign self-declaration fails without identity coercion.
+    positive=vectors['P02']['initial_state'];docs={schema_ref(d):d for d in positive['domain_schemas']}
+    check_state(positive,docs)
+    state=copy.deepcopy(positive);e=state['records'][0]['envelope']
+    e.update(issuer='principal:foreign',submitter='principal:foreign',perspective=dict(kind='own',principal='principal:foreign'))
+    rejected('initial-self-declaration-requires-identity',lambda:check_state(state,docs),'self-declaration lacks subject issuer identity')
+    state=copy.deepcopy(positive);state['policy']['subject_principals']=[]
+    rejected('equal-id-spelling-is-not-identity',lambda:check_state(state,docs),'self-declaration lacks subject issuer identity')
     return len(cases)
 
 def main():
@@ -327,6 +368,7 @@ def main():
             require(set(v['clauses'])<=set(clauses),'unknown normative clause')
             require(len(v['operations'])==len(v['expected']['operation_results']),'operation/result count mismatch')
             check_state(v['initial_state'],documents)
+            check_admission_facts(v)
             for pred in v['forbidden']:require(not forbidden_true(v['expected'],pred),'expected output satisfies forbidden predicate '+pred['path'])
             check_normalization(v)
         except (Invalid,KeyError) as e:ERRORS.append(f'{p.relative_to(ROOT)}: {e}')

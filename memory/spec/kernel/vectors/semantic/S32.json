@@ -1,6 +1,6 @@
 {
   "id": "S32",
-  "title": "Retained checks and independent attestations preserve distinct source states",
+  "title": "Retained checks and complete AND versus OR paths preserve source states",
   "profile": "semantic",
   "clauses": [
     "K-EVAL-5",
@@ -506,6 +506,309 @@
           "usable_until": null,
           "declassification": null
         }
+      },
+      {
+        "envelope": {
+          "id": "rec:mixed",
+          "version": 1,
+          "kind": "assertion",
+          "schema": {
+            "id": "schema:assumption",
+            "version": 1
+          },
+          "subject": "subj:h1",
+          "issuer": "subj:h1",
+          "submitter": "subj:h1",
+          "representation_ref": null,
+          "perspective": {
+            "kind": "own",
+            "principal": "subj:h1"
+          },
+          "admission_class": "machine_observation",
+          "space": "space:main",
+          "valid": {
+            "kind": "known",
+            "from": "2026-09-01T00:00:00Z",
+            "to": null,
+            "precision": "second"
+          },
+          "confirmed_at": "2026-10-17T00:00:00Z",
+          "recorded": {
+            "sequence": 8,
+            "at": "2026-10-17T00:00:00Z"
+          },
+          "lineage": [],
+          "disclosure": {
+            "audiences": [
+              "aud:private",
+              "aud:public"
+            ],
+            "purposes": [
+              "purpose:publish",
+              "purpose:read"
+            ],
+            "retain_until": null,
+            "field_classes": [
+              "public"
+            ],
+            "declassification": []
+          },
+          "context": "real"
+        },
+        "body": {
+          "statement_kind": "fact",
+          "slot": "[]",
+          "content": [
+            {
+              "field": "value",
+              "value": "alpha"
+            }
+          ],
+          "authority_receipt": null
+        }
+      },
+      {
+        "envelope": {
+          "id": "rec:mixed-rule",
+          "version": 1,
+          "kind": "justification",
+          "schema": null,
+          "subject": "subj:h1",
+          "issuer": "subj:h1",
+          "submitter": "subj:h1",
+          "representation_ref": null,
+          "perspective": {
+            "kind": "own",
+            "principal": "subj:h1"
+          },
+          "admission_class": "machine_observation",
+          "space": "space:main",
+          "valid": {
+            "kind": "known",
+            "from": "2026-09-01T00:00:00Z",
+            "to": null,
+            "precision": "second"
+          },
+          "confirmed_at": "2026-10-17T00:00:00Z",
+          "recorded": {
+            "sequence": 9,
+            "at": "2026-10-17T00:00:00Z"
+          },
+          "lineage": [],
+          "disclosure": {
+            "audiences": [
+              "aud:private",
+              "aud:public"
+            ],
+            "purposes": [
+              "purpose:publish",
+              "purpose:read"
+            ],
+            "retain_until": null,
+            "field_classes": [
+              "public"
+            ],
+            "declassification": []
+          },
+          "context": "real"
+        },
+        "body": {
+          "target": {
+            "assertion": {
+              "id": "rec:mixed",
+              "version": 1
+            },
+            "polarity": "support"
+          },
+          "premises": [
+            {
+              "kind": "assertion",
+              "literal": {
+                "assertion": {
+                  "id": "rec:attested",
+                  "version": 1
+                },
+                "polarity": "support"
+              }
+            },
+            {
+              "kind": "assertion",
+              "literal": {
+                "assertion": {
+                  "id": "rec:prior",
+                  "version": 1
+                },
+                "polarity": "support"
+              }
+            }
+          ],
+          "rule": {
+            "id": "rule:mixed-rule",
+            "version": 1
+          },
+          "rule_kind": "checked_entailment",
+          "role": "sufficient_support",
+          "check": {
+            "id": "cert:mixed-rule",
+            "version": 1
+          }
+        }
+      },
+      {
+        "envelope": {
+          "id": "cert:mixed-rule",
+          "version": 1,
+          "kind": "assessment",
+          "schema": null,
+          "subject": "subj:h1",
+          "issuer": "subj:h1",
+          "submitter": "subj:h1",
+          "representation_ref": null,
+          "perspective": {
+            "kind": "own",
+            "principal": "subj:h1"
+          },
+          "admission_class": "machine_observation",
+          "space": "space:main",
+          "valid": {
+            "kind": "known",
+            "from": "2026-09-01T00:00:00Z",
+            "to": null,
+            "precision": "second"
+          },
+          "confirmed_at": "2026-10-17T00:00:00Z",
+          "recorded": {
+            "sequence": 10,
+            "at": "2026-10-17T00:00:00Z"
+          },
+          "lineage": [],
+          "disclosure": {
+            "audiences": [
+              "aud:private",
+              "aud:public"
+            ],
+            "purposes": [
+              "purpose:publish",
+              "purpose:read"
+            ],
+            "retain_until": null,
+            "field_classes": [
+              "public"
+            ],
+            "declassification": []
+          },
+          "context": "real"
+        },
+        "body": {
+          "check_kind": "formal_entailment",
+          "executor": "deterministic",
+          "result": "pass",
+          "pins": {
+            "subject": {
+              "id": "rec:mixed-rule",
+              "version": 1
+            },
+            "rule": {
+              "id": "rule:mixed-rule",
+              "version": 1
+            },
+            "policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "environment": {
+              "id": "environment:1",
+              "version": 1
+            }
+          },
+          "target": null,
+          "sources": [],
+          "origin": "origin:cert:mixed-rule",
+          "source_requirement": "current",
+          "usable_until": null,
+          "declassification": null
+        }
+      },
+      {
+        "envelope": {
+          "id": "rec:stronger-root",
+          "version": 1,
+          "kind": "assessment",
+          "schema": null,
+          "subject": "subj:h1",
+          "issuer": "subj:h1",
+          "submitter": "subj:h1",
+          "representation_ref": null,
+          "perspective": {
+            "kind": "own",
+            "principal": "subj:h1"
+          },
+          "admission_class": "machine_observation",
+          "space": "space:main",
+          "valid": {
+            "kind": "known",
+            "from": "2026-10-18T00:00:00Z",
+            "to": null,
+            "precision": "second"
+          },
+          "confirmed_at": "2026-10-17T00:00:00Z",
+          "recorded": {
+            "sequence": 11,
+            "at": "2026-10-17T00:00:00Z"
+          },
+          "lineage": [],
+          "disclosure": {
+            "audiences": [
+              "aud:private",
+              "aud:public"
+            ],
+            "purposes": [
+              "purpose:publish",
+              "purpose:read"
+            ],
+            "retain_until": null,
+            "field_classes": [
+              "public"
+            ],
+            "declassification": []
+          },
+          "context": "real"
+        },
+        "body": {
+          "check_kind": "semantic_review",
+          "executor": "human",
+          "result": "pass",
+          "pins": {
+            "subject": {
+              "id": "rec:mixed",
+              "version": 1
+            },
+            "rule": {
+              "id": "check:semantic_review",
+              "version": 1
+            },
+            "policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "environment": {
+              "id": "environment:1",
+              "version": 1
+            }
+          },
+          "target": {
+            "assertion": {
+              "id": "rec:mixed",
+              "version": 1
+            },
+            "polarity": "support"
+          },
+          "sources": [],
+          "origin": "origin:stronger-root",
+          "source_requirement": "current",
+          "usable_until": null,
+          "declassification": null
+        }
       }
     ],
     "domain_schemas": [
@@ -593,12 +896,31 @@
       }
     ],
     "policy": {
+      "subject_principals": [
+        {
+          "subject": "subj:h1",
+          "principal": "subj:h1"
+        }
+      ],
       "revision": {
         "id": "policy:1",
         "version": 1
       },
       "owner": "subj:h1",
       "lineage_facts": [
+        {
+          "output": {
+            "id": "cert:mixed-rule",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
         {
           "output": {
             "id": "rec:a",
@@ -628,6 +950,32 @@
         {
           "output": {
             "id": "rec:attested",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:mixed",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:mixed-rule",
             "version": 1
           },
           "profile": {
@@ -680,6 +1028,19 @@
         {
           "output": {
             "id": "rec:sig",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:stronger-root",
             "version": 1
           },
           "profile": {
@@ -780,6 +1141,14 @@
       "reviews": [
         {
           "record": {
+            "id": "cert:mixed-rule",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
             "id": "rec:a",
             "version": 1
           },
@@ -797,6 +1166,22 @@
         {
           "record": {
             "id": "rec:attested",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:mixed",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:mixed-rule",
             "version": 1
           },
           "reviewer": "subj:h1",
@@ -829,6 +1214,14 @@
         {
           "record": {
             "id": "rec:sig",
+            "version": 1
+          },
+          "reviewer": "subj:h1",
+          "result": "allow"
+        },
+        {
+          "record": {
+            "id": "rec:stronger-root",
             "version": 1
           },
           "reviewer": "subj:h1",
@@ -885,6 +1278,7 @@
       ]
     },
     "runtime": {
+      "dirty_causes": [],
       "revoked_declassifications": [],
       "committed_cuts": [
         100
@@ -964,6 +1358,108 @@
         "render": "full",
         "since": null
       }
+    },
+    {
+      "op": "capture",
+      "query": {
+        "kind": "recall",
+        "principal": "subj:h1",
+        "purpose": "purpose:read",
+        "audience": "aud:public",
+        "scope": {
+          "space": "space:main",
+          "subject": "subj:h1",
+          "schema": {
+            "id": "schema:assumption",
+            "version": 1
+          },
+          "targets": [
+            {
+              "id": "rec:mixed",
+              "version": 1
+            }
+          ]
+        },
+        "projection_rule": {
+          "id": "projection:main",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "cut": {
+          "memory": 100,
+          "sources": []
+        },
+        "valid_at": "2026-10-17T00:00:00Z",
+        "now": "2026-10-17T00:00:00Z",
+        "mode": "real",
+        "bounds": {
+          "roots": 32,
+          "rules": 32,
+          "source_resolutions": 32,
+          "explanations": 8
+        },
+        "usable_until": null,
+        "render": "full",
+        "since": null
+      }
+    },
+    {
+      "op": "capture",
+      "query": {
+        "kind": "recall",
+        "principal": "subj:h1",
+        "purpose": "purpose:read",
+        "audience": "aud:public",
+        "scope": {
+          "space": "space:main",
+          "subject": "subj:h1",
+          "schema": {
+            "id": "schema:assumption",
+            "version": 1
+          },
+          "targets": [
+            {
+              "id": "rec:mixed",
+              "version": 1
+            }
+          ]
+        },
+        "projection_rule": {
+          "id": "projection:main",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "cut": {
+          "memory": 100,
+          "sources": []
+        },
+        "valid_at": "2026-10-18T00:00:00Z",
+        "now": "2026-10-18T00:00:00Z",
+        "mode": "real",
+        "bounds": {
+          "roots": 32,
+          "rules": 32,
+          "source_resolutions": 32,
+          "explanations": 8
+        },
+        "usable_until": null,
+        "render": "full",
+        "since": null
+      }
     }
   ],
   "query": {
@@ -1018,7 +1514,7 @@
     "operation_results": [
       {
         "type": "view",
-        "semantic_profile": "0.2.0-draft",
+        "semantic_profile": "0.2.1-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -1196,11 +1692,230 @@
           "state": "initial",
           "refs": []
         }
+      },
+      {
+        "type": "view",
+        "semantic_profile": "0.2.1-draft",
+        "projection_rule": {
+          "id": "projection:main",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "authorized_snapshot_handle": "@h2",
+        "data_classification": "data",
+        "items": [
+          {
+            "ref": {
+              "id": "rec:mixed",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "submitter": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "representation_ref": null,
+            "admission_class": "machine_observation",
+            "statement_kind": "fact",
+            "content": [
+              {
+                "field": "value",
+                "value": "alpha"
+              }
+            ],
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "usable_until": null,
+            "currentness": "current",
+            "authority_receipt": null,
+            "incompatible_with": [],
+            "needs_review": false,
+            "source_refs": [
+              {
+                "id": "rec:s",
+                "version": 1
+              }
+            ],
+            "support": {
+              "witness": "present",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "clean_path",
+              "evidence_qualification": [
+                "formal_entailment",
+                "semantic_review"
+              ],
+              "source_state": "prior_assessment_only",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "@h2",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [
+                "origin:att",
+                "origin:ret"
+              ],
+              "independent_root_count": 2
+            },
+            "oppose": {
+              "witness": "not_found",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "not_fully_checked",
+              "evidence_qualification": [],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "@h2",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [],
+              "independent_root_count": 0
+            }
+          }
+        ],
+        "currentness": "current",
+        "historical": [],
+        "review_required": [],
+        "explanation": {
+          "status": "complete",
+          "paths": [],
+          "reason": null
+        },
+        "cutoffs": [],
+        "changes": {
+          "state": "initial",
+          "refs": []
+        }
+      },
+      {
+        "type": "view",
+        "semantic_profile": "0.2.1-draft",
+        "projection_rule": {
+          "id": "projection:main",
+          "version": 1
+        },
+        "evidence_policy": {
+          "id": "evidence:1",
+          "version": 1
+        },
+        "policy": {
+          "id": "policy:1",
+          "version": 1
+        },
+        "authorized_snapshot_handle": "@h3",
+        "data_classification": "data",
+        "items": [
+          {
+            "ref": {
+              "id": "rec:mixed",
+              "version": 1
+            },
+            "subject": "subj:h1",
+            "issuer": "subj:h1",
+            "submitter": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "representation_ref": null,
+            "admission_class": "machine_observation",
+            "statement_kind": "fact",
+            "content": [
+              {
+                "field": "value",
+                "value": "alpha"
+              }
+            ],
+            "valid": {
+              "kind": "known",
+              "from": "2026-09-01T00:00:00Z",
+              "to": null,
+              "precision": "second"
+            },
+            "confirmed_at": "2026-10-17T00:00:00Z",
+            "usable_until": null,
+            "currentness": "current",
+            "authority_receipt": null,
+            "incompatible_with": [],
+            "needs_review": false,
+            "source_refs": [
+              {
+                "id": "rec:s",
+                "version": 1
+              }
+            ],
+            "support": {
+              "witness": "present",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "clean_path",
+              "evidence_qualification": [
+                "formal_entailment",
+                "semantic_review"
+              ],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "@h3",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [
+                "origin:att",
+                "origin:ret",
+                "origin:stronger-root"
+              ],
+              "independent_root_count": 3
+            },
+            "oppose": {
+              "witness": "not_found",
+              "evaluation": "complete",
+              "corpus_coverage": {
+                "kind": "unknown"
+              },
+              "premise_quality": "not_fully_checked",
+              "evidence_qualification": [],
+              "source_state": "resolvable_now",
+              "freshness": "not_applicable",
+              "authorized_snapshot_handle": "@h3",
+              "dependency_coverage": "registered_only",
+              "witness_roots": [],
+              "independent_root_count": 0
+            }
+          }
+        ],
+        "currentness": "current",
+        "historical": [],
+        "review_required": [],
+        "explanation": {
+          "status": "complete",
+          "paths": [],
+          "reason": null
+        },
+        "cutoffs": [],
+        "changes": {
+          "state": "initial",
+          "refs": []
+        }
       }
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.0-draft",
+      "semantic_profile": "0.2.1-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1
@@ -1213,7 +1928,7 @@
         "id": "policy:1",
         "version": 1
       },
-      "authorized_snapshot_handle": "@h2",
+      "authorized_snapshot_handle": "@h4",
       "data_classification": "data",
       "items": [
         {
@@ -1265,7 +1980,7 @@
             "evidence_qualification": [],
             "source_state": "prior_assessment_only",
             "freshness": "not_applicable",
-            "authorized_snapshot_handle": "@h2",
+            "authorized_snapshot_handle": "@h4",
             "dependency_coverage": "registered_only",
             "witness_roots": [],
             "independent_root_count": 0
@@ -1280,7 +1995,7 @@
             "evidence_qualification": [],
             "source_state": "prior_assessment_only",
             "freshness": "not_applicable",
-            "authorized_snapshot_handle": "@h2",
+            "authorized_snapshot_handle": "@h4",
             "dependency_coverage": "registered_only",
             "witness_roots": [],
             "independent_root_count": 0
@@ -1304,6 +2019,10 @@
     "postconditions": {
       "record_refs": [
         {
+          "id": "cert:mixed-rule",
+          "version": 1
+        },
+        {
           "id": "rec:a",
           "version": 1
         },
@@ -1313,6 +2032,14 @@
         },
         {
           "id": "rec:attested",
+          "version": 1
+        },
+        {
+          "id": "rec:mixed",
+          "version": 1
+        },
+        {
+          "id": "rec:mixed-rule",
           "version": 1
         },
         {
@@ -1329,6 +2056,10 @@
         },
         {
           "id": "rec:sig",
+          "version": 1
+        },
+        {
+          "id": "rec:stronger-root",
           "version": 1
         }
       ],
@@ -1349,6 +2080,21 @@
       "path": "/result/items/0/support/witness",
       "test": "equals",
       "value": "present"
+    },
+    {
+      "path": "/operation_results/1/items/0/support/source_state",
+      "test": "equals",
+      "value": "independent_attestation"
+    },
+    {
+      "path": "/operation_results/1/items/0/support/witness",
+      "test": "equals",
+      "value": "not_found"
+    },
+    {
+      "path": "/operation_results/2/items/0/support/source_state",
+      "test": "equals",
+      "value": "prior_assessment_only"
     }
   ],
   "normalization": {
@@ -1359,6 +2105,12 @@
       "/operation_results/0/items/0/oppose/authorized_snapshot_handle",
       "/operation_results/0/items/1/support/authorized_snapshot_handle",
       "/operation_results/0/items/1/oppose/authorized_snapshot_handle",
+      "/operation_results/1/authorized_snapshot_handle",
+      "/operation_results/1/items/0/support/authorized_snapshot_handle",
+      "/operation_results/1/items/0/oppose/authorized_snapshot_handle",
+      "/operation_results/2/authorized_snapshot_handle",
+      "/operation_results/2/items/0/support/authorized_snapshot_handle",
+      "/operation_results/2/items/0/oppose/authorized_snapshot_handle",
       "/result/authorized_snapshot_handle",
       "/result/items/0/support/authorized_snapshot_handle",
       "/result/items/0/oppose/authorized_snapshot_handle"
@@ -1372,6 +2124,16 @@
         "/operation_results/0/items/1/oppose/authorized_snapshot_handle"
       ],
       [
+        "/operation_results/1/authorized_snapshot_handle",
+        "/operation_results/1/items/0/support/authorized_snapshot_handle",
+        "/operation_results/1/items/0/oppose/authorized_snapshot_handle"
+      ],
+      [
+        "/operation_results/2/authorized_snapshot_handle",
+        "/operation_results/2/items/0/support/authorized_snapshot_handle",
+        "/operation_results/2/items/0/oppose/authorized_snapshot_handle"
+      ],
+      [
         "/result/authorized_snapshot_handle",
         "/result/items/0/support/authorized_snapshot_handle",
         "/result/items/0/oppose/authorized_snapshot_handle"
@@ -1380,6 +2142,8 @@
     "distinct_handles": [
       [
         "/operation_results/0/authorized_snapshot_handle",
+        "/operation_results/1/authorized_snapshot_handle",
+        "/operation_results/2/authorized_snapshot_handle",
         "/result/authorized_snapshot_handle"
       ]
     ],
