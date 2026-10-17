@@ -755,3 +755,23 @@ will prove semantic differences and forbidden effects are detected.
   Null, complete/incomplete-known and same-batch resolution retain existing rules.
 - Await editor0.2.5 and explicit exact fixtures; freeze the full new release before
   changing the package-only runtime. Native firste689cf2 remains unchanged.
+
+## Round 29 — exact deadline first execution
+
+- Author4c7ee50 publishes seven exact0.2.4 deadline vectors: at/after inherited,
+  own expiry, expired replay, transitive unknown-known input, both expired batch
+  orders, before-deadline and live output-first batch positives.
+- Freeze the entire expanded supplemental corpus against pinned0.2.4 before any
+  deadline runtime change. Runtime942bdee includes only the completed succession
+  correction. First nativee689cf2 and all earlier first reports stay immutable.
+
+### Round 29 first outcome
+
+- PHASE2-DEADLINE-VECTORS-FIRST records56pass/5fail/0unsupported across61
+  semantic cases under pinned0.2.4; one deployment remains unsupported.
+- Only ASTRA25-11/OWN/REPLAY/UNKNOWN/BATCH fail, with exact differences and
+  forbidden receipts/inventories retained. BEFORE and BATCH-CONTROL both pass;
+  all54 prior semantic cases remain green on runtime942bdee.
+- Exact old-profile inputs remain unchanged; the pinned package snapshot is
+  .temp/impl-astra-23/package-024/memory/spec. Log deadline-vectors-first-01.log
+  exits1 intentionally. Freeze this full run before release0.2.5 adaptation.

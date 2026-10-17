@@ -1,13 +1,15 @@
 # astra-23 — package implementer verdict
 
 Current package **0.2.4-draft**, `ef0264702d3ff937bd34410ea80660b196b6f1b0`:
-all canonical and explicitly migrated supplemental semantic vectors pass after
-the R7-048 strict authority-succession correction. Independent review is pending.
+all57canonical semantic vectors pass after the R7-048 strict authority-succession
+correction. Its prior54-case supplemental corpus passes. Seven new exact expiry
+vectors expand the corpus to61: five negative cases fail, two controls pass.
+PHASE2-DEADLINE-VECTORS-FIRST preserves this run before the R7-053 correction.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 57 | 0 | 0 |
-| Supplemental semantic | 54 | 0 | 0 |
+| Supplemental semantic first | 56 | 5 | 0 |
 | Canonical / supplemental deployment | 0 / 0 | 0 / 0 | 8 / 1 |
 
 Twenty-four product plus four checker controls pass. Package structural validation
@@ -25,14 +27,15 @@ fixture authors21/24/25/26, not runtime normalization.
 
 PHASE2-DEADLINE-FIRSTe689cf2 independently preserves ASTRA25-11 fresh storage
 at/after inherited expiry and at own expiry, plus before-expiry admission and
-expired replay with no state mutation. Exact expiry code/order/replay mapping is
-pending judge/editor; those native probes stay outside the vector totals and
-are queued after the authority correction.
+expired replay with no state mutation. Judge classified R7-053/054: at/after expiry must refuse not_authorized/false
+before idempotency, including current replay without state/receipt mutation.
+Published0.2.5 contract is pending; native probes remain separate from the new
+exact vector counts. Source052 is independently owned.
 
 Judge closed R7-031 receipt/replay at a016781, R7-041 CAS at53266dd,
 R7-044/045 import coverage/transitive review atf6c339d, R7-046 actor binding
 at3ce8ee3 and R7-037 scoped retention at4af0360. Specification039/042 closed
-at23290b3; new049 release awaits judge closure. Existing deadline behavior is
+at23290b3; new049 is judge-closed at ef02647. Existing deadline behavior is
 explicitly not included in those grant-scope closure claims.
 
 Phase1 supported score was2/2 (judgeb1ae299). Phase2 remains **1/2, active**.
