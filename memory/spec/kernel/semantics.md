@@ -1,4 +1,4 @@
-# Bounded evidence memory 0.2.4-draft
+# Bounded evidence memory 0.2.5-draft
 
 This document and the closed schemas and vectors are one contract. MUST, MUST NOT,
 REQUIRED, SHALL, SHALL NOT, SHOULD and MAY have their RFC 2119 meanings. A heading
@@ -315,6 +315,17 @@ intersections can still be stored under an explicitly authorized retention
 context; they remain non-disclosable. Retain alone grants no read, use, metadata,
 forwarding or declassification permission. Existing deadlines and erasure
 fences still apply; neither context nor a release widens them.
+
+Retention is currently authorized only while the trusted intake `context.at`
+is strictly earlier than every applicable non-null `retain_until`. Equality or
+a later intake time MUST yield `not_authorized`, `retryable: false`, for the
+whole write even with matching retain grants. A null deadline adds no bound.
+Check the proposed outputs and every transitive known content input, including
+incomplete-lineage lower bounds and same-batch inputs resolved by K-DISC-1.
+An output's later or null deadline never widens an earlier input deadline.
+This is part of current retention authorization before idempotency; it is not
+`invalid_time`, because an expired but well-formed timestamp is not malformed.
+Refusal performs no purge or other mutation of existing records or receipts.
 
 ### K-PROJ-1 — Projection grammar
 
@@ -734,8 +745,9 @@ itself and the intake stamp (`context.at`, or top-level `at` for erase), which
 is not client intent. The complete retention_context is canonical intent for
 admit, admit_raw, revise and declassify. An erase request includes its entire receipt_context in
 canonical intent; changing that context under the same identity is a conflict.
-Actor and admission class remain part of that intent. A retry with a later intake
-stamp MUST replay the original receipt and preserve the original recorded time.
+Actor and admission class remain part of that intent. A currently authorized retry
+with a later intake stamp MUST replay the original receipt and preserve the original
+recorded time.
 Same identity and identical canonical request MUST replay the exact receipt,
 including handle, even if current head changed, subject to current authorization.
 For an admission/revision/declassification replay, the original outputs and
@@ -744,6 +756,11 @@ current authorization checks. Failure is `not_authorized` with no write, without
 redacting, regenerating or overwriting the original receipt. A different retention
 context is a different request; an otherwise authorized change under the same
 identity is `idempotency_conflict`. A denied attempt creates no replay entry.
+The deadline check uses the retry's current trusted `context.at`, not the
+original recorded time. An exact retry at or after an original output/input
+deadline MUST therefore refuse `not_authorized`, `retryable: false`, preserving
+the original receipt and full state. A still-live exact retry returns that
+unchanged receipt. Expiry also precedes a different-intent key conflict.
 For an erase replay, every ref in the stored receipt must still satisfy the
 receipt metadata test in K-ERASE-2; otherwise return `not_authorized` with no
 write. Never redact, regenerate or overwrite the stored receipt to make a replay
@@ -767,7 +784,8 @@ surrounding authenticated context, key and generation exactly as for admit. Rest
 boundary contracts; revoke_declassification records an external policy event;
 load, set_availability and control are harness stimuli, not
 kernel powers. Validation order is: JSON/shape/profile; policy and actor rights
-(including exact retention authority for resolved outputs and known inputs);
+(including exact retention grants, revocations and live deadlines for resolved
+outputs and known inputs at the current trusted intake time);
 idempotency replay/conflict; representation/review; erasure generation/fence;
 reference/schema/content/time/context; authority/CAS; rule/cycle; resource limits.
 Within one class use input order, then field-name order. The first violation
@@ -907,7 +925,7 @@ A refusal contains only type, code and retryable. Codes and meanings are:
 | cycle | Sufficient graph or authority-order cycle | false |
 | cross_scope | Unmapped cross-space reasoning input | false |
 | representation_invalid | No checked authority to represent issuer | false |
-| not_authorized | Missing operation right or invalid projection binding | false |
+| not_authorized | Missing operation/retention authority, expired output or known-input retention deadline, or invalid projection binding | false |
 | quarantined | No affirmative admission review | false |
 | authority_receipt_required | Missing qualifying canonical decision receipt, including a replacement/correction receipt that does not strictly succeed its target's receipt | false |
 | version_conflict | Compare-and-set head mismatch | true |

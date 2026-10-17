@@ -1,4 +1,4 @@
-# Swarma adapter contract — 0.2.4-draft
+# Swarma adapter contract — 0.2.5-draft
 
 Destination: the platform architecture repository beside the handoff-package
 contract. This is a reviewable draft in the R7 package; it does not publish or
@@ -56,7 +56,7 @@ meaning, not an unauthorized extension of an existing platform wire schema:
 | Field | Required value or meaning |
 | --- | --- |
 | classification | Literal `data` |
-| semantic_profile | Literal `0.2.4-draft` |
+| semantic_profile | Literal `0.2.5-draft` |
 | view | The closed kernel View, retaining every polarity field and item attribution |
 | scope_binding | Protected binding to recipient, audience, purpose, source frontiers and policy; disclose only admitted metadata |
 | provenance_binding | Protected per-item issuer, submitter, source owner/revision, class, qualification and lineage; retain attribution through every summary, expansion and reimport |

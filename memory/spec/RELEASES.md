@@ -1,5 +1,53 @@
 # Package releases
 
+## 0.2.5-draft
+
+Corrects judge-classified R7-054: the existing earliest retention deadline now has
+an explicit write/replay boundary and refusal mapping. For admit, admit_raw,
+revise and declassify, retention is live only when trusted current `context.at`
+is strictly earlier than every applicable non-null `retain_until` of each output
+and transitive known input. Equality and later times yield `not_authorized`,
+`retryable: false`, even with valid retain grants. Null adds no bound. Complete,
+incomplete-known and same-batch inputs use the existing closure/resolution rules;
+an output or release cannot widen an earlier input deadline.
+
+This gate belongs to current retention authorization before idempotency, not
+malformed-time validation. Replay checks the original outputs/input closure at
+the retry's current intake time. Expired exact replay refuses without replacing
+the original receipt or changing any state; a live exact replay still returns
+that receipt. Expiry also precedes different-intent key conflict. Refusal implies
+no purge job, scheduler, erasure receipt or recall of past delivery.
+
+Migration: release/profile/schema identifiers advance to 0.2.5-draft (URN version
+0.2.5); no input shape or refusal enum changes. Only P11 changes beyond those
+identifiers. Its first 16 scope/revocation operations and their expectations are
+preserved. Additional private records use an independently granted, unrevoked
+storage purpose, so expiry failures cannot be explained by those earlier revoked
+grants. A before-deadline transitive derivative and exact replay succeed. At/after
+expiry, fresh writes and replay refuse. An own-deadline admit_raw, an incomplete
+known-input derivation and an atomic batch with a later-listed expired input also
+refuse. An authorized changed-context retry refuses before idempotency conflict.
+The batch includes an unrelated valid output: it must not commit partially.
+A subsequent unlimited direct output succeeds under the failed attempts' key,
+proving no reserved key or partial record. No extra cut is visible before it.
+Canonical inventories do not expose every protected runtime component; full-state
+and original-receipt preservation remain implementation verification obligations.
+
+All other 64 vectors and the reusable decision fixture are unchanged after
+version normalization. Inventory: 65 vectors (57 semantic / 8 deployment),
+52 clauses, 14 schemas and 94 JSON artifacts. Structural validation, deterministic
+regeneration and syntax checks pass; all 34 checker controls detect intended
+violations, including a successful expired replay planted against P11's predicate.
+
+Unchanged package runtime `942bdee` gives 56 semantic passes and only P11 failure;
+eight deployment cases are unsupported. Eight isolated negative inputs preserve
+five forbidden fresh commits, two forbidden successful expired replays and one
+wrong idempotency-conflict precedence. A separate prescribed positive trace
+matches all fields for the original scope/revocation controls, before-deadline
+writes/replay and later unlimited output. This is red/positive regression evidence,
+not a corrected 0.2.5 conformance claim. R7-052/053 runtime corrections and exact
+supplemental migrations remain independent work.
+
 ## 0.2.4-draft
 
 Corrects judge-classified R7-049: K-REV-3 already required an authoritative

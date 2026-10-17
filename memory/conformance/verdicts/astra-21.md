@@ -1,22 +1,22 @@
 # astra-21 package editor verdict
 
-Status: round 9, Phase 2 active; no PARK. Current package: **0.2.4-draft**,
-published by this signed release commit for judge-classified R7-049.
+Status: round 10, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
+published by this signed release commit for judge-classified R7-054.
 
-**All prior 12 editor-owned specification bugs are judge-closed; R7-049 is
-review-ready in this release. Phase 2 remains 1/2.** The exact authority-succession
-refusal mapping now agrees with the source requirement and preserves direct and
-transitive successor, plain import, replay and CAS boundaries. R7-047/048 are
-separate implementation defects; their first evidence remains unchanged.
+**All prior 13 editor-owned specification bugs are judge-closed; R7-054 is
+review-ready in this release. Phase 2 remains 1/2.** R7-049 was accepted at
+`ef02647` by judge event `$pNoW3rbOWwkEJDE5jKrGOsRL9nD9Ngyuo48i_zazdJ0`.
+The new release makes expiry's boundary/code/order/replay explicit without a
+new shape, code enum or purge mechanism. R7-052/053 remain runtime work.
 
-On the uncommitted 0.2.4 candidate, unchanged package runtime `4af0360` gives
-56/1/0 semantic, with B01 the sole intended regression failure. Separate positive
-traces match every expected field. This is not a passing new-release claim.
-Previously independently verified 0.2.3 source `d077064` and package `4af0360`
-give 49/57 dual canonical passes; the judge has since closed retention R7-036/037
-and delivery-actor R7-046. New source coverage and adversarial results are tracked
-by the judge's [score](../R7-SCORE.md) and [ledger](../LEDGER.md), separately from
-this editor's verification. No full-profile or protected deployment claim follows.
+Unchanged package runtime `942bdee` gives 56/1/0 on the uncommitted 0.2.5
+candidate: P11 is the sole intended failure. Separate prescribed positive traces
+match every field, including all old scope/revocation controls. This is a red
+baseline, not a passing new-release claim. The exact 0.2.4 successor correction
+has separate independent reviews; this editor has queued the requested frozen
+release verification after publication. Judge [score](../R7-SCORE.md) and
+[ledger](../LEDGER.md) track current source coverage and closures. No full-profile
+or protected deployment claim follows.
 
 ## Scope and independence
 
@@ -196,6 +196,37 @@ command log, and `succession-024-probes.py/json` with `succession-024-probes-01.
 Original ASTRA24-10 first inputs/results and new adversary-owned exact vectors are
 untouched. Independent release execution and judge review remain required.
 
+## Round 10: retention deadline boundary and replay
+
+Judge `$JPRw0HAxhQiEJ-rN4erBtnvRBnBXixLi2Rap_jcFAN0` assigns R7-054 and the
+separate runtime R7-052/053 findings. A live write requires trusted context.at
+strictly before every non-null deadline on outputs and transitive known inputs.
+At/after expiry is not_authorized,false in current retain authorization before
+idempotency. Replay uses current time with original outputs/closure and preserves
+the original receipt/full state on refusal. Null adds no bound; incomplete-known
+and same-batch resolution remain as before. No purge is inferred.
+
+P11 retains all old 16 scope/revocation operations/results and adds separate
+unrevoked purpose-bound deadline controls: transitive before/at/after, exact
+replay, own deadline through admit_raw, incomplete known input, atomic batch with
+later-listed expired input and valid sibling, changed-intent ordering, no extra
+cut, then unlimited same-key success. Only P11 changes beyond version IDs; all
+other64 vectors and the decision pilot remain unchanged.
+
+94JSON/14schemas/65vectors/52clauses/34checker plants validate and regenerate
+identically. Unchanged942bdee full red56/1/0 isolates P11. Eight standalone negative
+inputs preserve five forbidden commits, two expired successful replays and one
+wrong conflict priority. The separate full-field positive trace preserves all
+old scope/revocation checks and new live/null successes. Native full-state and
+stored-receipt enforcement still require the runtime corrections.
+
+Evidence under `.temp/astra-21/`: `retention-deadline-review.md`,
+`validate-18.log` (rejected predicate authoring attempt), `validate-20.log`,
+`regeneration-06.log`, `expected-delta-025-01.log`,
+`package-evaluator-025-red.md/json` with command/exit log, and
+`deadline-025-probes.py/json` with `deadline-025-probes-01.log`.
+Original adversary and implementation first evidence remains untouched.
+
 ## Previous 0.2.1 validation and execution evidence
 
 `python3 memory/spec/checks/validate.py` passes: 94 JSON artifacts, 14 closed
@@ -243,8 +274,8 @@ B01/B07/P05/P06/P08/P12/S07/S17/S20/S23/S24/S25/S26/S27. Adversaries target thos
 clauses and the v0.2 delta. The editor will apply resulting judge-classified
 package fixes with preserved regression controls and a versioned 0.2.x release.
 R7-031/039/042 are judge-closed. Exact-release retention enforcement in R7-036/037
-is independently verified by this editor and judge-closed. R7-049 now awaits
-review of 0.2.4; R7-047/048 remain with evaluator owners. Remaining unsupported
+is independently verified by this editor and judge-closed. R7-049 is judge-closed at ef02647; R7-054 now awaits review of 0.2.5.
+R7-052/053 remain with evaluator owners. Remaining unsupported
 source semantics still require implementation and review;
 adversary fixtures have explicit 0.2.3 migrations. Other newly classified implementation defects remain with
 their evaluator owners; no expected answer was changed to match an evaluator.

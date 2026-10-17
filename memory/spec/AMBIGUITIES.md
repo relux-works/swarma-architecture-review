@@ -127,3 +127,14 @@ successful replay precedes it. Ordinary incomparable canonical plain import
 remains permitted. B01 pairs four atomic-refusal traces with direct/transitive
 successors, preserved original replay and a separate stale-CAS refusal.
 No new refusal enum, total authority order or owner decision is introduced.
+
+## 0.2.5-draft retention deadline gate
+
+R7-054 explicitly maps the already-required retention horizon to current storage
+authority: trusted context.at must be strictly before each non-null output/known
+input deadline, otherwise not_authorized,false before idempotency. Original
+outputs and transitive known inputs are rechecked at current retry time, without
+purging state or rewriting receipts. Null adds no bound; incomplete lower bounds
+and whole-batch resolution remain unchanged. P11 uses an unrevoked separate
+storage purpose to isolate deadline failures from its preserved grant-revocation
+controls. No owner decision, new time source or scheduled erasure is invented.

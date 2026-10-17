@@ -131,3 +131,32 @@ and ordinary incomparable import with no replacement/dirty effect. No evaluator
 receives expected output; comparison follows execution. Negative state mutation
 is the known failure witness, not a passing implementation. R7-047/048 runtime
 corrections and independent release runs remain separate work.
+
+## Editor release: 0.2.5-draft
+
+Scope: R7-054 exact live-deadline boundary, refusal, validation order and replay.
+K-AUTH-1/K-API-1/2/K-REF-1 now make the K-DISC-1 deadline executable at current
+trusted intake: strict before succeeds, at/after refuses not_authorized,false
+before idempotency. Original stored receipts/full state remain unchanged on
+refusal; no purge behavior is implied. All four storage APIs share the gate.
+
+P11 retains the old 16-operation grant/revocation trace and adds a separate
+unrevoked storage scope for finite/transitive, own/admit_raw, incomplete-known,
+same-batch, expired-replay, ordering and null-deadline controls. Exact expected
+answers are manually specified. Only P11 differs after version normalization;
+other64 vectors and the reusable pilot are unchanged. The structural checker
+initially rejected an authoring attempt to use an object as a forbidden-predicate
+value; that attempt was replaced with the existing scalar/exists vocabulary.
+The initial failure remains in validate-18.log, not counted as semantic evidence.
+
+Validation: validate-20.log, 94JSON/65vectors/52clauses/34intended violations;
+regeneration-06.log, deterministic artifacts and Python syntax;
+expected-delta-025-01.log, exact delta. package-evaluator-025-red.md/json and its
+command/exit log show unchanged942bdee56/1/0 (onlyP11), deployment8unsupported.
+deadline-025-probes.py/json/log isolate all eight negative inputs from the same
+authorized prefix, preserving full states and exact actuals: five forbidden
+commits, two expired successful replays, one wrong conflict precedence. The
+separate positive trace passes every expected field after declared handle
+normalization, including all original scope/revocation controls. Artifacts stay
+under the editor's task-scoped scratch. These checks do not prove corrected
+refusal, physical erasure or any deployment property.

@@ -2529,7 +2529,7 @@
       },
       {
         "type": "view",
-        "semantic_profile": "0.2.4-draft",
+        "semantic_profile": "0.2.5-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -2658,7 +2658,7 @@
       },
       {
         "type": "view",
-        "semantic_profile": "0.2.4-draft",
+        "semantic_profile": "0.2.5-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -2816,7 +2816,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.4-draft",
+      "semantic_profile": "0.2.5-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

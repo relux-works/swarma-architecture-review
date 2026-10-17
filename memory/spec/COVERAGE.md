@@ -53,7 +53,7 @@ clauses. A citation does not claim exhaustive testing of every sentence.
 | P08 | semantic | K-ERASE-1, K-ERASE-2, K-DISC-1, K-API-1, K-AUTH-1 | kernel §7.1, §12 P08; profiles gaps A4 |
 | P09 | semantic | K-DISC-4, K-DISC-2, K-NI-1 | kernel §9.4, §12 P09; profiles gaps A5 |
 | P10 | semantic | K-REV-1, K-ENV-2, K-API-1, K-TIME-1 | kernel §5.2, §12 P10; profiles gaps A3 |
-| P11 | semantic | K-DISC-1, K-AUTH-1, K-ENV-3, K-API-1, K-API-2, K-TIME-1 | kernel §7.1, §12 P11; profiles gaps A4; explicit retention purpose |
+| P11 | semantic | K-DISC-1, K-AUTH-1, K-ENV-3, K-API-1, K-API-2, K-REF-1, K-TIME-1 | kernel §7.1, §12 P11; profiles gaps A4; explicit retention purpose |
 | P12 | semantic | K-SNAP-1, K-PUB-1, K-AUTH-1, K-SCOPE-1 | kernel §§1,6.4,9.3, §12 P12 |
 | P13 | semantic | K-DISC-1, K-ENV-3, K-PROJ-1, K-NI-1, K-AUTH-1, K-API-1 | kernel §§7.1,8, §12 P13; known-input retention and atomic intake |
 | P14 | semantic | K-REV-4, K-REV-1, K-API-1 | kernel §§5.2,5.4, §12 P14 |

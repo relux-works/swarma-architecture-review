@@ -79,7 +79,7 @@ def audience_item(i,handle):
 
 def view(items=(),q=None,current=None,historical=(),review=(),cutoffs=(),explanation=None,changes=None):
  q=q or Q()
- return dict(type='view',semantic_profile='0.2.4-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
+ return dict(type='view',semantic_profile='0.2.5-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
 def refused(code): return dict(type='refusal',code=code,retryable=code in ['version_conflict','policy_mismatch','stale_generation','erasure_incomplete','publication_stale','unavailable'])
 def receipt(op,rs=(),outcome=None,custody=(),status=None,handle='@receipt'):
  return dict(type='receipt',operation=op,outcome=outcome or dict(admit='admitted',revise='revised',erase='purged',declassify='declassified',revoke='revoked',revoke_declassification='revoked',restore='fenced',deliver='delivered',control='proceeded',load='proceeded',set_availability='availability_changed')[op],receipt_handle=handle,refs=sorted([rr(x) if 'envelope' in x else x for x in rs],key=key),custody=sorted(custody),erasure_status=status)
@@ -335,11 +335,26 @@ root=A('retained-root','synthetic retained input',private=True)
 a=A('private','synthetic private',private=True,lineage=[rr(root)])
 b=A('paraphrase','synthetic rewording',lineage=[rr(a)])
 probe=A('scope-probe','synthetic direct probe')
-s=state([root,a],review=[b,probe]);q=Q(cut=101);qp=Q(aud=PRIV,targets=[b],cut=101)
+# Deadline controls use a separate, unrevoked storage purpose from the scope controls.
+deadline='2026-10-17T00:00:02Z';before_deadline='2026-10-17T00:00:01Z';after_deadline='2026-10-17T00:00:03Z'
+deadline_root=A('deadline-root','finite retained input',private=True)
+deadline_root['envelope']['disclosure']['retain_until']=deadline
+deadline_mid=A('deadline-intermediate','transitive retained input',private=True,lineage=[rr(deadline_root)])
+live=A('deadline-live','before-deadline derivative',private=True,lineage=[rr(deadline_mid)])
+late=A('deadline-late','expired derivative',private=True,lineage=[rr(deadline_mid)])
+unknown=A('deadline-unknown','incomplete inputs still carry a known deadline',sch='decision_proposal',private=True,lineage='unknown',cls='semantic_inference')
+unlimited=A('deadline-open','unlimited direct output',private=True)
+stage=A('deadline-stage','expired same-batch input',private=True);stage['envelope']['disclosure']['retain_until']=deadline
+child=A('deadline-batch-child','same-batch derivative',private=True,lineage=[rr(stage)])
+deadline_outputs=[live,late,unknown,unlimited,stage,child]
+s=state([root,a,deadline_root,deadline_mid],schemas=['decision_proposal'],review=[b,probe]+deadline_outputs);q=Q(cut=103);qp=Q(aud=PRIV,targets=[b],cut=101)
+for fact in s['policy']['lineage_facts']:
+ if fact['output']==rr(unknown):fact.update(kind='model',inputs=[rr(deadline_root)],complete=False)
 for g in s['policy']['grants']:g['rights'].remove('retain')
 def retain_grant(records,purpose=READ,aud=PRIV):
  g=grant(aud=aud,purpose=purpose);g.update(rights=['retain'],records=sorted(x['envelope']['id'] for x in records),metadata=False);return g
 s['policy']['grants'] += [retain_grant([root,a,b,probe]),retain_grant([root,a,b],purpose='purpose:storage-alt'),retain_grant([root,a,probe],purpose='purpose:missing-output'),retain_grant([root,b],purpose='purpose:missing-direct-input'),retain_grant([a,b],purpose='purpose:missing-transitive-input')]
+s['policy']['grants'] += [retain_grant([deadline_root,deadline_mid]+deadline_outputs,purpose=PUBLISH),retain_grant([deadline_root,deadline_mid,live],purpose='purpose:deadline-alt')]
 other='principal:other';other_space='space:other'
 for actor,space in [(other,SPACE),(H,other_space)]:
  g=grant(actor,space=space,aud=PRIV);g.update(rights=['admit'],metadata=False);s['policy']['grants'].append(g)
@@ -352,7 +367,19 @@ revoke_retain=dict(op='revoke',actor=H,at=T,principal=H,audience=PRIV,purpose=RE
 fresh=cp(allowed);fresh['idempotency_key']='key:after-revocation'
 ops=denied+[capture(qp),allowed,retry,changed,capture(qp),revoke_retain,cp(retry),fresh,capture(qp)]
 results=[refused('not_authorized') for _ in denied]+[refused('invalid_time'),receipt('admit',[b]),receipt('admit',[b]),refused('idempotency_conflict'),view([item(b)],qp),receipt('revoke'),refused('not_authorized'),refused('not_authorized'),view([item(b)],qp)]
-emit('P11','Exact retention scope admits a private derivative without widening disclosure',s,q,view([],q),['K-DISC-1','K-AUTH-1','K-ENV-3','K-API-1','K-API-2','K-TIME-1'],ops=ops,results=results,added=[b],replays=[(8,9)],pairs=[('/operation_results/11','/operation_results/15')],forbid=[forbidden('/result/items','size_equals',1)]+[forbidden(f'/operation_results/{n}/type',value='receipt') for n in list(range(8))+[10,13,14]]+[forbidden('/postconditions/record_refs','size_equals',4)])
+def deadline_at(operation,at):
+ operation=cp(operation);operation['context']['at']=at;return operation
+live_write=deadline_at(admit([live],key='key:deadline-live',aud=PRIV,purpose=PUBLISH),before_deadline)
+late_write=deadline_at(admit([late],key='key:deadline-late',aud=PRIV,purpose=PUBLISH),deadline)
+open_write=deadline_at(admit([unlimited],key='key:deadline-open',aud=PRIV,purpose=PUBLISH),after_deadline)
+expired_own=cp(unlimited);expired_own['envelope']['disclosure']['retain_until']=deadline
+raw_own=dict(op='admit_raw',context=ctx(aud=PRIV,purpose=PUBLISH),idempotency_key='key:deadline-open',raw_json=json.dumps(dict(proposals=[proposal(expired_own)]),sort_keys=True,separators=(',',':')),expected_generation=0)
+changed_expired=deadline_at(live_write,deadline);changed_expired['context']['retention_context']['purpose']='purpose:deadline-alt'
+# Expired replay, fresh writes, unknown lower bounds and the whole batch all refuse before key handling.
+expired=[deadline_at(live_write,deadline),late_write,deadline_at(raw_own,deadline),deadline_at(admit([unknown],key='key:deadline-unknown',cls='semantic_inference',aud=PRIV,purpose=PUBLISH),deadline),deadline_at(admit([unlimited,child,stage],key='key:deadline-open',aud=PRIV,purpose=PUBLISH),deadline),changed_expired,deadline_at(late_write,after_deadline),deadline_at(live_write,after_deadline)]
+ops += [live_write,cp(live_write)]+expired+[capture(Q(aud=PRIV,targets=[unlimited],cut=103,now=after_deadline)),open_write]
+results += [receipt('admit',[live]),receipt('admit',[live])]+[refused('not_authorized') for _ in expired]+[refused('invalid_time'),receipt('admit',[unlimited])]
+emit('P11','Exact scope and live deadlines govern retention and replay',s,q,view([],q),['K-DISC-1','K-AUTH-1','K-ENV-3','K-API-1','K-API-2','K-REF-1','K-TIME-1'],ops=ops,results=results,added=[b,live,unlimited],replays=[(8,9),(16,17)],pairs=[('/operation_results/11','/operation_results/15')],forbid=[forbidden('/result/items','size_equals',1)]+[forbidden(f'/operation_results/{n}/type',value='receipt') for n in list(range(8))+[10,13,14]+list(range(18,26))]+[forbidden('/operation_results/26/type',value='view')]+[forbidden('/postconditions/record_refs/7','exists',None)])
 
 # P12: one frozen historical response survives, but current permission does not.
 a=A('snapshot-interest','gardening',sch='interest',cls='self_declaration')

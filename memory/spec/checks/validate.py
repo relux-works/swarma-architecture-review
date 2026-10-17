@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE='urn:bounded-evidence:0.2.4:'
+BASE='urn:bounded-evidence:0.2.5:'
 ERRORS=[]
 class Invalid(ValueError): pass
 
@@ -367,6 +367,12 @@ def controls(validator,vectors):
     pred=next(x for x in positive['forbidden'] if x['path']=='/operation_results/0/type')
     require(forbidden_true(report,pred),'retention unauthorized-write plant not detected')
     cases.append('retention-unauthorized-write')
+    # The expiry boundary must reject replay even though the original receipt was authorized.
+    report=copy.deepcopy(positive['expected'])
+    report['operation_results'][18]=copy.deepcopy(report['operation_results'][16])
+    pred=next(x for x in positive['forbidden'] if x['path']=='/operation_results/18/type')
+    require(forbidden_true(report,pred),'expired-retention replay plant not detected')
+    cases.append('expired-retention-replay')
     # Future facts are permitted; accepted batches and admitted snapshots still require actual inputs.
     positive=vectors['P13'];docs={schema_ref(d):d for d in positive['initial_state']['domain_schemas']}
     check_state(positive['initial_state'],docs);check_admission_facts(positive)
