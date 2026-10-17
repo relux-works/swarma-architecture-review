@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 8, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, round 9, 2026-10-17.
 
 ## Baseline and scope
 
@@ -263,3 +263,34 @@ No cases or directed requests were outstanding at initialization.
   A separate source quality-budget case from astra-25 remains under collective
   classification/fix, so this seat keeps the collective row **1/2** pending
   the final ledger. Deployment remains unsupported.
+
+## Round 9 — final correction regression check
+
+The package remains `0.2.1-draft` at `f31d58f`. After the source budget and
+source-state corrections, reran the same eight owned inputs without modification:
+
+| Evaluator head | Owned pass | Owned fail | Owned unsupported | Canonical published semantic pass/fail/unsupported |
+| --- | ---: | ---: | ---: | --- |
+| Source `512d006` | 7 | 0 | 1 | 43 / 0 / 14 |
+| Package `8b9baf3` (execution code unchanged from `f5fdd8b`) | 8 | 0 | 0 | 57 / 0 / 0 |
+
+The source's only owned unsupported case remains ASTRA26-02 unconfirmed
+publication currentness, with its checked positive control passing. R7-010
+alias attribution and R7-022 self-declaration attribution retain both positive
+and negative guarantees in both evaluators. Inputs and expected answers were
+not changed. Source controls: 33 core + 5 adapter + 7 transaction + 5 comparator.
+Package controls: 4 comparator + 10 product. All passed.
+
+Evidence in seat `.temp/r7-astra-26/`: `owned-cases-astra22-03.json`,
+`owned-cases-astra23-05.json`, `astra22-source-controls-03.log`,
+`astra22-adapter-controls-03.log`, `astra22-transaction-controls-03.log`,
+`astra23-controls-04.log` and `astra23-semantics-02.log`. Fresh package validation
+(`validate-04.log`) and owned structural checks (`cases-structural-05.log`) pass;
+20 package checker controls retain their intended rejection behavior. The
+checkout was clean after these read-only executions.
+
+No new case, divergence, owner question or package change arose. The collective
+row remains **1/2 pending judge verification/closure of R7-029**; no passing
+local regression run substitutes for that review. All canonical deployment
+vectors remain unsupported, and no live publication or protected service was
+qualified.
