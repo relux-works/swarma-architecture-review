@@ -368,3 +368,17 @@ Before-expiry admission succeeds. Expired exact replay returns the existing
 receipt without state writes. All input shapes validate, full states and hashes
 are retained; expiry code/order/replay adjudication remains pending. These native
 probes are outside vector totals and queued behind the succession correction.
+
+### R7-048 correction against released0.2.4
+
+The shared canonical receipt-DAG traversal now requires a nonempty strict path
+for authoritative replace/correct. Missing, prior, identical and incomparable
+receipts refuse authority_receipt_required/false atomically; valid same-key retry,
+direct/transitive successors, plain incomparable import, exact successful replay
+and distinct CAS conflicts retain their contracts. Native before/after comparisons
+include entire state, dirty-since, captures and bindings.
+
+All57canonical and54explicitly migrated supplemental semantic vectors pass;
+24product+4checker controls and33package plants pass. First47c0205,0641033 and
+e689cf2 reports remain unchanged. Independent review is requested; expiry remains
+a separate untyped native observation, not silently folded into this correction.

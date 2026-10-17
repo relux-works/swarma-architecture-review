@@ -368,6 +368,60 @@ class Semantics(unittest.TestCase):
         final = e.operation(op, 4)
         self.assertEqual(final.get("outcome"), "revised", final)
 
+    # K-REV-3: both authoritative relations reject each non-successor atomically;
+    # the same key then accepts a direct successor, so rejection cannot consume intent.
+    def test_authority_replacement_succession(self):
+        v = vector("B01")
+        refusal = {"type": "refusal", "code": "authority_receipt_required", "retryable": False}
+        for relation in ("replace", "correct"):
+            for index in range(4):
+                with self.subTest(relation=relation, receipt_class=index):
+                    e = engine(v)
+                    op = copy.deepcopy(v["operations"][index])
+                    op["revision"]["body"]["relation"] = relation
+                    before = copy.deepcopy((e.state, e.dirty_since, e.captures, e.view_bindings))
+                    self.assertEqual(e.operation(op, index), refusal)
+                    self.assertEqual((e.state, e.dirty_since, e.captures, e.view_bindings), before)
+                    valid = copy.deepcopy(v["operations"][6])
+                    valid["revision"]["body"]["relation"] = relation
+                    self.assertEqual(valid["idempotency_key"], op["idempotency_key"])
+                    self.assertEqual(e.operation(valid, 6)["outcome"], "revised")
+                    self.assertEqual(len(e.state["records"]), len(before[0]["records"]) + 2)
+                    self.assertEqual(e.state["runtime"]["memory_cut"], before[0]["runtime"]["memory_cut"] + 2)
+                    self.assertEqual(len(e.state["runtime"]["idempotency"]), 1)
+
+    # K-REV-1/3: direct/transitive success and immutable replay retain precedence over CAS;
+    # ordinary incomparable admission still creates ambiguity without a revision or dirtiness.
+    def test_authority_successor_positive_boundaries(self):
+        v = vector("B01")
+        e = engine(v)
+        direct = e.operation(v["operations"][6], 6)
+        self.assertEqual(direct["outcome"], "revised")
+        self.assertEqual(e.operation(v["operations"][8], 8)["outcome"], "revised")
+        before = copy.deepcopy((e.state, e.dirty_since, e.captures, e.view_bindings))
+        self.assertEqual(e.operation(v["operations"][9], 9), direct)
+        self.assertEqual((e.state, e.dirty_since, e.captures, e.view_bindings), before)
+        self.assertEqual(e.operation(v["operations"][10], 10),
+                         {"type": "refusal", "code": "version_conflict", "retryable": True})
+        self.assertEqual((e.state, e.dirty_since, e.captures, e.view_bindings), before)
+        self.assertEqual(compare(engine(v).execute(v["operations"], v["query"]), v,
+                                 Grammar(SPEC / "kernel/schemas")), ([], []))
+        e = engine(v)
+        op = v["operations"][3]
+        admitted = e.operation({"op": "admit", "context": copy.deepcopy(op["context"]),
+            "proposals": [copy.deepcopy(op["replacement"])], "idempotency_key": "key:plain-import",
+            "expected_generation": op["expected_generation"]}, 0)
+        self.assertEqual(admitted["outcome"], "admitted")
+        self.assertFalse(any(r["envelope"]["kind"] == "revision" for r in e.state["records"]))
+        self.assertEqual(e.state["runtime"]["dirty"], v["initial_state"]["runtime"]["dirty"])
+        q = copy.deepcopy(v["query"])
+        q["cut"]["memory"] = e.state["runtime"]["memory_cut"]
+        result = e.read(q)
+        self.assertEqual(result["currentness"], "ambiguous_current")
+        self.assertEqual([item["ref"] for item in result["items"]],
+                         [{"id": "rec:d", "version": 1}, {"id": "rec:d", "version": 2}])
+        self.assertEqual(result["historical"], [])
+
     # K-PUB-2/K-DISC-3: every exact associated publication needs its own current check;
     # same-origin copies keep evidence/source identity while missing checks downgrade currentness.
     def test_import_check_coverage(self):
@@ -675,10 +729,11 @@ class Semantics(unittest.TestCase):
     def test_b01_lineage_fact_control(self):
         v = vector("B01")
         e = engine(v)
-        revision = v["operations"][0]["revision"]
+        operation = v["operations"][6]  # 0.2.4's direct-successor positive follows four refusals.
+        revision = operation["revision"]
         e.state["policy"]["lineage_facts"] = [f for f in e.state["policy"]["lineage_facts"] if f["output"] != ref(revision)]
         before = copy.deepcopy(e.state)
-        self.assertEqual(e.operation(v["operations"][0], 0)["code"], "invalid_reference")
+        self.assertEqual(e.operation(operation, 6)["code"], "invalid_reference")
         self.assertEqual(e.state, before)
         template = copy.deepcopy(e.state["policy"]["lineage_facts"][0])
         template.update(output=ref(revision), kind="direct", inputs=[], complete=True)

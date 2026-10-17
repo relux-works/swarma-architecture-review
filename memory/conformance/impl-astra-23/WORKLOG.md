@@ -694,3 +694,52 @@ will prove semantic differences and forbidden effects are detected.
   full-release baseline; supplemental authors must migrate profiles explicitly.
 - Logs: deadline-first-01.log (superseded metadata label), deadline-first-02.log,
   release-024-first-01.log (intended exit1). Original first artifacts untouched.
+
+## Round 27 — implement R7-048 against released0.2.4
+
+- Full release first e689cf2 is committed before adaptation; exact authored0.2.3
+  succession first0641033 and original native47c0205 stay immutable.
+- Add red controls for both replace/correct across missing, prior, identical and
+  incomparable receipts, entire state/dirty/captures/bindings preservation and
+  same-key direct-successor retry. Preserve transitive successor, exact replay
+  after a later head, separate CAS failure and plain incomparable import.
+- Share one canonical strict ancestry traversal with authority current-head
+  selection, avoiding arrival order or assertion-only intermediate requirements.
+  Enforce the new gate only for authoritative replacement/correction.
+- Explicitly migrate the old own B01 lineage regression to the released successful
+  operation6; the public vector remains untouched. Run canonical, migrated
+  supplemental, product/checker and package structural controls after correction.
+
+### Round 27 correction progress
+
+- Red successor controls produce seven intended assertions: six forbidden writes
+  across replace/correct plus the exact expandedB01 trace. After the runtime gate,
+  new negative/positive/full-state tests and the migrated lineage control pass.
+- Canonical0.2.4 now57/57; four checker controls and all33package plants pass.
+- Partial existing product run intentionally omitted two ASTRA24 profile-dependent
+  controls but encountered a third old-profile exact comparison in transitive review.
+  This metadata migration failure is not a runtime regression or passing evidence;
+  full product/supplemental runs await the author's explicit0.2.4 migration.
+- Logs: succession-red-01.log, succession-green-01.log,
+  succession-native-partial-01.log, canonical-round27-01.log, controls-14.log,
+  package-024-01.log. No expected fixture/profile rewrite by this seat.
+
+### Round 27 final correction outcome
+
+- One canonical strict predecessor traversal now drives receipt head selection and
+  authoritative replace/correct qualification; equality is explicitly not succession.
+  Canonical receipt-only intermediate events need no corresponding decision assertion.
+- Missing/prior/identical/incomparable receipt refusals preserve all state, dirty-since,
+  captures and bindings. Same-key valid retry succeeds. Direct/transitive successors,
+  original receipt replay after a later head, separate CAS conflict and incomparable
+  plain import remain valid. Gate runs after current-head checks and before commit;
+  successful authorized replay returns before attempting a new succession.
+- After owner609853e explicitly migrates the last20fixtures, full24product+4checker
+  controls pass. Current0.2.4 canonical57/57 and supplemental54/54 pass; deployment
+  eight canonical/one supplemental remain unsupported. All33package plants pass.
+- Self-review checked only the two runtime changes (shared traversal and scoped
+  admission gate), independent input/expected separation, prior CAS/retention/replay
+  coverage and unchanged first artifacts. No foreign evaluator code was read.
+- Final logs: succession-native-green-01.log, supplemental-round27-01.log plus
+  canonical-round27-01.log/controls-14.log/package-024-01.log. R7-048 awaits
+  independent review; ASTRA25-11 expiry code/order/replay remains separately pending.

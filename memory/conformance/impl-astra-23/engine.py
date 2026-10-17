@@ -53,19 +53,26 @@ class Engine:
         return (e["issuer"], e["subject"], e["space"], key(e["schema"]), cjson(e["perspective"]), b["slot"],
                 e["id"] if domain["cardinality"]["mode"] == "multi" else None)
 
-    def authority_heads(self, candidates):
+    def authority_succeeds(self, later, earlier):
         events = {key(e["receipt"]): e for e in self.state["policy"]["authority_events"] if e["canonical"]}
+        later, earlier = key(later), key(earlier)
+        if later == earlier or later not in events or earlier not in events:
+            return False
+        pending, seen = [later], set()
+        while pending:
+            current = pending.pop()
+            if current in seen or current not in events:
+                continue
+            seen.add(current)
+            predecessors = {key(r) for r in events[current]["predecessors"]}
+            if earlier in predecessors:
+                return True
+            pending.extend(predecessors - seen)
+        return False
 
-        def succeeds(a, b, seen=None):
-            seen = set() if seen is None else seen
-            if a in seen or a not in events:
-                return False
-            seen.add(a)
-            predecessors = {key(x) for x in events[a]["predecessors"]}
-            return b in predecessors or any(succeeds(p, b, seen) for p in predecessors)
-
-        return [r for r in candidates if not any(succeeds(key(o["body"]["authority_receipt"]),
-                                                        key(r["body"]["authority_receipt"])) for o in candidates)]
+    def authority_heads(self, candidates):
+        return [r for r in candidates if not any(self.authority_succeeds(o["body"]["authority_receipt"],
+                                                                       r["body"]["authority_receipt"]) for o in candidates)]
 
     def revision_head(self, target):
         records = self.state["records"]
@@ -426,6 +433,11 @@ class Engine:
                         raise Refused("invalid_reference")
                     if any(replacement["envelope"][k] != target["envelope"][k] for k in ("issuer", "subject", "space", "schema", "perspective")):
                         raise Refused("invalid_domain_value")
+                    if (relation in ("replace", "correct") and target["envelope"]["kind"] == "assertion"
+                            and target["body"]["statement_kind"] == "decision_record"
+                            and not self.authority_succeeds(replacement["body"]["authority_receipt"],
+                                                            target["body"]["authority_receipt"])):
+                        raise Refused("authority_receipt_required")
         for r in proposed:
             if key(r) in original:
                 raise Refused("duplicate_record")
