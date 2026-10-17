@@ -18,6 +18,22 @@ def fixture(name):
 
 
 class AtomicControls(unittest.TestCase):
+    # R7-040 NEXT: after withdrawing the unique current authority record, the
+    # next active receipt candidate is writable. Frozen captures remain history.
+    def test_authority_next_after_withdrawal(self):
+        path = Path(__file__).resolve().parents[1] / "cases/astra-24-ambiguous-cas-next.vector.json"
+        v = json.loads(path.read_text())
+        adapter = Adapter(v["initial_state"], "control")
+        writer = Transactions(adapter)
+        receipts = []
+        for op in v["operations"]:
+            if op["op"] == "revise":
+                receipts.append(writer.apply(op))
+        self.assertEqual([r["outcome"] for r in receipts], ["revised", "revised"])
+        self.assertEqual(adapter.runtime["memory_cut"], 102)
+        self.assertEqual(len(adapter.runtime["idempotency"]), 2)
+        self.assertEqual(len(adapter.records), 8)
+
     # R7-040: ambiguous and historical authority candidates refuse atomically;
     # a uniquely ordered current candidate and challenge exemption still succeed.
     def test_authority_slot_cas(self):
@@ -81,7 +97,7 @@ class AtomicControls(unittest.TestCase):
         # The same common successor also produces one head from the original
         # incomparable receipt graph, independently of memory arrival order.
         adapter.policy["authority_events"][2]["predecessors"] = [{"id": "rec:receipt1", "version": 1}]
-        self.assertEqual(writer.head(decision, adapter.records), ref(later["revision"]))
+        self.assertEqual(writer.head(decision, adapter.records), {"id": "rec:d", "version": 2})
 
     # R7-030: an admitted snapshot replays the exact old receipt across intake
     # times, rejects changed intent, and preserves all records/runtime state.
