@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 14, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 15, 2026-10-17.
 
 ## Baseline and scope
 
@@ -425,3 +425,23 @@ Source proof enumeration has independently reported dual canonical coverage
   `owned-cases-astra22-06.json`, `owned-cases-astra23-09.json` and matching logs.
   Earlier reports and first failures remain preserved. No expected answer in
   an existing fixture changed. Current row **1/2**; deployment unqualified.
+
+## Phase 2 round 15 — source delivery and actor-binding challenge
+
+- Source `5d079be` executes the previously unsupported selected/excluded pair:
+  both pass unchanged. Independently verified canonical P06/P12 and reviewed/ran
+  eight boundary controls for current rights, binding, expiry, fences, frozen
+  captures and unrelated revocation scope. Canonical source report is now
+  **49/0/8**; full dual coverage is still not claimed.
+- Added ASTRA26-10: an ungranted foreign actor reuses the owner's saved delivery
+  index. Package `a016781` returns a delivered receipt, whereas the actor-rights
+  contract requires not_authorized. Source returns the exact refusal. The same
+  trace retains the owner's successful delivery and its later post-revoke refusal.
+- Current owned totals on 0.2.2: **source 15/0/0; package 13/2/0**. Package
+  differences are the newly submitted ASTRA26-09/10; neither is self-classified.
+  All fifteen owned structural checks pass. No pre-existing oracle changed.
+- Evidence: seat `.temp/r7-astra-26/owned-cases-astra22-07.json`,
+  `owned-cases-astra22-08.json`, `owned-cases-astra23-10.json`,
+  `delivery-astra22-01.json`, `astra22-boundary-controls-01.log` and
+  `cases-structural-09.log`. First failures are preserved for judge review.
+  Current score remains **1/2**; no protected deployment or actual send is tested.

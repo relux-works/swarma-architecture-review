@@ -90,3 +90,18 @@ Exact old/new package reports and control logs are
 `astra23-semantics-04.log` and `astra23-controls-06.log` in seat
 `.temp/r7-astra-26/`. The source delivery path remains separately unsupported
 in its last pinned report. No deployment claim follows from these traces.
+
+## Phase 2 round 15 — independent source delivery coverage
+
+Source `5d079be` adds the previously unsupported boundary. Both unchanged
+selected/excluded forwarding fixtures now pass exactly on package 0.2.2. The
+first delivery succeeds without an excluded-record forward grant, while current
+selected revocation refuses the later attempt. Both records remain admitted.
+
+Independent canonical P06/P12 execution and all eight reviewed source boundary
+controls pass. The complete fifteen-fixture owned corpus, including the newly
+submitted actor-binding case, passes this source head. Evidence: seat
+`.temp/r7-astra-26/owned-cases-astra22-07.json` (prior fourteen),
+`owned-cases-astra22-08.json` (fifteen), `delivery-astra22-01.json` and
+`astra22-boundary-controls-01.log`. This closes the owned source coverage gap;
+canonical full coverage and protected-deployment qualification remain separate.
