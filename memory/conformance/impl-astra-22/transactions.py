@@ -125,10 +125,13 @@ class Transactions:
     def head(self, target, state):
         if target["body"].get("statement_kind") == "decision_record":
             sequence = self.sequence(target)
+            withdrawn = {key(r["body"]["target"]) for r in state.values()
+                         if r["envelope"]["kind"] == "revision" and r["body"]["relation"] == "withdraw"}
             events = {key(e["receipt"]): e for e in self.adapter.policy["authority_events"]
                       if e["canonical"] and e["issuer"] == target["envelope"]["issuer"]}
             candidates = [r for r in state.values() if r["envelope"]["kind"] == "assertion"
                           and r["body"]["statement_kind"] == "decision_record" and self.sequence(r) == sequence
+                          and key(ref(r)) not in withdrawn
                           and r["body"]["authority_receipt"] is not None
                           and key(r["body"]["authority_receipt"]) in events]
             old = set()
@@ -146,9 +149,9 @@ class Transactions:
             heads = [r for r in candidates if key(r["body"]["authority_receipt"]) not in old]
             if len(heads) != 1:
                 return None
-            # Local transitions advance this unique authority head's CAS token;
-            # a historical candidate's transition cannot replace that selection.
-            target = heads[0]
+            # An authority slot names its active receipt candidate. Ordinary
+            # record revision tokens below cannot override this receipt order.
+            return ref(heads[0])
         token = ref(target)
         for record in sorted(state.values(), key=lambda r: r["envelope"]["recorded"]["sequence"]):
             if record["envelope"]["kind"] != "revision":
