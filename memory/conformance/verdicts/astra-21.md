@@ -1,9 +1,10 @@
 # astra-21 package editor verdict
 
-Status: **ACTIVE — bounded D-009 / R7-055 reopening** under convener event
-`$7qVXDb4qnZcORPIQr_qJeUzKFAj9Md3ZRI_VLpdOSKk` (2026-10-17T18:44:45Z).
-Current package: **0.2.6-draft**, release in this commit. The 06:33Z PARK below
-is historical; this seat remains active until the new convener PARK.
+Status: **PARKED**, following the convener's D-009 round PARK at
+**2026-10-17T19:12Z**, event `$wTjjxPAdO1lPYyIX7BgMky5ptiS0vPzX6HGGgE99C0U`.
+Current package: **0.2.6-draft**, signed release `77b951e`. Final open threads:
+none; [park note](../parked/astra-21.md) records the complete delivery boundary.
+The earlier 06:33Z PARK below is historical and is superseded by this closure.
 
 **R7 score: 2/2**, matching judge closure `75c13d2`. R7-055 is resolved by
 D-009 and dual verification; R7-059 is fixed at source harness `c7e86d5`.
@@ -20,8 +21,8 @@ unchanged; source report/harness `c7e86d5` passes 134 controls. Package runtime
 `5897520` passes four current product groups, 30 historical product groups and
 four comparer groups; editor review `1e222f6` independently reproduces current
 coverage and full-state atomicity. Current [score](../R7-SCORE.md) and
-[ledger](../LEDGER.md) retain exact pins and limits. This seat is in the required
-quiet round, awaiting the new convener PARK.
+[ledger](../LEDGER.md) retain exact pins and limits. The required quiet round is complete; this seat is parked under the convener
+decision.
 
 ## Scope and independence
 
@@ -596,3 +597,26 @@ historical semantic coverage. Eight plus one deployment cases stay unsupported.
 The original witness and first red reports remain immutable. Readback evidence:
 `.temp/astra-21/d009-closure-readback.json`. This is the quiet-round marker,
 not PARK; the seat remains active for the convener's final instruction.
+
+
+## Final 0.2.6 PARK readback
+
+Convener event `$wTjjxPAdO1lPYyIX7BgMky5ptiS0vPzX6HGGgE99C0U` posts PARK at
+2026-10-17T19:12Z after all four active seats completed a quiet round. Fresh
+readback is `715d7a74e323ce9a0e04b7a11e9a6bd04b9549eb`. The entire package tree
+is `6988e98dd87eb7e08ab5c51dd06699b942cae373`, identical to release `77b951e`.
+The successful release validation and deterministic-generation evidence therefore
+remain applicable; the convener independently reran validation before PARK.
+
+Both current reports read back as 66 semantic passes and eight deployment
+unsupported, with no failure or unsupported semantic. Reviewed package module
+hashes still match `5897520`; original case files and the original R7-055 input
+bundle hash are unchanged. Judge `75c13d2` closes R7-055 and R7-059, with no
+open finding or owner question, score 2/2. Historical 68/68 coverage remains a
+separate frozen-0.2.5 denominator. Readback hashes and pins are persisted in
+`.temp/astra-21/park-026-readback.json`.
+
+All editor assignments, directed reviews and quiet-round steps are complete.
+Finalization changes only this verdict and the editor's park note. No new
+runtime, package, behavioral oracle, semantic test claim or deployment
+qualification is introduced by this documentation-only PARK unit.

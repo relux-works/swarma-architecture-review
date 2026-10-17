@@ -1,75 +1,66 @@
 # astra-21 park note
 
-Status: **HISTORICAL PARK — reopened for D-009 / R7-055 at 2026-10-17T18:44:45Z**.
-The delivery below remains the 0.2.5 record. This seat is active for 0.2.6 and
-will replace this note only after the new convener PARK.
-
-Prior PARK by convener `ivmbp_swarma-memory_orch` at
-**2026-10-17T06:33Z**, event
-`$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg` in `rounds`.
+Status: **PARKED**, following convener `ivmbp_swarma-memory_orch` at
+**2026-10-17T19:12Z**, event
+`$wTjjxPAdO1lPYyIX7BgMky5ptiS0vPzX6HGGgE99C0U` in `rounds`.
 Seat: package editor, sole writer of `memory/spec/`.
 
-## Delivered and verified
+## Delivered
 
-Package **0.2.5-draft** is signed release `6a04e8c`. Fresh PARK readback at
-`1f92e91` confirms its entire package tree remains
-`d79144db66a5e1328d3cc25fc573ad3c93959d02`, identical to the release. Validation
-passes: 94 JSON artifacts, 14 closed schemas, 14 domains, one reusable fixture,
-52 normative clauses and 34 intended checker-violation controls. Exact release
-validation and deterministic-generation evidence remain applicable unchanged;
-the convener also checked validation before PARK.
+Package **0.2.6-draft**, signed release
+`77b951eb86d5ba9198921d058930884918a39942`, encodes owner decision D-009 in
+K-REV-3. Currentness and strict replacement/correction use nonempty reachability
+after restricting to the protected deciding issuer's event subgraph. Events
+without assertions count; one own path suffices; foreign nodes are not contracted
+and foreign branches cannot cancel that path. Mixed graphs remain admissible.
+Existing refusal codes, CAS and replay rules stay intact.
 
-All 14 editor-owned specification bugs are judge-closed across releases
-`cde5754`, `f31d58f`, `7e71765`, `23290b3`, `ef02647` and `6a04e8c`.
-[Release history](../../spec/RELEASES.md) records each semantic delta and retained
-regression witness. No source design or other seat's implementation was edited.
+Nine new vectors S34-S42 cover the original separating pair, no contraction,
+assertion-free intermediates, a direct own path beside a mixed branch, two exact
+foreign-only invariance pairs, refused/accepted revisions, ordinary import and
+protected event attribution independent of carrier. All 65 older vectors retain
+their complete semantics after version substitution; pilot bytes are unchanged.
 
-| Evidence | Final pin/result |
+Fresh PARK readback at `715d7a74e323ce9a0e04b7a11e9a6bd04b9549eb` confirms the
+package tree `6988e98dd87eb7e08ab5c51dd06699b942cae373` equals the release.
+Validation: 103 JSON files, 14 closed schemas, 14 domain documents, one fixture,
+74 vectors, 52 clauses and 38 intended checker controls. All JSON regenerates
+byte-for-byte. Source designs and other seats' artifacts were not edited.
+
+## Verified outcome
+
+| Evidence | Result and pin |
 | --- | --- |
-| R7 score | **2/2**, judge closure `9d2cdd4`, quiet readback `73408ec` |
-| Source evaluator | Runtime `946cbd8`, expanded report/test `b8189ba`; 57/57 canonical + 68/68 supplemental semantics |
-| Package evaluator | Runtime `104fbe8`; 57/57 canonical + 68/68 supplemental semantics |
-| Source controls | 129 pass coverage: 12 focused erasure groups plus 117 unchanged prior controls |
-| Package controls | 34 pass: 30 product tests plus four comparer controls |
-| Ledger | 58 items: 47 fixed, 10 rejected, one filed owner question; no open spec/implementation bug |
-| Deployment | Eight canonical plus one supplemental unsupported; no qualification claim |
+| R7 score | **2/2**, judge closure `75c13d2`, quiet readback `715d7a7` |
+| Current canonical 0.2.6 | **66/66 semantic** for both independent evaluators |
+| Historical regression 0.2.5 | **68/68 semantic** for both; unchanged fixtures and exact frozen grammar, separate denominator |
+| Source evaluator | Runtime `946cbd8` unchanged; report/harness `c7e86d5`, all 134 controls pass |
+| Package evaluator | Runtime `5897520`; four current product groups, 30 historical product groups and four comparer groups pass |
+| Editor review | Signed `1e222f6`: full current report reproduction, 125 valid state instances, 25 operations and 11 atomic full-state refusals |
+| Negative control | Frozen old package runtime gives eight intended failures, zero setup errors |
+| Ledger | 59 items: 48 fixed, ten rejected, one ambiguity resolved; no open finding or owner question |
+| Deployment | Eight canonical plus one historical case unsupported; no qualification claim |
 
-The [final verdict](../verdicts/astra-21.md) retains this seat's exact audit scopes,
-commands, first failures, full-state comparisons and evidence paths. Latest
-independent correction reviews are `2ae3ebc` (R7-057) and `21221cb` (R7-058);
-quiet editor round is `4e171e1`. Both corrections are now judge-closed. All
-assigned reviews and directed requests are answered; no unclassified editor
-finding, pending package edit or unpublished implementation remains.
+R7-055 is **closed by D-009 and dual verification**. R7-059 is the separate
+source test-profile binding correction, fixed without product-runtime or
+behavioral-oracle changes. Original witness `4424598`, first package failure
+`1be6026`, first source run `31d77d2` and original cases remain immutable.
+Audit metadata `fddb403` documents typed-map hashing and run-local nonces;
+nonce-free input hashes and within-run state equality reproduce independently.
 
-## Open thread: R7-055
+## Open threads and handoff
 
-[OWNER-QUESTIONS.md](../OWNER-QUESTIONS.md) preserves the undecided meaning of a
-canonical predecessor path through a different deciding issuer. Ivan must choose
-issuer-local ancestry or explicit global canonical endorsement, or specify a
-separate integrity rule. The conservative issuer-local recommendation is not a
-source-proven requirement. No option has been implemented as a new oracle.
+**None for this bounded round.** All directed editor requests were answered;
+quiet round `04390b3` added no case, divergence or package change. The convener
+confirmed all four active seats' quiet markers before PARK. Seats 24-26 stayed
+parked. This note supersedes the historical 06:33Z / 0.2.5 park note, retained
+in signed `962a21d`; its former owner hold no longer applies.
 
-Original separating input `4424598` has SHA-256
-`8224829a810a97c79fef81cb18f0d650b59ffc84a3262bdef09b1ea900c521b3`.
-Same-issuer paths agree; the mixed intermediate produces ambiguous d1/d3 in the
-source reader and current d3 in the package reader. Both readings and complete
-native firsts remain preserved outside executable pass/fail denominators.
-The convener holds the question for Ivan. Any later attributed decision requires
-an explicit follow-up package release and corresponding conformance work; PARK
-itself makes no authority decision and does not resolve this thread.
-
-## Evidence continuity and limits
-
-Task continuity is `.temp/tasks.md`. This seat's untracked scratch evidence is
-under `.temp/astra-21/`, especially `park-readback-01.json`, `validate-20.log`,
-`regeneration-06.log`, `deadline-025-verification.md`,
-`erase-priority-verification.md`, `restore-obligation-verification.md` and their
-linked reports, complete native snapshots, hashes and negative controls. The
-frozen old-runtime restore check reproduces seven intended failures with no setup
-error; the same new controls pass on the corrected runtime. Originals remain
-immutable. These artifacts are local evidence, not claimed committed files.
-
-Deployment erasure, outside-domain witness verification, identity, transport,
-isolation and timing remain unqualified. No physical device, service, network
-sink or user data was changed by the synthetic semantic evaluators. The held
-owner question and deployment limits are the remaining open threads at PARK.
+The [verdict](../verdicts/astra-21.md), [release notes](../../spec/RELEASES.md),
+[build evidence](../../spec/checks/BUILD_NOTES.md), [score](../R7-SCORE.md) and
+[owner-question closure](../OWNER-QUESTIONS.md) retain the delivery evidence.
+Local continuity is `.temp/tasks.md`; focused review is
+`.temp/astra-21/d009-review.md`; final hashes are in
+`.temp/astra-21/park-026-readback.json`. No foreground wait or worker remains.
+The next task, if explicitly reopened, starts with a fresh signed pull and its
+current brief. No pilot or deployment work is included in this PARK.
