@@ -59,3 +59,10 @@ wire declassification, semantic erasure/restore and load/availability stimuli.
 Changes and audience proof-reference disclosure also remain unsupported paths.
 No protected deployment, physical erasure, timing isolation, randomness
 qualification or crash durability is claimed. Semantic delivery sends no bytes.
+
+In-progress declassification expansion first run now executes50canonical rows:
+49pass/1fail/7unsupported, with unchanged canonical P05 valid release falsely
+refused. Supplemental37/1/8. First reports: `phase2-declassification-first.*`
+and `phase2-declassification-cases-first.*`; cause is omitted K-JSON-2 digest
+framing. Correction is pending classification; preceding49/0/8 table is the
+completed retention unit, not a passing claim for this expansion.

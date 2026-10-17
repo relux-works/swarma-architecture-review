@@ -19,6 +19,15 @@ class Boundary:
         if not shapes.valid(op, shapes.vector["properties"]["operations"]["items"]):
             raise Refusal("invalid_shape")
         timestamp(op["at"])
+        if op["op"] == "revoke_declassification":
+            decision = next((d for d in self.adapter.policy["declassification_decisions"] if d["ref"] == op["decision"]), None)
+            if decision is None or decision["owner"] != op["actor"]:
+                raise Refusal("not_authorized")
+            revoked = self.adapter.runtime["revoked_declassifications"]
+            if op["decision"] not in revoked:
+                revoked.append(copy.deepcopy(op["decision"]))
+                revoked.sort(key=lambda r: (r["id"], r["version"]))
+            return receipt("revoke_declassification", "revoked")
         if op["op"] == "revoke":
             if op["actor"] != self.adapter.policy["owner"]:
                 raise Refusal("not_authorized")

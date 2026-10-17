@@ -175,7 +175,8 @@ class Transactions:
         if not self.shapes.valid(op, self.shapes.vector["properties"]["operations"]["items"]):
             raise Refusal("invalid_shape")
         mode = op["op"]
-        proposals = op["proposals"] if mode == "admit" else ([op["replacement"]] if op["replacement"] else []) + [op["revision"]]
+        proposals = (op["proposals"] if mode == "admit" else op["assessments"] + [op["output"]]
+                     if mode == "declassify" else ([op["replacement"]] if op["replacement"] else []) + [op["revision"]])
         policy, runtime = self.adapter.policy, self.adapter.runtime
         actor, at = op["context"]["actor"], op["context"]["at"]
         spaces = {p["envelope"]["space"] for p in proposals}
@@ -183,6 +184,9 @@ class Transactions:
             raise Refusal("cross_scope")
         space = next(iter(spaces))
         if not any(g["principal"] == actor and g["space"] == space and mode in g["rights"] for g in policy["grants"]):
+            raise Refusal("not_authorized")
+        if mode == "declassify" and not any(g["principal"] == actor and g["space"] == space and "admit" in g["rights"]
+                                            for g in policy["grants"]):
             raise Refusal("not_authorized")
         self.retention(proposals, op["context"])
         identity = (actor, space, op["idempotency_key"])
@@ -216,6 +220,7 @@ class Transactions:
             raise Refusal("duplicate_record")
         future = state | proposed
         erased = {key(r) for r in runtime["erased"]}
+        release_output = copy.deepcopy(op["output"]) if mode == "declassify" else None
         timestamp(at)
         for proposal in proposals:
             e, b = proposal["envelope"], proposal["body"]
@@ -268,6 +273,17 @@ class Transactions:
                         raise Refusal("invalid_reference")
                     if future[key(source)]["envelope"]["space"] != e["space"]:
                         raise Refusal("cross_scope")
+        if mode == "declassify":
+            from releases import Releases
+            output = op["output"]
+            citations = sorted([ref(p) for p in op["assessments"]], key=lambda r: (r["id"], r["version"]))
+            if (release_output["envelope"]["disclosure"]["declassification"] != citations
+                    or release_output["envelope"]["lineage"] != output["envelope"]["lineage"]):
+                raise Refusal("declassification_invalid")
+            Releases(self.adapter).validate(release_output, future)
+            deadline = output["envelope"]["disclosure"]["retain_until"]
+            output["envelope"]["disclosure"] = copy.deepcopy(release_output["envelope"]["disclosure"])
+            output["envelope"]["disclosure"]["retain_until"] = deadline
         if mode == "revise":
             revision = op["revision"]
             body = revision["body"]
@@ -317,7 +333,7 @@ class Transactions:
         runtime["committed_cuts"] = sorted(set(runtime["committed_cuts"] + [sequence]))
         if mode == "revise" and relation != "challenge":
             self.mark_dirty(op["revision"], state)
-        result = receipt(mode, "admitted" if mode == "admit" else
+        result = receipt(mode, "admitted" if mode == "admit" else "declassified" if mode == "declassify" else
                          "challenged" if relation == "challenge" else
                          "availability_changed" if relation == "availability" else "revised",
                          [ref(p) for p in proposals])

@@ -64,6 +64,8 @@ class Adapter:
 
     def normalized(self, record, query):
         e, b = record["envelope"], record["body"]
+        from releases import Releases
+        disclosure = Releases(self).effective(record, query)
         valid = e["valid"]
         out = {"id": key(ref(record)), "kind": e["kind"], "issuer": e["issuer"],
                "reference_order": [e["id"], e["version"]],
@@ -72,8 +74,8 @@ class Adapter:
                "mode": e["context"], "recorded": e["recorded"]["sequence"],
                "valid": "unknown" if valid["kind"] == "unknown" else [valid["from"], valid["to"]],
                "visible": (self.granted(record, query, "read") and self.granted(record, query, "use")
-                           and query["audience"] in e["disclosure"]["audiences"]
-                           and query["purpose"] in e["disclosure"]["purposes"]
+                           and query["audience"] in disclosure["audiences"]
+                           and query["purpose"] in disclosure["purposes"]
                            and e["space"] == query["scope"]["space"])}
         if e["kind"] == "assertion":
             schema = self.schemas[key(e["schema"])]
@@ -122,8 +124,6 @@ class Adapter:
             raise Unsupported("Audience proof-reference disclosure is not mapped yet")
         if audience and (query["audience"] != rule["audience"] or query["purpose"] != rule["purpose"]):
             return refusal("not_authorized")
-        if audience and any(r["envelope"]["disclosure"]["declassification"] for r in self.records.values()):
-            raise Unsupported("Current multi-owner declassification decisions are not mapped yet")
         schema = self.schemas[key(query["scope"]["schema"])]
         nq = {"cut": query["cut"]["memory"], "valid_at": None if query["valid_at"] == "any" else query["valid_at"],
               "now": query["now"], "mode": query["mode"],
@@ -356,7 +356,7 @@ class Adapter:
         return copy.deepcopy(result)
 
     def execute(self, operations, query):
-        unsupported = sorted({o["op"] for o in operations if o["op"] not in {"capture", "admit", "admit_raw", "revise", "revoke", "deliver"}})
+        unsupported = sorted({o["op"] for o in operations if o["op"] not in {"capture", "admit", "admit_raw", "revise", "declassify", "revoke", "revoke_declassification", "deliver"}})
         if unsupported:
             raise Unsupported("Unmapped frozen-core transaction operations: " + ", ".join(unsupported))
         operation_results = []
@@ -366,7 +366,7 @@ class Adapter:
                 operation_results.append(self.query(op["query"], binding=binding))
                 if binding:
                     self.captures[index] = binding
-            elif op["op"] in {"revoke", "deliver"}:
+            elif op["op"] in {"revoke", "revoke_declassification", "deliver"}:
                 from boundary import Boundary
                 try:
                     operation_results.append(Boundary(self).apply(op))
