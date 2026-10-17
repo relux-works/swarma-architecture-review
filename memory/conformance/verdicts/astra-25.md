@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 31; collective active, NO PARK. Seat identity:
+Status: phase 2, round 32; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Both evaluators now pass every canonical semantic
@@ -9,7 +9,7 @@ supported-vector rubric; it was never a claim that both evaluators passed all 57
 
 ## Seat output and dispositions
 
-Eleven case documents and twenty-nine exact fixtures (twenty-eight semantic, one deployment)
+Twelve case documents and twenty-nine exact fixtures (twenty-eight semantic, one deployment)
 are published. All initial source readings and later failures remain in git and
 [`astra-25-evaluator-results.json`](../cases/astra-25-evaluator-results.json).
 
@@ -26,6 +26,7 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; both exact pairs now pass at source dbf4892 and package 23b4d74 |
 | [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 fixed at 23290b3; judge and seat independently verified |
 | [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | R7-054 closed at6a04e8c and052 at4a14a56; package053 at23b4d74 independently verified and judge-closed at13e3d73 |
+| [ASTRA25-12](../cases/astra-25-restore-current-obligations.md) | Current outside-domain restore obligations must survive an older local erasure inventory | Native package resurrection/premature reconciliation reproduced; judge classification requested |
 
 ## Current evidence
 
@@ -65,7 +66,7 @@ all nine native release groups pass, including raw-digest refusal with full stat
 preservation. Fresh source 0.2.5 canonical is 57/57 after the erasure coverage addition;
 corrected package is also 57/57. Both P11 expiry traces and authority B01 pass.
 The former seven canonical source gaps are now executable; native recovery
-R7-056 correction now passes independent verification; judge closure is pending.
+R7-056 correction passes independent verification and is judge-closed at e2a797d.
 The seven ASTRA25-11 exact vectors are now in the owned denominator: both
 positive controls and all five negative vectors pass in both runtimes.
 The earlier five native observations remain outside vector totals.
@@ -126,7 +127,17 @@ current availability facts are changed by the authorized transition; the four
 initial/requested-state combinations preserve records, grants, policy pins,
 cuts, receipts and captures. The original failing witness remains immutable.
 Latest runs are the three `astra22-*-025-availability-corrected` entries; every
-current module was byte-compared to the correction. Recommend judge closure.
+current module was byte-compared to the correction. Judge e2a797d closes R7-056 at 87beb46.
+
+ASTRA25-12 adds four native restore observations per reader, outside exact vector
+counts. A current complete witness supplies A absent from the old snapshot's
+local erased inventory: source reconciles A and its custody, while package
+reopens with A readable and both payload/backup still present. With an unreachable
+sink, source refuses atomically while package still claims reconciliation.
+Known-old-obligation and genuinely empty-current-obligation controls agree;
+false witnesses and restore-fenced reads refuse correctly. Full first inputs and
+states are frozen; package implementation classification is requested before
+adding exact fixtures. No current witness deployment evidence is claimed.
 
 ## Phase-2 gate and remaining work
 
