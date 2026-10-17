@@ -97,9 +97,11 @@ first reports are committed and reproduced. Fix closures below reference exact
 commits and relevant controls; a candidate release alone is insufficient.
 
 | R7-052 | astra-25 [retention-deadline](cases/astra-25-retention-deadline.md), first `604af18`; request `$XkFYu2DEMaA0d8d3wUeCqkwMVrlPAqRQAg0B_ViVOAg` | ASTRA25-11 native probes; K-DISC-1, K-AUTH-1, K-API-1/2 | impl-bug | astra-22 | fixed@4a14a56 | Judge exactly reproduces all 65 canonical 0.2.5 rows at 50/0/7 with correction module hashes and all 112 controls green. All seven migrated expiry vectors pass; independent three-positive/seven-negative operation checks now pass, with exact refusals and complete state preservation. Six native groups cover admit/raw/revise/declassify, every output, transitive/incomplete-known/batch deadlines, original live/expired replay, null/unrelated limits and authorization-before-duplicate priority. First c9e1faf and full old-runtime 0.2.5 failure remain immutable. |
-| R7-053 | Same ASTRA25-11 submission and independently repeated inputs as R7-052 | Same deadline and authorized-replay clauses | impl-bug | astra-23 | open | Package runtime `4af0360` independently reproduces the same three forbidden fresh commits and expired successful replay. All input states and operations validate; first results remain immutable. Required refusal preserves the original receipt and complete state, without triggering an erasure job. Before-deadline and unbounded positive neighbors remain required. |
+| R7-053 | Same ASTRA25-11 submission and independently repeated inputs as R7-052 | Same deadline and authorized-replay clauses | impl-bug | astra-23 | fixed@23b4d74 | Judge independently reproduces 57/57 canonical and 61/61 current supplemental at 0.2.5 with exact reports/input/module hashes, 31 product/comparer controls and ten original isolated deadline operation checks. All four write APIs, every proposed output/known closure and current original-receipt replay use strict context.at expiry before idempotency. Equal/later fresh/replay refusals preserve full state and original receipts; live/null controls and same-key recovery pass. First failures remain unchanged. |
 | R7-054 | Judge review of ASTRA25-11; editor recommendation `$rhmPEMI5yxqbjQprbScOEovbpGlhuBzhcvFNwa--FmA` | K-DISC-1, K-AUTH-1, K-API-1/2, K-REF-1 | spec-bug | astra-21 | fixed@6a04e8c | Judge verifies 0.2.5 explicit strict context.at expiry, not_authorized,false before idempotency, original-output/known-closure replay and no purge. All 94 JSON artifacts regenerate exactly; 34 intended checker plants pass. Only P11 changes beyond version; its first 16 operations/results and other 64 vectors/pilot are preserved. Isolated unchanged-runtime probes give five forbidden writes, two expired success replays and one wrong conflict priority; a separate 20-operation positive trace matches every expected field. Runtime fixes stay R7-052/053. |
 | R7-055 | astra-24 [authority-issuer](cases/astra-24-authority-issuer.md), native pair/first `4424598`; request `$2uzH35MbQZgpUZcKniiv8nGpIIxyeCjJQVyjABqbYvU` | Kernel §§5.1/5.3; K-REV-3; package A07 | ambiguity | Ivan (owner decision) | owner-question | Exact validated pair separates issuer-local and global canonical predecessor paths: H1 endpoints through H2 intermediate yield ambiguous d1/d3 in source, current d3 in package; same-H1 control agrees. Kernel own ordered record does not define whether H1's canonical edge endorses H2's predecessor order. D-004/008 and sequence ownership do not decide that attestation meaning. No evaluator bug or invalid-state rule is inferred. See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md); preserve both native outputs and existing same-issuer closures. |
+| R7-056 | astra-22 ASTRA22-08, signed native first `dbf4892`, [first evidence](impl-astra-22/runs/availability-recovery-first.json); request `$fDDTeYrjnc9MYUG4MHM6u2sw7BII51TC8fX0w9jadOU` | K-NI-3; S27 authorized public availability | impl-bug | astra-22 | open | Judge independently validates and reproduces initially degraded public state with runtime memory available: owner set_availability available returns availability_changed but recall remains unavailable. Three neighboring public transitions pass, and foreign-actor/undeclared-policy recovery refuses not_authorized atomically. The admitted public availability must actually recover; preserve records, policy pins, authorization and unrelated state. No deployment recovery or new owner choice is inferred. |
+
 
 ## Judge worklog
 
@@ -1499,3 +1501,62 @@ one owner question R7-055. Latest verified canonical results remain source
 50/0/7 and package 56/1/0, giving 49/57 dual exact passes. The native pair does not
 enter vector denominators. Seven source canonical gaps and eight canonical plus
 one supplemental deployment case remain unsupported. Score 1/2; no PARK.
+
+## Round 31 — full semantic inventory passes; native recovery defect remains
+
+R7-053 closes at signed `23b4d74`. Independent full package execution reproduces
+all 65 canonical and 62 supplemental rows, input/module hashes and complete
+actuals after only declared fresh-handle normalization. Canonical semantics are
+57/57 and all 61 current supplemental semantics pass. All 27 product controls
+and four comparer controls pass. Ten judge operation checks reuse the unchanged
+seven deadline vectors: three positive admissions and seven exact atomic
+not_authorized,false refusals, retaining original receipts on denied replay.
+The shared traversal checks strict context.at expiry before node deduplication
+and idempotency, across all four write APIs and current original-input/output
+closure. Live admission/replay, null deadlines and same-key recovery remain
+positive. Preserved first failures are not replaced by corrected results.
+
+Signed source coverage `dbf4892` independently reproduces 57/57 canonical and
+61/61 current supplemental semantics as well. All seven formerly unsupported
+canonical paths now execute: B07, P08, S20, S24, S25, S26 and S27. Eight new native
+erasure groups cover receipt replay/current authority, metadata-versus-purge
+scope, invalid/unauthorized atomicity, partial/unreachable/independent custody,
+unknown-lineage lower bounds, late writers, restore fencing and current external
+witness reconciliation. Four availability/control groups pass alongside prior
+controls. These are synthetic state transitions, with no deployment qualification.
+
+The newly added 125th source control fails for the intended recovery assertion;
+124 controls pass, including the five comparison-harness controls. R7-056 is an
+implementation bug, independently reproduced from the unchanged validated first
+artifact. An initially degraded public state with runtime memory already available
+accepts the owner's set_availability available operation but remains unavailable
+on the same query. A four-transition public-state matrix isolates only degraded
+to available as failing. Foreign actor and undeclared coarse policy instead return
+exact not_authorized,false with complete state unchanged. Successful recovery must
+update current public availability while preserving policy pins, records, grants
+and unrelated state; it grants no power to recover real infrastructure. Judge
+classification event `$JwiSCClsftcbsOR8UrOJoe2h7NZWY12YYcjSgWm4S6c` authorizes the
+source correction. Its original native first stays immutable.
+
+All twenty seat-24 fixtures migrated explicitly at signed `27303e4`; reverse byte
+substitution of the view-profile stamp restores the previous files exactly.
+All 62 supplemental artifacts now validate at 0.2.5. Canonical input hashes are
+unchanged from the prior source first run. Both independently reproduced report
+sets match their committed rows; no expected answer or forbidden predicate is
+relaxed to obtain the full semantic totals.
+
+The convener holds R7-055 for Ivan in event
+`$wrLtxOryOvNuOttDN4ofHbvs0INg6jS0hLEpgMJ58wk`. Both issuer-path readings and the
+native separating pair remain recorded without an oracle or denominator entry.
+This hold is not an attributed owner decision.
+
+Evidence in judge seat `.temp/`: `astra{22,23}-round31-execution-01.json`,
+`astra{22,23}-judge-round31-{canonical,cases}.json`,
+`astra23-judge-round31-deadline-atomic-corrected.json`,
+`judge-round31-report-comparison-01.json`, `judge-round31-availability-first.json`,
+`judge-round31-availability-analysis.md` and `judge-round31-signature-*-01.log`.
+
+Ledger: 56 items, 44 fixed, 10 rejected, R7-056 implementation open and R7-055
+owner-question. Dual canonical semantics 57/57; supplemental semantics 61/61
+in both readers. Eight canonical plus one supplemental deployment case remain
+unsupported. Score remains 1/2 because the native recovery bug is open. No PARK.

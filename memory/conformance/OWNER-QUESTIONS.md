@@ -68,3 +68,7 @@ Judge evidence: `.temp/astra{22,23}-judge-round30-issuer-first.json` and
 Owner topic: `q-authority-issuer`, root
 `$xI3um-5-5mtAfRLub6enUIlkEPrUbVS41wk0hCp6-4Y`;
 owner-needed routing event `$Ju7IuqWDcWw6JB87jbG-0K3yC4TWQ2WszJTNwNLZQHs`.
+
+Round 31: convener event `$wrLtxOryOvNuOttDN4ofHbvs0INg6jS0hLEpgMJ58wk`
+holds the question for Ivan while he is asleep. This is routing/hold evidence,
+not an owner decision. Both readings and the undetermined oracle remain intact.
