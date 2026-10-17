@@ -1,7 +1,8 @@
 # ASTRA25-08: admit and read rights do not silently grant retention
 
-Status: phase-2 separating case; both evaluators admit the forbidden derivative.
-Judge classification pending. Package `0.2.1-draft` at `f31d58f`.
+Status: R7-036 source and R7-037 package implementation bugs; both evaluators
+admit the forbidden derivative. Original package `0.2.1-draft` at `f31d58f`;
+current fixtures explicitly migrated to `0.2.2-draft` with only profile changes.
 Owner: astra-25.
 
 ## Clauses and minimal input
@@ -63,6 +64,13 @@ Exact actuals, code/input hashes and differences are in
 [`astra-25-evaluator-results.json`](astra-25-evaluator-results.json), runs
 `astra23-phase2-retain` and `astra22-phase2-retain`. No evaluator, canonical vector
 or source policy was edited to obtain agreement. Physical persistence/erasure
-qualification remains outside this semantic run. Judge disposition determines
-whether this is a missing package operation rule, implementation defect(s), or
-an unresolved source boundary.
+qualification remains outside this semantic run.
+
+Judge event `$pnqSyjGB7fzLv1dlK42vnCpvbXn2OS6hR2BAL5a-818` classified the definite
+no-retain outcome as R7-036/037, requiring atomic `not_authorized` and scoped
+per-input/output authority. Both implementers separately identified a wire gap:
+admission context has no retention audience/purpose, so existential versus
+all-disclosure-label scope cannot be inferred. That follow-up needs an explicit
+package rule before scoped-neighbor expectations; it does not invalidate this
+case, whose grants contain no retain permission in any scope. Never derive the
+operation scope from a later query or combine unrelated grants.

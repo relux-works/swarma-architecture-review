@@ -339,6 +339,20 @@
             "rec:a"
           ],
           "metadata": true
+        },
+        {
+          "principal": "subj:h1",
+          "space": "space:main",
+          "audience": "aud:private",
+          "purpose": "purpose:read",
+          "rights": [
+            "read",
+            "use"
+          ],
+          "records": [
+            "rec:a"
+          ],
+          "metadata": true
         }
       ],
       "representations": [],
@@ -469,7 +483,11 @@
       "boundary": [
         "custody:payload",
         "custody:embedding"
-      ]
+      ],
+      "receipt_context": {
+        "audience": "aud:private",
+        "purpose": "purpose:read"
+      }
     }
   ],
   "query": {
@@ -541,7 +559,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.1-draft",
+      "semantic_profile": "0.2.2-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

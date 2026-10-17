@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 12; collective active, NO PARK. Seat identity:
+Status: phase 2, round 13; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Full dual semantic coverage and new finding
@@ -9,7 +9,7 @@ supported-vector rubric; it was never a claim that both evaluators passed all 57
 
 ## Seat output and dispositions
 
-Nine case documents and fifteen exact fixtures (fourteen semantic, one deployment)
+Ten case documents and seventeen exact fixtures (sixteen semantic, one deployment)
 are published. All initial source readings and later failures remain in git and
 [`astra-25-evaluator-results.json`](../cases/astra-25-evaluator-results.json).
 
@@ -21,34 +21,44 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | External witness must be current and complete | R7-008 fixed@cde5754 for fixture meaning; real deployment remains unsupported |
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Hidden revision cannot expose protected global dirty state | R7-018 fixed@f31d58f; hidden and authorized-dirty traces pass |
 | [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md) | Opposite quality cannot spend existence counters | R7-027 fixed@4e647ea; both owned traces and ASTRA24-05 controls pass |
-| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 spec-bug, editor fix/explicit context pending |
-| [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | Both evaluators admit a derivative with retain absent; judge classification pending |
-| [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | Package pair passes; source erasure unsupported; regression submitted |
+| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 spec-bug, explicit context released at 7e71765; behavioral correction pending |
+| [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source / R7-037 package impl-bugs; separate operation-scope mapping gap pending |
+| [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; package pair passes, source erasure unsupported |
+| [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | Both evaluators pass; package checker falsely rejects initial state; judge classification pending |
 
 ## Current evidence
 
-The owned fixtures use package `0.2.1-draft` (`f31d58f`) and pass closed structure,
-reference, normalization and forbidden checks. The hidden-quality and global-dirty
-violation plants are detected for their intended reasons. Latest structural log:
-`.temp/astra25-vector-structure-10.log`. Synthetic integration facts are explicit
-trusted fixture inputs, never authority inferred from client citations.
+The owned fixtures explicitly use package `0.2.2-draft` (`7e71765`). Sixteen
+pass closed structure, references, normalization and forbidden checks. ASTRA25-10
+passes shape/normalization/accepted-fact checks but is rejected by `check_state`
+for a future integration input; this is the new checker finding, not a pass.
+The admitted-dangling-input negative control is also correctly rejected beside
+an accepted existing-input control. Current canonical validation remains green:
+65 vectors, 52 clauses, 23 checker controls. Local structural log:
+`.temp/astra25-vector-structure-11.log`.
+
+All previous expected reports survive migration unchanged except profile version.
+Every owned erase explicitly uses actor-bound private/read receipt context;
+ASTRA25-07 adds only A-specific matching metadata authority. Its new unrelated
+publish-purpose neighbor still requires A-only receipt and complete A/D purge.
+The hidden-quality and global-dirty violation plants remain detected.
 
 | Current owned semantic corpus | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Package evaluator `f5fdd8b` (report/control update `8b9baf3`) | 12 | 2 | 0 |
-| Source evaluator as pinned in `astra22-phase2-unknown-erasure` | 3 | 1 | 10 |
+| Package runtime at `1828356` | 13 | 3 | 0 |
+| Source runtime at `1f35727` | 4 | 1 | 11 |
 
-Each evaluator reports the one owned deployment fixture unsupported. The package
-failures are ASTRA25-07 hidden receipt ID and ASTRA25-08 missing retain authority;
-the source failure is ASTRA25-08. Authorized controls pass. ASTRA25-09's erased
-known-input late write is refused, while its independent-input control admits the
-private unknown record; both preserve complete A/U fencing and custody purge.
+Each evaluator reports the one owned deployment fixture unsupported. Package
+failures are ASTRA25-07 hidden receipt ID, its other-purpose neighbor, and
+ASTRA25-08 missing retain authority; the source failure is ASTRA25-08. Authorized
+controls pass. ASTRA25-09 retains both package passes. ASTRA25-10 passes both
+runtimes, including the missing-input refusal followed by successful exact retry.
 
-Exact current runs are `astra23-phase2-unknown-erasure` and
-`astra22-phase2-unknown-erasure` in the evidence JSON. Earlier phase-1 and phase-2
-runs remain immutable entries, pinned by package, evaluator and input hashes.
-Working-copy fixture additions at execution are explicitly labeled and identified
-by hashes rather than misrepresented as already committed inputs.
+Exact current runs are `astra23-phase2-022-migration` and
+`astra22-phase2-022-migration`, plus `checker-future-lineage-022`, in the evidence
+JSON. Earlier phase-1, phase-2 and 0.2.1 future-input runs remain immutable entries,
+pinned by package, evaluator and input hashes. Working-copy fixture additions at
+execution are labeled and identified by hashes, not claimed as committed inputs.
 
 Phase-1 independent checks verified R7-006 release behavior, R7-018 hidden/visible
 dirty behavior, and R7-027's original unchanged regressions plus 29 source
@@ -62,16 +72,15 @@ explicitly lacked those operations; unsupported was never counted as a pass.
 Convener event `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc` withholds PARK and
 requires 57/57 canonical semantic vectors on both independent evaluators, then
 one full round with no new open item. Judge `536f54c` records the stronger gate.
-Phase-1 dual coverage was 43/57; source proof enumeration is expanding it. The
+Phase-1 dual coverage was 43/57; current source candidate is 45/57, pending judge verification. The
 judge owns current collective totals; this seat does not infer success for
 unsupported operations or unfinished implementations.
 
-Migrate ASTRA25-07 and all erase fixtures to the released operation-bound receipt
-context, verify hidden/authorized/unrelated-purpose and replay controls while
-preserving full protected closure, obtain ASTRA25-08 disposition, and rerun the
-owned corpus as source release/erasure support arrives. Keep the unknown-lineage
-pair for that second implementation. Finalize verdict and park note only after
-actual convener PARK.
+Verify the corrected erase runtime on hidden/authorized/unrelated-purpose and
+canonical replay controls, preserving complete protected closure. Follow the
+retention-scope package decision and R7-036/037 fixes, obtain the future-fact
+checker disposition, and rerun owned regressions as source release/erasure
+support arrives. Finalize verdict and park note only after actual convener PARK.
 
 No real protected-deployment qualification is claimed by semantic publication,
 erasure, custody, restore, revocation or delivery traces. Actual witness freshness,

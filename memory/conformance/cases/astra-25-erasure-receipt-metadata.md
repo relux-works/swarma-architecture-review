@@ -1,6 +1,8 @@
 # ASTRA25-07: erasure authority does not authorize hidden closure metadata
 
-Status: R7-031 spec-bug; explicit receipt-context correction accepted by editor. Package `0.2.1-draft` at `f31d58f`.
+Status: R7-031 spec-bug; explicit receipt-context correction released in
+`0.2.2-draft` at `7e71765`, behavioral correction/review pending. Original
+`0.2.1-draft` witness at `f31d58f` remains preserved.
 Owner: astra-25.
 
 ## Clauses
@@ -10,7 +12,7 @@ separates operation rights from read/use/metadata permission; an erase operation
 also requires the policy owner, but that does not expressly grant hidden record
 metadata. Kernel 7.1/7.3 and companion 4/6 preserve disclosure constraints through
 derivation and permit only approved identifiers in erasure audit receipts.
-K-ERASE-2 nevertheless says the receipt lists the full fenced record closure,
+The original K-ERASE-2 nevertheless said the receipt lists the full fenced record closure,
 without qualifying this list by the recipient's metadata authority.
 
 ## Minimal separating input
@@ -68,8 +70,29 @@ disclosure evidence, not proof of actual storage purge or timing isolation.
 
 
 Judge R7-031 (`$JPPhod2ZE3Dm7yPZZY1gOh8KGSHsO6j0Fi33ewipx7o`) confirms the
-existing source constraint and wire/profile gap. The editor will release explicit
+existing source constraint and wire/profile gap. The accepted correction specified explicit
 actor-bound `receipt_context {audience, purpose}` with pre-fence authorization,
 including idempotency/revocation controls. Neither the later query nor a union of
 unrelated purpose grants may supply that context. The original red pair is
-preserved; migration and new-release execution follow the released grammar.
+preserved; the migration below follows the released grammar.
+
+## Explicit 0.2.2 migration
+
+Release `7e71765` requires an actor-bound `receipt_context`. All owned erase
+fixtures choose `aud:private` / `purpose:read`. This pair adds an A-only private/read
+read/use/metadata grant, preserving the intended A-only receipt without granting
+D visibility. The authorized control still permits both. All original expected
+reports are unchanged except the declared profile version; complete protected
+closure and custody purge remain mandatory.
+
+The new [other-purpose control](astra-25-erasure-receipt-metadata-other-purpose.vector.json)
+adds private/publish read/use/metadata for all records to the hidden primary.
+It still expects only A in the private/read receipt. Matching the actor and space
+while ignoring purpose cannot satisfy this neighbor.
+
+Untouched pre-correction runtime at `1828356` fails the primary and purpose
+neighbor with the same hidden D ref while passing the authorized control. Exact
+reports are `astra23-phase2-022-migration` and `astra22-phase2-022-migration` in the
+evidence JSON. Source erase remains explicitly unsupported. Canonical P08 now
+also supplies exact replay, changed-context conflict, authorized tombstone refs
+and revoked-replay controls; independent correction verification remains pending.
