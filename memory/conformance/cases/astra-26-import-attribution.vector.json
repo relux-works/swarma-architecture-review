@@ -525,7 +525,11 @@
       "context": {
         "actor": "principal:reader",
         "at": "2026-10-17T00:00:00Z",
-        "admission_class": "imported_publication"
+        "admission_class": "imported_publication",
+        "retention_context": {
+          "audience": "aud:private",
+          "purpose": "purpose:read"
+        }
       },
       "idempotency_key": "key:source-import",
       "proposals": [
@@ -591,7 +595,11 @@
       "context": {
         "actor": "principal:reader",
         "at": "2026-10-17T00:00:00Z",
-        "admission_class": "imported_publication"
+        "admission_class": "imported_publication",
+        "retention_context": {
+          "audience": "aud:private",
+          "purpose": "purpose:read"
+        }
       },
       "idempotency_key": "key:forged-import",
       "proposals": [
@@ -720,7 +728,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.2-draft",
+      "semantic_profile": "0.2.3-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

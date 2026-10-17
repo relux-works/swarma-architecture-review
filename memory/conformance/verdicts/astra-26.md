@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 16, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 17, 2026-10-17.
 
 ## Baseline and scope
 
@@ -458,3 +458,28 @@ Corrections and exact-head review remain pending. Owned evidence stays source
 15/0/0 and package 13/2/0 on the previously pinned 0.2.2 implementations. This
 round only records dispositions; scope/diff checks apply and no new runtime pass
 is inferred. Current row remains **1/2**, with protected deployment unqualified.
+
+## Phase 2 round 17 — explicit 0.2.3 retention migration
+
+- Reviewed release `23290b3` and its exact K-AUTH-1/K-DISC-1/K-API-1 grammar.
+  Migrated all fifteen owned fixtures to 0.2.3. Five intake contexts explicitly
+  choose **aud:private / purpose:read**: ASTRA26-01 operations 0/1,
+  ASTRA26-05 operation 1, and ASTRA26-06 operations 0/1. Each authenticated
+  actor already has the exact retain grant; no grant or onward label changes.
+- Preserved the complete prior corpus in seat
+  `.temp/r7-astra-26/cases-0.2.2-phase2/` and exact released schemas in
+  `spec-0.2.2/kernel/schemas/`. Removing only the five new context fields and
+  restoring profile stamps reproduces every original JSON value. No old
+  expected semantic answer, query, normalization or refusal priority changes.
+- All fifteen structural/reference/normalization/forbidden checks pass. Package
+  validation passes: 94 JSON, 65 vectors, 52 clauses and 32 intended checker
+  detections, including required contexts and forbidden principal override.
+- Current compatible owned run: source runtime `3722327` (report head
+  `bd75f4f`) **15/0/0**; package runtime `53266dd` (report head `08c4b9a`)
+  **13/2/0**. The two failures remain exact R7-044/R7-046 witnesses; migration
+  neither conceals them nor creates a new divergence. These authorized intake
+  cases do not establish the pending global retention-denial implementation.
+- Evidence: seat `.temp/r7-astra-26/migration-023-01.log`,
+  `cases-structural-10.log`, `validate-06.log`, `owned-cases-astra22-09.json`
+  and `owned-cases-astra23-11.json`, with matching logs. Phase 2 score **1/2**;
+  new-release canonical conformance and protected deployment remain separate.

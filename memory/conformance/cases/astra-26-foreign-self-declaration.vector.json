@@ -399,7 +399,11 @@
       "context": {
         "actor": "principal:organisation",
         "at": "2026-10-17T00:00:00Z",
-        "admission_class": "machine_observation"
+        "admission_class": "machine_observation",
+        "retention_context": {
+          "audience": "aud:private",
+          "purpose": "purpose:read"
+        }
       },
       "idempotency_key": "key:org-self-declaration",
       "proposals": [
@@ -469,7 +473,11 @@
       "context": {
         "actor": "subj:h1",
         "at": "2026-10-17T00:00:00Z",
-        "admission_class": "self_declaration"
+        "admission_class": "self_declaration",
+        "retention_context": {
+          "audience": "aud:private",
+          "purpose": "purpose:read"
+        }
       },
       "idempotency_key": "key:own-self-declaration",
       "proposals": [
@@ -602,7 +610,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.2-draft",
+      "semantic_profile": "0.2.3-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1
