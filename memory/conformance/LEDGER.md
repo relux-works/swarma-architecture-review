@@ -51,8 +51,10 @@ evaluator, or vice versa.
 | R7-023 | astra-24 [derived-source-refs](cases/astra-24-derived-source-refs.md) at `fb00b35`, astra-23 supplemental report; events `$7UDumulp6n1Yh6BKA4PimUs-cFL2shg1GIRRBmlSoDw`, `$JC4s7_UyfP-jBJGDKUt2Wh2NG8ZUYvSeVZbP7ASaF9k` | ASTRA24-03/04; K-EVAL-1/3/5; companion §§4, 7 | impl-bug | astra-23 | fixed@7c765fe | Judge reproduces exact ASTRA24-03/04 passes with implementation 7c765fe and pinned 0.2.0 grammar; all 65 canonical rows match the committed report. Ten checker/product controls pass, including direct/derived source refs, hidden source, unfound path and unrelated same-origin copy. Audience redaction remains after provenance collection; frozen red evidence is preserved. |
 
 | R7-024 | astra-23; [0.2.1 first report](impl-astra-23/RELEASE-0.2.1-FIRST.md) at `bc342e1`; event `$Fey2TsAQS9NPAEPYE4vPLTQTOluGysxk-1N5UIpjk7E` | B07/S24; K-EVAL-9, K-REV-1 | impl-bug | astra-23 | fixed@f5fdd8b | Explicit rec:a target collected unrelated multi-sequence rec:hidden/1 history. Judge independently reproduces 55/57 pre-fix and 57/57 corrected reports, matching all 65 rows and implementation hashes. Exact sequence filtering preserves unfiltered history, explicitly displayed historical targets and hidden-reference exclusion; 13 checker/product controls pass. |
-| R7-025 | astra-27 static source probe; event `$NFG9lnMN_Ql0SjgWplmeYuSgEls8vZ1lCHuf8uJ-9YA` | Explicit-target history; K-EVAL-9, K-REV-1 | impl-bug | astra-22 | open | Judge reproduces on 8b97e1e using a valid static multi-sequence state, without dirty/runtime operations: target rec:a wrongly lists other-sequence/1. Unfiltered positive control lists it correctly; an explicit old target does not duplicate its displayed ref. Exact source/queries/outputs and intended lists are in seat .temp/astra22-selected-history-probe-02.json; closed state shape and references pass. |
-| R7-026 | astra-22; ASTRA22-05 first 0.2.1 transaction run; event `$PG171V9oI4Um_5wsJuSNRTlfqsd3ZQUSf1kWxDG5Ku4` | P02; K-ENV-1 subject_principals | impl-bug | astra-22 | open | New transaction mapping reports acceptance of wrong-subject self-declaration instead of invalid_domain_value, with extra committed state affecting the valid control cut. Explicit released identity requirement determines classification; committed report reproduction is pending. Require atomic wrong-subject/equal-spelling-without-binding rejection, valid distinct binding and valid represented-self controls. |
+| R7-025 | astra-27 static source probe; event `$NFG9lnMN_Ql0SjgWplmeYuSgEls8vZ1lCHuf8uJ-9YA` | Explicit-target history; K-EVAL-9, K-REV-1 | impl-bug | astra-22 | fixed@26d8cc6 | Judge independently reruns the exact static fixture with 26d8cc6: unrelated explicit target excludes other history, unfiltered selection preserves it, explicit old target is not duplicated, and hidden-old control is excluded. Three adapter controls pass; canonical report matches all 65 rows. Owned fixture and red/green reports are retained under impl-astra-22/fixtures and runs. |
+| R7-026 | astra-22; ASTRA22-05 first 0.2.1 transaction run; event `$PG171V9oI4Um_5wsJuSNRTlfqsd3ZQUSf1kWxDG5Ku4` | P02; K-ENV-1 subject_principals | impl-bug | astra-22 | fixed@26d8cc6 | Judge reproduces df499a1 P02 forbidden admission and all 15 difference paths, then exact 26d8cc6 canonical pass with identical refusal state and valid distinct/delegated controls. Seven transaction controls pass, including wrong subject, equal spelling without binding and non-own perspective rejection. First failure report is preserved. |
+
+| R7-027 | astra-25 [quality-budget-isolation](cases/astra-25-quality-budget-isolation.md) at `2a6d294`; event `$M-2IsLpo2I6lijkllP1qvqkD95XnpbXccbAHHCtSt64` | ASTRA25-06 and ASTRA25-01 visible control; K-EVAL-2/4 | impl-bug | astra-22 | open | Global source root/rule counters combine existence and premise-opposite quality work. Judge reproduces lost B support at roots=1 despite one sufficient A root, with roots=2 positive control passing. Seven final differences plus intended paired/forbidden checks fail; package evaluator passes. Separate per-channel/quality walks with stable ordering and real exhaustion controls; do not inflate budgets. Hidden equality captures still agree; no new hidden-data leak is inferred. |
 
 Every received case is classified against its cited package release. Rejection
 means the proposed bad reading already contradicts explicit package clauses; it
@@ -388,3 +390,44 @@ not a reopening of source identity or a package defect. Its first report must be
 committed before correction and independently reproduced. Current ledger has
 26 items: eight rejected, sixteen fixed, two open implementation bugs. The score
 remains 1/2 pending those source corrections and its exact 0.2.1 run.
+
+### Round 12 — source identity/history closed; independent quality budgets
+
+Independently reproduced the committed source `df499a1` 0.2.1 transaction first
+run: 42 pass / 1 fail / 14 unsupported semantic. P02 has the same 15 difference
+paths and forbidden extra write. All 65 statuses and input hashes match. Two
+literal report values differ: the wrongly returned random receipt handle and
+its recorded diff value. That unexpected handle is outside declared normalization;
+it is not silently normalized or described as literal equality. Every other
+stored actual field matches. Existing five transaction controls pass.
+Evidence: `.temp/astra22-judge-021-first.md` / `.json`,
+`.temp/astra22-judge-021-first-comparison-01.json` (literal comparison false),
+`.temp/astra22-judge-021-first-comparison-02.json` (exact mismatch paths and limit),
+`.temp/transaction_checks-judge-021-first-01.log`.
+
+Reviewed source fix `26d8cc6` and independently reran the canonical package:
+43 pass / 0 fail / 14 unsupported semantic; 8 unsupported deployment. All 65
+rows, package/core hashes, normalized reports and totals exactly match committed
+RESULTS. Source controls 25, adapter controls 3, transaction controls 7 and
+harness controls 5 pass. Closed R7-025/026. Evidence:
+`.temp/astra22-judge-021-fixed.md` / `.json`,
+`.temp/astra22-judge-021-fixed-comparison-01.json`,
+`.temp/source_checks-judge-021-fixed-01.log`,
+`.temp/adapter_checks-judge-021-fixed-01.log`,
+`.temp/transaction_checks-judge-021-fixed-01.log`.
+
+Reviewed new ASTRA25-06 in full and K-EVAL-2/4 against the source core. Its one
+global budget spans both polarities and quality roots, directly contradicting
+the already explicit independent-walk rule. Independently reproduced current
+source supplemental inventory: 10 pass / 2 fail / 8 unsupported semantic; one
+deployment unsupported. Both failures are one R7-027 property: ASTRA25-06 and
+the visible-opposition final control of ASTRA25-01. The hidden pair stays equal.
+The package evaluator passes all 20 current semantic cases; one deployment case
+remains unsupported. Evidence:
+`.temp/astra22-judge-021-supplemental-budget.md` / `.json`,
+`.temp/astra23-judge-021-supplemental-budget.md` / `.json`.
+These exact reports remain separate from the 57 canonical vectors. New cases
+are useful precisely because canonical green alone does not prove the contract.
+
+Ledger: 27 items, eight rejected, eighteen fixed, one open implementation bug,
+no open specification bugs or owner questions. Score remains 1/2 for R7-027.
