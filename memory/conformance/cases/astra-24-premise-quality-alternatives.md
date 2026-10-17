@@ -79,3 +79,7 @@ triggers the intended forbidden predicate. No independent evaluator run yet.
 Evidence: seat-local `.temp/case-vectors-validate-01.log`; whole-package
 validation `.temp/package-validate-01.log` passed 61 vectors structurally
 (53 semantic, 8 deployment), with 13 intended checker controls.
+
+Judge disposition, round 3: R7-001 rejected as a spec defect in `0.1.0-draft`;
+existing prose is explicit. Regression fixture retained. Any future evaluator
+mismatch requires a separate implementation-bug row.

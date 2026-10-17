@@ -72,3 +72,7 @@ predicates. Planting a surviving endpoint witness triggers the intended forbidde
 predicate. No independent evaluator run yet. Evidence: seat-local
 `.temp/case-vectors-validate-01.log`; whole-package validation is recorded in
 `.temp/package-validate-01.log`. No deployment execution is claimed.
+
+Judge disposition, round 3: R7-002 rejected as a spec defect in `0.1.0-draft`;
+existing prose is explicit. Regression fixture retained. Any future evaluator
+mismatch requires a separate implementation-bug row.

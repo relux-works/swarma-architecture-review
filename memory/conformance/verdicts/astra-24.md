@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: active, round 2. Source baseline: `95f974b`; kernel draft v0.2.
+Status: active, round 3. Source baseline: `95f974b`; kernel draft v0.2.
 
 ## Scope and method
 
@@ -40,7 +40,11 @@ outputs were authored from the contract, without using either evaluator.
 
 **Provisional R7: 1 at this baseline.** The package now exists and validates;
 independent semantic execution and the editor's kernel-v0.2 update remain
-pending. This seat has established no evaluator bug or source ambiguity.
+pending. R7-001 and R7-002 are rejected as package-defect allegations; their regression
+fixtures remain. ASTRA24-03 now asks the judge to close source-state aggregation
+inside a mixed AND witness (independent A, retained-only B). Its structurally
+valid exact fixture records the proposed prior-only result and direct-root
+controls. No evaluator bug or source ambiguity has been established.
 The judge owns the collective score. No protected deployment is qualified.
 
 ## Remaining work
