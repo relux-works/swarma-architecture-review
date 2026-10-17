@@ -1,25 +1,23 @@
 # astra-21 package editor verdict
 
-Status: round 11, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
-signed release `6a04e8c` for judge-classified R7-054. This round changes only
-this verdict after the requested exact-release successor verification.
+Status: round 12, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
+signed release `6a04e8c`. This round changes only this verdict after independent
+verification of both deadline corrections and the issuer-ancestry adjudication.
 
-**All prior 13 editor-owned specification bugs are judge-closed; R7-054 is
-review-ready in this release. Phase 2 remains 1/2.** R7-049 was accepted at
-`ef02647` by judge event `$pNoW3rbOWwkEJDE5jKrGOsRL9nD9Ngyuo48i_zazdJ0`.
-The new release makes expiry's boundary/code/order/replay explicit without a
-new shape, code enum or purge mechanism. R7-052/053 remain runtime work.
+**All 14 editor-owned specification bugs are judge-closed.** R7-054 was closed
+at `6a04e8c` by judge `3a60f2e`. Source R7-052 is judge-closed at `4a14a56`;
+this editor independently verifies it and package R7-053 at `23b4d74`.
+Pinned canonical results: source50/0/7, package57/0/0, **50/57 dual passes**;
+seven unchanged adversarial expiry vectors pass in each, with all four write APIs
+and full-state/replay controls exercised. Package053 closure is recommended to
+the judge. New source full-coverage work is separate from this pinned audit.
 
-Unchanged package runtime `942bdee` gives 56/1/0 on the uncommitted 0.2.5
-candidate: P11 is the sole intended failure. Separate prescribed positive traces
-match every field, including all old scope/revocation controls. This is a red
-baseline, not a passing new-release claim. The exact 0.2.4 successor correction
-is now also independently verified by this editor: 57/57 canonical, exact report
-reproduction and three focused native control groups. Judge `de37630` had already
-closed R7-048 at `942bdee` and R7-051 at `427fed5`; this audit confirms the former
-without reopening either or claiming deadline correctness. Judge [score](../R7-SCORE.md) and
-[ledger](../LEDGER.md) track current source coverage and closures. No full-profile
-or protected deployment claim follows.
+R7-055 is an explicit [owner question](../OWNER-QUESTIONS.md): the source leaves
+cross-issuer predecessor-path attestation meaning undecided. The convener holds
+both readings for Ivan; neither option, exact oracle nor presumed runtime defect
+is adopted. Phase 2 remains1/2 pending the judge's current
+[score](../R7-SCORE.md) and [ledger](../LEDGER.md). No full-profile or protected
+deployment claim follows from the passing bounded inputs.
 
 ## Scope and independence
 
@@ -254,6 +252,62 @@ seats24/26 reviews already satisfy the collective closure; this requested audit
 adds no new finding, oracle edit or deployment claim. Deadline052/053/054 and
 remaining source unsupported semantics stay separate.
 
+## Round 12: exact 0.2.5 deadline correction verification
+
+Against exact `6a04e8cfb1490569cd1de7468d2085dd4840cf51`, independently reran
+source `4a14a56` and package `23b4d74`: canonical50/0/7 and57/0/0, respectively;
+all seven unchanged migrated expiry vectors pass in each. Eight deployment
+vectors remain unsupported in each canonical run. Six source and three targeted
+package native groups pass live/expired writes and exact replay, all four intake
+APIs, transitive complete/incomplete-known inputs, whole-batch inputs, null and
+unrelated deadlines, priority, no partial writes and unchanged original receipts.
+The exercised native refusals preserve full state; package controls also assert
+unchanged capture/binding/dirty metadata.
+
+Reviewed current-time deadline checks before idempotency and before recursive
+identity deduplication; package replay additionally checks the original stored
+output/known-input closure. For each runtime, all65canonical+7targeted rows,
+input/module hashes and full actuals reproduce the committed reports after only
+declared fresh-handle normalization. The package's canonical inputs equal the
+retained942bdee red run byte-for-byte; its only failure P11 is now exact.
+The identical source control script's original17failures comprise16missing
+refusals and1wrong duplicate_record priority, with no setup error. An initial
+audit assumed all17were missing refusals; its failed assertion and corrected
+classification are retained, with no product/oracle change.
+
+Evidence under `.temp/astra-21/`: `deadline-025-verification.md`,
+`deadline-025-input-hashes.json`, exact `deadline-025-cases/`, both
+`source-evaluator-025-verified` and `package-evaluator-025-verified` reports,
+both `source-deadline-025-verified` and `package-deadline-025-verified` reports,
+adjacent command/exit logs, the source/package deadline control logs and
+`source-deadline-025-reproduction-01.log` /
+`package-deadline-025-reproduction-01.log`. Full broad producer suites were
+not rerun by this editor; the bounded relevant controls and exact reports were.
+Source052closure is confirmed; recommend package053closure subjectjudge.
+
+## R7-055: cross-issuer predecessor meaning stays undecided
+
+ASTRA24-12's original input bundle hash is
+`8224829a810a97c79fef81cb18f0d650b59ffc84a3262bdef09b1ea900c521b3`.
+An H1/H1 decision pair linked only through a canonical H2 intermediate is
+ambiguous in source and current in package. Same-H1 intermediates agree.
+Kernel5.3 requires the deciding authority's own order, but does not say whether
+an H1 edge toH2 adopts H2's ordering claim or is only a foreign causal reference.
+The predecessor DAG encoding comes from the package; sequence ownership alone
+does not settle this path meaning when both candidate decisions remainH1.
+
+Issuer-local ancestry is the conservative recommendation, not a source-proven
+MUST or grounds to label the global reader defective. Ignoring foreign edges
+keeps the mixed input valid and permits an all-H1 alternative path; rejecting
+mixed-edge input would require a separate integrity/refusal contract. Policy
+authority-event issuer is the relevant axis, not submitter or source carrier.
+The judge filed R7-055 as ambiguity in OWNER-QUESTIONS.md, event
+`$Ju7IuqWDcWw6JB87jbG-0K3yC4TWQ2WszJTNwNLZQHs`; convener event
+`$wrLtxOryOvNuOttDN4ofHbvs0INg6jS0hLEpgMJ58wk` holds it for Ivan and prohibits
+choosing either option without an attributed owner decision. No package or
+oracle change was made, and this native pair is outside pass/fail denominators.
+Source distinction is preserved in `.temp/astra-21/authority-issuer-review.md`.
+
 ## Previous 0.2.1 validation and execution evidence
 
 `python3 memory/spec/checks/validate.py` passes: 94 JSON artifacts, 14 closed
@@ -301,8 +355,9 @@ B01/B07/P05/P06/P08/P12/S07/S17/S20/S23/S24/S25/S26/S27. Adversaries target thos
 clauses and the v0.2 delta. The editor will apply resulting judge-classified
 package fixes with preserved regression controls and a versioned 0.2.x release.
 R7-031/039/042 are judge-closed. Exact-release retention enforcement in R7-036/037
-is independently verified by this editor and judge-closed. R7-049 is judge-closed at ef02647; R7-054 now awaits review of 0.2.5.
-R7-052/053 remain with evaluator owners. Remaining unsupported
+is independently verified by this editor and judge-closed. R7-049 is judge-closed at ef02647; R7-054 is judge-closed at 6a04e8c.
+R7-052 is closed; R7-053 is independently verified and awaits judge closure.
+R7-055 remains an owner question without a chosen ancestry rule. Remaining unsupported
 source semantics still require implementation and review;
 adversary fixtures have explicit 0.2.3 migrations. Other newly classified implementation defects remain with
 their evaluator owners; no expected answer was changed to match an evaluator.
