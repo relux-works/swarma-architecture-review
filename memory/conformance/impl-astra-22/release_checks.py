@@ -131,6 +131,9 @@ class ReleaseControls(unittest.TestCase):
     def test_scope_and_deadline(self):
         v = fixture()
         v["initial_state"]["records"][0]["envelope"]["disclosure"]["retain_until"] = "2026-10-18T00:00:00Z"
+        private_rule = copy.deepcopy(v["initial_state"]["projection_rules"][0])
+        private_rule.update(id="projection:main", family="issuer_current", audience=None, purpose=None)
+        v["initial_state"]["projection_rules"].append(private_rule)
         adapter = Adapter(v["initial_state"], "control")
         Transactions(adapter).apply(v["operations"][1])
         output = adapter.records[key(ref(v["operations"][1]["output"]))]

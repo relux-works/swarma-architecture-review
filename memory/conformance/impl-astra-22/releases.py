@@ -62,7 +62,7 @@ class Releases:
             if (decision is None or not decision["active"] or key(release["decision"]) in revoked
                     or decision["owner"] != assessment["envelope"]["issuer"] or decision["pins"] != pins
                     or pins["inputs"] != inputs or pins["output_schema"] != e["schema"]
-                    or pins["output_digest"] != hashlib.sha256(canonical(output["body"])).hexdigest()
+                    or pins["output_digest"] != hashlib.sha256(b"bounded-evidence:cjson-v1\x00" + canonical(output["body"])).hexdigest()
                     or common is not None and pins != common):
                 raise Refusal("declassification_invalid")
             common = pins

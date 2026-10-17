@@ -156,3 +156,12 @@ item before PARK; the historical supported-vector score is not that completion.
 Authoritative CAS now chooses a unique maximal receipt over the full exact slot before applying local transition tokens. The thirteen transaction controls preserve ambiguous/stale atomic refusals, unique current head, challenge and exact-retry precedence; first and corrected R7-040 cases are recorded in `runs/phase2-cas-*` and `DIVERGENCES.md`.
 
 Registered invalidation treats the justification and its certificate as inputs to the target path alongside its premises. R7-043 exact judge fixtures and first/corrected reports are retained under `fixtures/dirty-rule-certificate/` and `runs/dirty-rule-certificate-*`; nine impact controls include transitive, hidden, challenge, replay and recomputation neighbors.
+
+Wire release controls run with
+`PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/release_checks.py`.
+`releases.py` validates joint owner evidence and current decision authority for
+an exact structured output and audience/purpose. Queries reapply ordinary
+inherited constraints when release authority is revoked; frozen captures do not
+change and selected delivery rechecks the release. Evidence for the first framed
+digest defect and correction is retained in `runs/phase2-declassification-*`.
+These are synthetic semantic checks, not an external publication service.

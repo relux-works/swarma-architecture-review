@@ -2,7 +2,7 @@
 
 Package: **0.2.3-draft**, package commit `23290b3a96a469d5190cb71b0e20139896b89236`.
 Vector directory: `memory/spec/kernel/vectors` (this inventory only).
-Checkout: `97990250ecd826ee6dee5ba0aba0543e7981ca1d`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
+Checkout: `e1ba8db79577da1b9a6f07259e36c93254c12489`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.
@@ -11,7 +11,7 @@ Deployment cases require actual boundary qualification and are reported separate
 
 | Category | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| semantic | 49 | 0 | 8 |
+| semantic | 50 | 0 | 7 |
 | deployment | 0 | 0 | 8 |
 
 Five bounded harness controls passed (valid comparison, changed value, extra field,
@@ -42,7 +42,7 @@ No randomness-distribution or timing proof is claimed.
 | P02 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P03 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P04 | semantic | pass | Exact report and forbidden/normalization checks passed. |
-| P05 | semantic | unsupported | Unmapped frozen-core transaction operations: declassify, revoke_declassification |
+| P05 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P06 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P07 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P08 | semantic | unsupported | Unmapped frozen-core transaction operations: erase |

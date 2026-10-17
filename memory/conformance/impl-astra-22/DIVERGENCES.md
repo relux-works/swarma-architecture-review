@@ -241,3 +241,7 @@ The independent-retain implementation defect follows the explicit R7-039 release
 ## Declassification expansion first mismatch — unframed output digest
 
 First wire expansion runs/phase2-declassification-first.* is49/1/7; matching supplemental first is37/1/8. P05/ASTRA25-02 valid release rejects because releases.py compares raw canonical-body SHA-256 instead of K-JSON-2 framed sha256-cjson-v1. The supplied expected digest is5de83fb8e3155c49b882fb716b571a54038bee18f06cc1989900cb49b16c2a3b; the unframed computed digest is c47edea8d46ce4fd367b430ade8f53aa72a2b7e44a8902193cd87ab939a4a63c. Both cover synthetic city body only. Evidence and implementation are frozen before correction; judge classification requested. This is an implementation mapping candidate, not a claimed spec failure.
+
+## R7-050 correction
+
+Judge $Jxqff_h8h6pJHraJVkiriHrvMIYcTlLKLCO1QAjUMuI confirms source impl-bug. releases.py now hashes ASCII bounded-evidence:cjson-v1, a single NUL, and canonical UTF-8 body bytes exactly as K-JSON-2 requires. Both ASCII/Unicode framed positives and raw negatives pass with atomic-state checks. Nine release control groups pass; the later private-rule test setup correction is separately documented. Canonical50/0/7, supplemental38/0/8; P05/ASTRA25-02 exact. First36983de and native firste1ba8db remain immutable. Corrected reports are runs/phase2-declassification-corrected.* and phase2-declassification-cases-corrected.*. Judge closure pending; no package/oracle change.
