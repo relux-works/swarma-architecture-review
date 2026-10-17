@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 34; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 35; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.5-draft` at `6a04e8c`; all twenty owned exact fixtures explicitly migrated.
 
 ## Scope and method
@@ -28,7 +28,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
 | ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Source R7-047 and package R7-048 verified and judge-closed; mapping release R7-049 verified `ef02647` |
 | ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | R7-051 source correction `427fed5` independently verified and judge-closed `de37630`; both exact witnesses pass |
-| ASTRA24-12 | Receipt ancestry through a foreign issuer separates careful readings | Judge announces ambiguity R7-055 / owner question; no typed oracle asserted |
+| ASTRA24-12 | Receipt ancestry through a foreign issuer separates careful readings | R7-055 ambiguity / owner question verified at `dc6991d`; no typed oracle asserted |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -626,11 +626,31 @@ pass/fail denominator. At `ead8bc1`, the committed owner-question file still end
 at judge Round 29, so published-ledger readback remains pending despite the
 attributed room classification. Other work continues without an authority edit.
 
+## Round 35 adjudication record synchronization
+
+ASTRA24-12's current status now links the read-back verified R7-055 owner
+question at signed `dc6991d`. The native pair remains outside exact denominators
+and under the convener's explicit hold for Ivan. This supersedes the earlier
+pinned notes about awaiting ledger publication without rewriting their history.
+Both complete first artifacts are byte-identical to `4424598`.
+
+Judge event `$JwiSCClsftcbsOR8UrOJoe2h7NZWY12YYcjSgWm4S6c` classifies the
+independently reproduced initial-degraded recovery failure as source impl-bug
+R7-056. Current public availability must change without changing policy pins,
+grants, records or unrelated state; the failure remains open pending correction.
+This is separate from the held authority ambiguity and source erase-context
+priority probe `0529814`, which has no adjudicated fix in this unit.
+
+Only case/verdict status documentation changes. Existing executable evidence
+already establishes the observations; no new runtime claim or exact oracle needs
+an additional test. Local documentation checks confirm the owner-question link,
+matching classification and unchanged frozen input/output bytes.
+
 ## Provisional R7 row and remaining work
 
 **Phase 2 R7: 1/2.** Both evaluators independently pass all 57 canonical
 semantic vectors and the twenty owned exact fixtures on 0.2.5. The separate
-initial-degraded recovery failure is reproduced and awaits adjudication/repair;
+initial-degraded recovery failure is source bug R7-056 and awaits repair;
 R7-053 formal closure is pending. Issuer ambiguity R7-055 is held for an owner
 decision with no exact oracle. Protected deployment remains unqualified.
 

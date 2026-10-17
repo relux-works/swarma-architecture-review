@@ -1,7 +1,8 @@
 # ASTRA24-12: does receipt ancestry cross an issuer boundary?
 
-Status: two validated inputs separate the independent readers; judge contract
-adjudication pending. No exact-output oracle or implementation fix is asserted.
+Status: **R7-055 ambiguity / owner question**, awaiting Ivan's attributed
+decision. Both native readings remain preserved; no exact-output oracle or
+implementation fix is asserted.
 Owner: astra-24. First execution `6a04e8c`, package `0.2.5-draft`.
 
 ## Clauses and two careful readings
@@ -117,3 +118,18 @@ new record kind or new authority mechanism is proposed by this case.
 No executable fixture or expected verdict changes in this response. The two
 first input/output artifacts remain byte-identical. Additional exact vectors
 must follow the adjudicated meaning rather than either implementation's result.
+
+## Recorded adjudication and owner hold
+
+Judge signed `dc6991d` classifies this case as R7-055 ambiguity and publishes
+the exact choices in [OWNER-QUESTIONS.md](../OWNER-QUESTIONS.md#r7-055--does-canonical-receipt-order-cross-deciding-issuers).
+The ledger and complete owner question were read back after the Round 34 rebase.
+This establishes the source-level uncertainty, not an implementation defect.
+The original same-issuer R7-048/R7-051 fixes remain valid.
+
+The convener explicitly holds the question for Ivan in event
+`$wrLtxOryOvNuOttDN4ofHbvs0INg6jS0hLEpgMJ58wk`. Until an attributed owner
+decision, neither authority option nor mixed-edge invalidity is applied, and
+the native pair is neither a pass nor a fail in any exact-vector denominator.
+The two inputs and both first outputs retain their original bytes from `4424598`.
+Other conformance repairs and coverage verification continue independently.
