@@ -64,6 +64,16 @@ class Semantics(unittest.TestCase):
         self.assertEqual(e.read(q)["historical"], [])
         q["scope"]["targets"] = []
         self.assertEqual(e.read(q)["historical"], [{"id": "rec:hidden", "version": 1}])
+        q["scope"]["targets"] = [{"id": "rec:hidden", "version": 1}]
+        historical = e.read(q)
+        self.assertEqual(historical["items"][0]["currentness"], "historical")
+        self.assertEqual(historical["items"][0]["ref"], {"id": "rec:hidden", "version": 1})
+        self.assertEqual(historical["historical"], [])
+        q["scope"]["targets"] = []
+        q["audience"] = "aud:public"
+        public = e.read(q)
+        self.assertEqual(public["historical"], [])
+        self.assertEqual([i["ref"] for i in public["items"]], [{"id": "rec:a", "version": 1}])
 
     # K-EVAL-5/K-AUTH-1: a found derived witness retains its authorized exact source;
     # hiding that source removes both the witness and source metadata before accounting.

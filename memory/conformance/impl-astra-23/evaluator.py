@@ -419,7 +419,10 @@ class Evaluation:
         selected = [r for r in selected if key(r) not in excluded]
         selected_keys = {key(r) for r in selected}
         self.selected_refs = selected_keys
-        historical = refs(key(r) for r in chosen_scope if statuses[key(r)] == "historical" and key(r) not in selected_keys | excluded)
+        selected_sequences = {self.sequence(r) for r in selected}
+        historical = refs(key(r) for r in chosen_scope if statuses[key(r)] == "historical"
+                          and key(r) not in selected_keys | excluded
+                          and (not targets or self.sequence(r) in selected_sequences))
         required = self.review_required() - excluded
         handle = secrets.token_hex(16)
         view = {"type": "view", "semantic_profile": self.engine.version, "projection_rule": q["projection_rule"],

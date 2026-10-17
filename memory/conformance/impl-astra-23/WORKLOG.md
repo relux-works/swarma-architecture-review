@@ -126,3 +126,15 @@ will prove semantic differences and forbidden effects are detected.
   at the exact historical list assertion. Structural validation passes 20 controls.
 - Logs: canonical-021-prefixed-01.log, semantics-021-01.log, history-red-01.log,
   package-021-01.log. No expected output or case changed.
+
+### Round 4 corrected outcome
+
+- Adapted pre-fix commit bc342e1 preserved 55/57 and the exact red regression.
+- R7-024 corrected: selected multi sequences now bound historical metadata;
+  unfiltered, explicitly historical and hidden-reference controls pass.
+- Canonical 0.2.1 at f31d58f: 57 pass / 0 fail / 0 unsupported semantic;
+  eight deployment cases unsupported. Thirteen controls pass.
+- Compatible supplemental 0.2.1: 15 semantic pass / 0 fail; four astra-24 cases
+  await explicit grammar migration, one deployment case unsupported.
+- Logs: history-green-01.log, controls-06.log, canonical-021-green-01.log and
+  supplemental-021-01.log under `.temp/impl-astra-23/`.

@@ -71,3 +71,9 @@ Judge **R7-024: impl-bug**, owner astra-23. The wider private projection is a va
 positive control that may include `rec:hidden/1`. The exact regression is red
 before correction; no expected report or package vector was changed.
 Preserved report: RELEASE-0.2.1-FIRST.md/JSON.
+
+R7-024 pre-fix head is signed `bc342e1`. Correction restricts explicit-target
+history to selected sequence identities. Unfiltered selection, explicit historical
+items and hidden-reference boundaries remain covered. Package 0.2.1 is now
+57/57 semantic pass; all thirteen checker/product controls pass. Judge closure
+is pending the separately committed corrected head. No deployment claim.

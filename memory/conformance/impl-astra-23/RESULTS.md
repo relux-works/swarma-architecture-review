@@ -9,7 +9,7 @@ distinctness are checked first. No runtime distribution or timing claim is made.
 
 | Profile | Pass | Fail | Unsupported | Total |
 | --- | ---: | ---: | ---: | ---: |
-| semantic | 55 | 2 | 0 | 57 |
+| semantic | 57 | 0 | 0 | 57 |
 | deployment | 0 | 0 | 8 | 8 |
 
 Deployment unsupported means no qualification claim; modeled semantic erasure
@@ -30,7 +30,7 @@ and publication transitions do not exercise live authentication, storage or deli
 | B01 | semantic | pass |
 | B02 | semantic | pass |
 | B03 | semantic | pass |
-| B07 | semantic | fail |
+| B07 | semantic | pass |
 | B08 | semantic | pass |
 | B12 | semantic | pass |
 | B13 | semantic | pass |
@@ -74,7 +74,7 @@ and publication transitions do not exercise live authentication, storage or deli
 | S21 | semantic | pass |
 | S22 | semantic | pass |
 | S23 | semantic | pass |
-| S24 | semantic | fail |
+| S24 | semantic | pass |
 | S25 | semantic | pass |
 | S26 | semantic | pass |
 | S27 | semantic | pass |
@@ -117,16 +117,6 @@ Requires a real protected deployment; this evaluator implements synthetic state 
 
 Requires a real protected deployment; this evaluator implements synthetic state transitions only.
 
-### B07
-
-- `/operation_results/3/historical/length`: actual `1`; expected `0`.
-- `/operation_results/3/historical/0`: actual `{"id":"rec:hidden","version":1}`; expected `"<missing>"`.
-
-### S24
-
-- `/operation_results/3/historical/length`: actual `1`; expected `0`.
-- `/operation_results/3/historical/0`: actual `{"id":"rec:hidden","version":1}`; expected `"<missing>"`.
-
 ## Reproducibility
 
 Implementation SHA-256:
@@ -134,9 +124,9 @@ Implementation SHA-256:
 - `common.py`: `22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033`
 - `disclosure.py`: `b0f057b04b8e1776c9cefea638607c4cea88df2b4477e78d7d8144104a6bd079`
 - `engine.py`: `5ec5dda196812c46529714ff94be83a83a30a54e2e771c5864bc1b589f21e4ea`
-- `evaluator.py`: `c7c9368aa85d43f7b835e2f3749977ece970b7c7a2f958d1a02e170e6fb6f747`
+- `evaluator.py`: `8bc6ae4535b4b3b59f612488d80638496b72b55b90ce7e2e74009a6d8fe95e24`
 - `run_vectors.py`: `20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a`
 - `test_controls.py`: `6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083`
-- `test_semantics.py`: `e2cad0dee842cb0619099018f2a5d9987b9c6265b9772bf0eed866e62a6c2230`
+- `test_semantics.py`: `6794b43e8ab9613398474a22776d77e8392d84f673b04111ecaee9f9a57423e4`
 
 Full actual reports, exact differences and vector digests are in the adjacent JSON report.

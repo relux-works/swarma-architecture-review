@@ -1,14 +1,14 @@
 {
-  "package_version": "0.2.0-draft",
-  "package_commit": "cde5754d523b98c93cf2b1777fe80e15b9efa74c",
+  "package_version": "0.2.1-draft",
+  "package_commit": "f31d58f58d05de2ae4159dedaacfa1e32bdc656d",
   "implementation_sha256": {
     "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
     "disclosure.py": "b0f057b04b8e1776c9cefea638607c4cea88df2b4477e78d7d8144104a6bd079",
-    "engine.py": "601939ae52a7ecd7ed7395c27f40862ec5b756f2be78fa020a3e9644a681bda2",
-    "evaluator.py": "c73f7f4e32045fcbb0039b49d2417c59b71ee40eba2e4cf62386eb6faa907dea",
+    "engine.py": "5ec5dda196812c46529714ff94be83a83a30a54e2e771c5864bc1b589f21e4ea",
+    "evaluator.py": "8bc6ae4535b4b3b59f612488d80638496b72b55b90ce7e2e74009a6d8fe95e24",
     "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
     "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
-    "test_semantics.py": "1503c84de9d51804112c79aead70e377985ec8ab2340c3b7ccfaf5be32aeebe7"
+    "test_semantics.py": "6794b43e8ab9613398474a22776d77e8392d84f673b04111ecaee9f9a57423e4"
   },
   "vectors": [
     {
@@ -16,1479 +16,38 @@
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-24-derived-source-refs.vector.json",
       "vector_sha256": "1549f43f6bee45e9b98c71d0d7fec233c949460b4e9f217257747877a670bb36",
-      "status": "pass",
-      "differences": [],
-      "checks": [],
-      "actual": {
-        "operation_results": [
-          {
-            "type": "view",
-            "semantic_profile": "0.2.0-draft",
-            "projection_rule": {
-              "id": "projection:main",
-              "version": 1
-            },
-            "evidence_policy": {
-              "id": "evidence:1",
-              "version": 1
-            },
-            "policy": {
-              "id": "policy:1",
-              "version": 1
-            },
-            "authorized_snapshot_handle": "f1f379931c3a14f9dacc26fc3f81a907",
-            "data_classification": "data",
-            "items": [
-              {
-                "subject": "subj:h1",
-                "issuer": "subj:h1",
-                "submitter": "subj:h1",
-                "perspective": {
-                  "kind": "own",
-                  "principal": "subj:h1"
-                },
-                "representation_ref": null,
-                "admission_class": "machine_observation",
-                "valid": {
-                  "kind": "known",
-                  "from": "2026-09-01T00:00:00Z",
-                  "to": null,
-                  "precision": "second"
-                },
-                "confirmed_at": "2026-10-17T00:00:00Z",
-                "ref": {
-                  "id": "rec:a",
-                  "version": 1
-                },
-                "statement_kind": "fact",
-                "content": [
-                  {
-                    "field": "value",
-                    "value": "alpha"
-                  }
-                ],
-                "usable_until": null,
-                "currentness": "current",
-                "authority_receipt": null,
-                "incompatible_with": [],
-                "needs_review": false,
-                "source_refs": [
-                  {
-                    "id": "rec:s",
-                    "version": 1
-                  }
-                ],
-                "support": {
-                  "witness": "present",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "clean_path",
-                  "evidence_qualification": [
-                    "semantic_review"
-                  ],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "f1f379931c3a14f9dacc26fc3f81a907",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [
-                    "origin:ep"
-                  ],
-                  "independent_root_count": 1
-                },
-                "oppose": {
-                  "witness": "not_found",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "not_fully_checked",
-                  "evidence_qualification": [],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "f1f379931c3a14f9dacc26fc3f81a907",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [],
-                  "independent_root_count": 0
-                }
-              }
-            ],
-            "currentness": "current",
-            "historical": [],
-            "review_required": [],
-            "explanation": {
-              "status": "complete",
-              "paths": [],
-              "reason": null
-            },
-            "cutoffs": [],
-            "changes": {
-              "state": "initial",
-              "refs": []
-            }
-          }
-        ],
-        "result": {
-          "type": "view",
-          "semantic_profile": "0.2.0-draft",
-          "projection_rule": {
-            "id": "projection:main",
-            "version": 1
-          },
-          "evidence_policy": {
-            "id": "evidence:1",
-            "version": 1
-          },
-          "policy": {
-            "id": "policy:1",
-            "version": 1
-          },
-          "authorized_snapshot_handle": "d14360bed356cb7a46f4f914f02f8463",
-          "data_classification": "data",
-          "items": [
-            {
-              "subject": "subj:h1",
-              "issuer": "subj:h1",
-              "submitter": "subj:h1",
-              "perspective": {
-                "kind": "own",
-                "principal": "subj:h1"
-              },
-              "representation_ref": null,
-              "admission_class": "machine_observation",
-              "valid": {
-                "kind": "known",
-                "from": "2026-09-01T00:00:00Z",
-                "to": null,
-                "precision": "second"
-              },
-              "confirmed_at": "2026-10-17T00:00:00Z",
-              "ref": {
-                "id": "rec:b",
-                "version": 1
-              },
-              "statement_kind": "fact",
-              "content": [
-                {
-                  "field": "value",
-                  "value": "beta"
-                }
-              ],
-              "usable_until": null,
-              "currentness": "current",
-              "authority_receipt": null,
-              "incompatible_with": [],
-              "needs_review": false,
-              "source_refs": [
-                {
-                  "id": "rec:s",
-                  "version": 1
-                }
-              ],
-              "support": {
-                "witness": "present",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "clean_path",
-                "evidence_qualification": [
-                  "formal_entailment",
-                  "semantic_review"
-                ],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d14360bed356cb7a46f4f914f02f8463",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [
-                  "origin:ep"
-                ],
-                "independent_root_count": 1
-              },
-              "oppose": {
-                "witness": "not_found",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d14360bed356cb7a46f4f914f02f8463",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
-              }
-            }
-          ],
-          "currentness": "current",
-          "historical": [],
-          "review_required": [],
-          "explanation": {
-            "status": "complete",
-            "paths": [],
-            "reason": null
-          },
-          "cutoffs": [],
-          "changes": {
-            "state": "initial",
-            "refs": []
-          }
-        },
-        "postconditions": {
-          "record_refs": [
-            {
-              "id": "cert:j",
-              "version": 1
-            },
-            {
-              "id": "rec:a",
-              "version": 1
-            },
-            {
-              "id": "rec:b",
-              "version": 1
-            },
-            {
-              "id": "rec:ep",
-              "version": 1
-            },
-            {
-              "id": "rec:j",
-              "version": 1
-            },
-            {
-              "id": "rec:s",
-              "version": 1
-            }
-          ],
-          "erased_refs": [],
-          "custody_present": [],
-          "dirty": [],
-          "control_observations": [],
-          "external_effects": []
-        }
-      }
+      "status": "unsupported",
+      "reason": "Supplemental fixture does not match this package's closed vector grammar; no implicit conversion performed."
     },
     {
       "id": "ASTRA24-03",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-24-mixed-source-state.vector.json",
       "vector_sha256": "bc30998a429643983c8815d58fd59d1cc7784a0552656ce06216e9240ef04493",
-      "status": "pass",
-      "differences": [],
-      "checks": [],
-      "actual": {
-        "operation_results": [
-          {
-            "type": "view",
-            "semantic_profile": "0.2.0-draft",
-            "projection_rule": {
-              "id": "projection:main",
-              "version": 1
-            },
-            "evidence_policy": {
-              "id": "evidence:1",
-              "version": 1
-            },
-            "policy": {
-              "id": "policy:1",
-              "version": 1
-            },
-            "authorized_snapshot_handle": "79cf206f37fbfb72c97aab08b59200b7",
-            "data_classification": "data",
-            "items": [
-              {
-                "subject": "subj:h1",
-                "issuer": "subj:h1",
-                "submitter": "subj:h1",
-                "perspective": {
-                  "kind": "own",
-                  "principal": "subj:h1"
-                },
-                "representation_ref": null,
-                "admission_class": "machine_observation",
-                "valid": {
-                  "kind": "known",
-                  "from": "2026-09-01T00:00:00Z",
-                  "to": null,
-                  "precision": "second"
-                },
-                "confirmed_at": "2026-10-17T00:00:00Z",
-                "ref": {
-                  "id": "rec:a",
-                  "version": 1
-                },
-                "statement_kind": "fact",
-                "content": [
-                  {
-                    "field": "value",
-                    "value": "alpha"
-                  }
-                ],
-                "usable_until": null,
-                "currentness": "current",
-                "authority_receipt": null,
-                "incompatible_with": [],
-                "needs_review": false,
-                "source_refs": [
-                  {
-                    "id": "rec:s",
-                    "version": 1
-                  }
-                ],
-                "support": {
-                  "witness": "present",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "clean_path",
-                  "evidence_qualification": [
-                    "semantic_review"
-                  ],
-                  "source_state": "independent_attestation",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "79cf206f37fbfb72c97aab08b59200b7",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [
-                    "origin:att"
-                  ],
-                  "independent_root_count": 1
-                },
-                "oppose": {
-                  "witness": "not_found",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "not_fully_checked",
-                  "evidence_qualification": [],
-                  "source_state": "prior_assessment_only",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "79cf206f37fbfb72c97aab08b59200b7",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [],
-                  "independent_root_count": 0
-                }
-              },
-              {
-                "subject": "subj:h1",
-                "issuer": "subj:h1",
-                "submitter": "subj:h1",
-                "perspective": {
-                  "kind": "own",
-                  "principal": "subj:h1"
-                },
-                "representation_ref": null,
-                "admission_class": "machine_observation",
-                "valid": {
-                  "kind": "known",
-                  "from": "2026-09-01T00:00:00Z",
-                  "to": null,
-                  "precision": "second"
-                },
-                "confirmed_at": "2026-10-17T00:00:00Z",
-                "ref": {
-                  "id": "rec:b",
-                  "version": 1
-                },
-                "statement_kind": "fact",
-                "content": [
-                  {
-                    "field": "value",
-                    "value": "beta"
-                  }
-                ],
-                "usable_until": null,
-                "currentness": "current",
-                "authority_receipt": null,
-                "incompatible_with": [],
-                "needs_review": false,
-                "source_refs": [
-                  {
-                    "id": "rec:s",
-                    "version": 1
-                  }
-                ],
-                "support": {
-                  "witness": "present",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "clean_path",
-                  "evidence_qualification": [
-                    "semantic_review"
-                  ],
-                  "source_state": "prior_assessment_only",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "79cf206f37fbfb72c97aab08b59200b7",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [
-                    "origin:ret"
-                  ],
-                  "independent_root_count": 1
-                },
-                "oppose": {
-                  "witness": "not_found",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "not_fully_checked",
-                  "evidence_qualification": [],
-                  "source_state": "prior_assessment_only",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "79cf206f37fbfb72c97aab08b59200b7",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [],
-                  "independent_root_count": 0
-                }
-              }
-            ],
-            "currentness": "current",
-            "historical": [],
-            "review_required": [],
-            "explanation": {
-              "status": "complete",
-              "paths": [],
-              "reason": null
-            },
-            "cutoffs": [],
-            "changes": {
-              "state": "initial",
-              "refs": []
-            }
-          },
-          {
-            "type": "view",
-            "semantic_profile": "0.2.0-draft",
-            "projection_rule": {
-              "id": "projection:main",
-              "version": 1
-            },
-            "evidence_policy": {
-              "id": "evidence:1",
-              "version": 1
-            },
-            "policy": {
-              "id": "policy:1",
-              "version": 1
-            },
-            "authorized_snapshot_handle": "8b71e0424de015d6b53ed14899a4b126",
-            "data_classification": "data",
-            "items": [
-              {
-                "subject": "subj:h1",
-                "issuer": "subj:h1",
-                "submitter": "subj:h1",
-                "perspective": {
-                  "kind": "own",
-                  "principal": "subj:h1"
-                },
-                "representation_ref": null,
-                "admission_class": "machine_observation",
-                "valid": {
-                  "kind": "known",
-                  "from": "2026-09-01T00:00:00Z",
-                  "to": null,
-                  "precision": "second"
-                },
-                "confirmed_at": "2026-10-17T00:00:00Z",
-                "ref": {
-                  "id": "rec:c",
-                  "version": 1
-                },
-                "statement_kind": "fact",
-                "content": [
-                  {
-                    "field": "value",
-                    "value": "gamma"
-                  }
-                ],
-                "usable_until": null,
-                "currentness": "current",
-                "authority_receipt": null,
-                "incompatible_with": [],
-                "needs_review": false,
-                "source_refs": [
-                  {
-                    "id": "rec:s",
-                    "version": 1
-                  }
-                ],
-                "support": {
-                  "witness": "present",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "clean_path",
-                  "evidence_qualification": [
-                    "formal_entailment",
-                    "semantic_review"
-                  ],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "8b71e0424de015d6b53ed14899a4b126",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [
-                    "origin:att",
-                    "origin:fresh",
-                    "origin:ret"
-                  ],
-                  "independent_root_count": 3
-                },
-                "oppose": {
-                  "witness": "not_found",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "not_fully_checked",
-                  "evidence_qualification": [],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "8b71e0424de015d6b53ed14899a4b126",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [],
-                  "independent_root_count": 0
-                }
-              }
-            ],
-            "currentness": "current",
-            "historical": [],
-            "review_required": [],
-            "explanation": {
-              "status": "complete",
-              "paths": [],
-              "reason": null
-            },
-            "cutoffs": [],
-            "changes": {
-              "state": "initial",
-              "refs": []
-            }
-          }
-        ],
-        "result": {
-          "type": "view",
-          "semantic_profile": "0.2.0-draft",
-          "projection_rule": {
-            "id": "projection:main",
-            "version": 1
-          },
-          "evidence_policy": {
-            "id": "evidence:1",
-            "version": 1
-          },
-          "policy": {
-            "id": "policy:1",
-            "version": 1
-          },
-          "authorized_snapshot_handle": "29c17a3a6017841b3cfcf7830819a8b3",
-          "data_classification": "data",
-          "items": [
-            {
-              "subject": "subj:h1",
-              "issuer": "subj:h1",
-              "submitter": "subj:h1",
-              "perspective": {
-                "kind": "own",
-                "principal": "subj:h1"
-              },
-              "representation_ref": null,
-              "admission_class": "machine_observation",
-              "valid": {
-                "kind": "known",
-                "from": "2026-09-01T00:00:00Z",
-                "to": null,
-                "precision": "second"
-              },
-              "confirmed_at": "2026-10-17T00:00:00Z",
-              "ref": {
-                "id": "rec:c",
-                "version": 1
-              },
-              "statement_kind": "fact",
-              "content": [
-                {
-                  "field": "value",
-                  "value": "gamma"
-                }
-              ],
-              "usable_until": null,
-              "currentness": "current",
-              "authority_receipt": null,
-              "incompatible_with": [],
-              "needs_review": false,
-              "source_refs": [
-                {
-                  "id": "rec:s",
-                  "version": 1
-                }
-              ],
-              "support": {
-                "witness": "present",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "clean_path",
-                "evidence_qualification": [
-                  "formal_entailment",
-                  "semantic_review"
-                ],
-                "source_state": "prior_assessment_only",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "29c17a3a6017841b3cfcf7830819a8b3",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [
-                  "origin:att",
-                  "origin:ret"
-                ],
-                "independent_root_count": 2
-              },
-              "oppose": {
-                "witness": "not_found",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "29c17a3a6017841b3cfcf7830819a8b3",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
-              }
-            }
-          ],
-          "currentness": "current",
-          "historical": [],
-          "review_required": [],
-          "explanation": {
-            "status": "complete",
-            "paths": [],
-            "reason": null
-          },
-          "cutoffs": [],
-          "changes": {
-            "state": "initial",
-            "refs": []
-          }
-        },
-        "postconditions": {
-          "record_refs": [
-            {
-              "id": "cert:j",
-              "version": 1
-            },
-            {
-              "id": "rec:a",
-              "version": 1
-            },
-            {
-              "id": "rec:att",
-              "version": 1
-            },
-            {
-              "id": "rec:b",
-              "version": 1
-            },
-            {
-              "id": "rec:c",
-              "version": 1
-            },
-            {
-              "id": "rec:fresh",
-              "version": 1
-            },
-            {
-              "id": "rec:j",
-              "version": 1
-            },
-            {
-              "id": "rec:ret",
-              "version": 1
-            },
-            {
-              "id": "rec:s",
-              "version": 1
-            }
-          ],
-          "erased_refs": [],
-          "custody_present": [],
-          "dirty": [],
-          "control_observations": [],
-          "external_effects": []
-        }
-      }
+      "status": "unsupported",
+      "reason": "Supplemental fixture does not match this package's closed vector grammar; no implicit conversion performed."
     },
     {
       "id": "ASTRA24-01",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-24-premise-quality-alternatives.vector.json",
       "vector_sha256": "12564e1d18b80643813411077e24fc94fc03bb7da5cfa30ef7abd05ff47fe425",
-      "status": "pass",
-      "differences": [],
-      "checks": [],
-      "actual": {
-        "operation_results": [
-          {
-            "type": "view",
-            "semantic_profile": "0.2.0-draft",
-            "projection_rule": {
-              "id": "projection:main",
-              "version": 1
-            },
-            "evidence_policy": {
-              "id": "evidence:1",
-              "version": 1
-            },
-            "policy": {
-              "id": "policy:1",
-              "version": 1
-            },
-            "authorized_snapshot_handle": "72a9186232a1f259c24120fff08f595a",
-            "data_classification": "data",
-            "items": [
-              {
-                "subject": "subj:h1",
-                "issuer": "subj:h1",
-                "submitter": "subj:h1",
-                "perspective": {
-                  "kind": "own",
-                  "principal": "subj:h1"
-                },
-                "representation_ref": null,
-                "admission_class": "machine_observation",
-                "valid": {
-                  "kind": "known",
-                  "from": "2026-09-01T00:00:00Z",
-                  "to": null,
-                  "precision": "second"
-                },
-                "confirmed_at": "2026-10-17T00:00:00Z",
-                "ref": {
-                  "id": "rec:b",
-                  "version": 1
-                },
-                "statement_kind": "fact",
-                "content": [
-                  {
-                    "field": "value",
-                    "value": "beta"
-                  }
-                ],
-                "usable_until": null,
-                "currentness": "current",
-                "authority_receipt": null,
-                "incompatible_with": [],
-                "needs_review": false,
-                "source_refs": [],
-                "support": {
-                  "witness": "present",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "clean_path",
-                  "evidence_qualification": [
-                    "formal_entailment",
-                    "semantic_review"
-                  ],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "72a9186232a1f259c24120fff08f595a",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [
-                    "origin:ep",
-                    "origin:zp"
-                  ],
-                  "independent_root_count": 2
-                },
-                "oppose": {
-                  "witness": "not_found",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "not_fully_checked",
-                  "evidence_qualification": [],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "72a9186232a1f259c24120fff08f595a",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [],
-                  "independent_root_count": 0
-                }
-              }
-            ],
-            "currentness": "current",
-            "historical": [],
-            "review_required": [],
-            "explanation": {
-              "status": "complete",
-              "paths": [
-                [
-                  {
-                    "id": "rec:ep",
-                    "version": 1
-                  },
-                  {
-                    "id": "rec:j",
-                    "version": 1
-                  }
-                ],
-                [
-                  {
-                    "id": "rec:k",
-                    "version": 1
-                  },
-                  {
-                    "id": "rec:zp",
-                    "version": 1
-                  }
-                ]
-              ],
-              "reason": null
-            },
-            "cutoffs": [],
-            "changes": {
-              "state": "initial",
-              "refs": []
-            }
-          }
-        ],
-        "result": {
-          "type": "view",
-          "semantic_profile": "0.2.0-draft",
-          "projection_rule": {
-            "id": "projection:main",
-            "version": 1
-          },
-          "evidence_policy": {
-            "id": "evidence:1",
-            "version": 1
-          },
-          "policy": {
-            "id": "policy:1",
-            "version": 1
-          },
-          "authorized_snapshot_handle": "ea0b6566991d1dd881dcf1f0ad6f9da3",
-          "data_classification": "data",
-          "items": [
-            {
-              "subject": "subj:h1",
-              "issuer": "subj:h1",
-              "submitter": "subj:h1",
-              "perspective": {
-                "kind": "own",
-                "principal": "subj:h1"
-              },
-              "representation_ref": null,
-              "admission_class": "machine_observation",
-              "valid": {
-                "kind": "known",
-                "from": "2026-09-01T00:00:00Z",
-                "to": null,
-                "precision": "second"
-              },
-              "confirmed_at": "2026-10-17T00:00:00Z",
-              "ref": {
-                "id": "rec:b",
-                "version": 1
-              },
-              "statement_kind": "fact",
-              "content": [
-                {
-                  "field": "value",
-                  "value": "beta"
-                }
-              ],
-              "usable_until": null,
-              "currentness": "current",
-              "authority_receipt": null,
-              "incompatible_with": [],
-              "needs_review": false,
-              "source_refs": [],
-              "support": {
-                "witness": "present",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "clean_path",
-                "evidence_qualification": [
-                  "formal_entailment",
-                  "semantic_review"
-                ],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ea0b6566991d1dd881dcf1f0ad6f9da3",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [
-                  "origin:ep",
-                  "origin:zp"
-                ],
-                "independent_root_count": 2
-              },
-              "oppose": {
-                "witness": "not_found",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ea0b6566991d1dd881dcf1f0ad6f9da3",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
-              }
-            }
-          ],
-          "currentness": "current",
-          "historical": [],
-          "review_required": [],
-          "explanation": {
-            "status": "partial",
-            "paths": [
-              [
-                {
-                  "id": "rec:ep",
-                  "version": 1
-                },
-                {
-                  "id": "rec:j",
-                  "version": 1
-                }
-              ]
-            ],
-            "reason": "explanation_limit"
-          },
-          "cutoffs": [],
-          "changes": {
-            "state": "initial",
-            "refs": []
-          }
-        },
-        "postconditions": {
-          "record_refs": [
-            {
-              "id": "cert:j",
-              "version": 1
-            },
-            {
-              "id": "cert:k",
-              "version": 1
-            },
-            {
-              "id": "rec:a",
-              "version": 1
-            },
-            {
-              "id": "rec:b",
-              "version": 1
-            },
-            {
-              "id": "rec:c",
-              "version": 1
-            },
-            {
-              "id": "rec:en",
-              "version": 1
-            },
-            {
-              "id": "rec:ep",
-              "version": 1
-            },
-            {
-              "id": "rec:j",
-              "version": 1
-            },
-            {
-              "id": "rec:k",
-              "version": 1
-            },
-            {
-              "id": "rec:zp",
-              "version": 1
-            }
-          ],
-          "erased_refs": [],
-          "custody_present": [],
-          "dirty": [],
-          "control_observations": [],
-          "external_effects": []
-        }
-      }
+      "status": "unsupported",
+      "reason": "Supplemental fixture does not match this package's closed vector grammar; no implicit conversion performed."
     },
     {
       "id": "ASTRA24-02",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-24-rule-applicability.vector.json",
       "vector_sha256": "ab796a7449b3122f945d2ba594ffe60c8e78b9f0b633770bdccf5668d7e11334",
-      "status": "pass",
-      "differences": [],
-      "checks": [],
-      "actual": {
-        "operation_results": [
-          {
-            "type": "view",
-            "semantic_profile": "0.2.0-draft",
-            "projection_rule": {
-              "id": "projection:main",
-              "version": 1
-            },
-            "evidence_policy": {
-              "id": "evidence:1",
-              "version": 1
-            },
-            "policy": {
-              "id": "policy:1",
-              "version": 1
-            },
-            "authorized_snapshot_handle": "9c1cecbef7a40fc950f34a11be0511fd",
-            "data_classification": "data",
-            "items": [
-              {
-                "subject": "subj:h1",
-                "issuer": "subj:h1",
-                "submitter": "subj:h1",
-                "perspective": {
-                  "kind": "own",
-                  "principal": "subj:h1"
-                },
-                "representation_ref": null,
-                "admission_class": "machine_observation",
-                "valid": {
-                  "kind": "known",
-                  "from": "2026-09-01T00:00:00Z",
-                  "to": null,
-                  "precision": "second"
-                },
-                "confirmed_at": "2026-10-17T00:00:00Z",
-                "ref": {
-                  "id": "rec:b",
-                  "version": 1
-                },
-                "statement_kind": "fact",
-                "content": [
-                  {
-                    "field": "value",
-                    "value": "beta"
-                  }
-                ],
-                "usable_until": null,
-                "currentness": "current",
-                "authority_receipt": null,
-                "incompatible_with": [],
-                "needs_review": false,
-                "source_refs": [],
-                "support": {
-                  "witness": "present",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "clean_path",
-                  "evidence_qualification": [
-                    "formal_entailment",
-                    "semantic_review"
-                  ],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "9c1cecbef7a40fc950f34a11be0511fd",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [
-                    "origin:ep"
-                  ],
-                  "independent_root_count": 1
-                },
-                "oppose": {
-                  "witness": "not_found",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "not_fully_checked",
-                  "evidence_qualification": [],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "9c1cecbef7a40fc950f34a11be0511fd",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [],
-                  "independent_root_count": 0
-                }
-              }
-            ],
-            "currentness": "current",
-            "historical": [],
-            "review_required": [],
-            "explanation": {
-              "status": "complete",
-              "paths": [],
-              "reason": null
-            },
-            "cutoffs": [],
-            "changes": {
-              "state": "initial",
-              "refs": []
-            }
-          },
-          {
-            "type": "view",
-            "semantic_profile": "0.2.0-draft",
-            "projection_rule": {
-              "id": "projection:main",
-              "version": 1
-            },
-            "evidence_policy": {
-              "id": "evidence:1",
-              "version": 1
-            },
-            "policy": {
-              "id": "policy:1",
-              "version": 1
-            },
-            "authorized_snapshot_handle": "1adf7ad5c8bb92f6a789743a8ce569e0",
-            "data_classification": "data",
-            "items": [
-              {
-                "subject": "subj:h1",
-                "issuer": "subj:h1",
-                "submitter": "subj:h1",
-                "perspective": {
-                  "kind": "own",
-                  "principal": "subj:h1"
-                },
-                "representation_ref": null,
-                "admission_class": "machine_observation",
-                "valid": {
-                  "kind": "known",
-                  "from": "2026-09-01T00:00:00Z",
-                  "to": null,
-                  "precision": "second"
-                },
-                "confirmed_at": "2026-10-17T00:00:00Z",
-                "ref": {
-                  "id": "rec:b",
-                  "version": 1
-                },
-                "statement_kind": "fact",
-                "content": [
-                  {
-                    "field": "value",
-                    "value": "beta"
-                  }
-                ],
-                "usable_until": null,
-                "currentness": "current",
-                "authority_receipt": null,
-                "incompatible_with": [],
-                "needs_review": false,
-                "source_refs": [],
-                "support": {
-                  "witness": "present",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "clean_path",
-                  "evidence_qualification": [
-                    "formal_entailment",
-                    "semantic_review"
-                  ],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1adf7ad5c8bb92f6a789743a8ce569e0",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [
-                    "origin:ep"
-                  ],
-                  "independent_root_count": 1
-                },
-                "oppose": {
-                  "witness": "not_found",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "not_fully_checked",
-                  "evidence_qualification": [],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1adf7ad5c8bb92f6a789743a8ce569e0",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [],
-                  "independent_root_count": 0
-                }
-              }
-            ],
-            "currentness": "current",
-            "historical": [],
-            "review_required": [],
-            "explanation": {
-              "status": "complete",
-              "paths": [],
-              "reason": null
-            },
-            "cutoffs": [],
-            "changes": {
-              "state": "initial",
-              "refs": []
-            }
-          },
-          {
-            "type": "view",
-            "semantic_profile": "0.2.0-draft",
-            "projection_rule": {
-              "id": "projection:main",
-              "version": 1
-            },
-            "evidence_policy": {
-              "id": "evidence:1",
-              "version": 1
-            },
-            "policy": {
-              "id": "policy:1",
-              "version": 1
-            },
-            "authorized_snapshot_handle": "c967ca49be948e6c4b38b5dce5ce438f",
-            "data_classification": "data",
-            "items": [
-              {
-                "subject": "subj:h1",
-                "issuer": "subj:h1",
-                "submitter": "subj:h1",
-                "perspective": {
-                  "kind": "own",
-                  "principal": "subj:h1"
-                },
-                "representation_ref": null,
-                "admission_class": "machine_observation",
-                "valid": {
-                  "kind": "known",
-                  "from": "2026-09-01T00:00:00Z",
-                  "to": null,
-                  "precision": "second"
-                },
-                "confirmed_at": "2026-10-17T00:00:00Z",
-                "ref": {
-                  "id": "rec:b",
-                  "version": 1
-                },
-                "statement_kind": "fact",
-                "content": [
-                  {
-                    "field": "value",
-                    "value": "beta"
-                  }
-                ],
-                "usable_until": null,
-                "currentness": "current",
-                "authority_receipt": null,
-                "incompatible_with": [],
-                "needs_review": false,
-                "source_refs": [],
-                "support": {
-                  "witness": "present",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "clean_path",
-                  "evidence_qualification": [
-                    "semantic_review"
-                  ],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "c967ca49be948e6c4b38b5dce5ce438f",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [
-                    "origin:survivor"
-                  ],
-                  "independent_root_count": 1
-                },
-                "oppose": {
-                  "witness": "not_found",
-                  "evaluation": "complete",
-                  "corpus_coverage": {
-                    "kind": "unknown"
-                  },
-                  "premise_quality": "not_fully_checked",
-                  "evidence_qualification": [],
-                  "source_state": "resolvable_now",
-                  "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "c967ca49be948e6c4b38b5dce5ce438f",
-                  "dependency_coverage": "registered_only",
-                  "witness_roots": [],
-                  "independent_root_count": 0
-                }
-              }
-            ],
-            "currentness": "current",
-            "historical": [],
-            "review_required": [],
-            "explanation": {
-              "status": "complete",
-              "paths": [],
-              "reason": null
-            },
-            "cutoffs": [],
-            "changes": {
-              "state": "initial",
-              "refs": []
-            }
-          }
-        ],
-        "result": {
-          "type": "view",
-          "semantic_profile": "0.2.0-draft",
-          "projection_rule": {
-            "id": "projection:main",
-            "version": 1
-          },
-          "evidence_policy": {
-            "id": "evidence:1",
-            "version": 1
-          },
-          "policy": {
-            "id": "policy:1",
-            "version": 1
-          },
-          "authorized_snapshot_handle": "5d90dd7badc5c68fe90a6bc583bd2897",
-          "data_classification": "data",
-          "items": [
-            {
-              "subject": "subj:h1",
-              "issuer": "subj:h1",
-              "submitter": "subj:h1",
-              "perspective": {
-                "kind": "own",
-                "principal": "subj:h1"
-              },
-              "representation_ref": null,
-              "admission_class": "machine_observation",
-              "valid": {
-                "kind": "known",
-                "from": "2026-09-01T00:00:00Z",
-                "to": null,
-                "precision": "second"
-              },
-              "confirmed_at": "2026-10-17T00:00:00Z",
-              "ref": {
-                "id": "rec:b",
-                "version": 1
-              },
-              "statement_kind": "fact",
-              "content": [
-                {
-                  "field": "value",
-                  "value": "beta"
-                }
-              ],
-              "usable_until": null,
-              "currentness": "current",
-              "authority_receipt": null,
-              "incompatible_with": [],
-              "needs_review": false,
-              "source_refs": [],
-              "support": {
-                "witness": "not_found",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "5d90dd7badc5c68fe90a6bc583bd2897",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
-              },
-              "oppose": {
-                "witness": "not_found",
-                "evaluation": "complete",
-                "corpus_coverage": {
-                  "kind": "unknown"
-                },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
-                "source_state": "resolvable_now",
-                "freshness": "not_applicable",
-                "authorized_snapshot_handle": "5d90dd7badc5c68fe90a6bc583bd2897",
-                "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
-              }
-            }
-          ],
-          "currentness": "current",
-          "historical": [],
-          "review_required": [],
-          "explanation": {
-            "status": "complete",
-            "paths": [],
-            "reason": null
-          },
-          "cutoffs": [],
-          "changes": {
-            "state": "initial",
-            "refs": []
-          }
-        },
-        "postconditions": {
-          "record_refs": [
-            {
-              "id": "cert:j",
-              "version": 1
-            },
-            {
-              "id": "rec:a",
-              "version": 1
-            },
-            {
-              "id": "rec:b",
-              "version": 1
-            },
-            {
-              "id": "rec:ep",
-              "version": 1
-            },
-            {
-              "id": "rec:j",
-              "version": 1
-            },
-            {
-              "id": "rec:survivor",
-              "version": 1
-            }
-          ],
-          "erased_refs": [],
-          "custody_present": [],
-          "dirty": [],
-          "control_observations": [],
-          "external_effects": []
-        }
-      }
+      "status": "unsupported",
+      "reason": "Supplemental fixture does not match this package's closed vector grammar; no implicit conversion performed."
     },
     {
       "id": "ASTRA25-02",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
-      "vector_sha256": "fc8e3a052928b7eb82aa659c023f38edac86b9b45f0b2a6142029ea6f727fda4",
+      "vector_sha256": "f8dedbc7e38d7fa7699c5fdab332c4e1fdfaa7ff338db63bf496ce03bef94bf2",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1503,7 +62,7 @@
             "type": "receipt",
             "operation": "declassify",
             "outcome": "declassified",
-            "receipt_handle": "b7044c2740caf5137df113158b444a4d",
+            "receipt_handle": "e5733f8920a0e27cbc034439fce4ffe0",
             "refs": [
               {
                 "id": "rec:city",
@@ -1523,7 +82,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -1536,7 +95,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "cabdaefe0cedb790a2273545638f3e92",
+            "authorized_snapshot_handle": "50d8bfacb8aa0277f631752019fa481c",
             "data_classification": "data",
             "items": [
               {
@@ -1580,7 +139,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "cabdaefe0cedb790a2273545638f3e92",
+                  "authorized_snapshot_handle": "50d8bfacb8aa0277f631752019fa481c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -1595,7 +154,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "cabdaefe0cedb790a2273545638f3e92",
+                  "authorized_snapshot_handle": "50d8bfacb8aa0277f631752019fa481c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -1620,7 +179,7 @@
             "type": "receipt",
             "operation": "deliver",
             "outcome": "delivered",
-            "receipt_handle": "0bf35ff329d1946e48b5a35ca5682b44",
+            "receipt_handle": "ddef344deddff4b1c1069f671e4de21f",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -1632,7 +191,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -1645,7 +204,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "095d0cfd78de9f3faf937ed5929f96c6",
+            "authorized_snapshot_handle": "7c735006b47cd658724c4e3f2579ec9b",
             "data_classification": "data",
             "items": [
               {
@@ -1689,7 +248,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "095d0cfd78de9f3faf937ed5929f96c6",
+                  "authorized_snapshot_handle": "7c735006b47cd658724c4e3f2579ec9b",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -1704,7 +263,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "095d0cfd78de9f3faf937ed5929f96c6",
+                  "authorized_snapshot_handle": "7c735006b47cd658724c4e3f2579ec9b",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -1729,7 +288,7 @@
             "type": "receipt",
             "operation": "revoke_declassification",
             "outcome": "revoked",
-            "receipt_handle": "8124e9e4e24fcd2bb1570bfa9ecfaaa5",
+            "receipt_handle": "f35b56f9d8ac61589fc137bb26dd2579",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -1742,7 +301,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -1755,7 +314,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "00737e85b9da97ebcf59d5af68cd0e6d",
+          "authorized_snapshot_handle": "1412f8a7cd3163a4a369b33f0cc2cfe7",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -1807,7 +366,7 @@
       "id": "ASTRA25-05-CONTROL",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
-      "vector_sha256": "42b1f102b18f319bb5dff1e0bb7fca056b1de09f749cacdee08ba1413a52141f",
+      "vector_sha256": "a75be249b59dc03a7bd4546e12313e8322c6d649f891ddfc945046a43f819a65",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1815,7 +374,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -1828,7 +387,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "064b222cb6fc3a47863874211a9eaf31",
+            "authorized_snapshot_handle": "4bb7d643f626ab0cd4fd1087726aa468",
             "data_classification": "data",
             "items": [
               {
@@ -1878,7 +437,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "064b222cb6fc3a47863874211a9eaf31",
+                  "authorized_snapshot_handle": "4bb7d643f626ab0cd4fd1087726aa468",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ea",
@@ -1896,7 +455,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "064b222cb6fc3a47863874211a9eaf31",
+                  "authorized_snapshot_handle": "4bb7d643f626ab0cd4fd1087726aa468",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -1921,7 +480,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "826549470df3e1c97fee029aae1d8a87",
+            "receipt_handle": "4fc811bb4c0a1edf56862852302040e2",
             "refs": [
               {
                 "id": "rec:a",
@@ -1938,7 +497,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1951,7 +510,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "9cb5bdfcb2a126421e5f6d05ef2f615f",
+          "authorized_snapshot_handle": "a151688c6c6b4cbdaf757148846f8404",
           "data_classification": "data",
           "items": [
             {
@@ -1998,7 +557,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "9cb5bdfcb2a126421e5f6d05ef2f615f",
+                "authorized_snapshot_handle": "a151688c6c6b4cbdaf757148846f8404",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2013,7 +572,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "9cb5bdfcb2a126421e5f6d05ef2f615f",
+                "authorized_snapshot_handle": "a151688c6c6b4cbdaf757148846f8404",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2093,93 +652,15 @@
       "id": "ASTRA25-05",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
-      "vector_sha256": "a3ac1d1187302a042245ec58f78857da8cb380ecd064bf86db0a393cfc5b0671",
-      "status": "fail",
-      "differences": [
-        [
-          "/result/cutoffs/length",
-          1,
-          0
-        ],
-        [
-          "/result/cutoffs/0",
-          "dirty",
-          "<missing>"
-        ],
-        [
-          "/result/items/0/needs_review",
-          true,
-          false
-        ],
-        [
-          "/result/items/0/oppose/evaluation",
-          "incomplete",
-          "complete"
-        ],
-        [
-          "/result/items/0/support/evaluation",
-          "incomplete",
-          "complete"
-        ],
-        [
-          "/result/items/0/support/evidence_qualification/length",
-          0,
-          1
-        ],
-        [
-          "/result/items/0/support/evidence_qualification/0",
-          "<missing>",
-          "semantic_review"
-        ],
-        [
-          "/result/items/0/support/independent_root_count",
-          0,
-          1
-        ],
-        [
-          "/result/items/0/support/premise_quality",
-          "not_fully_checked",
-          "clean_path"
-        ],
-        [
-          "/result/items/0/support/witness",
-          "not_found",
-          "present"
-        ],
-        [
-          "/result/items/0/support/witness_roots/length",
-          0,
-          1
-        ],
-        [
-          "/result/items/0/support/witness_roots/0",
-          "<missing>",
-          "origin:eb"
-        ],
-        [
-          "/result/review_required/length",
-          1,
-          0
-        ],
-        [
-          "/result/review_required/0",
-          {
-            "id": "rec:b",
-            "version": 1
-          },
-          "<missing>"
-        ]
-      ],
-      "checks": [
-        "equivalent_outputs violated: /operation_results/0 != /result",
-        "forbidden predicate matched: {\"path\":\"/result/items/0/support/evaluation\",\"test\":\"equals\",\"value\":\"incomplete\"}",
-        "forbidden predicate matched: {\"path\":\"/result/items/0/needs_review\",\"test\":\"equals\",\"value\":true}"
-      ],
+      "vector_sha256": "466e1c685e1ba9cf4b04636cae25ab10f84617ac9c371552b73aa42069f8b4be",
+      "status": "pass",
+      "differences": [],
+      "checks": [],
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -2192,7 +673,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "1349f2f74a5d0592c64d1d78d490c694",
+            "authorized_snapshot_handle": "c121adee190225ae19ed5bd44f0f6578",
             "data_classification": "data",
             "items": [
               {
@@ -2241,7 +722,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1349f2f74a5d0592c64d1d78d490c694",
+                  "authorized_snapshot_handle": "c121adee190225ae19ed5bd44f0f6578",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:eb"
@@ -2258,7 +739,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1349f2f74a5d0592c64d1d78d490c694",
+                  "authorized_snapshot_handle": "c121adee190225ae19ed5bd44f0f6578",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2283,7 +764,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "e80fe7c2fdea543b756030a2b338a3f8",
+            "receipt_handle": "fc37e952c635592f4af88024f3399b79",
             "refs": [
               {
                 "id": "rec:a",
@@ -2300,7 +781,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2313,7 +794,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "a157e05d6b6fa692cad6f4b8d10adc72",
+          "authorized_snapshot_handle": "6a1b15b761d1628ff179fbd93fad014c",
           "data_classification": "data",
           "items": [
             {
@@ -2348,26 +829,30 @@
               "currentness": "current",
               "authority_receipt": null,
               "incompatible_with": [],
-              "needs_review": true,
+              "needs_review": false,
               "source_refs": [],
               "support": {
-                "witness": "not_found",
-                "evaluation": "incomplete",
+                "witness": "present",
+                "evaluation": "complete",
                 "corpus_coverage": {
                   "kind": "unknown"
                 },
-                "premise_quality": "not_fully_checked",
-                "evidence_qualification": [],
+                "premise_quality": "clean_path",
+                "evidence_qualification": [
+                  "semantic_review"
+                ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a157e05d6b6fa692cad6f4b8d10adc72",
+                "authorized_snapshot_handle": "6a1b15b761d1628ff179fbd93fad014c",
                 "dependency_coverage": "registered_only",
-                "witness_roots": [],
-                "independent_root_count": 0
+                "witness_roots": [
+                  "origin:eb"
+                ],
+                "independent_root_count": 1
               },
               "oppose": {
                 "witness": "not_found",
-                "evaluation": "incomplete",
+                "evaluation": "complete",
                 "corpus_coverage": {
                   "kind": "unknown"
                 },
@@ -2375,7 +860,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a157e05d6b6fa692cad6f4b8d10adc72",
+                "authorized_snapshot_handle": "6a1b15b761d1628ff179fbd93fad014c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2384,20 +869,13 @@
           ],
           "currentness": "current",
           "historical": [],
-          "review_required": [
-            {
-              "id": "rec:b",
-              "version": 1
-            }
-          ],
+          "review_required": [],
           "explanation": {
             "status": "complete",
             "paths": [],
             "reason": null
           },
-          "cutoffs": [
-            "dirty"
-          ],
+          "cutoffs": [],
           "changes": {
             "state": "initial",
             "refs": []
@@ -2455,7 +933,7 @@
       "id": "ASTRA25-01",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
-      "vector_sha256": "414df5ad193c04d95f90689a885bc05753b11501896c2f129b491069ba490218",
+      "vector_sha256": "6e836d3bc71a8e481d8f8b496d7676d94849bf6b30d993789782a68f951e3b29",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -2463,7 +941,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -2476,7 +954,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "913c7204e422e1430e3a2b5318e970a0",
+            "authorized_snapshot_handle": "76207778279d23d06a3b31adfc68ea72",
             "data_classification": "data",
             "items": [
               {
@@ -2526,7 +1004,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "913c7204e422e1430e3a2b5318e970a0",
+                  "authorized_snapshot_handle": "76207778279d23d06a3b31adfc68ea72",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -2543,7 +1021,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "913c7204e422e1430e3a2b5318e970a0",
+                  "authorized_snapshot_handle": "76207778279d23d06a3b31adfc68ea72",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2568,7 +1046,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "d6d27b6f2c332c65380ed19908b568d9",
+            "receipt_handle": "07924179b96a4dfed316c5dddd310969",
             "refs": [
               {
                 "id": "rec:00-hidden",
@@ -2580,7 +1058,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -2593,7 +1071,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "268f115094cd1c7394344abe7eaa9a31",
+            "authorized_snapshot_handle": "c619719d2e2da69c2c84f8a21bb1550e",
             "data_classification": "data",
             "items": [
               {
@@ -2643,7 +1121,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "268f115094cd1c7394344abe7eaa9a31",
+                  "authorized_snapshot_handle": "c619719d2e2da69c2c84f8a21bb1550e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -2660,7 +1138,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "268f115094cd1c7394344abe7eaa9a31",
+                  "authorized_snapshot_handle": "c619719d2e2da69c2c84f8a21bb1550e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2685,7 +1163,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "c4b9b2b47b6317f76e5fd0724dac5fac",
+            "receipt_handle": "82302ce448c43e766acc62bba0b1186a",
             "refs": [
               {
                 "id": "rec:en",
@@ -2698,7 +1176,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2711,7 +1189,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "1ccb1a47c91450bff2967a5be7b79db4",
+          "authorized_snapshot_handle": "5917df29a9a0d0b589a59b726dbdb270",
           "data_classification": "data",
           "items": [
             {
@@ -2761,7 +1239,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1ccb1a47c91450bff2967a5be7b79db4",
+                "authorized_snapshot_handle": "5917df29a9a0d0b589a59b726dbdb270",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -2778,7 +1256,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1ccb1a47c91450bff2967a5be7b79db4",
+                "authorized_snapshot_handle": "5917df29a9a0d0b589a59b726dbdb270",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2842,7 +1320,7 @@
       "id": "ASTRA25-04",
       "profile": "deployment",
       "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
-      "vector_sha256": "6537f76acaeac0beb2a23a7cd72a8f6b9c550f38199833df76395de5b91451f0",
+      "vector_sha256": "021ea4e4964291793222432afa32158c440ce70f1295ddd086c9bfcc87981a7b",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -2850,7 +1328,7 @@
       "id": "ASTRA25-03-CONTROL",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
-      "vector_sha256": "64a6ea05527f043901a3d7f576d83711726f2602a27339b10152b34a27d24fef",
+      "vector_sha256": "d88799a30a0879c647c464c5b2e591aa562974b1b9575f29a2a8a254e5e6b3e9",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -2860,7 +1338,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "b8f880b72f526b8954e55c288e548cf3",
+            "receipt_handle": "8dd738496ea38e1df9088276bcd0941f",
             "refs": [
               {
                 "id": "rec:a",
@@ -2881,7 +1359,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2894,7 +1372,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "92b54fbe54761b3f5c13ae153d1177ee",
+          "authorized_snapshot_handle": "9e64127a528b89d9fe94cb1ae5745783",
           "data_classification": "data",
           "items": [
             {
@@ -2943,7 +1421,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "92b54fbe54761b3f5c13ae153d1177ee",
+                "authorized_snapshot_handle": "9e64127a528b89d9fe94cb1ae5745783",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -2960,7 +1438,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "92b54fbe54761b3f5c13ae153d1177ee",
+                "authorized_snapshot_handle": "9e64127a528b89d9fe94cb1ae5745783",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3021,7 +1499,7 @@
       "id": "ASTRA25-03-FENCE",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
-      "vector_sha256": "1ff3187cef5a12b07495ac4b63d7c02f28ec67282534d0a6fc387c9bac40058c",
+      "vector_sha256": "ab746e3c73b9f2e15b1eb5f24797a94ee82eafb5cabbf50a21e5747bfbec10ac",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3031,7 +1509,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "46c1a8859ba179f8df3d1490a1cd78a8",
+            "receipt_handle": "c391c7f2f6a6a949a8966626636302a1",
             "refs": [
               {
                 "id": "rec:a",
@@ -3049,7 +1527,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3062,7 +1540,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "3a7d96d47e669f7a25a895875c57036f",
+          "authorized_snapshot_handle": "8b2f62ee24713323accfde464dbcc3bb",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -3103,7 +1581,7 @@
       "id": "ASTRA25-03",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
-      "vector_sha256": "a84f4508b11f1b0b65a0285a9cc6d4224356d769ac7c1b7aab98174c63a2c253",
+      "vector_sha256": "ec107d6ebd1e3781ec752dd2ad379151a99bba76737c8cd85fe3db9bd88a9a6e",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3113,7 +1591,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "incomplete",
-            "receipt_handle": "75ce4a7d274dcf041394585a0843d23a",
+            "receipt_handle": "04025dfd7b4aa56bddf45c68b12e3311",
             "refs": [
               {
                 "id": "rec:a",
@@ -3133,7 +1611,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3146,7 +1624,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "caf04f0ef02ecac298eb8b3c48cf60cd",
+          "authorized_snapshot_handle": "73344d4288136caab1a604693a486796",
           "data_classification": "data",
           "items": [
             {
@@ -3195,7 +1673,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "caf04f0ef02ecac298eb8b3c48cf60cd",
+                "authorized_snapshot_handle": "73344d4288136caab1a604693a486796",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -3212,7 +1690,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "caf04f0ef02ecac298eb8b3c48cf60cd",
+                "authorized_snapshot_handle": "73344d4288136caab1a604693a486796",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3275,189 +1753,22 @@
       "id": "ASTRA26-06",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-26-foreign-self-declaration.vector.json",
-      "vector_sha256": "81329a17c2e3030eb85b7a365fa68eabfbcc3d5f4ce91fb52e50b2b70849be60",
-      "status": "fail",
-      "differences": [
-        [
-          "/operation_results/0/code",
-          "<missing>",
-          "invalid_domain_value"
-        ],
-        [
-          "/operation_results/0/custody",
-          [],
-          "<missing>"
-        ],
-        [
-          "/operation_results/0/erasure_status",
-          null,
-          "<missing>"
-        ],
-        [
-          "/operation_results/0/operation",
-          "admit",
-          "<missing>"
-        ],
-        [
-          "/operation_results/0/outcome",
-          "admitted",
-          "<missing>"
-        ],
-        [
-          "/operation_results/0/receipt_handle",
-          "4c179c44387e0fdd41f531086a922e72",
-          "<missing>"
-        ],
-        [
-          "/operation_results/0/refs",
-          [
-            {
-              "id": "rec:org-claim",
-              "version": 1
-            }
-          ],
-          "<missing>"
-        ],
-        [
-          "/operation_results/0/retryable",
-          "<missing>",
-          false
-        ],
-        [
-          "/operation_results/0/type",
-          "receipt",
-          "refusal"
-        ],
-        [
-          "/postconditions/record_refs/length",
-          2,
-          1
-        ],
-        [
-          "/postconditions/record_refs/0/id",
-          "rec:org-claim",
-          "rec:self-claim"
-        ],
-        [
-          "/postconditions/record_refs/1",
-          {
-            "id": "rec:self-claim",
-            "version": 1
-          },
-          "<missing>"
-        ],
-        [
-          "/result/currentness",
-          "none",
-          "current"
-        ],
-        [
-          "/result/items/length",
-          0,
-          1
-        ],
-        [
-          "/result/items/0",
-          "<missing>",
-          {
-            "ref": {
-              "id": "rec:self-claim",
-              "version": 1
-            },
-            "subject": "subj:h1",
-            "issuer": "subj:h1",
-            "submitter": "subj:h1",
-            "perspective": {
-              "kind": "own",
-              "principal": "subj:h1"
-            },
-            "representation_ref": null,
-            "admission_class": "self_declaration",
-            "statement_kind": "self_declaration",
-            "content": [
-              {
-                "field": "level",
-                "value": "stated"
-              },
-              {
-                "field": "skill",
-                "value": "gardening"
-              }
-            ],
-            "valid": {
-              "kind": "known",
-              "from": "2026-09-01T00:00:00Z",
-              "to": null,
-              "precision": "second"
-            },
-            "confirmed_at": "2026-10-17T00:00:00Z",
-            "usable_until": null,
-            "currentness": "current",
-            "authority_receipt": null,
-            "incompatible_with": [],
-            "needs_review": false,
-            "source_refs": [],
-            "support": {
-              "witness": "not_found",
-              "evaluation": "complete",
-              "corpus_coverage": {
-                "kind": "unknown"
-              },
-              "premise_quality": "not_fully_checked",
-              "evidence_qualification": [],
-              "source_state": "resolvable_now",
-              "freshness": "not_applicable",
-              "authorized_snapshot_handle": "<fresh-handle>",
-              "dependency_coverage": "registered_only",
-              "witness_roots": [],
-              "independent_root_count": 0
-            },
-            "oppose": {
-              "witness": "not_found",
-              "evaluation": "complete",
-              "corpus_coverage": {
-                "kind": "unknown"
-              },
-              "premise_quality": "not_fully_checked",
-              "evidence_qualification": [],
-              "source_state": "resolvable_now",
-              "freshness": "not_applicable",
-              "authorized_snapshot_handle": "<fresh-handle>",
-              "dependency_coverage": "registered_only",
-              "witness_roots": [],
-              "independent_root_count": 0
-            }
-          }
-        ]
-      ],
-      "checks": [
-        "handle slot missing: /result/items/0/support/authorized_snapshot_handle",
-        "handle slot missing: /result/items/0/oppose/authorized_snapshot_handle",
-        "equal_handles violated: ['/result/authorized_snapshot_handle', '/result/items/0/support/authorized_snapshot_handle', '/result/items/0/oppose/authorized_snapshot_handle']",
-        "forbidden predicate matched: {\"path\":\"/operation_results/0/type\",\"test\":\"equals\",\"value\":\"receipt\"}",
-        "forbidden predicate matched: {\"path\":\"/postconditions/record_refs\",\"test\":\"size_equals\",\"value\":2}"
-      ],
+      "vector_sha256": "da57718dcf16defc6608884772388de0b55f6d1b1459546c369abfa8981e0ec5",
+      "status": "pass",
+      "differences": [],
+      "checks": [],
       "actual": {
         "operation_results": [
           {
-            "type": "receipt",
-            "operation": "admit",
-            "outcome": "admitted",
-            "receipt_handle": "4c179c44387e0fdd41f531086a922e72",
-            "refs": [
-              {
-                "id": "rec:org-claim",
-                "version": 1
-              }
-            ],
-            "custody": [],
-            "erasure_status": null
+            "type": "refusal",
+            "code": "invalid_domain_value",
+            "retryable": false
           },
           {
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "355f0d7e5a3bc08a8131ac93f08e978b",
+            "receipt_handle": "c87afff62c85f0b89a1fe6677fe7dd8e",
             "refs": [
               {
                 "id": "rec:self-claim",
@@ -3470,7 +1781,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3483,10 +1794,80 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "01856d670a9d751798b16f986a2c2335",
+          "authorized_snapshot_handle": "ce9f9f6ff4fd935afe16d9811029369b",
           "data_classification": "data",
-          "items": [],
-          "currentness": "none",
+          "items": [
+            {
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "self_declaration",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "ref": {
+                "id": "rec:self-claim",
+                "version": 1
+              },
+              "statement_kind": "self_declaration",
+              "content": [
+                {
+                  "field": "level",
+                  "value": "stated"
+                },
+                {
+                  "field": "skill",
+                  "value": "gardening"
+                }
+              ],
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "ce9f9f6ff4fd935afe16d9811029369b",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "ce9f9f6ff4fd935afe16d9811029369b",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
           "historical": [],
           "review_required": [],
           "explanation": {
@@ -3502,10 +1883,6 @@
         },
         "postconditions": {
           "record_refs": [
-            {
-              "id": "rec:org-claim",
-              "version": 1
-            },
             {
               "id": "rec:self-claim",
               "version": 1
@@ -3523,7 +1900,7 @@
       "id": "ASTRA26-01",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-26-import-attribution.vector.json",
-      "vector_sha256": "09c1438d7db64c6a14905bcf59f9e7bac2dfd5f367cde830011c59397240d638",
+      "vector_sha256": "8799fe5769b03a9fc7d911567f3d0b5fadaf11b8834dc12293c3825e0e2dcccd",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3533,7 +1910,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "cfde638d92d6d3edf4cd0d97287fe20f",
+            "receipt_handle": "e8305be0b8b268276fb2f239918c7d70",
             "refs": [
               {
                 "id": "rec:imported-copy",
@@ -3551,7 +1928,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3564,7 +1941,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "078045d59d29119fc2ac6f4b58bc577d",
+          "authorized_snapshot_handle": "c6d5e87d90dcdc01b5b9de9bdf604e49",
           "data_classification": "data",
           "items": [
             {
@@ -3611,7 +1988,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "078045d59d29119fc2ac6f4b58bc577d",
+                "authorized_snapshot_handle": "c6d5e87d90dcdc01b5b9de9bdf604e49",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3626,7 +2003,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "078045d59d29119fc2ac6f4b58bc577d",
+                "authorized_snapshot_handle": "c6d5e87d90dcdc01b5b9de9bdf604e49",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3670,7 +2047,7 @@
       "id": "ASTRA26-04",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-26-location-slots.vector.json",
-      "vector_sha256": "3ae82b4bf2aecdd4bb4c82af4c5983e3fef05a668a06e821722769c26939fde1",
+      "vector_sha256": "e6c20631777bb6d8c077126bfb18b363c815b18be6eebbdda0d770ed4c0c43c1",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3678,7 +2055,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3691,7 +2068,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "392456915990dce0c44ae288df79c1ad",
+          "authorized_snapshot_handle": "2d09f59b5809e2a765e46d3990f7ed4b",
           "data_classification": "data",
           "items": [
             {
@@ -3742,7 +2119,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "fresh",
-                "authorized_snapshot_handle": "392456915990dce0c44ae288df79c1ad",
+                "authorized_snapshot_handle": "2d09f59b5809e2a765e46d3990f7ed4b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3757,7 +2134,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "fresh",
-                "authorized_snapshot_handle": "392456915990dce0c44ae288df79c1ad",
+                "authorized_snapshot_handle": "2d09f59b5809e2a765e46d3990f7ed4b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3811,7 +2188,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "fresh",
-                "authorized_snapshot_handle": "392456915990dce0c44ae288df79c1ad",
+                "authorized_snapshot_handle": "2d09f59b5809e2a765e46d3990f7ed4b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3826,7 +2203,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "fresh",
-                "authorized_snapshot_handle": "392456915990dce0c44ae288df79c1ad",
+                "authorized_snapshot_handle": "2d09f59b5809e2a765e46d3990f7ed4b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3870,7 +2247,7 @@
       "id": "ASTRA26-02-CONTROL",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-26-publication-currentness-checked.vector.json",
-      "vector_sha256": "afe8e252555abb7e8be66c94beafd976cd471d4834a53c90265aa7c15ecd50ed",
+      "vector_sha256": "138d82cf2b250b8ab6cd9349fd71ab958ded554f8bd48db8863e2508ec477fcc",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3878,7 +2255,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3891,7 +2268,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "b330a69b2e55202a973996bf9e1e0168",
+          "authorized_snapshot_handle": "3fd6364acc72d0c56c41e9eb04ef6aa3",
           "data_classification": "data",
           "items": [
             {
@@ -3953,7 +2330,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "fresh",
-                "authorized_snapshot_handle": "b330a69b2e55202a973996bf9e1e0168",
+                "authorized_snapshot_handle": "3fd6364acc72d0c56c41e9eb04ef6aa3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:declaration"
@@ -3970,7 +2347,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "fresh",
-                "authorized_snapshot_handle": "b330a69b2e55202a973996bf9e1e0168",
+                "authorized_snapshot_handle": "3fd6364acc72d0c56c41e9eb04ef6aa3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4034,7 +2411,7 @@
       "id": "ASTRA26-02",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-26-publication-currentness.vector.json",
-      "vector_sha256": "99c3235f8035cabb6b0dac6fb39642fe28e180afeecb93f0382178e4b6c5922c",
+      "vector_sha256": "b312e0e9731b0bceb6f6bdf85c6a159a66942eee27b21630cc829181660494ac",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4042,7 +2419,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -4055,7 +2432,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "8d1678988ce08ff71468fe2b9df93d32",
+          "authorized_snapshot_handle": "ecc98f3f914cb1ff2b1ae4f3a7c35754",
           "data_classification": "data",
           "items": [
             {
@@ -4117,7 +2494,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "fresh",
-                "authorized_snapshot_handle": "8d1678988ce08ff71468fe2b9df93d32",
+                "authorized_snapshot_handle": "ecc98f3f914cb1ff2b1ae4f3a7c35754",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:declaration"
@@ -4134,7 +2511,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "fresh",
-                "authorized_snapshot_handle": "8d1678988ce08ff71468fe2b9df93d32",
+                "authorized_snapshot_handle": "ecc98f3f914cb1ff2b1ae4f3a7c35754",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4198,7 +2575,7 @@
       "id": "ASTRA26-05",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-26-relationship-introductions.vector.json",
-      "vector_sha256": "176c112308ced67ddcb9fedf95ad976353c2086bd31c2c5553203de13bb3b297",
+      "vector_sha256": "b7aa638b2228f8295f6955d8746d94369505a0ec70a0915cf733c8b079d7864b",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4206,7 +2583,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -4219,7 +2596,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "27e926ed9852e5d3e6f5461028640e32",
+            "authorized_snapshot_handle": "d78382ee396274e48510bb5907a3230a",
             "data_classification": "data",
             "items": [],
             "currentness": "none",
@@ -4240,7 +2617,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "8aec5d009d902db044f554f6d7140dee",
+            "receipt_handle": "8eea55d4be2de4b228bebc8a852e3085",
             "refs": [
               {
                 "id": "rec:open",
@@ -4253,7 +2630,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -4266,7 +2643,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "dfc37cc5d7a573f3927d02fdddb45b7c",
+          "authorized_snapshot_handle": "cca5c783314d266256a2a700f902003e",
           "data_classification": "data",
           "items": [
             {
@@ -4317,7 +2694,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "dfc37cc5d7a573f3927d02fdddb45b7c",
+                "authorized_snapshot_handle": "cca5c783314d266256a2a700f902003e",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4332,7 +2709,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "dfc37cc5d7a573f3927d02fdddb45b7c",
+                "authorized_snapshot_handle": "cca5c783314d266256a2a700f902003e",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4376,7 +2753,7 @@
       "id": "ASTRA26-03-CONTROL",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-26-representative-public-alias-missing.vector.json",
-      "vector_sha256": "44ef963d77fccb71c26d05bb8b500fc070b3000efcfdd84a7dac4f250d02a7f7",
+      "vector_sha256": "e426aacd65667486da3cae6bf40be64d267cc2de8b074ad262d530dd244e3c66",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4406,7 +2783,7 @@
       "id": "ASTRA26-03",
       "profile": "semantic",
       "path": "memory/conformance/cases/astra-26-representative-public-alias.vector.json",
-      "vector_sha256": "fb0b553531c510ea1caf097ec7311ac67b42935ae7a700696eff8741394b3842",
+      "vector_sha256": "2eb16f19503b9c98f074d3751c376c30e6f727e816ab720e5be33c9eb320bce8",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4414,7 +2791,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -4427,7 +2804,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "582425383456a728570e2a20b41563a9",
+          "authorized_snapshot_handle": "9a5cc4a864f494618e7defdac06b5758",
           "data_classification": "data",
           "items": [
             {
@@ -4471,7 +2848,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "582425383456a728570e2a20b41563a9",
+                "authorized_snapshot_handle": "9a5cc4a864f494618e7defdac06b5758",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4486,7 +2863,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "582425383456a728570e2a20b41563a9",
+                "authorized_snapshot_handle": "9a5cc4a864f494618e7defdac06b5758",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0

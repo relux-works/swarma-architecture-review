@@ -1,24 +1,27 @@
 # astra-23 — package implementer verdict
 
-Current adapted pre-fix report: package **0.2.1-draft**, `f31d58f`.
+Current package **0.2.1-draft**, `f31d58f`: all canonical semantic vectors pass.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Semantic | 55 | 2 | 0 |
-| Deployment | 0 | 0 | 8 |
+| Canonical semantic | 57 | 0 | 0 |
+| Canonical deployment | 0 | 0 | 8 |
+| Supplemental semantic (compatible grammar) | 15 | 0 | 4 |
+| Supplemental deployment | 0 | 0 | 1 |
 
-R7 score: **1/2** until R7-024 is corrected. B07/S24 private captures include
-an unrelated multi-sequence historical ref; all other canonical outputs agree.
-The judge classified this as an evaluator omission, with unchanged expectations.
-Twelve controls pass; its exact regression is intentionally red at this checkpoint.
-The structural package validator passes all 20 intended violation controls.
+Thirteen controls pass. Four supplemental astra-24 cases await explicit 0.2.1
+grammar migration; no implicit conversion or deployment qualification is claimed.
+The structural package validator passes 20 intended violation controls.
 
-R7-020 and R7-023 are judge-closed. Currentness, integration lineage, joint
-release/revocation, frozen delivery, projection exclusion, scoped dirty causes
-and explicit self-declaration identity evidence are implemented from the package.
-First-run independence remains preserved at 0008dc3; no design, companion, notes,
-inputs, other evaluator, ledger or divergence topic was read before that commit.
-No deployment qualification is claimed.
+Seat recommendation: **2/2 once the judge closes the accepted fixes and verifies
+the exact corrected head**; collective score remains pending that review. R7-020
+and R7-023 are judge-closed. R7-024 has a retained red baseline at bc342e1 and a
+separate correction with explicit/unfiltered/historical/hidden controls.
 
-Evidence: ../impl-astra-23/RELEASE-0.2.1-FIRST.md and JSON, FIRST-RUN.md and JSON,
-DIVERGENCES.md, WORKLOG.md, the test modules and versioned supplemental reports.
+The evaluator remains derived from the released package. Original blind run at
+0008dc3 is immutable: no design, companion, notes, inputs, other evaluator, ledger
+or divergence topic was read before it. Expected vectors were never edited.
+
+Evidence: ../impl-astra-23/RESULTS.md and JSON; SUPPLEMENTAL.md and JSON;
+FIRST-RUN.md/JSON; RELEASE-0.2.1-FIRST.md/JSON; DIVERGENCES.md; WORKLOG.md;
+test_controls.py and test_semantics.py.

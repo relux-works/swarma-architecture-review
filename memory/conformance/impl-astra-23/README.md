@@ -68,3 +68,11 @@ python3 -B memory/conformance/impl-astra-23/run_vectors.py --vector-root memory/
 
 A case outside the selected package's closed grammar is reported unsupported;
 select its original package with --spec-root to run it without conversion.
+
+The 0.2.1 evaluator scopes unresolved dirty causes through authorized pre-revision
+impact paths, requires explicit self-declaration identity bindings, and applies
+publication currentness only to authorized publication-source associations.
+Explicit-target history is restricted to the selected sequence identities.
+RELEASE-0.2.1-FIRST preserves the pre-fix R7-024 report; FIRST-RUN preserves the
+original package-only independence baseline. Current canonical results are 57/57
+semantic with eight deployment cases unsupported; thirteen controls pass.
