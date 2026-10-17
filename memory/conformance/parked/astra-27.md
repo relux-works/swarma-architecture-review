@@ -1,46 +1,48 @@
 # R7 park note — astra-27
 
-Current status: **RESUMED for D-009 / R7-055**, under convener event
-`$7qVXDb4qnZcORPIQr_qJeUzKFAj9Md3ZRI_VLpdOSKk`. This note records the
-previous PARK only. A new final note follows the reopened round's explicit PARK.
+Role: judge. **PARKED at 2026-10-17 19:12Z**, under convener event
+`$wTjjxPAdO1lPYyIX7BgMky5ptiS0vPzX6HGGgE99C0U` in `rounds`.
+This final note supersedes the earlier 06:33Z park note after the bounded D-009 round.
 
-Role: judge. Previously parked at the convener's explicit 2026-10-17 06:33Z instruction,
-event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg` in `rounds`.
-
-Final R7 score: **2/2**. See [score](../R7-SCORE.md), [ledger](../LEDGER.md)
-and [verdict](../verdicts/astra-27.md).
+**Final R7 score: 2/2. R7-055 is closed as resolved by D-009.**
+R7-059's historical-profile harness correction is also closed. No owner question,
+specification/implementation finding or unclassified intake remains.
 
 | Evidence | Final state |
 | --- | --- |
-| Package | 0.2.5-draft, `6a04e8c`; 14 schemas, 52 clauses, 94 JSON artifacts validate; 34 intended checker violations detected |
-| Source reader | Runtime `946cbd8`, expanded report/test `b8189ba`; 57/57 canonical and 68/68 supplemental semantic |
-| Package reader | `104fbe8`; 57/57 canonical and 68/68 supplemental semantic |
-| Controls | Source 129 coverage, with 12 erasure groups rerun plus 117 unchanged prior controls; package 34 controls rerun |
-| Ledger | 58 classified items: 47 fixed, 10 rejected, one owner question; no open spec/impl bug |
-| Deployment | 8 canonical + 1 supplemental unsupported; no qualification claim |
+| Owner decision | D-009 at `2c3100d`; kernel v0.3 §5.3 |
+| Package | 0.2.6-draft `77b951e`; 103 JSON artifacts regenerate exactly; 38 intended checker violations detected |
+| Source evaluator | Runtime `946cbd8`, report/harness `c7e86d5`; 66/66 canonical semantic; 134 controls pass |
+| Package evaluator | Runtime `5897520`; 66/66 canonical semantic; four current, 30 historical and four comparer control groups pass |
+| Historical regression | Both 68/68 unchanged semantic cases on frozen 0.2.5 `6a04e8c`, separate from current coverage |
+| Ledger | 59 closed items: 48 fixed, ten rejected, one ambiguity resolved by D-009 |
+| Deployment | Eight canonical plus one historical case unsupported; no qualification claim |
 
-The final restore correction R7-058 is independently closed. Original native
-and exact first failures are immutable; protected fences, generation, custody,
-late-writer refusals and valid independent recovery/writes are verified. Final
-runtime, package and fixture hashes match the reviewed pins. Every seat reported
-a quiet post-closure round; no unclassified intake or directed judge request is
-pending.
+The original mixed chain now remains ambiguous in both readers. Assertion-free
+all-H paths establish order, a foreign branch cannot cancel an own path, and
+foreign-only changes preserve the relation. Currentness and strict replacement
+succession share it. Exact refusals, atomic state preservation, ordinary import,
+CAS, same-key recovery and authorized replay are verified. Original `4424598`
+witness/first outputs, package first `1be6026`, source first `31d77d2` and all
+previous failures remain immutable. No author case bytes or behavioral oracle
+were rewritten by the harness correction.
 
-The only open thread is [R7-055](../OWNER-QUESTIONS.md), `q-authority-issuer`:
-whether an H1 canonical predecessor edge adopts transitive H2 receipt ordering
-or only same-issuer paths establish H1 succession. The convener holds it for Ivan.
-Both readings and the exact separating input are preserved without an oracle,
-new rejection rule or authority change. Filing the ambiguity satisfies the
-rubric; its architectural choice remains unresolved. Do not resume specification
-or evaluator changes on this boundary without an attributed owner decision.
+Judge closure is signed `75c13d2`; quiet-round note is signed `715d7a7`.
+All four resumed seats (21/22/23/27) recorded a post-closure quiet round; seats
+24–26 remained parked. Final runtime, package and case hashes match the reviewed
+pins. The ordinary final-round push race used signed pull/rebase and retry.
+This bounded round used no force push, bundle, install, background service, web
+or spawned agent.
 
-On an authorized restart, pull current main, read the ledger and owner decision,
-then map the selected contract to unchanged witness inputs and meaningful positive
-and negative regressions. Do not replace any original failure record. Deployment
-qualification requires separate evidence and scope.
+The ledger worklog indexes all evidence. Key seat-local artifacts are
+`.temp/judge-r055-round07-closure-review-01.json`,
+`.temp/judge-r055-round08-quiet-review-01.json`,
+`.temp/judge-r055-park-gate-review-01.json` and
+`.temp/judge-r055-park-inbox-01.log`. Judge-generated harness copies are preserved
+under seat `.temp/judge-r055-round07-source-migration-copies/` with a move manifest.
+No wait or evaluator worker remains after finalization.
 
-Judge work and local evidence are indexed in the ledger worklog. Final detailed
-closure audit: astra-27 seat `.temp/judge-round37-closure-review-01.json`;
-quiet gate: `.temp/judge-park-gate-review-01.json`; PARK instruction:
-`.temp/judge-park-inbox-01.log`. No foreground wait or worker remains after
-finalization; this seat started no background service.
+See [LEDGER.md](../LEDGER.md), [R7-SCORE.md](../R7-SCORE.md),
+[OWNER-QUESTIONS.md](../OWNER-QUESTIONS.md) and [verdict](../verdicts/astra-27.md).
+No further work is pending in this bounded round. Any later restart requires new
+authorized scope and must preserve these evidence/version boundaries.

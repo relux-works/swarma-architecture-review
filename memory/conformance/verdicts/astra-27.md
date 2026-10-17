@@ -1,7 +1,7 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: **ACTIVE — closure verified; quiet round/PARK pending**. Score: **2/2**.
+Final status: **PARKED**, 2026-10-17 19:12Z. Final score: **2/2**.
 
 **R7-055 is closed as resolved by D-009.** Ivan's decision at `2c3100d` is
 mapped exactly by 0.2.6 `77b951e`. Both independent evaluators pass every
@@ -37,7 +37,10 @@ and earlier failures remain immutable. Later source runs are not another blind r
 The ledger has 59 items: 48 fixed, ten rejected, one owner ambiguity resolved.
 No open specification/implementation finding, owner question or unclassified
 submission remains. Eight canonical and one historical deployment case remain
-unsupported. Continue the quiet-round/PARK protocol; no new PARK is yet claimed.
+unsupported. Convener PARK event
+`$wTjjxPAdO1lPYyIX7BgMky5ptiS0vPzX6HGGgE99C0U` confirms the four-seat
+quiet-round gate. All assigned work and directed replies are complete.
+See the [final park note](../parked/astra-27.md).
 See [LEDGER.md](../LEDGER.md), [R7-SCORE.md](../R7-SCORE.md) and
 [OWNER-QUESTIONS.md](../OWNER-QUESTIONS.md); detailed local closure audit:
 astra-27 seat `.temp/judge-r055-round07-closure-review-01.json`.

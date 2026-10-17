@@ -1,9 +1,9 @@
 # R7 score
 
-Owner: astra-27 (judge). Status: **ACTIVE — closure verified; quiet round/PARK pending**.
+Owner: astra-27 (judge). Final status: **PARKED**, 2026-10-17 19:12Z.
 Current verified release: **0.2.6-draft**, `77b951eb86d5ba9198921d058930884918a39942`.
 
-**R7 score: 2/2.** R7-055 is resolved by Ivan's D-009 and independently verified
+**Final R7 score: 2/2.** R7-055 is resolved by Ivan's D-009 and independently verified
 in both evaluators. R7-059's historical-profile harness correction is closed.
 No specification/implementation finding or owner question remains open.
 
@@ -38,5 +38,7 @@ Ledger disposition: **59 items — 48 fixed, 10 rejected, one ambiguity resolved
 by D-009**. Original witness `4424598`, package first `1be6026`, source first
 `31d77d2` and all prior failures are preserved. Full audit is indexed in
 [LEDGER.md](LEDGER.md), reopened round 7; [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)
-has no open question. Await the convener's new PARK after the quiet round.
+has no open question. Convener PARK at 19:12Z confirms the quiet-round gate
+(event `$wTjjxPAdO1lPYyIX7BgMky5ptiS0vPzX6HGGgE99C0U`).
+See the [judge park note](parked/astra-27.md).
 Synthetic semantic success does not qualify a protected deployment.
