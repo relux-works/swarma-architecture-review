@@ -114,3 +114,11 @@ checks and both leak plants (`.temp/astra25-vector-structure-06.log`). The packa
 validator also passes 57 semantic / eight deployment vectors and 20 checker
 controls. Updated evaluator execution is pending; the old evaluator failure is
 not reclassified as a pass on the strength of these structural/prose checks.
+
+
+Independent execution on astra-23 `f5fdd8b` with exact package `f31d58f` now
+passes both owned hidden/visible traces. Global B dirtiness remains in the
+protected postcondition, public output remains equivalent, and the visible-path
+control remains dirty/incomplete. Run `astra23-v0.2.1` in the evidence JSON pins
+inputs at `0fa73fd` and evaluator hashes. This supplies behavior verification for
+R7-018; no deployment timing/isolation pass is implied.

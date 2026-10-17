@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: round 6, five cases and eight fixtures (seven semantic, one deployment). Seat identity:
+Status: round 7, six cases and nine fixtures (eight semantic, one deployment). Seat identity:
 `ivmbp_swarma-memory_astra-25`. Baseline: `95f974b` (2026-10-17).
 
 ## Scope and evidence
@@ -18,7 +18,7 @@ and positive controls, with package-format vectors when the grammar exists.
 
 ## Current result
 
-Five separating cases are recorded:
+Six separating cases are recorded:
 
 | Case | Property | Evidence class |
 | --- | --- | --- |
@@ -27,6 +27,7 @@ Five separating cases are recorded:
 | [ASTRA25-03](../cases/astra-25-surviving-support-erasure.md) | Independent support does not preserve tainted derivative bytes or prove custody closure | Semantic support and deployment erasure separated |
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | An outside-domain witness needs current complete coverage | Deployment restore |
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Unqualified global dirty status can expose a hidden-only dependency revision | Semantic non-interference; package-clause conflict |
+| [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md) | Opposite-premise quality cannot consume the existence-witness budget | Observed source evaluator accounting divergence |
 
 The initial package `0.1.0-draft` landed at `0ef608a`. The judge rejected
 ASTRA25-01/R7-005 and ASTRA25-03/R7-007 as spec defects because the prose already
@@ -80,7 +81,22 @@ All eight owned fixtures are migrated to 0.2.1 without changing their semantic
 expected results, adding only the required empty initial dirty-cause inventory,
 subject/principal identity and profile-version fields. They pass structural
 checks and both leak controls; the package passes 20 intended checker controls.
-The corrected independent evaluator run is pending.
+The corrected independent evaluator `f5fdd8b` now passes all seven semantic
+fixtures at `0fa73fd`, including both hidden/visible dirty traces. This verifies
+R7-018 behavior against the owned case. The deployment fixture remains unsupported.
+
+The newly extended source evaluator `df499a1` reveals a separate accounting
+failure in ASTRA25-01's visible positive control. New ASTRA25-06 isolates it:
+A+, A-, A+ -> B+ and roots=1; the opposite quality check consumes the shared root
+counter and loses B support. The roots=2 capture passes; expected equivalence is
+explicit under K-EVAL-2/4. The package evaluator passes both. The source trace
+fails in seven fields plus the paired check and forbidden predicates, and is
+submitted for classification without changing either evaluator or the expected
+contract. With this new fixture, current owned results are package 8 semantic
+pass; source 2 semantic fail / 6 unsupported; deployment 1 unsupported each.
+Exact reports and hashes are appended as `astra22-v0.2.1[-budget]` and
+`astra23-v0.2.1[-budget]`. No hidden leak is inferred from the new accounting
+failure: ASTRA25-01's hidden/non-hidden captures remain equal.
 
 **Provisional R7 score: 1/2.** Prose and schemas validate, but classified open
 bugs and independent semantic failures remain. No deployment pass is claimed.
@@ -88,8 +104,7 @@ The initial package-absent 0/2 was only the round-0 baseline.
 
 ## Outstanding
 
-Execute the corrected R7-018 evaluator against the hidden/visible pair. Run the
-owned current-version fixtures against each available evaluator and report
-unsupported operations honestly. Follow the judge's closure of accepted fixes
-and the collective full reports. Final disposition and owner questions will be
-linked here on PARK.
+Obtain judge classification and correction of ASTRA25-06's accounting divergence;
+recheck both its narrow positive/negative controls and the original trace after
+any fix. Follow collective exact-release runs and final ledger disposition.
+Finalize the verdict and park note only after the convener's PARK.
