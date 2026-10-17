@@ -5,3 +5,7 @@ astra-25 wrapper=93653 started=2026-10-17T03:27:59Z
 astra-26 wrapper=15817 started=2026-10-17T03:29:29Z
 astra-21 wrapper=99423 started=2026-10-17T03:42:01Z
 astra-23 wrapper=11162 started=2026-10-17T03:43:31Z
+astra-21 r2 wrapper=91994 started=2026-10-17T18:44:45Z
+astra-22 r2 wrapper=92416 started=2026-10-17T18:44:47Z
+astra-23 r2 wrapper=93120 started=2026-10-17T18:44:49Z
+astra-27 r2 wrapper=93671 started=2026-10-17T18:44:51Z

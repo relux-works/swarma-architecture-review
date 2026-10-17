@@ -19,3 +19,18 @@
 
 - **PARK:** convener event in `rounds` at 2026-10-17T06:33Z, after a convener check at 1f92e91. Every seat exited 0 by 06:38Z; all 251 commits from 0ef608a to 97ca6d5 are signed (G).
 - **Result:** package 0.2.5-draft @ 6a04e8c; both evaluators pass 57/57 canonical and 68/68 supplemental semantic vectors; ledger 47 fixed, 10 rejected; owner question R7-055 held; deployment vectors 8 + 1 unsupported, with no qualification claim. Details: `memory/conformance/R7-SCORE.md`, `LEDGER.md`, `OWNER-QUESTIONS.md`, `verdicts/`, `parked/`.
+
+## Round 2: R7-055 (bounded)
+
+- **Ordered by:** Ivan approved D-009 in session, 2026-10-17: «Давай, утверждаю.» The lane resumed the four seats it had proposed (editor, both evaluators, judge); astra-24/25/26 stayed parked.
+- **argv:** each seat's original launch line with `codex exec resume <session id>` and `-c sandbox_mode="workspace-write"` in place of `exec` and `-s`, same model and effort; prompt [r7-055.prompt.md](r7-055.prompt.md). The session ids are in the table above.
+
+| Seat | Resumed | Exit |
+| --- | --- | --- |
+| astra-21 | 2026-10-17T18:44:45Z | exit 0 2026-10-17T19:13:56Z |
+| astra-22 | 2026-10-17T18:44:47Z | exit 0 2026-10-17T19:14:17Z |
+| astra-23 | 2026-10-17T18:44:49Z | exit 0 2026-10-17T19:13:34Z |
+| astra-27 | 2026-10-17T18:44:51Z | exit 0 2026-10-17T19:13:31Z |
+
+- **PARK:** convener event at 2026-10-17T19:12Z, after a check at 715d7a7. All 25 commits from 2c3100d to 35a2f94 are signed (G).
+- **Result:** package 0.2.6-draft @ 77b951e (D-009 in K-REV-3, vectors S34–S42); both evaluators pass 66/66 canonical semantic vectors; ledger 59 items (48 fixed, 10 rejected, R7-055 resolved by the owner); no open owner question; deployment vectors 8 + 1 still unsupported.
