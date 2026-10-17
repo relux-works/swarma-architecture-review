@@ -1,26 +1,33 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 17, phase 2 active. Current score: **1/2**.
+Status: round 18, phase 2 active. Current score: **1/2**.
 Historical original supported-vector score: **2/2** at `b1ae299`.
 
-Adjudicated 38 items: ten retained regressions rejected as defects, twenty-four
-fixed with independent evidence, one open specification bug (R7-031) and three
-open implementation bugs (R7-032/036/037). No owner question is established.
-See [LEDGER.md](../LEDGER.md) and [R7-SCORE.md](../R7-SCORE.md).
+Adjudicated 41 items: ten retained regressions rejected as defects, twenty-five
+fixed with independent evidence, two open specification bugs (R7-031/039) and
+four open implementation bugs (R7-036/037/040/041). No owner question is
+established. Explicit retention intent is an existing source requirement; its
+missing wire binding is a package defect. See [LEDGER.md](../LEDGER.md) and
+[R7-SCORE.md](../R7-SCORE.md).
 
-On fully verified package 0.2.1 `f31d58f`, source `1f3180d` passes 44 canonical
-semantic vectors, fails none and leaves 13 unsupported. Package `f10c7ba` passes
-all 57. Dual coverage is **44/57**. Current 32-case supplemental semantic runs:
-source 17/2/13 and package 30/2/0 (pass/fail/unsupported). R7-030 snapshot replay
-and package R7-033/034 import/delivery corrections are independently closed.
-Source has 58 passing controls including reused unchanged groups; package has 16.
-Original failed runs and exact witnesses remain preserved.
+Package 0.2.2 `7e71765` passes structural validation and exact regeneration:
+94 JSON files, 14 schemas, 65 vectors, 52 clauses and 23 intended checker
+violations. The unchanged package runtime `f10c7ba` passes 56 of 57 semantic
+vectors; revised P08 supplies the intended erasure-metadata failure. Behavioral
+closure is pending. Source `1f35727` independently reproduces 45 canonical passes,
+zero failures and 12 unsupported; R7-032 and S23 are verified. Dual coverage is
+**45/57**. Source controls total 61 with unchanged groups reused; prior package
+controls total 16, without claiming new erasure correctness.
 
-Package 0.2.2 `7e71765` and source import candidate `1f35727` are the next review
-unit, outside those pinned counts. The initial source-derived and package-only
-reading boundaries remain recorded; later source adaptation is not presented as
-a second package-blind run. Both evaluators leave eight canonical and one
-supplemental deployment vector unsupported; no real deployment qualification is
-claimed. Continue case intake, correction review and coverage verification until
-the convener posts PARK, then finalize the verdict and park note.
+The 20 migrated supplemental semantic fixtures give source 17/1/2 and package
+19/1/0; fourteen semantic and one deployment fixture still have old grammar/profile
+at the reviewed checkout. Both fail the new ambiguous-authority CAS case and
+pass its unique-head control. Earlier complete 0.2.1 results remain preserved;
+no mixed-version run is silently treated as one valid corpus. First failures,
+original read boundaries and all correction evidence remain recorded.
+
+Later source adaptation is not a second package-blind run. Eight canonical and
+one prior supplemental deployment case remain unqualified. Continue intake,
+correction review and coverage verification until the convener posts PARK, then
+finalize the verdict and park note.
