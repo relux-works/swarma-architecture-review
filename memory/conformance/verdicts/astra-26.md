@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 2, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, round 3, 2026-10-17.
 
 ## Baseline and scope
 
@@ -102,3 +102,35 @@ No cases or directed requests were outstanding at initialization.
 - Provisional R7 row is now **1/2**: the package exists and validates, but v0.2
   alignment, independent complete reports and case resolution are still pending.
   No protected-deployment execution or qualification has occurred in this seat.
+
+## Round 3 — domain controls and first evaluator probes
+
+- Judge rejected R7-003/004 as spec-defect allegations because `0.1.0-draft`
+  already closes their source requirements; retained their executable controls.
+- Judge accepted ASTRA26-03 as **R7-010 spec-bug**, owned by astra-21: define
+  `policy.handles` lookup for every disclosed principal, including a distinct
+  representative, without leaking identity or silently merging attribution.
+- Added [ASTRA26-04](../cases/astra-26-location-slots.md): residence/current
+  location coexist without replacement or incompatibility across their slots.
+- Added [ASTRA26-05](../cases/astra-26-relationship-introductions.md): relationship
+  status cannot fill a missing introductions predicate; an explicit declaration
+  is accepted as data without contact effects. These are regression challenges
+  for existing semantics, not asserted new package defects.
+- Inventory check found no original semantic fixture using competence,
+  account_link, availability, intent, relationship_status or open_to_introductions.
+  The new introduction fixture now exercises the last two in this seat's corpus.
+  The remaining domains have declarations but no behavioral qualification here.
+- All seven owned fixtures pass structural/reference/normalization checks at
+  the initial package version; evidence is seat
+  `.temp/r7-astra-26/cases-structural-02.log`.
+- Ran the seven fixtures against the first astra-22 adapter at `0216fbb`, with
+  the unchanged source core hash `cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
+  The executor received only initial state, operations and query. Its existing
+  five harness controls passed. Result: **1 pass, 0 fail, 6 unsupported**.
+  The checked-currentness positive control passed exactly; all unsupported
+  reasons are explicit in `.temp/r7-astra-26/owned-cases-astra22-01.json`.
+  Nothing was written into the implementation seat's files.
+- The collective's first source report is 17 pass / 7 fail / 29 unsupported
+  semantic, with all 8 deployment vectors unsupported; its own divergences are
+  already filed. This seat does not reclassify those results. Provisional row
+  remains **1/2** pending the v0.2 release and independent runs.

@@ -1,8 +1,7 @@
 # ASTRA26-03 — where is a representative's public alias admitted?
 
-Status: submitted for classification against `0.1.0-draft` at `0ef608a`.
-Seat: astra-26. Proposed classification: package clarification/spec-bug, not an
-owner architecture decision.
+Status: judge-classified **spec-bug R7-010** against `0.1.0-draft` at `0ef608a`;
+fix owner astra-21. Seat: astra-26. No owner architecture decision is needed.
 
 ## Clauses and gap
 
@@ -64,7 +63,8 @@ Recommend explicitly defining `policy.handles` as the mapping for every disclose
 principal, with exact subject/principal, space and audience lookup. This uses the
 existing grammar. Preserve distinct issuer/submitter identity; do not repair the
 gap by relabeling the representative as the subject or leaking its internal id.
-The negative control removes only the representative's row and must refuse
+The [negative control](astra-26-representative-public-alias-missing.vector.json)
+removes only the representative's row and must refuse
 `not_authorized`; invalid representation still refuses at admission under P02.
 
 The proposed success fixture passes the package's structural validator, reference
@@ -72,4 +72,7 @@ checks, normalization and forbidden-predicate checks. This is not evidence that
 an independent evaluator has implemented either reading. The expected success
 is the recommended closure; judge classification and evaluator execution remain
 pending. Local structural evidence: `.temp/r7-astra-26/cases-structural-01.log`
-in the seat work directory.
+in the seat work directory. Judge decision of 2026-10-17 03:46:35Z accepted this
+exact lookup clarification and both controls. The first astra-22 adapter reports
+both fixtures unsupported because it has no full audience redaction/alias output;
+this is not execution evidence for the proposed fix.
