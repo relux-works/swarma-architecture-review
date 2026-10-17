@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 31, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 32, 2026-10-17.
 
 ## Baseline and scope
 
@@ -837,3 +837,33 @@ and its neighbors; the complete source corpus remains the separately pinned
 round-30 evidence, not a claimed fresh rerun. Recommend R7-056 closure subject
 to the judge's gates. New erase-context priority review remains separate; R7-055
 stays held for Ivan without an oracle. Score **1/2**, no deployment or PARK claim.
+
+## Phase 2 round 32 — erase intent and exact replay stay distinct
+
+Independently reviewed source `946cbd8` for R7-057. Current erase operation
+authority still gates the operation first. Under an existing key, changed
+canonical intent now returns `idempotency_conflict` before the stored receipt's
+metadata check; only exact replay reauthorizes those original refs. The admission
+retention gate is unchanged.
+
+Both accepted exact regressions (changed purpose and changed audience), S20
+and P08 pass with zero field/forbidden/normalization differences. Five focused
+native groups pass: changed-context precedence, independent read/use/metadata
+loss, immutable empty-receipt replay, existing current-authority replay and
+metadata-versus-purge separation. Fresh-key authorized erase can return empty
+refs; loss of erase authority still refuses before a key conflict. Broader
+metadata rights cannot expand a stored empty receipt on replay. Tested refusals
+preserve records, runtime, policy, captures and the original receipt.
+
+Evidence: seat `.temp/r7-astra-26/erase-priority-source-01.json` and
+`astra22-erase-priority-controls-01.log`, with exact input/module hashes. Original
+source native and author fixture failures stay unchanged. No new case, oracle
+or authority-scope rule was introduced. This is focused independent R7-057
+closure evidence, with full current-corpus verification left to its separate
+judge gate.
+
+Judge `13e3d73` closed R7-053 at `23b4d74`; `e2a797d` closed R7-056 at
+`87beb46`. Judge `02d6337` accepted both additional exact regressions, bringing
+the supplemental semantic inventory to 63. R7-057 formal closure and the quiet
+round remain pending; R7-055 stays an owner question held for Ivan. Current
+score **1/2**, deployment unqualified, no PARK received.
