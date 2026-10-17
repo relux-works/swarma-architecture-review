@@ -122,3 +122,14 @@ protected postcondition, public output remains equivalent, and the visible-path
 control remains dirty/incomplete. Run `astra23-v0.2.1` in the evidence JSON pins
 inputs at `0fa73fd` and evaluator hashes. This supplies behavior verification for
 R7-018; no deployment timing/isolation pass is implied.
+
+## Phase-2 source coverage verification
+
+Source implementation `e38c37c` now passes both unchanged hidden and visible
+controls under explicit package `0.2.2`. Independent rerun also passes its six
+impact controls for protected causes, hidden paths/premises/certificates, hidden
+AND siblings/context, historical/resolved causes, later withdrawals and
+cross-schema review. Protected dirty causes remain recorded; public reads do
+not clear them. Exact owned run is `astra22-phase2-dirty-coverage` in the owned
+evidence JSON; control log is `.temp/astra25-source-impact-controls-01.log`.
+This expands source execution coverage; it does not qualify timing or deployment.
