@@ -1,8 +1,7 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 20; no PARK. Source baseline `95f974b`, kernel v0.2; current evidence package
-`0.2.2-draft` at `7e71765`. Latest release `0.2.3-draft` at `23290b3`
-has just arrived; explicit seat migration is the next unit.
+Status: Phase 2 active, round 21; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+`0.2.3-draft` at `23290b3`; all owned fixtures explicitly migrated.
 
 ## Scope and method
 
@@ -24,7 +23,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
 | ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package verified `53266dd`; source `68152c5` passes original cases but fails remaining-head continuation |
-| ASTRA24-09 | Transitive registered review paths survive dirty recomputation | R7-045 package impl-bug accepted; source passes, correction pending |
+| ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified `f6c339d`; both exact fixtures pass, judge closure pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -293,7 +292,7 @@ At checkout `0f59936`, thirteen fixtures give **12 pass /1 fail** each: source
 fails ASTRA24-08-NEXT; package fails ASTRA24-09 transitive review. Original
 negative CAS cases remain repaired. Source23/package15 preserve exact outcomes;
 source22 and source-authority-cas-controls01 retain the positive repair evidence.
-All13 structural/inventory/normalization/forbidden controls pass validate21.
+All 13 structural/inventory/normalization/forbidden controls pass validate21.
 No previous input or expected behavior changed. Do not declare source CAS closure
 from the smaller suite while this continuation remains unresolved.
 
@@ -318,12 +317,31 @@ Release `23290b3` arrived after this pinned0.2.2 verification. Its explicit
 retention-context migration and new-profile runs are the next unit; no result
 above is silently reclassified as a0.2.3 pass.
 
+## Round 21 explicit retention migration and review repair
+
+All 13 owned vectors now name 0.2.3. Six revise operations explicitly bind
+private/read retention context, with independently checked existing exact actor,
+space, record grants and direct complete integration facts. Initial states and
+behavioral expected outcomes are unchanged; normalization removes only the
+declared context/profile delta. The migration ledger records every hash and
+context in `.temp/astra24-profile-023-migration.json`. All 13 structural and
+intended forbidden controls pass log 22.
+
+At checkout `12eccae`, package correction `f6c339d` passes all 13 owned fixtures;
+source passes 12 with the same remaining-head NEXT failure. R7-045 exact private
+B/C review and public B-only control now pass, plus two focused native tests for
+transitive/cyclic/mixed paths, hidden required elements/certificates, and pure
+sufficient/documentary negative controls. No evidence or dirty state is invented.
+Reports source25/package16 and transitive-review-controls01 preserve the evidence.
+R7-045 closure is recommended after judge gates; its original first failure is
+retained. These authorized contexts do not qualify the full new retention refusal
+contract; its owner repairs and broader canonical runs are separate.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Source remaining-head continuation and package transitive
-review still require resolution; the separate R7-043 repair is verified. Migrate
-the owned corpus to0.2.3 before asserting new-profile conformance. Other collective
-repairs and full dual coverage remain pending. Protected deployment is unqualified.
+**Phase 2 R7: 1/2.** Package owned corpus 13/13 passes, but source remaining-head
+continuation remains open. Full 0.2.3 dual coverage and other collective repairs
+remain pending. Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.

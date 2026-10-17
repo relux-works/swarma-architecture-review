@@ -169,3 +169,13 @@ Fixture SHA-256: `8b0c5faeffd07c106fce0babde245b1420ec9951a00a7ba68ee8e4de3589a1
 source corpus: source22; native controls: source-authority-cas-controls01;
 structural/normalization/inventory/intended-refusal plant: validate21, all in
 seat-local `.temp/`. Existing immutable first failures remain untouched.
+
+## Package 0.2.3 explicit migration
+
+Round 21 migrates this case to `0.2.3-draft` (`23290b3`). Behavioral expected
+results and initial states are unchanged. Read-only operations need no storage
+context; each of this seat's six revise operations explicitly binds private/read
+under its existing actor/space/record retain grant. No grant is inferred from a
+later query. `.temp/astra24-profile-023-migration.json` records old/new hashes,
+exact operation contexts and normalized equality. Structural and intended
+forbidden controls pass log 22. Earlier hashes identify historical profile runs.

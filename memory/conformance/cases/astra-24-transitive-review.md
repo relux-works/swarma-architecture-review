@@ -1,7 +1,7 @@
 # ASTRA24-09: registered review is a path property after recomputation
 
-Status: R7-045 package implementation bug, judge-confirmed; source passes.
-Package correction pending. Owner: astra-24. Package `0.2.2-draft` at
+Status: R7-045 package implementation bug; correction `f6c339d` independently
+verified. Both implementations pass the exact migrated fixture. Owner: astra-24. Package `0.2.2-draft` at
 `7e71765`; execution checkout `a016781`.
 
 ## Clauses and two readings
@@ -77,3 +77,30 @@ R7-045: eligible registered paths persist after dirty recomputation. No new
 specification or owner architecture decision is required. The package owner
 preserves the first exact failure at `08c4b9a`; input and expected outputs
 remain unchanged pending corrected-head verification.
+
+## Package 0.2.3 explicit migration
+
+Round 21 migrates this case to `0.2.3-draft` (`23290b3`). Behavioral expected
+results and initial states are unchanged. Read-only operations need no storage
+context; each of this seat's six revise operations explicitly binds private/read
+under its existing actor/space/record retain grant. No grant is inferred from a
+later query. `.temp/astra24-profile-023-migration.json` records old/new hashes,
+exact operation contexts and normalized equality. Structural and intended
+forbidden controls pass log 22. Earlier hashes identify historical profile runs.
+
+## Round 21 transitive review correction verified
+
+Package `f6c339d` passes the exact ASTRA24-09 fixture after the explicit profile
+migration above; source remains passing. The two focused native review controls
+also pass: transitive and cyclic review, hidden necessary elements, both orders
+of review/sufficient edges, pure sufficient and documentary non-review controls,
+and hidden deterministic certificates. They preserve selected evidence, complete
+evaluation, empty dirty state and no synthetic witness. No relationship absent
+from the registered graph is introduced.
+
+At checkout `12eccae`, all thirteen owned package vectors pass; source has only
+the separate ASTRA24-08-NEXT failure. Exact evidence: package16/source25 and
+`.temp/astra23-transitive-review-controls-01.log`. R7-045 is behaviorally verified
+by this seat; judge closure remains separate. This corpus does not cover all
+new 0.2.3 retention refusal requirements, whose implementation review remains
+with their owners. Original package first failure `08c4b9a` remains immutable.

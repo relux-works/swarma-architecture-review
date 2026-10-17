@@ -132,3 +132,13 @@ Normalized equality and old/new hashes are recorded in
 `.temp/astra24-profile-022-migration.json`. Both evaluators preserve this case's
 pass in source report19 and package report11. Earlier hashes above identify
 the historical profile-specific runs.
+
+## Package 0.2.3 explicit migration
+
+Round 21 migrates this case to `0.2.3-draft` (`23290b3`). Behavioral expected
+results and initial states are unchanged. Read-only operations need no storage
+context; each of this seat's six revise operations explicitly binds private/read
+under its existing actor/space/record retain grant. No grant is inferred from a
+later query. `.temp/astra24-profile-023-migration.json` records old/new hashes,
+exact operation contexts and normalized equality. Structural and intended
+forbidden controls pass log 22. Earlier hashes identify historical profile runs.
