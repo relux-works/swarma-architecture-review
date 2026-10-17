@@ -1,13 +1,13 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 16; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 17; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.2-draft` released at `7e71765`.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
-companion and design, and the released package. This seat authored eight synthetic
-semantic cases with eleven exact package-format vectors, including focused controls. It did not modify
+companion and design, and the released package. This seat authored nine synthetic
+semantic cases with twelve exact package-format vectors, including focused controls. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
 
@@ -22,7 +22,8 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 fixed `4e647ea`, judge-closed `56e5909` |
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
-| ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Ambiguous and historical-head writes wrongly commit in both; current-head and challenge controls pass; judge pending |
+| ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | R7-040 source/R7-041 package impl-bugs; corrected-head verification pending |
+| ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Source passes; package omits the second dependent; judge pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -247,13 +248,31 @@ remains ambiguous with neither signed witness and no dirty marker. Unique-head
 withdrawal remains admitted; ambiguous and historical-head withdrawal must be
 refused atomically. Classification is pending.
 
+## Round 17 transitive review separation
+
+Six source impact controls pass on extension `e38c37c`. An independently authored
+read-only fixture then separates full review paths from immediate historical
+premises: ASTRA24-09 has historical A1 -> B -> C review dependencies, a current
+A2, and cleared recomputation dirty causes. Private output must list B/C, while
+the public control with a hidden second edge must list B only. Source passes;
+package loses C in the private result. No signed witness, dirty state or selected
+item changes. Judge classification of this separate review-path finding is pending.
+
+At `a016781`, twelve owned fixtures give source **10 pass / 2 fail** and package
+**9 pass / 3 fail**, with no unsupported input. Two shared failures are the
+judge-accepted R7-040/041 authority-head family, persisted at `1cdcb36`; the third
+package failure is the new missing review reference. Exact reports source21 and
+package13, six impact controls01 and structural/forbidden controls20 are retained
+in seat-local `.temp/`. Earlier fixture bytes and semantic expectations are intact.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Both evaluators fail the authority-head refusal family;
-classification and correction remain pending. The stronger dual-coverage gate
-and other Phase 2 repairs also remain open. Incoming source dirty/review support
-is a separate next verification unit, not yet credited here. Deployment remains
-unsupported and unqualified.
+**Phase 2 R7: 1/2.** Authority-head implementation repairs and the new package
+review-path finding remain pending, alongside the collective's other repairs and
+full dual-coverage gate. Source dirty/review canonical support is reported as
+47/57 by its owner; this seat independently checked the six targeted controls and
+its exact review-path fixture, not every canonical row. Protected deployment
+remains unsupported and unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.

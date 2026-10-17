@@ -1,6 +1,7 @@
 # ASTRA24-08: an exact candidate is not an unambiguous compare-and-set head
 
-Status: both evaluators fail; judge classification requested. Owner: astra-24.
+Status: judge-classified R7-040 (source) and R7-041 (package), both implementation bugs.
+Correction pending. Owner: astra-24.
 Execution checkout `7e71765`, package `0.2.2-draft`; first valid separating run
 was at `1f3180d` on package `0.2.1-draft` with the same semantic expectations.
 
@@ -105,3 +106,9 @@ requested. Structural/normalization/inventory/forbidden controls pass log18.
 These tests cover exact authorized candidates and authority order, not hidden
 head disclosure or arbitrary authority graphs. Scoped authorization and receipt
 ordering must still precede any externally visible conclusion.
+
+Judge decision `$jWF7PS9bJWLBKtoGF2OqBiJIlvcfYJB7WzuI6j5fxPw`, persisted
+in round18 at `1cdcb36`, accepts the exact primary/control separation as
+R7-040 source and R7-041 package. No specification change or owner decision
+is required. Historical-head and challenge neighbors were sent for consolidation
+under the same rows. Exact corrected-head verification remains pending.
