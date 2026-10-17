@@ -95,3 +95,22 @@ The owned fixtures are now migrated to the 0.2.0 grammar with explicit synthetic
 integration facts. The observed failure above is pinned to the old fixture and
 implementation versions, not represented as a run of the migrated fixtures.
 The editor's next release and independent behavior recheck remain pending.
+
+## Candidate fix verification: 0.2.1-draft
+
+At `f31d58f`, K-EVAL-8 now retains unresolved `{assertion, revision}` causes in
+protected state and requires an eligible dependency/impact path for a disclosed
+effect. It explicitly filters the revision, changed input, path, premises and
+certificates by current rights and query context before charging logical work.
+Historical queries before the cause stay unaffected, resolved causes are not
+reconstructed from history, and hidden-only causes leave the public projection
+unchanged while protected global dirtiness remains. The visible affected control
+still requires dirty/incomplete output. This closes the competing prose readings.
+
+The owned pair is migrated to the 0.2.1 grammar with initially empty
+`dirty_causes` and explicit synthetic subject/principal identity, preserving all
+previous semantic expected results. All eight owned fixtures pass structural
+checks and both leak plants (`.temp/astra25-vector-structure-06.log`). The package
+validator also passes 57 semantic / eight deployment vectors and 20 checker
+controls. Updated evaluator execution is pending; the old evaluator failure is
+not reclassified as a pass on the strength of these structural/prose checks.

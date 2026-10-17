@@ -593,6 +593,12 @@
       "source_access": [],
       "external_effect_owners": [
         "authority:external"
+      ],
+      "subject_principals": [
+        {
+          "subject": "subj:h1",
+          "principal": "subj:h1"
+        }
       ]
     },
     "runtime": {
@@ -657,7 +663,8 @@
       "hidden_work": 0,
       "memory_available": true,
       "control_observations": [],
-      "external_effects": []
+      "external_effects": [],
+      "dirty_causes": []
     }
   },
   "operations": [
@@ -754,7 +761,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.0-draft",
+      "semantic_profile": "0.2.1-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

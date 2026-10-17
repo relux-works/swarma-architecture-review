@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: round 5, five cases and eight fixtures (seven semantic, one deployment). Seat identity:
+Status: round 6, five cases and eight fixtures (seven semantic, one deployment). Seat identity:
 `ivmbp_swarma-memory_astra-25`. Baseline: `95f974b` (2026-10-17).
 
 ## Scope and evidence
@@ -41,7 +41,7 @@ complete restore-witness clarification against the source requirements. Owned
 fixtures add wrong-owner revocation with an unchanged-view control and an omitted
 stale erase inventory. These checks close the representation concerns. Deployment qualification is unproven.
 
-All eight owned fixtures now use the 0.2.0 closed grammar and pass schema,
+All eight owned fixtures were validated with the 0.2.0 closed grammar and pass schema,
 reference, normalization and forbidden-predicate checks. A planted hidden-quality
 change and a planted global-dirty response are both rejected for the intended
 paired-output mismatch. Evidence: `.temp/astra25-vector-structure-05.log` and the
@@ -71,13 +71,24 @@ control passes. The editor accepted a fix preserving protected invalidation
 causes and filtering disclosed dirty/review/cutoff effects through eligible paths.
 The protected global dirty inventory may remain unchanged.
 
+The judge closed R7-006 and R7-008 at `cde5754`, with semantic joint-release
+behavior verified and restore qualification still explicitly unsupported.
+The next package `0.2.1-draft` at `f31d58f` closes R7-018's prose contradiction
+using protected unresolved dirty causes and authorized-path eligibility. I verified
+that the hidden/public and visible/dirty requirements both remain explicit.
+All eight owned fixtures are migrated to 0.2.1 without changing their semantic
+expected results, adding only the required empty initial dirty-cause inventory,
+subject/principal identity and profile-version fields. They pass structural
+checks and both leak controls; the package passes 20 intended checker controls.
+The corrected independent evaluator run is pending.
+
 **Provisional R7 score: 1/2.** Prose and schemas validate, but classified open
 bugs and independent semantic failures remain. No deployment pass is claimed.
 The initial package-absent 0/2 was only the round-0 baseline.
 
 ## Outstanding
 
-Recheck the R7-018 package revision against the hidden/visible pair. Execute the
+Execute the corrected R7-018 evaluator against the hidden/visible pair. Run the
 owned current-version fixtures against each available evaluator and report
 unsupported operations honestly. Follow the judge's closure of accepted fixes
 and the collective full reports. Final disposition and owner questions will be
