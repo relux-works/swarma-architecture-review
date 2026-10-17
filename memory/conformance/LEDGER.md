@@ -54,7 +54,9 @@ evaluator, or vice versa.
 | R7-025 | astra-27 static source probe; event `$NFG9lnMN_Ql0SjgWplmeYuSgEls8vZ1lCHuf8uJ-9YA` | Explicit-target history; K-EVAL-9, K-REV-1 | impl-bug | astra-22 | fixed@26d8cc6 | Judge independently reruns the exact static fixture with 26d8cc6: unrelated explicit target excludes other history, unfiltered selection preserves it, explicit old target is not duplicated, and hidden-old control is excluded. Three adapter controls pass; canonical report matches all 65 rows. Owned fixture and red/green reports are retained under impl-astra-22/fixtures and runs. |
 | R7-026 | astra-22; ASTRA22-05 first 0.2.1 transaction run; event `$PG171V9oI4Um_5wsJuSNRTlfqsd3ZQUSf1kWxDG5Ku4` | P02; K-ENV-1 subject_principals | impl-bug | astra-22 | fixed@26d8cc6 | Judge reproduces df499a1 P02 forbidden admission and all 15 difference paths, then exact 26d8cc6 canonical pass with identical refusal state and valid distinct/delegated controls. Seven transaction controls pass, including wrong subject, equal spelling without binding and non-own perspective rejection. First failure report is preserved. |
 
-| R7-027 | astra-25 [quality-budget-isolation](cases/astra-25-quality-budget-isolation.md) at `2a6d294`; event `$M-2IsLpo2I6lijkllP1qvqkD95XnpbXccbAHHCtSt64` | ASTRA25-06 and ASTRA25-01 visible control; K-EVAL-2/4 | impl-bug | astra-22 | open | Global source root/rule counters combine existence and premise-opposite quality work. Judge reproduces lost B support at roots=1 despite one sufficient A root, with roots=2 positive control passing. Seven final differences plus intended paired/forbidden checks fail; package evaluator passes. Separate per-channel/quality walks with stable ordering and real exhaustion controls; do not inflate budgets. Hidden equality captures still agree; no new hidden-data leak is inferred. |
+| R7-027 | astra-25 [quality-budget-isolation](cases/astra-25-quality-budget-isolation.md) at `2a6d294`; astra-24 [polarity-budget](cases/astra-24-polarity-budget.md); events `$M-2IsLpo2I6lijkllP1qvqkD95XnpbXccbAHHCtSt64`, `$Dp4_riQyF6haSd2qyOmKMURbHNt2rkZrFJBDw9-Ctlw` | ASTRA25-06, ASTRA25-01 visible control, ASTRA24-05; K-EVAL-2/4 | impl-bug | astra-22 | fixed@4e647ea | Independent judge rerun passes all three regressions, exact canonical report (43 pass / 0 fail / 14 unsupported semantic) and 44 source/adapter/transaction/harness controls. Fresh per-channel and quality walks preserve local memoization, numeric reference ordering and genuine zero/insufficient limits. The distinct missing source bound persists as R7-028; hidden equality alone was never treated as proof of this fix. |
+| R7-028 | astra-24 [source-resolution-budget](cases/astra-24-source-resolution-budget.md) at `67b1e06`; decision `$_nHN4l4lurg4x7z88Ie7my2bKrY65tHxu33Tb4NG5j8` | ASTRA24-06; K-EVAL-1/2/3/5 | impl-bug | astra-22 | open | Source adapter omits source_resolutions, so zero allowance still produces a current-required derived witness. Judge reproduces eight incorrect fields and three forbidden checks after R7-027 fix; bound-one positive control passes. Package evaluator passes exactly. Charge distinct current-required sources within each independent walk using min(query, policy), retaining repeated-source memoization and independent/retained zero-bound behavior. |
+| R7-029 | astra-22 [vacuous first probe](impl-astra-22/fixtures/independent-vacuous-source-first.json) at `f2d233a`; independent judge nonempty-source probe; decision `$R6pEZvOBTW2UVbOfj04NRa4KfMIWwHX2EYq2GMksDS4` | ASTRA22-07; S32 neighbors; K-EVAL-5 | impl-bug | astra-22 | open | Core independent flag wins before actual resolvability. Judge validates and reproduces empty-source and nonempty-resolvable independent roots incorrectly reporting independent_attestation; explicit K-EVAL-5 requires resolvable_now for both. Unavailable-source positive control correctly stays independent_attestation. Fix source-state precedence without promoting evidence qualification or removing the distinct R7-028 bound. |
 
 Every received case is classified against its cited package release. Rejection
 means the proposed bad reading already contradicts explicit package clauses; it
@@ -431,3 +433,49 @@ are useful precisely because canonical green alone does not prove the contract.
 
 Ledger: 27 items, eight rejected, eighteen fixed, one open implementation bug,
 no open specification bugs or owner questions. Score remains 1/2 for R7-027.
+
+
+### Round 13 — root/quality isolation closed; source accounting and priority
+
+Reviewed `4e647ea` core/adapter correction and regression controls. Independent
+canonical rerun exactly matches all 65 committed rows, package/core hashes and
+totals: 43 pass / 0 fail / 14 unsupported semantic, eight deployment unsupported.
+All three budget-family regressions pass: ASTRA25-06, ASTRA25-01 visible control,
+and ASTRA24-05 direct opposite polarity. Source controls 29, adapter controls 3,
+transaction controls 7 and harness controls 5 pass. Closed R7-027. Evidence:
+`.temp/astra22-judge-r7027.md` / `.json`,
+`.temp/astra22-judge-r7027-comparison-01.json`, and
+`.temp/astra22-r7027-{canonical,source,adapter,transactions}-01.log`.
+The pre-fix direct-polarity witness remains in
+`.temp/astra22-judge-polarity-budget-01.json`.
+
+Reviewed ASTRA24-06 and independently reproduced its eight final field errors
+plus three intended forbidden failures on the corrected root/quality core.
+The omitted source-resolution limit is R7-028, separate from R7-027. Current
+supplemental inventory is 22 semantic cases: source 13 pass / 1 fail / 8
+unsupported; package 22 pass / 0 fail / 0 unsupported. Both retain one unsupported
+deployment case. The earlier source corrected report's 21 cases predates this
+new case; its 13/0/8 totals do not contradict the new inventory. Evidence:
+`.temp/astra22-judge-r7027-supplemental.md` / `.json`,
+`.temp/astra23-judge-source-budget.md` / `.json`, and corresponding
+`.temp/astra22-r7027-supplemental-01.log`,
+`.temp/astra23-judge-source-budget-01.log`.
+
+Independent source adapter review found R7-029: a nonempty currently resolvable
+source on an admitted independent assessment incorrectly retains the weaker
+independent_attestation state. S32-derived unavailable/resolvable inputs pass
+closed state, reference and query checks; the unavailable positive control stays
+independent, while the resolvable variant must be resolvable_now under explicit
+K-EVAL-5. Astra-22 independently supplied its empty-source variant at `f2d233a`;
+judge also validates and reproduces it. Neither changes the assessment's evidence
+kind. Exact inputs and outputs are in
+`.temp/astra22-resolvable-independent-probe-01.json` and
+`.temp/astra22-vacuous-independent-probe-01.json`. An initial validation invocation
+used a nonexistent schema fragment and failed setup; the corrected invocation
+checks fixture.properties.initial_state plus check_state. No successful-check
+claim is based on the failed invocation. These targeted probes are separate from
+the 22-case supplemental count. The fix owner has both witnesses and requested
+neighbor controls; no package change or owner decision is needed.
+
+Ledger: 29 items, eight rejected, nineteen fixed, two open implementation bugs
+(R7-028/029), no open specification bugs or owner questions. Score remains 1/2.
