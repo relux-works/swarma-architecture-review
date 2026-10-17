@@ -1,7 +1,7 @@
 # ASTRA24-09: registered review is a path property after recomputation
 
-Status: source passes; package evaluator loses the second registered dependent.
-Judge classification requested. Owner: astra-24. Package `0.2.2-draft` at
+Status: R7-045 package implementation bug, judge-confirmed; source passes.
+Package correction pending. Owner: astra-24. Package `0.2.2-draft` at
 `7e71765`; execution checkout `a016781`.
 
 ## Clauses and two readings
@@ -71,3 +71,9 @@ plant removes one required review reference and triggers exactly the intended
 predicate; no fixture expectation changed to repair the instrument.
 This two-edge chain is not a general proof for arbitrary mixed-role paths or
 cyclic review graphs. No deployment guarantee or task-creation authority follows.
+
+Judge event `$w6ki9VdtqJ2t1FPa6C95Bnv2-P6BadtH6uI0_zpHFhY` confirms
+R7-045: eligible registered paths persist after dirty recomputation. No new
+specification or owner architecture decision is required. The package owner
+preserves the first exact failure at `08c4b9a`; input and expected outputs
+remain unchanged pending corrected-head verification.

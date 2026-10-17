@@ -1,7 +1,8 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 19; no PARK. Source baseline `95f974b`, kernel v0.2; current package
-`0.2.2-draft` released at `7e71765`.
+Status: Phase 2 active, round 20; no PARK. Source baseline `95f974b`, kernel v0.2; current evidence package
+`0.2.2-draft` at `7e71765`. Latest release `0.2.3-draft` at `23290b3`
+has just arrived; explicit seat migration is the next unit.
 
 ## Scope and method
 
@@ -23,7 +24,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
 | ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package verified `53266dd`; source `68152c5` passes original cases but fails remaining-head continuation |
-| ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Source passes; package omits the second dependent; judge pending |
+| ASTRA24-09 | Transitive registered review paths survive dirty recomputation | R7-045 package impl-bug accepted; source passes, correction pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -296,11 +297,33 @@ All13 structural/inventory/normalization/forbidden controls pass validate21.
 No previous input or expected behavior changed. Do not declare source CAS closure
 from the smaller suite while this continuation remains unresolved.
 
+## Round 20 separate rule/certificate invalidation repair verified
+
+Source `3722327` passes all three unchanged judge fixtures for rule withdrawal,
+certificate withdrawal and the premise control. Nine focused native impact
+controls pass, including exact cause retention/replay, hidden versus private
+authorization, challenge exemption, transitive consumers, pre-cause reads,
+recomputed causes and dirty status before zero-budget evidence evaluation.
+The dependency delta includes each justification and its check identity in the
+same protected marking and pre-revision eligibility traversal. No fixture changed
+from first-evidence `4744e62`. This corroborates R7-043 independently.
+
+Evidence: `.temp/astra22-dirty-rule-certificate-01.json` and
+`.temp/astra22-impact-controls-02.log`. The separate owned corpus at `3722327`
+remains12pass/1fail in source report24; ASTRA24-08-NEXT still fails and is not
+closed by this repair. Package transitive review is now judge-classified R7-045;
+its first exact report at `08c4b9a` and unchanged fixture are retained.
+
+Release `23290b3` arrived after this pinned0.2.2 verification. Its explicit
+retention-context migration and new-profile runs are the next unit; no result
+above is silently reclassified as a0.2.3 pass.
+
 ## Provisional R7 row and remaining work
 
 **Phase 2 R7: 1/2.** Source remaining-head continuation and package transitive
-review still require resolution. Other collective repairs and full dual coverage
-remain pending. Protected deployment remains unsupported and unqualified.
+review still require resolution; the separate R7-043 repair is verified. Migrate
+the owned corpus to0.2.3 before asserting new-profile conformance. Other collective
+repairs and full dual coverage remain pending. Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
