@@ -156,3 +156,24 @@ checks. Canonical 0.2.1 stays 43/0/14; current supplemental is 13/0/8. Twenty-ni
 source tests, three adapter tests, seven transaction tests and five harness
 controls pass. Exact original evidence is in signed f39af13; current outputs in
 `runs/cases-0.2.1-corrected.*`. Judge review pending. R7-025/026 are judge-closed.
+
+## ASTRA24-06 — Omitted current-source resolution bound
+
+The root/quality correction at 4e647ea still fails the new ASTRA24-06 source
+allowance case. Adapter did not pass source_resolutions into the core; a
+zero-resolution query still found the one-source derived witness. Exact first
+result retained in `runs/cases-source-budget-first.*`. Positive allowance one
+passes. Recommended impl-bug; judge determines classification.
+
+## ASTRA22-07 — Independent marker overrides resolved/empty sources
+
+The retained source core chooses independent_attestation before testing whether
+the named sources resolve. K-EVAL-5 explicitly puts resolvable_now first, including
+an empty named-source set. A closed-shape S32-derived fixture with rec:att sources
+changed to [] reproduces independent_attestation on 4e647ea instead of
+resolvable_now. Input, exact query, output and single required field are stored in
+`fixtures/independent-vacuous-source-first.json`. Recommended impl-bug; no fix or
+canonical expected-output edit before classification. A prior source-level
+stronger-alternative test encoded the same assumption; correction must preserve
+its actual mixed-AND/OR claim while giving that independent alternative an
+unavailable named source, and add empty/resolved/unavailable precedence controls.

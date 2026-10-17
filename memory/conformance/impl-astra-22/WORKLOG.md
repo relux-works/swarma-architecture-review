@@ -220,3 +220,20 @@ The earlier 20-semantic baseline is unchanged; the corrected corpus has 21
 semantic fixtures, so the new case is not counted as a prior observed failure.
 Core SHA-256 d81a4ae9956802b82d4710d85dfc54efb5679c91eb623e6515e12d8907ba8b9e.
 R7-025/026 are independently closed in judge 510649f; R7-027 awaits exact fix review.
+
+## Source-resolution boundary unit (in progress)
+
+Adversary ASTRA24-06 reproduces an omitted source_resolutions bound after R7-027:
+4e647ea current supplemental 13 pass / 1 fail / 8 unsupported semantic, one
+deployment unsupported (`runs/cases-source-budget-first.*`, `case-run-06.log`).
+Keep this distinct from already repaired root/rule counters; classify before fix.
+Plan exact per-walk distinct-source accounting, preserving retained/independent
+exemption and genuine zero/one/insufficient-source controls.
+
+Inspection also found a separate qualification precedence mismatch: an independent
+root with no named source returns independent_attestation, while K-EVAL-5 names
+the empty-set case resolvable_now. The S32-derived closed-shape input and actual
+4e647ea output are preserved in `fixtures/independent-vacuous-source-first.json`.
+Only the independent assessment source list was emptied and the query targets
+its assertion; no canonical vector or expected output was edited. Submit to
+judge before swapping precedence or changing the old source-unit assumption.
