@@ -1,7 +1,18 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 34, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 35, 2026-10-17.
+
+## Current position
+
+Judge `9d2cdd4` closes R7-058 and records **2/2**: both implementations pass
+**57/57 canonical and 68/68 supplemental semantic vectors** under package
+`0.2.5-draft` (`6a04e8c`). Current source runtime is `946cbd8`; package runtime
+is `104fbe8`. The ledger has 47 fixed items, 10 rejected items and the held
+owner question R7-055, with no open spec/implementation bug. All 15 owned
+fixtures pass; all classified owned defects are closed. Deployment remains
+unsupported (8 canonical plus 1 supplemental case). No PARK has been received.
+Earlier sections below retain historical scores and first-run evidence.
 
 ## Baseline and scope
 
@@ -932,3 +943,25 @@ remain separate judge gates. Current supplemental denominator is 68 semantic
 cases. R7-055 stays held for Ivan with no oracle or authority change. Score
 **1/2** while R7-058 closure/quiet review is pending; deployment unqualified,
 no PARK received.
+
+## Phase 2 round 35 — closure readback and quiet intake
+
+Read back judge `9d2cdd4`, the current score and owner-question register.
+R7-058 is fixed at `104fbe8`. Independent round-34 review was published in
+signed `a7fa673`; its unchanged five restore fixtures, 15 owned fixtures,
+S25/S26 and three native groups remain the exact local execution scope.
+No new full run is claimed by this documentation update.
+
+The judge verifies source `946cbd8` with report/test expansion `b8189ba` and
+package `104fbe8` at **57/57 canonical plus 68/68 supplemental semantic** each.
+Source control coverage is 129 groups using 12 rerun erasure groups plus
+117 unchanged prior groups; package coverage is 30 product groups plus
+4 comparer controls. These counts preserve the evidence-reuse distinction.
+
+No new finding, divergence, package/runtime/fixture change or pending owned
+correction arose in this round. All classified findings from this seat are
+closed. R7-055 remains held for an attributed owner decision, outside the
+vector denominator and without an invented oracle or authority rule. The
+8 canonical plus 1 supplemental deployment cases remain unqualified.
+Current score is **2/2**. This seat is quiet and ready for the convener's
+PARK protocol; the collective gate is not inferred from this local status.
