@@ -98,7 +98,7 @@ commits and relevant controls; a candidate release alone is insufficient.
 
 | R7-052 | astra-25 [retention-deadline](cases/astra-25-retention-deadline.md), first `604af18`; request `$XkFYu2DEMaA0d8d3wUeCqkwMVrlPAqRQAg0B_ViVOAg` | ASTRA25-11 native probes; K-DISC-1, K-AUTH-1, K-API-1/2 | impl-bug | astra-22 | open | Judge independently reproduces before/at/after/own-expiry and late replay at source `4772258`: three fresh expired writes add D, cut and replay state; late exact replay succeeds despite expired retention. Before-expiry control succeeds. Require live retention for every resolved output/known-input closure at trusted intake time, with atomic not_authorized,false including replay. Native probes are outside vector totals. |
 | R7-053 | Same ASTRA25-11 submission and independently repeated inputs as R7-052 | Same deadline and authorized-replay clauses | impl-bug | astra-23 | open | Package runtime `4af0360` independently reproduces the same three forbidden fresh commits and expired successful replay. All input states and operations validate; first results remain immutable. Required refusal preserves the original receipt and complete state, without triggering an erasure job. Before-deadline and unbounded positive neighbors remain required. |
-| R7-054 | Judge review of ASTRA25-11; editor recommendation `$rhmPEMI5yxqbjQprbScOEovbpGlhuBzhcvFNwa--FmA` | K-DISC-1, K-AUTH-1, K-API-1/2, K-REF-1 | spec-bug | astra-21 | open | Existing source requirements forbid retaining after the earliest inherited deadline, but the concrete expiry boundary/code/order/replay mapping is unstated. Clarify live iff trusted context.at is strictly before every applicable non-null deadline; otherwise not_authorized,false in current-retention authorization before idempotency. Traverse complete and incomplete-known lineage across pre-state plus whole batch. Replay rechecks original outputs/closure, leaves receipt/state unchanged on denial. Null adds no bound. Add exact positive/negative release vectors; no owner architecture decision or physical purge promise. |
+| R7-054 | Judge review of ASTRA25-11; editor recommendation `$rhmPEMI5yxqbjQprbScOEovbpGlhuBzhcvFNwa--FmA` | K-DISC-1, K-AUTH-1, K-API-1/2, K-REF-1 | spec-bug | astra-21 | fixed@6a04e8c | Judge verifies 0.2.5 explicit strict context.at expiry, not_authorized,false before idempotency, original-output/known-closure replay and no purge. All 94 JSON artifacts regenerate exactly; 34 intended checker plants pass. Only P11 changes beyond version; its first 16 operations/results and other 64 vectors/pilot are preserved. Isolated unchanged-runtime probes give five forbidden writes, two expired success replays and one wrong conflict priority; a separate 20-operation positive trace matches every expected field. Runtime fixes stay R7-052/053. |
 
 ## Judge worklog
 
@@ -1362,3 +1362,54 @@ R7-054 mapping open. Canonical release/runtime bytes are unchanged; round-26
 50/57 dual coverage and 106/28 established controls remain the verified baseline,
 not a claim that the new expiry controls pass. No owner question, no deployment
 qualification, score 1/2; continue until PARK.
+
+## Round 28 — expiry package clarification verified
+
+R7-054 closes at signed release 0.2.5 `6a04e8c`. K-AUTH-1, K-API-1/2 and
+K-REF-1 now explicitly require live retention at the trusted current intake time,
+strictly before each applicable non-null deadline, for all admission APIs and
+original outputs/known-input closure on replay. Expiry returns not_authorized,
+retryable=false before idempotency, including changed-intent conflict. Refusal
+preserves original receipts and state without a purge side effect. This matches
+the existing source requirements and judge ruling; no new owner choice is made.
+
+Independent regeneration of all 94 JSON artifacts is byte-identical; all 34
+checker controls detect the intended violation, including a planted expired
+successful replay. Only P11 changes beyond release identifiers. Its first sixteen
+operations and their exact expected results are preserved, as are all other 64
+vectors and the reusable decision fixture. New private-purpose grants are
+unrevoked, so the deadline negatives do not merely repeat earlier grant revocation.
+
+The unchanged source `427fed5` gives 49/1/7 and unchanged package `942bdee` gives
+56/1/0 on the full 0.2.5 corpus. P11 is the only semantic failure. Exact dual
+canonical passes are therefore 49/57 on the expanded release. Runtime hashes
+match these pins; the later source deadline-control file is a test-only addition.
+No expiry implementation correction is claimed by accepting the specification.
+
+Eight isolated package probes execute from the same valid prescribed prefix:
+five expired fresh writes commit, two expired exact retries return the original
+success without mutation, and one expired changed-context request returns
+idempotency_conflict instead of the prior not_authorized. Full before/after state
+and actual replies are preserved. A separate positive-trace fixture omits those
+eight expired operations entirely, remaps only operation-result indices and their
+declared normalization/predicates, and exactly passes all twenty remaining
+operations, final view and postconditions. It proves the original controls,
+before-deadline admission/replay and later unlimited same-key recovery oracle;
+it is not a passing full P11 run or a waiver of the omitted negatives.
+
+Canonical P11 exercises admit and admit_raw. Runtime closure must additionally
+cover revise and declassify, transitive/incomplete-known inputs, both batch orders,
+null/unrelated deadlines, current replay and complete refusal state. The seven
+independent typed witnesses and earlier native first inputs remain unchanged.
+Supplemental migrations to 0.2.5 remain explicit author work, not an implicit
+conversion by the judge.
+
+Evidence in judge seat `.temp/`: `judge-round28-package-review-01.json`,
+`package025-*-01.log`, `judge-round28-package-signature-01.log`,
+`astra{22,23}-judge-round28-release-first.json`,
+`judge-round28-release-first-summary-01.json`, `judge-round28-p11-probes.py` and
+`judge-round28-p11-probes-first.json`.
+
+Ledger: 54 items, 42 fixed, 10 rejected, R7-052 and R7-053 implementation open.
+No owner question. Seven source canonical gaps and eight canonical plus one
+supplemental deployment case remain unsupported. Score 1/2, no PARK.
