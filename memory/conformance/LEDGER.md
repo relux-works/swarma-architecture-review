@@ -2115,3 +2115,29 @@ No open spec-bug, impl-bug, owner question or unclassified submission remains.
 Current R7 score is **2/2**. The judge now reports closure and waits through the
 required quiet round for the new convener PARK; this commit does not itself park
 the collective or qualify any protected deployment.
+
+
+## Reopened round 8 — quiet judge round after closure
+
+The editor's independent review `1e222f6` accepts package candidate `5897520`:
+66/66 canonical, complete normalized report reproduction, four native groups,
+11 atomic full-state refusals and eight intended old-runtime failures. The
+prior audit-format question was answered by metadata-only `fddb403`, describing
+typed-map hash serialization and run-local post-write nonce hashes. Every prior
+audit field, runtime/test module, vector and package artifact remains unchanged.
+Judge's own native audit already uses literal state equality within each trace;
+no cross-run nonce equality or extra conformance normalization is claimed.
+
+This post-closure intake adds no case, divergence, package change, owner question
+or unanswered judge request. Module/package/case hashes match the complete
+round-7 review; no new test run is warranted. Evidence: seat
+`.temp/judge-r055-round08-inbox-01.log` and
+`.temp/judge-r055-round08-quiet-review-01.json`. Four judge-generated migration
+scratch files were moved from the otherwise empty repository `.temp/` into seat
+`.temp/judge-r055-round07-source-migration-copies/`; exact hashes and paths are
+preserved in `judge-r055-round07-scratch-moves-01.json`. Checkout is clean.
+
+Score remains 2/2; all 59 ledger items are closed (48 fixed, ten rejected,
+R7-055 resolved by D-009). This records the judge's quiet round only. Continue
+the required wait/inbox protocol until the convener confirms the collective gate
+and explicitly posts the new PARK.
