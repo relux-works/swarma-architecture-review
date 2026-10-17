@@ -211,3 +211,22 @@ Judge independently closed R7-033/034 at f10c7ba. The exact retention wire gap
 above is now spec-bug R7-039, editor astra-21, separate from R7-037. The package
 must publish storage scope before the complete scoped retention correction;
 no new authorization reading is inferred locally.
+
+## Phase 2 R7-041 — authority-slot compare-and-set
+
+The first full 0.2.2 supplemental report PHASE2-CAS-FIRST records unchanged
+revision code accepting both an incomparable current candidate and an ordered
+historical candidate as the head. Each has eleven exact differences and two
+forbidden-effect failures: a revised receipt and a seventh stored record.
+Unique-head and challenge controls pass. Judge classified this as R7-041.
+
+K-REV-1 and K-REV-3 require the unique current authoritative slot head determined
+by admitted receipt partial order, before comparing expected_version. Preserve
+exact idempotency replay precedence and challenge exemption; refusal must leave
+records, cut, dirtiness and idempotency unchanged. No additional package rule is
+needed. The next correction will be grounded in those released clauses.
+
+Current migrated supplemental is 35/3/0 semantic; one deployment unsupported.
+R7-037 is the third failure. R7-031 migrated primary, purpose-isolation and full-
+authorization controls pass at a016781, as do unknown-lineage lower-bound erase
+and future-input operation controls. Independent judge closure remains separate.

@@ -388,3 +388,29 @@ will prove semantic differences and forbidden effects are detected.
 - Judge/editor classified the separate storage-scope gap R7-039; R7-037 remains
   open pending 0.2.3. ASTRA24-08 exact first reproduction is queued next. Owned
   external erase fixtures await author migration; no silent conversion is used.
+
+## Round 18 — R7-041 authority-slot CAS first reproduction
+
+- Intake ASTRA24-08 ambiguous, unique-head, historical-head and challenge cases
+  at 09f2d4d/f13a3e6. Judge classifies R7-041 as an implementation bug: target-only
+  checks cannot select among incomparable heads or authorize a historical head.
+- Preserve full supplemental first results before revising CAS. Required atomic
+  refusal is retryable version_conflict, with records/cut/dirty/idempotency intact.
+  Preserve unique-head success, challenge exemption, valid receipt ordering and
+  exact replay precedence. No new specification or owner decision is required.
+- The same run verifies explicitly migrated erasure metadata/purpose controls,
+  unknown-lineage lower-bound erasure and future-input intake cases. Their
+  independently authored expected values remain unchanged.
+
+### Round 18 baseline outcome
+
+- Unchanged CAS code at a016781 reproduces both ASTRA24-08 and STALE: eleven
+  exact differences each plus both intended forbidden predicates. Both persist
+  a seventh record and return revised instead of retryable version_conflict.
+  Unique-head and challenge controls pass. Freeze PHASE2-CAS-FIRST.md/JSON.
+- Full migrated 0.2.2 supplemental: 35 pass / 3 fail / 0 unsupported semantic,
+  one deployment unsupported. Third failure remains R7-037 no-retain admission.
+- ASTRA25-07 primary/purpose/authorized control now pass after a016781 receipt
+  correction. Unknown-lineage lower-bound erase/late-writer and future-input
+  operation cases also pass exactly. No expectation or fixture is edited.
+- Log: `.temp/impl-astra-23/phase2-cas-first-01.log` (intended exit 1).
