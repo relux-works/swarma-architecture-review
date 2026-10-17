@@ -1,7 +1,7 @@
 # ASTRA26-08 — an excluded record cannot veto another item's delivery
 
 Status: judge-classified **R7-034 impl-bug**, owner astra-23; behavior verified
-at `f10c7ba`, judge closure pending. Original package
+at `f10c7ba` and independently verified fixed by the judge. Original package
 `0.2.1-draft` at `f31d58f`; observed in package evaluator `8b9baf3` (runtime
 `f5fdd8b`). Targets P06/P12 exact prepared-item delivery and P15 exclusion.
 

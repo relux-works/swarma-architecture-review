@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 12, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 13, 2026-10-17.
 
 ## Baseline and scope
 
@@ -385,3 +385,22 @@ Source proof enumeration has independently reported dual canonical coverage
 - R7-032 source expiry correction and full dual coverage remain pending, as
   do separate collective findings and judge closure of these package fixes.
   Current score remains **1/2**; no protected deployment is qualified.
+
+## Phase 2 round 13 — source import correction and new S23 coverage
+
+- Source `1f35727` against 0.2.2 / `7e71765` gives **9 pass / 0 fail / 2
+  unsupported** on the unchanged owned corpus. R7-032 expiry is fixed; the
+  original unconfirmed-import case now also executes and passes. Only the two
+  selected/excluded delivery fixtures remain unsupported in this source head.
+- Canonical S23 independently passes exactly, with mirror-report sequence
+  currentness distinct from genuine unconfirmed publication currentness. Eight
+  adapter controls pass after review, retaining expiry boundary, replacement,
+  ordinary-source and immutable-output/evidence controls. Evidence: seat
+  `.temp/r7-astra-26/owned-cases-astra22-05.json`, `s23-astra22-01.json` and
+  `astra22-adapter-controls-04.log`. Source canonical report is now 45/0/12.
+- Judge independently verified package R7-033/R7-034 at `f10c7ba`; this seat
+  retains the 11/11 old/new package evidence from round 12. R7-032 source
+  correction is sent for separate exact-head review.
+- No new case, expectation change or owner question. Full dual coverage and
+  separate collective findings remain unresolved; current row **1/2**, with
+  deployment still unqualified.

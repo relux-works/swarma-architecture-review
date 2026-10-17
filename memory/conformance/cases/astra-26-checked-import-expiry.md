@@ -1,8 +1,8 @@
 # ASTRA26-07 — a checked publication expires without becoming current history
 
 Status: judge-classified **R7-032 impl-bug (astra-22)** and
-**R7-033 impl-bug (astra-23)**. R7-033 behavior verified at `f10c7ba`,
-judge closure pending; R7-032 source fix pending. Original package
+**R7-033 impl-bug (astra-23)**. Both behaviors verified: source `1f35727`,
+package `f10c7ba`. Judge has verified R7-033; R7-032 review is pending. Original package
 `0.2.1-draft` at `f31d58f`; package evaluator `8b9baf3` (runtime `f5fdd8b`),
 source evaluator `512d006`. Targets S23/P07 publication currentness and P12 frozen
 history, not a live issuer/network check.
@@ -91,3 +91,21 @@ Exact reports: `owned-cases-astra23-07.json` (original package) and
 version test attempt produced only two semantic_profile stamp differences after
 the 0.2.2 pull; that attempt is retained as `astra23-semantics-03.log`, not a
 semantic failure or passing evidence. The pinned and migrated reruns resolve it.
+
+## Phase 2 round 13 — source fix and publication coverage verified
+
+Source implementation `1f35727` passes ASTRA26-07 exactly under released 0.2.2
+at `7e71765`, together with both original checked/unconfirmed currentness
+fixtures. The source corpus is now nine owned passes and two explicit unsupported
+delivery fixtures; there is no remaining owned source currentness failure.
+Independently executed canonical S23 and reproduced its exact expected output,
+separating a mirror report from a genuine unconfirmed publication.
+
+Reviewed and ran the eight adapter controls: before/at/after expiry, absent and
+unverified checks, known replacement, unchanged ordinary-source currentness,
+frozen earlier output, evidence and root identity all pass. No original expected
+value was changed. Evidence: seat `.temp/r7-astra-26/owned-cases-astra22-05.json`,
+`s23-astra22-01.json` and `astra22-adapter-controls-04.log`, with exact package,
+implementation and input identities. R7-032 fix evidence has been supplied for
+independent judge closure; the package counterpart R7-033 has already received
+the judge's fixed-at-f10c7ba verification.
