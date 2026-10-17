@@ -1,7 +1,7 @@
 # astra-22 source evaluator verdict
 
-Status: **active in the bounded D-009 / R7-055 round**, awaiting judge closure
-and the new convener PARK. D-009 is implemented by the existing issuer-local
+Status: **closure verified; quiet round and new convener PARK pending**.
+Own R7 row score: **2/2**, matching signed judge `75c13d2`. D-009 is implemented by the existing issuer-local
 source runtime `946cbd8`; no product code change was required this round.
 The prior 06:33Z PARK is historical and does not close this reopened round.
 
@@ -43,7 +43,10 @@ mutation plant bound the migration. The
 [audit](../impl-astra-22/runs/r7-059-profile-migration-audit.json)
 preserves this evidence. Original cases and all first reports remain unchanged.
 Only boundary_checks.py differs from `abc8511`; all22othermodules are identical.
-R7-059 closure remains pending, alongside dual R7-055 verification.
+Judge `75c13d2` independently closes R7-059 at `c7e86d5` and resolves
+R7-055 by D-009 with both readers at66/66. The ledger has59items:48fixed,
+10rejected and one resolved ambiguity; no open finding or owner question.
+Closure event: `$b8foGPG6rv8TSQqyaHjhJUZkyLIBXmTKrWxuZv4cPSs`.
 
 Source baseline `4d4ef45` was frozen from kernel, companion and design before
 initial PACKAGE LANDED. D-009 controls were frozen from kernel v0.3 and

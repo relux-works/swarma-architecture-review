@@ -6,7 +6,8 @@ pass, eight deployment unsupported, and all 134 controls freshly pass. Current
 retained. The 68/68 supplemental regression remains separately pinned to frozen
 0.2.5 grammar. Runtime remains `946cbd8`; R7-059 changes only the owned boundary
 control's audited expected-profile copies. Earlier numbered evidence below is
-historical. Judge closure and the new PARK are still pending.
+historical. Judge `75c13d2` closes R7-055/R7-059 with score2/2; the quiet
+round and new convener PARK remain pending.
 
 This independent Python standard-library model was written without reading
 `memory/spec/`. Its only semantic sources were kernel v0.2, the support-semantics
