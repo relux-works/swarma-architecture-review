@@ -1,5 +1,11 @@
 # astra-23 — final package implementer verdict
 
+**Reopened 0.2.6 first run: score 1/2 pending correction and judge closure.**
+At package `77b951e`, unchanged runtime `104fbe8` passes 64 semantic vectors
+and fails S34/S39; zero semantic unsupported, eight deployment unsupported.
+[Immutable full first report](../impl-astra-23/RELEASE-0.2.6-FIRST.md) records
+all differences before correction. The original 0.2.5 conclusion follows.
+
 > Reopened on 2026-10-17 for D-009 / R7-055. The PARK and scores below
 > record the completed 0.2.5 round. Package 0.2.6 intake, conformance and new
 > PARK are pending; D-009 has resolved the owner choice. See the current worklog.

@@ -1102,3 +1102,27 @@ will prove semantic differences and forbidden effects are detected.
   force pushes, background workers or delegated agents. Only seat-owned paths
   and its scratch logs are writable. Prior 0.2.5 evidence remains valid historical
   evidence, not a completed 0.2.6 claim.
+
+
+### Round 38 — immutable 0.2.6 first run
+
+- Editor releases0.2.6 at77b951eb86d5ba9198921d058930884918a39942. Read its
+  RELEASES.md and amended K-REV-3 as the complete implementation contract.
+  Package validation passes103 JSON/14 schemas/74 vectors/52 clauses and38
+  intended checker plants. Logs: package-026-validation-01.log.
+- Unchanged104fbe8 executes every canonical vector:64pass/2fail/0unsupported
+  semantic;8deployment unsupported. RELEASE-0.2.6-FIRST.md/json preserves full
+  actuals, exact field differences, forbidden checks and hashes before any edit.
+  All seven Python module hashes were checked against104fbe8 and match exactly.
+- S34 incorrectly contracts the foreign-middle path: current d3 with d1 historical
+  instead of ambiguous d1/d3. S39 wrongly accepts the first replacement, changes
+  dirty/cut/idempotency state, and consequently fails the refusal/import/replay
+  trace. These are the only failures;57 previous semantics and7new controls pass.
+- First-run log: release-026-first-01.log, expected exit1. No exception or schema
+  setup error occurs. Send both disagreements to the judge after signed publication
+  and before correction; retain original issuer-native firstd4ddc45 unchanged.
+- Historical supplemental regression will use unchanged author-owned cases with
+  frozen0.2.5/6a04e8c grammar, as requested by judge eventsT3geWSIe andvYHd-EHH.
+  The exact106-file package snapshot and manifest are under
+  .temp/impl-astra-23/package-0.2.5/. Any optional current-profile native fixture
+  migration must follow the explicit new RELEASES.md rule and preserve originals.
