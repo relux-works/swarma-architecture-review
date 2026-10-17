@@ -1,13 +1,13 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 15; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 16; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.2-draft` released at `7e71765`.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
 companion and design, and the released package. This seat authored eight synthetic
-semantic cases with nine exact package-format vectors, including a paired control. It did not modify
+semantic cases with eleven exact package-format vectors, including focused controls. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
 
@@ -22,7 +22,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 fixed `4e647ea`, judge-closed `56e5909` |
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
-| ASTRA24-08 | An ambiguous authority slot has no valid exact-candidate CAS head | Both evaluators wrongly commit; unique-head control passes; judge pending |
+| ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Ambiguous and historical-head writes wrongly commit in both; current-head and challenge controls pass; judge pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -232,13 +232,28 @@ metadata. Normalized input/expectation equality and hashes are persisted in
 `.temp/astra24-profile-022-migration.json`; no erase receipt migration applies
 to this corpus. Prior seven behavioral expectations remain unchanged and pass.
 
+## Round 16 authority-head neighbors
+
+The new ASTRA24-08-STALE fixture shows the same target-chain shortcut accepting
+a historical candidate in a totally ordered authority slot. The accompanying
+challenge fixture preserves K-REV-1's explicit CAS exemption and passes both
+implementations. Original primary/control bytes and all seven prior cases are
+unchanged. These are failure-class controls for ASTRA24-08, not two new claims.
+
+At `b3aeed2`, the eleven owned fixtures give **9 pass / 2 fail / 0 unsupported**
+in each implementation. Source report20 and package report12 preserve exact
+failures; structural/control log18 passes all eleven. New-cut challenge output
+remains ambiguous with neither signed witness and no dirty marker. Unique-head
+withdrawal remains admitted; ambiguous and historical-head withdrawal must be
+refused atomically. Classification is pending.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Both evaluators fail the new ambiguous-head refusal;
-classification and correction are pending. The stronger dual-coverage gate and
-other Phase 2 repairs remain open. Do not carry the older package57/57 baseline
-forward as a current0.2.2 claim before its owner reruns the changed erasure vector.
-Deployment remains unsupported and unqualified.
+**Phase 2 R7: 1/2.** Both evaluators fail the authority-head refusal family;
+classification and correction remain pending. The stronger dual-coverage gate
+and other Phase 2 repairs also remain open. Incoming source dirty/review support
+is a separate next verification unit, not yet credited here. Deployment remains
+unsupported and unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.

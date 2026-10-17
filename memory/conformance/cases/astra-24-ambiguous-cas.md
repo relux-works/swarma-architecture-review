@@ -74,3 +74,34 @@ valid runs. The accepted control establishes that the repaired fixture reaches
 compare-and-set admission. The 0.2.2 migration changes only profile metadata;
 `.temp/astra24-profile-022-migration.json` proves normalized fixture equality.
 No protected deployment or general concurrency guarantee is claimed.
+
+## Round 16 failure-class neighbors
+
+Two additional fixtures preserve the original primary and positive-control bytes.
+`ASTRA24-08-STALE` uses the same ordered r1 < r2 < r3 state as the valid control,
+but requests withdrawal of historical d2 with expected_version=d2. K-REV-1
+requires the actual current head, d3; both implementations wrongly accept this
+write too. It has the same accepted-receipt and extra-record forbidden effects.
+This rules out a repair that merely rejects the count of incomparable heads
+while continuing to accept any target's local revision chain.
+
+`ASTRA24-08-CHALLENGE` keeps the original ambiguous state but changes the
+relation to challenge, supplies the already historical d1 as expected_version,
+and expects an admitted challenge receipt. K-REV-1 explicitly exempts challenge
+from CAS. Both evaluators pass: currentness stays ambiguous, neither signed
+witness appears, global dirtiness remains empty, and only the attributed
+challenge revision is added. Blanket refusal of all writes in an ambiguous slot
+would violate this control.
+
+At checkout `b3aeed2`, source20 and package12 reports independently show
+**9 pass / 2 fail / 0 unsupported** over the eleven owned fixtures. The two
+failures are the original ambiguity and the new historical-head neighbor,
+proposed as one head-selection failure family. No duplicate ledger item is
+requested. Structural/normalization/inventory/forbidden controls pass log18.
+
+- Stale fixture SHA-256: `6a5ad0906e0ea87d2e5ef817079af03cb972aff54f2ef4bfa23cb7874c2f93cd`.
+- Challenge fixture SHA-256: `b2aac30f0c3aba2dd8f4aa071b96cecafec0c5e5b0e4098a7237a7119e130548`.
+
+These tests cover exact authorized candidates and authority order, not hidden
+head disclosure or arbitrary authority graphs. Scoped authorization and receipt
+ordering must still precede any externally visible conclusion.
