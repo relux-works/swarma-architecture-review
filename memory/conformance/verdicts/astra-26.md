@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 32, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 33, 2026-10-17.
 
 ## Baseline and scope
 
@@ -867,3 +867,36 @@ Judge `13e3d73` closed R7-053 at `23b4d74`; `e2a797d` closed R7-056 at
 the supplemental semantic inventory to 63. R7-057 formal closure and the quiet
 round remain pending; R7-055 stays an owner question held for Ivan. Current
 score **1/2**, deployment unqualified, no PARK received.
+
+## Phase 2 round 33 — independent restore-boundary first run preserved
+
+Judge `e3d44df` closes R7-057 at `946cbd8`. The following new restore intake
+was separately classified as R7-058 package implementation bug in `cb71146`;
+the temporary 2/2 rubric at the previous closure does not waive it. Convener
+explicitly retained this intake before any quiet/PARK decision.
+
+Read K-ERASE-1/2/3 and ASTRA25-12. Independently validated all five exact
+`1cefcf9` fixtures for closed structure, references, normalization and forbidden
+predicates, then ran unchanged package runtime `23b4d74` without giving expected
+answers to the executor. Results preserve the author's separating failure class:
+
+| Fixture | Status | Exact field differences | Checker findings |
+| --- | --- | ---: | ---: |
+| New current obligation | Fail | 11 | 3 |
+| Unreachable affected custody | Fail | 25 | 2 |
+| Independent unaffected B neighbor | Fail | 13 | 3 |
+| Known local obligation | Pass | 0 | 0 |
+| Empty current obligations | Pass | 0 | 0 |
+
+All three failures return `reconciled`, leave A out of erased_refs, retain its
+payload/backup custody and expose A in the final view. The independent-content
+fixture exposes both A and B instead of B only; the unreachable fixture opens
+the global fence instead of the required atomic refusal. These are semantic
+product failures, not execution/setup errors or a new duplicate finding.
+
+Evidence: seat `.temp/r7-astra-26/restore-obligations-package-first-01.json`,
+its matching log, `restore-structure-01.log` and the task-local replay runner
+`run-restore-astra23-01.py`. Exact inputs, actuals, module hashes and all original
+expected outputs remain preserved for a same-input correction comparison. No
+fixture or authority rule changed. R7-058 remains open; R7-055 remains held for
+Ivan. Score **1/2**, deployment unqualified, no PARK received.
