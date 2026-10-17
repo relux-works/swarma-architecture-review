@@ -1,7 +1,8 @@
 # astra-21 package editor verdict
 
-Status: round 10, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
-published by this signed release commit for judge-classified R7-054.
+Status: round 11, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
+signed release `6a04e8c` for judge-classified R7-054. This round changes only
+this verdict after the requested exact-release successor verification.
 
 **All prior 13 editor-owned specification bugs are judge-closed; R7-054 is
 review-ready in this release. Phase 2 remains 1/2.** R7-049 was accepted at
@@ -13,8 +14,10 @@ Unchanged package runtime `942bdee` gives 56/1/0 on the uncommitted 0.2.5
 candidate: P11 is the sole intended failure. Separate prescribed positive traces
 match every field, including all old scope/revocation controls. This is a red
 baseline, not a passing new-release claim. The exact 0.2.4 successor correction
-has separate independent reviews; this editor has queued the requested frozen
-release verification after publication. Judge [score](../R7-SCORE.md) and
+is now also independently verified by this editor: 57/57 canonical, exact report
+reproduction and three focused native control groups. Judge `de37630` had already
+closed R7-048 at `942bdee` and R7-051 at `427fed5`; this audit confirms the former
+without reopening either or claiming deadline correctness. Judge [score](../R7-SCORE.md) and
 [ledger](../LEDGER.md) track current source coverage and closures. No full-profile
 or protected deployment claim follows.
 
@@ -226,6 +229,30 @@ Evidence under `.temp/astra-21/`: `retention-deadline-review.md`,
 `package-evaluator-025-red.md/json` with command/exit log, and
 `deadline-025-probes.py/json` with `deadline-025-probes-01.log`.
 Original adversary and implementation first evidence remains untouched.
+
+## Round 11: requested exact 0.2.4 successor audit
+
+Request `$xkX-x1EgA_4FENUIRYcrem-E_VUb_CGSJZ2_mAS5Hrg` arrived while the editor
+was completing 0.2.5. After publication, materialized exact package
+`ef0264702d3ff937bd34410ea80660b196b6f1b0` under own scratch and ran unchanged
+runtime `942bdee`: **57/57 semantic**, eight deployment unsupported. All65 rows,
+input hashes, complete implementation hashes and full actuals reproduce committed
+RESULTS.json after only the vector-declared fresh-handle normalization.
+
+Reviewed the shared strict canonical predecessor traversal and replace/correct
+gate. Three focused native methods pass eight relation/receipt-class atomic
+negative combinations, same-key valid recovery, direct/transitive successes,
+original receipt replay after the next head, separate stale CAS, ordinary
+incomparable import and prior slot-head controls. Full state, dirty metadata,
+captures and bindings are asserted unchanged on the exercised refusals.
+
+Evidence: `.temp/astra-21/package-024-verified/` exact package and copied unmodified
+CAS inputs; `package-evaluator-024-verified.md/json` with command/exit log;
+`succession-024-controls-01.log`, `succession-024-fixture-hashes.json` and
+`succession-024-reproduction-01.log`. Judge closure `de37630` and independent
+seats24/26 reviews already satisfy the collective closure; this requested audit
+adds no new finding, oracle edit or deployment claim. Deadline052/053/054 and
+remaining source unsupported semantics stay separate.
 
 ## Previous 0.2.1 validation and execution evidence
 
