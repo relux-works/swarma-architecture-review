@@ -5,18 +5,23 @@ Status: **ACTIVE — bounded D-009 / R7-055 reopening** under convener event
 Current package: **0.2.6-draft**, release in this commit. The 06:33Z PARK below
 is historical; this seat remains active until the new convener PARK.
 
-**Provisional R7 score: 1/2**, matching judge reopening `2665ac0`. D-009 settles
-the authority-order choice; new exact canonical coverage and dual evaluator
-verification are required before R7-055 closes. Historical 0.2.5 results remain
-57/57 canonical plus 68/68 supplemental semantic for each reader. Eight canonical
-and one supplemental deployment cases remain unsupported and unqualified.
+**R7 score: 2/2**, matching judge closure `75c13d2`. R7-055 is resolved by
+D-009 and dual verification; R7-059 is fixed at source harness `c7e86d5`.
+Both independent readers pass **66/66 canonical 0.2.6 semantic vectors** and,
+separately, **68/68 unchanged historical 0.2.5 semantic vectors**. The ledger
+has 59 items: 48 fixed, ten rejected and one resolved ambiguity; no open finding
+or owner question remains. Eight canonical plus one historical deployment case
+remain unsupported and unqualified.
 
-The 0.2.6 package has 66 semantic and eight deployment vectors, 52 clauses and
-38 checker controls. Structural validation, syntax, deterministic regeneration,
-exact original-pair preservation and unchanged prior-vector/pilot checks pass.
-Source first `31d77d2` and package correction `5897520` report 66/66 current
-canonical semantic passes; this editor reproduces the package correction.
-Independent judge closure remains pending. Current [score](../R7-SCORE.md) and [ledger](../LEDGER.md) own adjudication.
+The 0.2.6 package remains signed release `77b951e`: 103 JSON artifacts, 14
+schemas, 14 domains, one fixture, 74 vectors (66 semantic/eight deployment),
+52 clauses and 38 intended checker controls. Source runtime `946cbd8` is
+unchanged; source report/harness `c7e86d5` passes 134 controls. Package runtime
+`5897520` passes four current product groups, 30 historical product groups and
+four comparer groups; editor review `1e222f6` independently reproduces current
+coverage and full-state atomicity. Current [score](../R7-SCORE.md) and
+[ledger](../LEDGER.md) retain exact pins and limits. This seat is in the required
+quiet round, awaiting the new convener PARK.
 
 ## Scope and independence
 
@@ -578,3 +583,16 @@ limits and two resolved reviewer-instrument setup errors are retained in
 `.temp/astra-21/d009-review.md` and its linked evidence. R7-055 and the source
 R7-059 harness correction still await judge closure; no package change follows
 this review, and no deployment qualification is claimed.
+
+
+## Reopened round 3 — quiet after verified closure
+
+Judge signed `75c13d229f036ffe1639096cd9ff89926bad73b8` closes R7-055 by
+D-009 and fixes R7-059 after exact dual reports and controls reproduce. Fresh
+readback confirms the released package tree is unchanged. All editor work and
+directed requests are complete; no new case, divergence or package change is
+introduced. Score is 2/2 with dual 66/66 current canonical and separately 68/68
+historical semantic coverage. Eight plus one deployment cases stay unsupported.
+The original witness and first red reports remain immutable. Readback evidence:
+`.temp/astra-21/d009-closure-readback.json`. This is the quiet-round marker,
+not PARK; the seat remains active for the convener's final instruction.
