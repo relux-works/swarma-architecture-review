@@ -152,6 +152,85 @@ class Semantics(unittest.TestCase):
                 self.assertEqual(result["cutoffs"], cutoffs)
                 self.assertEqual(e.state, before)
 
+    # R7-033: an admitted checked import expires at the exclusive horizon without changing
+    # evidence or old captures; absent checks/replacement facts and ordinary documents stay distinct.
+    def test_import_currentness_horizon(self):
+        v = strict_loads((SPEC.parent / "conformance/cases/astra-26-checked-import-expiry.vector.json").read_text())
+        e = engine(v)
+        saved = e.operation(v["operations"][0], 0)
+        frozen, before = copy.deepcopy(saved), copy.deepcopy(e.state)
+        for now, expected, freshness in (("2026-10-17T00:00:00Z", "current", "fresh"),
+                                         ("2026-10-17T00:00:01Z", "last_received", "stale"),
+                                         ("2026-10-17T00:00:02Z", "last_received", "stale")):
+            with self.subTest(now=now):
+                q = copy.deepcopy(v["query"])
+                q["now"] = now
+                result = e.read(q)
+                self.assertEqual(result["currentness"], expected)
+                item = result["items"][0]
+                self.assertEqual(item["currentness"], expected)
+                self.assertEqual(item["support"]["freshness"], freshness)
+                self.assertEqual(result["historical"], [])
+                self.assertEqual(item["source_refs"], frozen["items"][0]["source_refs"])
+                for sign in ("support", "oppose"):
+                    for field in ("witness", "evaluation", "premise_quality", "evidence_qualification",
+                                  "witness_roots", "independent_root_count"):
+                        self.assertEqual(item[sign][field], frozen["items"][0][sign][field])
+                self.assertEqual(e.captures[0][1], frozen)
+                self.assertEqual(e.state, before)
+        missing = copy.deepcopy(v)
+        missing["initial_state"]["policy"]["imports"] = []
+        self.assertEqual(engine(missing).read(v["operations"][0]["query"])["currentness"], "last_received")
+        replaced = copy.deepcopy(v)
+        replaced["initial_state"]["policy"]["imports"][0].update(
+            status="replaced", successor={"id": "rec:copy2", "version": 1})
+        historical = engine(replaced).read(replaced["query"])
+        self.assertEqual(historical["items"], [])
+        self.assertEqual(historical["historical"], [{"id": "rec:interest", "version": 1}])
+        document = copy.deepcopy(v)
+        for record in document["initial_state"]["records"]:
+            if record["envelope"]["kind"] == "source":
+                record["body"]["source_kind"] = "document"
+        ordinary = engine(document).read(document["query"])
+        self.assertEqual(ordinary["currentness"], "current")
+        self.assertEqual(ordinary["items"][0]["support"]["freshness"], "stale")
+
+    # R7-034: an unrelated excluded record cannot veto selected delivery; selected read/use/
+    # forward revocation, an erasure fence and expiry still refuse without changing stored state.
+    def test_delivery_uses_selected_binding(self):
+        base = SPEC.parent / "conformance/cases"
+        v = strict_loads((base / "astra-26-excluded-forward-right.vector.json").read_text())
+        for name in ("astra-26-excluded-forward-right", "astra-26-excluded-forward-right-control"):
+            case = strict_loads((base / (name + ".vector.json")).read_text())
+            self.assertEqual(compare(engine(case).execute(case["operations"], case["query"]), case,
+                                     Grammar(SPEC / "kernel/schemas")), ([], []))
+        for right in ("read", "use", "forward"):
+            with self.subTest(missing_selected_right=right):
+                e = engine(v)
+                e.operation(v["operations"][0], 0)
+                for grant in e.state["policy"]["grants"]:
+                    if (grant["audience"] == "aud:public" and grant["purpose"] == "purpose:publish"
+                            and "rec:interest" in grant["records"]):
+                        grant["rights"] = [r for r in grant["rights"] if r != right]
+                before = copy.deepcopy(e.state)
+                self.assertEqual(e.operation(v["operations"][1], 1)["code"], "disclosure_revoked")
+                self.assertEqual(e.state, before)
+        e = engine(v)
+        e.operation(v["operations"][0], 0)
+        for field in ("fences", "erased"):
+            e.state["runtime"][field].append({"id": "rec:interest", "version": 1})
+        before = copy.deepcopy(e.state)
+        self.assertEqual(e.operation(v["operations"][1], 1)["code"], "disclosure_revoked")
+        self.assertEqual(e.state, before)
+        e = engine(v)
+        capture, delivery = copy.deepcopy(v["operations"][:2])
+        capture["query"]["usable_until"] = "2026-10-17T00:00:01Z"
+        delivery["at"] = "2026-10-17T00:00:01Z"
+        e.operation(capture, 0)
+        before = copy.deepcopy(e.state)
+        self.assertEqual(e.operation(delivery, 1)["code"], "publication_stale")
+        self.assertEqual(e.state, before)
+
     # R7-020: authorized coverage uses the closed ref field; no declaration remains unknown.
     # A planted declaration spelling must fail both the exact comparison and closed view grammar.
     def test_coverage_mapping(self):

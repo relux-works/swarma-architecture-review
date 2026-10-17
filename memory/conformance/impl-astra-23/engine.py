@@ -132,9 +132,10 @@ class Engine:
                 raise Refused("publication_stale")
             if [i["content"] for i in current["items"]] != [i["content"] for i in view["items"]]:
                 raise Refused("publication_stale")
-            for r in ev.records.values():
-                e = r["envelope"]
-                if e["kind"] == "assertion" and ev.visible(r) and e["schema"] == q["scope"]["schema"] and not ev.grant(r, "forward"):
+            ev = Evaluation(self, q)
+            for selected_ref in selected:
+                record = ev.records.get(selected_ref)
+                if record is None or not ev.grant(record, "forward"):
                     raise Refused("disclosure_revoked")
             return receipt(kind, "delivered")
         if kind == "erase":

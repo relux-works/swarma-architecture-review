@@ -346,7 +346,8 @@ class Evaluation:
             imports = [i for i in self.p["imports"] if key(i["source"]) in sources]
             if any(i["status"] == "replaced" for i in imports):
                 statuses[key(r)] = "historical"
-            elif not imports or any(i["status"] != "current" or i["checked_at"] is None for i in imports):
+            elif (self.freshness(r)[0] == "stale" or not imports
+                  or any(i["status"] != "current" or i["checked_at"] is None for i in imports)):
                 statuses[key(r)] = "last_received"
         return statuses
 

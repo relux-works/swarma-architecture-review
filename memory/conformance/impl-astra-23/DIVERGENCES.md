@@ -120,3 +120,33 @@ PHASE2-IMPORT-DELIVERY-FIRST.md/JSON, before any correction or classification.
 Current full supplemental result: 25 pass / 3 fail / 0 unsupported semantic,
 including the already classified R7-031 erasure receipt defect; one deployment
 case unsupported. Canonical baseline remains 57/57. No expectation was edited.
+
+### R7-033/034 correction and neighboring controls
+
+Judge classified import expiry R7-033 and selected delivery R7-034 as package
+implementation bugs. The first red report remains f83268d. Focused tests first
+reproduced both failures, then pass after the narrow corrections: stale imported
+publication horizons downgrade to last_received; forward checks use the exact
+prepared selected refs in the current evaluation context.
+
+Before/at/after expiry, absent checks, known replacement, nonpublication
+currentness, unchanged evidence/origin and immutable capture controls pass.
+Selected read/use/forward removal, fencing, stale publication, owner-release
+revocation and later selected forward revocation retain their refusals. The
+unrelated excluded record no longer vetoes valid delivery. Sixteen checker/product
+tests pass; canonical remains 57/57. Independent closure of this new head pending.
+
+## Phase 2 ASTRA25-08 — retention right absent while derivative admission succeeds
+
+Queued intake from case 2de226c reproduced after the unrelated R7-033/034 fixes;
+admission code is unchanged. The primary returns admitted and stores
+rec:paraphrase/1 instead of not_authorized with the original inventory. Twelve
+exact field differences and both forbidden predicates reproduce. Restoring only
+retain rights yields the expected admitted positive control. The historical query
+passes, so this is not a future-cut error masquerading as rejection.
+
+First report PHASE2-RETENTION-FIRST.md/JSON pins these inputs and runtime hashes.
+K-AUTH-1/K-DISC-1 retain-authority boundary awaits judge classification; no silent
+admission correction or expected-value change. Current supplemental corpus:
+28 pass / 2 fail / 0 unsupported semantic (R7-031 plus ASTRA25-08), one deployment
+unsupported. Topic: `div-astra25-retention-authority`.

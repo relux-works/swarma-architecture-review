@@ -303,3 +303,32 @@ will prove semantic differences and forbidden effects are detected.
   Exact diffs, forbidden failures, code hashes and input hashes are committed.
 - Await judge classification for the two observed implementation boundaries;
   preserve first evidence and existing negative authorization guarantees.
+
+## Round 15 — R7-033/034 implementation correction
+
+- Judge classified ASTRA26-07 as package impl-bug R7-033 (source separately
+  R7-032) and ASTRA26-08 as package impl-bug R7-034. Red first report f83268d
+  is immutable; implement only these two classified boundaries now.
+- Add focused red controls before changing runtime: exact horizon neighbors,
+  missing check/known replacement, unchanged nonpublication sequence and
+  evidence/captured history; selected forward/read/use/erasure/freshness and
+  revocation gates beside unrelated-excluded positive controls.
+- ASTRA25-08 retention intake is queued next; R7-031 remains release-dependent.
+
+### Round 15 outcome
+
+- Red controls reproduce expiry at/after horizon and excluded-record delivery
+  refusal; `.temp/impl-astra-23/import-delivery-red-01.log` records all three
+  intended assertions. Narrow runtime fixes make twelve product controls pass;
+  four checker controls also pass (16 total).
+- Fresh canonical report 57/57; full current supplemental 28/2/0 semantic,
+  deployment 8+1 unsupported. R7-033/034 and their positive/negative neighbors
+  pass; R7-031 remains release-dependent.
+- Queued ASTRA25-08 intake now reproduces unauthorized retention with unchanged
+  admission code: exact twelve field differences plus two forbidden predicates;
+  retain-authorized control passes. Freeze PHASE2-RETENTION-FIRST before any
+  correction, with separate input/runtime hashes. Classification requested next.
+- Logs: import-delivery-green-01.log, controls-08.log, canonical-round15-01.log,
+  phase2-retention-first-01.log under `.temp/impl-astra-23/`.
+- Source seat reports S07 support at 4960d24 (44/57); this is separate from the
+  previously judge-verified 43/57 dual baseline and does not complete Phase 2.

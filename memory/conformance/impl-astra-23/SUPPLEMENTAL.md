@@ -9,7 +9,7 @@ distinctness are checked first. No runtime distribution or timing claim is made.
 
 | Profile | Pass | Fail | Unsupported | Total |
 | --- | ---: | ---: | ---: | ---: |
-| semantic | 25 | 3 | 0 | 28 |
+| semantic | 28 | 2 | 0 | 30 |
 | deployment | 0 | 0 | 1 | 1 |
 
 Deployment unsupported means no qualification claim; modeled semantic erasure
@@ -33,13 +33,15 @@ and publication transitions do not exercise live authentication, storage or deli
 | ASTRA25-05 | semantic | pass |
 | ASTRA25-01 | semantic | pass |
 | ASTRA25-06 | semantic | pass |
+| ASTRA25-08-CONTROL | semantic | pass |
+| ASTRA25-08 | semantic | fail |
 | ASTRA25-04 | deployment | unsupported |
 | ASTRA25-03-CONTROL | semantic | pass |
 | ASTRA25-03-FENCE | semantic | pass |
 | ASTRA25-03 | semantic | pass |
-| ASTRA26-07 | semantic | fail |
+| ASTRA26-07 | semantic | pass |
 | ASTRA26-08-CONTROL | semantic | pass |
-| ASTRA26-08 | semantic | fail |
+| ASTRA26-08 | semantic | pass |
 | ASTRA26-06 | semantic | pass |
 | ASTRA26-01 | semantic | pass |
 | ASTRA26-04 | semantic | pass |
@@ -55,31 +57,26 @@ and publication transitions do not exercise live authentication, storage or deli
 - `/operation_results/0/refs/1`: actual `{"id":"rec:summary","version":1}`; expected `"<missing>"`.
 - forbidden predicate matched: {"path":"/operation_results/0/refs/1/id","test":"equals","value":"rec:summary"}
 
+### ASTRA25-08
+
+- `/operation_results/0/code`: actual `"<missing>"`; expected `"not_authorized"`.
+- `/operation_results/0/custody`: actual `[]`; expected `"<missing>"`.
+- `/operation_results/0/erasure_status`: actual `null`; expected `"<missing>"`.
+- `/operation_results/0/operation`: actual `"admit"`; expected `"<missing>"`.
+- `/operation_results/0/outcome`: actual `"admitted"`; expected `"<missing>"`.
+- `/operation_results/0/receipt_handle`: actual `"b0bca81d663ef710fd097d619e8341a2"`; expected `"<missing>"`.
+- `/operation_results/0/refs`: actual `[{"id":"rec:paraphrase","version":1}]`; expected `"<missing>"`.
+- `/operation_results/0/retryable`: actual `"<missing>"`; expected `false`.
+- `/operation_results/0/type`: actual `"receipt"`; expected `"refusal"`.
+- `/postconditions/record_refs/length`: actual `2`; expected `1`.
+- `/postconditions/record_refs/0/id`: actual `"rec:paraphrase"`; expected `"rec:private"`.
+- `/postconditions/record_refs/1`: actual `{"id":"rec:private","version":1}`; expected `"<missing>"`.
+- forbidden predicate matched: {"path":"/operation_results/0/type","test":"equals","value":"receipt"}
+- forbidden predicate matched: {"path":"/postconditions/record_refs/0/id","test":"equals","value":"rec:paraphrase"}
+
 ### ASTRA25-04
 
 Requires a real protected deployment; this evaluator implements synthetic state transitions only.
-
-### ASTRA26-07
-
-- `/result/currentness`: actual `"current"`; expected `"last_received"`.
-- `/result/items/0/currentness`: actual `"current"`; expected `"last_received"`.
-- forbidden predicate matched: {"path":"/result/currentness","test":"equals","value":"current"}
-- forbidden predicate matched: {"path":"/result/items/0/currentness","test":"equals","value":"current"}
-
-### ASTRA26-08
-
-- `/operation_results/1/code`: actual `"disclosure_revoked"`; expected `"<missing>"`.
-- `/operation_results/1/custody`: actual `"<missing>"`; expected `[]`.
-- `/operation_results/1/erasure_status`: actual `"<missing>"`; expected `null`.
-- `/operation_results/1/operation`: actual `"<missing>"`; expected `"deliver"`.
-- `/operation_results/1/outcome`: actual `"<missing>"`; expected `"delivered"`.
-- `/operation_results/1/receipt_handle`: actual `"<missing>"`; expected `"<fresh-handle>"`.
-- `/operation_results/1/refs`: actual `"<missing>"`; expected `[]`.
-- `/operation_results/1/retryable`: actual `false`; expected `"<missing>"`.
-- `/operation_results/1/type`: actual `"refusal"`; expected `"receipt"`.
-- handle slot missing: /operation_results/1/receipt_handle
-- distinct_handles violated: ['/operation_results/0/authorized_snapshot_handle', '/operation_results/1/receipt_handle', '/operation_results/2/receipt_handle', '/result/authorized_snapshot_handle']
-- forbidden predicate matched: {"path":"/operation_results/1/type","test":"equals","value":"refusal"}
 
 ## Reproducibility
 
@@ -87,10 +84,10 @@ Implementation SHA-256:
 
 - `common.py`: `22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033`
 - `disclosure.py`: `b0f057b04b8e1776c9cefea638607c4cea88df2b4477e78d7d8144104a6bd079`
-- `engine.py`: `5ec5dda196812c46529714ff94be83a83a30a54e2e771c5864bc1b589f21e4ea`
-- `evaluator.py`: `8bc6ae4535b4b3b59f612488d80638496b72b55b90ce7e2e74009a6d8fe95e24`
+- `engine.py`: `073f1f66f6440b370535d10182fe1ebf7a247319a872e4983762f34702674a5c`
+- `evaluator.py`: `ff349c1fd1ae0feb398776069c4e43dbe348678268a3e2e0745e2eb62d8023ce`
 - `run_vectors.py`: `20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a`
 - `test_controls.py`: `6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083`
-- `test_semantics.py`: `2343a6ca9a034a051844b29cde7047b3c8ca7baf36dc67ac8e488ab167f03fc3`
+- `test_semantics.py`: `d02f2da07331dc46389816acb747b3bb8f08069d57948a0ea5caa7f9cbfa4154`
 
 Full actual reports, exact differences and vector digests are in the adjacent JSON report.

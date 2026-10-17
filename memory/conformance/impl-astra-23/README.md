@@ -75,6 +75,11 @@ publication currentness only to authorized publication-source associations.
 Explicit-target history is restricted to the selected sequence identities.
 RELEASE-0.2.1-FIRST preserves the pre-fix R7-024 report; FIRST-RUN preserves the
 original package-only independence baseline. Current canonical results are 57/57
-semantic with eight deployment cases unsupported; fourteen controls pass. The
+semantic with eight deployment cases unsupported; sixteen controls pass. The
 source-state precedence control covers resolved, policy-denied, lost and empty
 source lists without upgrading evidence, including real current-source exhaustion.
+
+Phase 2 corrections additionally enforce the import freshness horizon and bind
+current delivery forward checks to exact prepared selected items. Independent
+pre-fix reports remain PHASE2-IMPORT-DELIVERY-FIRST; receipt-metadata and
+retention-authority counterexamples remain in separately named first reports.
