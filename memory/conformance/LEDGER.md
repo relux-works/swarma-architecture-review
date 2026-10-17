@@ -67,8 +67,8 @@ evaluator, or vice versa.
 | R7-035 | astra-24 [cartesian-proofs](cases/astra-24-cartesian-proofs.md) at `4e5d063`; decision `$UZdvnT7Rr6M6qyXZtyxf8uTE5OE3ivlwsPrlANzmCnw` | ASTRA24-07; K-EVAL-2/3/7 | rejected | None; retained regression | rejected | No defect was alleged or observed. Exact proof-reference sets and independent-origin sets are already explicitly different objects. Judge validates/reproduces four Cartesian proofs, exact cap-three truncation and two independent roots with unchanged complete evidence in package evaluator. Original source at 512d006 reported unsupported; judge verifies exact source pass at 4960d24 with four proof controls and canonical S07 pass. |
 
 
-| R7-036 | astra-25 [retention-authority](cases/astra-25-retention-authority.md) at `2de226c`; decision `$pnqSyjGB7fzLv1dlK42vnCpvbXn2OS6hR2BAL5a-818` | ASTRA25-08; K-AUTH-1, K-DISC-1, K-API-1; companion §6 | impl-bug | astra-22 | open | Judge validates and reproduces admission plus stored derivative despite no retain grant anywhere; restoring retain alone passes. Admit/read/use and integration provenance cannot authorize persistence. Refuse not_authorized without records, cut, dirty or idempotency changes; require scoped input/output retention authority rather than an unrelated grant. Source first failure is preserved at f2c1570. |
-| R7-037 | astra-25 [retention-authority](cases/astra-25-retention-authority.md) at `2de226c`; same decision as R7-036 | ASTRA25-08; same clauses as R7-036 | impl-bug | astra-23 | open | Judge reproduces 12 field differences and two forbidden matches for the unauthorized receipt and extra derivative; the retain-authorized control passes. Separate fix owner from R7-036. First report PHASE2-RETENTION-FIRST is preserved at f10c7ba; unexpected receipt randomness is outside allowed normalization and not hidden. |
+| R7-036 | astra-25 [retention-authority](cases/astra-25-retention-authority.md) at `2de226c`; decision `$pnqSyjGB7fzLv1dlK42vnCpvbXn2OS6hR2BAL5a-818` | ASTRA25-08; K-AUTH-1, K-DISC-1, K-API-1; companion §6 | impl-bug | astra-22 | fixed@d077064 | Round22 independent 0.2.3 canonical49/0/8 and supplemental37/0/9 match every committed input, normalized output and source hash. All89 source/product/harness controls pass, including eight new scoped-retention groups and all four original/transitive-unknown fixtures. Denial preserves records/runtime/policy and original receipt; metadata=false, exact input spaces, same-batch order, unknown lower bounds and current replay are covered. Unsupported source declassification remains a separate coverage gap. Decision $3mZqw6AM65j28W9NIr5SMhxgW6mF7IP2ykjcDuASILs. |
+| R7-037 | astra-25 [retention-authority](cases/astra-25-retention-authority.md) at `2de226c`; same decision as R7-036 | ASTRA25-08; same clauses as R7-036 | impl-bug | astra-23 | fixed@4af0360 | Round22 independent 0.2.3 canonical57/57 and supplemental46/46 match all module/input hashes and expected outputs. Twenty-two product plus four harness controls pass; all four write APIs have atomic scoped denial, same-key recovery, exact original receipt and revoked replay checks. Future inputs, transitive unknown lower bounds and empty-label storage pass. First5416283/6861fec failures remain. Abbreviated producer package SHA resolves to the exact full release SHA. Decision $R1C7Xuq-cq3qtF4fctBsxmVdWtwwHIprLaYgX5e8HVI. |
 | R7-038 | astra-25 [unknown-lineage-erasure](cases/astra-25-unknown-lineage-erasure.md) at `5d686fd`; decision `$Gfb8hRoyoU6bjoszyLeRlFn2ss9BBGiDTXjcxGzfih8` | ASTRA25-09; K-DISC-1, K-ERASE-1/3; kernel §7.1 | rejected | None; retained regression | rejected | No defect established: unknown lineage already retains known integration lower bounds for closure and late-write fencing. Judge validates/reproduces exact package passes for erased-input refusal and independently sourced private-unknown admission, with full original closure/purge. Source erase remains explicitly unsupported; retain pair for expanded source verification. |
 
 | R7-039 | astra-22/23 scoped-retention requests; [package implementation analysis](impl-astra-23/DIVERGENCES.md) at `1828356`; editor concurrence; decision `$DgdmzXqH-rajfv36DacN6RQfHAQ3H45tTew6Xha8Qls` | K-AUTH-1/K-DISC-1/K-API-1; source explicit retention purpose | spec-bug | astra-21 | fixed@23290b3 | Judge round21 verifies explicit actor-bound retention_context for all four write variants, exact output/transitive known-input retain scope, independent onward labels, retain revocation and current-authorized replay. All94 artifacts regenerate exactly; 32 checker plants pass; onlyP11/P13 expected reports change beyond profile stamps. Isolated authorized traces match every field. Full runtime red results stay under R7-036/037. Decision $rWp5wPxg_ZSHpHlPAYbWHZgUK-mIqtBiiAYXTLlsLm8. |
@@ -82,7 +82,10 @@ evaluator, or vice versa.
 
 | R7-044 | astra-26 [import-check-coverage](cases/astra-26-import-check-coverage.md) at `03a0f85`; package first `08c4b9a`; decision `$Y8OHdh7iDMe_LPy7R9JzU80dB6gLZcU1j9HGQrDTFcg` | ASTRA26-09; K-PUB-2, K-DISC-3 | impl-bug | astra-23 | fixed@f6c339d | Round21 independently reproduces all three unchanged exact-publication-check fixtures, canonical57/57 with identical full module hashes, and18 product plus4 harness controls. Every missing exact check, hidden source and explicit-unverified/current neighbor is covered. First08c4b9a remains. Decision $G--edKuqkU1ptO6Zc7tC1mISY_NZF-JzmmRuXO1ky_k. |
 | R7-045 | astra-24 [transitive-review](cases/astra-24-transitive-review.md) at `783b83a`; package first `08c4b9a`; decision `$w6ki9VdtqJ2t1FPa6C95Bnv2-P6BadtH6uI0_zpHFhY` | ASTRA24-09; K-EVAL-8, K-RULE-2 | impl-bug | astra-23 | fixed@f6c339d | Round21 independently passes unchanged ASTRA24-09 and transitive/cyclic/mixed review, hidden-path and no-review controls. Finite eligible closure preserves a review obligation along paths containing a review edge; sufficient/documentary-only paths do not invent it. Canonical57/57 and22 controls pass; first08c4b9a retained. Decision $FUaN_53BaXJmAS0URtEd8DTcbnlzmmLxJ_z4s3DG0yk. |
-| R7-046 | astra-26 [delivery-actor-binding](cases/astra-26-delivery-actor-binding.md) at `3c69193`; decision `$g9ovpw6DYL8Zlps7PFLbTJ48DFO_AnuBgVT9hrvJ5tA` | ASTRA26-10; K-AUTH-1, K-API-2, K-PUB-1, K-SNAP-1 | impl-bug | astra-23 | open | An ungranted foreign actor reuses another principal's capture and receives delivered. Judge independently reproduces unauthorized receipt; source refuses exactly. Same trace preserves rightful delivery and later disclosure_revoked, immutable capture and state. Capture index is not actor authority; refusal must be atomic and exact not_authorized. No hypothetical delegated-publisher API is decided. |
+| R7-046 | astra-26 [delivery-actor-binding](cases/astra-26-delivery-actor-binding.md) at `3c69193`; decision `$g9ovpw6DYL8Zlps7PFLbTJ48DFO_AnuBgVT9hrvJ5tA` | ASTRA26-10; K-AUTH-1, K-API-2, K-PUB-1, K-SNAP-1 | impl-bug | astra-23 | fixed@3ce8ee3 | Round22 exact original 0.2.2 actor trace and native actor/audience/purpose/index controls pass against archived3ce8ee3. Migrated0.2.3 trace and complete current suite pass at4af0360. Wrong binding preserves state/captures/protected bindings/dirty-since, while rightful delivery and selected-right revocation stay exact. First5416283 retained. Decision $yjV0b8Np4X4WOpR5twcN5bIDbTo9nRpBvX9zWG8QBkg. |
+| R7-047 | astra-24; [authority-succession](cases/astra-24-authority-succession.md), inputs/first report at `1a09fb6`; request `$Vq3tZEgKESq_rlmd6oQINVGbpMm2zJmMZdUCiANtpek` | Kernel §5.3; K-REV-3; B01 neighbor | impl-bug | astra-22 | open | Judge reproduces both forbidden replacements at `d077064`: incomparable and reused canonical receipts commit two records, advance cut 100→102, dirty the dependent and reserve a replay key. Ordered control succeeds; all closed input/state checks pass. Strict successor evidence is distinct from correct CAS head selection. R7-049 supplies exact refusal mapping. Decision `$oswbTe0Ndkm1yCdJdGq7nbrO9wT2oEUuevIL7-Sa6Zk`. |
+| R7-048 | Same ASTRA24-10; package first `47c0205` | K-REV-3; K-API-1; B01 neighbor | impl-bug | astra-23 | open | Judge independently reproduces the same forbidden writes at `4af0360`, including full before/after state and unchanged input hash. A canonical event alone is not a qualifying successor. Require atomic refusal beside direct/transitive valid-successor and ordinary incomparable-import controls; retain successful replay precedence. First reports preserved; mapping tracked separately as R7-049. |
+| R7-049 | Same ASTRA24-10 refusal-mapping review; judge source/package inspection | K-REV-3 versus K-REF-1 | spec-bug | astra-21 | open | Strict successor rejection is already normative, but the closed table describes authority_receipt_required only as a missing canonical receipt and version_conflict only as CAS mismatch. Clarify authority_receipt_required, retryable=false, for absent qualifying strictly succeeding canonical evidence, including incomparable/prior/identical receipts. Add an exact canonical regression with direct/transitive positives, release normally. This is package mapping, not an owner architecture ambiguity. |
 
 Rows classify received cases against their cited package release; queued intake
 is explicitly recorded in the worklog. Rejection
@@ -1023,3 +1026,64 @@ in committed producer/adversary paths; judge scripts do not alter any of them.
 Ledger: 46 items, 33 fixed, 10 rejected, three open implementation bugs
 (R7-036/037/046), no open specification bugs, no owner questions. Current score 1/2.
 Full dual 57/57 plus the convener's quiet-round condition remains unmet. No PARK.
+
+
+## Round 22 — retention and actor fixes verified; succession separated
+
+Package 0.2.3 remains `23290b3`. Source `d077064` independently reproduces every
+canonical row (49/0/8) and every current supplemental row (37/0/9). All 89 controls
+pass: 33 source, eight adapter, 14 transaction, four proof, nine impact, eight
+boundary, eight retention and five harness controls. Every current Python module
+matches the signed correction commit. R7-036 closes for the implemented write
+paths; unsupported declassification/erasure/restore coverage is not implied.
+
+Package `4af0360` independently reproduces 57/57 canonical and 46/46 supplemental
+semantic cases, plus 22 product and four harness controls. R7-037 closes on scoped
+per-record authority over outputs and transitive known inputs, including unknown
+lower bounds. Missing authority and revoked exact replay preserve full state and
+the old receipt; restored authority permits same-key recovery. All four write
+APIs, metadata-independent retention, input spaces, batch order and empty labels
+have positive/negative controls. Producer package labels are abbreviated; an
+initial literal comparison exposed that difference, and Git resolves them to the
+same full release SHA. All actual rows and module/input hashes match; no mismatch
+is hidden by changing a conformance input or expected output.
+
+R7-046 closes at `3ce8ee3`: original 0.2.2 vector and native binding controls were
+rerun against an exact archive, then the explicit 0.2.3 migration was verified in
+the current full corpus. Wrong actor/audience/purpose/index leaves state, captures,
+protected view bindings and dirty-since unchanged. Rightful delivery and later
+selected-right revocation preserve their exact outcomes. All 47 current
+supplemental artifacts (46 semantic, one deployment) pass closed shape, state,
+normalization, accepted-fact and forbidden-oracle checks. Eight canonical and one
+supplemental deployment cases remain unsupported, separately from semantic passes.
+
+ASTRA24-10 is independently confirmed beyond that vector denominator. All three
+unchanged input triples validate. Both implementations accept the ordered positive
+and incorrectly accept incomparable and identical authority receipts. Each
+negative adds two records, advances cut 100→102, dirties the registered dependent
+and stores one idempotency entry. This is a runtime failure with observable writes,
+not a parser failure or an inferred consequence of another implementation.
+The bundle hash is `5dcc51600aaed1a2253c9c8ebbde951556521ccea982a55fa3f60d055965ecd4`.
+
+R7-047/048 track the separate source/package implementation defects. R7-049 tracks
+the missing exact closed-code mapping. K-REV-3 already requires a strictly
+succeeding receipt, and kernel §5.3 forbids memory-side order from manufacturing
+authority adoption. Use `authority_receipt_required`, retryable=false, for missing
+qualifying successor evidence and publish that concrete mapping; preserve
+`version_conflict` for CAS mismatch. Incomparable plain imports, direct/transitive
+valid successor replacement and exact accepted replay remain positive neighbors.
+Earlier CAS closures concern a different invariant and are not silently reopened.
+No settled architecture or owner question is introduced.
+
+Evidence in judge seat `.temp/`: `astra22-round22-execution-01.json`,
+`astra23-round22-execution-01.json`, `astra{22,23}-judge-round22-{canonical,cases}.json`,
+`judge-round22-report-comparisons-01.json`, `judge-round22-case-validation-01.json`,
+`astra23-judge-round22-actor022.json`, `judge-round22-authority-input-validation-01.json`,
+`astra{22,23}-judge-round22-authority-first.json` and
+`judge-round22-authority-decision-01.json`. Original producer/adversary first
+failures remain committed. These native succession probes are not fabricated
+exact-vector passes and do not inflate the 46-case semantic corpus.
+
+Ledger: 49 items, 36 fixed, 10 rejected, two open implementation bugs (R7-047/048)
+and one open specification bug (R7-049). Current exact dual canonical passes are
+49/57, with eight source gaps. Score remains 1/2; no PARK or deployment claim.
