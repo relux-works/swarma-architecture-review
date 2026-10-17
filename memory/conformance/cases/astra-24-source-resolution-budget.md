@@ -86,3 +86,12 @@ that accounting family or assign a distinct implementation row. Keep both
 regression witnesses, preserve genuine exhaustion, and charge distinct current
 sources within each walk without charging retained-only or independent checks
 as current-required resolutions.
+
+## Post-R7-027 rerun — round 10
+
+At source correction `4e647ea`, this unchanged fixture still has the same eight
+final field differences and three forbidden failures. The positive bound-1
+capture still passes. The root/quality counter correction now passes ASTRA24-05
+but does not map or enforce source_resolutions. Exact actual output and source
+implementation hashes are recorded in `.temp/astra22-owned-cases-12.json`.
+This observation is kept separate from the successful R7-027 verification.

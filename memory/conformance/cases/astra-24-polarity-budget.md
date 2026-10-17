@@ -1,6 +1,6 @@
 # ASTRA24-05: opposite polarities must not share one root budget
 
-Status: observed source-evaluator divergence; consolidation into R7-027 requested.
+Status: consolidated R7-027 impl-bug; source fix `4e647ea` independently verified, judge closure pending.
 Owner: astra-24. Package `0.2.1-draft` at `f31d58f`; execution checkout `6a4f307`.
 
 ## Clauses and two readings
@@ -98,3 +98,19 @@ that rule and quality dependency, demonstrating direct polarity isolation with
 zero/two-budget controls. This seat requests one consolidated accounting defect,
 not a duplicate count. At `f39af13`, the unchanged ASTRA24-05 still fails in
 `.temp/astra22-owned-cases-11.json`; the package run `-06.json` passes.
+
+## Source correction verified — round 10
+
+Judge event `$Dp4_riQyF6haSd2qyOmKMURbHNt2rkZrFJBDw9-Ctlw` consolidates this
+case into R7-027. At signed fix `4e647ea`, the unchanged exact fixture passes:
+both direct polarities retain their own bound-1 witness, bound 0 still rejects
+both walks, and bound 2 remains the positive equal-output control. No fixture
+input or expected value was modified. Original failing runs remain preserved.
+
+The correction implements fresh per-polarity DFS walks with local literal memo;
+opposite-quality walks use independent counters. Four native source checks
+also pass: both polarity directions, incomplete opposite quality, shared-premise
+memo/numeric reference order, and genuine insufficient/zero root/rule bounds.
+Evidence: `.temp/astra22-owned-cases-12.json`,
+`.temp/astra22-budget-controls-01.log`. This verifies the specific root/quality
+repair; ASTRA24-06 still exposes the independent omitted source-resolution bound.
