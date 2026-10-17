@@ -9,7 +9,7 @@ distinctness are checked first. No runtime distribution or timing claim is made.
 
 | Profile | Pass | Fail | Unsupported | Total |
 | --- | ---: | ---: | ---: | ---: |
-| semantic | 15 | 0 | 4 | 19 |
+| semantic | 19 | 0 | 0 | 19 |
 | deployment | 0 | 0 | 1 | 1 |
 
 Deployment unsupported means no qualification claim; modeled semantic erasure
@@ -19,10 +19,10 @@ and publication transitions do not exercise live authentication, storage or deli
 
 | Vector | Profile | Result |
 | --- | --- | --- |
-| ASTRA24-04 | semantic | unsupported |
-| ASTRA24-03 | semantic | unsupported |
-| ASTRA24-01 | semantic | unsupported |
-| ASTRA24-02 | semantic | unsupported |
+| ASTRA24-04 | semantic | pass |
+| ASTRA24-03 | semantic | pass |
+| ASTRA24-01 | semantic | pass |
+| ASTRA24-02 | semantic | pass |
 | ASTRA25-02 | semantic | pass |
 | ASTRA25-05-CONTROL | semantic | pass |
 | ASTRA25-05 | semantic | pass |
@@ -39,22 +39,6 @@ and publication transitions do not exercise live authentication, storage or deli
 | ASTRA26-05 | semantic | pass |
 | ASTRA26-03-CONTROL | semantic | pass |
 | ASTRA26-03 | semantic | pass |
-
-### ASTRA24-04
-
-Supplemental fixture does not match this package's closed vector grammar; no implicit conversion performed.
-
-### ASTRA24-03
-
-Supplemental fixture does not match this package's closed vector grammar; no implicit conversion performed.
-
-### ASTRA24-01
-
-Supplemental fixture does not match this package's closed vector grammar; no implicit conversion performed.
-
-### ASTRA24-02
-
-Supplemental fixture does not match this package's closed vector grammar; no implicit conversion performed.
 
 ### ASTRA25-04
 

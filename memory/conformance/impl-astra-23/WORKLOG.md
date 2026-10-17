@@ -138,3 +138,16 @@ will prove semantic differences and forbidden effects are detected.
   await explicit grammar migration, one deployment case unsupported.
 - Logs: history-green-01.log, controls-06.log, canonical-021-green-01.log and
   supplemental-021-01.log under `.temp/impl-astra-23/`.
+
+## Round 5 — complete current-release supplemental evidence
+
+- Intake astra-24 fixture migration c929ed2 without changing any case or expected
+  value; the earlier unsupported grammar rows remain in commit f5fdd8b.
+- Current 0.2.1 supplemental report: 19 semantic pass / 0 fail / 0 unsupported;
+  one deployment case remains unsupported. Canonical result and implementation
+  are unchanged at 57/57 and f5fdd8b respectively.
+- Exact case hashes and normalized actuals are retained in SUPPLEMENTAL.json.
+- Log: `.temp/impl-astra-23/supplemental-021-02.log`.
+- R7-024 corrected head and retained pre-fix head were sent to the judge for
+  independent review. No package defect or implementation difference remains
+  in this seat's executable cases; collective review remains pending.
