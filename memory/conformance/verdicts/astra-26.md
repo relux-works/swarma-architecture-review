@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 26, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 27, 2026-10-17.
 
 ## Baseline and scope
 
@@ -690,3 +690,35 @@ verification evidence, awaiting the judge's complete closure gate. Judge
 `3a60f2e` separately closes R7-054 at `6a04e8c`; R7-053 package correction and
 seven source canonical gaps remain. Current score **1/2**, no protected
 deployment qualification or PARK.
+
+## Phase 2 round 27 — independent attribution audit of ASTRA24-12
+
+Independently executed the committed two-probe input bundle
+`astra-24-authority-issuer.input.json` without an oracle. Its SHA-256 is
+`8224829a810a97c79fef81cb18f0d650b59ffc84a3262bdef09b1ea900c521b3`.
+At source runtime `4a14a56` and package runtime `942bdee`, the same-issuer
+control selects d3 with historical d1 in both. With a consistently attributed
+foreign intermediate event, source returns ambiguous d1/d3 with no history;
+package selects only d3 with historical d1. Source records/runtime/policy/
+captures and package durable state remain unchanged by both reads. Package's
+ordinary protected view bindings are not asserted absent.
+
+Source kernel section 5.3 specifies the deciding authority's own ordered record;
+K-REV-3 qualifies each candidate receipt's deciding issuer, then uses transitive
+DAG succession without explicitly scoping intermediate events. The current
+state checker checks referenced objects, not issuer homogeneity of each edge.
+I recommend the issuer-local canonical authority-event relation as the closer
+source reading, subject to judge adjudication. This recommendation concerns
+`policy.authority_events[].issuer`: it must not be generalized into requiring
+identical submitters, catalog publishers or source carriers. Checked representation
+changes who relays a statement, not the deciding issuer.
+
+This corroborates the existing ASTRA24-12 separation; it is not a duplicate case,
+new exact oracle, input rejection rule or invented authority-transfer mechanism.
+If the judge finds both source readings admissible, preserve an owner question.
+Read-only native probes remain outside exact-vector denominators. Evidence:
+seat `.temp/r7-astra-26/authority-issuer-source-01.json` and
+`authority-issuer-package-01.json`, with raw actuals and input/module hashes.
+Existing same-issuer R7-048/051 closures remain valid. The new adjudication,
+deadline correction reviews and source coverage remain pending; score **1/2**,
+no deployment qualification or PARK.
