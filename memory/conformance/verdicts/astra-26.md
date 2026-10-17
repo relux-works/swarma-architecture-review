@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 29, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 30, 2026-10-17.
 
 ## Baseline and scope
 
@@ -778,3 +778,38 @@ Input/runtime hashes and the reproduction method are retained. No owned input
 or expected answer changed. Independent R7-053 evidence is sent to the judge;
 formal closure and full source coverage remain separate. ASTRA24-12 still has
 no adjudicated exact oracle. Score **1/2**, no deployment qualification or PARK.
+
+## Phase 2 round 30 — full source vectors green, recovery witness still red
+
+Independent execution of source `dbf4892` on unchanged package 0.2.5 reproduces
+every committed row, input hash and normalized actual in both report inventories:
+
+| Semantic inventory | Pass | Fail | Unsupported |
+| --- | ---: | ---: | ---: |
+| Canonical | 57 | 0 | 0 |
+| Supplemental, including all 15 owned fixtures | 61 | 0 | 0 |
+
+Eight canonical and one supplemental protected-deployment checks remain
+unsupported. These semantic passes establish the former seven source vector
+gaps are executable; they do not establish deployment qualification or resolve
+a newly preserved native failure.
+
+Independently ran all five new availability control groups: four pass, and
+`test_initial_degraded_state_can_recover` fails exactly at its intended assertion
+(`refusal` instead of `view`), with no setup error. The owner transition returns
+`availability_changed`, but an initial admitted degraded policy continues to veto
+queries. The available -> degraded -> available neighbor passes; wrong owner,
+undeclared degradation and malformed-state negatives preserve state. This
+corroborates the author's separate ASTRA22-08 witness; no duplicate case or
+expected answer is introduced. The native failure is not reported as a pass.
+
+Evidence: seat `.temp/r7-astra-26/source-full025-01.{json,md,log}`,
+`source-cases025-01.{json,md,log}`, `source-full025-01-verification.json` and
+`astra22-availability-controls-01.{json,log}`. Full module hashes and exact
+producer-report equality are retained. The judge's broader erasure/control
+review remains independent from this exact corpus and availability audit.
+
+R7-055 is now a filed owner question, explicitly held for Ivan by the convener.
+Both native issuer readings stay preserved, with no authority edit or assumed
+oracle and no addition to pass/fail denominators. R7-053 formal closure and the
+new recovery defect remain pending; score **1/2**, no PARK received.
