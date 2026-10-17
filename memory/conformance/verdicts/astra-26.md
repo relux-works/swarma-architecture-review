@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 21, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 22, 2026-10-17.
 
 ## Baseline and scope
 
@@ -567,3 +567,29 @@ challenge. Full dual coverage and a clean collective round remain pending.
 Current score stays **1/2**, deployment unsupported, no PARK received.
 This round records review dispositions only; no new runtime pass or fixture
 change is inferred, and first failures remain preserved.
+
+## Phase 2 round 22 — 0.2.4 migration and expanded decision scenario
+
+- Read release `ef02647`, K-REV-3/K-REF-1 amendment and the expanded B01 trace.
+  No wire shape changes. Migrated all fifteen owned fixtures by semantic-profile
+  stamps only and proved exact recursive round-trip equality to preserved 0.2.3
+  inputs. No existing context, right, operation or semantic expected answer changed.
+- Original fixtures/schemas remain in seat
+  `.temp/r7-astra-26/cases-0.2.3-phase2/` and `spec-0.2.3/kernel/schemas/`.
+  All fifteen structural/reference/normalization/forbidden checks pass. Release
+  validation passes 65 vectors / 52 clauses / 33 intended checker violations.
+- Both current compatible owned runs pass **15/15**. P02/P10/P15 also pass
+  exactly in both. The new B01 is separately red under already tracked findings:
+  source `4772258` matches every operation and postcondition, but its final
+  projection has seven differences from missing receipt-only transitive ancestry
+  (R7-051). Package runtime `4af0360` still admits an invalid prior successor,
+  causing the known R7-048 cascade (90 differences, 11 checker findings).
+  These are existing collective defects, not new owned cases or migration errors.
+- Evidence: seat `.temp/r7-astra-26/migration-024-01.log`,
+  `cases-structural-11.log`, `validate-07.log`, `owned-cases-astra22-11.json`,
+  `owned-cases-astra23-17.json`, `attribution-domains-astra22-02.json` and
+  `attribution-domains-astra23-03.json`. Actual results and input/runtime hashes
+  are retained. B01's four rejected receipt classes, same-key recovery, direct and
+  transitive successes, exact replay and separate CAS refusal were inspected.
+- Owned findings remain closed. New-release canonical acceptance and remaining
+  source coverage are incomplete; score **1/2**, no deployment or PARK claim.
