@@ -1,0 +1,61 @@
+# ASTRA24-01: premise quality quantifies over alternative support paths
+
+Status: submitted source-contract regression case; package not yet landed.
+Source baseline: `cca7b6e`; kernel v0.2. Owner: astra-24.
+
+## Clauses
+
+Kernel §6.1 requires `premise_quality` to survive every rendering and adds
+`clean_path | conflicted_premises_only | not_fully_checked`. Companion §§4–5
+makes alternatives OR, preserves support from conflicted premises, and separates
+witness existence from full explanation enumeration. S03/S31 exercise only the
+conflicted path, not a clean alternative.
+
+## Minimal separating input
+
+All records are admitted, authorized, real, valid at the same cut and fully
+resolved under one policy. Every rule is checked sufficient support.
+
+```text
+root A+; root A-; root B+
+r1: A+ -> C+
+r2: B+ -> C+
+query C; evaluation budget sufficient for all signed dependencies
+```
+
+There is no B-, C- or rule concluding an opposing literal. Both rules are valid
+at the cut. Repeat with the rules stored/enumerated in reversed order and with
+an explanation limit of one.
+
+## Two readings and separating output
+
+| Field | A: quality of the first rendered proof | B: quality of the evaluated support alternatives |
+| --- | --- | --- |
+| C support witness | present | present |
+| C support evaluation | complete | complete |
+| C support premise_quality, if r1 rendered first | conflicted_premises_only | clean_path |
+| C oppose witness | not_found | not_found |
+
+Reading A treats a truncated explanation as the complete set of usable paths.
+Reading B treats `clean_path` as existence of a fully checked clean path. The
+second rule is such a path; the first rule's conflict cannot remove it.
+
+## Recommendation and controls
+
+Use B. `conflicted_premises_only` asserts that no checked alternative is clean;
+that assertion is false here. An explanation cap must not change the evaluated
+quality. Reversing rule order must preserve the result.
+
+Controls: remove r2, yielding present support with
+`conflicted_premises_only`; remove A- instead, yielding `clean_path` even with
+only r1. If B- evaluation is cut off before it can establish absence, a proof
+through B+ alone does not certify a clean path: preserve the witness and use
+`not_fully_checked` unless another checked clean path already establishes the
+existential result. Never manufacture C- from A-.
+
+## Evidence and limits
+
+This is a proposed separating fixture, not a reported evaluator failure.
+Package-format JSON and concrete package clauses will be added after release.
+The judge decides whether the release already closes this case, needs a fix,
+or leaves an owner-level ambiguity about the quality vocabulary.

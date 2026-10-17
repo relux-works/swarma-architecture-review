@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: active, round 0. Source baseline: `95f974b`; kernel draft v0.2.
+Status: active, round 1. Source baseline: `95f974b`; kernel draft v0.2.
 
 ## Scope and method
 
@@ -21,6 +21,10 @@ and the separation of write collision, ambiguous currentness and evidence confli
 - Tracking and tool-readiness evidence: seat-local `.temp/tasks.md`,
   `.temp/tool-readiness-01.log` and `.temp/a2a-readiness-01.log`.
 - No evaluator, deployment qualification or external effect is claimed by this seat.
+
+- Round 1: submitted source-contract cases ASTRA24-01 (alternative-path
+  premise quality) and ASTRA24-02 (rule applicability at a half-open endpoint).
+  They are counterexample proposals, not observed evaluator failures.
 
 ## Position and R7 row
 
