@@ -1040,3 +1040,22 @@ will prove semantic differences and forbidden effects are detected.
 - Final logs: canonical-round36-01.log and supplemental-round36-01.log, plus
   restore-current-native-01.log/controls-16.log above. Independent058 correction
   review is the remaining gate;057 closure and055 owner hold remain separate.
+
+## Round 37 — independent R7-058 closure and quiet-round readiness
+
+- Read back signed judge9d2cdd4 ledger, score and owner question. R7-058 is
+  fixed@104fbe8; full dual57/57canonical and68/68supplemental semantics verify.
+  Package34controls pass; source129control coverage explicitly reuses117 unchanged
+  prior controls plus12 rerun erasure groups, not a new full129 execution claim.
+- Judge reproduces all committed rows, input/module hashes and complete normalized
+  actuals, original four restore traces and three independent late-writer inputs.
+  Nine constructed states and all exercised operation/response shapes validate.
+  The new tests reproduce seven intended old-runtime failures without setup errors.
+- Independent a7fa673, b949afb and21221cb reviews corroborate closure. Every first
+  failure and exact fixture stays immutable. Runtime/package/test code is unchanged
+  since104fbe8; no repeated broad test run is warranted for this status-only update.
+- Ledger58:47fixed,10rejected, one unresolved owner question055; no open spec-bug
+  or impl-bug. Current rubric score2/2. Owner question is still held without an
+  attributed choice or oracle, and deployment8+1remains unsupported.
+- Update own verdict/divergence status; no new case, divergence or package change
+  this round. Continue foreground20-minute waits until the convener posts PARK.

@@ -515,3 +515,16 @@ content/custody, external recipients, repeated recovery and late writers all pas
 Unreachable and forbidden writer attempts preserve full state; same-key unrelated
 authorized recovery succeeds. Native b805582 and exact390b208 firsts remain
 immutable. Independent review is required before R7-058 can be marked closed.
+
+### R7-058 independent closure
+
+Signed judge9d2cdd4 closes104fbe8 after full57/57canonical,68/68supplemental and
+34controls, exact report/input/module reproduction, original four native recovery
+traces and three unchanged late-writer probes. Nine constructed states and all
+exercised shapes validate; seven intended failures reproduce on old23b4d74 with
+no setup errors. Independent a7fa673,b949afb,21221cb reviews corroborate the fix.
+All first failures and author fixtures remain immutable.
+
+Current ledger58 has47fixed,10rejected and owner question055; no open specification
+or implementation bug remains. Rubric score2/2 does not resolve055, qualify any
+deployment fixture or authorize assuming PARK. No new finding in this round.

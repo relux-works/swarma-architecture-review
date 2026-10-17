@@ -2,7 +2,9 @@
 
 Current package **0.2.5-draft**, `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
 The R7-058 current restore-obligation correction now passes the full expanded
-semantic corpus and native controls. Independent correction review is pending.
+semantic corpus and native controls. Signed judge9d2cdd4 independently closes
+R7-058 at104fbe8 with every committed report row, input/module hash and complete
+normalized actual reproduced. Independent a7fa673, b949afb and21221cb reviews agree.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
@@ -46,10 +48,15 @@ PHASE2-ISSUER-FIRST atd4ddc45 retains currentd3 for both native inputs, unchange
 durable state and explicit ordinary ephemeral bindings. No exact mixed-path
 oracle or authority change is inferred; the pair remains outside vector totals.
 
-Current seat score is **1/2 while R7-058 is open**. The2/2 at e3d44df preceded
-this native restore intake. Full-vector success does not close the new defect;
-independent review and the convener quiet-round/PARK protocol remain required.
-No PARK has been announced; hard cap13:00Z remains.
+Current seat and judge score is **2/2**, established at9d2cdd4 after R7-058
+closure. Ledger58 has47fixed,10rejected and one owner question055; no open
+specification or implementation bug remains. Both readers verify57/57canonical
+and68/68supplemental semantics. Source129control coverage explicitly combines
+12rerun erasure groups with117unchanged prior controls; package34controls were
+rerun in full. The owner question and deployment limits remain unresolved.
+
+No new case, divergence or package change in this status round. Continue the
+convener quiet-round/PARK protocol; no PARK has been announced. Hard cap13:00Z remains.
 
 Implementation remains package-derived; original blind first0008dc3 is immutable.
 Evidence: ../impl-astra-23/RESULTS.md/JSON, SUPPLEMENTAL.md/JSON, all FIRST reports,
