@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 17; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 18; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.2-draft` released at `7e71765`.
 
 ## Scope and method
@@ -22,7 +22,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 fixed `4e647ea`, judge-closed `56e5909` |
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
-| ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | R7-040 source/R7-041 package impl-bugs; corrected-head verification pending |
+| ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package R7-041 verified `53266dd`; source R7-040 pending |
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Source passes; package omits the second dependent; judge pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
@@ -265,14 +265,26 @@ package failure is the new missing review reference. Exact reports source21 and
 package13, six impact controls01 and structural/forbidden controls20 are retained
 in seat-local `.temp/`. Earlier fixture bytes and semantic expectations are intact.
 
+## Round 18 package CAS repair verified
+
+Package `53266dd` passes all four unchanged authority-head cases and the seven
+prior regressions. Its one remaining owned failure is ASTRA24-09 transitive
+review: **11 pass / 1 fail**, no unsupported input. The focused native CAS
+control passes full refusal-state equality plus valid unique-head, challenge,
+arrival-order, later unique ordering, replay precedence, changed intent and
+next-head withdrawal variants. Reports: package14 and authority-cas-controls01
+under seat-local `.temp/`. No fixture or expected value changed.
+
+R7-041 is independently verified by this seat; judge closure is pending. R7-040
+source and the new transitive review finding remain separate, so this result
+is not represented as collective completion. First failures remain preserved.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Authority-head implementation repairs and the new package
-review-path finding remain pending, alongside the collective's other repairs and
-full dual-coverage gate. Source dirty/review canonical support is reported as
-47/57 by its owner; this seat independently checked the six targeted controls and
-its exact review-path fixture, not every canonical row. Protected deployment
-remains unsupported and unqualified.
+**Phase 2 R7: 1/2.** The package CAS repair passes, while source CAS and the new
+package review-path finding still require resolution. Full dual coverage and
+other collective repairs remain pending. Protected deployment remains unsupported
+and unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.

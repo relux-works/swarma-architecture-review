@@ -1,7 +1,8 @@
 # ASTRA24-08: an exact candidate is not an unambiguous compare-and-set head
 
 Status: judge-classified R7-040 (source) and R7-041 (package), both implementation bugs.
-Correction pending. Owner: astra-24.
+Package correction independently verified at `53266dd`; source correction pending.
+Owner: astra-24.
 Execution checkout `7e71765`, package `0.2.2-draft`; first valid separating run
 was at `1f3180d` on package `0.2.1-draft` with the same semantic expectations.
 
@@ -112,3 +113,24 @@ in round18 at `1cdcb36`, accepts the exact primary/control separation as
 R7-040 source and R7-041 package. No specification change or owner decision
 is required. Historical-head and challenge neighbors were sent for consolidation
 under the same rows. Exact corrected-head verification remains pending.
+
+## Round 18 package correction verified
+
+Package correction `53266dd` passes all four unchanged ASTRA24-08 fixtures:
+ambiguous and historical candidates refuse exactly; unique current-head
+withdrawal and challenge remain admissible. All prior seven cases pass, while
+ASTRA24-09 still has its separate missing transitive review reference. Current
+package owned result: **11 pass / 1 fail**, no unsupported input.
+
+The focused native `Semantics.test_authority_slot_cas` also passes. Its full
+state and dirty-since equality assertions establish records/cuts/dirty/idempotency
+atomicity for both refusals. Controls preserve reversed arrival storage order,
+a later admitted unique authority ordering, exact later-stamp replay before CAS,
+changed-intent conflict without mutation, and withdrawal of the next remaining
+head. Shared receipt-order selection supplies the unique non-withdrawn slot head.
+This verifies the submitted failure class, not arbitrary authority graph safety.
+
+Evidence: `.temp/astra23-owned-cases-14.json` and
+`.temp/astra23-authority-cas-controls-01.log`. Fixture hashes remain unchanged;
+first package failure `e525612` remains immutable. R7-041 is behaviorally verified
+by this seat; formal judge closure and source R7-040 correction are separate.
