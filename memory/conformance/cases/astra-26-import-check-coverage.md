@@ -1,6 +1,6 @@
 # ASTRA26-09 — partial current-version checks do not certify every import
 
-Status: judge-classified **R7-044 impl-bug**, owner astra-23; correction pending. Package `0.2.2-draft` at
+Status: judge-classified **R7-044 impl-bug**, owner astra-23; correction `f6c339d` independently verified, judge closure pending. Package `0.2.2-draft` at
 `7e71765`; source evaluator `e38c37c`; package evaluator `a016781`.
 No canonical fixture or evaluator is edited.
 
@@ -76,3 +76,23 @@ first failure is retained at `08c4b9a` as well as this seat's original evidence.
 Correction review must preserve absent/unverified equivalence, the all-checked
 positive control, irrelevant hidden-publication non-interference, exact source
 references and origin counts, and existing expiry/replacement neighbors.
+
+## Phase 2 round 18 — exact source-check correction verified
+
+Package implementation `f6c339d` passes the unchanged original primary and both
+controls against preserved 0.2.2 schemas/inputs, and again against the explicitly
+migrated 0.2.3 corpus. The complete owned package run is 14 pass / 1 fail on
+each profile; the sole remaining failure is separate actor-binding R7-046.
+
+Reviewed and executed the two targeted product control groups. Removing each
+exact source's check separately gives last_received while preserving source
+references, support/opposition, origin identity and stored state. An ordinary
+non-publication source needs no publication check. A hidden unchecked source
+cannot veto the visible current item; the hidden reference is absent and the
+independent root count stays one. Expiry/replacement, old capture immutability
+and ordinary-source neighbors still pass. No prior expected answer changed.
+
+Evidence in seat `.temp/r7-astra-26/`: `owned-cases-astra23-12.json` (original
+0.2.2), `owned-cases-astra23-13.json` (0.2.3) and
+`astra23-import-controls-01.log`. Original inputs and first failures remain
+retained. Independent closure evidence has been sent to the judge.

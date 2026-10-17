@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 17, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 18, 2026-10-17.
 
 ## Baseline and scope
 
@@ -483,3 +483,22 @@ is inferred. Current row remains **1/2**, with protected deployment unqualified.
   `cases-structural-10.log`, `validate-06.log`, `owned-cases-astra22-09.json`
   and `owned-cases-astra23-11.json`, with matching logs. Phase 2 score **1/2**;
   new-release canonical conformance and protected deployment remain separate.
+
+## Phase 2 round 18 — R7-044 correction independently verified
+
+- Package `f6c339d` passes exact ASTRA26-09 plus both controls against preserved
+  0.2.2 inputs/schemas and the explicitly migrated 0.2.3 corpus. Each complete
+  owned package run is **14 pass / 1 fail / 0 unsupported**; only R7-046 actor
+  binding still fails. Source's previously pinned owned result remains 15/0/0.
+- Reviewed and ran both publication control groups: each missing exact check,
+  absent/unverified equivalence, ordinary-source exemption, hidden unchecked
+  source non-interference, unchanged evidence/origin/source refs/state, expiry,
+  replacement and frozen earlier capture. All pass. No input or oracle changed.
+- Exact report/hash evidence: seat `.temp/r7-astra-26/owned-cases-astra23-12.json`
+  (0.2.2), `owned-cases-astra23-13.json` (0.2.3), matching logs and
+  `astra23-import-controls-01.log`. Targeted runtime evidence is distinct from
+  pending global 0.2.3 retention enforcement and full canonical conformance.
+- Judge independently verified source P06/P12 and exact selected/excluded
+  delivery at `5d079be` through `68152c5`, establishing dual canonical 49/57 on
+  0.2.2. R7-044 closure, R7-046 fix and other collective work remain pending;
+  current score **1/2**, protected deployment unqualified.
