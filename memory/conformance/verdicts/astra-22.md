@@ -1,9 +1,10 @@
 # astra-22 source evaluator verdict
 
-The source evaluator passes every currently published semantic vector. The
-collective score is **1/2 while package defect R7-058 remains open**. Judge
-`e3d44df` closes source R7-057 at signed `946cbd8`; that closure remains valid.
-R7-055 is an owner question, and the convener has not posted PARK.
+The source evaluator passes every currently published semantic vector. Current
+collective score is **2/2**, confirmed by signed judge `9d2cdd4`: 58 ledger items,
+47 fixed, 10 rejected and owner question R7-055. No specification or implementation
+bug remains open. Source R7-057 is closed at `946cbd8`; package R7-058 is closed at
+`104fbe8`. The convener has not posted PARK.
 
 Current package: **0.2.5-draft**,
 `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
@@ -17,16 +18,18 @@ Current package: **0.2.5-draft**,
 
 Current reports are [canonical](../impl-astra-22/runs/phase2-erase-priority-corrected.md)
 and [supplemental](../impl-astra-22/runs/phase2-restore-obligations-cases-first.md).
-Green coverage totals 129 controls: source 33, adapter 8, transaction 14, proof 4, impact 9,
+Green coverage totals 129 controls: source 33, adapter 8, transaction 14, proof 4,
+impact 9,
 boundary 8, retention 8, release 9, succession 4, authority projection 4,
 deadline 6, erasure 12, availability 5, harness 5. The latest focused run executes
 all 12 erasure groups, and the expanded supplemental run executes the five
 comparator controls. Unchanged remaining groups retain the prior
 [128-control green evidence](../impl-astra-22/runs/erase-priority-controls-corrected.json);
 [new control evidence](../impl-astra-22/runs/restore-obligation-controls-first.json)
-records commands, outputs, module hashes and this reuse boundary. Judge already
-reproduced the previous 57/57 canonical, 63/63 supplemental and 128-control reports;
-the five new exact fixtures and focused control await current review.
+records commands, outputs, module hashes and this reuse boundary. Judge `9d2cdd4`
+verifies the complete 68/68 supplemental report, reruns all 12 current erasure
+groups and verifies unchanged remaining modules against prior reviewed pins.
+The earlier full canonical and control evidence remains applicable.
 
 The independent source baseline `4d4ef45` was frozen from kernel, companion and
 design before PACKAGE LANDED. No foreign evaluator implementation has been read
@@ -48,8 +51,9 @@ reproduce the author's four unchanged input traces on `946cbd8`. A current
 external obligation absent from the old snapshot enters the source erasure
 closure and purges both controlled sinks. An unreachable affected sink causes
 an atomic incomplete refusal and keeps restored reads fenced. Known and empty
-obligation controls remain distinct. All 22 modules in that original observation match the reviewed head. Judge
-classifies the package discrepancy as R7-058; the native observations remain
+obligation controls remain distinct. All 22 modules in that original observation
+match the reviewed head. Judge closes the package discrepancy as R7-058 at
+`104fbe8`; the native observations remain
 outside exact denominators. Author `1cefcf9` adds five exact regressions, including
 unaffected independent B; all pass the first expanded source run. A new focused
 control verifies protected generation advancement and atomic stale/current

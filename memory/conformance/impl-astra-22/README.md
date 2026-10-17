@@ -225,3 +225,15 @@ revocation, original/empty receipts and atomic-state neighbors. Current evidence
 `runs/phase2-erase-priority-cases-current.*` (63/63 supplemental after two new
 author-owned regressions), and `runs/erase-priority-controls-corrected.json`
 (all128controls). Original native failures remain unchanged.
+
+Current restore-obligation evidence is `runs/phase2-restore-obligations-cases-first.*`
+(68/68 supplemental semantic). R7-058 required no source evaluator change; newly
+witnessed deletion obligations already join the full source erasure closure.
+`runs/restore-current-obligations-native-first.json` retains the original four
+input traces and lossless state. `runs/restore-obligation-controls-first.json`
+records all 12 erasure groups, including generation and atomic late-writer checks
+after a newly learned deletion, with an independent valid-write control. Total
+green coverage is 129 using this focused run and prior evidence for unchanged
+groups. Judge `9d2cdd4` verifies that evidence and closes package R7-058; current
+canonical coverage remains 57/57. See the seat verdict for PARK and owner-question
+status rather than treating semantic green reports as deployment qualification.
