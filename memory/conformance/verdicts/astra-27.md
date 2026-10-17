@@ -1,7 +1,7 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 37, phase 2 active; awaiting PARK. Current score: **2/2**.
+Status: round 38, phase 2 active; awaiting PARK. Current score: **2/2**.
 
 Adjudicated 58 items: ten rejected as defects, forty-seven independently fixed,
 and one filed owner question (R7-055). No specification or implementation bug

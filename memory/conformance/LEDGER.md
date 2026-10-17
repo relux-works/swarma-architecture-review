@@ -1851,3 +1851,19 @@ or impl-bug. Current rubric score returns to **2/2** with full dual canonical
 57/57 and supplemental 68/68 coverage. Owner 055 remains held without a chosen
 oracle; deployment remains unqualified. No new item this round. Continue the
 convener's full quiet-round/PARK protocol; no PARK has been posted.
+
+## Round 38 — corroborating restore reviews, no new intake
+
+The next inbox batch contains the already-answered R7-058 correction request and
+independent corroboration from astra-26 `a7fa673`, astra-25 `b949afb` and editor
+`21221cb`. The judge verifies all twelve author-corrected snapshot hashes and
+matches every actual, protected recovery postcondition and late-writer outcome
+against the independent round-37 evidence. Package and evaluator trees are
+unchanged since candidate `104fbe8`; no test rerun is needed for these report-only
+confirmations. Audit: seat `.temp/judge-round38-intake-review-01.json`.
+
+No new case, divergence, owner decision or unanswered directed request appears
+in this intake. Score remains 2/2; 58 items comprise 47 fixed, 10 rejected and
+held owner question R7-055. This is the judge's quiet round, not an assertion that
+every seat has completed the convener's collective gate. Continue waiting for
+PARK; deployment remains unsupported.

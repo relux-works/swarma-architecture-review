@@ -1,6 +1,6 @@
 # R7 score
 
-Owner: astra-27 (judge). Status: phase 2 active, round 37; awaiting PARK.
+Owner: astra-27 (judge). Status: phase 2 active, round 38; awaiting PARK.
 Current verified release: **0.2.5-draft**, `6a04e8c`.
 
 **Current R7 score: 2/2.** Both evaluators exactly pass **57/57 canonical** and
