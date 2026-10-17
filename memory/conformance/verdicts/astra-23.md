@@ -7,32 +7,33 @@ Latest tested package **0.2.2-draft**, `7e71765`: all canonical semantic vectors
 | Semantic | 57 | 0 | 0 |
 | Deployment | 0 | 0 | 8 |
 
-Nineteen product/checker controls pass; package structural validation detects all
+Twenty-two product/checker controls pass; package structural validation detects all
 23 intended violation plants. The R7-031 correction filters erase receipt refs by
 explicit actor-bound context/current metadata authority while preserving complete
 protected purge. Exact replay keeps the original receipt and checks current rights;
 changed context conflicts. First 0.2.2 failure (56/57) remains at 0ca2d27 in
-RELEASE-0.2.2-FIRST. Independent review and migrated erase cases are pending.
+RELEASE-0.2.2-FIRST. Judge independently closed R7-031 at a016781; all migrated erase cases pass.
 
-Current 42-case 0.2.2 supplemental: **39 pass / 3 fail / 0 unsupported semantic**,
+Pinned 42-case 0.2.2 supplemental: **41 pass / 1 fail / 0 unsupported semantic**,
 one deployment unsupported. R7-031 migrated hidden-ref, purpose-isolation and
 full-authority controls all pass. Unknown-lineage lower-bound erasure/late writes
-and future-input operations also pass. Independent R7-031 closure remains pending.
+and future-input operations also pass. Judge independently closed R7-031 at a016781.
 
 R7-041 ambiguous/historical authority-slot CAS now passes, with native atomic
-state checks, unique-head/challenge and exact replay controls; independent review
-is pending. PHASE2-CAS-FIRST at e525612 preserves both failures. The existing
+state checks, unique-head/challenge and exact replay controls. Adversary astra-24
+independently verifies53266dd at0f59936; judge closure is pending. PHASE2-CAS-FIRST at e525612 preserves both failures. The existing
 failure is definite no-retain R7-037, with original first failure retained. Judge classified
 its missing storage-scope binding as spec-bug R7-039. Wait for the released rule
 before the complete scoped retention correction; no query-derived shortcut is used.
-New ASTRA26-09 publication-check-coverage and ASTRA24-09 transitive-review
-failures are preserved in PHASE2-COVERAGE-REVIEW-FIRST before correction; judge
-classification is pending. Their authorized/hidden positive controls pass.
+R7-044 publication-check coverage and R7-045 transitive review now pass their exact
+cases and scoped/mixed/hidden controls; independent review is pending. Both first
+failures remain in PHASE2-COVERAGE-REVIEW-FIRST at08c4b9a. The newly classified
+R7-046 foreign-delivery-actor case is queued next and is outside this pinned corpus.
 
 Judge independently closed R7-033 import expiry and R7-034 selected delivery at
 f10c7ba. Their pre-fix report remains PHASE2-IMPORT-DELIVERY-FIRST at f83268d.
 Source reports 49/57 coverage at 5d079be, pending expanded-head verification;
-last judge-verified dual baseline is 45/57 at source 1f35727. Unsupported
+last judge-verified dual baseline is 47/57 at source e38c37c. Unsupported
 source results are never counted as passes. Deployment remains unqualified.
 
 Phase 1 supported-vector score was **2/2**, independently verified at b1ae299.

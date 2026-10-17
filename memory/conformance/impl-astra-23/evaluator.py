@@ -324,21 +324,26 @@ class Evaluation:
             imports = [i for i in self.p["imports"] if key(i["source"]) in sources]
             if any(i["status"] == "replaced" for i in imports):
                 statuses[key(r)] = "historical"
-            elif (self.freshness(r)[0] == "stale" or not imports
+            elif (self.freshness(r)[0] == "stale" or {key(i["source"]) for i in imports} != sources
                   or any(i["status"] != "current" or i["checked_at"] is None for i in imports)):
                 statuses[key(r)] = "last_received"
         return statuses
 
     def review_required(self):
         required = set(self.affected_dirty())
-        for r in self.records.values():
-            if r["envelope"]["kind"] != "justification" or r["body"]["role"] != "review_on_change" or not self.impact_eligible(r, historical_inputs=True):
-                continue
-            for premise in r["body"]["premises"]:
-                k = key(premise.get("source") if premise["kind"] == "source" else premise["literal"]["assertion"])
-                if k in self.withdrawn | self.replaced:
-                    required.add(key(r["body"]["target"]["assertion"]))
-        return {k for k in required if self.visible(self.records.get(k))}
+        reached, reviewed = self.withdrawn | self.replaced, set()
+        edges = [edge for edge in self.engine.impacts(self.records.values())
+                 if self.impact_eligible(edge[0], historical_inputs=True)]
+        while True:
+            before = len(reached), len(reviewed)
+            for record, inputs, target in edges:
+                if inputs & reached:
+                    reached.add(target)
+                    if record["body"].get("role") == "review_on_change" or inputs & reviewed:
+                        reviewed.add(target)
+            if before == (len(reached), len(reviewed)):
+                break
+        return {k for k in required | reviewed if self.visible(self.records.get(k))}
 
     def incompatible(self, target, candidates, statuses):
         e, b = target["envelope"], target["body"]

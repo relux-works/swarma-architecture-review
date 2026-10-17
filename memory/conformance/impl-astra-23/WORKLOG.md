@@ -457,3 +457,48 @@ will prove semantic differences and forbidden effects are detected.
   the third failure is known R7-037. Corrected CAS family remains green.
 - Log: `.temp/impl-astra-23/phase2-coverage-review-first-01.log` (intended exit 1).
   Request judge classifications before correcting these two new boundaries.
+
+### Round 19 pre-correction controls
+
+- Added two focused product controls while judge disposition is pending. The
+  corrected red instrument records six intended failures: exact import primary,
+  each one of three missing exact checks, exact transitive-review output and a
+  bounded cyclic-review neighbor. Hidden path-element controls pass.
+- coverage-review-red-01/02.log also contain fresh-handle comparison setup noise;
+  coverage-review-red-03.log removes only the known handle field from semantic
+  component comparisons and separately asserts its view-handle binding. The
+  original fixture checker/expectations remain unchanged; no runtime fix yet.
+- ASTRA26-10 foreign delivery actor is queued after this committed unit.
+
+- Judge event $31IyK5gwGSJaMRrozQ-A02a1oUfrXbHkp9e1ZaOGWjI closes R7-031
+  at package7e71765/runtimea016781, with exact57/57,18controls and three unchanged
+  receipt cases. Editor independently confirms; no deployment claim is added.
+- Adversary0f59936 independently verifies all four R7-041 cases and native atomic
+  state/replay controls at53266dd; judge disposition remains separate.
+
+- Judge classified import coverage as R7-044 (event
+  $Y8OHdh7iDMe_LPy7R9JzU80dB6gLZcU1j9HGQrDTFcg), with exact-source checks,
+  hidden-publication isolation and preserved expiry/replacement expectations.
+  Implement that classified correction now; transitive-review disposition pending.
+
+### Round 19 correction outcome
+
+- Judge classified transitive review as R7-045. Exact-source import coverage
+  (R7-044) now requires a fact for every authorized associated publication;
+  same-origin deduplication does not supply missing exact-object authority.
+- Review obligations propagate through eligible registered paths with at least
+  one review_on_change edge. Sufficient-only and documentary-only paths create
+  no review obligation after recomputation; hidden necessary elements filter the
+  path. A finite reached set handles review cycles without new dirty/evidence writes.
+- Expanded red-before controls cover each missing publication, missing versus
+  explicit unverified, irrelevant hidden publication, complete current checks,
+  transitive/cyclic/mixed review paths, hidden elements/certificate and no-path
+  controls. Earlier expiry/replacement/origin and dirty-state controls remain green.
+- Eighteen product tests plus four checker tests pass (22 total). Full canonical
+  57/57, pinned42-case supplemental41/1/0; only R7-037 remains in that corpus.
+  Deployment8+1 unsupported. PHASE2-COVERAGE-REVIEW-FIRST at08c4b9a is unchanged.
+- Logs: coverage-green-01.log, review-mixed-red-01.log,
+  coverage-review-green-01.log, canonical-round19-01.log,
+  supplemental-round19-01.log and controls-11.log.
+- ASTRA26-10 has been classified R7-046; first reproduction and correction are
+  queued next. Source49/57 candidate and retention0.2.3 remain separate work.

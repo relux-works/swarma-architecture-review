@@ -368,6 +368,136 @@ class Semantics(unittest.TestCase):
         final = e.operation(op, 4)
         self.assertEqual(final.get("outcome"), "revised", final)
 
+    # K-PUB-2/K-DISC-3: every exact associated publication needs its own current check;
+    # same-origin copies keep evidence/source identity while missing checks downgrade currentness.
+    def test_import_check_coverage(self):
+        base = SPEC.parent / "conformance/cases"
+        for suffix in ("", "-unverified", "-control"):
+            with self.subTest(fixture=suffix):
+                case = strict_loads((base / ("astra-26-import-check-coverage" + suffix + ".vector.json")).read_text())
+                self.assertEqual(compare(engine(case).execute(case["operations"], case["query"]), case,
+                                         Grammar(SPEC / "kernel/schemas")), ([], []))
+        v = strict_loads((base / "astra-26-import-check-coverage-control.vector.json").read_text())
+        complete = engine(v).read(v["query"])
+        for source in ("rec:copy1", "rec:copy2", "rec:copy3"):
+            with self.subTest(missing_exact_check=source):
+                e = engine(v)
+                e.state["policy"]["imports"] = [i for i in e.state["policy"]["imports"] if i["source"]["id"] != source]
+                before = copy.deepcopy(e.state)
+                result = e.read(v["query"])
+                self.assertEqual(result["currentness"], "last_received")
+                self.assertEqual(result["items"][0]["currentness"], "last_received")
+                for part in ("support", "oppose"):
+                    self.assertEqual({k: v for k, v in result["items"][0][part].items() if k != "authorized_snapshot_handle"},
+                                     {k: v for k, v in complete["items"][0][part].items() if k != "authorized_snapshot_handle"})
+                    self.assertEqual(result["items"][0][part]["authorized_snapshot_handle"], result["authorized_snapshot_handle"])
+                self.assertEqual(result["items"][0]["source_refs"], complete["items"][0]["source_refs"])
+                self.assertEqual(e.state, before)
+                # An ordinary document does not require a publication current-version check.
+                next(r for r in e.state["records"] if r["envelope"]["id"] == source)["body"]["source_kind"] = "document"
+                self.assertEqual(e.read(v["query"])["currentness"], "current")
+
+        e = engine(v)
+        e.state["policy"]["imports"] = [i for i in e.state["policy"]["imports"] if i["source"]["id"] != "rec:copy3"]
+        next(r for r in e.state["records"] if r["envelope"]["id"] == "rec:copy3")["envelope"]["disclosure"]["audiences"] = []
+        hidden = e.read(v["query"])
+        self.assertEqual(hidden["currentness"], "current")
+        self.assertEqual(hidden["items"][0]["source_refs"], [{"id": "rec:copy1", "version": 1}, {"id": "rec:copy2", "version": 1}])
+        self.assertEqual(hidden["items"][0]["support"]["independent_root_count"], 1)
+
+    # K-EVAL-8: a recomputed snapshot retains transitive eligible review paths across schemas;
+    # hiding any necessary path element filters downstream refs without recreating dirty evidence.
+    def test_transitive_review_paths(self):
+        v = strict_loads((SPEC.parent / "conformance/cases/astra-24-transitive-review.vector.json").read_text())
+        e = engine(v)
+        baseline = e.execute(v["operations"], v["query"])
+        with self.subTest(exact_fixture=True):
+            self.assertEqual(compare(baseline, v, Grammar(SPEC / "kernel/schemas")), ([], []))
+        b = {"id": "rec:dependent", "version": 1}
+        for hidden, expected in (("rec:review-dependent", []), ("rec:review-second", [b]),
+                                 ("rec:dependent", []), ("rec:dependent-c", [b]), ("rec:d", [])):
+            with self.subTest(hidden=hidden):
+                e = engine(v)
+                r = next(r for r in e.state["records"] if r["envelope"]["id"] == hidden)
+                r["envelope"]["disclosure"]["audiences"] = ["aud:public"]
+                before = copy.deepcopy(e.state)
+                result = e.read(v["query"])
+                self.assertEqual(result["review_required"], expected)
+                for item, original in zip(result["items"], baseline["result"]["items"]):
+                    for part in ("ref", "content", "currentness", "needs_review"):
+                        self.assertEqual(item[part], original[part])
+                    for part in ("support", "oppose"):
+                        self.assertEqual({k: v for k, v in item[part].items() if k != "authorized_snapshot_handle"},
+                                         {k: v for k, v in original[part].items() if k != "authorized_snapshot_handle"})
+                        self.assertEqual(item[part]["authorized_snapshot_handle"], result["authorized_snapshot_handle"])
+                self.assertEqual(len(result["items"]), len(baseline["result"]["items"]))
+                self.assertEqual(result["cutoffs"], [])
+                self.assertEqual(e.state, before)
+                self.assertEqual(e.state["runtime"]["dirty"], [])
+                self.assertEqual(e.state["runtime"]["dirty_causes"], [])
+        # Registered review edges may cycle; the finite reached set still contains B and C once.
+        e = engine(v)
+        edge = copy.deepcopy(next(r for r in e.state["records"] if r["envelope"]["id"] == "rec:review-second"))
+        edge["envelope"]["id"] = "rec:review-cycle"
+        edge["envelope"]["recorded"]["sequence"] = e.state["runtime"]["memory_cut"] + 1
+        edge["body"]["target"]["assertion"] = b
+        edge["body"]["premises"][0]["literal"]["assertion"] = {"id": "rec:dependent-c", "version": 1}
+        e.state["records"].append(edge)
+        fact = copy.deepcopy(next(f for f in e.state["policy"]["lineage_facts"] if f["output"]["id"] == "rec:review-second"))
+        fact["output"] = ref(edge)
+        e.state["policy"]["lineage_facts"].append(fact)
+        e.state["runtime"]["memory_cut"] += 1
+        e.state["runtime"]["committed_cuts"].append(e.state["runtime"]["memory_cut"])
+        q = copy.deepcopy(v["query"])
+        q["cut"]["memory"] = e.state["runtime"]["memory_cut"]
+        before = copy.deepcopy(e.state)
+        result = e.read(q)
+        self.assertEqual(result["review_required"], [b, {"id": "rec:dependent-c", "version": 1}])
+        self.assertEqual(e.state, before)
+
+    # K-EVAL-8/K-RULE-2: mixed impact paths carry a review obligation only after a review
+    # edge; sufficient-only/documentary paths and hidden necessary certificates do not create one.
+    def test_mixed_review_paths(self):
+        v = strict_loads((SPEC.parent / "conformance/cases/astra-24-transitive-review.vector.json").read_text())
+        certificate = next(r for r in vector("S17")["initial_state"]["records"] if r["envelope"]["id"] == "cert:j")
+        b, c = {"id": "rec:dependent", "version": 1}, {"id": "rec:dependent-c", "version": 1}
+        for roles, expected in ((("review_on_change", "sufficient_support"), [b, c]),
+                                (("sufficient_support", "review_on_change"), [c]),
+                                (("sufficient_support", "sufficient_support"), []),
+                                (("documentary_basis", "review_on_change"), [])):
+            with self.subTest(roles=roles):
+                e = engine(v)
+                certs = []
+                for name, role in zip(("rec:review-dependent", "rec:review-second"), roles):
+                    edge = next(r for r in e.state["records"] if r["envelope"]["id"] == name)
+                    edge["body"]["role"] = role
+                    if role != "sufficient_support": continue
+                    cert = copy.deepcopy(certificate)
+                    cert["envelope"]["id"] = "cert:" + name
+                    e.state["runtime"]["memory_cut"] += 1
+                    cert["envelope"]["recorded"]["sequence"] = e.state["runtime"]["memory_cut"]
+                    cert["body"]["pins"]["subject"] = ref(edge)
+                    cert["body"]["pins"]["rule"] = edge["body"]["rule"]
+                    edge["body"]["rule_kind"] = "checked_entailment"
+                    edge["body"]["check"] = ref(cert)
+                    e.state["records"].append(cert)
+                    fact = copy.deepcopy(next(f for f in e.state["policy"]["lineage_facts"] if f["output"] == ref(edge)))
+                    fact["output"] = ref(cert)
+                    e.state["policy"]["lineage_facts"].append(fact)
+                    certs.append(cert)
+                e.state["runtime"]["committed_cuts"] = sorted(set(e.state["runtime"]["committed_cuts"]) | {e.state["runtime"]["memory_cut"]})
+                q = copy.deepcopy(v["query"])
+                q["cut"]["memory"] = e.state["runtime"]["memory_cut"]
+                before = copy.deepcopy(e.state)
+                result = e.read(q)
+                self.assertEqual(result["review_required"], expected)
+                self.assertEqual(result["items"][0]["support"]["witness"], "not_found")
+                self.assertEqual(result["items"][0]["oppose"]["witness"], "not_found")
+                self.assertEqual(e.state, before)
+                if roles == ("sufficient_support", "review_on_change"):
+                    certs[0]["envelope"]["disclosure"]["audiences"] = []
+                    self.assertEqual(e.read(q)["review_required"], [])
+
     # R7-020: authorized coverage uses the closed ref field; no declaration remains unknown.
     # A planted declaration spelling must fail both the exact comparison and closed view grammar.
     def test_coverage_mapping(self):

@@ -261,3 +261,20 @@ are requested; no implementation correction has yet been applied.
 Full42-case supplemental:39 pass / 3 fail / 0 unsupported semantic; one deployment
 unsupported. R7-037 is the third failure. Canonical57/57 remains the last checked
 baseline; R7-041 corrected family remains green. All first reports stay immutable.
+
+### R7-044/045 classified corrections
+
+Judge classified ASTRA26-09 as R7-044 and ASTRA24-09 as R7-045. Exact publication
+coverage now checks every authorized associated object, preserving same-origin
+counts and all source refs. Missing each of the three check facts downgrades
+currentness exactly like explicit unverified; a hidden publication has no effect.
+Existing expiry, replacement and ordinary-document boundaries remain covered.
+
+Review traversal now follows eligible registered impact paths with a retained
+review-on-change obligation. Both mixed orders (review then sufficient, sufficient
+then review), pure transitive review and a bounded review cycle pass; pure
+sufficient/documentary paths and hidden necessary elements/certificates create no
+extra review. Selected evidence stays unchanged and the state is never dirtied by
+this read. Exact fixture/forbidden checks and all22controls pass. Canonical57/57
+and pinned42-case supplemental41/1/0 are retained. Independent review is pending;
+first08c4b9a is immutable. The remaining supplemental failure is separate R7-037.
