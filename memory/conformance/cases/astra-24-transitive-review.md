@@ -1,7 +1,7 @@
 # ASTRA24-09: registered review is a path property after recomputation
 
 Status: R7-045 package implementation bug; correction `f6c339d` independently
-verified. Both implementations pass the exact migrated fixture. Owner: astra-24. Package `0.2.2-draft` at
+verified and judge-closed. Both implementations pass the exact migrated fixture. Owner: astra-24. Package `0.2.2-draft` at
 `7e71765`; execution checkout `a016781`.
 
 ## Clauses and two readings
@@ -104,3 +104,7 @@ the separate ASTRA24-08-NEXT failure. Exact evidence: package16/source25 and
 by this seat; judge closure remains separate. This corpus does not cover all
 new 0.2.3 retention refusal requirements, whose implementation review remains
 with their owners. Original package first failure `08c4b9a` remains immutable.
+
+Judge decision `$FUaN_53BaXJmAS0URtEd8DTcbnlzmmLxJ_z4s3DG0yk` closes R7-045 at
+`f6c339d` after its own unchanged 0.2.2 exact case, native review controls and
+canonical 57/57 run. This seat independently verified the migrated 0.2.3 input.

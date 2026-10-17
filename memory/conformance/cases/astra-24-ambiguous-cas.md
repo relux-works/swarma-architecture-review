@@ -1,8 +1,9 @@
 # ASTRA24-08: an exact candidate is not an unambiguous compare-and-set head
 
 Status: judge-classified R7-040 (source) and R7-041 (package), both implementation bugs.
-Package correction independently verified at `53266dd`; source `68152c5` fixes
-the original refusals but fails the new remaining-head continuation.
+Package correction independently verified at `53266dd`; source correction
+`99b5a85` now also passes the remaining-head continuation. Judge decisions
+close both R7-040 and R7-041.
 Owner: astra-24.
 Execution checkout `7e71765`, package `0.2.2-draft`; first valid separating run
 was at `1f3180d` on package `0.2.1-draft` with the same semantic expectations.
@@ -179,3 +180,32 @@ under its existing actor/space/record retain grant. No grant is inferred from a
 later query. `.temp/astra24-profile-023-migration.json` records old/new hashes,
 exact operation contexts and normalized equality. Structural and intended
 forbidden controls pass log 22. Earlier hashes identify historical profile runs.
+
+## Round 22 source remaining-head correction verified
+
+Source correction `99b5a85` passes all five CAS vectors at checkout `ddc62c6`
+on the explicit 0.2.3 fixtures committed in that checkout. NEXT admits both
+withdrawals, preserves the intermediate d2/current capture, and returns d1/current
+at cut 102. Its exact normalized output, inventory, relations and forbidden-value
+checks pass. Current NEXT SHA-256:
+`734f230192fe36c8dab4f193b41969094dc5350209e09fa0325afc76a1c149ae`.
+No fixture or expected result changed for this verification.
+
+All thirteen owned source vectors pass. Three focused native transaction tests
+also pass: next-head continuation; exact records/runtime/policy preservation for
+ambiguous and stale refusals, with unique-head/challenge positives; and later
+common-successor admission with exact historical receipt replay before CAS.
+The implementation now excludes withdrawn authority candidates and returns the
+remaining exact receipt-ordered candidate rather than an ordinary revision token.
+These controls do not establish arbitrary graph or concurrent-storage safety.
+
+Evidence: `.temp/astra22-owned-cases-26.json` includes exact input and Python
+module hashes; `.temp/astra22-authority-cas-controls-02.log` records all three
+methods. The initial remaining-head failure `bd75f4f` and first source reports
+remain immutable. R7-040 closure is recommended after the judge's own gates;
+full retention enforcement and canonical unsupported operations are separate.
+
+Judge decision `$tmfi_3vaCFABPnbEDIekguKbs5okvS5uAK-igNNYZng` closes R7-040 at
+`99b5a85` after independent frozen 0.2.2 verification of all five CAS cases,
+14 transaction controls and canonical 49/0/8. This seat separately verifies the
+explicitly migrated 0.2.3 cases above; the two release claims remain distinct.

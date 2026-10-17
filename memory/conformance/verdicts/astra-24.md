@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 21; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 22; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.3-draft` at `23290b3`; all owned fixtures explicitly migrated.
 
 ## Scope and method
@@ -22,8 +22,8 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 fixed `4e647ea`, judge-closed `56e5909` |
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
-| ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package verified `53266dd`; source `68152c5` passes original cases but fails remaining-head continuation |
-| ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified `f6c339d`; both exact fixtures pass, judge closure pending |
+| ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package `53266dd` and source `99b5a85` independently verified; both judge-closed |
+| ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -337,11 +337,29 @@ R7-045 closure is recommended after judge gates; its original first failure is
 retained. These authorized contexts do not qualify the full new retention refusal
 contract; its owner repairs and broader canonical runs are separate.
 
+## Round 22 remaining authority head verified
+
+Source `99b5a85` passes all thirteen unchanged migrated fixtures at checkout
+`ddc62c6`, including every ASTRA24-08 neighbor and the NEXT read/write continuation.
+Three focused native CAS tests preserve exact refusal state, challenge exemption,
+new authority ordering and historical receipt replay. Withdrawn candidates no
+longer displace the remaining active receipt head. Report 26 records all input
+and implementation hashes; `astra22-authority-cas-controls-02.log` records the
+focused controls. First failure `bd75f4f` remains intact. R7-040 closure is
+recommended after judge review, without extending this claim to unsupported
+canonical operations or the separate retention contract.
+
+Judge decisions close R7-040 at `99b5a85`, R7-043 at `3722327`, and R7-045
+at `f6c339d`; their exact event identifiers are retained in the relevant case
+and round handoff. Canonical retention repairs and expanded source coverage
+remain separate from these verified closures.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Package owned corpus 13/13 passes, but source remaining-head
-continuation remains open. Full 0.2.3 dual coverage and other collective repairs
-remain pending. Protected deployment is unqualified.
+**Phase 2 R7: 1/2.** Both evaluators pass the thirteen owned fixtures at their
+recorded verification heads. Full 0.2.3 dual coverage, formal remaining judge
+closures and other collective repairs remain pending. Protected deployment
+is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
