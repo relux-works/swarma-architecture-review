@@ -37,6 +37,10 @@ evaluator, or vice versa.
 | R7-011 | astra-22; [ASTRA22-01](impl-astra-22/DIVERGENCES.md) and [first report](impl-astra-22/runs/0.1.0-first.md) at `0216fbb`; event `$q2rmdjcgGsAbigvatBoz_JwexvdtkYlhoOGn0ROjGrg` | S12/B13; K-EVAL-2/5; companion §§4–6 | impl-bug | astra-22 | open | Current-required unavailable/erased root produces complete support search and no cutoff, rather than incomplete + source_unavailable. Judge reproduced exact differences at `bbc1b50`; core simply continues on unavailable non-retained sources. Fix must preserve resolvable/retained/independent controls and hidden-source filtering before budget/cutoffs. |
 | R7-012 | astra-22; [ASTRA22-02](impl-astra-22/DIVERGENCES.md) and [first report](impl-astra-22/runs/0.1.0-first.md) at `0216fbb`; event `$0_1Sh7RGoPBXu7yojA34jiGypyl0onIm7AhyodbKP2s` | S12/B13/S32; kernel §6.1/S32; K-EVAL-5 | impl-bug | astra-22 | open | No-witness channels lose authorized unavailable-source associations and report resolvable_now instead of prior_assessment_only, including S32 opposite controls and its forbidden predicate. Judge reproduction agrees. Preserve the vacuous no-source state and never convert signature/documentary association into a signed root or hidden-source leak. |
 | R7-013 | astra-22; [ASTRA22-03](impl-astra-22/DIVERGENCES.md) and [first report](impl-astra-22/runs/0.1.0-first.md) at `0216fbb`; event `$Px1j1aY5wn91auk3ubM-DXFIve6l_dMd2oBDI03YRGY` | S23/B03/S28/S29; K-REC-1/2, K-REV-3, K-EVAL-5/9 | impl-bug | astra-22 | open | source_refs omits the exact source for subject-pinned non-root assessments and the authority receipt; polarity/currentness otherwise agree. Judge reproduced each missing list entry. Extend adapter association mapping with visibility intact; mirror attribution must remain noncanonical and no extra semantic root may be minted. |
+| R7-014 | astra-24; [mixed-source-state](cases/astra-24-mixed-source-state.md) at `a46eb98`; event `$eIoHp2A9lGbaJ4DePaJMhcl2b_p-wP8voqMVOsjN3bw` | K-EVAL-5, K-RULE-2, K-REC-2/3; kernel §6.1; companion §6 | spec-bug | astra-21 | open | Define source-state composition within a complete AND path before preference across OR alternatives. A necessary retained-only B premise is not discharged by independent attestation of A; A AND B → C must retain prior_assessment_only unless another complete stronger path exists. No new enum, authority, or inference rule is needed. |
+| R7-015 | astra-22; [ASTRA22-04](impl-astra-22/DIVERGENCES.md), [case-first report](impl-astra-22/runs/case-first.json) at `b3c7ac9`; event `$OvHSZtZ_OnDnssWZ_HeCEWgQ2WUGsdZya6Wu9jd6qOY` | ASTRA24-03; same clauses as R7-014 | impl-bug | astra-22 | open | Frozen core unions all premise source states and chooses any independent/current state, upgrading C despite an essential retained-only B. Judge probe at `a17c231` reproduces independent_attestation versus prior_assessment_only. Fix AND composition separately from OR preference, with all-current/all-independent and independent alternative controls; preserve witness and completeness. |
+| R7-016 | astra-26; [location-slots](cases/astra-26-location-slots.md) at `0c278b5`; event `$eQoI5RcBquCz3xymwrB0I0rS_ybnvNc9tOzeNAXrPuU` | Kernel §§4, 11.2; K-DOM-2/3; location schema | rejected | None; retained regression | rejected | The package explicitly keys single location sequences and incompatibilities by kind/slot. Residence and current location coexist; the flat reading contradicts the declared grammar. Source evaluator reports unsupported, not pass; the scenario remains useful additional coverage. |
+| R7-017 | astra-26; [relationship-introductions](cases/astra-26-relationship-introductions.md) at `0c278b5`; event `$ZgkB3vgHDwZo1pwpJZPrV4Wk0IM6-5vDaRslUDCSnaw` | Kernel §11.2; K-SCOPE-1; profiles domain requirements | rejected | None; retained regression | rejected | Existing distinct schemas and no_derived_consent forbid deriving openness from relationship status or granting action from an enabled flag. Explicit enabled=true/adult_opt_in=false remains storable attributed data with no contact effects. No new spec defect; source adapter reports admit unsupported. |
 
 Every received case is classified against the first landed package. Rejection
 means the proposed bad reading already contradicts explicit package clauses; it
@@ -161,3 +165,27 @@ field-level differences, totals, and the unchanged frozen-core SHA-256 against
 All observed failed fields map to R7-011–013. These are implementation fixes;
 the package's expected outputs remain unchanged. Unsupported operations remain
 explicit and are not scored as passes, disagreements, or proven package defects.
+
+### Round 6 — mixed witness qualification and remaining profile scenarios
+
+Reviewed ASTRA24-03 and ASTRA22-04 together. The source contract requires scoped
+attestation and every AND premise; a witness for A cannot remove C's necessary
+dependence on retained-only B. K-EVAL-5's preference between alternative complete
+paths must not be applied to a flattened union of their individual premises.
+R7-014 closes that package algorithm; R7-015 tracks the observed implementation
+upgrade. An authorized source-state summary may be conservative, but cannot
+advertise a sufficient independent/current path that does not exist. No owner
+architecture decision is required for this qualification boundary.
+
+At `a17c231`, judge execution of the proposed ASTRA24-03 fixture reproduced all
+five reported differences: two existing R7-012 fields, a derived source_refs
+omission extending R7-013, and the incorrect C source state plus its forbidden
+predicate (R7-015). Local output is seat
+`.temp/mixed-source-state-probe-01.json`; the proposed fixture was not silently
+treated as an already-released canonical vector. R7-013's fix also covers
+authorized provenance from found premise paths, without exposing hidden inputs.
+
+Read both newly submitted profile regressions at `0c278b5`. R7-016/017 reject
+their bad readings as already forbidden; their scenario coverage is retained.
+All source fixes preserve the immutable first-run report. Editor acknowledgments
+confirm R7-006/008/010 are being addressed in the next release.
