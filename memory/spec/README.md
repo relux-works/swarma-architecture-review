@@ -1,6 +1,6 @@
 # Bounded evidence memory — R7 specification package
 
-Version: **0.2.3-draft**. Status: reviewable specification, not an implemented or
+Version: **0.2.4-draft**. Status: reviewable specification, not an implemented or
 security-qualified service. All examples are synthetic or admitted non-sensitive
 architecture examples. There are **52 normative clauses and 65 conformance
 vectors: 57 semantic and 8 protected-deployment checks**.

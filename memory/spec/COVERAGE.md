@@ -58,7 +58,7 @@ clauses. A citation does not claim exhaustive testing of every sentence.
 | P13 | semantic | K-DISC-1, K-ENV-3, K-PROJ-1, K-NI-1, K-AUTH-1, K-API-1 | kernel §§7.1,8, §12 P13; known-input retention and atomic intake |
 | P14 | semantic | K-REV-4, K-REV-1, K-API-1 | kernel §§5.2,5.4, §12 P14 |
 | P15 | semantic | K-PROJ-2, K-PROJ-1, K-REV-2, K-DISC-4 | kernel §9.3, §12 P15 |
-| B01 | semantic | K-REV-3, K-EVAL-8, K-EVAL-9 | design First-slice acceptance vectors, row 1; kernel §11.1 |
+| B01 | semantic | K-REV-1, K-REV-3, K-REF-1, K-API-1, K-EVAL-8, K-EVAL-9 | design First-slice acceptance vectors, row 1; kernel §11.1 |
 | B02 | semantic | K-REV-3, K-REC-1, K-ENV-3 | design First-slice acceptance vectors, row 2; kernel §5.3 |
 | B03 | semantic | K-REC-1, K-REV-3, K-BOUND-1 | design First-slice acceptance vectors, row 3; companion §3 |
 | B04 | deployment | K-BOUND-1, K-PUB-1, K-REC-3 | design First-slice acceptance vectors, row 4; kernel §10; D-001 |

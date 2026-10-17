@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:bounded-evidence:0.2.3:view",
+  "$id": "urn:bounded-evidence:0.2.4:view",
   "type": "object",
   "properties": {
     "type": {
@@ -9,7 +9,7 @@
     },
     "semantic_profile": {
       "type": "string",
-      "const": "0.2.3-draft"
+      "const": "0.2.4-draft"
     },
     "projection_rule": {
       "type": "object",

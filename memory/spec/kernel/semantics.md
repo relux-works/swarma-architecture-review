@@ -1,4 +1,4 @@
-# Bounded evidence memory 0.2.3-draft
+# Bounded evidence memory 0.2.4-draft
 
 This document and the closed schemas and vectors are one contract. MUST, MUST NOT,
 REQUIRED, SHALL, SHALL NOT, SHOULD and MAY have their RFC 2119 meanings. A heading
@@ -225,7 +225,15 @@ single-head plain-admission restriction: the authority may supply historical or
 incomparable events. Such import creates no memory-side replacement relation;
 receipt ordering alone determines currentness. The id/version must still be new.
 Memory-only revision links MUST NOT override receipt ordering or create adoption.
-For authoritative replacements the new receipt MUST succeed the prior receipt.
+For an authoritative replacement/correction, the new canonical receipt MUST
+strictly succeed the target's receipt through one or more predecessor edges;
+equality is not succession. A missing qualifying receipt, including an identical,
+prior or incomparable canonical receipt, MUST yield `authority_receipt_required`
+with `retryable: false`, committing no records, cuts, dirty state or idempotency
+entry. This requirement does not turn a receipt-order failure into a compare-and-set
+failure: `version_conflict` remains the K-REV-1 current-head mismatch or ambiguity.
+K-REV-1's exact successful replay detection still precedes the current-head check;
+replaying an authorized completed replacement does not attempt a new succession.
 
 ### K-REV-4 — Three distinct conflict outcomes
 
@@ -901,7 +909,7 @@ A refusal contains only type, code and retryable. Codes and meanings are:
 | representation_invalid | No checked authority to represent issuer | false |
 | not_authorized | Missing operation right or invalid projection binding | false |
 | quarantined | No affirmative admission review | false |
-| authority_receipt_required | Missing canonical decision receipt | false |
+| authority_receipt_required | Missing qualifying canonical decision receipt, including a replacement/correction receipt that does not strictly succeed its target's receipt | false |
 | version_conflict | Compare-and-set head mismatch | true |
 | idempotency_conflict | Key reused for different canonical request | false |
 | rule_unqualified | Sufficient rule lacks exact deterministic certificate | false |

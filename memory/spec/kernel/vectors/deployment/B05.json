@@ -460,7 +460,7 @@
     "operation_results": [
       {
         "type": "view",
-        "semantic_profile": "0.2.3-draft",
+        "semantic_profile": "0.2.4-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -559,7 +559,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.3-draft",
+      "semantic_profile": "0.2.4-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

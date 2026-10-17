@@ -17,10 +17,15 @@ field equality; none of the schemas parses prose or grants action authority.
 synthetic source objects and opaque receipts: version 1 says archive_home, version
 2 says delete_home, and the second authority receipt succeeds the first. The
 registered assumption rec:dependent has a review_on_change edge to the old
-version and is dirty. Expected behavior is pinned by B01: cite the new decision,
+version and is dirty. Expected behavior is pinned by B01's direct-successor capture: cite the new decision,
 retain the old version as historical, and flag that registered dependent. The
 fixture is deliberately small; it does not pretend to measure pilot usefulness.
-S28/S29 cover ambiguous authority replacements and late-arriving old decisions.
+B01 also refuses missing, prior, identical and incomparable replacement receipts,
+then accepts direct and transitive successors. Successful exact replay survives
+a later head; a new stale-CAS request conflicts. The reusable fixture retains
+the original two-version pilot. S28/S29 cover ambiguous authority replacements
+and late-arriving old decisions; ordinary incomparable canonical import remains
+permitted without a memory-side replacement relation.
 
 The pilot admits only explicitly reviewed non-sensitive material suitable for a
 public project description. No personal data, raw conversations, credentials,

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:bounded-evidence:0.2.3:vector",
+  "$id": "urn:bounded-evidence:0.2.4:vector",
   "type": "object",
   "properties": {
     "id": {
@@ -30,19 +30,19 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "urn:bounded-evidence:0.2.3:assertion"
+                "$ref": "urn:bounded-evidence:0.2.4:assertion"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.3:source"
+                "$ref": "urn:bounded-evidence:0.2.4:source"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.3:justification"
+                "$ref": "urn:bounded-evidence:0.2.4:justification"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.3:assessment"
+                "$ref": "urn:bounded-evidence:0.2.4:assessment"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.3:revision"
+                "$ref": "urn:bounded-evidence:0.2.4:revision"
               }
             ]
           }
@@ -50,13 +50,13 @@
         "domain_schemas": {
           "type": "array",
           "items": {
-            "$ref": "urn:bounded-evidence:0.2.3:domain-schema"
+            "$ref": "urn:bounded-evidence:0.2.4:domain-schema"
           }
         },
         "projection_rules": {
           "type": "array",
           "items": {
-            "$ref": "urn:bounded-evidence:0.2.3:projection-rule"
+            "$ref": "urn:bounded-evidence:0.2.4:projection-rule"
           }
         },
         "policy": {
@@ -1195,7 +1195,7 @@
                     "type": "string"
                   },
                   "receipt": {
-                    "$ref": "urn:bounded-evidence:0.2.3:receipt"
+                    "$ref": "urn:bounded-evidence:0.2.4:receipt"
                   }
                 },
                 "required": [
@@ -12658,7 +12658,7 @@
                 "const": "capture"
               },
               "query": {
-                "$ref": "urn:bounded-evidence:0.2.3:query"
+                "$ref": "urn:bounded-evidence:0.2.4:query"
               }
             },
             "required": [
@@ -12941,7 +12941,7 @@
       }
     },
     "query": {
-      "$ref": "urn:bounded-evidence:0.2.3:query"
+      "$ref": "urn:bounded-evidence:0.2.4:query"
     },
     "expected": {
       "type": "object",
@@ -12951,13 +12951,13 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "urn:bounded-evidence:0.2.3:view"
+                "$ref": "urn:bounded-evidence:0.2.4:view"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.3:receipt"
+                "$ref": "urn:bounded-evidence:0.2.4:receipt"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.3:refusal"
+                "$ref": "urn:bounded-evidence:0.2.4:refusal"
               }
             ]
           }
@@ -12965,13 +12965,13 @@
         "result": {
           "oneOf": [
             {
-              "$ref": "urn:bounded-evidence:0.2.3:view"
+              "$ref": "urn:bounded-evidence:0.2.4:view"
             },
             {
-              "$ref": "urn:bounded-evidence:0.2.3:receipt"
+              "$ref": "urn:bounded-evidence:0.2.4:receipt"
             },
             {
-              "$ref": "urn:bounded-evidence:0.2.3:refusal"
+              "$ref": "urn:bounded-evidence:0.2.4:refusal"
             }
           ]
         },

@@ -107,3 +107,27 @@ Validation: 94 JSON artifacts; 14 schemas; 65 vectors (57 semantic / 8 deploymen
 Unchanged package runtime at checkout 53266dd gives 55 semantic passes and only P11/P13 failures on the explicitly labelled uncommitted 0.2.3 candidate; 8 deployment cases are unsupported. The first unauthorized admissions and their subsequent state effects are retained as red evidence. Isolated prescribed positive traces for both vectors match every expected field after only opaque-handle normalization, including exact replay, same-batch inputs and empty-label non-disclosure. These positives do not prove retention refusals. Independent release adaptation and full-state atomic-refusal checks remain necessary; canonical inventories do not expose every internal state component.
 
 Evidence in editor scratch: validate-15.log, regeneration-04.log, expected-delta-023-01.log, retention-future-fact-red-01.log, future-fact-correction-01.log, retention-positive-controls-01.log, package-evaluator-023-red.md/json and adjacent run log. Task continuity is .temp/tasks.md. No evaluator, adversary or source-design file was edited.
+
+## Editor release: 0.2.4-draft
+
+Scope: R7-049 exact authority-successor refusal mapping, K-REV-3/K-REF-1.
+Missing/prior/identical/incomparable receipts refuse `authority_receipt_required`,
+false; direct/transitive successors, authorized exact replay and ordinary
+incomparable import remain positive boundaries. CAS remains separate.
+
+Validation: 94 JSON artifacts, 65 vectors (57 semantic / 8 deployment),
+52 clauses, 33 intended checker violations. `validate-17.log` records the
+structural result; `regeneration-05.log` proves byte-identical regeneration and
+Python syntax; `expected-delta-024-01.log` proves only B01 changes after version
+normalization, with the original fixture byte-identical. All logs are under the
+editor's task-scoped scratch directory.
+
+The unchanged runtime's full canonical red run is retained in
+`package-evaluator-024-red.md/json` and its adjacent command/exit log: 56/1/0
+semantic, eight deployment unsupported. Separate `succession-024-probes.py`,
+its JSON and log record full before/after states for each invalid receipt class,
+all-field comparison of prescribed positive direct/transitive/replay/CAS traces,
+and ordinary incomparable import with no replacement/dirty effect. No evaluator
+receives expected output; comparison follows execution. Negative state mutation
+is the known failure witness, not a passing implementation. R7-047/048 runtime
+corrections and independent release runs remain separate work.

@@ -1,5 +1,47 @@
 # Package releases
 
+## 0.2.4-draft
+
+Corrects judge-classified R7-049: K-REV-3 already required an authoritative
+replacement receipt to succeed its target's receipt, but K-REF-1 did not name the
+exact refusal when a canonical receipt exists without that ordering. Missing,
+prior, identical and incomparable receipts now explicitly yield
+`authority_receipt_required`, `retryable: false`. Strict succession requires one
+or more predecessor edges, including paths through receipt-only intermediate
+events. Refusal commits no records, cut, dirty state or idempotency entry.
+`version_conflict` remains reserved for the current-head CAS contract. Exact
+currently authorized successful replay precedes CAS and preserves its receipt.
+Ordinary incomparable canonical plain import remains permitted; it creates no
+memory-side replacement relation. No new code enum or owner decision is added.
+
+Migration: package/schema/view identifiers advance to 0.2.4-draft (schema URNs
+use 0.2.4). No input shape changes. Only B01 changes after version normalization;
+all other 64 expected reports and inputs are unchanged. B01 first refuses four
+invalid receipt classes under the same key, checks unchanged currentness and no
+new cut, then accepts a direct and a transitive successor. It returns the original
+direct-write receipt on exact replay after the next head, and separately refuses
+a stale new-key request with `version_conflict`. The registered dependent remains
+review-required after the successful replacement. The reusable two-version pilot
+fixture stays byte-identical; B01's direct-successor capture pins its behavior.
+
+The inventory stays 65 vectors (57 semantic / 8 deployment), 52 clauses,
+14 schemas and 94 JSON artifacts. Structural validation and deterministic
+regeneration pass. All 33 checker controls detect their intended violations,
+including a forbidden receipt for B01's prior event. The accepted-revision
+lineage-fact plant now locates the successful write rather than assuming the
+first operation succeeds. These controls do not execute evaluator semantics.
+
+The unchanged package evaluator gives 56 semantic passes and one B01 failure;
+eight deployment cases remain unsupported. Separate identical-prestate probes
+preserve forbidden commits for prior, identical and incomparable receipts; the
+missing-receipt control is already atomically refused. Prescribed direct and
+transitive successes, exact replay and separate CAS refusal match every expected
+field after declared handle normalization. Ordinary incomparable plain import
+also succeeds with two ambiguous candidates and no revision or dirty state.
+These are retained regression and positive controls, not a corrected full-release
+conformance claim. Independent evaluator fixes and explicit supplemental fixture
+migrations remain required.
+
 ## 0.2.3-draft
 
 Corrects judge-classified R7-039 (missing retention wire scope) and R7-042

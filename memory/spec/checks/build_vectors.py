@@ -79,7 +79,7 @@ def audience_item(i,handle):
 
 def view(items=(),q=None,current=None,historical=(),review=(),cutoffs=(),explanation=None,changes=None):
  q=q or Q()
- return dict(type='view',semantic_profile='0.2.3-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
+ return dict(type='view',semantic_profile='0.2.4-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
 def refused(code): return dict(type='refusal',code=code,retryable=code in ['version_conflict','policy_mismatch','stale_generation','erasure_incomplete','publication_stale','unavailable'])
 def receipt(op,rs=(),outcome=None,custody=(),status=None,handle='@receipt'):
  return dict(type='receipt',operation=op,outcome=outcome or dict(admit='admitted',revise='revised',erase='purged',declassify='declassified',revoke='revoked',revoke_declassification='revoked',restore='fenced',deliver='delivered',control='proceeded',load='proceeded',set_availability='availability_changed')[op],receipt_handle=handle,refs=sorted([rr(x) if 'envelope' in x else x for x in rs],key=key),custody=sorted(custody),erasure_status=status)
@@ -416,7 +416,6 @@ emit('P15','Audience exclusion does not revise the organisation record',s,q,view
 # B01-B17 retain source table order; nine are semantic checks and eight deployment checks.
 # B01: the small archive-home -> delete-home pilot, with a registered stale dependent.
 s,d1,d2,r1,r2=decisions();dep=A('dependent','depends_on_archive_home');edge=J('review-dependent',dep,[d1],role='review_on_change');s=state([d1,r1,r2,dep,edge],schemas=['decision'],review=[d2]);s['policy']['authority_events']=[dict(receipt=rr(r1),issuer=H,predecessors=[],canonical=True),dict(receipt=rr(r2),issuer=H,predecessors=[rr(r1)],canonical=True)];rev=Rev('decision-replace',d1,d2,'replace');s['policy']['reviews'] += [dict(record=rr(rev),reviewer=H,result='allow')];s['policy']['lineage_facts'] += lineage_facts([rev]);q=Q('decision',cut=102)
-emit('B01','New authority decision is current and registered dependents need review',s,q,view([item(d2,sources=[r2])],q,historical=[d1],review=[dep]),['K-REV-3','K-EVAL-8','K-EVAL-9'],ops=[revise(rev,d2)],results=[receipt('revise',[rev,d2])],added=[rev,d2],dirty=[dep],forbid=[forbidden('/result/items/0/content/0/value',value='archive_home')])
 # Export the post-change pilot as a complete already-recomputed decision fixture.
 fixture_state=cp(s);fixture_state['records'] += [cp(d2),cp(rev)]
 fixture_state['policy']['lineage_facts']=lineage_facts(fixture_state['records'])
@@ -425,6 +424,22 @@ fixture_state['runtime']['dirty']=[rr(dep)]
 fixture_state['runtime']['dirty_causes']=[dict(assertion=rr(dep),revision=rr(rev))]
 fixture=dict(name='archive-home-to-delete-home',initial_state=fixture_state,query=Q('decision'))
 (ROOT/'domains'/'decisions'/'fixture.json').write_text(json.dumps(fixture,indent=2)+'\n')
+# Missing, prior, identical and incomparable receipts refuse without reserving the key.
+# Direct/transitive successors then succeed; exact replay precedes CAS after the head moves.
+r0=Source('receipt0');bridge=Source('receipt-bridge');r3=Source('receipt3');unordered=Source('receipt-unordered')
+d3=A('d','delete_home',sch='decision',version=3);d3['body']['authority_receipt']=rr(r3)
+rev3=Rev('decision-replace-transitive',d2,d3,'replace')
+s=state([d1,r1,r2,dep,edge,r0,bridge,r3,unordered],schemas=['decision'],review=[d2,rev,d3,rev3])
+s['policy']['authority_events']=[dict(receipt=rr(r),issuer=H,predecessors=[rr(p) for p in predecessors],canonical=True) for r,predecessors in [(r0,[]),(r1,[r0]),(r2,[r1]),(bridge,[r2]),(r3,[bridge]),(unordered,[])]]
+bad=[]
+for source in [None,r0,r1,unordered]:
+ candidate=cp(d2);candidate['body']['authority_receipt']=rr(source) if source else None
+ bad.append(revise(Rev('decision-replace',d1,candidate,'replace'),candidate))
+q0=Q('decision');q2=Q('decision',cut=102);q=Q('decision',cut=104)
+direct=revise(rev,d2);transitive=revise(rev3,d3,key='key:transitive')
+ops=bad+[capture(q0),capture(q2),direct,capture(q2),transitive,cp(direct),revise(rev,d2,key='key:stale-authority')]
+results=[refused('authority_receipt_required') for _ in bad]+[view([item(d1,sources=[r1])],q0),refused('invalid_time'),receipt('revise',[rev,d2]),view([item(d2,sources=[r2])],q2,historical=[d1],review=[dep]),receipt('revise',[rev3,d3]),receipt('revise',[rev,d2]),refused('version_conflict')]
+emit('B01','Only strict authority successors replace; replay and CAS stay distinct',s,q,view([item(d3,sources=[r3])],q,historical=[d1,d2],review=[dep]),['K-REV-1','K-REV-3','K-REF-1','K-API-1','K-EVAL-8','K-EVAL-9'],ops=ops,results=results,added=[rev,d2,rev3,d3],dirty=[dep],replays=[(6,9)],forbid=[forbidden('/operation_results/'+str(n)+'/type',value='receipt') for n in range(4)]+[forbidden('/operation_results/4/review_required','size_equals',1),forbidden('/operation_results/5/type',value='view'),forbidden('/operation_results/10/code',value='authority_receipt_required'),forbidden('/result/items/0/content/0/value',value='archive_home')])
 # B02: an explicit proposal is the positive control for rejected adopted status.
 a=A('d','delete_home',sch='decision');p=A('proposal','delete_home',sch='decision_proposal');s=state([],schemas=['decision','decision_proposal'],review=[a,p]);q=Q('decision_proposal',cut=101)
 emit('B02','Unreceipted decision text can enter only as an explicit proposal',s,q,view([item(p)],q),['K-REV-3','K-REC-1','K-ENV-3'],ops=[admit([a]),admit([p],key='key:proposal')],results=[refused('authority_receipt_required'),receipt('admit',[p])],added=[p],forbid=[forbidden('/result/items/0/statement_kind',value='decision_record')])

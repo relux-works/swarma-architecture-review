@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE='urn:bounded-evidence:0.2.3:'
+BASE='urn:bounded-evidence:0.2.4:'
 ERRORS=[]
 class Invalid(ValueError): pass
 
@@ -319,9 +319,17 @@ def controls(validator,vectors):
     rejected('alias-does-not-merge-principals',lambda:check_state(state,documents),'aliases merge')
     # B01 is a regression witness: an accepted revision cannot lack its integration evidence.
     check_admission_facts(vectors['B01'])
-    plant=copy.deepcopy(vectors['B01']);target=ref_of(plant['operations'][0]['revision'])
+    plant=copy.deepcopy(vectors['B01'])
+    accepted=next(op for op,result in zip(plant['operations'],plant['expected']['operation_results']) if op['op']=='revise' and result['type']=='receipt')
+    target=ref_of(accepted['revision'])
     plant['initial_state']['policy']['lineage_facts']=[f for f in plant['initial_state']['policy']['lineage_facts'] if rkey(f['output'])!=target]
     rejected('accepted-revision-needs-lineage-fact',lambda:check_admission_facts(plant),'accepted proposal missing integration fact')
+    # A receipt for B01's prior authority event must trigger its forbidden-output predicate.
+    positive=vectors['B01'];report=copy.deepcopy(positive['expected'])
+    report['operation_results'][1]=copy.deepcopy(report['operation_results'][6])
+    pred=next(x for x in positive['forbidden'] if x['path']=='/operation_results/1/type')
+    require(forbidden_true(report,pred),'authority succession forbidden-write plant not detected')
+    cases.append('authority-succession-forbidden-write')
     state=copy.deepcopy(vector['initial_state']);state['runtime']['dirty']=[dict(id='rec:a',version=1)]
     rejected('dirty-needs-unresolved-cause',lambda:check_state(state,documents),'dirty inventory lacks')
     # Valid initial own attribution passes; foreign self-declaration fails without identity coercion.

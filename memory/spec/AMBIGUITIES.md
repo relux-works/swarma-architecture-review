@@ -115,3 +115,15 @@ proposal facts were already allowed, but existence was incorrectly required
 before their operation. Admitted snapshots and successful hypothetical batches
 still require actual inputs, including unknown-lineage known lower bounds. See
 P11/P13, RELEASES.md and the retained independent ASTRA25-10 fixture.
+
+## 0.2.4-draft authority succession
+
+R7-049 makes K-REV-3's existing strict authority-order requirement explicit in
+K-REF-1: a missing qualifying successor receipt, including a canonical but prior,
+identical or incomparable receipt, yields `authority_receipt_required`,
+`retryable: false`. A memory replacement cannot invent an authority edge.
+The current-head CAS check still yields `version_conflict`; exact authorized
+successful replay precedes it. Ordinary incomparable canonical plain import
+remains permitted. B01 pairs four atomic-refusal traces with direct/transitive
+successors, preserved original replay and a separate stale-CAS refusal.
+No new refusal enum, total authority order or owner decision is introduced.

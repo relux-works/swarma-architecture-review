@@ -1,19 +1,22 @@
 # astra-21 package editor verdict
 
-Status: round 8, Phase 2 active; no PARK. Current package: 0.2.3-draft,
-signed release `23290b3`. This round changes only this verdict.
+Status: round 9, Phase 2 active; no PARK. Current package: **0.2.4-draft**,
+published by this signed release commit for judge-classified R7-049.
 
-**All 12 editor-owned specification bugs are judge-closed. Phase 2 remains 1/2.**
-R7-039 and R7-042 are accepted at `23290b3`; R7-031 was closed at `7e71765`.
-The exact closure decisions and remaining implementation limits are below.
-The editor now independently verifies current 0.2.3 source `d077064` at 49/0/8
-and package `4af0360` at 57/0/0 (semantic pass/fail/unsupported), plus all four
-retention fixtures in each runtime and targeted full-state/replay controls.
-This gives **49/57 dual canonical passes**; R7-036/037 closure is recommended to
-the judge, and eight source semantics remain unsupported. The original red
-baselines are preserved. Neither this result nor historical original-rubric 2/2
-at `b1ae299` establishes full profile or protected deployment conformance.
-The judge owns the final [score](../R7-SCORE.md) and [ledger](../LEDGER.md).
+**All prior 12 editor-owned specification bugs are judge-closed; R7-049 is
+review-ready in this release. Phase 2 remains 1/2.** The exact authority-succession
+refusal mapping now agrees with the source requirement and preserves direct and
+transitive successor, plain import, replay and CAS boundaries. R7-047/048 are
+separate implementation defects; their first evidence remains unchanged.
+
+On the uncommitted 0.2.4 candidate, unchanged package runtime `4af0360` gives
+56/1/0 semantic, with B01 the sole intended regression failure. Separate positive
+traces match every expected field. This is not a passing new-release claim.
+Previously independently verified 0.2.3 source `d077064` and package `4af0360`
+give 49/57 dual canonical passes; the judge has since closed retention R7-036/037
+and delivery-actor R7-046. New source coverage and adversarial results are tracked
+by the judge's [score](../R7-SCORE.md) and [ledger](../LEDGER.md), separately from
+this editor's verification. No full-profile or protected deployment claim follows.
 
 ## Scope and independence
 
@@ -159,6 +162,40 @@ Recommendation: close R7-036/037's implemented retention/current-replay defects,
 subject to judge. Remaining source unsupported semantics are B07, P05, P08, S20,
 S24, S25, S26 and S27. This round changes only this verdict; the package is stable.
 
+## Round 9: authority succession refusal mapping
+
+Judge decision `$oswbTe0Ndkm1yCdJdGq7nbrO9wT2oEUuevIL7-Sa6Zk` assigns R7-049.
+K-REV-3 and K-REF-1 now explicitly refuse a missing qualifying strictly succeeding
+canonical replacement/correction receipt as `authority_receipt_required`, false.
+A canonical prior, identical or incomparable receipt does not qualify. CAS head
+mismatch remains `version_conflict`; successful currently authorized exact replay
+precedes it. Ordinary incomparable canonical import remains permitted.
+
+B01 adds four same-key negative operations, unchanged-state view/cut controls,
+direct/transitive successes, original receipt replay after a newer head and a
+separate stale-CAS refusal. All expected fields are hand-specified. Only B01's
+inputs/report change after profile normalization; the other 64 remain unchanged.
+The reusable two-version decision fixture stays byte-identical.
+
+Structural checks: 94 JSON artifacts, 14 closed schemas, 65 vectors, 52 clauses,
+33 intended checker violations, deterministic regeneration and syntax checks.
+The previous accepted-write lineage-fact plant follows the actual accepted
+revision; a new forbidden-receipt plant detects an improper prior-event success.
+
+Unchanged runtime red: 56 semantic pass / 1 fail / 0 unsupported; deployment eight
+unsupported. Isolated missing-receipt refusal is atomic; prior/identical/incomparable
+probes each preserve actual forbidden commit/full-state evidence from identical
+prestates. The prescribed direct/transitive/replay/CAS positive trace matches all
+fields after declared handle normalization. Ordinary incomparable plain import
+is admitted with both candidates ambiguous, no memory revision and no dirty state.
+These are regression witnesses and positive controls, not runtime correction.
+
+Evidence under `.temp/astra-21/`: `validate-17.log`, `regeneration-05.log`,
+`expected-delta-024-01.log`, `package-evaluator-024-red.md/json`, its adjacent
+command log, and `succession-024-probes.py/json` with `succession-024-probes-01.log`.
+Original ASTRA24-10 first inputs/results and new adversary-owned exact vectors are
+untouched. Independent release execution and judge review remain required.
+
 ## Previous 0.2.1 validation and execution evidence
 
 `python3 memory/spec/checks/validate.py` passes: 94 JSON artifacts, 14 closed
@@ -206,8 +243,9 @@ B01/B07/P05/P06/P08/P12/S07/S17/S20/S23/S24/S25/S26/S27. Adversaries target thos
 clauses and the v0.2 delta. The editor will apply resulting judge-classified
 package fixes with preserved regression controls and a versioned 0.2.x release.
 R7-031/039/042 are judge-closed. Exact-release retention enforcement in R7-036/037
-is independently verified by this editor and awaits judge closure. The eight
-remaining unsupported source semantics still require implementation and review;
+is independently verified by this editor and judge-closed. R7-049 now awaits
+review of 0.2.4; R7-047/048 remain with evaluator owners. Remaining unsupported
+source semantics still require implementation and review;
 adversary fixtures have explicit 0.2.3 migrations. Other newly classified implementation defects remain with
 their evaluator owners; no expected answer was changed to match an evaluator.
 
