@@ -42,3 +42,26 @@ will prove semantic differences and forbidden effects are detected.
   `.temp/package-validate-01.log`.
 - This baseline is committed before reading any design, notes, inputs, other
   evaluator, ledger or divergence topic. Disagreements are retained, not silently fixed.
+
+## Round 1 — 0.2.0 package grammar adaptation
+
+- Read only the released package diff at cde5754 (52 clauses, 65 vectors).
+- Retained an unchanged-evaluator diagnostic run against the new grammar under
+  `.temp/impl-astra-23/`; this is not a new conformance claim.
+- Implement integration-established complete/unknown lineage, exact owner release
+  decisions with revocation, frozen delivery item bindings and exclusion filters.
+- Negative controls: missing owner evidence must atomically refuse; revoked
+  evidence must not authorize new delivery; unknown/tainted input sets must not
+  create audience evidence; exclusions must not mutate independent projections.
+- Original B03/S23 and S30 differences await judge classification.
+
+### Round 1 outcome
+
+- 0.2.0-draft at cde5754: 54/57 semantic pass; B03/S23 await R7-019
+  specification clarification; B01 newly fails missing mandatory revision fact.
+- R7-020 declared-coverage field fixed after the judge's impl-bug decision.
+- Nine controls pass (four checker, five product); test claims and limitations
+  accompany each test. No deployment qualification: all eight unsupported.
+- `DIVERGENCES.md` retains first-run classifications and the B01 separating control.
+- Logs: `.temp/impl-astra-23/controls-02.log`, `semantics-controls-01.log`,
+  `release-020-02.log`. All P12-P15 and extended P05 pass.

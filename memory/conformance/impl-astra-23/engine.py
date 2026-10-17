@@ -4,6 +4,7 @@ import copy
 
 from common import Grammar, Refused, cjson, digest, key, receipt, ref, refs, stamp, strict_loads
 from evaluator import Evaluation
+from disclosure import effective_label, lineage_complete, lineage_inputs, release_valid
 
 
 class Engine:
@@ -12,51 +13,21 @@ class Engine:
         self.state = copy.deepcopy(initial_state)
         self.grammar, self.version = grammar, version
         self.captures = {}
+        self.view_bindings = {}
         self.dirty_since = {key(r): self.state["runtime"]["memory_cut"] for r in self.state["runtime"]["dirty"]}
 
     def index(self):
         return {key(r): r for r in self.state["records"]}
 
-    def disclosure(self, record, query=None, seen=None):
-        seen = set() if seen is None else set(seen)
-        e = record["envelope"]
-        out = copy.deepcopy(e["disclosure"])
-        if key(record) in seen:
-            out["audiences"], out["purposes"] = [], []
-            return out
-        seen.add(key(record))
-        inherited = []
-        domain = next((s for s in self.state["domain_schemas"] if key(s) == key(e["schema"])), None)
-        if domain:
-            for field in domain["fields"]:
-                rule = next(d for d in domain["disclosure_defaults"] if d["field_class"] == field["disclosure_class"])
-                inherited.append({**rule, "retain_until": None, "field_classes": [field["disclosure_class"]]})
-        records = self.index()
-        inherited += [self.disclosure(records[key(r)], query, seen) for r in e["lineage"] if key(r) in records]
-        for label in inherited:
-            for part in ("audiences", "purposes"):
-                out[part] = sorted(set(out[part]) & set(label[part]))
-            out["field_classes"] = sorted(set(out["field_classes"]) | set(label["field_classes"]))
-            deadlines = [d for d in (out["retain_until"], label["retain_until"]) if d is not None]
-            out["retain_until"] = min(deadlines) if deadlines else None
-        release = records.get(key(e["disclosure"]["declassification"]))
-        if query is not None and release is not None:
-            b, policy = release["body"], self.state["policy"]
-            pin = b.get("declassification")
-            if (pin and b["check_kind"] == "declassification" and b["result"] == "pass"
-                    and release["envelope"]["issuer"] == policy["owner"] and b["executor"] in ("human", "deterministic")
-                    and b["pins"]["subject"] == ref(record) and b["pins"]["policy"] == policy["evidence"]["policy_pin"]
-                    and b["pins"]["environment"] == policy["evidence"]["environment_pin"]
-                    and pin["inputs"] == e["lineage"] and pin["output_schema"] == e["schema"]
-                    and pin["output_digest"] == digest(record["body"])
-                    and query["audience"] == pin["audience"] and query["purpose"] == pin["purpose"]):
-                out["audiences"] = sorted(set(out["audiences"]) | {pin["audience"]})
-                out["purposes"] = sorted(set(out["purposes"]) | {pin["purpose"]})
-        return out
+    def disclosure(self, record, query=None):
+        return effective_label(self, record, query)
 
     def read(self, query):
         try:
-            return Evaluation(self, query).run()
+            evaluation = Evaluation(self, query)
+            result = evaluation.run()
+            self.view_bindings[result["authorized_snapshot_handle"]] = evaluation.selected_refs
+            return result
         except Refused as error:
             return error.response()
 
@@ -106,6 +77,12 @@ class Engine:
                 raise Refused("not_authorized")
             rt["revocations"].append({k: op[k] for k in ("principal", "audience", "purpose", "right", "at")} | {"owner": op["actor"]})
             return receipt(kind, "revoked")
+        if kind == "revoke_declassification":
+            decision = next((d for d in p.get("declassification_decisions", []) if d["ref"] == op["decision"]), None)
+            if decision is None or decision["owner"] != op["actor"]:
+                raise Refused("not_authorized")
+            rt["revoked_declassifications"] = refs([*rt["revoked_declassifications"], op["decision"]])
+            return receipt(kind, "revoked")
         if kind == "deliver":
             captured = self.captures.get(op["view_operation"])
             if captured is None or captured[1]["type"] != "view":
@@ -117,11 +94,13 @@ class Engine:
             if any(v["principal"] == q["principal"] and v["audience"] == q["audience"]
                    and v["purpose"] == q["purpose"] and v["right"] in ("read", "use", "forward") for v in rt["revocations"]):
                 raise Refused("disclosure_revoked")
+            selected = self.view_bindings[view["authorized_snapshot_handle"]]
+            q["scope"]["targets"] = refs(selected)
             q["cut"]["memory"], q["now"] = rt["memory_cut"], op["at"]
             current = self.read(q)
-            if current["type"] != "view":
+            if current["type"] != "view" or self.view_bindings.get(current.get("authorized_snapshot_handle")) != selected:
                 raise Refused("disclosure_revoked")
-            if any(i[s]["freshness"] == "stale" for i in current["items"] for s in ("support", "oppose")) or current["currentness"] == "last_received":
+            if any(i[s]["freshness"] == "stale" for i in current["items"] for s in ("support", "oppose")) or any(i["currentness"] in ("historical", "last_received") for i in current["items"]):
                 raise Refused("publication_stale")
             if [i["content"] for i in current["items"]] != [i["content"] for i in view["items"]]:
                 raise Refused("publication_stale")
@@ -205,7 +184,7 @@ class Engine:
         while True:
             before = set(closure)
             for r in self.state["records"]:
-                if any(key(x) in closure for x in r["envelope"]["lineage"]):
+                if any(key(x) in closure for x in lineage_inputs(self, r)):
                     closure.add(key(r))
             if closure == before:
                 return closure
@@ -218,7 +197,7 @@ class Engine:
         elif kind == "revise":
             proposed = ([op["replacement"]] if op["replacement"] else []) + [op["revision"]]
         else:
-            proposed = [op["assessment"], op["output"]]
+            proposed = op.get("assessments", [op.get("assessment")]) + [op["output"]]
         if not proposed:
             raise Refused("invalid_shape")
         for r in proposed:
@@ -229,7 +208,7 @@ class Engine:
         if p["profile"] not in ("protected", "embedded", "documentary"):
             raise Refused("unknown_profile")
         space, actor = proposed[0]["envelope"]["space"], ctx["actor"]
-        if not self.write_right(actor, space, kind) or (kind == "declassify" and (actor != p["owner"] or not self.write_right(actor, space, "admit") or not self.write_right(actor, space, "retain"))):
+        if not self.write_right(actor, space, kind) or (kind == "declassify" and (not self.write_right(actor, space, "admit") or not self.write_right(actor, space, "retain"))):
             raise Refused("not_authorized")
         replay, identity, request = self.idempotency(op, actor, space)
         if replay is not None:
@@ -247,10 +226,16 @@ class Engine:
                 raise Refused("representation_invalid")
             if not any(key(v["record"]) == key(r) and v["result"] == "allow" for v in p["reviews"]):
                 raise Refused("quarantined")
+        if "lineage_facts" in p:
+            for r in proposed:
+                facts = [f for f in p["lineage_facts"] if key(f["output"]) == key(r)]
+                if len(facts) != 1:
+                    raise Refused("invalid_reference")
+                r["envelope"]["lineage"] = copy.deepcopy(facts[0]["inputs"]) if facts[0]["complete"] else "unknown"
         if op["expected_generation"] != rt["erasure_generation"]:
             raise Refused("stale_generation")
         fences = {key(x) for x in rt["fences"] + rt["erased"]}
-        if any(key(x) in fences for r in proposed for x in r["envelope"]["lineage"]):
+        if any(key(x) in fences for r in proposed for x in lineage_inputs(self, r)):
             raise Refused("erasure_fenced")
         original = self.index()
         combined = {**original, **{key(r): r for r in proposed}}
@@ -268,7 +253,7 @@ class Engine:
                     raise Refused("invalid_time")
             if e["confirmed_at"] is not None:
                 stamp(e["confirmed_at"])
-            dependencies = list(e["lineage"])
+            dependencies = list(lineage_inputs(self, r))
             if e["kind"] == "assertion":
                 domain = schemas.get(key(e["schema"]))
                 if domain is None:
@@ -340,13 +325,7 @@ class Engine:
                 if not any(ev["canonical"] and ev["issuer"] == e["issuer"] and ev["receipt"] == b["authority_receipt"] for ev in p["authority_events"]):
                     raise Refused("authority_receipt_required")
         if kind == "declassify":
-            assessment, output = op["assessment"], op["output"]
-            b, e, pin = assessment["body"], output["envelope"], assessment["body"]["declassification"]
-            if (not pin or b["check_kind"] != "declassification" or b["result"] != "pass" or b["executor"] not in ("human", "deterministic")
-                    or assessment["envelope"]["issuer"] != p["owner"] or b["pins"]["subject"] != ref(output)
-                    or b["pins"]["policy"] != p["evidence"]["policy_pin"] or b["pins"]["environment"] != p["evidence"]["environment_pin"]
-                    or pin["output_schema"] != e["schema"] or pin["output_digest"] != digest(output["body"])
-                    or pin["inputs"] != e["lineage"] or e["disclosure"]["declassification"] != ref(assessment)):
+            if not release_valid(self, op["output"], proposed[:-1]):
                 raise Refused("declassification_invalid")
         graph = {}
         for r in combined.values():

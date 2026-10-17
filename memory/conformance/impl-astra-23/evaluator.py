@@ -6,6 +6,7 @@ import itertools
 import secrets
 
 from common import Refused, applicable, cjson, key, ref, refs, stamp
+from disclosure import lineage_complete
 
 
 class Evaluation:
@@ -45,6 +46,8 @@ class Evaluation:
         if r is None:
             return False
         e, k = r["envelope"], key(r)
+        if self.rule and self.rule["family"] == "audience_projection" and not lineage_complete(self.engine, r):
+            return False
         if e["recorded"]["sequence"] > self.q["cut"]["memory"]:
             return False
         if active and (k in self.withdrawn or k in self.replaced):
@@ -238,7 +241,7 @@ class Evaluation:
         if len(declarations) > 1:
             raise Refused("invalid_reference")
         if declarations:
-            coverage = {"kind": "declared", "declaration": declarations[0]}
+            coverage = {"kind": "declared", "ref": declarations[0]}
         roots = sorted(set().union(*(p["origins"] for p in paths)))
         ranks = {"resolvable_now": 0, "independent_attestation": 1, "prior_assessment_only": 2}
         source_state = (min((p["source_state"] for p in paths), key=ranks.get) if paths else
@@ -357,9 +360,12 @@ class Evaluation:
                         and r["envelope"]["issuer"] == self.rule["issuer"]]
         targets = {key(t) for t in q["scope"]["targets"]}
         selected = sorted((r for r in chosen_scope if (key(r) in targets if targets else statuses[key(r)] != "historical")), key=key)
+        excluded = {key(r) for r in self.rule.get("excluded_refs", [])} if public else set()
+        selected = [r for r in selected if key(r) not in excluded]
         selected_keys = {key(r) for r in selected}
-        historical = refs(key(r) for r in chosen_scope if statuses[key(r)] == "historical" and key(r) not in selected_keys)
-        required = self.review_required()
+        self.selected_refs = selected_keys
+        historical = refs(key(r) for r in chosen_scope if statuses[key(r)] == "historical" and key(r) not in selected_keys | excluded)
+        required = self.review_required() - excluded
         handle = secrets.token_hex(16)
         view = {"type": "view", "semantic_profile": self.engine.version, "projection_rule": q["projection_rule"],
                 "evidence_policy": q["evidence_policy"], "policy": q["policy"], "authorized_snapshot_handle": handle,

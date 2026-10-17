@@ -1,19 +1,24 @@
 # astra-23 — package implementer verdict
 
-First independent implementation and complete vector report are committed from
-`memory/spec/` version `0.1.0-draft` at `0ef608a`. No source design, companion,
-notes, inputs, other evaluator, ledger or divergence topic was read before this
-report. Only the mission, specification package and administrative rounds were read.
+Current report: package **0.2.0-draft** at `cde5754`.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Semantic | 50 | 3 | 0 |
+| Semantic | 54 | 3 | 0 |
 | Deployment | 0 | 0 | 8 |
 
-Provisional R7 score: **1/2**. Three semantic disagreements require judge
-classification; no complete conformance or deployment qualification is claimed.
-The structural package checker and four independent comparison controls pass.
+R7 score: **1/2** while package discrepancies remain. B03/S23 await the
+judge-accepted R7-019 publication-association clarification; B01 omits a required
+revision lineage fact. R7-020 is fixed to the schema's declared-coverage `ref`.
+All new P12-P15 and extended P05 pass. Nine bounded controls pass, including
+atomic rejection, multi-owner release/revocation, lineage completeness, projection
+isolation and an isolated positive/negative B01 missing-fact witness.
 
-Evidence: `../impl-astra-23/FIRST-RUN.md`, `FIRST-RUN.json`, `WORKLOG.md`.
-The evaluator computes from initial state, operations and query only; the runner
-checks exact output, forbidden predicates, handle constraints and closed schemas.
+The first independent implementation and full run remain frozen at `0008dc3`:
+package 0.1.0-draft, 50/53 semantic pass. No design, companion, notes, inputs,
+other evaluator, ledger or divergence topic was read before that commit.
+Implementation remains package-derived; external classifications do not replace
+the released specification. No deployment qualification is claimed.
+
+Evidence: `../impl-astra-23/RESULTS.md`, `RESULTS.json`, `FIRST-RUN.md`,
+`FIRST-RUN.json`, `DIVERGENCES.md`, `WORKLOG.md`, and the two test modules.

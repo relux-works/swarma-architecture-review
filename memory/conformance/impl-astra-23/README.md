@@ -18,6 +18,7 @@ Python 3 is the only runtime dependency. Run from the repository root:
 
 ```sh
 python3 -B memory/conformance/impl-astra-23/test_controls.py
+python3 -B memory/conformance/impl-astra-23/test_semantics.py
 python3 -B memory/conformance/impl-astra-23/run_vectors.py
 ```
 
@@ -50,3 +51,10 @@ network access or live publication. Policy facts are admitted test inputs. Resul
 report observed conformance, including defects and unsupported qualification;
 they do not establish service security. Known discrepancies are retained for judge
 classification before semantic implementation changes.
+
+The current evaluator also implements the 0.2 integration-lineage grammar,
+per-owner declassification decisions/revocation, pinned captured-item delivery,
+and versioned projection exclusions. Clause-derived product controls include
+missing-owner atomic rejection, release/revoke delivery, integration input
+completeness, exclusion isolation and the B01 missing-fact regression witness.
+`DIVERGENCES.md` records judge classifications and pending package discrepancies.
