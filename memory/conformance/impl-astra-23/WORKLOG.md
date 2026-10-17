@@ -347,3 +347,26 @@ will prove semantic differences and forbidden effects are detected.
 - Ask judge/editor for the operation/admitted scope or explicit label quantifier
   before the complete scoped fix. R7-031 explicit receipt context is independent.
 - No runtime change; existing canonical and red supplemental evidence reused.
+
+## Round 17 — 0.2.2 receipt-context release baseline
+
+- Intake 0.2.2 package 7e71765 for R7-031. Run unchanged f10c7ba runtime against
+  the complete new release and freeze first report before adapting receipt scope.
+- Required behavior: actor-bound receipt_context, exact pre-fence metadata
+  authorization, complete protected erasure, scope-sensitive idempotency and
+  current-authorized unchanged receipt replay. Do not infer any later-query scope.
+- Judge independently closed R7-033/034 at f10c7ba; preserve their controls.
+- R7-037 admission retention-scope mapping remains separately under review.
+
+### Round 17 baseline outcome
+
+- Unchanged runtime against released 0.2.2: 56 pass / 1 fail / 0 unsupported
+  semantic, eight deployment unsupported. P08 exposes the expected receipt-ref
+  leak and unauthorized replay; all other canonical vectors pass.
+- Freeze RELEASE-0.2.2-FIRST.md/JSON before implementation. This is distinct
+  from the prior green 0.2.1 RESULTS and red 0.2.1 supplemental evidence.
+- Package checker passes all 23 intended violation controls. Logs:
+  `.temp/impl-astra-23/release-022-first-01.log` (intended evaluator exit 1),
+  `.temp/impl-astra-23/package-022-01.log` (structural validation pass).
+- The release explicitly supplies top-level erase `at`, including replay stamp
+  exclusion from canonical intent; no later-query clock or scope is needed.
