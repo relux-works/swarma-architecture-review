@@ -1,13 +1,13 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 25; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 26; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.3-draft` at `23290b3`; all owned fixtures explicitly migrated.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
-companion and design, and the released package. This seat authored ten synthetic
-semantic cases with eighteen exact package-format vectors and three preserved
+companion and design, and the released package. This seat authored eleven synthetic
+semantic cases with twenty exact package-format vectors and three preserved
 first authority-succession contract probes, including focused controls. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
@@ -26,6 +26,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package `53266dd` and source `99b5a85` independently verified; both judge-closed |
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
 | ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | R7-047/048 implementation bugs and R7-049 refusal mapping accepted; exact negative writes fail both |
+| ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | Source read-only projection fails; package passes; classification pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -404,12 +405,27 @@ judge disposition, with read-only isolation queued next. Reports source28 and
 package18 retain exact outputs and hashes; structural log25 distinguishes the
 two earlier corrected fixture-format drafts from valid execution evidence.
 
+## Round 26 receipt-only authority projection isolated
+
+ASTRA24-11 removes only an intermediate assertion from a read-only ordered
+three-receipt graph. Both implementations pass the complete-assertion control;
+package alone preserves the unique final decision when the intermediate assertion
+is absent. Source returns false ambiguity despite every receipt and authority
+edge remaining admitted and eligible. No write or CAS operation participates.
+This is the same projection failure as ASTRA24-10-TRANSITIVE, not two defects.
+
+All twenty vectors pass structural/inventory/normalization/forbidden controls.
+First full results at `a970a95` are source 15/5 and package 17/3; previous
+eighteen inputs are unchanged. The case retains exact first paired results
+and module hashes in a committed first-report artifact. Source implementation
+classification is requested under K-REV-3, with no architecture change.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Eighteen owned vectors currently yield source 14/4 and
-package 15/3 at the recorded head. Authority-succession admission repairs and
-its exact-code release remain pending; the transitive source projection finding
-also requires disposition. Full dual canonical coverage remains incomplete.
+**Phase 2 R7: 1/2.** Twenty owned vectors currently yield source 15/5 and
+package 17/3 at the recorded head. Authority-succession admission repairs and
+its exact-code release remain pending; the separately isolated source projection
+finding requires disposition. Full dual canonical coverage remains incomplete.
 Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
