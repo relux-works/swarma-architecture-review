@@ -1,6 +1,7 @@
 # ASTRA24-07: Cartesian proof paths are not independent root origins
 
-Status: Phase 2 regression case; no observed evaluator defect or source ambiguity.
+Status: R7-035 rejected as a defect allegation, accepted as regression coverage.
+Source proof extension independently verified; no observed mismatch or source ambiguity.
 Owner: astra-24. Package `0.2.1-draft` at `f31d58f`; execution checkout `91163c4`.
 
 ## Clauses and two readings
@@ -65,3 +66,22 @@ normalization, inventory and intended independent-count violation plant pass
 `.temp/case-vectors-validate-13.log`. Both comparison harnesses' controls pass.
 No deployment claim is made, and this small DAG is not a performance bound for
 arbitrary proof enumeration.
+
+## Round 14 source proof verification
+
+Judge event `$UZdvnT7Rr6M6qyXZtyxf8uTE5OE3ivlwsPrlANzmCnw`, persisted at
+`945096f`, confirms the distinction is already explicit and retains the case
+as R7-035 regression coverage. No specification change was requested.
+
+Source extension `4960d24` now passes this unchanged exact fixture and
+ASTRA24-01. All seven owned cases pass with zero differences, failed forbidden
+predicates or unsupported operations. Report: `.temp/astra22-owned-cases-16.json`.
+Four focused source proof controls also pass in
+`.temp/astra22-proof-controls-01.log`: finite-set union/join with overlapping
+proofs, canonical ordering versus numeric reference versions, hidden/quality
+separation, and a bounded prefix of a factored 2**40 proof family. These controls
+do not establish a general polynomial space bound for every proof family.
+
+The package implementation has not changed since its recorded exact pass.
+Fixture SHA-256 remains unchanged. This closes the source coverage gap for
+this regression without turning its earlier unsupported result into a failure.

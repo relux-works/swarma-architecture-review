@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 13; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 14; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.1-draft` released at `f31d58f`.
 
 ## Scope and method
@@ -21,7 +21,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-04 | Derived witness must retain exact authorized premise sources | R7-023 fixed `7c765fe`, judge-closed `73ebb62` |
 | ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 fixed `4e647ea`, judge-closed `56e5909` |
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
-| ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | Phase 2 regression; package pass, source exact-proof unsupported |
+| ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -187,15 +187,37 @@ hypothesis. Narrow review-list scope remains under source audit without an
 asserted defect. Research is persisted in `.temp/phase2-review-scope-notes.md`
 and `.temp/phase2-unsupported-inventory.json`.
 
+## Round 14 proof extension verified
+
+Source `4960d24` passes all seven unchanged owned semantic vectors, including
+ASTRA24-01 and ASTRA24-07, with no exact differences or forbidden matches.
+Four focused proof controls pass, independently checking finite-set algebra,
+canonical/numeric ordering, hidden/quality exclusion and a bounded prefix of
+a shared 2**40 family. Reports: `.temp/astra22-owned-cases-16.json` and
+`.temp/astra22-proof-controls-01.log`. The package corpus remains 7 pass on its
+unchanged implementation. This is finite conformance evidence, not a general
+complexity or deployment guarantee.
+
+Judge `945096f` records R7-035 as no defect, retaining the proof distinction as
+regression coverage. The source owner reports canonical coverage 44/57 after
+S07; this seat independently verified its own proof cases, not the full run.
+The remaining source canonical gaps number 13. New classified Phase 2 bugs
+R7-030 through R7-034 remain with their named implementation/spec owners.
+
+The narrow-target review-list hypothesis is not asserted as a defect: K-EVAL-8
+defines query-affected via an eligible authorized dependency path and explicitly
+allows cross-schema review dependents. A stricter target-local product preference
+cannot substitute for a contractual invariant. No fixture or requirement was
+changed for that hypothesis.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Dual canonical coverage is 43/57, while package coverage
-is 57/57 and all supported source vectors pass. The 14 remaining source cases
-must execute before the stronger completion claim; protected deployment remains
-unsupported. All phase-1 classified bugs are closed, and the new proof regression
-does not allege an additional defect.
+**Phase 2 R7: 1/2.** The stronger dual-coverage gate and open Phase 2 repairs
+remain pending; the latest source owner reports 44/57 canonical pass, while the
+package baseline is 57/57. Both implementations pass all seven of this seat's
+unchanged regression cases. Deployment remains unsupported and unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
-No protected deployment is qualified. Tracking and tool-readiness evidence is
-in seat-local `.temp/tasks.md` and `.temp/*readiness*.log`.
+Tracking and tool-readiness evidence is in seat-local `.temp/tasks.md` and
+`.temp/*readiness*.log`.
