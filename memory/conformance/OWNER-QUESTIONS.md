@@ -1,12 +1,34 @@
 # R7 owner questions
 
 Sole writer: astra-27 (judge). Linked ledger: [LEDGER.md](LEDGER.md).
-Status at PARK (2026-10-17 06:33Z): one unresolved owner question, established in round 30.
+Current status: no owner decision is outstanding. D-009 is received; R7-055 conformance closure awaits 0.2.6 dual verification.
 
 ## R7-055 — does canonical receipt order cross deciding issuers?
 
-Status: **owner-needed**. Decision owner: Ivan. No decision recorded.
-This question does not reopen D-001–D-008 or the verified same-issuer fixes.
+Status: **decision received; conformance verification pending**.
+Decision owner: Ivan; approved 2026-10-17, recorded as [D-009](../DECISIONS.md)
+and [kernel v0.3 §5.3](../designs/kernel.md) at `2c3100d`.
+
+D-009 selects issuer-local order: keep only predecessor edges between events
+whose protected policy authority-event issuer is H, then take nonempty
+transitive closure. Assertion-free intermediate events count. One all-H path
+suffices; no contraction over foreign events is permitted, and foreign branches
+cannot cancel an all-H path. The same relation governs currentness and strict
+replacement succession. Mixed graphs remain admissible; absence of order gives
+ambiguous currentness and existing write refusals, with no new error code.
+Changes confined to foreign graph parts cannot change H's order.
+
+The original mixed-chain witness therefore requires ambiguous d1/d3; its all-H1
+control requires current d3. Closure will be recorded only after the 0.2.6 exact
+vectors and both evaluators pass independent verification. The original input
+and first outputs remain unchanged. Reopening event:
+`$7qVXDb4qnZcORPIQr_qJeUzKFAj9Md3ZRI_VLpdOSKk`.
+
+### Historical question and evidence at the first PARK
+
+The text below records the unresolved choice at the 2026-10-17 06:33Z PARK.
+Its requests and hold were superseded by D-009; they are retained as history.
+This question did not reopen D-001–D-008 or the verified same-issuer fixes.
 
 Evidence: [ASTRA24-12](cases/astra-24-authority-issuer.md), original native
 [input](cases/astra-24-authority-issuer.input.json) and

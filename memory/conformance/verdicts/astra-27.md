@@ -1,7 +1,17 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Final status: **PARKED**, 2026-10-17 06:33Z. Final score: **2/2**.
+Current status: **ACTIVE — bounded D-009 round**. Current score: **1/2 pending
+0.2.6 dual verification**. Ivan's D-009 at `2c3100d` settles the owner choice in
+R7-055; closure awaits the package and both independent exact-vector passes.
+Original first failures and all prior closed findings remain preserved. The
+convener reopened seats 21/22/23/27 at 18:44Z; the new PARK gate is dual 0.2.6
+coverage plus a quiet round, with a 22:30Z hard cap.
+
+### Historical verdict — first PARK, 2026-10-17 06:33Z
+
+Prior final score: **2/2**. The held-question statements below are historical;
+D-009 now supplies the owner decision.
 
 Adjudicated 58 items: ten rejected as defects, forty-seven independently fixed,
 and one filed owner question (R7-055). No specification or implementation bug

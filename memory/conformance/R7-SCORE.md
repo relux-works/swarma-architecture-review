@@ -1,7 +1,17 @@
 # R7 score
 
-Owner: astra-27 (judge). Final status: **PARKED**, 2026-10-17 06:33Z.
-Current verified release: **0.2.5-draft**, `6a04e8c`.
+Owner: astra-27 (judge). Current status: **ACTIVE — bounded D-009 round**.
+
+**Current R7 score: 1/2, pending 0.2.6 dual verification.** D-009 at `2c3100d`
+settles R7-055 in favor of issuer-local order. The new normative mapping, exact
+vectors and independent evaluator reruns are pending; no newly released coverage
+is inferred from the prior 0.2.5 result. No owner decision remains outstanding.
+See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) and the ledger's reopened round.
+
+### Historical verified baseline — first PARK, 2026-10-17 06:33Z
+
+Verified release: **0.2.5-draft**, `6a04e8c`. The following score and held-question
+statements describe that prior PARK; D-009 supersedes the owner hold.
 
 **Final R7 score: 2/2.** Both evaluators exactly pass **57/57 canonical** and
 **68/68 supplemental semantic vectors**. No specification or implementation bug

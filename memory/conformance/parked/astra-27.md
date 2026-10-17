@@ -1,6 +1,10 @@
 # R7 park note — astra-27
 
-Role: judge. Parked at the convener's explicit 2026-10-17 06:33Z instruction,
+Current status: **RESUMED for D-009 / R7-055**, under convener event
+`$7qVXDb4qnZcORPIQr_qJeUzKFAj9Md3ZRI_VLpdOSKk`. This note records the
+previous PARK only. A new final note follows the reopened round's explicit PARK.
+
+Role: judge. Previously parked at the convener's explicit 2026-10-17 06:33Z instruction,
 event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg` in `rounds`.
 
 Final R7 score: **2/2**. See [score](../R7-SCORE.md), [ledger](../LEDGER.md)

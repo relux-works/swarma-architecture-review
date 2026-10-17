@@ -2,13 +2,15 @@
 
 Sole writer: astra-27 (judge). Contract: `memory/MISSION-R7.md`.
 Initial review baseline: `95f974b41667e25d4a3a7630055ef1c20690fb7d`.
-Final status: **PARKED**, 2026-10-17 06:33Z; score **2/2**.
-58 items: 47 fixed, 10 rejected, R7-055 held for Ivan; no open spec/impl bug.
+Current status: **ACTIVE — bounded D-009 round**, reopened 2026-10-17 18:44Z.
+Current score: **1/2 pending 0.2.6 dual verification**; the prior 0.2.5 PARK score remains 2/2.
+58 items: 47 fixed, 10 rejected, R7-055 decision received / verification pending.
+No previously closed specification or implementation finding is reopened.
 
 ## Review contract
 
-Apply source precedence in `memory/designs/kernel.md`: owner decisions D-001–D-008,
-kernel v0.2, normative companion, then bounded-evidence design. Do not reopen
+Apply source precedence in `memory/designs/kernel.md`: owner decisions D-001–D-009,
+kernel v0.3, normative companion, then bounded-evidence design. Do not reopen
 settled design. The package supplies concrete grammar and normalization choices
 within that contract; it cannot silently change source semantics. A package-only
 implementer must be able to reproduce each exact expected semantic output.
@@ -101,7 +103,7 @@ commits and relevant controls; a candidate release alone is insufficient.
 | R7-052 | astra-25 [retention-deadline](cases/astra-25-retention-deadline.md), first `604af18`; request `$XkFYu2DEMaA0d8d3wUeCqkwMVrlPAqRQAg0B_ViVOAg` | ASTRA25-11 native probes; K-DISC-1, K-AUTH-1, K-API-1/2 | impl-bug | astra-22 | fixed@4a14a56 | Judge exactly reproduces all 65 canonical 0.2.5 rows at 50/0/7 with correction module hashes and all 112 controls green. All seven migrated expiry vectors pass; independent three-positive/seven-negative operation checks now pass, with exact refusals and complete state preservation. Six native groups cover admit/raw/revise/declassify, every output, transitive/incomplete-known/batch deadlines, original live/expired replay, null/unrelated limits and authorization-before-duplicate priority. First c9e1faf and full old-runtime 0.2.5 failure remain immutable. |
 | R7-053 | Same ASTRA25-11 submission and independently repeated inputs as R7-052 | Same deadline and authorized-replay clauses | impl-bug | astra-23 | fixed@23b4d74 | Judge independently reproduces 57/57 canonical and 61/61 current supplemental at 0.2.5 with exact reports/input/module hashes, 31 product/comparer controls and ten original isolated deadline operation checks. All four write APIs, every proposed output/known closure and current original-receipt replay use strict context.at expiry before idempotency. Equal/later fresh/replay refusals preserve full state and original receipts; live/null controls and same-key recovery pass. First failures remain unchanged. |
 | R7-054 | Judge review of ASTRA25-11; editor recommendation `$rhmPEMI5yxqbjQprbScOEovbpGlhuBzhcvFNwa--FmA` | K-DISC-1, K-AUTH-1, K-API-1/2, K-REF-1 | spec-bug | astra-21 | fixed@6a04e8c | Judge verifies 0.2.5 explicit strict context.at expiry, not_authorized,false before idempotency, original-output/known-closure replay and no purge. All 94 JSON artifacts regenerate exactly; 34 intended checker plants pass. Only P11 changes beyond version; its first 16 operations/results and other 64 vectors/pilot are preserved. Isolated unchanged-runtime probes give five forbidden writes, two expired success replays and one wrong conflict priority; a separate 20-operation positive trace matches every expected field. Runtime fixes stay R7-052/053. |
-| R7-055 | astra-24 [authority-issuer](cases/astra-24-authority-issuer.md), native pair/first `4424598`; request `$2uzH35MbQZgpUZcKniiv8nGpIIxyeCjJQVyjABqbYvU` | Kernel §§5.1/5.3; K-REV-3; package A07 | ambiguity | Ivan (owner decision) | owner-question | Exact validated pair separates issuer-local and global canonical predecessor paths: H1 endpoints through H2 intermediate yield ambiguous d1/d3 in source, current d3 in package; same-H1 control agrees. Kernel own ordered record does not define whether H1's canonical edge endorses H2's predecessor order. D-004/008 and sequence ownership do not decide that attestation meaning. No evaluator bug or invalid-state rule is inferred. See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md); preserve both native outputs and existing same-issuer closures. |
+| R7-055 | astra-24 [authority-issuer](cases/astra-24-authority-issuer.md), native pair/first `4424598`; request `$2uzH35MbQZgpUZcKniiv8nGpIIxyeCjJQVyjABqbYvU` | D-009; kernel v0.3 §5.3; K-REV-3; package A07 | ambiguity | astra-21 (mapping), astra-22/23 (evaluation), astra-27 (verification) | verification pending | Ivan selects issuer-local predecessor order in D-009 at `2c3100d`: filter edges by protected policy event issuer before transitive closure; assertion-free events count, one all-H path suffices, foreign-only changes cannot alter order, and the same relation governs currentness and strict replacement. Mixed graphs remain admissible. Original input and first outputs stay immutable; closure awaits 0.2.6 exact vectors and both independent passes. See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md). |
 | R7-056 | astra-22 ASTRA22-08, signed native first `dbf4892`, [first evidence](impl-astra-22/runs/availability-recovery-first.json); request `$fDDTeYrjnc9MYUG4MHM6u2sw7BII51TC8fX0w9jadOU` | K-NI-3; S27 authorized public availability | impl-bug | astra-22 | fixed@87beb46 | Judge independently reproduces 57/57 canonical, 61/61 supplemental and all 125 native/comparer controls at the signed correction. The unchanged original native witness and four-transition matrix now pass, as do two exact atomic authorization negatives. Only current public/runtime availability facts change; policy pins, grants, records, receipts, cuts and captures remain preserved. Original single-case and expanded-matrix red evidence stays immutable; no deployment claim. |
 
 | R7-057 | astra-22 ASTRA22-09, signed native first `0529814`, [first evidence](impl-astra-22/runs/erase-changed-context-first.json); request `$Jls_nbueo2sF-siMYb-5Xqb_iijrTcnTQ4UT_NDB2gU` | K-API-1/2; K-ERASE-2 | impl-bug | astra-22 | fixed@946cbd8 | Judge independently reproduces all 65 canonical/64 supplemental committed rows: 57/57 and 63/63 semantic, unchanged inputs; 128 source controls pass. Both unchanged 66233ab exact regressions and six original/native neighboring probes now pass with full refusal state and original receipts preserved. Current erase authority precedes changed-intent conflict; stored-ref metadata gates exact replay only. Read/use/metadata loss and immutable empty receipts remain covered. Original 0529814 native and five expanded wrong-code failures are retained. Package 23b4d74 remains conforming. |
@@ -1892,3 +1894,36 @@ custody, witness, authorization or erasure qualification is claimed. Final
 [score](R7-SCORE.md), [verdict](verdicts/astra-27.md),
 [owner question](OWNER-QUESTIONS.md) and [park note](parked/astra-27.md) are the
 handoff. No further judge implementation/review task is pending.
+
+
+## Reopened round 1 — D-009 received; verification gate recorded
+
+Convener event `$7qVXDb4qnZcORPIQr_qJeUzKFAj9Md3ZRI_VLpdOSKk` reopens
+only R7-055 for seats 21, 22, 23 and 27; seats 24–26 remain parked. The owner
+approved D-009 on 2026-10-17. Judge pulled signed main to `2c3100d`, read the
+mission, decision, kernel v0.3 §5.3 and full Russian review, and completed the
+required identity/join/topics onboarding. The former PARK remains historical.
+
+D-009 removes the source ambiguity. The selected relation is the nonempty
+transitive closure of predecessor edges whose two endpoint events belong to
+H under protected policy authority-event attribution. Filtering precedes
+reachability; assertion-free intermediate events participate. An all-H path
+wins even beside a foreign branch, and foreign-only changes cannot affect it.
+Currentness and strict replacement succession share this relation. Missing
+order does not reject a mixed graph or add a refusal code.
+
+The bounded review task is to inspect the editor's 0.2.6 clause and exact
+vectors, independently reproduce both evaluators' new-vector and complete
+regression reports, preserve first disagreements, then close R7-055 and publish
+dual coverage. Until that evidence exists, the owner decision is received but
+conformance closure is pending; current score is provisionally 1/2. The prior
+0.2.5 result remains 57/57 canonical and 68/68 supplemental semantic for both,
+with 8+1 deployment cases unsupported. No old finding is retroactively relabeled
+as an implementation bug merely because the owner has now selected a rule.
+
+Reopening evidence: seat `.temp/judge-r055-readiness-01.json`,
+`.temp/judge-r055-topics-01.log` and `.temp/judge-r055-round01-inbox-01.log`.
+The next gate is 0.2.6 publication followed by independent dual verification.
+Continue the required wait/inbox protocol through one quiet round and the new
+convener PARK, or the 2026-10-17 22:30Z hard cap. Only the new PARK authorizes
+finalization of this reopened turn.
