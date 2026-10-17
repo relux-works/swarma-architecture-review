@@ -75,6 +75,21 @@ selects a separate report. `--spec-root PATH --package-commit SHA` pins a packag
 supplemental inputs are unsupported, with no implicit conversion. A nonzero exit
 means an execution or exact comparison failed, not a successful refusal test.
 
+## Audit hash format
+
+`D009-CONTROLS.json` hashes UTF-8 compact sorted-key JSON after a lossless native
+encoding: every dictionary becomes `{"map": [[encoded_key, encoded_value], ...]}`
+with pairs sorted by encoded-key JSON; sets become `{"set": [...]}` sorted by
+encoded-item JSON; tuples become `{"tuple": [...]}`; lists recurse in order;
+primitives remain unchanged. `ensure_ascii=False` applies throughout. SHA-256
+uses the resulting UTF-8 bytes. The artifact specifies the same format explicitly.
+
+No nonce is normalized in these native hashes. Initial-state and operation-input
+hashes reproduce when inputs match; post-write hashes containing generated handles
+are local to that execution. Native before/after equality proves the recorded
+atomic refusals and replays. This differs from canonical report comparison, which
+normalizes only the vector-declared handle paths.
+
 ## Comparison and preserved first observations
 
 Every operation response, final result and postcondition is compared with typed

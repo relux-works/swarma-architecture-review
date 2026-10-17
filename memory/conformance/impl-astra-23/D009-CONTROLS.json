@@ -394,5 +394,19 @@
       "sha256": "548dd84fa79ecccaae176f93f64074e9bc15cee435eb0e62019fb676c5d81977",
       "exit_code": 0
     }
+  },
+  "hash_serialization": {
+    "algorithm": "SHA-256 of UTF-8 cjson(stable(value))",
+    "cjson": "json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(\",\", \":\"))",
+    "stable": {
+      "dict": "Every dict becomes {\"map\": [[stable(key), stable(value)], ...]}, with pairs sorted by cjson(stable(key)).",
+      "set": "A set becomes {\"set\": [stable(item), ...]}, with items sorted by cjson.",
+      "tuple": "A tuple becomes {\"tuple\": [stable(item), ...]} in original order.",
+      "list": "A list remains a list of stable(item), in original order.",
+      "primitive": "Strings, integers, booleans and null remain unchanged."
+    },
+    "nonce_treatment": "No nonce normalization. Generated handles are hashed literally.",
+    "scope": "Unchanged initial-state and operation-input hashes are reproducible. Post-write state and native tuple hashes containing fresh handles are run-local; compare before/after within the recorded execution, not nonce values across runs.",
+    "native_tuple": "(engine.state, engine.captures, engine.view_bindings, engine.dirty_since)"
   }
 }

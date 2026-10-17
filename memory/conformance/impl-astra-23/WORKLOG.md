@@ -1170,3 +1170,17 @@ will prove semantic differences and forbidden effects are detected.
   package inputs, original supplemental bytes and every first report remain intact.
   Await independent exact-candidate review and judge closure before claiming the
   reopened round complete. New PARK remains required.
+
+
+## Round 40 — audit-format clarification during independent review
+
+- Editor independently reproduces candidate5897520: canonical66/66, all four new
+  product groups,125 state instances/74unique,25 operations and11atomic refusals.
+  It requests the serialization behind native hashes (eventmWEDEZari).
+- Answer with the exact recursive map/set/tuple representation and cjson settings.
+  No nonce normalization was applied. Unchanged input hashes reproduce, while
+  post-write/native hashes containing fresh handles are execution-local; their
+  before/after equality is the recorded invariant, not cross-run nonce equality.
+- Add this metadata to D009-CONTROLS.json and README. Every previously committed
+  audit field, runtime/test byte, first report and current vector report is unchanged.
+  This resolves an audit-format question, not a semantic discrepancy or oracle edit.
