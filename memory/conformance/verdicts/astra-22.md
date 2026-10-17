@@ -60,3 +60,9 @@ erasure/restore and load/availability stimuli. Changes and audience proof-refere
 disclosure also remain unsupported API paths. No protected deployment, physical
 erasure, timing isolation, randomness qualification or crash durability is claimed.
 Semantic delivery sends no external bytes.
+
+Incoming52-case supplement first is40/4/8: three R7-047 forbidden writes
+and one separate receipt-only transitive projection mismatch. First full output
+is `runs/phase2-succession-first.*`; six native forbidden-acceptance witnesses
+are preserved in `runs/succession-controls-first.json`. Previous46-case table
+is the completed declassification unit, not the expanded current inventory.
