@@ -187,3 +187,15 @@ will prove semantic differences and forbidden effects are detected.
   awaits judge disposition. No package-evaluator code or expected value changed.
 - Log: `.temp/impl-astra-23/supplemental-021-04.log`; exact input/code hashes and
   actuals retained in SUPPLEMENTAL.json.
+
+## Round 9 — source-resolution budget separating case
+
+- Intake ASTRA24-06 from signed 67b1e06. Its current-required source resolution
+  succeeds with allowance 1; allowance 0 must withhold the derived witness,
+  qualifications and found-path source refs while reporting source_limit.
+- Unchanged evaluator f5fdd8b passes the exact positive/negative trace and all
+  forbidden predicates. Supplemental 22/22 semantic, one deployment unsupported.
+- Judge 510649f closes source R7-025/026; R7-027 remains the single classified
+  source budget family. The new resolution case awaits its disposition.
+- Log: `.temp/impl-astra-23/supplemental-021-05.log`. No code or expectation edit;
+  canonical 57/57 and 13-control evidence remain unchanged.
