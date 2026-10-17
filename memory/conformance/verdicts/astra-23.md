@@ -30,9 +30,11 @@ R7-054 deadline mapping at6a04e8c and source052 at4a14a56. Earlier package closu
 failures47c0205/0641033/e689cf2 and every same-issuer positive are retained.
 
 New ASTRA24-12 native probes concern a foreign issuer at an intermediate authority
-event. Their contract rule is pending adjudication; no exact oracle is presumed,
-no source evaluator code is consulted, and they stay outside vector totals.
-Own first reproduction is queued after this completed deadline unit.
+event. Judge files R7-055 as an ambiguity/owner question: issuer-local qualification
+versus global canonical predecessor endorsement requires an attributed decision.
+PHASE2-ISSUER-FIRST preserves own currentd3 outputs for both inputs and unchanged
+durable state; ordinary ephemeral bindings are explicit. No exact mixed-path
+oracle or runtime change is inferred, and the pair stays outside vector totals.
 
 Phase1 supported score was2/2 (judgeb1ae299). Phase2 remains **1/2, active**.
 Source deadline correction4a14a56 is independently verified50/0/7canonical;

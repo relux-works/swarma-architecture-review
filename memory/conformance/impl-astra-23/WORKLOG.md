@@ -851,3 +851,31 @@ will prove semantic differences and forbidden effects are detected.
   Request independent053 review on this exact candidate. All first files through
   df58eae remain unchanged. New ASTRA24-12 mixed-issuer native probe is queued
   after this unit with no inferred rule/oracle and no source-code intake.
+
+## Round 32 — mixed-issuer authority probe first reproduction
+
+- Deadline correction23b4d74 is published for independent review. Intake unchanged
+  ASTRA24-12 native input pair from4424598: same-issuer path versus a foreign
+  intermediate canonical authority event, with identical H1 endpoints.
+- Run only initial_state/operations/query through own runtime. Preserve actual
+  currentness/candidates, full durable state and hashes before any authority change.
+- Package A07/K-REV-3 specifies canonical predecessor DAG reachability but does
+  not explicitly state intermediate issuer homogeneity. Do not invent an output
+  oracle, a state-rejection rule or a runtime correction before adjudication.
+
+### Round 32 first outcome and owner-question disposition
+
+- PHASE2-ISSUER-FIRST records both unchanged inputs selecting currentd3. Both
+  closed triples validate; records/policy/runtime/captures/dirty-since stay unchanged.
+  Each read registers one ordinary ephemeral binding, so no whole-engine unchanged
+  claim is made. Input SHA8224829a810a97c79fef81cb18f0d650b59ffc84a3262bdef09b1ea900c521b3.
+- Package A07/K-REV-3 leaves intermediate issuer scope unstated; our package-only
+  reading follows all supplied canonical predecessor edges. This is an observed
+  reading, not an exact oracle or justification to silently edit the contract.
+- Judge subsequently files R7-055 as ambiguity/owner-question in
+  memory/conformance/OWNER-QUESTIONS.md. Issuer-local path qualification versus
+  explicit endorsement of global canonical order requires an attributed owner
+  decision. Invalidating mixed-edge state is a separate unspecified option.
+- No authority runtime or expected output changes. Probe remains outside61semantic
+  supplemental totals; source coverage and deadline053 review continue independently.
+- Log .temp/impl-astra-23/issuer-first-01.log; earlier firsts remain immutable.

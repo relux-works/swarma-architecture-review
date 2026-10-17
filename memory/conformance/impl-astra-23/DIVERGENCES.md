@@ -418,3 +418,17 @@ Independent053 review is pending;054 and source052 are separately judge-closed.
 
 ASTRA24-12 mixed-issuer intermediate ancestry is a later native probe awaiting
 contract adjudication; its exact output rule is not presumed or counted as passing.
+
+## R7-055 — mixed-issuer canonical receipt ancestry ambiguity
+
+Own PHASE2-ISSUER-FIRST on23b4d74/0.2.5 selects currentd3 for both same-issuer
+and foreign-intermediate inputs. Full durable state stays unchanged; normal
+view bindings are created. Package A07/K-REV-3 defines canonical DAG traversal
+without explicitly requiring homogeneous intermediate policy authority issuers.
+No source implementation code was consulted.
+
+Judge classifies R7-055 as ambiguity and files OWNER-QUESTIONS.md. Local issuer
+qualification versus global predecessor endorsement needs an attributed owner
+choice; no implementation bug, exact oracle or mixed-state rejection is inferred.
+Preserve original input/first outputs and existing same-issuer closures until
+that decision. This native pair remains outside exact vector totals.

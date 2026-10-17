@@ -1,0 +1,3249 @@
+{
+  "package_version": "0.2.5-draft",
+  "package_commit": "6a04e8cfb1490569cd1de7468d2085dd4840cf51",
+  "implementation_revision": "23b4d742dd76cd45c89964f09c942a83d5546725",
+  "input_path": "memory/conformance/cases/astra-24-authority-issuer.input.json",
+  "input_bundle_sha256": "8224829a810a97c79fef81cb18f0d650b59ffc84a3262bdef09b1ea900c521b3",
+  "implementation_sha256": {
+    "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+    "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+    "engine.py": "f2877f373db6c83f9fe4ba2e30ae4a6c08c35833618052c8209456e650a4b1c8",
+    "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+    "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+    "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+    "test_semantics.py": "b229816cd606ff766cb65c6f962bb6434b4f600f1aeb58392995fb316c1dd3bd"
+  },
+  "typed_oracle": "Pending contract adjudication; native observations are outside exact vector totals.",
+  "probes": [
+    {
+      "name": "same-issuer-control",
+      "input_sha256": "1618a70b6d76c4ded1e3ebf41d121aaad21b3f6f335eefa9483ce4a4ec031240",
+      "closed_input_checks": {
+        "initial_state": true,
+        "operations": true,
+        "query": true
+      },
+      "actual": {
+        "operation_results": [],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.5-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "859bd71e19ccb978a7700551eb0b5f8d",
+          "data_classification": "data",
+          "items": [
+            {
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "ref": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "statement_kind": "decision_record",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "retain_home"
+                }
+              ],
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [
+                {
+                  "id": "rec:receipt3",
+                  "version": 1
+                }
+              ],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "859bd71e19ccb978a7700551eb0b5f8d",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "859bd71e19ccb978a7700551eb0b5f8d",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [
+            {
+              "id": "rec:d",
+              "version": 1
+            }
+          ],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "rec:d",
+              "version": 1
+            },
+            {
+              "id": "rec:d",
+              "version": 3
+            },
+            {
+              "id": "rec:receipt1",
+              "version": 1
+            },
+            {
+              "id": "rec:receipt2",
+              "version": 1
+            },
+            {
+              "id": "rec:receipt3",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "before": {
+        "records": [
+          {
+            "envelope": {
+              "id": "rec:d",
+              "version": 1,
+              "kind": "assertion",
+              "schema": {
+                "id": "schema:decision",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 1,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "statement_kind": "decision_record",
+              "slot": "[]",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "archive_home"
+                }
+              ],
+              "authority_receipt": {
+                "id": "rec:receipt1",
+                "version": 1
+              }
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt1",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 3,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt1",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt1",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt2",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 4,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt2",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt2",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:d",
+              "version": 3,
+              "kind": "assertion",
+              "schema": {
+                "id": "schema:decision",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 5,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "statement_kind": "decision_record",
+              "slot": "[]",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "retain_home"
+                }
+              ],
+              "authority_receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              }
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt3",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 6,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt3",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt3",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          }
+        ],
+        "domain_schemas": [
+          {
+            "id": "schema:decision",
+            "version": 1,
+            "name": "decision",
+            "statement_kind": "decision_record",
+            "semantics": {
+              "establishes": "An assertion about an exact deciding-authority receipt.",
+              "does_not_establish": [
+                "Permission to act",
+                "Adoption without a canonical receipt"
+              ]
+            },
+            "fields": [
+              {
+                "name": "value",
+                "type": "string",
+                "equality": "exact",
+                "required": true,
+                "disclosure_class": "public"
+              }
+            ],
+            "cardinality": {
+              "mode": "single",
+              "slot_fields": []
+            },
+            "incompatibilities": [],
+            "freshness_default": {
+              "kind": "none"
+            },
+            "disclosure_defaults": [
+              {
+                "field_class": "public",
+                "audiences": [
+                  "aud:public",
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              },
+              {
+                "field_class": "restricted",
+                "audiences": [
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              },
+              {
+                "field_class": "sensitive",
+                "audiences": [
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              }
+            ],
+            "requirements": [
+              "authority_receipt_for_current"
+            ]
+          }
+        ],
+        "projection_rules": [
+          {
+            "id": "projection:main",
+            "version": 1,
+            "issuer": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "sequence_resolution": "issuer_and_authority",
+            "time_policy": "query_cut",
+            "freshness_policy": "query_override_else_schema",
+            "excluded_refs": [],
+            "family": "issuer_current",
+            "audience": null,
+            "purpose": null
+          }
+        ],
+        "policy": {
+          "subject_principals": [
+            {
+              "subject": "subj:h1",
+              "principal": "subj:h1"
+            }
+          ],
+          "revision": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "owner": "subj:h1",
+          "lineage_facts": [
+            {
+              "output": {
+                "id": "rec:d",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            }
+          ],
+          "constraint_owners": [],
+          "declassification_decisions": [],
+          "profile": "protected",
+          "grants": [
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:private",
+              "purpose": "purpose:publish",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:private",
+              "purpose": "purpose:read",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:public",
+              "purpose": "purpose:publish",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:public",
+              "purpose": "purpose:read",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            }
+          ],
+          "representations": [],
+          "reviews": [
+            {
+              "record": {
+                "id": "rec:d",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            }
+          ],
+          "evidence": {
+            "ref": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "root_kinds": [
+              "formal_entailment",
+              "semantic_review",
+              "test_result"
+            ],
+            "policy_pin": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "environment_pin": {
+              "id": "environment:1",
+              "version": 1
+            }
+          },
+          "coverage": [],
+          "authority_events": [
+            {
+              "receipt": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [],
+              "canonical": true
+            },
+            {
+              "receipt": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [
+                {
+                  "id": "rec:receipt1",
+                  "version": 1
+                }
+              ],
+              "canonical": true
+            },
+            {
+              "receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [
+                {
+                  "id": "rec:receipt2",
+                  "version": 1
+                }
+              ],
+              "canonical": true
+            }
+          ],
+          "handles": [],
+          "imports": [],
+          "public_availability": "available",
+          "availability_disclosure": "none",
+          "limits": {
+            "max_records": 1000,
+            "max_fan_in": 32,
+            "max_payload_bytes": 1000000,
+            "read": {
+              "roots": 32,
+              "rules": 32,
+              "source_resolutions": 32,
+              "explanations": 8
+            }
+          },
+          "source_access": [
+            {
+              "source": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "resolvable": true
+            },
+            {
+              "source": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "resolvable": true
+            },
+            {
+              "source": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "resolvable": true
+            }
+          ],
+          "external_effect_owners": [
+            "authority:external"
+          ]
+        },
+        "runtime": {
+          "dirty_causes": [],
+          "revoked_declassifications": [],
+          "committed_cuts": [
+            100
+          ],
+          "revocations": [],
+          "memory_cut": 100,
+          "source_cuts": [],
+          "dirty": [],
+          "erasure_generation": 0,
+          "erased": [],
+          "fences": [],
+          "custody": [],
+          "restore": {
+            "status": "open",
+            "external_witness": true,
+            "obligations": []
+          },
+          "idempotency": [],
+          "hidden_work": 0,
+          "memory_available": true,
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "after": {
+        "records": [
+          {
+            "envelope": {
+              "id": "rec:d",
+              "version": 1,
+              "kind": "assertion",
+              "schema": {
+                "id": "schema:decision",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 1,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "statement_kind": "decision_record",
+              "slot": "[]",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "archive_home"
+                }
+              ],
+              "authority_receipt": {
+                "id": "rec:receipt1",
+                "version": 1
+              }
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt1",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 3,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt1",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt1",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt2",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 4,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt2",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt2",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:d",
+              "version": 3,
+              "kind": "assertion",
+              "schema": {
+                "id": "schema:decision",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 5,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "statement_kind": "decision_record",
+              "slot": "[]",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "retain_home"
+                }
+              ],
+              "authority_receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              }
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt3",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 6,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt3",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt3",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          }
+        ],
+        "domain_schemas": [
+          {
+            "id": "schema:decision",
+            "version": 1,
+            "name": "decision",
+            "statement_kind": "decision_record",
+            "semantics": {
+              "establishes": "An assertion about an exact deciding-authority receipt.",
+              "does_not_establish": [
+                "Permission to act",
+                "Adoption without a canonical receipt"
+              ]
+            },
+            "fields": [
+              {
+                "name": "value",
+                "type": "string",
+                "equality": "exact",
+                "required": true,
+                "disclosure_class": "public"
+              }
+            ],
+            "cardinality": {
+              "mode": "single",
+              "slot_fields": []
+            },
+            "incompatibilities": [],
+            "freshness_default": {
+              "kind": "none"
+            },
+            "disclosure_defaults": [
+              {
+                "field_class": "public",
+                "audiences": [
+                  "aud:public",
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              },
+              {
+                "field_class": "restricted",
+                "audiences": [
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              },
+              {
+                "field_class": "sensitive",
+                "audiences": [
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              }
+            ],
+            "requirements": [
+              "authority_receipt_for_current"
+            ]
+          }
+        ],
+        "projection_rules": [
+          {
+            "id": "projection:main",
+            "version": 1,
+            "issuer": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "sequence_resolution": "issuer_and_authority",
+            "time_policy": "query_cut",
+            "freshness_policy": "query_override_else_schema",
+            "excluded_refs": [],
+            "family": "issuer_current",
+            "audience": null,
+            "purpose": null
+          }
+        ],
+        "policy": {
+          "subject_principals": [
+            {
+              "subject": "subj:h1",
+              "principal": "subj:h1"
+            }
+          ],
+          "revision": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "owner": "subj:h1",
+          "lineage_facts": [
+            {
+              "output": {
+                "id": "rec:d",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            }
+          ],
+          "constraint_owners": [],
+          "declassification_decisions": [],
+          "profile": "protected",
+          "grants": [
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:private",
+              "purpose": "purpose:publish",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:private",
+              "purpose": "purpose:read",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:public",
+              "purpose": "purpose:publish",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:public",
+              "purpose": "purpose:read",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            }
+          ],
+          "representations": [],
+          "reviews": [
+            {
+              "record": {
+                "id": "rec:d",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            }
+          ],
+          "evidence": {
+            "ref": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "root_kinds": [
+              "formal_entailment",
+              "semantic_review",
+              "test_result"
+            ],
+            "policy_pin": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "environment_pin": {
+              "id": "environment:1",
+              "version": 1
+            }
+          },
+          "coverage": [],
+          "authority_events": [
+            {
+              "receipt": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [],
+              "canonical": true
+            },
+            {
+              "receipt": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [
+                {
+                  "id": "rec:receipt1",
+                  "version": 1
+                }
+              ],
+              "canonical": true
+            },
+            {
+              "receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [
+                {
+                  "id": "rec:receipt2",
+                  "version": 1
+                }
+              ],
+              "canonical": true
+            }
+          ],
+          "handles": [],
+          "imports": [],
+          "public_availability": "available",
+          "availability_disclosure": "none",
+          "limits": {
+            "max_records": 1000,
+            "max_fan_in": 32,
+            "max_payload_bytes": 1000000,
+            "read": {
+              "roots": 32,
+              "rules": 32,
+              "source_resolutions": 32,
+              "explanations": 8
+            }
+          },
+          "source_access": [
+            {
+              "source": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "resolvable": true
+            },
+            {
+              "source": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "resolvable": true
+            },
+            {
+              "source": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "resolvable": true
+            }
+          ],
+          "external_effect_owners": [
+            "authority:external"
+          ]
+        },
+        "runtime": {
+          "dirty_causes": [],
+          "revoked_declassifications": [],
+          "committed_cuts": [
+            100
+          ],
+          "revocations": [],
+          "memory_cut": 100,
+          "source_cuts": [],
+          "dirty": [],
+          "erasure_generation": 0,
+          "erased": [],
+          "fences": [],
+          "custody": [],
+          "restore": {
+            "status": "open",
+            "external_witness": true,
+            "obligations": []
+          },
+          "idempotency": [],
+          "hidden_work": 0,
+          "memory_available": true,
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "durable_state_unchanged": true,
+      "captures_unchanged": true,
+      "dirty_since_unchanged": true,
+      "ephemeral_binding_count_before": 0,
+      "ephemeral_binding_count_after": 1
+    },
+    {
+      "name": "foreign-intermediate",
+      "input_sha256": "e2ea35d28c5f23a8e1de5c5dff5acc8c8111a37d5376ceda95b65d6d821b157c",
+      "closed_input_checks": {
+        "initial_state": true,
+        "operations": true,
+        "query": true
+      },
+      "actual": {
+        "operation_results": [],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.5-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "c8c348148d8b06d32e12fb3f65b50a5f",
+          "data_classification": "data",
+          "items": [
+            {
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "ref": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "statement_kind": "decision_record",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "retain_home"
+                }
+              ],
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [
+                {
+                  "id": "rec:receipt3",
+                  "version": 1
+                }
+              ],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "c8c348148d8b06d32e12fb3f65b50a5f",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "c8c348148d8b06d32e12fb3f65b50a5f",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [
+            {
+              "id": "rec:d",
+              "version": 1
+            }
+          ],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "rec:d",
+              "version": 1
+            },
+            {
+              "id": "rec:d",
+              "version": 3
+            },
+            {
+              "id": "rec:receipt1",
+              "version": 1
+            },
+            {
+              "id": "rec:receipt2",
+              "version": 1
+            },
+            {
+              "id": "rec:receipt3",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "before": {
+        "records": [
+          {
+            "envelope": {
+              "id": "rec:d",
+              "version": 1,
+              "kind": "assertion",
+              "schema": {
+                "id": "schema:decision",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 1,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "statement_kind": "decision_record",
+              "slot": "[]",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "archive_home"
+                }
+              ],
+              "authority_receipt": {
+                "id": "rec:receipt1",
+                "version": 1
+              }
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt1",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 3,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt1",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt1",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt2",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h2",
+              "submitter": "subj:h2",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h2"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 4,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt2",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt2",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:d",
+              "version": 3,
+              "kind": "assertion",
+              "schema": {
+                "id": "schema:decision",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 5,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "statement_kind": "decision_record",
+              "slot": "[]",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "retain_home"
+                }
+              ],
+              "authority_receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              }
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt3",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 6,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt3",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt3",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          }
+        ],
+        "domain_schemas": [
+          {
+            "id": "schema:decision",
+            "version": 1,
+            "name": "decision",
+            "statement_kind": "decision_record",
+            "semantics": {
+              "establishes": "An assertion about an exact deciding-authority receipt.",
+              "does_not_establish": [
+                "Permission to act",
+                "Adoption without a canonical receipt"
+              ]
+            },
+            "fields": [
+              {
+                "name": "value",
+                "type": "string",
+                "equality": "exact",
+                "required": true,
+                "disclosure_class": "public"
+              }
+            ],
+            "cardinality": {
+              "mode": "single",
+              "slot_fields": []
+            },
+            "incompatibilities": [],
+            "freshness_default": {
+              "kind": "none"
+            },
+            "disclosure_defaults": [
+              {
+                "field_class": "public",
+                "audiences": [
+                  "aud:public",
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              },
+              {
+                "field_class": "restricted",
+                "audiences": [
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              },
+              {
+                "field_class": "sensitive",
+                "audiences": [
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              }
+            ],
+            "requirements": [
+              "authority_receipt_for_current"
+            ]
+          }
+        ],
+        "projection_rules": [
+          {
+            "id": "projection:main",
+            "version": 1,
+            "issuer": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "sequence_resolution": "issuer_and_authority",
+            "time_policy": "query_cut",
+            "freshness_policy": "query_override_else_schema",
+            "excluded_refs": [],
+            "family": "issuer_current",
+            "audience": null,
+            "purpose": null
+          }
+        ],
+        "policy": {
+          "subject_principals": [
+            {
+              "subject": "subj:h1",
+              "principal": "subj:h1"
+            }
+          ],
+          "revision": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "owner": "subj:h1",
+          "lineage_facts": [
+            {
+              "output": {
+                "id": "rec:d",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            }
+          ],
+          "constraint_owners": [],
+          "declassification_decisions": [],
+          "profile": "protected",
+          "grants": [
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:private",
+              "purpose": "purpose:publish",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:private",
+              "purpose": "purpose:read",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:public",
+              "purpose": "purpose:publish",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:public",
+              "purpose": "purpose:read",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            }
+          ],
+          "representations": [],
+          "reviews": [
+            {
+              "record": {
+                "id": "rec:d",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            }
+          ],
+          "evidence": {
+            "ref": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "root_kinds": [
+              "formal_entailment",
+              "semantic_review",
+              "test_result"
+            ],
+            "policy_pin": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "environment_pin": {
+              "id": "environment:1",
+              "version": 1
+            }
+          },
+          "coverage": [],
+          "authority_events": [
+            {
+              "receipt": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [],
+              "canonical": true
+            },
+            {
+              "receipt": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "issuer": "subj:h2",
+              "predecessors": [
+                {
+                  "id": "rec:receipt1",
+                  "version": 1
+                }
+              ],
+              "canonical": true
+            },
+            {
+              "receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [
+                {
+                  "id": "rec:receipt2",
+                  "version": 1
+                }
+              ],
+              "canonical": true
+            }
+          ],
+          "handles": [],
+          "imports": [],
+          "public_availability": "available",
+          "availability_disclosure": "none",
+          "limits": {
+            "max_records": 1000,
+            "max_fan_in": 32,
+            "max_payload_bytes": 1000000,
+            "read": {
+              "roots": 32,
+              "rules": 32,
+              "source_resolutions": 32,
+              "explanations": 8
+            }
+          },
+          "source_access": [
+            {
+              "source": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "resolvable": true
+            },
+            {
+              "source": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "resolvable": true
+            },
+            {
+              "source": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "resolvable": true
+            }
+          ],
+          "external_effect_owners": [
+            "authority:external"
+          ]
+        },
+        "runtime": {
+          "dirty_causes": [],
+          "revoked_declassifications": [],
+          "committed_cuts": [
+            100
+          ],
+          "revocations": [],
+          "memory_cut": 100,
+          "source_cuts": [],
+          "dirty": [],
+          "erasure_generation": 0,
+          "erased": [],
+          "fences": [],
+          "custody": [],
+          "restore": {
+            "status": "open",
+            "external_witness": true,
+            "obligations": []
+          },
+          "idempotency": [],
+          "hidden_work": 0,
+          "memory_available": true,
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "after": {
+        "records": [
+          {
+            "envelope": {
+              "id": "rec:d",
+              "version": 1,
+              "kind": "assertion",
+              "schema": {
+                "id": "schema:decision",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 1,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "statement_kind": "decision_record",
+              "slot": "[]",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "archive_home"
+                }
+              ],
+              "authority_receipt": {
+                "id": "rec:receipt1",
+                "version": 1
+              }
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt1",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 3,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt1",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt1",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt2",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h2",
+              "submitter": "subj:h2",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h2"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 4,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt2",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt2",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:d",
+              "version": 3,
+              "kind": "assertion",
+              "schema": {
+                "id": "schema:decision",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 5,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "statement_kind": "decision_record",
+              "slot": "[]",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "retain_home"
+                }
+              ],
+              "authority_receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              }
+            }
+          },
+          {
+            "envelope": {
+              "id": "rec:receipt3",
+              "version": 1,
+              "kind": "source",
+              "schema": null,
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "representation_ref": null,
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "admission_class": "machine_observation",
+              "space": "space:main",
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "recorded": {
+                "sequence": 6,
+                "at": "2026-10-17T00:00:00Z"
+              },
+              "lineage": [],
+              "disclosure": {
+                "audiences": [
+                  "aud:private",
+                  "aud:public"
+                ],
+                "purposes": [
+                  "purpose:publish",
+                  "purpose:read"
+                ],
+                "retain_until": null,
+                "field_classes": [
+                  "public"
+                ],
+                "declassification": []
+              },
+              "context": "real"
+            },
+            "body": {
+              "owner": "system:documents",
+              "source_kind": "document",
+              "object": "object:receipt3",
+              "revision": "revision:1",
+              "digest": null,
+              "provenance": "canonical",
+              "availability": "resolvable",
+              "origin": "origin:receipt3",
+              "original_issuer": "subj:h1",
+              "carrier": null,
+              "excerpt": null,
+              "retention_admission": null
+            }
+          }
+        ],
+        "domain_schemas": [
+          {
+            "id": "schema:decision",
+            "version": 1,
+            "name": "decision",
+            "statement_kind": "decision_record",
+            "semantics": {
+              "establishes": "An assertion about an exact deciding-authority receipt.",
+              "does_not_establish": [
+                "Permission to act",
+                "Adoption without a canonical receipt"
+              ]
+            },
+            "fields": [
+              {
+                "name": "value",
+                "type": "string",
+                "equality": "exact",
+                "required": true,
+                "disclosure_class": "public"
+              }
+            ],
+            "cardinality": {
+              "mode": "single",
+              "slot_fields": []
+            },
+            "incompatibilities": [],
+            "freshness_default": {
+              "kind": "none"
+            },
+            "disclosure_defaults": [
+              {
+                "field_class": "public",
+                "audiences": [
+                  "aud:public",
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              },
+              {
+                "field_class": "restricted",
+                "audiences": [
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              },
+              {
+                "field_class": "sensitive",
+                "audiences": [
+                  "aud:private"
+                ],
+                "purposes": [
+                  "purpose:read",
+                  "purpose:publish"
+                ]
+              }
+            ],
+            "requirements": [
+              "authority_receipt_for_current"
+            ]
+          }
+        ],
+        "projection_rules": [
+          {
+            "id": "projection:main",
+            "version": 1,
+            "issuer": "subj:h1",
+            "perspective": {
+              "kind": "own",
+              "principal": "subj:h1"
+            },
+            "sequence_resolution": "issuer_and_authority",
+            "time_policy": "query_cut",
+            "freshness_policy": "query_override_else_schema",
+            "excluded_refs": [],
+            "family": "issuer_current",
+            "audience": null,
+            "purpose": null
+          }
+        ],
+        "policy": {
+          "subject_principals": [
+            {
+              "subject": "subj:h1",
+              "principal": "subj:h1"
+            }
+          ],
+          "revision": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "owner": "subj:h1",
+          "lineage_facts": [
+            {
+              "output": {
+                "id": "rec:d",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            },
+            {
+              "output": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "profile": {
+                "id": "integration:synthetic",
+                "version": 1
+              },
+              "kind": "direct",
+              "inputs": [],
+              "complete": true
+            }
+          ],
+          "constraint_owners": [],
+          "declassification_decisions": [],
+          "profile": "protected",
+          "grants": [
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:private",
+              "purpose": "purpose:publish",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:private",
+              "purpose": "purpose:read",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:public",
+              "purpose": "purpose:publish",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            },
+            {
+              "principal": "subj:h1",
+              "space": "space:main",
+              "audience": "aud:public",
+              "purpose": "purpose:read",
+              "rights": [
+                "admit",
+                "declassify",
+                "erase",
+                "forward",
+                "read",
+                "retain",
+                "revise",
+                "use"
+              ],
+              "records": [
+                "*"
+              ],
+              "metadata": true
+            }
+          ],
+          "representations": [],
+          "reviews": [
+            {
+              "record": {
+                "id": "rec:d",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:d",
+                "version": 3
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            },
+            {
+              "record": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "reviewer": "subj:h1",
+              "result": "allow"
+            }
+          ],
+          "evidence": {
+            "ref": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "root_kinds": [
+              "formal_entailment",
+              "semantic_review",
+              "test_result"
+            ],
+            "policy_pin": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "environment_pin": {
+              "id": "environment:1",
+              "version": 1
+            }
+          },
+          "coverage": [],
+          "authority_events": [
+            {
+              "receipt": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [],
+              "canonical": true
+            },
+            {
+              "receipt": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "issuer": "subj:h2",
+              "predecessors": [
+                {
+                  "id": "rec:receipt1",
+                  "version": 1
+                }
+              ],
+              "canonical": true
+            },
+            {
+              "receipt": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "issuer": "subj:h1",
+              "predecessors": [
+                {
+                  "id": "rec:receipt2",
+                  "version": 1
+                }
+              ],
+              "canonical": true
+            }
+          ],
+          "handles": [],
+          "imports": [],
+          "public_availability": "available",
+          "availability_disclosure": "none",
+          "limits": {
+            "max_records": 1000,
+            "max_fan_in": 32,
+            "max_payload_bytes": 1000000,
+            "read": {
+              "roots": 32,
+              "rules": 32,
+              "source_resolutions": 32,
+              "explanations": 8
+            }
+          },
+          "source_access": [
+            {
+              "source": {
+                "id": "rec:receipt1",
+                "version": 1
+              },
+              "resolvable": true
+            },
+            {
+              "source": {
+                "id": "rec:receipt2",
+                "version": 1
+              },
+              "resolvable": true
+            },
+            {
+              "source": {
+                "id": "rec:receipt3",
+                "version": 1
+              },
+              "resolvable": true
+            }
+          ],
+          "external_effect_owners": [
+            "authority:external"
+          ]
+        },
+        "runtime": {
+          "dirty_causes": [],
+          "revoked_declassifications": [],
+          "committed_cuts": [
+            100
+          ],
+          "revocations": [],
+          "memory_cut": 100,
+          "source_cuts": [],
+          "dirty": [],
+          "erasure_generation": 0,
+          "erased": [],
+          "fences": [],
+          "custody": [],
+          "restore": {
+            "status": "open",
+            "external_witness": true,
+            "obligations": []
+          },
+          "idempotency": [],
+          "hidden_work": 0,
+          "memory_available": true,
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "durable_state_unchanged": true,
+      "captures_unchanged": true,
+      "dirty_since_unchanged": true,
+      "ephemeral_binding_count_before": 0,
+      "ephemeral_binding_count_after": 1
+    }
+  ]
+}
