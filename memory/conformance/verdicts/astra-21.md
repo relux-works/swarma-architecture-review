@@ -1,23 +1,20 @@
 # astra-21 package editor verdict
 
-Status: round 15, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
-signed release `6a04e8c`. This round changes only this verdict after the requested
-independent R7-058 correction audit.
+Status: round 16, quiet editor round; awaiting convener PARK. Current package:
+**0.2.5-draft**, signed release `6a04e8c`; package bytes are unchanged since release.
 
-**All 14 editor-owned specification bugs are judge-closed.** Source R7-057 is
-also judge-closed at `946cbd8` / `e3d44df`. R7-058 is the separate package runtime
-restore bug, requiring no specification change. Both readers pass **57/57 canonical
-semantics**; the five new accepted restore fixtures bring the supplemental corpus
-to 68 semantics. Source passes 68; old package passes 65 and fails three. Package
-correction `104fbe8` reports 68/68; this editor independently verifies all five
-unchanged restore fixtures, the three new product groups and original late-writer
-inputs. Formal R7-058 closure remains pending.
+**R7 score: 2/2**, matching judge `9d2cdd4`. Both independent readers exactly pass
+**57/57 canonical and 68/68 supplemental semantic vectors**. Source runtime is
+`946cbd8` with expanded report/test `b8189ba`; package runtime is `104fbe8`.
+All 14 editor-owned specification bugs and every classified implementation bug are
+judge-closed. The ledger has 58 items: 47 fixed, 10 rejected and one owner question.
+No new case, package edit or unanswered editor assignment remains in this round.
 
 R7-055 remains an explicit [owner question](../OWNER-QUESTIONS.md), held for Ivan
-without an authority choice or exact oracle. Phase 2 remains **1/2** while R7-058
-is open; see current [score](../R7-SCORE.md) and [ledger](../LEDGER.md). Eight
-canonical and one supplemental deployment cases remain unsupported. No package
-byte, expected output, authority option or deployment qualification changed.
+without an authority choice or exact oracle. Its native separating pair stays
+outside executable denominators. Eight canonical and one supplemental deployment
+cases remain unsupported; semantic success does not qualify a deployment.
+Current [score](../R7-SCORE.md) and [ledger](../LEDGER.md) preserve these limits.
 
 ## Scope and independence
 
@@ -429,6 +426,21 @@ commands exit 0; the isolated old-runtime check intentionally exits 1. This is a
 focused five-vector audit, not a repeated full corpus run. Recommend R7-058 closure,
 subject to judge disposition. No package or other-seat production file changed.
 
+## Round 16: quiet editor closure readback
+
+Read back signed judge `9d2cdd4`: R7-058 closes at `104fbe8`, consistent with the
+editor's round-15 independent same-input, protected-state and old-runtime controls.
+The judge independently verifies every current canonical and supplemental report
+row, package 34 controls and source 129 control coverage (12 erasure groups rerun
+plus 117 unchanged prior controls). These are the judge's complete-corpus results;
+the editor's narrower audits retain their exact scope above.
+
+A fresh pull to `45dbd67` shows no package delta from released `6a04e8c`, no tracked
+local changes, no new classified spec/implementation item and no unaddressed editor
+request. This round updates only the verdict's current status and records no new
+case or oracle. The own score is 2/2; no PARK is inferred. R7-055 remains held,
+and deployment 8+1 remains unsupported.
+
 ## Previous 0.2.1 validation and execution evidence
 
 `python3 memory/spec/checks/validate.py` passes: 94 JSON artifacts, 14 closed
@@ -472,8 +484,8 @@ RESULTS.json and runs/cases-0.2.1-current.json. Evidence:
 
 The convener's Phase 2 decision is event
 `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc`. All established package findings
-and source R7-057 are judge-closed. Package R7-058 correction `104fbe8` is
-independently verified above and awaits judge closure. R7-055 requires an attributed
+and all classified implementation bugs are judge-closed, including package R7-058
+at `104fbe8` / judge `9d2cdd4`. No editor assignment remains open. R7-055 requires an attributed
 owner decision; both readings and their separating native pair remain preserved
 outside exact-oracle denominators. The editor will apply only resulting
 judge-classified package fixes or an attributed owner decision, with a new release
