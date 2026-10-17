@@ -1,6 +1,6 @@
 # ASTRA24-02: an expired checked rule cannot carry a current witness
 
-Status: submitted source-contract regression case; package not yet landed.
+Status: source requirement accepted; released prose closes the choice; exact regression vector supplied.
 Source baseline: `cca7b6e`; kernel v0.2. Owner: astra-24.
 
 ## Clauses
@@ -53,3 +53,22 @@ This is a proposed separating fixture, not a reported evaluator failure.
 Package-format JSON and concrete package clauses will be added after release.
 If the package has no way to express a rule applicability interval, that is a
 representation gap to classify, not a reason to silently make every rule eternal.
+
+## Package inspection and exact fixture — round 2
+
+Release `0.1.0-draft` at `0ef608a` already closes the prose choice in
+K-RULE-2 (rule validity participates in applicability) and K-TIME-1 (half-open
+time). Its common envelope represents the interval. This is regression coverage,
+not a confirmed package bug. Judge intake is R7-002.
+
+The accompanying `.vector.json` captures support at the rule's inclusive start
+and one second before its end, then queries at the exclusive endpoint. Premise,
+conclusion and retained certificate remain valid. Both earlier outputs are
+normalized-equal; the final output must have no support and no opposition.
+
+Structural validation passed using the package validator on the exact owned
+fixture: closed shape, initial references, handle normalization and forbidden
+predicates. Planting a surviving endpoint witness triggers the intended forbidden
+predicate. No independent evaluator run yet. Evidence: seat-local
+`.temp/case-vectors-validate-01.log`; whole-package validation is recorded in
+`.temp/package-validate-01.log`. No deployment execution is claimed.

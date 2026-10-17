@@ -1,6 +1,6 @@
 # ASTRA24-01: premise quality quantifies over alternative support paths
 
-Status: submitted source-contract regression case; package not yet landed.
+Status: source requirement accepted; released prose closes the choice; exact regression vector supplied.
 Source baseline: `cca7b6e`; kernel v0.2. Owner: astra-24.
 
 ## Clauses
@@ -59,3 +59,23 @@ This is a proposed separating fixture, not a reported evaluator failure.
 Package-format JSON and concrete package clauses will be added after release.
 The judge decides whether the release already closes this case, needs a fix,
 or leaves an owner-level ambiguity about the quality vocabulary.
+
+## Package inspection and exact fixture — round 2
+
+Release `0.1.0-draft` at `0ef608a` already closes the prose choice in
+K-EVAL-4: a demonstrated clean path wins; K-EVAL-7 separates explanation caps.
+This is regression coverage, not a confirmed package bug. Judge intake is
+R7-001. The accompanying `.vector.json` uses abstract A = `rec:a`, abstract
+B = `rec:c`, and conclusion C = `rec:b`. It captures the full two-path
+explanation, then caps rendering at one path: the retained first path is the
+conflicted one, while both outputs must still report `clean_path`. The complete
+extended polarity records are normalized-equal. Canonical S03 is the nearby
+conflicted-only control.
+
+Structural validation passed using the package validator on the exact owned
+fixture: closed shape, initial references, handle normalization and forbidden
+predicates. Planting `conflicted_premises_only` in the expected-shaped result
+triggers the intended forbidden predicate. No independent evaluator run yet.
+Evidence: seat-local `.temp/case-vectors-validate-01.log`; whole-package
+validation `.temp/package-validate-01.log` passed 61 vectors structurally
+(53 semantic, 8 deployment), with 13 intended checker controls.
