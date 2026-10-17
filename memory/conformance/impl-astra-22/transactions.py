@@ -106,7 +106,14 @@ class Transactions:
         self.adapter = adapter
         root = schema_root or Path(__file__).resolve().parents[2] / "spec/kernel/schemas"
         self.shapes = Shapes(root)
-        self.idempotency = {}
+
+    @property
+    def idempotency(self):
+        # A derived lookup, never a second store: initial snapshots and newly
+        # committed receipts follow exactly the same replay path.
+        return {(entry["actor"], entry["space"], entry["key"]):
+                (entry["canonical_request"].encode("utf-8"), entry["receipt"])
+                for entry in self.adapter.runtime["idempotency"]}
 
     def sequence(self, record):
         e, b = record["envelope"], record["body"]
@@ -284,7 +291,10 @@ class Transactions:
                          "challenged" if relation == "challenge" else
                          "availability_changed" if relation == "availability" else "revised",
                          [ref(p) for p in proposals])
-        self.idempotency[identity] = (digest, copy.deepcopy(result))
+        runtime["idempotency"].append({"actor": actor, "space": space,
+                                       "key": op["idempotency_key"],
+                                       "canonical_request": digest.decode("utf-8"),
+                                       "receipt": copy.deepcopy(result)})
         return result
 
     def inherit(self, proposal, inputs, state):

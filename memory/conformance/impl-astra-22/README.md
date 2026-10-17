@@ -131,3 +131,7 @@ S07 and the existing alternative-premise-quality proof case now run exactly.
 Audience-projection proof-reference disclosure remains explicitly unsupported.
 Phase 2 requires full dual canonical coverage and one round without a new open
 item before PARK; the historical supported-vector score is not that completion.
+
+## Snapshot idempotency controls
+
+`runtime.idempotency` is the authoritative receipt store for admitted initial snapshots and successful writes. Run `python3 memory/conformance/impl-astra-22/transaction_checks.py` for eleven atomic transaction controls, including replay after semantic adapter reconstruction, actor/space/key isolation, original handle/time and current operation authority. R7-030 first/corrected probes are under `runs/persisted-idempotency-*.json`; they do not qualify physical durability or restart recovery.

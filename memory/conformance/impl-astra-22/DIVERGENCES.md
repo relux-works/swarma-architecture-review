@@ -205,3 +205,11 @@ current/retained/independent controls reject the former empty/resolved priority.
 33 source, 5 adapter, 7 transaction and 5 harness controls pass. Canonical remains
 43/0/14; supplemental remains 14/0/8 semantic. Expected package/case outputs were
 not edited. R7-027 is judge-closed; R7-028/029 fixes await independent verification.
+
+## R7-030 — Initial snapshot idempotency ignored
+
+Judge event $hbbJ9rJ7PJw8UKe81INSkYADsT_zK_WLJPPHBW3fgtQ classifies the separate empty transaction idempotency map as impl-bug. Full judge snapshot and source first output are preserved at f2c1570. The old path rejects exact/later-stamp replay and changed intent as duplicate_record. The correction derives replay lookup from runtime.idempotency and persists successful receipt entries there. Four new controls exercise initial state, reconstruction, actor/space/key isolation and current authorization, with original handle/time and atomic refusal assertions. Eleven transaction controls pass; exact judge operation differences are zero with unchanged state. Canonical remains 44/0/13. Closure awaits independent judge verification.
+
+## Phase-2 supplemental first failures
+
+Signed f2c1570 retains runs/phase2-expanded-first.* (30 semantic vectors: 17 pass / 2 fail / 11 unsupported). R7-032 classifies expired imported-publication currentness as source impl-bug; fixing it is queued next. ASTRA25-08 reports missing independent retain authority; classification is pending. Neither expected output is changed. Exact proof case ASTRA24-07 passes, preserving four paths versus two independent origins and cap-three truncation.

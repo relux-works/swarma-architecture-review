@@ -1,0 +1,188 @@
+{
+  "transactions_sha256": "2aae8574c4ae6a5c3b70e22f8a2903f9959b117180d9f5190caed0fea91c4809",
+  "actual": {
+    "operation_results": [
+      {
+        "type": "receipt",
+        "operation": "admit",
+        "outcome": "admitted",
+        "receipt_handle": "e8cb0b59d67123ae9444a6187ae7ee37",
+        "refs": [
+          {
+            "id": "rec:a",
+            "version": 1
+          }
+        ],
+        "custody": [],
+        "erasure_status": null
+      },
+      {
+        "type": "receipt",
+        "operation": "admit",
+        "outcome": "admitted",
+        "receipt_handle": "e8cb0b59d67123ae9444a6187ae7ee37",
+        "refs": [
+          {
+            "id": "rec:a",
+            "version": 1
+          }
+        ],
+        "custody": [],
+        "erasure_status": null
+      },
+      {
+        "type": "refusal",
+        "code": "idempotency_conflict",
+        "retryable": false
+      }
+    ],
+    "result": {
+      "type": "view",
+      "semantic_profile": "0.2.1-draft",
+      "projection_rule": {
+        "id": "projection:main",
+        "version": 1
+      },
+      "evidence_policy": {
+        "id": "evidence:1",
+        "version": 1
+      },
+      "policy": {
+        "id": "policy:1",
+        "version": 1
+      },
+      "authorized_snapshot_handle": "3db43e1e3df318d441a4dfa2428a173c",
+      "data_classification": "data",
+      "items": [
+        {
+          "ref": {
+            "id": "rec:a",
+            "version": 1
+          },
+          "subject": "subj:h1",
+          "issuer": "subj:h1",
+          "submitter": "subj:h1",
+          "perspective": {
+            "kind": "own",
+            "principal": "subj:h1"
+          },
+          "representation_ref": null,
+          "admission_class": "machine_observation",
+          "statement_kind": "fact",
+          "content": [
+            {
+              "field": "value",
+              "value": "alpha"
+            }
+          ],
+          "valid": {
+            "kind": "known",
+            "from": "2026-09-01T00:00:00Z",
+            "to": null,
+            "precision": "second"
+          },
+          "confirmed_at": "2026-10-17T00:00:00Z",
+          "usable_until": null,
+          "currentness": "current",
+          "authority_receipt": null,
+          "incompatible_with": [],
+          "needs_review": false,
+          "source_refs": [],
+          "support": {
+            "witness": "not_found",
+            "evaluation": "complete",
+            "corpus_coverage": {
+              "kind": "unknown"
+            },
+            "premise_quality": "not_fully_checked",
+            "evidence_qualification": [],
+            "source_state": "resolvable_now",
+            "freshness": "not_applicable",
+            "authorized_snapshot_handle": "3db43e1e3df318d441a4dfa2428a173c",
+            "dependency_coverage": "registered_only",
+            "witness_roots": [],
+            "independent_root_count": 0
+          },
+          "oppose": {
+            "witness": "not_found",
+            "evaluation": "complete",
+            "corpus_coverage": {
+              "kind": "unknown"
+            },
+            "premise_quality": "not_fully_checked",
+            "evidence_qualification": [],
+            "source_state": "resolvable_now",
+            "freshness": "not_applicable",
+            "authorized_snapshot_handle": "3db43e1e3df318d441a4dfa2428a173c",
+            "dependency_coverage": "registered_only",
+            "witness_roots": [],
+            "independent_root_count": 0
+          }
+        }
+      ],
+      "currentness": "current",
+      "historical": [],
+      "review_required": [],
+      "explanation": {
+        "status": "complete",
+        "paths": [],
+        "reason": null
+      },
+      "cutoffs": [],
+      "changes": {
+        "state": "initial",
+        "refs": []
+      }
+    },
+    "postconditions": {
+      "record_refs": [
+        {
+          "id": "rec:a",
+          "version": 1
+        }
+      ],
+      "erased_refs": [],
+      "custody_present": [],
+      "dirty": [],
+      "control_observations": [],
+      "external_effects": []
+    }
+  },
+  "expected_operation_results": [
+    {
+      "type": "receipt",
+      "operation": "admit",
+      "outcome": "admitted",
+      "receipt_handle": "e8cb0b59d67123ae9444a6187ae7ee37",
+      "refs": [
+        {
+          "id": "rec:a",
+          "version": 1
+        }
+      ],
+      "custody": [],
+      "erasure_status": null
+    },
+    {
+      "type": "receipt",
+      "operation": "admit",
+      "outcome": "admitted",
+      "receipt_handle": "e8cb0b59d67123ae9444a6187ae7ee37",
+      "refs": [
+        {
+          "id": "rec:a",
+          "version": 1
+        }
+      ],
+      "custody": [],
+      "erasure_status": null
+    },
+    {
+      "type": "refusal",
+      "code": "idempotency_conflict",
+      "retryable": false
+    }
+  ],
+  "differences": [],
+  "state_preserved": true
+}
