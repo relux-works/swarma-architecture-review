@@ -37,9 +37,10 @@ availability4,harness5. Exact native outputs and module hashes are in
 
 Judge-closed source defects:011/012/013/015,025/026/027/028/029,030,032,036,040,043,
 047,050,051,052. Deadline052 is closed at4a14a56; native firstc9e1faf and exact
-old-source0.2.5 first49/1/7 remain unchanged. New native ASTRA24-12 cross-issuer
-ancestry has no oracle pending adjudication; issuer-local source behavior stays
-unchanged. Package053candidate23b4d74 and this coverage extension await judge.
+old-source0.2.5 first49/1/7 remain unchanged. R7-055/ASTRA24-12 cross-issuer
+ancestry is a filed owner question held for Ivan; issuer-local source behavior
+stays unchanged. Exact own native observations and full-state preservation are
+in `runs/authority-issuer-native-first.json`, outside pass/fail denominators. Package053candidate23b4d74 and this coverage extension await judge.
 
 Remaining unmapped non-canonical API paths: changes, audience proof-reference
 disclosure and request_check. Proof families can grow exponentially. No protected
