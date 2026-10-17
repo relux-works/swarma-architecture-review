@@ -184,3 +184,21 @@ runs are `astra22-phase2-025-erase-conflict-first` and
 `astra23-phase2-025-erase-conflict-control`; new uncommitted fixture bytes at
 execution are explicitly identified by input hashes, never mislabeled as a
 previous committed vector set. Native first evidence remains immutable.
+
+## Independent R7-057 correction verification
+
+Source `946cbd8` now passes both unchanged exact fixtures and all 28 owned
+semantic fixtures. The unchanged independent native harness reproduces the
+original seven-operation probe with both changed purpose/audience conflicts
+mapped exactly to idempotency_conflict/false and no state change. Exact replay,
+current read-revoked replay, foreign actor and fresh empty-ref success retain
+the original receipt guarantees. Eleven source native erasure groups pass,
+including the three added authorization/replay groups; canonical remains 57/57.
+All current Python modules were byte-compared with the signed correction.
+
+Runs `astra22-phase2-025-erase-conflict-corrected`,
+`astra22-erase-context-priority-corrected`,
+`astra22-canonical-025-erase-priority-corrected` and
+`astra22-native-erasure-025-corrected` retain the review evidence. All first
+failures and fixture bytes remain unchanged. Recommend judge closure of R7-057;
+ASTRA25-12 restore obligations remain a separate package finding.

@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 32; collective active, NO PARK. Seat identity:
+Status: phase 2, round 33; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Both evaluators now pass every canonical semantic
@@ -21,7 +21,7 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | External witness must be current and complete | R7-008 fixed@cde5754 for fixture meaning; real deployment remains unsupported |
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Hidden revision cannot expose protected global dirty state | R7-018 fixed@f31d58f; hidden and authorized-dirty traces pass |
 | [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md) | Opposite quality cannot spend existence counters | R7-027 fixed@4e647ea; both owned traces and ASTRA24-05 controls pass |
-| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 fixed at package 7e71765 / runtime a016781; judge and seat independently verified; separate R7-057 source changed-context priority open |
+| [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erase authority does not grant hidden derivative metadata | R7-031 fixed at package 7e71765 / runtime a016781; judge and seat independently verified; separate R7-057 source correction946cbd8 independently verified; judge closure pending |
 | [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source d077064 / R7-037 package 4af0360 independently verified and judge-closed at 7446ba5 |
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; both exact pairs now pass at source dbf4892 and package 23b4d74 |
 | [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 fixed at 23290b3; judge and seat independently verified |
@@ -57,7 +57,7 @@ independent defect count.
 | Latest recorded owned 0.2.5 semantic runs | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Package runtime at `23b4d74` | 28 | 0 | 0 |
-| Source runtime at `87beb46` | 26 | 2 | 0 |
+| Source runtime at `946cbd8` | 28 | 0 | 0 |
 
 Each evaluator reports the one owned deployment fixture unsupported. Both previously
 passed all six independent storage/replay controls each for scoped grants. The
@@ -119,8 +119,12 @@ source not_authorized versus package idempotency_conflict, both atomically;
 fresh-key empty-ref erase and exact replay/revocation controls agree. Judge event `$eZJtQ5NtpfBEb7qFsk54ePTdCFPWyGbT_S4eBcV9FM8` classifies
 R7-057 as source implementation bug. Two new exact purpose/audience fixtures
 now encode the mapped conflict with live exact replay and fresh-key empty-ref
-positive controls. Source fails only the intended code in each; package passes
-both. The owned semantic denominator is now 28; no old expected output changed. R7-056
+positive controls. The first source run fails only the intended code in each; package passes
+both. Source946cbd8 now passes both unchanged fixtures and all 28 owned semantic
+cases, 11 native erasure groups, the independent original seven-operation probe
+and 57 canonical semantic cases. Four correction runs preserve module/input
+hashes and exact refusal-state/original-receipt guarantees. Judge closure is
+recommended. The owned semantic denominator is 28; no old output changed. R7-056
 correction 87beb46 now passes independent review: five availability groups,
 26 owned semantic vectors and all 57 canonical semantic vectors. Only the two
 current availability facts are changed by the authorized transition; the four
@@ -148,8 +152,8 @@ Phase-1 dual coverage was 43/57; judge-verified 0.2.3 dual coverage reached50/57
 when R7-050 closed and remains judge-verified after both B01 fixes on 0.2.4.
 Current 0.2.5 P11 passes both corrected runtimes.
 Source dbf4892 independently passes all 57 canonical semantic vectors and all
-the original 26 owned semantic vectors. The two later R7-057 supplementary
-fixtures remain red in source until correction. The judge owns collective
+the original 26 owned semantic vectors. Source946cbd8 now also passes the two
+later R7-057 supplementary fixtures unchanged. The judge owns collective
 totals; deployment
 unsupported never means pass.
 
