@@ -1,6 +1,6 @@
 # Proposal: binding memory's identities and delegation to the platform identity design
 
-Status: **proposal, awaiting the owner**. Raised by the swarma-docs editorial lane on 2026-10-18; written down by the memory lane. If accepted, it closes the open question "concrete bindings of identities, delegation and authority in the adapter" (book chapter 1.0, «Нерешённые вопросы»). The kernel does not change; only the Swarma adapter contract (`memory/spec/adapters/swarma.md`) does.
+Status: **accepted as D-010 on 2026-10-18** (binding only; the self-certifying ID stays a separate pending question). Raised by the swarma-docs editorial lane on 2026-10-18; written down by the memory lane. If accepted, it closes the open question "concrete bindings of identities, delegation and authority in the adapter" (book chapter 1.0, «Нерешённые вопросы»). The kernel does not change; only the Swarma adapter contract (`memory/spec/adapters/swarma.md`) does.
 
 ## Cited sources
 

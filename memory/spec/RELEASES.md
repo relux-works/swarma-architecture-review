@@ -1,5 +1,9 @@
 # Package releases
 
+## 0.2.7-draft
+
+Implements owner decision D-010 in the Swarma adapter contract only. Kernel principals (issuer, subject, submitter) bind to platform identity cell ids resolved through the owner registry from a signed snapshot within its freshness bound. representation_ref names a registry grant, checked at admission against that snapshot, including spent and terminal states; an unavailable registry never implies a grant. Key rotation and revocation semantics are stated for the adapter. The kernel semantics, schemas and all 74 vectors are unchanged; semantic results under 0.2.6 remain valid. The derivation of identity cell ids is outside the adapter binding.
+
 ## 0.2.6-draft
 
 Implements owner decision D-009, resolving the semantic choice in R7-055.
