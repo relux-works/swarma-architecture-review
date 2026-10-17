@@ -9,6 +9,70 @@ from adapter import Adapter
 
 
 class AssociationControls(unittest.TestCase):
+    # R7-032: the exclusive expiry endpoint changes only publication currentness
+    # and freshness. Earlier captured data and witness/origin identity stay fixed.
+    def test_publication_expiry_boundary(self):
+        path = Path(__file__).resolve().parents[1] / "cases/astra-26-checked-import-expiry.vector.json"
+        vector = json.loads(path.read_text())
+        adapter = Adapter(vector["initial_state"], "control")
+        query = copy.deepcopy(vector["operations"][0]["query"])
+        first = adapter.query(query)
+        frozen = copy.deepcopy(first)
+        evidence = {k: v for k, v in first["items"][0]["support"].items()
+                    if k not in {"freshness", "authorized_snapshot_handle"}}
+        for second, currentness, freshness in ((0, "current", "fresh"),
+                                               (1, "last_received", "stale"),
+                                               (2, "last_received", "stale")):
+            with self.subTest(second=second):
+                query["now"] = f"2026-10-17T00:00:0{second}Z"
+                result = adapter.query(query)
+                self.assertEqual(result["currentness"], currentness)
+                item = result["items"][0]
+                self.assertEqual(item["currentness"], currentness)
+                self.assertEqual(item["support"]["freshness"], freshness)
+                self.assertEqual({k: v for k, v in item["support"].items()
+                                  if k not in {"freshness", "authorized_snapshot_handle"}}, evidence)
+                self.assertEqual(item["source_refs"], first["items"][0]["source_refs"])
+                self.assertEqual(first, frozen)
+
+    # Missing/current/replaced import facts are distinct. No horizon configured
+    # is not expiry; a known replacement is historical, never last_received.
+    def test_publication_check_and_replacement(self):
+        path = Path(__file__).resolve().parents[2] / "spec/kernel/vectors/semantic/P07.json"
+        vector = json.loads(path.read_text())
+        for state, expected in (("current", "current"), ("missing", "last_received"),
+                                ("unverified", "last_received"), ("replaced", "historical")):
+            with self.subTest(state=state):
+                initial = copy.deepcopy(vector["initial_state"])
+                if state == "missing":
+                    initial["policy"]["imports"] = []
+                elif state != "current":
+                    fact = initial["policy"]["imports"][0]
+                    fact["status"] = state
+                    if state == "unverified":
+                        fact["checked_at"] = None
+                    else:
+                        fact["successor"] = initial["policy"]["imports"][1]["source"]
+                result = Adapter(initial, "control").query(vector["query"])
+                self.assertEqual(result["items"][0]["currentness"], expected)
+                self.assertEqual(result["currentness"], "current" if expected == "historical" else expected)
+                self.assertEqual(result["items"][0]["support"]["independent_root_count"], 1)
+
+    # An expired non-publication source never demotes its report's sequence;
+    # publication admission_class alone cannot trigger import-currentness rules.
+    def test_nonpublication_freshness_is_independent(self):
+        path = Path(__file__).resolve().parents[1] / "cases/astra-26-checked-import-expiry.vector.json"
+        vector = json.loads(path.read_text())
+        initial = copy.deepcopy(vector["initial_state"])
+        for record in initial["records"]:
+            if record["envelope"]["kind"] == "source":
+                record["body"]["source_kind"] = "mirror"
+        result = Adapter(initial, "control").query(vector["query"])
+        self.assertEqual(result["currentness"], "current")
+        self.assertEqual(result["items"][0]["currentness"], "current")
+        self.assertEqual(result["items"][0]["support"]["freshness"], "stale")
+        self.assertEqual(result["items"][0]["support"]["independent_root_count"], 1)
+
     # R7-029 exact wire probes: empty/resolvable named sources use resolvable_now;
     # unavailable independent sources remain attested, with unchanged root kind.
     def test_independent_source_precedence(self):

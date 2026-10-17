@@ -1,8 +1,8 @@
 # astra-22 vector results
 
-Package: **0.2.1-draft**, package commit `f31d58f58d05de2ae4159dedaacfa1e32bdc656d`.
+Package: **0.2.2-draft**, package commit `7e71765317088d4ac1ea6946fdfb4b2f8012643c`.
 Vector directory: `memory/spec/kernel/vectors` (this inventory only).
-Checkout: `f2c157078dd78665b1d5836a498e33c82c743d91`. Source core SHA-256: `999b53173fb7fe7127b5a1370b31f988e71f1f8a1fecfa922c4febb3eee6b0cc`.
+Checkout: `7e71765317088d4ac1ea6946fdfb4b2f8012643c`. Source core SHA-256: `999b53173fb7fe7127b5a1370b31f988e71f1f8a1fecfa922c4febb3eee6b0cc`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.
@@ -11,7 +11,7 @@ Deployment cases require actual boundary qualification and are reported separate
 
 | Category | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| semantic | 44 | 0 | 13 |
+| semantic | 45 | 0 | 12 |
 | deployment | 0 | 0 | 8 |
 
 Five bounded harness controls passed (valid comparison, changed value, extra field,
@@ -45,7 +45,7 @@ No randomness-distribution or timing proof is claimed.
 | P05 | semantic | unsupported | Unmapped frozen-core transaction operations: declassify, deliver, revoke_declassification |
 | P06 | semantic | unsupported | Unmapped frozen-core transaction operations: deliver, revoke |
 | P07 | semantic | pass | Exact report and forbidden/normalization checks passed. |
-| P08 | semantic | unsupported | Unmapped frozen-core transaction operations: erase |
+| P08 | semantic | unsupported | Unmapped frozen-core transaction operations: erase, revoke |
 | P09 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P10 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P11 | semantic | pass | Exact report and forbidden/normalization checks passed. |
@@ -75,7 +75,7 @@ No randomness-distribution or timing proof is claimed.
 | S20 | semantic | unsupported | Unmapped frozen-core transaction operations: erase |
 | S21 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S22 | semantic | pass | Exact report and forbidden/normalization checks passed. |
-| S23 | semantic | unsupported | Frozen core has no imported-publication currentness state |
+| S23 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S24 | semantic | unsupported | Unmapped frozen-core transaction operations: erase |
 | S25 | semantic | unsupported | Unmapped frozen-core transaction operations: erase, reconcile_restore, restore |
 | S26 | semantic | unsupported | Unmapped frozen-core transaction operations: erase |
@@ -87,4 +87,4 @@ No randomness-distribution or timing proof is claimed.
 | S32 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S33 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 
-Full normalized actual reports and input hashes: `phase2-idempotency-corrected.json`.
+Full normalized actual reports and input hashes: `phase2-import-0.2.2.json`.

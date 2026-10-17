@@ -213,3 +213,7 @@ Judge event $hbbJ9rJ7PJw8UKe81INSkYADsT_zK_WLJPPHBW3fgtQ classifies the separate
 ## Phase-2 supplemental first failures
 
 Signed f2c1570 retains runs/phase2-expanded-first.* (30 semantic vectors: 17 pass / 2 fail / 11 unsupported). R7-032 classifies expired imported-publication currentness as source impl-bug; fixing it is queued next. ASTRA25-08 reports missing independent retain authority; classification is pending. Neither expected output is changed. Exact proof case ASTRA24-07 passes, preserving four paths versus two independent origins and cap-three truncation.
+
+## R7-032 correction
+
+Judge event $d-fCrpCafaGdZmlnjrNnqpKXqFOs7Um-npNJhPU8IJ8 classifies expired imports as impl-bug in both evaluators. Source correction follows kernel9.2 and K-PUB-2: publication association, admitted current check and unexpired horizon jointly constrain currentness. Known replacement stays historical; missing/unverified knowledge is last_received; ordinary mirror-report freshness is independent. Three red-before wire groups cover endpoint neighbors, source origin preservation, old capture immutability, missing/current/replaced facts and non-publication controls. Eight adapter controls pass. ASTRA26-07 passes exactly; S23 newly executes and passes. Canonical0.2.2 package7e71765 is45/0/12; pinned0.2.1 expanded supplement19/1/12, retaining R7-036 failure. Closure awaits judge verification.

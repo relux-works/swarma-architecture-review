@@ -288,12 +288,22 @@ class Adapter:
                 channel["evidence_qualification"] = sorted({"formal_entailment" if q == "checked_entailment" else q
                                                            for q in channel["evidence_qualification"]})
             currentness = "historical" if k in projection["historical"] else "ambiguous_current" if k in projection["ambiguous"] else "current"
+            import_states = []
             for source in associated[k]:
                 source_record = self.records[key(source)]
                 if source_record["body"].get("source_kind") == "publication":
                     facts = [f for f in self.policy["imports"] if f["source"] == source]
-                    if not facts or facts[0]["status"] != "current":
-                        raise Unsupported("Frozen core has no imported-publication currentness state")
+                    fact = facts[0] if facts else None
+                    if fact and fact["status"] == "replaced":
+                        import_states.append("historical")
+                    elif (not fact or fact["status"] != "current" or fact["checked_at"] is None
+                          or fact["checked_at"] > query["now"]
+                          or result["support"]["freshness"] == "stale"):
+                        import_states.append("last_received")
+            if "historical" in import_states:
+                currentness = "historical"
+            elif currentness == "current" and "last_received" in import_states:
+                currentness = "last_received"
             items.append({"ref": ref(record), "subject": e["subject"], "issuer": e["issuer"], "submitter": e["submitter"],
                           "perspective": e["perspective"], "representation_ref": e["representation_ref"],
                           "admission_class": e["admission_class"], "statement_kind": b["statement_kind"],
@@ -326,7 +336,9 @@ class Adapter:
         return {"type": "view", "semantic_profile": self.profile, "projection_rule": query["projection_rule"],
                 "evidence_policy": query["evidence_policy"], "policy": query["policy"], "authorized_snapshot_handle": handle,
                 "data_classification": "data", "items": items,
-                "currentness": "none" if not items else "ambiguous_current" if any(i["currentness"] == "ambiguous_current" for i in items) else "current",
+                "currentness": ("none" if not items else
+                                "ambiguous_current" if any(i["currentness"] == "ambiguous_current" for i in items) else
+                                "last_received" if any(i["currentness"] == "last_received" for i in items) else "current"),
                 "historical": sorted_refs(ref(self.records[k]) for k in projection["historical"] if k not in selected),
                 "review_required": [], "explanation": explanation,
                 "cutoffs": sorted(cutoffs), "changes": {"state": "initial", "refs": []}}

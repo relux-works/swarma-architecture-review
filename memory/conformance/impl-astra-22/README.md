@@ -110,7 +110,7 @@ The first 0.2.1 run exposed the missing self-declaration identity gate (R7-026);
 its correction and the selected-history fix (R7-025) retain red/green evidence. It still explicitly rejects unsupported
 erasure/publication transaction wire operations,
 dynamic dirty closure, live multi-owner release
-checks and unconfirmed imported-publication currentness. RESULTS.md lists the
+checks. Checked, expired, missing-check and replaced imported-publication currentness are now mapped independently from ordinary report freshness. RESULTS.md lists the
 precise per-vector boundaries; source model unit controls alone do not count as
 package-vector passes. Original frozen evidence is retained unchanged.
 
