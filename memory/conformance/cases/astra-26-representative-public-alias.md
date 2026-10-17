@@ -81,5 +81,10 @@ Package `0.2.0-draft` at `cde5754` now explicitly defines that exact mapping in
 K-DISC-4, including distinct-principal aliases and missing-alias refusal. The
 prose correction is verified. Both controls passed the independent package-only
 evaluator's first code at `0008dc3` against the original `0.1.0` grammar. Their
-current copies are migrated to `0.2.0` and structurally validate; execution with
-the new full grammar is pending evaluator migration.
+current copies are migrated to `0.2.0` and structurally validate. The updated
+package-only evaluator at `1439219` now passes both under package `cde5754`,
+including exact response fields, closed response schemas, forbidden predicates
+and handle equality/distinctness. Evidence:
+`.temp/r7-astra-26/owned-cases-astra23-03.json`, with implementation/input hashes.
+The case's prose and targeted behavior corrections are verified; ledger closure
+remains the judge's responsibility.

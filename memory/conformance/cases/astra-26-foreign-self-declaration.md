@@ -65,3 +65,15 @@ recommended semantic correction awaiting judge classification, not a claimed
 existing evaluator obligation or an observed implementation failure. Initial
 snapshots must also satisfy whatever invariant the package closes; P15 currently
 provides the direct already-admitted witness.
+
+## Execution observation before classification
+
+The package-only evaluator at `1439219` admits the first proposal under
+`0.2.0-draft` at `cde5754`, producing a receipt instead of the proposed
+`invalid_domain_value` refusal. Both record references then remain admitted;
+the extra admission also advances the transaction cut before the valid control.
+The exact report is seat `.temp/r7-astra-26/owned-cases-astra23-03.json`, with
+implementation and input hashes. This confirms that the fixture distinguishes
+the readings; it does not turn a proposed correction into an established
+implementation obligation before judge classification. The other seven owned
+fixtures pass that same evaluator and package exactly.

@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 4, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, round 5, 2026-10-17.
 
 ## Baseline and scope
 
@@ -169,3 +169,22 @@ No cases or directed requests were outstanding at initialization.
   This eighth fixture awaits judge classification; no implementation bug claimed.
 - R7-016/017 are retained regressions, rejected as spec defects. Provisional row
   remains **1/2**; no protected-deployment qualification is claimed.
+
+## Round 5 — current-version execution verification
+
+- Ran all eight owned fixtures against the package-only evaluator at signed
+  `1439219`, using the actual `0.2.0-draft` grammar at `cde5754`. Its four
+  comparator controls passed. No evaluator file was modified.
+- All **seven previously classified fixtures pass exactly**, including both
+  R7-010 representative-alias controls, import attribution/refusal, checked and
+  unchecked import currentness, independent location slots and the explicit
+  introduction-data positive control. R7-010's prose and targeted behavior fix
+  are verified and the evidence was sent to the judge.
+- ASTRA26-06, still awaiting classification, returns an admission receipt where
+  the proposed correction expects `invalid_domain_value`. The separating effect
+  is now observed; it is not prematurely labeled an implementation bug.
+- Full exact outputs/differences, forbidden/shape checks and implementation/input
+  hashes: seat `.temp/r7-astra-26/owned-cases-astra23-03.json`; comparator controls:
+  `astra23-controls-02.log`. Provisional collective row remains **1/2** while
+  other package/evaluator corrections and ASTRA26-06 are unresolved. Deployment
+  qualification remains unsupported.
