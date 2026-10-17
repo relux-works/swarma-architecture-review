@@ -85,6 +85,9 @@ class Adapter:
                 until = (stamp + datetime.timedelta(seconds=horizon["seconds"])).isoformat().replace("+00:00", "Z")
             out["usable_until"] = until
         elif e["kind"] == "source":
+            # Documentary source attribution need not be the observer's own
+            # perspective; grants still gate it. It is not an assertion premise.
+            out.pop("perspective")
             out["availability"] = b["availability"]
             for access in self.policy["source_access"]:
                 if access["source"] == ref(record) and not access["resolvable"]:
@@ -151,6 +154,20 @@ class Adapter:
         sources = [r for r in normalized.values() if r["kind"] == "source"]
         roots, rules = [], []
         associated = {r["id"]: [] for r in assertions}
+        # Provenance is broader than signed roots. Exact subject-pinned checks
+        # and authority receipts remain associations without becoming support.
+        for k, record in self.records.items():
+            e, b = record["envelope"], record["body"]
+            if not applicable(normalized[k], nq):
+                continue
+            if e["kind"] == "assertion" and b["authority_receipt"]:
+                receipt = b["authority_receipt"]
+                if key(receipt) in normalized and applicable(normalized[key(receipt)], nq):
+                    associated[k].append(receipt)
+            if e["kind"] == "assessment" and key(b["pins"]["subject"]) in associated:
+                target = key(b["pins"]["subject"])
+                associated[target].extend(s for s in b["sources"]
+                                          if key(s) in normalized and applicable(normalized[key(s)], nq))
         for k in sorted(self.records, key=lambda x: (self.records[x]["envelope"]["id"], self.records[x]["envelope"]["version"])):
             record, nr = self.records[k], normalized[k]
             e, b = record["envelope"], record["body"]
@@ -204,7 +221,8 @@ class Adapter:
                 if key(event["receipt"]) == assertion.get("authority_receipt"):
                     assertion["authority_after"] = [receipt_to_assertion[key(p)] for p in event["predecessors"]
                                                      if key(p) in receipt_to_assertion]
-        engine = Evaluator(assertions, roots, rules, sources)
+        engine = Evaluator(assertions, roots, rules, sources,
+                           {k: [key(s) for s in refs] for k, refs in associated.items()})
         projection_records = [a for a in assertions if a["schema"] == key(query["scope"]["schema"])]
         projection = Memory(projection_records).project(nq | {"issuer": rule["issuer"], "subject": query["scope"]["subject"]})
         selected = ([key(r) for r in query["scope"]["targets"]] if query["scope"]["targets"] else projection["current"])
@@ -221,17 +239,23 @@ class Adapter:
                         and key(c["declaration"]) in normalized and applicable(normalized[key(c["declaration"])], nq)]
             corpus = {"kind": "declared", "ref": coverage[0]["declaration"]} if coverage else {"kind": "unknown"}
             result = engine.evaluate(k, nq | {"corpus_coverage": corpus})
+            cutoffs.update(result["cutoffs"])
+            # Exact assessment references survive found paths separately from
+            # deduplicated origins, so an unrelated copy cannot add provenance.
+            found_assessments = set(result["support"]["witness_assessments"] + result["oppose"]["witness_assessments"])
+            displayed_sources = list(associated[k])
+            for root in roots:
+                if root["id"] in found_assessments and applicable(root, nq):
+                    body = self.records[root["id"]]["body"]
+                    displayed_sources.extend(s for s in body["sources"]
+                                             if applicable(normalized[key(s)], nq))
             for sign in ("support", "oppose"):
                 channel = result[sign]
                 origins = channel.pop("root_origins")
+                channel.pop("witness_assessments")
                 channel.update(witness_roots=origins, independent_root_count=len(origins), authorized_snapshot_handle=handle)
                 channel["evidence_qualification"] = sorted({"formal_entailment" if q == "checked_entailment" else q
                                                            for q in channel["evidence_qualification"]})
-                if channel["evaluation"] == "incomplete":
-                    if nq["root_budget"] < len(roots):
-                        cutoffs.add("root_limit")
-                    if nq["rule_budget"] < len(rules):
-                        cutoffs.add("rule_limit")
             currentness = "historical" if k in projection["historical"] else "ambiguous_current" if k in projection["ambiguous"] else "current"
             for source in associated[k]:
                 source_record = self.records[key(source)]
@@ -244,7 +268,7 @@ class Adapter:
                           "admission_class": e["admission_class"], "statement_kind": b["statement_kind"],
                           "content": b["content"], "valid": e["valid"], "confirmed_at": e["confirmed_at"],
                           "usable_until": nr["usable_until"], "currentness": currentness, "authority_receipt": b["authority_receipt"],
-                          "incompatible_with": [], "needs_review": False, "source_refs": sorted_refs(associated[k]),
+                          "incompatible_with": [], "needs_review": False, "source_refs": sorted_refs(displayed_sources),
                           "support": result["support"], "oppose": result["oppose"]})
         return {"type": "view", "semantic_profile": self.profile, "projection_rule": query["projection_rule"],
                 "evidence_policy": query["evidence_policy"], "policy": query["policy"], "authorized_snapshot_handle": handle,

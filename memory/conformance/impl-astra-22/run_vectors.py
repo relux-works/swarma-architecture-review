@@ -102,6 +102,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--package", type=Path, default=ROOT / "memory/spec")
     parser.add_argument("--out", type=Path, default=BASE / "RESULTS.md")
+    parser.add_argument("--vectors", type=Path, help="Optional separate vector directory, e.g. adversarial cases")
     args = parser.parse_args()
     controls()
     package = args.package.resolve()
@@ -111,7 +112,9 @@ def main():
     core_hash = hashlib.sha256((BASE / "evaluator.py").read_bytes()).hexdigest()
     rows, details = [], {}
     totals = {p: {s: 0 for s in ("pass", "fail", "unsupported")} for p in ("semantic", "deployment")}
-    for path in sorted((package / "kernel/vectors").rglob("*.json")):
+    vector_directory = args.vectors.resolve() if args.vectors else package / "kernel/vectors"
+    paths = vector_directory.rglob("*.vector.json") if args.vectors else vector_directory.rglob("*.json")
+    for path in sorted(paths):
         vector = strict_json(path.read_text())
         category = vector["profile"]
         identifier = vector["id"]
@@ -135,12 +138,15 @@ def main():
         totals[category][status] += 1
         rows.append(f"| {identifier} | {category} | {status} | {reason} |")
     report = {"checkout_commit": head, "package_commit": package_commit, "package_version": profile,
+              "vector_directory": str(vector_directory.relative_to(ROOT)),
               "core_sha256": core_hash, "totals": totals, "vectors": details}
     json_out = args.out.with_suffix(".json")
     json_out.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
     lines = ["# astra-22 vector results", "", f"Package: **{profile}**, package commit `{package_commit}`.",
+             f"Vector directory: `{vector_directory.relative_to(ROOT)}` (this inventory only).",
              f"Checkout: `{head}`. Source core SHA-256: `{core_hash}`.", "",
-             "The core is the source-only frozen implementation. The adapter is an independent wire mapping.",
+             "The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.",
+             "Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.",
              "Every vector was loaded. Unsupported is neither a pass nor evidence of a package defect.",
              "Deployment cases require actual boundary qualification and are reported separately.", "",
              "| Category | Pass | Fail | Unsupported |", "| --- | ---: | ---: | ---: |"]

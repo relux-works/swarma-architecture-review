@@ -77,3 +77,19 @@ unchanged core and adapter: 2 pass, 1 fail, 9 unsupported. Exact evidence:
 control pass. ASTRA24-03 exposes ASTRA22-04 (AND-path source-state aggregation)
 and additional occurrences of ASTRA22-02/03. This remains separate from the
 canonical package totals and all failures are sent for classification.
+
+## Classified correction round
+
+Implemented only judge-classified R7-011/012/013/015. Validation logs:
+`.temp/astra-22/source-checks-04.log` (24 pass), `adapter-checks-01.log`
+(visible/hidden documentary association control), `vector-run-03.log`
+(24/0/29 semantic, 8 deployment unsupported), `case-run-02.log` (3/0/11).
+Corrected core SHA-256: eb5bd2b8df171c98f5294ed54f01dcf9e3157bfa4e6253b3824f10167fbc4da6.
+A transient rerun still showed S23/B03 source references missing; inspection found
+the source's own perspective was incorrectly treated as an assertion-premise
+perspective. The explicit visibility regression covers that correction.
+
+The case runner now supports `--vectors memory/conformance/cases --out PATH`;
+canonical and supplemental inventories remain separate. No other implementation
+was read or used. The previous supplemental commit had one ordinary push race;
+signed rebase succeeded and b3c7ac9 verified G before publication.

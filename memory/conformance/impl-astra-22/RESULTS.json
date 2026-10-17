@@ -1,12 +1,12 @@
 {
-  "checkout_commit": "0ef608ae279a9bc209ad78ffdc72dbbbdc828f8f",
+  "checkout_commit": "b3c7ac93d30e9149a252295b0905a63a85a00125",
   "package_commit": "0ef608ae279a9bc209ad78ffdc72dbbbdc828f8f",
   "package_version": "0.1.0-draft",
-  "core_sha256": "cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246",
+  "core_sha256": "eb5bd2b8df171c98f5294ed54f01dcf9e3157bfa4e6253b3824f10167fbc4da6",
   "totals": {
     "semantic": {
-      "pass": 17,
-      "fail": 7,
+      "pass": 24,
+      "fail": 0,
       "unsupported": 29
     },
     "deployment": {
@@ -132,7 +132,12 @@
               "authority_receipt": null,
               "incompatible_with": [],
               "needs_review": false,
-              "source_refs": [],
+              "source_refs": [
+                {
+                  "id": "rec:mirror",
+                  "version": 1
+                }
+              ],
               "support": {
                 "witness": "not_found",
                 "evaluation": "complete",
@@ -201,15 +206,9 @@
           "external_effects": []
         }
       },
-      "differences": [
-        {
-          "path": "$.result.items[0].source_refs.length",
-          "expected": 1,
-          "actual": 0
-        }
-      ],
-      "status": "fail",
-      "reason": "1 exact differences"
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "B07": {
       "file": "memory/spec/kernel/vectors/semantic/B07.json",
@@ -428,13 +427,13 @@
               ],
               "support": {
                 "witness": "not_found",
-                "evaluation": "complete",
+                "evaluation": "incomplete",
                 "corpus_coverage": {
                   "kind": "unknown"
                 },
                 "premise_quality": "not_fully_checked",
                 "evidence_qualification": [],
-                "source_state": "resolvable_now",
+                "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
                 "authorized_snapshot_handle": "<fresh>",
                 "dependency_coverage": "registered_only",
@@ -449,7 +448,7 @@
                 },
                 "premise_quality": "not_fully_checked",
                 "evidence_qualification": [],
-                "source_state": "resolvable_now",
+                "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
                 "authorized_snapshot_handle": "<fresh>",
                 "dependency_coverage": "registered_only",
@@ -466,7 +465,9 @@
             "paths": [],
             "reason": null
           },
-          "cutoffs": [],
+          "cutoffs": [
+            "source_unavailable"
+          ],
           "changes": {
             "state": "initial",
             "refs": []
@@ -494,30 +495,9 @@
           "external_effects": []
         }
       },
-      "differences": [
-        {
-          "path": "$.result.cutoffs.length",
-          "expected": 1,
-          "actual": 0
-        },
-        {
-          "path": "$.result.items[0].oppose.source_state",
-          "expected": "prior_assessment_only",
-          "actual": "resolvable_now"
-        },
-        {
-          "path": "$.result.items[0].support.evaluation",
-          "expected": "incomplete",
-          "actual": "complete"
-        },
-        {
-          "path": "$.result.items[0].support.source_state",
-          "expected": "prior_assessment_only",
-          "actual": "resolvable_now"
-        }
-      ],
-      "status": "fail",
-      "reason": "4 exact differences"
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "B14": {
       "file": "memory/spec/kernel/vectors/semantic/B14.json",
@@ -2507,13 +2487,13 @@
               ],
               "support": {
                 "witness": "not_found",
-                "evaluation": "complete",
+                "evaluation": "incomplete",
                 "corpus_coverage": {
                   "kind": "unknown"
                 },
                 "premise_quality": "not_fully_checked",
                 "evidence_qualification": [],
-                "source_state": "resolvable_now",
+                "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
                 "authorized_snapshot_handle": "<fresh>",
                 "dependency_coverage": "registered_only",
@@ -2528,7 +2508,7 @@
                 },
                 "premise_quality": "not_fully_checked",
                 "evidence_qualification": [],
-                "source_state": "resolvable_now",
+                "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
                 "authorized_snapshot_handle": "<fresh>",
                 "dependency_coverage": "registered_only",
@@ -2545,7 +2525,9 @@
             "paths": [],
             "reason": null
           },
-          "cutoffs": [],
+          "cutoffs": [
+            "source_unavailable"
+          ],
           "changes": {
             "state": "initial",
             "refs": []
@@ -2573,30 +2555,9 @@
           "external_effects": []
         }
       },
-      "differences": [
-        {
-          "path": "$.result.cutoffs.length",
-          "expected": 1,
-          "actual": 0
-        },
-        {
-          "path": "$.result.items[0].oppose.source_state",
-          "expected": "prior_assessment_only",
-          "actual": "resolvable_now"
-        },
-        {
-          "path": "$.result.items[0].support.evaluation",
-          "expected": "incomplete",
-          "actual": "complete"
-        },
-        {
-          "path": "$.result.items[0].support.source_state",
-          "expected": "prior_assessment_only",
-          "actual": "resolvable_now"
-        }
-      ],
-      "status": "fail",
-      "reason": "4 exact differences"
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "S13": {
       "file": "memory/spec/kernel/vectors/semantic/S13.json",
@@ -3124,7 +3085,12 @@
               "authority_receipt": null,
               "incompatible_with": [],
               "needs_review": false,
-              "source_refs": [],
+              "source_refs": [
+                {
+                  "id": "rec:mirror",
+                  "version": 1
+                }
+              ],
               "support": {
                 "witness": "not_found",
                 "evaluation": "complete",
@@ -3193,15 +3159,9 @@
           "external_effects": []
         }
       },
-      "differences": [
-        {
-          "path": "$.result.items[0].source_refs.length",
-          "expected": 1,
-          "actual": 0
-        }
-      ],
-      "status": "fail",
-      "reason": "1 exact differences"
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "S24": {
       "file": "memory/spec/kernel/vectors/semantic/S24.json",
@@ -3286,7 +3246,12 @@
               },
               "incompatible_with": [],
               "needs_review": false,
-              "source_refs": [],
+              "source_refs": [
+                {
+                  "id": "rec:receipt2",
+                  "version": 1
+                }
+              ],
               "support": {
                 "witness": "not_found",
                 "evaluation": "complete",
@@ -3354,7 +3319,12 @@
               },
               "incompatible_with": [],
               "needs_review": false,
-              "source_refs": [],
+              "source_refs": [
+                {
+                  "id": "rec:receipt3",
+                  "version": 1
+                }
+              ],
               "support": {
                 "witness": "not_found",
                 "evaluation": "complete",
@@ -3440,20 +3410,9 @@
           "external_effects": []
         }
       },
-      "differences": [
-        {
-          "path": "$.result.items[0].source_refs.length",
-          "expected": 1,
-          "actual": 0
-        },
-        {
-          "path": "$.result.items[1].source_refs.length",
-          "expected": 1,
-          "actual": 0
-        }
-      ],
-      "status": "fail",
-      "reason": "2 exact differences"
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "S29": {
       "file": "memory/spec/kernel/vectors/semantic/S29.json",
@@ -3514,7 +3473,12 @@
               },
               "incompatible_with": [],
               "needs_review": false,
-              "source_refs": [],
+              "source_refs": [
+                {
+                  "id": "rec:receipt2",
+                  "version": 1
+                }
+              ],
               "support": {
                 "witness": "not_found",
                 "evaluation": "complete",
@@ -3592,15 +3556,9 @@
           "external_effects": []
         }
       },
-      "differences": [
-        {
-          "path": "$.result.items[0].source_refs.length",
-          "expected": 1,
-          "actual": 0
-        }
-      ],
-      "status": "fail",
-      "reason": "1 exact differences"
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "S30": {
       "file": "memory/spec/kernel/vectors/semantic/S30.json",
@@ -4102,7 +4060,7 @@
                   },
                   "premise_quality": "not_fully_checked",
                   "evidence_qualification": [],
-                  "source_state": "resolvable_now",
+                  "source_state": "prior_assessment_only",
                   "freshness": "not_applicable",
                   "authorized_snapshot_handle": "<fresh>",
                   "dependency_coverage": "registered_only",
@@ -4176,7 +4134,7 @@
                   },
                   "premise_quality": "not_fully_checked",
                   "evidence_qualification": [],
-                  "source_state": "resolvable_now",
+                  "source_state": "prior_assessment_only",
                   "freshness": "not_applicable",
                   "authorized_snapshot_handle": "<fresh>",
                   "dependency_coverage": "registered_only",
@@ -4265,7 +4223,7 @@
                 },
                 "premise_quality": "not_fully_checked",
                 "evidence_qualification": [],
-                "source_state": "resolvable_now",
+                "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
                 "authorized_snapshot_handle": "<fresh>",
                 "dependency_coverage": "registered_only",
@@ -4280,7 +4238,7 @@
                 },
                 "premise_quality": "not_fully_checked",
                 "evidence_qualification": [],
-                "source_state": "resolvable_now",
+                "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
                 "authorized_snapshot_handle": "<fresh>",
                 "dependency_coverage": "registered_only",
@@ -4341,39 +4299,9 @@
           "external_effects": []
         }
       },
-      "differences": [
-        {
-          "path": "$.operation_results[0].items[0].oppose.source_state",
-          "expected": "prior_assessment_only",
-          "actual": "resolvable_now"
-        },
-        {
-          "path": "$.operation_results[0].items[1].oppose.source_state",
-          "expected": "prior_assessment_only",
-          "actual": "resolvable_now"
-        },
-        {
-          "path": "$.result.items[0].oppose.source_state",
-          "expected": "prior_assessment_only",
-          "actual": "resolvable_now"
-        },
-        {
-          "path": "$.result.items[0].support.source_state",
-          "expected": "prior_assessment_only",
-          "actual": "resolvable_now"
-        },
-        {
-          "path": "forbidden:/result/items/0/support/source_state",
-          "expected": "predicate false",
-          "actual": {
-            "path": "/result/items/0/support/source_state",
-            "test": "equals",
-            "value": "resolvable_now"
-          }
-        }
-      ],
-      "status": "fail",
-      "reason": "5 exact differences"
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "S33": {
       "file": "memory/spec/kernel/vectors/semantic/S33.json",

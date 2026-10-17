@@ -68,3 +68,22 @@ Raw normalized actual reports and all fields: `runs/case-first.json`. Source
 qualification must be joined across all AND premises before comparing OR paths;
 provenance association must traverse found paths without exposing hidden inputs.
 No correction has been applied.
+
+## Classified corrections (current working revision)
+
+Judge decisions: ASTRA22-01 = R7-011, ASTRA22-02 = R7-012, ASTRA22-03 =
+R7-013, ASTRA22-04 = R7-015; all are impl-bug owned by astra-22. R7-014 is
+the companion package clarification for mixed AND-path source states.
+
+Corrections now implemented: unavailable current-required roots propagate
+incompleteness/cutoffs; empty channels retain authorized source associations;
+exact source references include documentary sources, authority receipts and
+found premise assessments; AND paths preserve their weakest required source
+state before OR preference. Source headers retain their own attribution and are
+not filtered by the observer assertion's perspective; grants still gate them.
+
+Validation: 24 source controls, one adapter visibility control and five harness
+controls pass. Canonical 0.1.0 package: 24 pass / 0 fail / 29 unsupported semantic,
+8 deployment unsupported. Supplemental cases: 3 pass / 0 fail / 11 unsupported
+(`runs/case-corrected.*`). First-run evidence remains unchanged. Final closure
+awaits judge verification of the published fix; unsupported coverage remains.

@@ -106,6 +106,67 @@ class SourceClaims(unittest.TestCase):
         model.roots[0]["retained"] = False
         self.assertEqual(model.evaluate("A")["support"]["witness"], "not_found")
 
+    # R7-011: a failed current-source check is incomplete; retained/independent
+    # assessments remain usable, while hidden source inputs produce no cutoff.
+    def test_current_source_failure_is_not_completed_absence(self):
+        for requirement in ("current", "retained", "independent"):
+            r = root("r", "A", source="S", retained=requirement != "current", independent=requirement == "independent")
+            for availability in ("resolvable", "unavailable", "erased"):
+                model = Evaluator([claim("A")], [r], sources=[{"id": "S", "availability": availability}])
+                out = model.evaluate("A")
+                failed = requirement == "current" and availability != "resolvable"
+                self.assertEqual(out["support"]["evaluation"], "incomplete" if failed else "complete")
+                self.assertEqual(out["support"]["witness"], "not_found" if failed else "present")
+                self.assertEqual(out["cutoffs"], ["source_unavailable"] if failed else [])
+        hidden = Evaluator([claim("A")], [root("r", "A", source="S", retained=False)],
+                           sources=[{"id": "S", "availability": "erased", "visible": False}])
+        self.assertEqual(hidden.evaluate("A"), Evaluator([claim("A")]).evaluate("A"))
+
+    # R7-012: an authorized non-root signature association keeps unavailable
+    # source state on both empty channels, without fabricating signed support.
+    def test_empty_channel_preserves_source_association(self):
+        model = Evaluator([claim("A")], [root("sig", "A", qualification="signature", source="S")],
+                          sources=[{"id": "S", "availability": "erased"}])
+        for sign in ("support", "oppose"):
+            result = model.evaluate("A")[sign]
+            self.assertEqual(result["witness"], "not_found")
+            self.assertEqual(result["evaluation"], "complete")
+            self.assertEqual(result["source_state"], "prior_assessment_only")
+        self.assertEqual(Evaluator([claim("A")]).evaluate("A")["support"]["source_state"], "resolvable_now")
+        model.sources["S"]["visible"] = False
+        self.assertEqual(model.evaluate("A"), Evaluator([claim("A")]).evaluate("A"))
+
+    # R7-013: exact premise assessment provenance follows a found rule path;
+    # an unrelated assessment sharing the same origin is not that path's input.
+    def test_exact_assessment_provenance(self):
+        model = Evaluator([claim(k) for k in "ABC"],
+                          [root("a", "A", origin="same"), root("c", "C", origin="same")],
+                          [rule("ab", "B", "A")])
+        result = model.evaluate("B")["support"]
+        self.assertEqual(result["root_origins"], ["same"])
+        self.assertEqual(result["witness_assessments"], ["a"])
+
+    # R7-015: an AND path retains its weakest necessary source-state limit;
+    # complete stronger OR alternatives can win without deleting the weaker path.
+    def test_and_source_states_before_or_preference(self):
+        states = ["resolvable_now", "independent_attestation", "prior_assessment_only"]
+        for left in states:
+            for right in states:
+                roots, sources = [], []
+                for target, state in (("A", left), ("B", right)):
+                    roots.append(root(target, target, source="S" + target, retained=True,
+                                      independent=state == "independent_attestation"))
+                    sources.append({"id": "S" + target, "availability": "resolvable" if state == "resolvable_now" else "erased"})
+                model = Evaluator([claim(k) for k in "ABC"], roots, [rule("abc", "C", "A", "B")], sources)
+                expected = states[max(states.index(left), states.index(right))]
+                result = model.evaluate("C")["support"]
+                self.assertEqual(result["source_state"], expected)
+                self.assertEqual(result["witness"], "present")
+                self.assertEqual(result["evaluation"], "complete")
+                model.roots.append(root("strong", "C", independent=True))
+                strong = model.evaluate("C")["support"]["source_state"]
+                self.assertEqual(strong, "resolvable_now" if expected == "resolvable_now" else "independent_attestation")
+
     # Copies of an origin do not increase the distinct root-origin set.
     def test_root_origin_deduplication(self):
         model = Evaluator([claim("A")], [root(str(i), "A", origin="declaration") for i in range(3)])

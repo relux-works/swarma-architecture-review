@@ -2,8 +2,9 @@
 
 This independent Python standard-library model was written without reading
 `memory/spec/`. Its only semantic sources were kernel v0.2, the support-semantics
-companion and the bounded-evidence design at `6d14828`. `evaluator.py` is the
-source baseline; the future package adapter must map syntax without learning
+companion and the bounded-evidence design at `6d14828`. `evaluator.py` began as the
+source baseline at `4d4ef45`; judge-classified corrections are tracked in
+`DIVERGENCES.md`; the future package adapter must map syntax without learning
 answers from a vector's expected output.
 
 The model implements signed finite AND/OR support, qualified premises, distinct
@@ -32,8 +33,9 @@ write any external authority, journal, publisher or retained payload store.
   and same-conclusion rules in input order. Root and rule budgets are separate.
   The source has no closed numeric-work-unit or traversal-order grammar.
 - A clean witnessed path takes precedence over a conflicted alternative.
-  Without a witness, premise quality is `not_fully_checked`; source state is
-  `resolvable_now` as an empty-result framing convention, not a resolution claim.
+  Without a witness, premise quality is `not_fully_checked`. After R7-012,
+  authorized unavailable source associations remain `prior_assessment_only`;
+  `resolvable_now` is vacuous only when no unavailable association exists.
 - Root qualifications default to semantic review, exact test result, formal
   entailment, independent attestation and direct declaration. The supplied
   evidence policy can narrow/replace this list. Documentary/signature checks
@@ -66,7 +68,8 @@ Run the source controls from the repository root:
 PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/source_checks.py
 ```
 
-The controls use `unittest` from the Python standard library. Each test states
+The controls use `unittest` from the Python standard library. Post-package wire
+controls run with `python3 memory/conformance/impl-astra-22/adapter_checks.py`. Each test states
 its claim and material limits. They include nearby positive/negative examples,
 post-refusal state comparisons and bounded comparator/JSON-parser control plants.
 Logs are under `.temp/astra-22/`; progress is in `WORKLOG.md`.
@@ -79,7 +82,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/run_vectors.p
 
 This loads every package vector and writes `RESULTS.md` and `RESULTS.json` in this
 directory. `--package PATH` selects a different package checkout; `--out PATH`
-selects the report destination. `runs/0.1.0-first.*` preserves the first comparison.
+selects the report destination. `--vectors memory/conformance/cases` runs a
+separate adversarial inventory; choose a distinct output path for that report. `runs/0.1.0-first.*` preserves the first comparison.
 The executor receives no vector identifier or expected answer. Unsupported paths
 are explicit, and every supported response and postcondition is compared exactly
 after only the vector's declared normalization. Divergences are documented before

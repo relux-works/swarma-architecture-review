@@ -89,16 +89,19 @@ class Channel:
     roots: set = field(default_factory=set)
     source_states: set = field(default_factory=set)
     proof_count: int = 0
+    cutoffs: set = field(default_factory=set)
+    assessment_refs: set = field(default_factory=set)
 
 
 class Evaluator:
     """Finite signed AND/OR DAG evaluator with independent polarity channels."""
 
-    def __init__(self, assertions=(), roots=(), rules=(), sources=()):
+    def __init__(self, assertions=(), roots=(), rules=(), sources=(), associated_sources=None):
         self.assertions = {r["id"]: copy.deepcopy(r) for r in assertions}
         self.roots = copy.deepcopy(list(roots))
         self.rules = copy.deepcopy(list(rules))
         self.sources = {r["id"]: copy.deepcopy(r) for r in sources}
+        self.associated_sources = copy.deepcopy(associated_sources or {})
         self._validate()
 
     def _validate(self):
@@ -172,6 +175,7 @@ class Evaluator:
             state = channels[literal(root["target"])]
             if used_roots >= root_budget:
                 state.complete = False
+                state.cutoffs.add("root_limit")
                 continue
             used_roots += 1
             if not root.get("admitted", True) or root.get("result", "pass") != "pass":
@@ -187,10 +191,13 @@ class Evaluator:
             source = self.sources.get(root.get("source"), {})
             availability = source.get("availability", "resolvable")
             if availability != "resolvable" and not root.get("retained", True):
+                state.complete = False
+                state.cutoffs.add("source_unavailable")
                 continue
             state.present = state.clean = True
             state.qualifications.add(root["qualification"])
             state.roots.add(root.get("origin", root["id"]))
+            state.assessment_refs.add(root["id"])
             state.source_states.add(
                 "independent_attestation" if root.get("independent", False)
                 else "resolvable_now" if availability == "resolvable"
@@ -203,6 +210,7 @@ class Evaluator:
                 state = channels[literal(rule["target"])]
                 if used_rules >= rule_budget:
                     state.complete = False
+                    state.cutoffs.add("rule_limit")
                     continue
                 used_rules += 1
                 premises = [channels[literal(p)] for p in rule["premises"]]
@@ -211,6 +219,8 @@ class Evaluator:
                              for p in rule["premises"]]
                 if not all(p.complete for p in premises):
                     state.complete = False
+                for premise in premises:
+                    state.cutoffs.update(premise.cutoffs)
                 if not all(p.present for p in premises):
                     continue
                 state.present = True
@@ -222,7 +232,12 @@ class Evaluator:
                 for premise in premises:
                     state.qualifications.update(premise.qualifications)
                     state.roots.update(premise.roots)
-                    state.source_states.update(premise.source_states)
+                    state.assessment_refs.update(premise.assessment_refs)
+                # Every required premise constrains this AND path. A preference
+                # between complete OR paths must not discard a weaker premise.
+                ranks = {"prior_assessment_only": 0, "independent_attestation": 1, "resolvable_now": 2}
+                path_rank = min(max(ranks[s] for s in p.source_states) for p in premises)
+                state.source_states.add(next(s for s, rank in ranks.items() if rank == path_rank))
                 state.qualifications.add("checked_entailment")
                 state.proof_count += 1
         assertion = self.assertions[target]
@@ -242,6 +257,14 @@ class Evaluator:
             source_state = ("resolvable_now" if "resolvable_now" in state.source_states
                             else "independent_attestation" if "independent_attestation" in state.source_states
                             else "prior_assessment_only" if state.source_states else "resolvable_now")
+            if not state.present:
+                associated = set(self.associated_sources.get(target, []))
+                associated.update(r["source"] for r in roots
+                                  if literal(r["target"])[0] == target and r.get("source"))
+                if any(s in self.sources and applicable(self.sources[s], query)
+                       and self.sources[s].get("availability", "resolvable") != "resolvable"
+                       for s in associated):
+                    source_state = "prior_assessment_only"
             return {"witness": "present" if state.present else "not_found",
                     "evaluation": "complete" if state.complete else "incomplete",
                     "corpus_coverage": query.get("corpus_coverage", "unknown"),
@@ -251,13 +274,16 @@ class Evaluator:
                     "freshness": freshness,
                     "authorized_snapshot_handle": "<fresh-authorized-handle>",
                     "dependency_coverage": "registered_only",
-                    "root_origins": sorted(state.roots)}
+                    "root_origins": sorted(state.roots),
+                    "witness_assessments": sorted(state.assessment_refs)}
 
         result = {"support": render("support"), "oppose": render("oppose")}
         proof_count = sum(channels.get((target, p), Channel()).proof_count
                           for p in ("support", "oppose"))
         result["explanation"] = {"complete": proof_count <= query.get("explanation_budget", float("inf")),
                                  "count": min(proof_count, query.get("explanation_budget", proof_count))}
+        result["cutoffs"] = sorted(set().union(*(channels.get((target, p), Channel()).cutoffs
+                                                for p in ("support", "oppose"))))
         return result
 
 
