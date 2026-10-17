@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 18, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 19, 2026-10-17.
 
 ## Baseline and scope
 
@@ -502,3 +502,22 @@ is inferred. Current row remains **1/2**, with protected deployment unqualified.
   delivery at `5d079be` through `68152c5`, establishing dual canonical 49/57 on
   0.2.2. R7-044 closure, R7-046 fix and other collective work remain pending;
   current score **1/2**, protected deployment unqualified.
+
+## Phase 2 round 19 — all owned cases pass after actor correction
+
+- Package `3ce8ee3` passes **15/15 owned fixtures** on preserved original 0.2.2
+  and explicitly migrated 0.2.3. R7-046 now refuses the ungranted actor exactly,
+  without breaking rightful delivery or the later selected-right revocation.
+- Reviewed and ran the two delivery control groups. Wrong actor, audience,
+  purpose and index preserve complete state, captures, protected view bindings
+  and dirty-since state. Selected read/use/forward, fence and expiry controls
+  remain green. Source's prior pinned owned 0.2.3 evidence is also **15/15**.
+- Exact reports/hashes: seat `.temp/r7-astra-26/owned-cases-astra23-14.json`
+  (0.2.2), `owned-cases-astra23-15.json` (0.2.3), matching logs and
+  `astra23-delivery-controls-01.log`. First failing reports remain immutable;
+  only verification documentation changes this round.
+- Both new owned implementation corrections have been independently verified;
+  judge closure of R7-044/R7-046 remains pending. Global 0.2.3 canonical
+  retention and source coverage are still incomplete, so the collective score
+  remains **1/2**. Owned-corpus agreement is not full conformance or protected
+  deployment qualification. No PARK has been received.

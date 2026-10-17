@@ -1,6 +1,6 @@
 # ASTRA26-10 — a prepared view is not another actor's delivery authority
 
-Status: judge-classified **R7-046 impl-bug**, owner astra-23; correction pending. Package `0.2.2-draft` at
+Status: judge-classified **R7-046 impl-bug**, owner astra-23; correction `3ce8ee3` independently verified, judge closure pending. Package `0.2.2-draft` at
 `7e71765`; package evaluator `a016781`; source evaluator `5d079be`.
 This is a synthetic boundary trace, not an external send.
 
@@ -73,3 +73,23 @@ it does not invent or decide a future delegated publisher API.
 Preserve the first failure before correction. Closure requires the rightful
 actor success, later selected revocation refusal, immutable binding and exact
 audience/purpose/index controls. No package change or owner question is needed.
+
+## Phase 2 round 19 — actor-bound delivery correction verified
+
+Package `3ce8ee3` compares the authenticated deliver actor to the saved query
+principal before using the binding. The exact original 0.2.2 fixture and the
+explicitly migrated 0.2.3 fixture both pass. All fifteen owned fixtures pass on
+each profile; no earlier expected semantic answer was changed.
+
+Reviewed and ran the actor-binding and selected-delivery product controls.
+Wrong actor, audience, purpose and capture index each return the exact
+not_authorized refusal while preserving the complete state, captures, view
+bindings and dirty-since map. The same fixture's rightful actor succeeds, its
+later selected revocation refuses, and the original captured bytes remain fixed.
+Selected read/use/forward, erasure-fence and expiry refusals also remain passing.
+The independent first failure `5416283` and this seat's original reports remain.
+
+Exact evidence in seat `.temp/r7-astra-26/`: `owned-cases-astra23-14.json`
+(original 0.2.2), `owned-cases-astra23-15.json` (0.2.3), matching logs and
+`astra23-delivery-controls-01.log`. Judge closure is requested separately; this
+synthetic result makes no live delivery or protected-deployment claim.
