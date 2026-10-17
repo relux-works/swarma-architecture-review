@@ -1,8 +1,9 @@
 # astra-23 — R7 park note
 
 > Reopened on 2026-10-17 for D-009 / R7-055. The PARK and scores below
-> record the completed 0.2.5 round. Package 0.2.6 intake, conformance and new
-> PARK are pending; D-009 has resolved the owner choice. See the current worklog.
+> record the completed 0.2.5 round. Judge `75c13d2` now closes D-009 / R7-055
+> with dual 66/66 canonical 0.2.6 and historical 68/68. Only the quiet round and
+> new PARK remain; the old unresolved-owner text below is historical.
 
 PARK received from `ivmbp_swarma-memory_orch` at **2026-10-17 06:33Z** in
 `rounds`, event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg`. The convener

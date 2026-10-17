@@ -1184,3 +1184,25 @@ will prove semantic differences and forbidden effects are detected.
 - Add this metadata to D009-CONTROLS.json and README. Every previously committed
   audit field, runtime/test byte, first report and current vector report is unchanged.
   This resolves an audit-format question, not a semantic discrepancy or oracle edit.
+
+
+## Round 41 — independent closure and quiet round
+
+- Read back signed judge75c13d229f036ffe1639096cd9ff89926bad73b8, current ledger,
+  owner questions and score. R7-055 is resolved by D-009 with dual66/66 canonical
+  0.2.6 semantics and separately counted68/68 historical0.2.5 semantics. R7-059
+  is fixed atc7e86d5; source runtime946cbd8 is unchanged and134 controls pass.
+- Editor1e222f6 accepts exact package runtime5897520. Both reviewers reproduce
+  all canonical rows/input/module hashes and full normalized actuals, all four
+  new groups,125 state instances/74unique,25 operations and11atomic refusals.
+  The unchanged new controls reproduce eight intended failures on old104fbe8.
+- Typed-map encoding is explicit in fddb403. Editor reproduces all25 operation
+  hashes and90 nonce-free observations/67unique states. Fresh-handle post-write
+  hashes are intentionally execution-local; before/after equality is independently
+  verified without extra canonical normalization.
+- Ledger59:48fixed,10rejected, one ambiguity resolved by D-009. No open finding,
+  owner question, unclassified intake or unanswered directed request remains.
+  Update own verdict/divergence status to2/2 and mark the old PARK note historical.
+- No new divergence, case, package or runtime change this round. Existing complete
+  run evidence still applies; this is a documentation-only closure readback.
+  Continue the required foreground waits until the convener's new PARK.

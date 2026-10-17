@@ -529,7 +529,7 @@ Current ledger58 has47fixed,10rejected and owner question055; no open specificat
 or implementation bug remains. Rubric score2/2 does not resolve055, qualify any
 deployment fixture or authorize assuming PARK. No new finding in this round.
 
-### R7-055 — D-009 package alignment, verification pending
+### R7-055 — D-009 package alignment, independently closed
 
 The owner resolved the choice with D-009. Package0.2.6/77b951e now defines issuer-
 local order in K-REV-3 and supplies S34–S42. The preceding ambiguity discussion is
@@ -548,4 +548,7 @@ three-event graph variants, both foreign-only pairs and full atomic revision/imp
 CAS/replay boundaries. Current canonical66/66, unchanged historical supplemental
 68/68 under exact0.2.5, four new plus30legacy product groups and4checker groups pass.
 D009-CONTROLS.json distinguishes all profiles and records the input/state audit.
-Independent judge closure is pending; deployment8+1 remains unsupported.
+Editor `1e222f6` accepts runtime `5897520`; judge `75c13d2` closes R7-055
+with dual 66/66 canonical and 68/68 historical semantics. The audit-format
+clarification is `fddb403`. No owner question or implementation finding remains
+open. Deployment 8+1 remains unsupported; the new PARK is still pending.
