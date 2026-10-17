@@ -4,7 +4,7 @@ This independent Python standard-library model was written without reading
 `memory/spec/`. Its only semantic sources were kernel v0.2, the support-semantics
 companion and the bounded-evidence design at `6d14828`. `evaluator.py` began as the
 source baseline at `4d4ef45`; judge-classified corrections are tracked in
-`DIVERGENCES.md`; the future package adapter must map syntax without learning
+`DIVERGENCES.md`; the package adapter maps syntax without learning
 answers from a vector's expected output.
 
 The model implements signed finite AND/OR support, qualified premises, distinct
@@ -109,7 +109,25 @@ through `transactions.py`; `transaction_checks.py` contains atomicity controls.
 The first 0.2.1 run exposed the missing self-declaration identity gate (R7-026);
 its correction and the selected-history fix (R7-025) retain red/green evidence. It still explicitly rejects unsupported
 erasure/publication transaction wire operations,
-exact proof-path enumeration, dynamic dirty closure, live multi-owner release
+dynamic dirty closure, live multi-owner release
 checks and unconfirmed imported-publication currentness. RESULTS.md lists the
 precise per-vector boundaries; source model unit controls alone do not count as
 package-vector passes. Original frozen evidence is retained unchanged.
+
+## Exact proof paths (Phase 2)
+
+`proofs.py` shares finite proof-set families in a reduced zero-suppressed diagram.
+It performs exact union/AND composition and enumerates only the requested
+canonical prefix; root-origin deduplication does not collapse proof identities.
+The diagram itself can still grow exponentially in the worst case; no deployed
+resource-isolation guarantee is claimed. Run the independent algebra, ordering,
+visibility and factored-prefix controls with:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/proof_checks.py
+```
+
+S07 and the existing alternative-premise-quality proof case now run exactly.
+Audience-projection proof-reference disclosure remains explicitly unsupported.
+Phase 2 requires full dual canonical coverage and one round without a new open
+item before PARK; the historical supported-vector score is not that completion.

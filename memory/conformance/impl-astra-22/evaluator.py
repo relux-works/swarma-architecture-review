@@ -92,6 +92,7 @@ class Channel:
     cutoffs: set = field(default_factory=set)
     assessment_refs: set = field(default_factory=set)
     path_qualities: set = field(default_factory=set)
+    proofs: int = 0
 
 
 class Evaluator:
@@ -174,14 +175,22 @@ class Evaluator:
             root_index.setdefault(literal(root["target"]), []).append(root)
         for rule in sorted(rules, key=order):
             rule_index.setdefault(literal(rule["target"]), []).append(rule)
+        include_paths = query.get("include_paths", False)
+        proofs = None
+        if include_paths:
+            from proofs import Proofs
+            proofs = Proofs(roots + rules)
+            if type(query.get("explanation_budget")) is not int or query["explanation_budget"] < 0:
+                raise Refusal("invalid_bound")
 
         # Only results from a fresh independent walk can be reused across walks.
         # The local memo below shares a literal within one bounded existence walk.
         full_walks = {}
 
-        def walk(requested):
-            if requested in full_walks:
-                return full_walks[requested]
+        def walk(requested, collect_proofs=False):
+            cache_key = (requested, collect_proofs)
+            if cache_key in full_walks:
+                return full_walks[cache_key]
             used = {"roots": 0, "rules": 0}
             resolved_sources = set()
             memo = {}
@@ -229,6 +238,8 @@ class Evaluator:
                         else "independent_attestation" if root.get("independent", False)
                         else "prior_assessment_only")
                     state.proof_count += 1
+                    if collect_proofs:
+                        state.proofs = proofs.union(state.proofs, proofs.singleton(root["id"]))
                 for rule in rule_index.get(current, []):
                     if used["rules"] >= rule_budget:
                         state.complete = False
@@ -265,15 +276,20 @@ class Evaluator:
                     state.source_states.add(next(s for s, rank in ranks.items() if rank == path_rank))
                     state.qualifications.add("checked_entailment")
                     state.proof_count += 1
+                    if collect_proofs:
+                        family = proofs.singleton(rule["id"])
+                        for premise in premises:
+                            family = proofs.join(family, premise.proofs)
+                        state.proofs = proofs.union(state.proofs, family)
                 state.clean = "clean" in state.path_qualities
                 state.unchecked = "unchecked" in state.path_qualities
                 return state
 
             result = visit(requested)
-            full_walks[requested] = result
+            full_walks[cache_key] = result
             return result
 
-        channels = {(target, sign): walk((target, sign)) for sign in ("support", "oppose")}
+        channels = {(target, sign): walk((target, sign), include_paths) for sign in ("support", "oppose")}
         assertion = self.assertions[target]
         until = query.get("usable_until", assertion.get("usable_until"))
         now = query.get("now", query.get("valid_at"))
@@ -316,6 +332,12 @@ class Evaluator:
                           for p in ("support", "oppose"))
         result["explanation"] = {"complete": proof_count <= query.get("explanation_budget", float("inf")),
                                  "count": min(proof_count, query.get("explanation_budget", proof_count))}
+        if include_paths:
+            budget = query["explanation_budget"]
+            family = proofs.union(channels[(target, "support")].proofs, channels[(target, "oppose")].proofs)
+            paths = proofs.take(family, budget + 1)
+            result["proof_paths"] = paths[:budget]
+            result["explanation"] = {"complete": len(paths) <= budget, "count": len(paths[:budget])}
         result["cutoffs"] = sorted(set().union(*(channels.get((target, p), Channel()).cutoffs
                                                 for p in ("support", "oppose"))))
         return result

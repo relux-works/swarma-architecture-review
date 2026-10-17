@@ -1,14 +1,14 @@
 {
-  "checkout_commit": "c923ebd0a1b3842b3ff597a8b559008bcf5d6138",
+  "checkout_commit": "b1ae29958027ec67ecadae310a2e78838fcca09c",
   "package_commit": "f31d58f58d05de2ae4159dedaacfa1e32bdc656d",
   "package_version": "0.2.1-draft",
   "vector_directory": "memory/spec/kernel/vectors",
-  "core_sha256": "bd0f09fd93fa4d82af6ac5ec4338bd9dec05fde32ddd82262c73df2369224550",
+  "core_sha256": "999b53173fb7fe7127b5a1370b31f988e71f1f8a1fecfa922c4febb3eee6b0cc",
   "totals": {
     "semantic": {
-      "pass": 43,
+      "pass": 44,
       "fail": 0,
-      "unsupported": 14
+      "unsupported": 13
     },
     "deployment": {
       "pass": 0,
@@ -4871,8 +4871,194 @@
     "S07": {
       "file": "memory/spec/kernel/vectors/semantic/S07.json",
       "sha256": "77971a999864841a8f1a67cf62ce86e7d15964b3c2f2900fca7b0e3983637194",
-      "status": "unsupported",
-      "reason": "Frozen core has no exact proof-path enumeration or changes output"
+      "actual": {
+        "operation_results": [],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.1-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:c",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "alpha"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "present",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "clean_path",
+                "evidence_qualification": [
+                  "formal_entailment",
+                  "semantic_review"
+                ],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [
+                  "origin:ea",
+                  "origin:eb",
+                  "origin:ed",
+                  "origin:ee"
+                ],
+                "independent_root_count": 4
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "partial",
+            "paths": [
+              [
+                {
+                  "id": "rec:ea",
+                  "version": 1
+                },
+                {
+                  "id": "rec:eb",
+                  "version": 1
+                },
+                {
+                  "id": "rec:j1",
+                  "version": 1
+                }
+              ]
+            ],
+            "reason": "explanation_limit"
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "cert:j1",
+              "version": 1
+            },
+            {
+              "id": "cert:j2",
+              "version": 1
+            },
+            {
+              "id": "rec:a",
+              "version": 1
+            },
+            {
+              "id": "rec:b",
+              "version": 1
+            },
+            {
+              "id": "rec:c",
+              "version": 1
+            },
+            {
+              "id": "rec:d",
+              "version": 1
+            },
+            {
+              "id": "rec:e",
+              "version": 1
+            },
+            {
+              "id": "rec:ea",
+              "version": 1
+            },
+            {
+              "id": "rec:eb",
+              "version": 1
+            },
+            {
+              "id": "rec:ed",
+              "version": 1
+            },
+            {
+              "id": "rec:ee",
+              "version": 1
+            },
+            {
+              "id": "rec:j1",
+              "version": 1
+            },
+            {
+              "id": "rec:j2",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "S08": {
       "file": "memory/spec/kernel/vectors/semantic/S08.json",

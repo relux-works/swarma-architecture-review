@@ -98,8 +98,8 @@ class Adapter:
         return out
 
     def query(self, query):
-        if query["kind"] != "recall":
-            raise Unsupported("Frozen core has no exact proof-path enumeration or changes output")
+        if query["kind"] not in ("recall", "explain"):
+            raise Unsupported("Changes output is not mapped yet")
         if key(query["scope"]["schema"]) not in self.schemas:
             return refusal("unknown_schema")
         if key(query["projection_rule"]) not in self.rules:
@@ -118,6 +118,8 @@ class Adapter:
             raise Unsupported("Live policy revocation event grammar is not mapped in the first adapter")
         rule = self.rules[key(query["projection_rule"])]
         audience = rule["family"] == "audience_projection"
+        if audience and query["kind"] == "explain":
+            raise Unsupported("Audience proof-reference disclosure is not mapped yet")
         if audience and (query["audience"] != rule["audience"] or query["purpose"] != rule["purpose"]):
             return refusal("not_authorized")
         if audience and any(r["envelope"]["disclosure"]["declassification"] for r in self.records.values()):
@@ -130,6 +132,8 @@ class Adapter:
               "root_budget": min(query["bounds"]["roots"], self.policy["limits"]["read"]["roots"]),
               "rule_budget": min(query["bounds"]["rules"], self.policy["limits"]["read"]["rules"]),
               "source_budget": min(query["bounds"]["source_resolutions"], self.policy["limits"]["read"]["source_resolutions"])}
+        explanation_budget = min(query["bounds"]["explanations"], self.policy["limits"]["read"]["explanations"])
+        nq.update(include_paths=query["kind"] == "explain", explanation_budget=explanation_budget)
         normalized = {k: self.normalized(r, query) for k, r in self.records.items()}
         if audience:
             for k, record in self.records.items():
@@ -251,6 +255,8 @@ class Adapter:
                                         if (normalized[k]["space"], sequence_key(normalized[k])) in selected_sequences]
         handle = secrets.token_hex(16)
         items, cutoffs = [], set()
+        proof_paths = {}
+        proof_truncated = evaluation_incomplete = False
         for k in sorted(selected, key=lambda k: (self.records[k]["envelope"]["id"], self.records[k]["envelope"]["version"])):
             record, nr = self.records[k], normalized[k]
             e, b = record["envelope"], record["body"]
@@ -259,6 +265,12 @@ class Adapter:
             corpus = {"kind": "declared", "ref": coverage[0]["declaration"]} if coverage else {"kind": "unknown"}
             result = engine.evaluate(k, nq | {"corpus_coverage": corpus})
             cutoffs.update(result["cutoffs"])
+            if query["kind"] == "explain":
+                proof_truncated = proof_truncated or not result["explanation"]["complete"]
+                evaluation_incomplete = evaluation_incomplete or any(result[s]["evaluation"] != "complete" for s in ("support", "oppose"))
+                for path in result["proof_paths"]:
+                    references = sorted_refs(ref(self.records[p]) for p in path)
+                    proof_paths[json.dumps(references, sort_keys=True, separators=(",", ":"), ensure_ascii=False)] = references
             # Exact assessment references survive found paths separately from
             # deduplicated origins, so an unrelated copy cannot add provenance.
             found_assessments = set(result["support"]["witness_assessments"] + result["oppose"]["witness_assessments"])
@@ -307,12 +319,16 @@ class Adapter:
                             source_refs=[], incompatible_with=[])
                 for sign in ("support", "oppose"):
                     item[sign]["witness_roots"] = []
+        paths = [proof_paths[k] for k in sorted(proof_paths)]
+        proof_truncated = proof_truncated or len(paths) > explanation_budget
+        reason = "explanation_limit" if proof_truncated else "evaluation_limit" if evaluation_incomplete else None
+        explanation = {"status": "partial" if reason else "complete", "paths": paths[:explanation_budget], "reason": reason}
         return {"type": "view", "semantic_profile": self.profile, "projection_rule": query["projection_rule"],
                 "evidence_policy": query["evidence_policy"], "policy": query["policy"], "authorized_snapshot_handle": handle,
                 "data_classification": "data", "items": items,
                 "currentness": "none" if not items else "ambiguous_current" if any(i["currentness"] == "ambiguous_current" for i in items) else "current",
                 "historical": sorted_refs(ref(self.records[k]) for k in projection["historical"] if k not in selected),
-                "review_required": [], "explanation": {"status": "complete", "paths": [], "reason": None},
+                "review_required": [], "explanation": explanation,
                 "cutoffs": sorted(cutoffs), "changes": {"state": "initial", "refs": []}}
 
     def execute(self, operations, query):

@@ -2,7 +2,7 @@
 
 Package: **0.2.1-draft**, package commit `f31d58f58d05de2ae4159dedaacfa1e32bdc656d`.
 Vector directory: `memory/spec/kernel/vectors` (this inventory only).
-Checkout: `c923ebd0a1b3842b3ff597a8b559008bcf5d6138`. Source core SHA-256: `bd0f09fd93fa4d82af6ac5ec4338bd9dec05fde32ddd82262c73df2369224550`.
+Checkout: `b1ae29958027ec67ecadae310a2e78838fcca09c`. Source core SHA-256: `999b53173fb7fe7127b5a1370b31f988e71f1f8a1fecfa922c4febb3eee6b0cc`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.
@@ -11,7 +11,7 @@ Deployment cases require actual boundary qualification and are reported separate
 
 | Category | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| semantic | 43 | 0 | 14 |
+| semantic | 44 | 0 | 13 |
 | deployment | 0 | 0 | 8 |
 
 Five bounded harness controls passed (valid comparison, changed value, extra field,
@@ -59,7 +59,7 @@ No randomness-distribution or timing proof is claimed.
 | S04 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S05 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S06 | semantic | pass | Exact report and forbidden/normalization checks passed. |
-| S07 | semantic | unsupported | Frozen core has no exact proof-path enumeration or changes output |
+| S07 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S08 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S09 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S10 | semantic | pass | Exact report and forbidden/normalization checks passed. |
@@ -87,4 +87,4 @@ No randomness-distribution or timing proof is claimed.
 | S32 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S33 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 
-Full normalized actual reports and input hashes: `RESULTS.json`.
+Full normalized actual reports and input hashes: `phase2-proofs-first.json`.

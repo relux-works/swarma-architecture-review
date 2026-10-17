@@ -301,3 +301,53 @@ Canonical f31d58f: 43/0/14 semantic and eight deployment unsupported
 (`runs/cases-0.2.1-current.*`, `case-run-08.log`). Core SHA-256
 bd0f09fd93fa4d82af6ac5ec4338bd9dec05fde32ddd82262c73df2369224550.
 R7-027 is judge-closed at 56e5909. R7-028 and R7-029 await independent closure.
+
+## Phase 2 (in progress)
+
+Convener decision $L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc explicitly
+withholds PARK and requires dual execution of all 57 semantic vectors, with
+one subsequent round without new open items, or the 13:00Z hard cap. Preserve
+phase-1 43/0/14 canonical and 14/0/8 supplemental evidence. The old supported-
+vector rubric score does not establish Phase-2 completion.
+
+Plan remaining support in bounded units: (1) exact proof enumeration, authorized
+dirty/review closure and imported publication currentness; (2) immutable captures,
+current delivery/revocation and exact multi-owner declassification; (3) erasure,
+restore, source availability and hidden-load semantic boundary. Required negative
+controls include hidden/unfound proof exclusion, bounded explanation versus
+evidence completeness, historical/hidden dirty causes, stale snapshots and
+revoked delivery, missing owner grants, late writers and stale restore witnesses.
+Use kernel/companion/design semantics; package supplies concrete wire grammar and
+unchanged conformance comparisons. Every newly observed mismatch goes to judge
+before correction. Never read another evaluator's code. No deployment claims.
+
+## Phase 2 exact-proof coverage completed
+
+Added a reduced zero-suppressed set-family diagram for exact proof unions and
+AND products. Only found eligible witness roots and justification refs enter the
+family; certificates and opposite-quality roots do not. Proof identity is exact
+record identity, independent from origin deduplication. Each output prefix uses
+canonical JSON order after numeric reference sorting; explanation truncation
+does not change evidence completeness. Recall retains its empty explanation.
+
+Four proof controls pass (`proof-checks-02.log`): independent finite set-algebra
+oracles with overlaps, numeric-version/prefix ordering, hidden/quality exclusion,
+and a 40-choice family with 2**40 possible proofs represented without enumerating
+all combinations. The shared diagram can still have exponential worst-case size;
+this semantic implementation makes no hostile-load/service resource claim.
+Audience-projection explanation/reference disclosure remains explicitly unsupported
+until mapped, rather than exposing protected proof identifiers.
+
+First expanded canonical comparison (`phase2-vectors-01.log`,
+`runs/phase2-proofs-first.*`): 44 pass / 0 fail / 13 unsupported semantic,
+8 deployment unsupported. S07 now exact. The 22-semantic supplemental inventory
+examined at this point gives 15 pass / 0 fail / 7 unsupported, 1 deployment
+unsupported; ASTRA24-01 now exact (`runs/phase2-proofs-cases-first.*`).
+All 33 source controls pass (`source-checks-15.log`); five adapter, seven
+transaction and five harness controls remain the established baseline (54
+controls including new proof suite). Original phase-1 accepted reports archived
+unchanged in `runs/phase1-accepted.*` before replacing current RESULTS.
+
+Newly directed R7-030 persisted-idempotency defect is queued as the next unit,
+separate from coverage. ASTRA25-07 erasure-receipt disclosure is noted for the
+later erasure unit pending judge disposition. No other evaluator code was read.
