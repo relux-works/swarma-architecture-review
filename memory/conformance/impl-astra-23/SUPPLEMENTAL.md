@@ -9,7 +9,7 @@ distinctness are checked first. No runtime distribution or timing claim is made.
 
 | Profile | Pass | Fail | Unsupported | Total |
 | --- | ---: | ---: | ---: | ---: |
-| semantic | 61 | 0 | 0 | 61 |
+| semantic | 63 | 0 | 0 | 63 |
 | deployment | 0 | 0 | 1 | 1 |
 
 Deployment unsupported means no qualification claim; modeled semantic erasure
@@ -42,6 +42,8 @@ and publication transitions do not exercise live authentication, storage or deli
 | ASTRA25-02-DIGEST | semantic | pass |
 | ASTRA25-02 | semantic | pass |
 | ASTRA25-07-CONTROL | semantic | pass |
+| ASTRA25-07-CONFLICT-AUDIENCE | semantic | pass |
+| ASTRA25-07-CONFLICT-PURPOSE | semantic | pass |
 | ASTRA25-07-PURPOSE | semantic | pass |
 | ASTRA25-07 | semantic | pass |
 | ASTRA25-10 | semantic | pass |

@@ -456,3 +456,17 @@ first artifact reports not_authorized for the changed intent. Full own actuals,
 state and input/module hashes are preserved; no source implementation code was
 read, no runtime change made and no exact vector oracle inferred. Judge
 classification is pending; this native probe is outside vector denominators.
+
+### R7-057 source-only classification and exact case intake
+
+Judge e2a797d classifies the source changed-context refusal as implementation
+bug057; existing package behavior is correct. K-API-1/2 and K-ERASE-2 already
+resolve the priority, so no package edit or owner decision is required.
+
+The two exact purpose/audience fixtures published66233ab pass on unchanged
+package23b4d74; supplemental semantics are now63/63. Sixteen focused operations
+verify ten atomic exact refusals, two immutable replays, current erase authority
+priority, exact-replay metadata loss, changed-intent conflict and fresh-key full
+purge with empty refs. Whole state/captures/bindings/dirty-since and original
+receipts are preserved on refusal/replay. Native first f639770 remains immutable.
+Source recovery056 is separately closed at87beb46;057 closure remains pending.

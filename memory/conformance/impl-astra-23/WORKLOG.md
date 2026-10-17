@@ -914,3 +914,37 @@ will prove semantic differences and forbidden effects are detected.
 - Judge053 closure is persisted13e3d73; own verdict now reflects independently
   verified full dual semantic coverage and separate open native056. R7-055 stays
   held for Ivan with no attributed owner choice.
+
+## Round 34 — exact erase-context regression intake
+
+- Judge e2a797d closes source R7-056 and classifies R7-057 as a source-only
+  implementation defect. Current erase operation authority precedes changed-intent
+  conflict; stored-ref metadata authorization gates only exact replay. No package
+  contract/runtime change or additional owner question is required.
+- Author 66233ab publishes two exact purpose/audience fixtures after preserving
+  native first evidence. Each includes original erase, exact later-intake replay,
+  same-key changed-context conflict and fresh-key empty-ref full purge.
+- Run the expanded supplemental inventory unchanged on package runtime 23b4d74,
+  plus focused full-state and authority/replay neighbors for both fixtures. Reuse
+  the existing 31 product/checker controls and canonical report because no runtime,
+  checker, package or native test code changes. Do not alter author fixtures.
+
+### Round 34 outcome
+
+- Expanded current0.2.5 supplemental inventory is 63 pass / 0 fail / 0 unsupported
+  semantic; one deployment remains unsupported. Both new exact conflict traces
+  pass unchanged, including full final postconditions and declared handle
+  equality/distinctness. Earlier61 cases remain green.
+- Sixteen focused operations across purpose/audience include ten exact atomic
+  refusals and two immutable exact replays. Current erase authority removal and
+  foreign actor refuse not_authorized before conflict; lost metadata blocks exact
+  replay but does not replace a changed-intent conflict. Fresh keys still purge
+  the full closure/custody with empty refs; original receipts remain unchanged.
+- Logs/evidence: .temp/impl-astra-23/supplemental-round34-01.log and
+  erase-context-state-01.log/json (full before/after state, input/module hashes).
+  Author66233ab fixture bytes, all seven runtime/test/checker files against
+  23b4d74 and first f639770 artifacts are independently checked unchanged.
+- No code, native test or package edit. Current canonical57/57,31controls and
+  34package plants retain their prior exact evidence; no redundant broad rerun.
+- Judge e2a797d closes056;057 remains separately open in source. R7-055 owner
+  hold remains undecided. Phase2 score1/2, no PARK or deployment qualification.

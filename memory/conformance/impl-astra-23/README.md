@@ -102,7 +102,7 @@ state. PHASE2-COVERAGE-REVIEW-FIRST preserves both prior failures.
 
 Delivery validates the authenticated actor against the saved projection principal
 before using its binding. Frozen 0.2.2 regression evidence is separately retained
-in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current0.2.5 RESULTS passes57/57canonical semantics and SUPPLEMENTAL passes all61
+in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current0.2.5 RESULTS passes57/57canonical semantics and SUPPLEMENTAL passes all63
 semantic cases; deployment remains unsupported. RELEASE-0.2.3-FIRST and
 PHASE2-ACTOR-FIRST retain the unchanged-runtime first results.
 
@@ -123,3 +123,10 @@ outputs/transitive known inputs, before idempotency. At/after expiry refuses
 without changing existing records/receipts or running a purge. PHASE2-DEADLINE-FIRST,
 PHASE2-DEADLINE-VECTORS-FIRST and RELEASE-0.2.5-FIRST preserve original failures.
 New mixed-issuer authority probes await separate adjudication outside vector totals.
+
+The R7-057 exact purpose/audience changed-context fixtures pass on unchanged
+runtime23b4d74. Current erase authority precedes intent conflict; current stored
+receipt metadata is checked only for exact replay. Missing metadata does not
+prevent full fresh-key purge with empty refs. PHASE2-ERASE-CONTEXT-FIRST preserves
+the native observation before adjudication; author-owned exact cases expand
+the current supplemental semantic inventory to63 without changing the31controls.
