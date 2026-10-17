@@ -18,6 +18,47 @@ def fixture(name):
 
 
 class AtomicControls(unittest.TestCase):
+    # R7-026: wrong-subject, equal-spelling-without-binding and non-own
+    # self-declarations refuse atomically. Distinct bound identities are valid.
+    def test_self_declaration_identity(self):
+        v = fixture("P02")
+        for case in ("wrong_subject", "equal_without_binding", "observer"):
+            with self.subTest(case=case):
+                adapter = Adapter(v["initial_state"], "control")
+                writer = Transactions(adapter)
+                op = copy.deepcopy(v["operations"][1 if case == "wrong_subject" else 2])
+                if case == "equal_without_binding":
+                    op["proposals"][0]["envelope"]["subject"] = op["context"]["actor"]
+                    adapter.policy["subject_principals"] = []
+                if case == "observer":
+                    op["proposals"][0]["envelope"]["perspective"]["kind"] = "observer"
+                before = copy.deepcopy((adapter.records, adapter.runtime, writer.idempotency))
+                with self.assertRaisesRegex(Refusal, "invalid_domain_value"):
+                    writer.apply(op)
+                self.assertEqual((adapter.records, adapter.runtime, writer.idempotency), before)
+        adapter = Adapter(v["initial_state"], "control")
+        writer = Transactions(adapter)
+        result = writer.apply(v["operations"][2])
+        self.assertEqual(result["outcome"], "admitted")
+        e = adapter.records[key(result["refs"][0])]["envelope"]
+        self.assertEqual(e["subject"], "subj:separate-handle")
+        self.assertEqual(e["issuer"], "principal:person")
+        self.assertEqual(adapter.runtime["memory_cut"], 101)
+
+    # Representation changes the submitter only; a valid bound self-declaration
+    # remains accepted with the original subject, issuer and own perspective.
+    def test_represented_self_declaration(self):
+        v = fixture("P10")
+        adapter = Adapter(v["initial_state"], "control")
+        op = v["operations"][0]
+        self.assertEqual(Transactions(adapter).apply(op)["outcome"], "revised")
+        e = adapter.records[key(ref(op["replacement"]))]["envelope"]
+        original = op["replacement"]["envelope"]
+        for field in ("subject", "issuer", "perspective"):
+            self.assertEqual(e[field], original[field])
+        self.assertEqual(e["submitter"], op["context"]["actor"])
+        self.assertNotEqual(e["submitter"], e["issuer"])
+
     # Exact retries (including a fresh intake timestamp) reuse the receipt and
     # original sequence. Changed intent fails and leaves all state unchanged.
     def test_idempotency_and_atomic_conflict(self):

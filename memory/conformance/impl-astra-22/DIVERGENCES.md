@@ -103,3 +103,29 @@ impl-bug owned by astra-22. Required regression controls: wrong subject refused
 atomically, distinct subject/principal identifiers with a binding accepted,
 equal spellings without a binding refused, and delegated own declaration accepted.
 No correction was applied before this report.
+
+## ASTRA22-06 / R7-025 — History escaped an explicit selection
+
+Judge supplied a valid S24-derived static state at f31d58f with an unrelated
+visible replaced sequence. Source 8b97e1e and independently rerun df499a1 return
+that sequence's old reference when only rec:a is selected. K-EVAL-9 requires
+history from the selected sequences only; K-REV-1 keeps distinct multi IDs in
+distinct sequences. Classification: impl-bug astra-22, judge event
+$NFG9lnMN_Ql0SjgWplmeYuSgEls8vZ1lCHuf8uJ-9YA.
+
+The exact fixture and pre/post results are preserved in
+`fixtures/selected-history.json` and `runs/selected-history-*.json`. Fix filters
+visible historical refs by the full normalized selected sequence including space,
+without changing unfiltered history or duplicating explicitly displayed old refs.
+Three adapter tests pass, including the red-before/green-after regression and
+hidden old-reference control.
+
+## R7-026 correction
+
+Judge event $gNzv1EBEGCjOIytU0Lp1_ddeF0ws8MUTAmojWZQMdvE classified ASTRA22-05
+as impl-bug. Admission now enforces an explicit trusted subject/principal binding
+and issuer-own perspective for self-declaration statement kind or intake class
+before committing. Seven transaction controls pass; the three intended identity
+violations were observed failing before the fix. P02 now exactly passes. Current
+0.2.1 totals are 43 pass / 0 fail / 14 unsupported semantic. Both new fixes await
+independent judge verification; historical first evidence is unchanged.

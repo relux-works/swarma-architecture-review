@@ -10,7 +10,7 @@ import datetime
 import json
 import secrets
 
-from evaluator import Evaluator, Memory, Refusal, applicable, incompatibilities
+from evaluator import Evaluator, Memory, Refusal, applicable, incompatibilities, sequence_key
 
 
 class Unsupported(Exception):
@@ -242,6 +242,10 @@ class Adapter:
                     and applicable(normalized[k], nq) and normalized[k]["issuer"] == rule["issuer"]
                     and normalized[k]["schema"] == key(query["scope"]["schema"])
                     and normalized[k]["subject"] == query["scope"]["subject"]]
+        if query["scope"]["targets"]:
+            selected_sequences = {(normalized[k]["space"], sequence_key(normalized[k])) for k in selected}
+            projection["historical"] = [k for k in projection["historical"]
+                                        if (normalized[k]["space"], sequence_key(normalized[k])) in selected_sequences]
         handle = secrets.token_hex(16)
         items, cutoffs = [], set()
         for k in sorted(selected, key=lambda k: (self.records[k]["envelope"]["id"], self.records[k]["envelope"]["version"])):

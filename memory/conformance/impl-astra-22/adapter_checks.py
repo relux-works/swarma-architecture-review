@@ -9,6 +9,24 @@ from adapter import Adapter
 
 
 class AssociationControls(unittest.TestCase):
+    # R7-025: explicit targets include history only from their own sequences.
+    # Unfiltered selection retains other visible history; displayed old targets
+    # are not duplicated, and hidden old records do not appear in history.
+    def test_selected_sequence_history(self):
+        path = Path(__file__).resolve().parent / "fixtures/selected-history.json"
+        fixture = json.loads(path.read_text())
+        for name, query in fixture["queries"].items():
+            with self.subTest(name=name):
+                result = Adapter(fixture["state"], "control").query(query)
+                self.assertEqual(result["historical"], fixture["expected_historical"][name])
+        hidden = copy.deepcopy(fixture["state"])
+        for record in hidden["records"]:
+            if record["envelope"]["id"] == "rec:other-sequence" and record["envelope"]["version"] == 1:
+                record["envelope"]["disclosure"]["audiences"] = ["aud:private"]
+        result = Adapter(hidden, "control").query(fixture["queries"]["unfiltered"])
+        self.assertEqual(result["historical"], [])
+        self.assertTrue(any(item["ref"] == {"id": "rec:a", "version": 1} for item in result["items"]))
+
     # R7-013: the admitted mirror fixture discloses documentary attribution across
     # source/observer perspectives, without creating a semantic witness. Removing
     # the source's read grant removes its reference without leaking an error.

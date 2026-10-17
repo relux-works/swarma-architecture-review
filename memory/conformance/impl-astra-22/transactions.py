@@ -207,6 +207,11 @@ class Transactions:
                 raise Refusal("invalid_domain_value")
             if e["kind"] == "assertion":
                 self.assertion(proposal)
+                if b["statement_kind"] == "self_declaration" or op["context"]["admission_class"] == "self_declaration":
+                    bound = any(f["subject"] == e["subject"] and f["principal"] == e["issuer"]
+                                for f in policy.get("subject_principals", []))
+                    if not bound or e["perspective"] != {"kind": "own", "principal": e["issuer"]}:
+                        raise Refusal("invalid_domain_value")
                 if op["context"]["admission_class"] == "semantic_inference" and b["statement_kind"] not in ("proposal", "assessment_summary"):
                     raise Refusal("assessment_kind_invalid")
             if e["kind"] == "assessment":

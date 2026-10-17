@@ -1,13 +1,13 @@
 {
-  "checkout_commit": "c4bd6b3c793baa6ae0bbd9d3102d9cbc67e99d6b",
+  "checkout_commit": "df499a15dd76ad1bf369de9872f5c53e0b8199f6",
   "package_commit": "f31d58f58d05de2ae4159dedaacfa1e32bdc656d",
   "package_version": "0.2.1-draft",
   "vector_directory": "memory/spec/kernel/vectors",
   "core_sha256": "8738b80fbe1b12cd56c62f9095c541b19f18203bf9bc147fba1ca95e5c7432d9",
   "totals": {
     "semantic": {
-      "pass": 42,
-      "fail": 1,
+      "pass": 43,
+      "fail": 0,
       "unsupported": 14
     },
     "deployment": {
@@ -1315,18 +1315,9 @@
             "retryable": false
           },
           {
-            "type": "receipt",
-            "operation": "admit",
-            "outcome": "admitted",
-            "receipt_handle": "3b2d9f0277314883b6aff1f71e2cd436",
-            "refs": [
-              {
-                "id": "rec:foreign-interest",
-                "version": 1
-              }
-            ],
-            "custody": [],
-            "erasure_status": null
+            "type": "refusal",
+            "code": "invalid_domain_value",
+            "retryable": false
           },
           {
             "type": "receipt",
@@ -1359,8 +1350,74 @@
             },
             "authorized_snapshot_handle": "<fresh>",
             "data_classification": "data",
-            "items": [],
-            "currentness": "none",
+            "items": [
+              {
+                "ref": {
+                  "id": "rec:own-interest",
+                  "version": 1
+                },
+                "subject": "subj:separate-handle",
+                "issuer": "principal:person",
+                "submitter": "principal:person",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "principal:person"
+                },
+                "representation_ref": null,
+                "admission_class": "self_declaration",
+                "statement_kind": "self_declaration",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "pottery"
+                  }
+                ],
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
             "historical": [],
             "review_required": [],
             "explanation": {
@@ -1476,10 +1533,6 @@
         "postconditions": {
           "record_refs": [
             {
-              "id": "rec:foreign-interest",
-              "version": 1
-            },
-            {
               "id": "rec:interest",
               "version": 1
             },
@@ -1495,94 +1548,9 @@
           "external_effects": []
         }
       },
-      "differences": [
-        {
-          "path": "$.operation_results[1].code",
-          "expected": "invalid_domain_value",
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[1].custody",
-          "expected": "<absent>",
-          "actual": []
-        },
-        {
-          "path": "$.operation_results[1].erasure_status",
-          "expected": "<absent>",
-          "actual": null
-        },
-        {
-          "path": "$.operation_results[1].operation",
-          "expected": "<absent>",
-          "actual": "admit"
-        },
-        {
-          "path": "$.operation_results[1].outcome",
-          "expected": "<absent>",
-          "actual": "admitted"
-        },
-        {
-          "path": "$.operation_results[1].receipt_handle",
-          "expected": "<absent>",
-          "actual": "3b2d9f0277314883b6aff1f71e2cd436"
-        },
-        {
-          "path": "$.operation_results[1].refs",
-          "expected": "<absent>",
-          "actual": [
-            {
-              "id": "rec:foreign-interest",
-              "version": 1
-            }
-          ]
-        },
-        {
-          "path": "$.operation_results[1].retryable",
-          "expected": false,
-          "actual": "<absent>"
-        },
-        {
-          "path": "$.operation_results[1].type",
-          "expected": "refusal",
-          "actual": "receipt"
-        },
-        {
-          "path": "$.operation_results[3].currentness",
-          "expected": "current",
-          "actual": "none"
-        },
-        {
-          "path": "$.operation_results[3].items.length",
-          "expected": 1,
-          "actual": 0
-        },
-        {
-          "path": "$.postconditions.record_refs.length",
-          "expected": 2,
-          "actual": 3
-        },
-        {
-          "path": "$.postconditions.record_refs[0].id",
-          "expected": "rec:interest",
-          "actual": "rec:foreign-interest"
-        },
-        {
-          "path": "$.postconditions.record_refs[1].id",
-          "expected": "rec:own-interest",
-          "actual": "rec:interest"
-        },
-        {
-          "path": "forbidden:/operation_results/1/type",
-          "expected": "predicate false",
-          "actual": {
-            "path": "/operation_results/1/type",
-            "test": "equals",
-            "value": "receipt"
-          }
-        }
-      ],
-      "status": "fail",
-      "reason": "15 exact differences"
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "P03": {
       "file": "memory/spec/kernel/vectors/semantic/P03.json",

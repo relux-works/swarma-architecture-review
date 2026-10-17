@@ -99,8 +99,8 @@ The package adapter now maps read-only recall/capture, ordinary and authority
 currentness, declared incompatibility, freshness, basic audience aliases and
 exclusion. Independent wire admission, raw admission and CAS revisions now run
 through `transactions.py`; `transaction_checks.py` contains atomicity controls.
-The first 0.2.1 run exposes the missing self-declaration identity gate (ASTRA22-05),
-which is preserved for classification. It still explicitly rejects unsupported
+The first 0.2.1 run exposed the missing self-declaration identity gate (R7-026);
+its correction and the selected-history fix (R7-025) retain red/green evidence. It still explicitly rejects unsupported
 erasure/publication transaction wire operations,
 exact proof-path enumeration, dynamic dirty closure, live multi-owner release
 checks and unconfirmed imported-publication currentness. RESULTS.md lists the

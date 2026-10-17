@@ -152,3 +152,30 @@ Report ASTRA22-05 to the judge before correction; preserve this committed baseli
 The pull exited zero and completed with clean autostash restoration, but reported
 a transient pack-index-unavailable warning for pack-0ecf34f. Current commit reads
 and signature verification succeed; no object repair or destructive command run.
+
+## Classified history and identity correction unit (in progress)
+
+Judge classified R7-025: explicit selection leaks unrelated sequence history.
+Copied the exact judge fixture to `fixtures/selected-history.json` (data only,
+no other evaluator code) and independently reproduced df499a1's output in
+`runs/selected-history-first.json`. Add red-before/green-after controls for an
+unrelated explicit target, unfiltered selection, explicitly displayed historical
+target and hidden reference. Scope the history filter by the complete selected
+sequence; preserve all other currentness and historical rules. ASTRA22-05 binding
+classification is still pending; do not correct it silently.
+
+## Classified history and identity corrections verified
+
+R7-025 history control failed only for unrelated explicit selection before the
+fix (`adapter-checks-04-red.log`) and all three adapter tests pass after the
+sequence filter (`adapter-checks-05-green.log`). Full paired probe outputs remain
+in `runs/selected-history-first.json` and `runs/selected-history-corrected.json`.
+
+Judge R7-026 classified ASTRA22-05 as impl-bug. Three identity negatives all
+failed before the gate (`transaction-checks-03-red.log`) and all seven transaction
+tests pass after it (`transaction-checks-04-green.log`), including atomicity,
+distinct bound subject/principal and represented own declaration. Package 0.2.1
+f31d58f now gives 43 pass / 0 fail / 14 unsupported semantic, 8 deployment
+unsupported (`vector-run-07.log`). Source core unchanged. Original report remains
+immutable. These fixes require judge closure; exact dirty/proof/publication/erasure
+coverage still remains explicitly unsupported.
