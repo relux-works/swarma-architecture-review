@@ -102,7 +102,7 @@ state. PHASE2-COVERAGE-REVIEW-FIRST preserves both prior failures.
 
 Delivery validates the authenticated actor against the saved projection principal
 before using its binding. Frozen 0.2.2 regression evidence is separately retained
-in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current0.2.4 RESULTS passes57/57canonical semantics and SUPPLEMENTAL passes all54
+in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current0.2.5 RESULTS passes57/57canonical semantics and SUPPLEMENTAL passes all61
 semantic cases; deployment remains unsupported. RELEASE-0.2.3-FIRST and
 PHASE2-ACTOR-FIRST retain the unchanged-runtime first results.
 
@@ -117,6 +117,9 @@ PHASE2-SUCCESSION-FIRST preserves forbidden authoritative replacements before
 correction. Released0.2.4 specifies strict canonical receipt ancestry and exact
 refusals; current replace/correct enforce it with atomic state preservation.
 Direct/transitive successors, plain incomparable import and exact authorized replay
-remain valid. RELEASE-0.2.4-FIRST retains the pre-fix B01 failure;24product and
-4checker controls pass. PHASE2-DEADLINE-FIRST is a separate queued expiry probe
-with code/order/replay mapping pending, outside the exact vector totals.
+remain valid. RELEASE-0.2.4-FIRST retains the pre-fix B01 failure. Current27product and4checker controls pass.
+Released0.2.5 live deadlines gate all four intake APIs and current replay over
+outputs/transitive known inputs, before idempotency. At/after expiry refuses
+without changing existing records/receipts or running a purge. PHASE2-DEADLINE-FIRST,
+PHASE2-DEADLINE-VECTORS-FIRST and RELEASE-0.2.5-FIRST preserve original failures.
+New mixed-issuer authority probes await separate adjudication outside vector totals.

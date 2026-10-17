@@ -800,3 +800,54 @@ will prove semantic differences and forbidden effects are detected.
 - Source051 independently closed at427fed5, giving current0.2.4 dual50/57;
   only052/053/054remain open before this release's independent closure.
 - Log release-025-first-01.log exits1 intentionally; freeze before adaptation.
+
+## Round 31 — implement released live retention gate
+
+- Full firstdf58eae is committed before adaptation; earlier native/exact firsts
+  remain immutable. Check each resolved output/input's own non-null deadline
+  in the existing known-closure traversal, using parsed trusted current intake.
+- Add red product controls for admit/admit_raw/revise/declassify own-output
+  boundaries, live and expired exact replay with original receipt preservation;
+  P11's independent unrevoked expiry/priority/whole-batch state; authored
+  transitive unknown-known and both batch-order negatives with valid controls.
+- Keep missing references at their existing stage, null unlimited, no metadata
+  or disclosure-label authority inference, and no purge or mutation on refusal.
+
+### Round 31 correction progress
+
+- Three-line runtime delta adds parsed context.at >= own non-null deadline refusal
+  inside the existing output/known-input traversal, before idempotency. The same
+  helper checks original stored outputs/closure on replay; no materialized label,
+  purge, mutation or alternate policy lane is introduced.
+- Red controls produce18 intended assertions: forbidden fresh writes/replays,
+  expiry-priority errors and a forbidden newly visible cut. New three product
+  groups pass after the change, including all4APIs, null/before/equal/after,
+  exact stored receipt/state, transitive unknown-known and both batch orders.
+- Current0.2.5 canonical57/57, four checker tests and34package plants pass.
+  Full native/supplemental runs await author24/25profile migrations; author26's
+  explicit migration1c09fe5 is already received. No implicit conversion performed.
+- Logs: deadline-red-01.log, deadline-green-01.log, canonical-round31-01.log,
+  controls-15.log and package-025-01.log. Earlier first artifacts unchanged.
+
+### Round 31 final outcome
+
+- While migration was pending, explicitly pinned20ASTRA24 cases and three native
+  comparisons passed at0.2.4;24current native methods passed at0.2.5. Mixed corpus
+  correctly reported41pass/0fail/20unsupported under the closed0.2.5 grammar,
+  not semantic failures or silently converted inputs. Those interim reports/logs
+  remain only in .temp/impl-astra-23/ with explicit profile labels.
+- Author27303e4 then published profile-only migration. Full27product methods now
+  pass together at0.2.5. Current canonical57/57 and supplemental61/61 are exact;
+ 4checker tests and34package plants pass. Deployment8+1remains unsupported.
+- Self-review confirms the only runtime delta is the deadline guard inside the
+  existing shared closure, before seen-deduplication and replay. Parsed timestamps,
+  all proposed records, original outputs, known/incomplete/batch inputs and null
+  bounds use the same policy path. No state, receipt or purge mutation is added.
+- Logs: deadline-native-current-01.log, deadline-native-frozen-024-01.log,
+  supplemental-astra24-024-01.*, supplemental-round31-migration-01.log,
+  deadline-native-green-01.log and supplemental-round31-01.log. Canonical/checker/
+  package logs above remain valid because runtime/tests did not change afterward.
+- Judge closed054 at6a04e8c and source052 at4a14a56 (50/0/7canonical,112controls).
+  Request independent053 review on this exact candidate. All first files through
+  df58eae remain unchanged. New ASTRA24-12 mixed-issuer native probe is queued
+  after this unit with no inferred rule/oracle and no source-code intake.

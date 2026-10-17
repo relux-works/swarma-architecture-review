@@ -635,6 +635,82 @@ class Semantics(unittest.TestCase):
                 self.assertEqual(e.state, before)
                 self.assertEqual(e.state["runtime"]["idempotency"][-1]["receipt"], first)
 
+    # K-AUTH-1/K-API-1: own-output expiry gates all four write APIs and current replay;
+    # valid earlier intake/replay succeeds, and rejected attempts never reserve a key or purge.
+    def test_retention_deadline_all_write_apis(self):
+        deadline = "2026-10-17T00:00:02Z"
+        refusal = {"type": "refusal", "code": "not_authorized", "retryable": False}
+        for name, index, raw in (("P11", 8, False), ("P11", 8, True), ("P14", 0, False), ("P05", 1, False)):
+            with self.subTest(vector=name, raw=raw):
+                v = vector(name)
+                op = copy.deepcopy(v["operations"][index])
+                output = (op["proposals"][0] if op["op"] == "admit" else
+                          op["revision"] if op["op"] == "revise" else op["assessments"][0])
+                output["envelope"]["disclosure"]["retain_until"] = deadline
+                if raw:
+                    op["raw_json"] = cjson({"proposals": op.pop("proposals")})
+                    op["op"] = "admit_raw"
+                e = engine(v)
+                for at in (deadline, "2026-10-17T00:00:03Z"):
+                    expired = copy.deepcopy(op)
+                    expired["context"]["at"] = at
+                    before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+                    self.assertEqual(e.operation(expired, 0), refusal)
+                    self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+                first = e.operation(op, 1)
+                self.assertEqual(first["type"], "receipt")
+                retry = copy.deepcopy(op)
+                retry["context"]["at"] = "2026-10-17T00:00:01Z"
+                before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+                self.assertEqual(e.operation(retry, 2), first)
+                self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+                for at in (deadline, "2026-10-17T00:00:03Z"):
+                    retry["context"]["at"] = at
+                    self.assertEqual(e.operation(retry, 3), refusal)
+                    self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+                    self.assertEqual(e.state["runtime"]["idempotency"][-1]["receipt"], first)
+
+    # P11: expiry has independently valid grants, precedes changed-intent conflicts,
+    # preserves every state component and permits a later unlimited same-key write.
+    def test_retention_deadline_canonical_atomicity(self):
+        v = vector("P11")
+        e = engine(v)
+        for i, op in enumerate(v["operations"][:18]):
+            result = e.operation(op, i)
+            expected = v["expected"]["operation_results"][i]
+            self.assertEqual(result["type"], expected["type"])
+            if result["type"] == "refusal": self.assertEqual(result, expected)
+        before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+        for i in range(18, 26):
+            with self.subTest(operation=i):
+                self.assertEqual(e.operation(v["operations"][i], i), v["expected"]["operation_results"][i])
+                self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+        self.assertEqual(e.operation(v["operations"][26], 26), v["expected"]["operation_results"][26])
+        final = e.operation(v["operations"][27], 27)
+        self.assertEqual(final["outcome"], "admitted")
+        self.assertEqual(e.state["runtime"]["memory_cut"], before[0]["runtime"]["memory_cut"] + 1)
+        self.assertEqual(len(e.state["records"]), len(before[0]["records"]) + 1)
+
+    # ASTRA25-11: exact expired own/inherited/replay/unknown/batch negatives preserve all
+    # native state; independently authored before-deadline and whole-batch positives succeed.
+    def test_retention_deadline_known_inputs(self):
+        base = SPEC.parent / "conformance/cases"
+        for suffix in ("", "-own", "-replay", "-transitive-unknown", "-same-batch",
+                       "-before-control", "-same-batch-control"):
+            with self.subTest(fixture=suffix):
+                v = strict_loads((base / ("astra-25-retention-deadline" + suffix + ".vector.json")).read_text())
+                e = engine(v)
+                for i, op in enumerate(v["operations"]):
+                    before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+                    result = e.operation(op, i)
+                    expected = v["expected"]["operation_results"][i]
+                    if expected["type"] == "refusal":
+                        self.assertEqual(result, expected)
+                        self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+                    else:
+                        self.assertEqual(result["type"], "receipt")
+                        self.assertEqual(result["outcome"], expected["outcome"])
+
     # K-DISC-1: known lower bounds traverse unknown intermediates; future facts are not
     # records, while whole-batch later inputs and empty-label storage remain valid controls.
     def test_retention_known_batch_inputs(self):

@@ -1,51 +1,46 @@
 # astra-23 — package implementer verdict
 
 Current package **0.2.5-draft**, `6a04e8cfb1490569cd1de7468d2085dd4840cf51`:
-unchanged runtime942bdee passes56/57canonical semantic, only expandedP11 red.
-RELEASE-0.2.5-FIRST preserves the full release before deadline adaptation.
-Exact prior0.2.4 deadline first0c1b5ca records56/5/0 across61cases. R7-048 is
-judge-closed at942bdee; deadline053 and published mapping054 remain separate.
+all canonical and explicitly migrated supplemental semantic vectors pass after
+the R7-053 live-retention correction. Independent review is pending.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Canonical semantic0.2.5 first | 56 | 1 | 0 |
-| Supplemental semantic0.2.4 first | 56 | 5 | 0 |
+| Canonical semantic | 57 | 0 | 0 |
+| Supplemental semantic | 61 | 0 | 0 |
 | Canonical / supplemental deployment | 0 / 0 | 0 / 0 | 8 / 1 |
 
-Twenty-four product plus four checker controls pass. Package structural validation
-passes94JSON/65vectors/52clauses and33 intended violation plants. Replace/correct
-now require a strictly succeeding canonical receipt. Missing, prior, reused and
-incomparable receipts refuse atomically with authority_receipt_required/false;
-same-key retry, direct/transitive successors, plain incomparable import and exact
-replay after a later head pass. Entire state, dirty-since, captures and bindings
-remain unchanged on refusal. Prior CAS head selection and replay precedence survive.
+Twenty-seven product plus four checker controls pass. Package validation passes
+94JSON/65vectors/52clauses and34 intended violation plants. All four write APIs
+now require current intake strictly before each output/known-input deadline.
+At/after expiry refuses not_authorized/false before idempotency, including exact
+replay; full state and original receipt remain unchanged, with no purge effect.
+Null/before controls, complete/incomplete-known closure, both batch orders,
+changed-intent priority and later unlimited same-key recovery pass.
 
-PHASE2-SUCCESSION-FIRST47c0205, exact0641033 and RELEASE-0.2.4-FIRSTe689cf2
-preserve all pre-fix failures. Earlier first reports remain immutable; expected
-vectors were never edited. Explicit supplemental profile migrations belong to
-fixture authors21/24/25/26, not runtime normalization.
+PHASE2-DEADLINE-FIRSTe689cf2, exact0c1b5ca and RELEASE-0.2.5-FIRSTdf58eae
+preserve native, supplemental and full-release failures before correction.
+All prior first reports remain immutable; no expected fixture was edited.
+Explicit migrations belong to the fixture authors. Interim split-profile checks
+are labeled in WORKLOG; final reports above use0.2.5 throughout.
 
-PHASE2-DEADLINE-FIRSTe689cf2 independently preserves ASTRA25-11 fresh storage
-at/after inherited expiry and at own expiry, plus before-expiry admission and
-expired replay with no state mutation. Judge classified R7-053/054: at/after expiry must refuse not_authorized/false
-before idempotency, including current replay without state/receipt mutation.
-Published0.2.5 contract is now available; native probes remain separate from the new
-exact vector counts. Source052 is independently owned.
+Judge closed R7-048 strict succession at942bdee, R7-049 specification at ef02647,
+R7-054 deadline mapping at6a04e8c and source052 at4a14a56. Earlier package closures
+031/037/041/044/045/046 remain recorded in DIVERGENCES. Original strict-receipt
+failures47c0205/0641033/e689cf2 and every same-issuer positive are retained.
 
-Judge closed R7-031 receipt/replay at a016781, R7-041 CAS at53266dd,
-R7-044/045 import coverage/transitive review atf6c339d, R7-046 actor binding
-at3ce8ee3 and R7-037 scoped retention at4af0360. Specification039/042 closed
-at23290b3; new049 is judge-closed at ef02647. Existing deadline behavior is
-explicitly not included in those grant-scope closure claims.
+New ASTRA24-12 native probes concern a foreign issuer at an intermediate authority
+event. Their contract rule is pending adjudication; no exact oracle is presumed,
+no source evaluator code is consulted, and they stay outside vector totals.
+Own first reproduction is queued after this completed deadline unit.
 
 Phase1 supported score was2/2 (judgeb1ae299). Phase2 remains **1/2, active**.
-Last judge-verified dual canonical coverage is50/57 on0.2.4 after source427fed5
-and package942bdee. Seven source erasure/restore/load paths remain unsupported;
-package passes do not close those. Current0.2.5 expiry corrections are pending.
-Early PARK requires source57/57 and no new open item for a complete round;
-hard cap13:00Z. Unsupported is never counted as pass. Deployment unqualified.
+Source deadline correction4a14a56 is independently verified50/0/7canonical;
+this package candidate awaits judge review. Seven source erasure/restore/load
+paths remain unsupported. Early PARK requires source57/57 and no new open item
+for a complete round; hard cap13:00Z. Deployment remains unqualified.
 
-Implementation remains package-derived. Original blind first0008dc3 is immutable;
-no source evaluator code was consulted. Evidence: ../impl-astra-23/RESULTS.md/JSON,
-SUPPLEMENTAL.md/JSON, all FIRST reports, WORKLOG.md, DIVERGENCES.md and controls.
-Historical0.2.2 reports remain separately labeled with their recorded runtime.
+Implementation remains package-derived; original blind first0008dc3 is immutable.
+Evidence: ../impl-astra-23/RESULTS.md/JSON, SUPPLEMENTAL.md/JSON, all FIRST reports,
+WORKLOG.md, DIVERGENCES.md and product/checker controls. Historical0.2.2 reports
+remain separately labeled with their recorded runtime. Unsupported never means pass.

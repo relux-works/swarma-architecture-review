@@ -398,3 +398,23 @@ Judge de37630 independently closes942bdee after exact canonical57/57,
 54/54supplemental,28controls and input/module-hash reproduction. Full atomic
 strict-successor/replay/CAS/plain-import boundaries pass, firsts unchanged.
 Deadline053 remains separately open and is not covered by this closure.
+
+### R7-053 correction against released0.2.5
+
+Every resolved proposed output and transitive known content input now refuses
+when parsed trusted context.at is at or after its own non-null retain_until.
+The existing shared retention traversal also checks original stored outputs/input
+closure for exact replay. This gate precedes idempotency and traversal deduplication;
+null adds no bound. No disclosure-label shortcut, automatic purge or state mutation
+is introduced. Valid same-key intake/live replay keep the original receipt.
+
+All four intake APIs have before/equal/after own-output controls and exact expired
+replay with entire state/captures/bindings/dirty-since unchanged. P11 independently
+unrevoked grants, changed-intent priority, no-new-cut and unlimited recovery pass.
+Authored known/unknown/batch expiry negatives and positive neighbors also pass.
+Current0.2.5 canonical57/57, migrated supplemental61/61,27product+4checker controls
+and34package plants pass. Earlier firste689cf2/0c1b5ca/df58eae remains immutable.
+Independent053 review is pending;054 and source052 are separately judge-closed.
+
+ASTRA24-12 mixed-issuer intermediate ancestry is a later native probe awaiting
+contract adjudication; its exact output rule is not presumed or counted as passing.

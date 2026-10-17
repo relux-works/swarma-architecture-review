@@ -296,6 +296,9 @@ class Engine:
             record = pending.pop()
             if record is None or not record_grant(self, record, scope, "retain", metadata=False):
                 raise Refused("not_authorized")
+            deadline = record["envelope"]["disclosure"]["retain_until"]
+            if deadline is not None and stamp(context["at"]) >= stamp(deadline):
+                raise Refused("not_authorized")
             identity = key(record)
             if identity in seen:
                 continue
