@@ -175,3 +175,15 @@ will prove semantic differences and forbidden effects are detected.
 - No new defect in this evaluator; source accounting difference awaits judge.
 - Log: `.temp/impl-astra-23/supplemental-021-03.log`; case/code digests and
   normalized actuals retained in SUPPLEMENTAL.json.
+
+## Round 8 — displayed-polarity budget separating case
+
+- Intake ASTRA24-05 from signed 0ab80b6. K-EVAL-1/2 give each displayed polarity
+  its own root counter. Budget 1 must preserve both one-root signs; budget 2 is
+  the positive control and budget 0 must reject both walks as incomplete.
+- Unchanged evaluator f5fdd8b passes the new exact/paired/forbidden checks.
+  Current supplemental evidence is 21/21 semantic, one deployment unsupported.
+- ASTRA25-06 is now classified source impl-bug R7-027; this neighboring case
+  awaits judge disposition. No package-evaluator code or expected value changed.
+- Log: `.temp/impl-astra-23/supplemental-021-04.log`; exact input/code hashes and
+  actuals retained in SUPPLEMENTAL.json.
