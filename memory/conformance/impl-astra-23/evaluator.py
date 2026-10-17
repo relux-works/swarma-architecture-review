@@ -30,6 +30,58 @@ class Evaluation:
         self.fenced = {key(x) for x in self.rt["fences"] + self.rt["erased"]}
         self.bounds = {k: min(v, self.p["limits"]["read"][k]) for k, v in query["bounds"].items()}
         self.walk_cache = {}
+        self.dirty_cache = None
+
+    def impact_eligible(self, record, historical_inputs=False):
+        if not self.visible(record) or record["envelope"]["perspective"] != self.rule["perspective"]:
+            return False
+        e, b = record["envelope"], record["body"]
+        if e["kind"] == "justification":
+            inputs = [x["source"] if x["kind"] == "source" else x["literal"]["assertion"] for x in b["premises"]]
+            if not all(self.visible(self.records.get(key(x)), active=not historical_inputs)
+                       and self.records[key(x)]["envelope"]["perspective"] == self.rule["perspective"] for x in inputs):
+                return False
+            if b["role"] == "sufficient_support":
+                check = self.records.get(key(b["check"]))
+                return (check is not None and self.check(check, ref(record), b["rule"])
+                        and check["body"]["check_kind"] == "formal_entailment"
+                        and check["body"]["executor"] == "deterministic")
+            return b["role"] == "review_on_change"
+        if e["kind"] == "assessment" and b["target"]:
+            return self.check(record, b["target"]["assertion"])
+        return False
+
+    def affected_dirty(self):
+        if self.dirty_cache is not None:
+            return self.dirty_cache
+        if "dirty_causes" not in self.rt:
+            self.dirty_cache = {key(x) for x in self.rt["dirty"] if self.q["cut"]["memory"] >= self.engine.dirty_since.get(key(x), self.rt["memory_cut"])}
+            return self.dirty_cache
+        affected = set()
+        for cause in self.rt["dirty_causes"]:
+            revision = self.records.get(key(cause["revision"]))
+            if (revision is None or not self.visible(revision, active=False)
+                    or revision["envelope"]["perspective"] != self.rule["perspective"]):
+                continue
+            before_query = copy.deepcopy(self.q)
+            before_query["cut"]["memory"] = revision["envelope"]["recorded"]["sequence"] - 1
+            before = Evaluation(self.engine, before_query)
+            target = before.records.get(key(revision["body"]["target"]))
+            if target is None or not before.visible(target) or target["envelope"]["perspective"] != self.rule["perspective"]:
+                continue
+            reached = {key(target)}
+            edges = [edge for edge in self.engine.impacts(before.records.values()) if before.impact_eligible(edge[0])]
+            while True:
+                prior = set(reached)
+                for _, inputs, conclusion in edges:
+                    if inputs & reached:
+                        reached.add(conclusion)
+                if reached == prior:
+                    break
+            if key(cause["assertion"]) in reached and self.visible(self.records.get(key(cause["assertion"]))):
+                affected.add(key(cause["assertion"]))
+        self.dirty_cache = affected
+        return affected
 
     def grant(self, r, right, metadata=True):
         e = r["envelope"]
@@ -131,7 +183,7 @@ class Evaluation:
             target = self.records.get(k)
             if not self.visible(target):
                 return result
-            if k in {key(x) for x in self.rt["dirty"]} and self.q["cut"]["memory"] >= self.engine.dirty_since.get(k, self.rt["memory_cut"]):
+            if k in self.affected_dirty():
                 result["cutoffs"].add("dirty")
                 return result
             literal = {"assertion": ref(k), "polarity": p}
@@ -285,9 +337,12 @@ class Evaluation:
                 for r in group:
                     statuses[key(r)] = "historical" if key(r) in self.replaced else "current"
         for r in candidates:
-            if statuses[key(r)] == "historical" or r["envelope"]["admission_class"] != "imported_publication":
+            if statuses[key(r)] == "historical":
                 continue
             sources = self.associated_sources(r)
+            sources = {s for s in sources if self.records[s]["body"]["source_kind"] == "publication"}
+            if not sources:
+                continue
             imports = [i for i in self.p["imports"] if key(i["source"]) in sources]
             if any(i["status"] == "replaced" for i in imports):
                 statuses[key(r)] = "historical"
@@ -296,9 +351,9 @@ class Evaluation:
         return statuses
 
     def review_required(self):
-        required = {key(x) for x in self.rt["dirty"] if self.q["cut"]["memory"] >= self.engine.dirty_since.get(key(x), self.rt["memory_cut"])}
+        required = set(self.affected_dirty())
         for r in self.records.values():
-            if r["envelope"]["kind"] != "justification" or r["body"]["role"] != "review_on_change" or not self.visible(r):
+            if r["envelope"]["kind"] != "justification" or r["body"]["role"] != "review_on_change" or not self.impact_eligible(r, historical_inputs=True):
                 continue
             for premise in r["body"]["premises"]:
                 k = key(premise.get("source") if premise["kind"] == "source" else premise["literal"]["assertion"])

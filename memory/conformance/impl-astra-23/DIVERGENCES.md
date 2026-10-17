@@ -59,3 +59,15 @@ direct/derived, hidden-source, failed-path and unrelated-copy boundaries. On
 migrated 0.2.0 cases the current supplemental result is 17 semantic pass / 2 fail
 (R7-018 and R7-022); one deployment case remains unsupported. The original
 pre-correction reports and source hashes remain in commit 103ce15.
+
+## First adapted 0.2.1 run: unrelated history for an explicit target
+
+Package f31d58f: 55/57 semantic pass, two field differences (B07/S24) at
+`/operation_results/3/historical`: actual includes `rec:hidden/1`, expected `[]`.
+The private-authorized dirty control explicitly selects `rec:a/1`, a different
+multi-valued sequence. K-EVAL-9 says historical references are in the requested
+selection's sequences. Current code gathers all visible same-schema history.
+Judge **R7-024: impl-bug**, owner astra-23. The wider private projection is a valid
+positive control that may include `rec:hidden/1`. The exact regression is red
+before correction; no expected report or package vector was changed.
+Preserved report: RELEASE-0.2.1-FIRST.md/JSON.

@@ -105,3 +105,24 @@ will prove semantic differences and forbidden effects are detected.
   one deployment case unsupported. No grammar-incompatible cases remain in this run.
 - Logs: derived-ref-green-01.log, controls-04.log, canonical-round3-01.log and
   supplemental-03.log under `.temp/impl-astra-23/`.
+
+## Round 4 — released 0.2.1 alignment
+
+- Read the exact package semantics delta and RELEASES.md at f31d58f.
+- Align R7-019 to authorized publication-source associations; retain current
+  mirror-report sequences and unchecked genuine-publication negatives.
+- Implement R7-018 unresolved dirty causes with current-authorized pre-revision
+  impact traversal; hidden causes cannot affect public fields or logical budgets.
+- Enforce R7-022 explicit subject/principal evidence for both admission and
+  already-admitted self-declaration assertions, including delegated controls.
+- Retest R7-021's unchanged B01 expected output and missing-fact rejection.
+
+### Adapted pre-fix checkpoint
+
+- 0.2.1 f31d58f: 55/57 semantic pass. New private dirty controls expose only
+  the unrelated-history omission, classified R7-024 impl-bug by the judge.
+- Preserve this head/report before correction in RELEASE-0.2.1-FIRST.md/JSON.
+- Twelve controls pass; the selected-history regression intentionally remains red
+  at the exact historical list assertion. Structural validation passes 20 controls.
+- Logs: canonical-021-prefixed-01.log, semantics-021-01.log, history-red-01.log,
+  package-021-01.log. No expected output or case changed.

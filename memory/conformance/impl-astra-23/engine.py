@@ -15,6 +15,34 @@ class Engine:
         self.captures = {}
         self.view_bindings = {}
         self.dirty_since = {key(r): self.state["runtime"]["memory_cut"] for r in self.state["runtime"]["dirty"]}
+        for record in self.state["records"]:
+            self.validate_self_declaration(record)
+
+    def validate_self_declaration(self, record, admission_class=None):
+        e, b = record["envelope"], record["body"]
+        bindings = self.state["policy"].get("subject_principals")
+        if bindings is None or e["kind"] != "assertion":
+            return
+        if b["statement_kind"] != "self_declaration" and (admission_class or e.get("admission_class")) != "self_declaration":
+            return
+        if ({"subject": e["subject"], "principal": e["issuer"]} not in bindings
+                or e["perspective"] != {"kind": "own", "principal": e["issuer"]}):
+            raise Refused("invalid_domain_value")
+
+    @staticmethod
+    def impacts(records):
+        edges = []
+        for r in records:
+            e, b = r["envelope"], r["body"]
+            if e["kind"] == "justification" and b["role"] in ("sufficient_support", "review_on_change"):
+                inputs = {key(x["source"] if x["kind"] == "source" else x["literal"]["assertion"]) for x in b["premises"]}
+                inputs.add(key(r))
+                if b["check"]:
+                    inputs.add(key(b["check"]))
+                edges.append((r, inputs, key(b["target"]["assertion"])))
+            elif e["kind"] == "assessment" and b["target"]:
+                edges.append((r, {key(r)} | {key(x) for x in b["sources"]}, key(b["target"]["assertion"])))
+        return edges
 
     def index(self):
         return {key(r): r for r in self.state["records"]}
@@ -255,6 +283,7 @@ class Engine:
                 stamp(e["confirmed_at"])
             dependencies = list(lineage_inputs(self, r))
             if e["kind"] == "assertion":
+                self.validate_self_declaration(r, ctx["admission_class"])
                 domain = schemas.get(key(e["schema"]))
                 if domain is None:
                     raise Refused("unknown_schema")
@@ -368,18 +397,18 @@ class Engine:
             affected, discovered = {key(op["revision"]["body"]["target"])}, set()
             while True:
                 prior = set(affected)
-                for r in self.state["records"]:
-                    if r["envelope"]["kind"] == "justification" and r["body"]["role"] in ("sufficient_support", "review_on_change"):
-                        b = r["body"]
-                        dependencies = {key(x["source"] if x["kind"] == "source" else x["literal"]["assertion"]) for x in b["premises"]}
-                        if affected & dependencies:
-                            affected.add(key(b["target"]["assertion"]))
-                            discovered.add(key(b["target"]["assertion"]))
+                for _, dependencies, conclusion in self.impacts(original.values()):
+                    if affected & dependencies:
+                        affected.add(conclusion)
+                        discovered.add(conclusion)
                 if affected == prior:
                     break
             rt["dirty"] = refs([*rt["dirty"], *discovered])
             for r in discovered:
                 self.dirty_since[r] = rt["memory_cut"]
+            if "dirty_causes" in rt:
+                causes = rt["dirty_causes"] + [{"assertion": ref(r), "revision": ref(op["revision"])} for r in discovered]
+                rt["dirty_causes"] = [value for _, value in sorted({cjson(c): c for c in causes}.items())]
         outcome = {"admit": "admitted", "revise": "challenged" if relation == "challenge" else "availability_changed" if relation == "availability" else "revised", "declassify": "declassified"}[kind]
         result = receipt(kind, outcome, proposed)
         self.remember(identity, request, result)

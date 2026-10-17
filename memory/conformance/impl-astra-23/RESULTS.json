@@ -1,21 +1,21 @@
 {
-  "package_version": "0.2.0-draft",
-  "package_commit": "cde5754d523b98c93cf2b1777fe80e15b9efa74c",
+  "package_version": "0.2.1-draft",
+  "package_commit": "f31d58f58d05de2ae4159dedaacfa1e32bdc656d",
   "implementation_sha256": {
     "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
     "disclosure.py": "b0f057b04b8e1776c9cefea638607c4cea88df2b4477e78d7d8144104a6bd079",
-    "engine.py": "601939ae52a7ecd7ed7395c27f40862ec5b756f2be78fa020a3e9644a681bda2",
-    "evaluator.py": "c73f7f4e32045fcbb0039b49d2417c59b71ee40eba2e4cf62386eb6faa907dea",
+    "engine.py": "5ec5dda196812c46529714ff94be83a83a30a54e2e771c5864bc1b589f21e4ea",
+    "evaluator.py": "c7c9368aa85d43f7b835e2f3749977ece970b7c7a2f958d1a02e170e6fb6f747",
     "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
     "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
-    "test_semantics.py": "1503c84de9d51804112c79aead70e377985ec8ab2340c3b7ccfaf5be32aeebe7"
+    "test_semantics.py": "e2cad0dee842cb0619099018f2a5d9987b9c6265b9772bf0eed866e62a6c2230"
   },
   "vectors": [
     {
       "id": "B04",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B04.json",
-      "vector_sha256": "dd5c0973dd393b351946d966eab3daedf4a90928e11e50b40fd7e4cc7688e63f",
+      "vector_sha256": "83e9df98bed72c393e17dd3f3cd7d1b1f24d7c63440625d3e9343e07e493abd6",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -23,7 +23,7 @@
       "id": "B05",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B05.json",
-      "vector_sha256": "e454618fa613dd9894fd288211c6b4a3003ce3fcb92c4fd1403c471424c84d71",
+      "vector_sha256": "84e754ebe0bdccf6623192e3facdedae17982eb7ca2438fa45e1e2b0a922c5df",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -31,7 +31,7 @@
       "id": "B06",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B06.json",
-      "vector_sha256": "0d5b56e81a971d599c125b3d323c954ca8c054d61dbe8e0d39f4479d1eb67500",
+      "vector_sha256": "1c3db20c3e61d3965d702090fffbda821d14c7c78375d81b9b12bc50aeb50f3c",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -39,7 +39,7 @@
       "id": "B09",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B09.json",
-      "vector_sha256": "33dc8018550e6964257241520ce33021c2e267c12a66c68465e72569d592ecbc",
+      "vector_sha256": "7dbf50831cbad85b2d34f261e636ff713f0b75d11563d86e7b488a087cf62bf9",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -47,7 +47,7 @@
       "id": "B10",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B10.json",
-      "vector_sha256": "dfb302d9e23cf03193f7a4bfc3c9ab2e8d6487e3e089376412cc3ea04de9a07e",
+      "vector_sha256": "cc6d27ec3f587e48dd36754ec3252079f61ecdee0811f60d4ab74abfd1f7a174",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -55,7 +55,7 @@
       "id": "B11",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B11.json",
-      "vector_sha256": "afd694d691fb542ff44633149ac89f8ed18298d7b14ae22e3e39a42cce1efd01",
+      "vector_sha256": "4864127833762791718adff90414d7c001b85457ae982cdb252fa4ce95b50c13",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -63,7 +63,7 @@
       "id": "B16",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B16.json",
-      "vector_sha256": "4d18eaff1cd65c8d7c724a9d24c8b7c53b3905d9da398742312ddf76234fa7e7",
+      "vector_sha256": "95cb4544d4c679e27156d26c6c19ba33d56ae962f7f31072c9cc75583c6eba0a",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -71,7 +71,7 @@
       "id": "B17",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B17.json",
-      "vector_sha256": "1df0b749dd8846afae30cbc2bef875a46739d7f5a37eefe52865c7b4e06f84eb",
+      "vector_sha256": "ac6542d7931d653545fbb2d93fe6810697eb9592bd63c9691b1253225482b873",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -79,191 +79,50 @@
       "id": "B01",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B01.json",
-      "vector_sha256": "a430089e01a57440c241dd328aa95ba08ca5997d65870b7005161c4b1adeb397",
-      "status": "fail",
-      "differences": [
-        [
-          "/operation_results/0/code",
-          "invalid_reference",
-          "<missing>"
-        ],
-        [
-          "/operation_results/0/custody",
-          "<missing>",
-          []
-        ],
-        [
-          "/operation_results/0/erasure_status",
-          "<missing>",
-          null
-        ],
-        [
-          "/operation_results/0/operation",
-          "<missing>",
-          "revise"
-        ],
-        [
-          "/operation_results/0/outcome",
-          "<missing>",
-          "revised"
-        ],
-        [
-          "/operation_results/0/receipt_handle",
-          "<missing>",
-          "<fresh-handle>"
-        ],
-        [
-          "/operation_results/0/refs",
-          "<missing>",
-          [
-            {
-              "id": "rec:d",
-              "version": 2
-            },
-            {
-              "id": "rec:decision-replace",
-              "version": 1
-            }
-          ]
-        ],
-        [
-          "/operation_results/0/retryable",
-          false,
-          "<missing>"
-        ],
-        [
-          "/operation_results/0/type",
-          "refusal",
-          "receipt"
-        ],
-        [
-          "/postconditions/dirty/length",
-          0,
-          1
-        ],
-        [
-          "/postconditions/dirty/0",
-          "<missing>",
+      "vector_sha256": "8051a1b5f4fa1f4defd299e95334447c5c9bc49a679f8c6d57f8ce4416902f41",
+      "status": "pass",
+      "differences": [],
+      "checks": [],
+      "actual": {
+        "operation_results": [
           {
-            "id": "rec:dependent",
-            "version": 1
-          }
-        ],
-        [
-          "/postconditions/record_refs/length",
-          5,
-          7
-        ],
-        [
-          "/postconditions/record_refs/1/id",
-          "rec:dependent",
-          "rec:d"
-        ],
-        [
-          "/postconditions/record_refs/1/version",
-          1,
-          2
-        ],
-        [
-          "/postconditions/record_refs/2/id",
-          "rec:receipt1",
-          "rec:decision-replace"
-        ],
-        [
-          "/postconditions/record_refs/3/id",
-          "rec:receipt2",
-          "rec:dependent"
-        ],
-        [
-          "/postconditions/record_refs/4/id",
-          "rec:review-dependent",
-          "rec:receipt1"
-        ],
-        [
-          "/postconditions/record_refs/5",
-          "<missing>",
-          {
-            "id": "rec:receipt2",
-            "version": 1
-          }
-        ],
-        [
-          "/postconditions/record_refs/6",
-          "<missing>",
-          {
-            "id": "rec:review-dependent",
-            "version": 1
-          }
-        ],
-        [
-          "/result/authorized_snapshot_handle",
-          "<missing>",
-          "<fresh-handle>"
-        ],
-        [
-          "/result/changes",
-          "<missing>",
-          {
-            "state": "initial",
-            "refs": []
-          }
-        ],
-        [
-          "/result/code",
-          "invalid_time",
-          "<missing>"
-        ],
-        [
-          "/result/currentness",
-          "<missing>",
-          "current"
-        ],
-        [
-          "/result/cutoffs",
-          "<missing>",
-          []
-        ],
-        [
-          "/result/data_classification",
-          "<missing>",
-          "data"
-        ],
-        [
-          "/result/evidence_policy",
-          "<missing>",
-          {
-            "id": "evidence:1",
-            "version": 1
-          }
-        ],
-        [
-          "/result/explanation",
-          "<missing>",
-          {
-            "status": "complete",
-            "paths": [],
-            "reason": null
-          }
-        ],
-        [
-          "/result/historical",
-          "<missing>",
-          [
-            {
-              "id": "rec:d",
-              "version": 1
-            }
-          ]
-        ],
-        [
-          "/result/items",
-          "<missing>",
-          [
-            {
-              "ref": {
+            "type": "receipt",
+            "operation": "revise",
+            "outcome": "revised",
+            "receipt_handle": "c9f9fe753eba7b51ae3ad6096350fbd1",
+            "refs": [
+              {
                 "id": "rec:d",
                 "version": 2
               },
+              {
+                "id": "rec:decision-replace",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        ],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.1-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "d29768b109d00cdc43b71b70b9d25f4e",
+          "data_classification": "data",
+          "items": [
+            {
               "subject": "subj:h1",
               "issuer": "subj:h1",
               "submitter": "subj:h1",
@@ -273,13 +132,6 @@
               },
               "representation_ref": null,
               "admission_class": "machine_observation",
-              "statement_kind": "decision_record",
-              "content": [
-                {
-                  "field": "value",
-                  "value": "delete_home"
-                }
-              ],
               "valid": {
                 "kind": "known",
                 "from": "2026-09-01T00:00:00Z",
@@ -287,6 +139,17 @@
                 "precision": "second"
               },
               "confirmed_at": "2026-10-17T00:00:00Z",
+              "ref": {
+                "id": "rec:d",
+                "version": 2
+              },
+              "statement_kind": "decision_record",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "delete_home"
+                }
+              ],
               "usable_until": null,
               "currentness": "current",
               "authority_receipt": {
@@ -311,7 +174,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "<fresh-handle>",
+                "authorized_snapshot_handle": "d29768b109d00cdc43b71b70b9d25f4e",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -326,81 +189,49 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "<fresh-handle>",
+                "authorized_snapshot_handle": "d29768b109d00cdc43b71b70b9d25f4e",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
               }
             }
-          ]
-        ],
-        [
-          "/result/policy",
-          "<missing>",
-          {
-            "id": "policy:1",
-            "version": 1
-          }
-        ],
-        [
-          "/result/projection_rule",
-          "<missing>",
-          {
-            "id": "projection:main",
-            "version": 1
-          }
-        ],
-        [
-          "/result/retryable",
-          false,
-          "<missing>"
-        ],
-        [
-          "/result/review_required",
-          "<missing>",
-          [
+          ],
+          "currentness": "current",
+          "historical": [
+            {
+              "id": "rec:d",
+              "version": 1
+            }
+          ],
+          "review_required": [
             {
               "id": "rec:dependent",
               "version": 1
             }
-          ]
-        ],
-        [
-          "/result/semantic_profile",
-          "<missing>",
-          "0.2.0-draft"
-        ],
-        [
-          "/result/type",
-          "refusal",
-          "view"
-        ]
-      ],
-      "checks": [
-        "handle slot missing: /operation_results/0/receipt_handle",
-        "handle slot missing: /result/authorized_snapshot_handle",
-        "handle slot missing: /result/items/0/support/authorized_snapshot_handle",
-        "handle slot missing: /result/items/0/oppose/authorized_snapshot_handle",
-        "equal_handles violated: ['/result/authorized_snapshot_handle', '/result/items/0/support/authorized_snapshot_handle', '/result/items/0/oppose/authorized_snapshot_handle']",
-        "distinct_handles violated: ['/operation_results/0/receipt_handle', '/result/authorized_snapshot_handle']"
-      ],
-      "actual": {
-        "operation_results": [
-          {
-            "type": "refusal",
-            "code": "invalid_reference",
-            "retryable": false
+          ],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
           }
-        ],
-        "result": {
-          "type": "refusal",
-          "code": "invalid_time",
-          "retryable": false
         },
         "postconditions": {
           "record_refs": [
             {
               "id": "rec:d",
+              "version": 1
+            },
+            {
+              "id": "rec:d",
+              "version": 2
+            },
+            {
+              "id": "rec:decision-replace",
               "version": 1
             },
             {
@@ -422,7 +253,12 @@
           ],
           "erased_refs": [],
           "custody_present": [],
-          "dirty": [],
+          "dirty": [
+            {
+              "id": "rec:dependent",
+              "version": 1
+            }
+          ],
           "control_observations": [],
           "external_effects": []
         }
@@ -432,7 +268,7 @@
       "id": "B02",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B02.json",
-      "vector_sha256": "92efdc853368a02dc4dabb79eb21ce9a1e82707fe59259b8d1754882a333069c",
+      "vector_sha256": "ae09c5b32a8cc9a2c289829d62ddd9bf92598229f5237a26718eca1956858ded",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -447,7 +283,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "642d79c1243b7a4d0682a927201912e0",
+            "receipt_handle": "309dc934d56de7b04ea22e27063fbe81",
             "refs": [
               {
                 "id": "rec:proposal",
@@ -460,7 +296,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -473,7 +309,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "1faba284760d0e23dd6e99c82bafc7e6",
+          "authorized_snapshot_handle": "add84f1c21c4bdfe8595eceb9ff5144b",
           "data_classification": "data",
           "items": [
             {
@@ -520,7 +356,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1faba284760d0e23dd6e99c82bafc7e6",
+                "authorized_snapshot_handle": "add84f1c21c4bdfe8595eceb9ff5144b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -535,7 +371,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1faba284760d0e23dd6e99c82bafc7e6",
+                "authorized_snapshot_handle": "add84f1c21c4bdfe8595eceb9ff5144b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -575,26 +411,15 @@
       "id": "B03",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B03.json",
-      "vector_sha256": "f06bf87be520a696145c9245b88834a1867b28a675de8ec642050f81c7c1685e",
-      "status": "fail",
-      "differences": [
-        [
-          "/result/currentness",
-          "last_received",
-          "current"
-        ],
-        [
-          "/result/items/0/currentness",
-          "last_received",
-          "current"
-        ]
-      ],
+      "vector_sha256": "f7e817a160e1c4048b72bd62b4e0ebb4ae8c34bd79c1cce45340041cb41f946d",
+      "status": "pass",
+      "differences": [],
       "checks": [],
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -607,7 +432,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "d450a9251ff8e4e79491c0ff65d77f37",
+          "authorized_snapshot_handle": "709a697c9201a545ef6fb729d983a005",
           "data_classification": "data",
           "items": [
             {
@@ -639,7 +464,7 @@
                 }
               ],
               "usable_until": null,
-              "currentness": "last_received",
+              "currentness": "current",
               "authority_receipt": null,
               "incompatible_with": [],
               "needs_review": false,
@@ -659,7 +484,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d450a9251ff8e4e79491c0ff65d77f37",
+                "authorized_snapshot_handle": "709a697c9201a545ef6fb729d983a005",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -674,14 +499,14 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d450a9251ff8e4e79491c0ff65d77f37",
+                "authorized_snapshot_handle": "709a697c9201a545ef6fb729d983a005",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
               }
             }
           ],
-          "currentness": "last_received",
+          "currentness": "current",
           "historical": [],
           "review_required": [],
           "explanation": {
@@ -706,6 +531,18 @@
               "version": 1
             },
             {
+              "id": "rec:publication-doc",
+              "version": 1
+            },
+            {
+              "id": "rec:publication-report",
+              "version": 1
+            },
+            {
+              "id": "rec:publication-source",
+              "version": 1
+            },
+            {
               "id": "rec:report",
               "version": 1
             }
@@ -722,15 +559,29 @@
       "id": "B07",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B07.json",
-      "vector_sha256": "e725f09bb44fa69ace1c1514e4b571dc03be59ae073b7f1432229cdf84f1c73a",
-      "status": "pass",
-      "differences": [],
+      "vector_sha256": "33b313b064bea6e02a1563881bb9f4f4eb65e505da969cba8871d966ba2a51a3",
+      "status": "fail",
+      "differences": [
+        [
+          "/operation_results/3/historical/length",
+          1,
+          0
+        ],
+        [
+          "/operation_results/3/historical/0",
+          {
+            "id": "rec:hidden",
+            "version": 1
+          },
+          "<missing>"
+        ]
+      ],
       "checks": [],
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -743,7 +594,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "9823d347c3aaac39f5865aad6092b92b",
+            "authorized_snapshot_handle": "6f8e84c8ba3e2cfdf46bd2a204eded57",
             "data_classification": "data",
             "items": [
               {
@@ -792,7 +643,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "9823d347c3aaac39f5865aad6092b92b",
+                  "authorized_snapshot_handle": "6f8e84c8ba3e2cfdf46bd2a204eded57",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -809,7 +660,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "9823d347c3aaac39f5865aad6092b92b",
+                  "authorized_snapshot_handle": "6f8e84c8ba3e2cfdf46bd2a204eded57",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -834,10 +685,22 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "bce739c23865a575475376ebb88d451c",
+            "receipt_handle": "3e2bee77d7efaf0b1723c1e34d8a7b2c",
             "refs": [
               {
+                "id": "cert:hidden-rule",
+                "version": 1
+              },
+              {
                 "id": "rec:hidden",
+                "version": 1
+              },
+              {
+                "id": "rec:hidden-root",
+                "version": 1
+              },
+              {
+                "id": "rec:hidden-rule",
                 "version": 1
               }
             ],
@@ -848,7 +711,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "c025d3936dc1d2439d5aef84c35b2286",
+            "receipt_handle": "a45e10827533ab75127b405d5be9e698",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -863,10 +726,120 @@
             "erasure_status": null
           },
           {
+            "type": "view",
+            "semantic_profile": "0.2.1-draft",
+            "projection_rule": {
+              "id": "projection:main",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "94bdc6a66c07c485792dd4f5ddada2b7",
+            "data_classification": "data",
+            "items": [
+              {
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "machine_observation",
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "ref": {
+                  "id": "rec:a",
+                  "version": 1
+                },
+                "statement_kind": "fact",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "alpha"
+                  }
+                ],
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": true,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "incomplete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "94bdc6a66c07c485792dd4f5ddada2b7",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "incomplete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "94bdc6a66c07c485792dd4f5ddada2b7",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [
+              {
+                "id": "rec:hidden",
+                "version": 1
+              }
+            ],
+            "review_required": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [
+              "dirty"
+            ],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
+          },
+          {
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "1332e6858234d8e5f389c683c1f6a703",
+            "receipt_handle": "f49c70300d82945fbcb20e8562c928c3",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -879,7 +852,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -892,7 +865,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "1dbb74cae7fc6961b92906d252eabd4c",
+          "authorized_snapshot_handle": "2ab2589d307b4f52b75cb0a9d863897b",
           "data_classification": "data",
           "items": [
             {
@@ -941,7 +914,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1dbb74cae7fc6961b92906d252eabd4c",
+                "authorized_snapshot_handle": "2ab2589d307b4f52b75cb0a9d863897b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -958,7 +931,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1dbb74cae7fc6961b92906d252eabd4c",
+                "authorized_snapshot_handle": "2ab2589d307b4f52b75cb0a9d863897b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -982,6 +955,10 @@
         "postconditions": {
           "record_refs": [
             {
+              "id": "cert:hidden-rule",
+              "version": 1
+            },
+            {
               "id": "rec:a",
               "version": 1
             },
@@ -1000,6 +977,14 @@
             {
               "id": "rec:hidden-replace",
               "version": 1
+            },
+            {
+              "id": "rec:hidden-root",
+              "version": 1
+            },
+            {
+              "id": "rec:hidden-rule",
+              "version": 1
             }
           ],
           "erased_refs": [
@@ -1009,7 +994,12 @@
             }
           ],
           "custody_present": [],
-          "dirty": [],
+          "dirty": [
+            {
+              "id": "rec:a",
+              "version": 1
+            }
+          ],
           "control_observations": [],
           "external_effects": []
         }
@@ -1019,7 +1009,7 @@
       "id": "B08",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B08.json",
-      "vector_sha256": "88c350a4ff3a75f87b7931ff88f3e166c89a948e754f4bdf8bf38497fa1a1d72",
+      "vector_sha256": "990c5d5d8fe22e87518a03649025dc725d9f06bfec7ae2778e16f166a9b0b7dc",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1027,7 +1017,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1040,7 +1030,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "8cd8d89bd90181738d3bee189e4c371f",
+          "authorized_snapshot_handle": "3da21702fc96455306ba634675a646e9",
           "data_classification": "data",
           "items": [
             {
@@ -1089,7 +1079,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "8cd8d89bd90181738d3bee189e4c371f",
+                "authorized_snapshot_handle": "3da21702fc96455306ba634675a646e9",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:z-visible"
@@ -1106,7 +1096,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "8cd8d89bd90181738d3bee189e4c371f",
+                "authorized_snapshot_handle": "3da21702fc96455306ba634675a646e9",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1162,7 +1152,7 @@
       "id": "B12",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B12.json",
-      "vector_sha256": "ae1c2e6d7f06debfc800bc3ac5a24b489641c1d106ab702b3769110d835a4394",
+      "vector_sha256": "6365a78362c198c7fbc2d6e731fabd93f9b752f43d9c8554e800be952c43cfcc",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1172,7 +1162,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "5e39da528bf0e6173f4b456a2b06333b",
+            "receipt_handle": "165033e953f490a72fe5386ed0185bbd",
             "refs": [
               {
                 "id": "rec:a",
@@ -1186,7 +1176,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "5e39da528bf0e6173f4b456a2b06333b",
+            "receipt_handle": "165033e953f490a72fe5386ed0185bbd",
             "refs": [
               {
                 "id": "rec:a",
@@ -1204,7 +1194,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1217,7 +1207,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "a12b53a013450ed62d43e00b212ca26a",
+          "authorized_snapshot_handle": "a4ef13741a9a90f7050b445f6abf64d0",
           "data_classification": "data",
           "items": [
             {
@@ -1264,7 +1254,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a12b53a013450ed62d43e00b212ca26a",
+                "authorized_snapshot_handle": "a4ef13741a9a90f7050b445f6abf64d0",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1279,7 +1269,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a12b53a013450ed62d43e00b212ca26a",
+                "authorized_snapshot_handle": "a4ef13741a9a90f7050b445f6abf64d0",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1319,7 +1309,7 @@
       "id": "B13",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B13.json",
-      "vector_sha256": "7ff2515c2afc64cefbbf0aedf6e3ae88ce8817dbdd9473293862d6d6f7d3c39c",
+      "vector_sha256": "ae342376c97ce8163d1a26687f79bca68561647b717caa5206e1246da8bd445c",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1327,7 +1317,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1340,7 +1330,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "154e80736b923b79334815ccc4bf9ce2",
+          "authorized_snapshot_handle": "0b2fabd64b207f2e52c711ba54121662",
           "data_classification": "data",
           "items": [
             {
@@ -1392,7 +1382,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "154e80736b923b79334815ccc4bf9ce2",
+                "authorized_snapshot_handle": "0b2fabd64b207f2e52c711ba54121662",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1407,7 +1397,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "154e80736b923b79334815ccc4bf9ce2",
+                "authorized_snapshot_handle": "0b2fabd64b207f2e52c711ba54121662",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1457,7 +1447,7 @@
       "id": "B14",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B14.json",
-      "vector_sha256": "e855f34f734c519ada25ada005bc18fbfaa41dcb032948e52a271e1f54b74044",
+      "vector_sha256": "b7420bdc8ed6445af809512a494914b1e0b34cc9704cb95031252f956b9a4a59",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1465,7 +1455,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1478,7 +1468,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "9994baacf692ea2f1c926b712d7298b3",
+          "authorized_snapshot_handle": "140af58d397ed11b3dff8a7114faced3",
           "data_classification": "data",
           "items": [
             {
@@ -1528,7 +1518,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "9994baacf692ea2f1c926b712d7298b3",
+                "authorized_snapshot_handle": "140af58d397ed11b3dff8a7114faced3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ed",
@@ -1546,7 +1536,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "9994baacf692ea2f1c926b712d7298b3",
+                "authorized_snapshot_handle": "140af58d397ed11b3dff8a7114faced3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1638,7 +1628,7 @@
       "id": "B15",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B15.json",
-      "vector_sha256": "e883fd328abc20a6377e65f147afbf982e3293bd936beac166bd52ebe3766c24",
+      "vector_sha256": "777e58aafaad5f15eedcca4272f72fed335a6abe0910f9a26cacf2d0b1e71592",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1646,7 +1636,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1659,7 +1649,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "a6908f7b48c69fc38dc8a51cc0c33f39",
+          "authorized_snapshot_handle": "c7f1141ce183eafbb0f5f9cdbd6796c2",
           "data_classification": "data",
           "items": [
             {
@@ -1706,7 +1696,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a6908f7b48c69fc38dc8a51cc0c33f39",
+                "authorized_snapshot_handle": "c7f1141ce183eafbb0f5f9cdbd6796c2",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1721,7 +1711,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a6908f7b48c69fc38dc8a51cc0c33f39",
+                "authorized_snapshot_handle": "c7f1141ce183eafbb0f5f9cdbd6796c2",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1815,7 +1805,7 @@
       "id": "P01",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P01.json",
-      "vector_sha256": "edcb4b5c78d01c06e7678f6339588d8b743f7a82071920cdf9c9582733a48901",
+      "vector_sha256": "9a63b3e50a3ec7728af252d9a91f91f794c117f507c5d65109ecb1e025308b70",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1823,7 +1813,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -1836,7 +1826,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "a43ec22bbb91aaba19583b43fbb9375b",
+            "authorized_snapshot_handle": "5eedbffb1118f3fc35aead1caf781a5b",
             "data_classification": "data",
             "items": [],
             "currentness": "none",
@@ -1856,7 +1846,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:observer",
             "version": 1
@@ -1869,7 +1859,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "ea3b4aec25aa6dec2ea378e5037dfa00",
+          "authorized_snapshot_handle": "85b84ff2815cc7faadb1222b05688b33",
           "data_classification": "data",
           "items": [
             {
@@ -1916,7 +1906,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ea3b4aec25aa6dec2ea378e5037dfa00",
+                "authorized_snapshot_handle": "85b84ff2815cc7faadb1222b05688b33",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1931,7 +1921,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ea3b4aec25aa6dec2ea378e5037dfa00",
+                "authorized_snapshot_handle": "85b84ff2815cc7faadb1222b05688b33",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1971,7 +1961,7 @@
       "id": "P02",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P02.json",
-      "vector_sha256": "a837b73a5370a8b11f8046bccbcf62ef8fcbd0811350776d22f640a4bc01e6b7",
+      "vector_sha256": "37f6a264ae16d6c446b275a22202219a2c54d0f9fd93ef6046bbf9af302c3cf2",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1981,11 +1971,128 @@
             "type": "refusal",
             "code": "representation_invalid",
             "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "invalid_domain_value",
+            "retryable": false
+          },
+          {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "bfe6f307edb524cc354f10b348003c1a",
+            "refs": [
+              {
+                "id": "rec:own-interest",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          {
+            "type": "view",
+            "semantic_profile": "0.2.1-draft",
+            "projection_rule": {
+              "id": "projection:other",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "8b5c687f427d95774a3d16a17db21c28",
+            "data_classification": "data",
+            "items": [
+              {
+                "subject": "subj:separate-handle",
+                "issuer": "principal:person",
+                "submitter": "principal:person",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "principal:person"
+                },
+                "representation_ref": null,
+                "admission_class": "self_declaration",
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "ref": {
+                  "id": "rec:own-interest",
+                  "version": 1
+                },
+                "statement_kind": "self_declaration",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "pottery"
+                  }
+                ],
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "8b5c687f427d95774a3d16a17db21c28",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "8b5c687f427d95774a3d16a17db21c28",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [],
+            "review_required": [],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
           }
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1998,7 +2105,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "3c4a2c0b6d01cfa81322d64b76d807e9",
+          "authorized_snapshot_handle": "520e96b14eb03620f69b5a47daf9931a",
           "data_classification": "data",
           "items": [
             {
@@ -2045,7 +2152,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "3c4a2c0b6d01cfa81322d64b76d807e9",
+                "authorized_snapshot_handle": "520e96b14eb03620f69b5a47daf9931a",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2060,7 +2167,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "3c4a2c0b6d01cfa81322d64b76d807e9",
+                "authorized_snapshot_handle": "520e96b14eb03620f69b5a47daf9931a",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2086,6 +2193,10 @@
             {
               "id": "rec:interest",
               "version": 1
+            },
+            {
+              "id": "rec:own-interest",
+              "version": 1
             }
           ],
           "erased_refs": [],
@@ -2100,7 +2211,7 @@
       "id": "P03",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P03.json",
-      "vector_sha256": "8b013d7170bca6e56e198ab0792d04df28695935546d3c719938c7d49a037b78",
+      "vector_sha256": "fbb8e02effb2b80de20e5148e9768a98b6be0b2d152bc68bac65bcc3c69568f7",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -2110,7 +2221,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "5a69ca95374c25ee8fd6e7f02e3b647f",
+            "receipt_handle": "461e40b4e0dedb019396871b5cd95641",
             "refs": [
               {
                 "id": "rec:guess",
@@ -2126,7 +2237,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:observer",
               "version": 1
@@ -2139,7 +2250,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "a32b950f5a98cfaa3dcd3deef22524d8",
+            "authorized_snapshot_handle": "a9a5e73c3a0095be612c9ede15709831",
             "data_classification": "data",
             "items": [
               {
@@ -2188,7 +2299,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "a32b950f5a98cfaa3dcd3deef22524d8",
+                  "authorized_snapshot_handle": "a9a5e73c3a0095be612c9ede15709831",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:observer-review"
@@ -2205,7 +2316,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "a32b950f5a98cfaa3dcd3deef22524d8",
+                  "authorized_snapshot_handle": "a9a5e73c3a0095be612c9ede15709831",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2229,7 +2340,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2242,7 +2353,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "24a5c4c120ff2772036332b819e93436",
+          "authorized_snapshot_handle": "14df73dc410e2ebebcb06efb5ff84750",
           "data_classification": "data",
           "items": [
             {
@@ -2289,7 +2400,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "24a5c4c120ff2772036332b819e93436",
+                "authorized_snapshot_handle": "14df73dc410e2ebebcb06efb5ff84750",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2304,7 +2415,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "24a5c4c120ff2772036332b819e93436",
+                "authorized_snapshot_handle": "14df73dc410e2ebebcb06efb5ff84750",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2352,7 +2463,7 @@
       "id": "P04",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P04.json",
-      "vector_sha256": "9f5455c329ff67539437387f601b9b17b5c63612175cdaa5d51395659514eb0f",
+      "vector_sha256": "e9da01f31697a10b6585648c8ba2e1659ffa147d006ef69c60c4cf82d1b9e57e",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -2360,7 +2471,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -2373,7 +2484,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "2969524ad432a25b46796614a770cefe",
+            "authorized_snapshot_handle": "f9d9ae8f5c97cd08d162a449d47b73f2",
             "data_classification": "data",
             "items": [
               {
@@ -2426,7 +2537,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "2969524ad432a25b46796614a770cefe",
+                  "authorized_snapshot_handle": "f9d9ae8f5c97cd08d162a449d47b73f2",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -2443,7 +2554,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "2969524ad432a25b46796614a770cefe",
+                  "authorized_snapshot_handle": "f9d9ae8f5c97cd08d162a449d47b73f2",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2466,7 +2577,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -2479,7 +2590,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "0ccf3723cccca4b63f8588958de48e50",
+            "authorized_snapshot_handle": "6ee1a8048f6f5a0a709d9ea670fbc09d",
             "data_classification": "data",
             "items": [
               {
@@ -2532,7 +2643,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "stale",
-                  "authorized_snapshot_handle": "0ccf3723cccca4b63f8588958de48e50",
+                  "authorized_snapshot_handle": "6ee1a8048f6f5a0a709d9ea670fbc09d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -2549,7 +2660,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "stale",
-                  "authorized_snapshot_handle": "0ccf3723cccca4b63f8588958de48e50",
+                  "authorized_snapshot_handle": "6ee1a8048f6f5a0a709d9ea670fbc09d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2573,7 +2684,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2586,7 +2697,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "84529dc3c45070c2c6053127cf77d145",
+          "authorized_snapshot_handle": "13602f332b68768d47ccd593d4c81b19",
           "data_classification": "data",
           "items": [
             {
@@ -2639,7 +2750,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "stale",
-                "authorized_snapshot_handle": "84529dc3c45070c2c6053127cf77d145",
+                "authorized_snapshot_handle": "13602f332b68768d47ccd593d4c81b19",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -2656,7 +2767,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "stale",
-                "authorized_snapshot_handle": "84529dc3c45070c2c6053127cf77d145",
+                "authorized_snapshot_handle": "13602f332b68768d47ccd593d4c81b19",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2700,7 +2811,7 @@
       "id": "P05",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P05.json",
-      "vector_sha256": "75fee3dc571ca662e9a3eb627be785503ccbe9b3a1fc71148463ca6513d96669",
+      "vector_sha256": "70e8a7ac3652e51a04a90957e2256f6762397f1970401b7a9ec27a8fa761bd07",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -2715,7 +2826,7 @@
             "type": "receipt",
             "operation": "declassify",
             "outcome": "declassified",
-            "receipt_handle": "0d56926827d87bc0fe66574512ef5dba",
+            "receipt_handle": "52c145fe4984ce5a3f222e45418bb864",
             "refs": [
               {
                 "id": "rec:city",
@@ -2735,7 +2846,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -2748,7 +2859,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "39b13db4eec4595988f730495aa348ec",
+            "authorized_snapshot_handle": "22ec4227ff407697add5ee117a67996c",
             "data_classification": "data",
             "items": [
               {
@@ -2792,7 +2903,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "39b13db4eec4595988f730495aa348ec",
+                  "authorized_snapshot_handle": "22ec4227ff407697add5ee117a67996c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2807,7 +2918,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "39b13db4eec4595988f730495aa348ec",
+                  "authorized_snapshot_handle": "22ec4227ff407697add5ee117a67996c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2832,7 +2943,7 @@
             "type": "receipt",
             "operation": "deliver",
             "outcome": "delivered",
-            "receipt_handle": "fadd7d871f2142ee8c11c91687b3d397",
+            "receipt_handle": "36e35dd866965f8b33dadbbb7c688468",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -2841,7 +2952,7 @@
             "type": "receipt",
             "operation": "revoke_declassification",
             "outcome": "revoked",
-            "receipt_handle": "0ca5729e3c1bb724916a0bc35c0b491a",
+            "receipt_handle": "bdd274024a7bb169b24e705ae24bceef",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -2854,7 +2965,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -2867,7 +2978,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "7e90a33470d1a8879b85f0ffaa7a9147",
+          "authorized_snapshot_handle": "14372976f9f435dabba22442bc8bc576",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -2919,7 +3030,7 @@
       "id": "P06",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P06.json",
-      "vector_sha256": "0383873f3fd147c5ebfe1639c1841096af7dddd4b7ee420d079d3b93cb0287ff",
+      "vector_sha256": "5c000d510c939db230b2220318bec3246e0cf9b49b007c8b5aa1504bc944ff21",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -2927,7 +3038,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -2940,7 +3051,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "1252c28d7d099222f44d185f8cd42425",
+            "authorized_snapshot_handle": "819cb83bcfaa5ae06f28e7b40e957ef7",
             "data_classification": "data",
             "items": [
               {
@@ -2984,7 +3095,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1252c28d7d099222f44d185f8cd42425",
+                  "authorized_snapshot_handle": "819cb83bcfaa5ae06f28e7b40e957ef7",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2999,7 +3110,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1252c28d7d099222f44d185f8cd42425",
+                  "authorized_snapshot_handle": "819cb83bcfaa5ae06f28e7b40e957ef7",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3024,7 +3135,7 @@
             "type": "receipt",
             "operation": "revoke",
             "outcome": "revoked",
-            "receipt_handle": "a3ce2c019385b04804170df5b2122cd6",
+            "receipt_handle": "027ce4082fe60eb0d889a2eb6e8e00c3",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -3037,7 +3148,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -3050,7 +3161,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "ef24e23b74a2ee08d15f1ea3730ec97d",
+          "authorized_snapshot_handle": "7ea96d794a470da02dc7c824b7565ea5",
           "data_classification": "data",
           "items": [
             {
@@ -3094,7 +3205,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ef24e23b74a2ee08d15f1ea3730ec97d",
+                "authorized_snapshot_handle": "7ea96d794a470da02dc7c824b7565ea5",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3109,7 +3220,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ef24e23b74a2ee08d15f1ea3730ec97d",
+                "authorized_snapshot_handle": "7ea96d794a470da02dc7c824b7565ea5",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3149,7 +3260,7 @@
       "id": "P07",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P07.json",
-      "vector_sha256": "8863f484b0ce43a3a27bb193c888dfe76465aafc33523d4f989c7e838e338835",
+      "vector_sha256": "3cefb120589860328533529c846674c4337915fc8d0198b6896d692adbd8cced",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3157,7 +3268,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3170,7 +3281,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "2f63d5228a8b665e704c31910f23c1f8",
+          "authorized_snapshot_handle": "7b6cfd480d259ca6e213920efe843417",
           "data_classification": "data",
           "items": [
             {
@@ -3232,7 +3343,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "2f63d5228a8b665e704c31910f23c1f8",
+                "authorized_snapshot_handle": "7b6cfd480d259ca6e213920efe843417",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:declaration"
@@ -3249,7 +3360,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "2f63d5228a8b665e704c31910f23c1f8",
+                "authorized_snapshot_handle": "7b6cfd480d259ca6e213920efe843417",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3313,7 +3424,7 @@
       "id": "P08",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P08.json",
-      "vector_sha256": "b52047d9ac4e3bb3a615b5af252f7267b4609961ac1e28e47b70862143da2b60",
+      "vector_sha256": "4dabbb85cccbe723977001cfb40577fe6c569e26fe76d72eac4ce3d2e6d381ef",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3323,7 +3434,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "be44903cb1f97ac7fda2e63ab92c46b9",
+            "receipt_handle": "875a6b98b4a491dc27a71782b447a7be",
             "refs": [
               {
                 "id": "rec:sensitive",
@@ -3347,7 +3458,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3360,7 +3471,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "0d82825524decb95f7d78b00a7b92bab",
+          "authorized_snapshot_handle": "29bfa144c6387844523baa319e24fcdd",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -3409,7 +3520,7 @@
       "id": "P09",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P09.json",
-      "vector_sha256": "5862e79132ed197b98f0a60587e1e17b977d9c986f759f33fa60ad2776e426c5",
+      "vector_sha256": "a35ceb4787906f40c7b4d62828ad82ea721c431f6de0143bd20719fb7a42bb19",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3417,7 +3528,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:left",
               "version": 1
@@ -3430,7 +3541,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "1d8f00d6f3e1d82a9f9c02a8473456c6",
+            "authorized_snapshot_handle": "16645cdeae815671b6f83c39b7b6c2ba",
             "data_classification": "data",
             "items": [
               {
@@ -3474,7 +3585,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1d8f00d6f3e1d82a9f9c02a8473456c6",
+                  "authorized_snapshot_handle": "16645cdeae815671b6f83c39b7b6c2ba",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3489,7 +3600,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1d8f00d6f3e1d82a9f9c02a8473456c6",
+                  "authorized_snapshot_handle": "16645cdeae815671b6f83c39b7b6c2ba",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3513,7 +3624,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:right",
             "version": 1
@@ -3526,7 +3637,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "79cd867f93bf93c36e9756743e940977",
+          "authorized_snapshot_handle": "fabedc4a5a8c1f3f087a6adc154626d9",
           "data_classification": "data",
           "items": [
             {
@@ -3570,7 +3681,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "79cd867f93bf93c36e9756743e940977",
+                "authorized_snapshot_handle": "fabedc4a5a8c1f3f087a6adc154626d9",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3585,7 +3696,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "79cd867f93bf93c36e9756743e940977",
+                "authorized_snapshot_handle": "fabedc4a5a8c1f3f087a6adc154626d9",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3633,7 +3744,7 @@
       "id": "P10",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P10.json",
-      "vector_sha256": "c3b7fb6dd6d91ba9704ba5eea30dd3740ce75f1e6e1f33712b89d2bf621f1d5e",
+      "vector_sha256": "2ee097c9961fb38b797b428426430f3a2043a083b7008d2c1296433f870ebbc5",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3643,7 +3754,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "d6d123c49fa186d318664f5dda358541",
+            "receipt_handle": "c48d0b9428566cf0706e5486eb249a47",
             "refs": [
               {
                 "id": "rec:interest",
@@ -3670,7 +3781,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3683,7 +3794,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "c1ec37ada7a5cf0e58f55d05254ba20c",
+          "authorized_snapshot_handle": "c5d951bd73d8b0e160a73ed6a74c243f",
           "data_classification": "data",
           "items": [
             {
@@ -3734,7 +3845,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c1ec37ada7a5cf0e58f55d05254ba20c",
+                "authorized_snapshot_handle": "c5d951bd73d8b0e160a73ed6a74c243f",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3749,7 +3860,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c1ec37ada7a5cf0e58f55d05254ba20c",
+                "authorized_snapshot_handle": "c5d951bd73d8b0e160a73ed6a74c243f",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3802,7 +3913,7 @@
       "id": "P11",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P11.json",
-      "vector_sha256": "ede9a1715b19a3ebc5d3e2f1fe8a84a795bb2fd7338827dec6f3daff5b5a595c",
+      "vector_sha256": "cb02adb2f16fbf87613ec98511fe2837361e28bb500effe7665e87ddbec4f4e3",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3812,7 +3923,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "a8be0b69d97d4a850f3a5459232026b3",
+            "receipt_handle": "ad60c8abf60b6aa7fc9f83aad6912eb1",
             "refs": [
               {
                 "id": "rec:paraphrase",
@@ -3824,7 +3935,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -3837,7 +3948,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "70f1a9a5812b653d469caf465d479855",
+            "authorized_snapshot_handle": "1608af3d51ed544f6e3e94639ce53295",
             "data_classification": "data",
             "items": [
               {
@@ -3884,7 +3995,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "70f1a9a5812b653d469caf465d479855",
+                  "authorized_snapshot_handle": "1608af3d51ed544f6e3e94639ce53295",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3899,7 +4010,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "70f1a9a5812b653d469caf465d479855",
+                  "authorized_snapshot_handle": "1608af3d51ed544f6e3e94639ce53295",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3923,7 +4034,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3936,7 +4047,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "20c30aab11bf6c1de76e30a514b65b77",
+          "authorized_snapshot_handle": "8400c47ce958d908e0aa3f9c97599271",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -3976,7 +4087,7 @@
       "id": "P12",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P12.json",
-      "vector_sha256": "c6e89bcab0186012b872c20ac0a30725cc8e8b0eb65b941ead240ba7c902dcd2",
+      "vector_sha256": "d3f4d187b14d3873a625e8dcca87c44ca73ea7a81f0b63bf6bdc5f7cae9668d3",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3984,7 +4095,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -3997,7 +4108,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "743c220d7c568d9f0f6a66e0614f0fbc",
+            "authorized_snapshot_handle": "2ea3d89317482cec6814d4766219df34",
             "data_classification": "data",
             "items": [
               {
@@ -4041,7 +4152,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "743c220d7c568d9f0f6a66e0614f0fbc",
+                  "authorized_snapshot_handle": "2ea3d89317482cec6814d4766219df34",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4056,7 +4167,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "743c220d7c568d9f0f6a66e0614f0fbc",
+                  "authorized_snapshot_handle": "2ea3d89317482cec6814d4766219df34",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4081,7 +4192,7 @@
             "type": "receipt",
             "operation": "deliver",
             "outcome": "delivered",
-            "receipt_handle": "73cb12334351b2c9860712481ecf5040",
+            "receipt_handle": "886654da6b5eda7847f63691d0feddd5",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -4090,7 +4201,7 @@
             "type": "receipt",
             "operation": "revoke",
             "outcome": "revoked",
-            "receipt_handle": "2e2d6f3a67f1c3f0b5ad41aea0f6974b",
+            "receipt_handle": "ef3310d7ca495b90c6dd63db9daa029d",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -4103,7 +4214,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -4116,7 +4227,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "637608656352addcdee40c00caf6a71b",
+          "authorized_snapshot_handle": "88ef76688dbfdaa24ed8f87f851367fb",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -4152,7 +4263,7 @@
       "id": "P13",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P13.json",
-      "vector_sha256": "d3fcc55fb58ad266280cd88322533ab4fd9a7834725d493fb99f8beba5cba70a",
+      "vector_sha256": "c3d2096d658390ab3ee1b0eb3b52c70286a4986f4b42f780c89cf759aa8c6df4",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4162,7 +4273,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "05a5045fd5dee86a00c070870e87499b",
+            "receipt_handle": "8e133f731661bb46265d24ebc2fa207e",
             "refs": [
               {
                 "id": "rec:model-clean",
@@ -4182,7 +4293,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -4195,7 +4306,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "b64f8c3eb2373d5388539ca65f3a7ee9",
+            "authorized_snapshot_handle": "277af84df1a296c6788a85add64fd704",
             "data_classification": "data",
             "items": [
               {
@@ -4242,7 +4353,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b64f8c3eb2373d5388539ca65f3a7ee9",
+                  "authorized_snapshot_handle": "277af84df1a296c6788a85add64fd704",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4257,7 +4368,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b64f8c3eb2373d5388539ca65f3a7ee9",
+                  "authorized_snapshot_handle": "277af84df1a296c6788a85add64fd704",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4307,7 +4418,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b64f8c3eb2373d5388539ca65f3a7ee9",
+                  "authorized_snapshot_handle": "277af84df1a296c6788a85add64fd704",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4322,7 +4433,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b64f8c3eb2373d5388539ca65f3a7ee9",
+                  "authorized_snapshot_handle": "277af84df1a296c6788a85add64fd704",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4346,7 +4457,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -4359,7 +4470,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "56dbbb38f4de5b1c6387cca599feda46",
+          "authorized_snapshot_handle": "31afb72f526fc469472875bbdbf3671b",
           "data_classification": "data",
           "items": [
             {
@@ -4403,7 +4514,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "56dbbb38f4de5b1c6387cca599feda46",
+                "authorized_snapshot_handle": "31afb72f526fc469472875bbdbf3671b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4418,7 +4529,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "56dbbb38f4de5b1c6387cca599feda46",
+                "authorized_snapshot_handle": "31afb72f526fc469472875bbdbf3671b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4474,7 +4585,7 @@
       "id": "P14",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P14.json",
-      "vector_sha256": "3283376e6daed366036f59939f31b5843fc80567a41d1cc0b9e88607ea12f84a",
+      "vector_sha256": "f108ed44d2eb77daa4e9a0a6d0e2727c298355d0e85f5d2ff8cc12f637687206",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4484,7 +4595,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "3511f69dd81d1bd76eda99b0e6ddd08f",
+            "receipt_handle": "568a51a6b4466fd7253ff34dc6686483",
             "refs": [
               {
                 "id": "rec:interest",
@@ -4511,7 +4622,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -4524,7 +4635,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "02c2337f04712a05f7de6e3eeec96c1d",
+          "authorized_snapshot_handle": "9854de8cb8b92ccb47bd05d4f5e7fd51",
           "data_classification": "data",
           "items": [
             {
@@ -4575,7 +4686,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "02c2337f04712a05f7de6e3eeec96c1d",
+                "authorized_snapshot_handle": "9854de8cb8b92ccb47bd05d4f5e7fd51",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4590,7 +4701,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "02c2337f04712a05f7de6e3eeec96c1d",
+                "authorized_snapshot_handle": "9854de8cb8b92ccb47bd05d4f5e7fd51",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4643,7 +4754,7 @@
       "id": "P15",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P15.json",
-      "vector_sha256": "8d748b469806a581b3c4b02204bc140c46ec89798adc692263bbf3144224f5af",
+      "vector_sha256": "6b1e1c330e80888324ad07a478ce64bfec5266c99e4ce122eaa4aa2583c8e56d",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4651,7 +4762,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:card",
               "version": 1
@@ -4664,7 +4775,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "e9cedb15126558d91cc5c4164d191f3b",
+            "authorized_snapshot_handle": "fc145a39ba1c184b54f8ebfd51de6229",
             "data_classification": "data",
             "items": [
               {
@@ -4685,15 +4796,11 @@
                 },
                 "confirmed_at": "2026-10-17T00:00:00Z",
                 "ref": null,
-                "statement_kind": "self_declaration",
+                "statement_kind": "fact",
                 "content": [
                   {
-                    "field": "level",
-                    "value": "organisation assessment"
-                  },
-                  {
-                    "field": "skill",
-                    "value": "gardening"
+                    "field": "value",
+                    "value": "organisation attests gardening"
                   }
                 ],
                 "usable_until": null,
@@ -4712,7 +4819,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "e9cedb15126558d91cc5c4164d191f3b",
+                  "authorized_snapshot_handle": "fc145a39ba1c184b54f8ebfd51de6229",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4727,7 +4834,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "e9cedb15126558d91cc5c4164d191f3b",
+                  "authorized_snapshot_handle": "fc145a39ba1c184b54f8ebfd51de6229",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4751,15 +4858,11 @@
                 },
                 "confirmed_at": "2026-10-17T00:00:00Z",
                 "ref": null,
-                "statement_kind": "self_declaration",
+                "statement_kind": "fact",
                 "content": [
                   {
-                    "field": "level",
-                    "value": "organisation assessment"
-                  },
-                  {
-                    "field": "skill",
-                    "value": "pottery"
+                    "field": "value",
+                    "value": "organisation attests pottery"
                   }
                 ],
                 "usable_until": null,
@@ -4778,7 +4881,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "e9cedb15126558d91cc5c4164d191f3b",
+                  "authorized_snapshot_handle": "fc145a39ba1c184b54f8ebfd51de6229",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4793,7 +4896,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "e9cedb15126558d91cc5c4164d191f3b",
+                  "authorized_snapshot_handle": "fc145a39ba1c184b54f8ebfd51de6229",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4816,7 +4919,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:organisation",
               "version": 1
@@ -4829,7 +4932,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "ff4f7bc1976733d61b1cc137482e9a3a",
+            "authorized_snapshot_handle": "8041e2103d5c4bf913cc797df99ae870",
             "data_classification": "data",
             "items": [
               {
@@ -4853,15 +4956,11 @@
                   "id": "rec:attestation-a",
                   "version": 1
                 },
-                "statement_kind": "self_declaration",
+                "statement_kind": "fact",
                 "content": [
                   {
-                    "field": "level",
-                    "value": "organisation assessment"
-                  },
-                  {
-                    "field": "skill",
-                    "value": "gardening"
+                    "field": "value",
+                    "value": "organisation attests gardening"
                   }
                 ],
                 "usable_until": null,
@@ -4880,7 +4979,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "ff4f7bc1976733d61b1cc137482e9a3a",
+                  "authorized_snapshot_handle": "8041e2103d5c4bf913cc797df99ae870",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4895,7 +4994,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "ff4f7bc1976733d61b1cc137482e9a3a",
+                  "authorized_snapshot_handle": "8041e2103d5c4bf913cc797df99ae870",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4922,15 +5021,11 @@
                   "id": "rec:attestation-b",
                   "version": 1
                 },
-                "statement_kind": "self_declaration",
+                "statement_kind": "fact",
                 "content": [
                   {
-                    "field": "level",
-                    "value": "organisation assessment"
-                  },
-                  {
-                    "field": "skill",
-                    "value": "pottery"
+                    "field": "value",
+                    "value": "organisation attests pottery"
                   }
                 ],
                 "usable_until": null,
@@ -4949,7 +5044,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "ff4f7bc1976733d61b1cc137482e9a3a",
+                  "authorized_snapshot_handle": "8041e2103d5c4bf913cc797df99ae870",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4964,7 +5059,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "ff4f7bc1976733d61b1cc137482e9a3a",
+                  "authorized_snapshot_handle": "8041e2103d5c4bf913cc797df99ae870",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4988,7 +5083,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:card",
             "version": 2
@@ -5001,7 +5096,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "942daf33c964c4c6a61697541b491c12",
+          "authorized_snapshot_handle": "bf062e63de4647753946220207d62864",
           "data_classification": "data",
           "items": [
             {
@@ -5022,15 +5117,11 @@
               },
               "confirmed_at": "2026-10-17T00:00:00Z",
               "ref": null,
-              "statement_kind": "self_declaration",
+              "statement_kind": "fact",
               "content": [
                 {
-                  "field": "level",
-                  "value": "organisation assessment"
-                },
-                {
-                  "field": "skill",
-                  "value": "pottery"
+                  "field": "value",
+                  "value": "organisation attests pottery"
                 }
               ],
               "usable_until": null,
@@ -5049,7 +5140,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "942daf33c964c4c6a61697541b491c12",
+                "authorized_snapshot_handle": "bf062e63de4647753946220207d62864",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5064,7 +5155,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "942daf33c964c4c6a61697541b491c12",
+                "authorized_snapshot_handle": "bf062e63de4647753946220207d62864",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5108,7 +5199,7 @@
       "id": "S01",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S01.json",
-      "vector_sha256": "47a1e430c03c4060d369e7a0b33bb61b7aea21fa7c31322b6f249c05b24e38ea",
+      "vector_sha256": "71e4f5432a95995c526db3501acaae330f17f9ea515936039f7e870f796b4587",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5116,7 +5207,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -5129,7 +5220,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "3f1ddeafc8a5288fd5b8367028b619e3",
+            "authorized_snapshot_handle": "2d2f39940408f4028154ade376862c99",
             "data_classification": "data",
             "items": [],
             "currentness": "none",
@@ -5148,7 +5239,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -5161,7 +5252,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "c5763a4d972d1490934b53a3407c2884",
+            "authorized_snapshot_handle": "6150a1549fd49da21028b55275983142",
             "data_classification": "data",
             "items": [
               {
@@ -5205,7 +5296,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "c5763a4d972d1490934b53a3407c2884",
+                  "authorized_snapshot_handle": "6150a1549fd49da21028b55275983142",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -5220,7 +5311,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "c5763a4d972d1490934b53a3407c2884",
+                  "authorized_snapshot_handle": "6150a1549fd49da21028b55275983142",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -5244,7 +5335,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5257,7 +5348,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "e73842eb4653660f05c404a80a57aef6",
+          "authorized_snapshot_handle": "0eda014d1de1f574f77d328ce4c4fc8d",
           "data_classification": "data",
           "items": [
             {
@@ -5304,7 +5395,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e73842eb4653660f05c404a80a57aef6",
+                "authorized_snapshot_handle": "0eda014d1de1f574f77d328ce4c4fc8d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5319,7 +5410,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e73842eb4653660f05c404a80a57aef6",
+                "authorized_snapshot_handle": "0eda014d1de1f574f77d328ce4c4fc8d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5363,7 +5454,7 @@
       "id": "S02",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S02.json",
-      "vector_sha256": "af79491b18efddb7c33af5b2b94765ef773eb51c2d085582c54a64cce6d3d74c",
+      "vector_sha256": "e645d0ef6976d226702cee144e502f3be5ab0d771fd8b72e8bf60153b5a9c975",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5371,7 +5462,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5384,7 +5475,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "c50a2933cb3567f1908af0ca4ac05ce4",
+          "authorized_snapshot_handle": "d7b62c63923ee2da339ff659a11c1a70",
           "data_classification": "data",
           "items": [
             {
@@ -5433,7 +5524,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c50a2933cb3567f1908af0ca4ac05ce4",
+                "authorized_snapshot_handle": "d7b62c63923ee2da339ff659a11c1a70",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -5452,7 +5543,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c50a2933cb3567f1908af0ca4ac05ce4",
+                "authorized_snapshot_handle": "d7b62c63923ee2da339ff659a11c1a70",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:en"
@@ -5502,7 +5593,7 @@
       "id": "S03",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S03.json",
-      "vector_sha256": "81080d9baa38a5e698d32f98cd6ad5703bdb8fe7650994cb6a5810cbb86f329c",
+      "vector_sha256": "64e34510c15ceea1d19a1cdeb654401cd9146595ef051ed3932e99fc87d0636f",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5510,7 +5601,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5523,7 +5614,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "ff6229ceb3fcbabc8c379fe7e1f98ab9",
+          "authorized_snapshot_handle": "fdc257dd2db57b287951e611975d7a7d",
           "data_classification": "data",
           "items": [
             {
@@ -5573,7 +5664,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ff6229ceb3fcbabc8c379fe7e1f98ab9",
+                "authorized_snapshot_handle": "fdc257dd2db57b287951e611975d7a7d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -5590,7 +5681,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ff6229ceb3fcbabc8c379fe7e1f98ab9",
+                "authorized_snapshot_handle": "fdc257dd2db57b287951e611975d7a7d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5654,7 +5745,7 @@
       "id": "S04",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S04.json",
-      "vector_sha256": "034e19d34a198b510f1f3fc0e0886ec2ef0499c8bc730246eed7427c93c5a60f",
+      "vector_sha256": "174248f42d30f4ad4f98d87e19910f998aa399d618343947ea16a7b210dea111",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5662,7 +5753,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5675,7 +5766,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "7c9bcdc8789ced46bce8c59f5079716d",
+          "authorized_snapshot_handle": "5df616df4680439e7c7ebeec337b0283",
           "data_classification": "data",
           "items": [
             {
@@ -5725,7 +5816,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "7c9bcdc8789ced46bce8c59f5079716d",
+                "authorized_snapshot_handle": "5df616df4680439e7c7ebeec337b0283",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ed",
@@ -5743,7 +5834,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "7c9bcdc8789ced46bce8c59f5079716d",
+                "authorized_snapshot_handle": "5df616df4680439e7c7ebeec337b0283",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5835,7 +5926,7 @@
       "id": "S05",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S05.json",
-      "vector_sha256": "7189a5d2f086effe6642cbc44bc16266c06aad520990e1c0d1ddd3e6b0a234a9",
+      "vector_sha256": "b6c6c6b2daaa6472b6b2af28fab0776450e77f4c1c21a74832db3170c833251e",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5843,7 +5934,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5856,7 +5947,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "3d7c567169cc02ed81fbac937e99486a",
+          "authorized_snapshot_handle": "c6b256166d3c8ffa4121ce3919ba935d",
           "data_classification": "data",
           "items": [
             {
@@ -5903,7 +5994,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "3d7c567169cc02ed81fbac937e99486a",
+                "authorized_snapshot_handle": "c6b256166d3c8ffa4121ce3919ba935d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5918,7 +6009,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "3d7c567169cc02ed81fbac937e99486a",
+                "authorized_snapshot_handle": "c6b256166d3c8ffa4121ce3919ba935d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5986,7 +6077,7 @@
       "id": "S06",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S06.json",
-      "vector_sha256": "7ec4144e73c607758ba3d9cee35c42d172a694454337538944dc67eb974d5d5a",
+      "vector_sha256": "1d00ae6be1ad1ff612d93c6b43a46022e0ebad658999b68733a587fb23fe791a",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5994,7 +6085,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6007,7 +6098,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "5de214610cb732eb109eaff6c1158d07",
+          "authorized_snapshot_handle": "86d5e62d72e9e5f34efa4af1f0f748dc",
           "data_classification": "data",
           "items": [
             {
@@ -6054,7 +6145,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "5de214610cb732eb109eaff6c1158d07",
+                "authorized_snapshot_handle": "86d5e62d72e9e5f34efa4af1f0f748dc",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6069,7 +6160,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "5de214610cb732eb109eaff6c1158d07",
+                "authorized_snapshot_handle": "86d5e62d72e9e5f34efa4af1f0f748dc",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6163,7 +6254,7 @@
       "id": "S07",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S07.json",
-      "vector_sha256": "e84381041380153d833581a35d75d450a195a9d836f281c3f3d8283590783b4f",
+      "vector_sha256": "77971a999864841a8f1a67cf62ce86e7d15964b3c2f2900fca7b0e3983637194",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6171,7 +6262,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6184,7 +6275,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "e583ca0c8fd9bde31bac35012cb8360c",
+          "authorized_snapshot_handle": "478c40d38b0483c0a5f531667b1ef08c",
           "data_classification": "data",
           "items": [
             {
@@ -6234,7 +6325,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e583ca0c8fd9bde31bac35012cb8360c",
+                "authorized_snapshot_handle": "478c40d38b0483c0a5f531667b1ef08c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ea",
@@ -6254,7 +6345,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e583ca0c8fd9bde31bac35012cb8360c",
+                "authorized_snapshot_handle": "478c40d38b0483c0a5f531667b1ef08c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6357,7 +6448,7 @@
       "id": "S08",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S08.json",
-      "vector_sha256": "519199523483705ada910cc76b4f408fe3dcf0239177f3b98835e776ce02911b",
+      "vector_sha256": "94e578053e6ec93ea0d055380d3d2b3c78c5706301d999479f870638ac3b483a",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6371,7 +6462,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6384,7 +6475,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "eb9300d8cacf62ab6613ee697ebbdcea",
+          "authorized_snapshot_handle": "815ce7cb967a5f27ba4f36c132da9828",
           "data_classification": "data",
           "items": [
             {
@@ -6431,7 +6522,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "eb9300d8cacf62ab6613ee697ebbdcea",
+                "authorized_snapshot_handle": "815ce7cb967a5f27ba4f36c132da9828",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6446,7 +6537,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "eb9300d8cacf62ab6613ee697ebbdcea",
+                "authorized_snapshot_handle": "815ce7cb967a5f27ba4f36c132da9828",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6490,7 +6581,7 @@
       "id": "S09",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S09.json",
-      "vector_sha256": "1144279587c27c182da99976d37b41cec81d96c6ff180692b4122bf6669e6eb1",
+      "vector_sha256": "1c02f1f99eeba4d161cd587209f2634dd4f5d5d481e6ef304201758b42979188",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6498,7 +6589,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6511,7 +6602,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "fd4db89bd7a7ea86d07da4f4290df150",
+          "authorized_snapshot_handle": "979a3166401d9e52321183ab0631a03c",
           "data_classification": "data",
           "items": [
             {
@@ -6558,7 +6649,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "fd4db89bd7a7ea86d07da4f4290df150",
+                "authorized_snapshot_handle": "979a3166401d9e52321183ab0631a03c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6573,7 +6664,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "fd4db89bd7a7ea86d07da4f4290df150",
+                "authorized_snapshot_handle": "979a3166401d9e52321183ab0631a03c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6621,7 +6712,7 @@
       "id": "S10",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S10.json",
-      "vector_sha256": "dc38ebae3b7db65915e99aa829747c48b8a216ca06b67aae344bc3b0b1e1c028",
+      "vector_sha256": "6c2009123212d471a4b69d9dc014a55f14dbdf115e7e3c3db9bab69f3c803e4b",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6629,7 +6720,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:team",
               "version": 1
@@ -6642,7 +6733,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "f2279a8d9796921ebcf3ed395ad227e4",
+            "authorized_snapshot_handle": "232d372be0785350a60cc37f5d17025d",
             "data_classification": "data",
             "items": [
               {
@@ -6694,7 +6785,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "f2279a8d9796921ebcf3ed395ad227e4",
+                  "authorized_snapshot_handle": "232d372be0785350a60cc37f5d17025d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -6709,7 +6800,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "f2279a8d9796921ebcf3ed395ad227e4",
+                  "authorized_snapshot_handle": "232d372be0785350a60cc37f5d17025d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -6733,7 +6824,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6746,7 +6837,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "104caed16b6748fd47fe6404ef669434",
+          "authorized_snapshot_handle": "32889b23c4b80292ed2115ce3c62b6c3",
           "data_classification": "data",
           "items": [
             {
@@ -6795,7 +6886,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "104caed16b6748fd47fe6404ef669434",
+                "authorized_snapshot_handle": "32889b23c4b80292ed2115ce3c62b6c3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:eb"
@@ -6812,7 +6903,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "104caed16b6748fd47fe6404ef669434",
+                "authorized_snapshot_handle": "32889b23c4b80292ed2115ce3c62b6c3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6876,7 +6967,7 @@
       "id": "S11",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S11.json",
-      "vector_sha256": "c06502675596ca28e47d54a7d90b1d288b413ad40c58fed97d29a869be97ee69",
+      "vector_sha256": "d646732917f7fd7ef004fffbc9aacd8c0245dcc9fdcab6f4c9cb9e0a93d4e7b2",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6884,7 +6975,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6897,7 +6988,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "d650b4be129211b6c3275c586e1d3aa6",
+          "authorized_snapshot_handle": "dc42ca466bdc57ae72d50165765f8101",
           "data_classification": "data",
           "items": [
             {
@@ -6944,7 +7035,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d650b4be129211b6c3275c586e1d3aa6",
+                "authorized_snapshot_handle": "dc42ca466bdc57ae72d50165765f8101",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6959,7 +7050,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d650b4be129211b6c3275c586e1d3aa6",
+                "authorized_snapshot_handle": "dc42ca466bdc57ae72d50165765f8101",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7011,7 +7102,7 @@
       "id": "S12",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S12.json",
-      "vector_sha256": "bc94c4003127ef7d8811f4c072750942bffb65ad3f89baf2177c6f35a90e4d93",
+      "vector_sha256": "5e014662b94d800fae8c47b26dbb5218ced4ec0cba68729f4a072c29aba48013",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7019,7 +7110,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7032,7 +7123,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "bfacb08efe265966321ca2483a2eb9f7",
+          "authorized_snapshot_handle": "a9937659f2fd1a88d60d801b060d3b7a",
           "data_classification": "data",
           "items": [
             {
@@ -7084,7 +7175,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "bfacb08efe265966321ca2483a2eb9f7",
+                "authorized_snapshot_handle": "a9937659f2fd1a88d60d801b060d3b7a",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7099,7 +7190,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "bfacb08efe265966321ca2483a2eb9f7",
+                "authorized_snapshot_handle": "a9937659f2fd1a88d60d801b060d3b7a",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7149,7 +7240,7 @@
       "id": "S13",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S13.json",
-      "vector_sha256": "d71d3392c98cf7bac3a3e54bd29d74d6c57eb1f7988c985b9072f152dba39489",
+      "vector_sha256": "a45edf728c067c47a7154cb2b4510fd16bc77184a0795041ce3eec8df2aba641",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7157,7 +7248,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -7170,7 +7261,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "695bfabeebf64cfb149214881416e305",
+            "authorized_snapshot_handle": "c6d5fb412b1c748bf0df0e8c8f82d9b9",
             "data_classification": "data",
             "items": [
               {
@@ -7219,7 +7310,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "695bfabeebf64cfb149214881416e305",
+                  "authorized_snapshot_handle": "c6d5fb412b1c748bf0df0e8c8f82d9b9",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -7236,7 +7327,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "695bfabeebf64cfb149214881416e305",
+                  "authorized_snapshot_handle": "c6d5fb412b1c748bf0df0e8c8f82d9b9",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -7261,7 +7352,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "be6e0101fab874a743551bd3d849efb2",
+            "receipt_handle": "83b64f2e936f8957ebcbbdd8855963d0",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -7274,7 +7365,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7287,7 +7378,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "ffbcb25fdea6e0490befaa87ca803a5c",
+          "authorized_snapshot_handle": "9994675993214cbc4f851d7cb817e30d",
           "data_classification": "data",
           "items": [
             {
@@ -7336,7 +7427,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ffbcb25fdea6e0490befaa87ca803a5c",
+                "authorized_snapshot_handle": "9994675993214cbc4f851d7cb817e30d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -7353,7 +7444,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ffbcb25fdea6e0490befaa87ca803a5c",
+                "authorized_snapshot_handle": "9994675993214cbc4f851d7cb817e30d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7401,7 +7492,7 @@
       "id": "S14",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S14.json",
-      "vector_sha256": "ef182d07153023c00a279a6ac4a984e72e7b631c5d606ccb47cb15545ebbe211",
+      "vector_sha256": "f2d280af35f401cc769b8f18a833d891550a64ada1aaedcb72a10610cd9c85bb",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7411,7 +7502,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "2dffee0d4f589d673f2e92ff1e8322bc",
+            "receipt_handle": "b42f59b16f9d10a87a664123476c3a37",
             "refs": [
               {
                 "id": "rec:a",
@@ -7425,7 +7516,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "2dffee0d4f589d673f2e92ff1e8322bc",
+            "receipt_handle": "b42f59b16f9d10a87a664123476c3a37",
             "refs": [
               {
                 "id": "rec:a",
@@ -7443,7 +7534,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7456,7 +7547,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "14c549276b340bc38273e3207729ac58",
+          "authorized_snapshot_handle": "fe5b0f1202b09744a19cec32589bc84d",
           "data_classification": "data",
           "items": [
             {
@@ -7503,7 +7594,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "14c549276b340bc38273e3207729ac58",
+                "authorized_snapshot_handle": "fe5b0f1202b09744a19cec32589bc84d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7518,7 +7609,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "14c549276b340bc38273e3207729ac58",
+                "authorized_snapshot_handle": "fe5b0f1202b09744a19cec32589bc84d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7558,7 +7649,7 @@
       "id": "S15",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S15.json",
-      "vector_sha256": "063f102828870cffc8388a7b1a33a75c1385c0ffb3a0c42bea30179ca3495a62",
+      "vector_sha256": "330f649e7b8136187f85529d50ac22eb8136ad86be529b082cb4281a7929ad8f",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7566,7 +7657,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7579,7 +7670,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "1c11519d9cef9fa00a5444c928fbd5b8",
+          "authorized_snapshot_handle": "f3ba514ab35cb3b77e7b55fb097ec276",
           "data_classification": "data",
           "items": [
             {
@@ -7626,7 +7717,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1c11519d9cef9fa00a5444c928fbd5b8",
+                "authorized_snapshot_handle": "f3ba514ab35cb3b77e7b55fb097ec276",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7641,7 +7732,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1c11519d9cef9fa00a5444c928fbd5b8",
+                "authorized_snapshot_handle": "f3ba514ab35cb3b77e7b55fb097ec276",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7685,7 +7776,7 @@
       "id": "S16",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S16.json",
-      "vector_sha256": "2ead220d3420943d1a24f557efa038c7f2159069a1d1f7b3abf8bfb15f904d51",
+      "vector_sha256": "b786e477d8260775fc49a1b05eba6bea1e47d6a4136edbdf304c2e72a24e97dc",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7699,7 +7790,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7712,7 +7803,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "d2f2ea2055ef9b9085b7153c734bdd7e",
+          "authorized_snapshot_handle": "7aec928b30281d6b5c90f181de8da62a",
           "data_classification": "data",
           "items": [
             {
@@ -7759,7 +7850,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d2f2ea2055ef9b9085b7153c734bdd7e",
+                "authorized_snapshot_handle": "7aec928b30281d6b5c90f181de8da62a",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7774,7 +7865,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d2f2ea2055ef9b9085b7153c734bdd7e",
+                "authorized_snapshot_handle": "7aec928b30281d6b5c90f181de8da62a",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7818,7 +7909,7 @@
       "id": "S17",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S17.json",
-      "vector_sha256": "e58c14cfa2c2ebdcec88ed1ed087e58fda3393a946d49ec0774d06629694c665",
+      "vector_sha256": "26d7eb30578120ec12feaee422221321d80ba430360f40676d17d44ba44751df",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7828,7 +7919,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "a13f9bd3c67ffd936277c59bfa4ff6e4",
+            "receipt_handle": "e4ff08c3143c0488e2bb85975091bab9",
             "refs": [
               {
                 "id": "rec:a",
@@ -7845,7 +7936,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7858,7 +7949,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "d65b87adc75a27790fae47ade7ba9b04",
+          "authorized_snapshot_handle": "9f6c600605b8e421b84a67dc31734ebd",
           "data_classification": "data",
           "items": [
             {
@@ -7905,7 +7996,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d65b87adc75a27790fae47ade7ba9b04",
+                "authorized_snapshot_handle": "9f6c600605b8e421b84a67dc31734ebd",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7920,7 +8011,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "d65b87adc75a27790fae47ade7ba9b04",
+                "authorized_snapshot_handle": "9f6c600605b8e421b84a67dc31734ebd",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7996,7 +8087,7 @@
       "id": "S18",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S18.json",
-      "vector_sha256": "245aab5ad20bd69e0a4fb5f21dd85d04b5fdc21137ea4847f1f1446f73886abe",
+      "vector_sha256": "2a32be7d21478d77aca796d343f12bb2f040fa0a97f818897b87b26af5fc6d75",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8010,7 +8101,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8023,7 +8114,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "b4e6a7bc73ff1716e7173ca298c36fbf",
+          "authorized_snapshot_handle": "53072ee4a84cde4c0a5582e7649f794a",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -8054,7 +8145,7 @@
       "id": "S19",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S19.json",
-      "vector_sha256": "10e84d8c0d94548919144019969534e813aa69c1491833b3fa4d344221793e09",
+      "vector_sha256": "53b7b72811e3779a2d41e7617f0d4c02eb1f5fad2c5c51e99bd61e5e7e176f1f",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8064,7 +8155,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "challenged",
-            "receipt_handle": "799af040746322a8c7789410d98dc688",
+            "receipt_handle": "33ddb5e19ea3b406025324043bdf8f8e",
             "refs": [
               {
                 "id": "rec:challenge",
@@ -8077,7 +8168,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8090,7 +8181,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "ec8e512500d97d69af7944a87749d372",
+          "authorized_snapshot_handle": "e807260cda4be5939658736d16f61c43",
           "data_classification": "data",
           "items": [
             {
@@ -8145,7 +8236,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ec8e512500d97d69af7944a87749d372",
+                "authorized_snapshot_handle": "e807260cda4be5939658736d16f61c43",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8160,7 +8251,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ec8e512500d97d69af7944a87749d372",
+                "authorized_snapshot_handle": "e807260cda4be5939658736d16f61c43",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8208,7 +8299,7 @@
       "id": "S20",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S20.json",
-      "vector_sha256": "faa4945bbd9fe11a1dbe8b4622e71785e0754606b45bca7ec850657d78c5b65a",
+      "vector_sha256": "00832d5070425b4e9f384150f09cc4ee3dc3a5835299d9f591647889230cd485",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8218,7 +8309,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "incomplete",
-            "receipt_handle": "f62237531a454a6ca4658c8e30cf03d9",
+            "receipt_handle": "5598125805ed96c7c9fd3e79ceb2f784",
             "refs": [
               {
                 "id": "rec:a",
@@ -8238,7 +8329,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "1d85de70b8b17c537c8674252246509b",
+            "receipt_handle": "436dcf30f13c0c6c5d111975a3260d28",
             "refs": [
               {
                 "id": "rec:a",
@@ -8258,7 +8349,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8271,7 +8362,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "9a3728d0389488b4808f729ad3b1d5aa",
+          "authorized_snapshot_handle": "cc3fcff037d31c2778f02950386d76f9",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -8320,7 +8411,7 @@
       "id": "S21",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S21.json",
-      "vector_sha256": "31b7883dfb19da65dfc5aea700f8469ea4236f10feb6dd7d0474ad22735b88c3",
+      "vector_sha256": "6c1d02a44ab79eeb571fee6c59776716338779c0d920bd4a71c5d563fe7aebff",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8328,7 +8419,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8341,7 +8432,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "0aaf8376c0f55a23f3692c603218b1b9",
+          "authorized_snapshot_handle": "5e60a7efed7f7c79857bf27d64801501",
           "data_classification": "data",
           "items": [
             {
@@ -8388,7 +8479,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "0aaf8376c0f55a23f3692c603218b1b9",
+                "authorized_snapshot_handle": "5e60a7efed7f7c79857bf27d64801501",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8403,7 +8494,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "0aaf8376c0f55a23f3692c603218b1b9",
+                "authorized_snapshot_handle": "5e60a7efed7f7c79857bf27d64801501",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8483,7 +8574,7 @@
       "id": "S22",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S22.json",
-      "vector_sha256": "1a7ed6c5b35541f0585ba9042a41b857c85820cb410bb7d374dbcbb875775284",
+      "vector_sha256": "bc85634baf8fb61e83e5a8d2d12639c6bc612d40e2abbd2ef9ae41f86cfe6f7e",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8491,7 +8582,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8504,7 +8595,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "c48cdd15f1fab66c2bbab7edb8ddf622",
+          "authorized_snapshot_handle": "e2db1e7c16b82294dbc88034f887da55",
           "data_classification": "data",
           "items": [
             {
@@ -8556,7 +8647,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c48cdd15f1fab66c2bbab7edb8ddf622",
+                "authorized_snapshot_handle": "e2db1e7c16b82294dbc88034f887da55",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8571,7 +8662,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c48cdd15f1fab66c2bbab7edb8ddf622",
+                "authorized_snapshot_handle": "e2db1e7c16b82294dbc88034f887da55",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8627,26 +8718,119 @@
       "id": "S23",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S23.json",
-      "vector_sha256": "7805ceec28055715eb1224c7687c88c9de7c888038c303dca081a84b2332412b",
-      "status": "fail",
-      "differences": [
-        [
-          "/result/currentness",
-          "last_received",
-          "current"
-        ],
-        [
-          "/result/items/0/currentness",
-          "last_received",
-          "current"
-        ]
-      ],
+      "vector_sha256": "ebb045088afea140c47bf62c2622fa8fc2251e496f12fd49e76478c28f40b6e2",
+      "status": "pass",
+      "differences": [],
       "checks": [],
       "actual": {
-        "operation_results": [],
+        "operation_results": [
+          {
+            "type": "view",
+            "semantic_profile": "0.2.1-draft",
+            "projection_rule": {
+              "id": "projection:main",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "7db00ab64dc080592102ae8d531f0f39",
+            "data_classification": "data",
+            "items": [
+              {
+                "subject": "subj:h1",
+                "issuer": "principal:observer",
+                "submitter": "principal:observer",
+                "perspective": {
+                  "kind": "observer",
+                  "principal": "principal:observer"
+                },
+                "representation_ref": null,
+                "admission_class": "imported_publication",
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "ref": {
+                  "id": "rec:publication-report",
+                  "version": 1
+                },
+                "statement_kind": "proposal",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "published_value"
+                  }
+                ],
+                "usable_until": null,
+                "currentness": "last_received",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [
+                  {
+                    "id": "rec:publication-source",
+                    "version": 1
+                  }
+                ],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "7db00ab64dc080592102ae8d531f0f39",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "7db00ab64dc080592102ae8d531f0f39",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "last_received",
+            "historical": [],
+            "review_required": [],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
+          }
+        ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8659,7 +8843,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "a934aaaa2b56b69e41bab635041a96de",
+          "authorized_snapshot_handle": "ddeec2123428ff2a8162bf01f23e3023",
           "data_classification": "data",
           "items": [
             {
@@ -8691,7 +8875,7 @@
                 }
               ],
               "usable_until": null,
-              "currentness": "last_received",
+              "currentness": "current",
               "authority_receipt": null,
               "incompatible_with": [],
               "needs_review": false,
@@ -8711,7 +8895,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a934aaaa2b56b69e41bab635041a96de",
+                "authorized_snapshot_handle": "ddeec2123428ff2a8162bf01f23e3023",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8726,14 +8910,14 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a934aaaa2b56b69e41bab635041a96de",
+                "authorized_snapshot_handle": "ddeec2123428ff2a8162bf01f23e3023",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
               }
             }
           ],
-          "currentness": "last_received",
+          "currentness": "current",
           "historical": [],
           "review_required": [],
           "explanation": {
@@ -8758,6 +8942,18 @@
               "version": 1
             },
             {
+              "id": "rec:publication-doc",
+              "version": 1
+            },
+            {
+              "id": "rec:publication-report",
+              "version": 1
+            },
+            {
+              "id": "rec:publication-source",
+              "version": 1
+            },
+            {
               "id": "rec:report",
               "version": 1
             }
@@ -8774,15 +8970,29 @@
       "id": "S24",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S24.json",
-      "vector_sha256": "0eb49acf0bea1c9f7edf57122610e2eba85d3db4944f2d0a5fd9335a60497859",
-      "status": "pass",
-      "differences": [],
+      "vector_sha256": "4e8777a6a820251368a3e9eb82c7040dcc667dedb5be49b31fc96b60cf84794d",
+      "status": "fail",
+      "differences": [
+        [
+          "/operation_results/3/historical/length",
+          1,
+          0
+        ],
+        [
+          "/operation_results/3/historical/0",
+          {
+            "id": "rec:hidden",
+            "version": 1
+          },
+          "<missing>"
+        ]
+      ],
       "checks": [],
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -8795,7 +9005,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "9793aefeb4b1172826124e3fd29d8696",
+            "authorized_snapshot_handle": "660a9ff639f65e99d4d7993d70781072",
             "data_classification": "data",
             "items": [
               {
@@ -8844,7 +9054,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "9793aefeb4b1172826124e3fd29d8696",
+                  "authorized_snapshot_handle": "660a9ff639f65e99d4d7993d70781072",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -8861,7 +9071,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "9793aefeb4b1172826124e3fd29d8696",
+                  "authorized_snapshot_handle": "660a9ff639f65e99d4d7993d70781072",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -8886,10 +9096,22 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "718f94f0d7f64ad60d114b72d72b2d51",
+            "receipt_handle": "d9ebafb672c8fbc1557f08ae221ff693",
             "refs": [
               {
+                "id": "cert:hidden-rule",
+                "version": 1
+              },
+              {
                 "id": "rec:hidden",
+                "version": 1
+              },
+              {
+                "id": "rec:hidden-root",
+                "version": 1
+              },
+              {
+                "id": "rec:hidden-rule",
                 "version": 1
               }
             ],
@@ -8900,7 +9122,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "b1412d4c51cfdbbadb0c90113e251ee8",
+            "receipt_handle": "6b19ade3b158aadce283eadcf083d47a",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -8915,10 +9137,120 @@
             "erasure_status": null
           },
           {
+            "type": "view",
+            "semantic_profile": "0.2.1-draft",
+            "projection_rule": {
+              "id": "projection:main",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "6a6746ec3673262fc48d24a1faca38c2",
+            "data_classification": "data",
+            "items": [
+              {
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "machine_observation",
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "ref": {
+                  "id": "rec:a",
+                  "version": 1
+                },
+                "statement_kind": "fact",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "alpha"
+                  }
+                ],
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": true,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "incomplete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "6a6746ec3673262fc48d24a1faca38c2",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "incomplete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "6a6746ec3673262fc48d24a1faca38c2",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [
+              {
+                "id": "rec:hidden",
+                "version": 1
+              }
+            ],
+            "review_required": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [
+              "dirty"
+            ],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
+          },
+          {
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "df3760555001c2546e25d4ace5760718",
+            "receipt_handle": "50309a8a0a9a3c0e539b09aef7de11be",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -8931,7 +9263,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8944,7 +9276,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "c7cd9e35e2ba67fc42f0fc02736fab70",
+          "authorized_snapshot_handle": "007bb4ea8c311bb00b0437e41dd88e55",
           "data_classification": "data",
           "items": [
             {
@@ -8993,7 +9325,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c7cd9e35e2ba67fc42f0fc02736fab70",
+                "authorized_snapshot_handle": "007bb4ea8c311bb00b0437e41dd88e55",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -9010,7 +9342,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c7cd9e35e2ba67fc42f0fc02736fab70",
+                "authorized_snapshot_handle": "007bb4ea8c311bb00b0437e41dd88e55",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9034,6 +9366,10 @@
         "postconditions": {
           "record_refs": [
             {
+              "id": "cert:hidden-rule",
+              "version": 1
+            },
+            {
               "id": "rec:a",
               "version": 1
             },
@@ -9052,6 +9388,14 @@
             {
               "id": "rec:hidden-replace",
               "version": 1
+            },
+            {
+              "id": "rec:hidden-root",
+              "version": 1
+            },
+            {
+              "id": "rec:hidden-rule",
+              "version": 1
             }
           ],
           "erased_refs": [
@@ -9061,7 +9405,12 @@
             }
           ],
           "custody_present": [],
-          "dirty": [],
+          "dirty": [
+            {
+              "id": "rec:a",
+              "version": 1
+            }
+          ],
           "control_observations": [],
           "external_effects": []
         }
@@ -9071,7 +9420,7 @@
       "id": "S25",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S25.json",
-      "vector_sha256": "7f0f014fa5e74696972ddba12c22e4109c961e0756ab0f460163258b09757bf8",
+      "vector_sha256": "e6b25e0d4a4ed0d54050ac34d4f5e9b13e201e24cbc92dd15f7853b481f206e5",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9081,7 +9430,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "5a5a25018cb8a685834553e197ebed69",
+            "receipt_handle": "79f294efb402374c47c32db214c0e958",
             "refs": [
               {
                 "id": "rec:a",
@@ -9098,7 +9447,7 @@
             "type": "receipt",
             "operation": "restore",
             "outcome": "fenced",
-            "receipt_handle": "970f1b265f84967fcbae2b547081a86f",
+            "receipt_handle": "e022a804a226c03e85c2916a15480685",
             "refs": [],
             "custody": [],
             "erasure_status": "access_closed"
@@ -9141,7 +9490,7 @@
       "id": "S26",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S26.json",
-      "vector_sha256": "4aaacf45336ca82616a53d8adb911bc4cedc979ea62d88277d41a5064277284d",
+      "vector_sha256": "425d9b7ee61cf4dfafd009f9d601d2c08ab4434fc7361319b486f2890f7825b2",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9151,7 +9500,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "98921182a7945b8401b71191c8d38fe0",
+            "receipt_handle": "35fe7a694dfc1522eebd13e9093c8b3a",
             "refs": [
               {
                 "id": "rec:a",
@@ -9169,7 +9518,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9182,7 +9531,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "20fcc55654ca26c7da2504ca99da5832",
+          "authorized_snapshot_handle": "a57ab03b6a0daba74fc27d1da0b463b3",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -9223,7 +9572,7 @@
       "id": "S27",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S27.json",
-      "vector_sha256": "2eb24961e0074c971205a945d53e22c9b480e7389ae83db936429092cf33a32d",
+      "vector_sha256": "1a69461d6f3758156a8aa7e65ab9ffe132a912a5deb113e9f3cb4cce7ce69c9b",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9231,7 +9580,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -9244,7 +9593,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "b66fff4badec7a90fe5a32d6f7c65c74",
+            "authorized_snapshot_handle": "7d777512ca64570757cf0c8c7c94ad4a",
             "data_classification": "data",
             "items": [
               {
@@ -9293,7 +9642,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b66fff4badec7a90fe5a32d6f7c65c74",
+                  "authorized_snapshot_handle": "7d777512ca64570757cf0c8c7c94ad4a",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -9310,7 +9659,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b66fff4badec7a90fe5a32d6f7c65c74",
+                  "authorized_snapshot_handle": "7d777512ca64570757cf0c8c7c94ad4a",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -9335,14 +9684,14 @@
             "type": "receipt",
             "operation": "load",
             "outcome": "proceeded",
-            "receipt_handle": "36476253f88d3125e53212eb989e3c3d",
+            "receipt_handle": "18f69651fa71ffb3156af0c7f917f745",
             "refs": [],
             "custody": [],
             "erasure_status": null
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -9355,7 +9704,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "22fcef45cd95476bbfb17979b1d3710d",
+            "authorized_snapshot_handle": "196f074805a05ab642b852365d1a97c3",
             "data_classification": "data",
             "items": [
               {
@@ -9404,7 +9753,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "22fcef45cd95476bbfb17979b1d3710d",
+                  "authorized_snapshot_handle": "196f074805a05ab642b852365d1a97c3",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -9421,7 +9770,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "22fcef45cd95476bbfb17979b1d3710d",
+                  "authorized_snapshot_handle": "196f074805a05ab642b852365d1a97c3",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -9446,7 +9795,7 @@
             "type": "receipt",
             "operation": "set_availability",
             "outcome": "availability_changed",
-            "receipt_handle": "396532c149cc18fffcbd9b0f671f1de3",
+            "receipt_handle": "6d701947e8e3361c714f9e280825e6ed",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -9480,7 +9829,7 @@
       "id": "S28",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S28.json",
-      "vector_sha256": "ddc0e346e2f7e94b54d726e8692ec48bb3ef2b7d70b9e417292a3007cd74f170",
+      "vector_sha256": "8e5fc41094daaf0b1c2f075821fd22c584ea2d792af845423fe258987b497211",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9488,7 +9837,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9501,7 +9850,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "c33f6c7665e7d408601a08df9cb1b668",
+          "authorized_snapshot_handle": "753ebe6a5bb6feb3565e9a554cc57cbc",
           "data_classification": "data",
           "items": [
             {
@@ -9556,7 +9905,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c33f6c7665e7d408601a08df9cb1b668",
+                "authorized_snapshot_handle": "753ebe6a5bb6feb3565e9a554cc57cbc",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9571,7 +9920,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c33f6c7665e7d408601a08df9cb1b668",
+                "authorized_snapshot_handle": "753ebe6a5bb6feb3565e9a554cc57cbc",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9629,7 +9978,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c33f6c7665e7d408601a08df9cb1b668",
+                "authorized_snapshot_handle": "753ebe6a5bb6feb3565e9a554cc57cbc",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9644,7 +9993,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c33f6c7665e7d408601a08df9cb1b668",
+                "authorized_snapshot_handle": "753ebe6a5bb6feb3565e9a554cc57cbc",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9709,7 +10058,7 @@
       "id": "S29",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S29.json",
-      "vector_sha256": "ed6a1b174778a9895c3b7d39d36040100a2bf772b29ac519349382c7f3426c99",
+      "vector_sha256": "98883aae59348ffab45b2aa2a67125ba4a44b93f4398eb15b542ca8daf57b144",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9717,7 +10066,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9730,7 +10079,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "c6c708b88298a364ced653bbe7ad0ed8",
+          "authorized_snapshot_handle": "f7bd1d83a9008f6a9a3c53d0b75e5245",
           "data_classification": "data",
           "items": [
             {
@@ -9785,7 +10134,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c6c708b88298a364ced653bbe7ad0ed8",
+                "authorized_snapshot_handle": "f7bd1d83a9008f6a9a3c53d0b75e5245",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9800,7 +10149,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c6c708b88298a364ced653bbe7ad0ed8",
+                "authorized_snapshot_handle": "f7bd1d83a9008f6a9a3c53d0b75e5245",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9857,7 +10206,7 @@
       "id": "S30",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S30.json",
-      "vector_sha256": "49481f49137d258161adfd15a888048c5e1b040081ee907b079592daa366fb47",
+      "vector_sha256": "afcb41aa4a5d750275abc924a4482008603ef0165bf8d92250e04fa9cb042a90",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9865,7 +10214,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -9878,7 +10227,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "879ed1612374e2fa3d559c083e22ebdc",
+            "authorized_snapshot_handle": "1a00d66a0d9ac26f4e51ca21f18b23fb",
             "data_classification": "data",
             "items": [
               {
@@ -9929,7 +10278,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "879ed1612374e2fa3d559c083e22ebdc",
+                  "authorized_snapshot_handle": "1a00d66a0d9ac26f4e51ca21f18b23fb",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -9948,7 +10297,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "879ed1612374e2fa3d559c083e22ebdc",
+                  "authorized_snapshot_handle": "1a00d66a0d9ac26f4e51ca21f18b23fb",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -9972,7 +10321,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9985,7 +10334,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "780a274db67ef96578de7322e7f7eaa1",
+          "authorized_snapshot_handle": "e021428790cbfc835ee74dbaaf93f81e",
           "data_classification": "data",
           "items": [
             {
@@ -10039,7 +10388,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "780a274db67ef96578de7322e7f7eaa1",
+                "authorized_snapshot_handle": "e021428790cbfc835ee74dbaaf93f81e",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:grounds"
@@ -10056,7 +10405,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "780a274db67ef96578de7322e7f7eaa1",
+                "authorized_snapshot_handle": "e021428790cbfc835ee74dbaaf93f81e",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -10120,7 +10469,7 @@
       "id": "S31",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S31.json",
-      "vector_sha256": "91335d9b79b6de2f52bdd35182365d3fd107ea344ef997d5c72672bc917e6f4e",
+      "vector_sha256": "68877114b06cdf81de189a2c595e2fea3c6d01abaa761207b275b776d8da8663",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -10128,7 +10477,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -10141,7 +10490,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "cc5bac595a6ad8f772f3fe62c60c236a",
+          "authorized_snapshot_handle": "6911816a8cbd434c56e66d80f5ec456e",
           "data_classification": "data",
           "items": [
             {
@@ -10191,7 +10540,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "cc5bac595a6ad8f772f3fe62c60c236a",
+                "authorized_snapshot_handle": "6911816a8cbd434c56e66d80f5ec456e",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -10208,7 +10557,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "cc5bac595a6ad8f772f3fe62c60c236a",
+                "authorized_snapshot_handle": "6911816a8cbd434c56e66d80f5ec456e",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -10272,7 +10621,7 @@
       "id": "S32",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S32.json",
-      "vector_sha256": "c5ff4b8a9ffa2b96acafcda36e5e7fb7949285de342fec5eb866da5cb9dd8948",
+      "vector_sha256": "832a9da6e8b11bbfa3761934da8912b81d9e1cb3d817aee8bad6710c8fc6f3ff",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -10280,7 +10629,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.0-draft",
+            "semantic_profile": "0.2.1-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -10293,7 +10642,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "589150dc62caa8e7809e7b4b67de2d2c",
+            "authorized_snapshot_handle": "18d5fc811b1f785522cd74b772cbd25d",
             "data_classification": "data",
             "items": [
               {
@@ -10347,7 +10696,7 @@
                   ],
                   "source_state": "independent_attestation",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "589150dc62caa8e7809e7b4b67de2d2c",
+                  "authorized_snapshot_handle": "18d5fc811b1f785522cd74b772cbd25d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:att"
@@ -10364,7 +10713,7 @@
                   "evidence_qualification": [],
                   "source_state": "prior_assessment_only",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "589150dc62caa8e7809e7b4b67de2d2c",
+                  "authorized_snapshot_handle": "18d5fc811b1f785522cd74b772cbd25d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -10421,7 +10770,7 @@
                   ],
                   "source_state": "prior_assessment_only",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "589150dc62caa8e7809e7b4b67de2d2c",
+                  "authorized_snapshot_handle": "18d5fc811b1f785522cd74b772cbd25d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ret"
@@ -10438,7 +10787,226 @@
                   "evidence_qualification": [],
                   "source_state": "prior_assessment_only",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "589150dc62caa8e7809e7b4b67de2d2c",
+                  "authorized_snapshot_handle": "18d5fc811b1f785522cd74b772cbd25d",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [],
+            "review_required": [],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
+          },
+          {
+            "type": "view",
+            "semantic_profile": "0.2.1-draft",
+            "projection_rule": {
+              "id": "projection:main",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "fce43ccca609d7cf50ad575a2c0c32f7",
+            "data_classification": "data",
+            "items": [
+              {
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "machine_observation",
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "ref": {
+                  "id": "rec:mixed",
+                  "version": 1
+                },
+                "statement_kind": "fact",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "alpha"
+                  }
+                ],
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [
+                  {
+                    "id": "rec:s",
+                    "version": 1
+                  }
+                ],
+                "support": {
+                  "witness": "present",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "clean_path",
+                  "evidence_qualification": [
+                    "formal_entailment",
+                    "semantic_review"
+                  ],
+                  "source_state": "prior_assessment_only",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "fce43ccca609d7cf50ad575a2c0c32f7",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [
+                    "origin:att",
+                    "origin:ret"
+                  ],
+                  "independent_root_count": 2
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "fce43ccca609d7cf50ad575a2c0c32f7",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [],
+            "review_required": [],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
+          },
+          {
+            "type": "view",
+            "semantic_profile": "0.2.1-draft",
+            "projection_rule": {
+              "id": "projection:main",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "4e790f3df5255efdbf72c8e9eb72374d",
+            "data_classification": "data",
+            "items": [
+              {
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "machine_observation",
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "ref": {
+                  "id": "rec:mixed",
+                  "version": 1
+                },
+                "statement_kind": "fact",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "alpha"
+                  }
+                ],
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [
+                  {
+                    "id": "rec:s",
+                    "version": 1
+                  }
+                ],
+                "support": {
+                  "witness": "present",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "clean_path",
+                  "evidence_qualification": [
+                    "formal_entailment",
+                    "semantic_review"
+                  ],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "4e790f3df5255efdbf72c8e9eb72374d",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [
+                    "origin:att",
+                    "origin:ret",
+                    "origin:stronger-root"
+                  ],
+                  "independent_root_count": 3
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "4e790f3df5255efdbf72c8e9eb72374d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -10462,7 +11030,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -10475,7 +11043,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "406c39af06f80f05692914458e97b81a",
+          "authorized_snapshot_handle": "4f896bf63bb951689494bd4aa05ff3f3",
           "data_classification": "data",
           "items": [
             {
@@ -10527,7 +11095,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "406c39af06f80f05692914458e97b81a",
+                "authorized_snapshot_handle": "4f896bf63bb951689494bd4aa05ff3f3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -10542,7 +11110,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "406c39af06f80f05692914458e97b81a",
+                "authorized_snapshot_handle": "4f896bf63bb951689494bd4aa05ff3f3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -10566,6 +11134,10 @@
         "postconditions": {
           "record_refs": [
             {
+              "id": "cert:mixed-rule",
+              "version": 1
+            },
+            {
               "id": "rec:a",
               "version": 1
             },
@@ -10575,6 +11147,14 @@
             },
             {
               "id": "rec:attested",
+              "version": 1
+            },
+            {
+              "id": "rec:mixed",
+              "version": 1
+            },
+            {
+              "id": "rec:mixed-rule",
               "version": 1
             },
             {
@@ -10592,6 +11172,10 @@
             {
               "id": "rec:sig",
               "version": 1
+            },
+            {
+              "id": "rec:stronger-root",
+              "version": 1
             }
           ],
           "erased_refs": [],
@@ -10606,7 +11190,7 @@
       "id": "S33",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S33.json",
-      "vector_sha256": "8c0932f43005b9a53c6a3075626bf9a78871bf73787b0672175d776516035d7f",
+      "vector_sha256": "82c10cbf08b9fa81d925dfdb3454d1cf58025a233f7d5a8de2a42a2dfcc38de0",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -10620,7 +11204,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.0-draft",
+          "semantic_profile": "0.2.1-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -10633,7 +11217,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "9b48c41a366c739d59b05edb3368d11d",
+          "authorized_snapshot_handle": "275a281f392ddbaec80e17ca68471ee9",
           "data_classification": "data",
           "items": [],
           "currentness": "none",

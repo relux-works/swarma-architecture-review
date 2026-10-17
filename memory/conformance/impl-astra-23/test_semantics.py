@@ -4,7 +4,7 @@ import copy
 import pathlib
 import unittest
 
-from common import Grammar, ref, strict_loads
+from common import Grammar, Refused, ref, strict_loads
 from engine import Engine
 from run_vectors import compare, package_version
 
@@ -20,6 +20,51 @@ def engine(v):
 
 
 class Semantics(unittest.TestCase):
+    # K-EVAL-8: hidden causes preserve global dirtiness while public evidence remains complete;
+    # the exact same cause is dirty/incomplete for the separately authorized private query.
+    def test_dirty_cause_authorization(self):
+        v = vector("S24")
+        e = engine(v)
+        report = e.execute(v["operations"], v["query"])
+        self.assertIn({"id": "rec:a", "version": 1}, e.state["runtime"]["dirty"])
+        self.assertTrue(e.state["runtime"]["dirty_causes"])
+        public = report["result"]
+        self.assertEqual(public["cutoffs"], [])
+        self.assertEqual(public["review_required"], [])
+        self.assertEqual(public["items"][0]["support"]["witness"], "present")
+        self.assertEqual(public["items"][0]["support"]["evaluation"], "complete")
+        private = report["operation_results"][3]
+        self.assertEqual(private["cutoffs"], ["dirty"])
+        self.assertTrue(private["items"][0]["needs_review"])
+        self.assertEqual(private["items"][0]["support"]["evaluation"], "incomplete")
+
+    # K-ENV-1: identity is explicit, not string equality. Wrong-subject proposals are atomic
+    # refusals; a trusted binding permits distinct subject/principal strings. Invalid snapshots reject.
+    def test_self_declaration_identity(self):
+        v = vector("P02")
+        e = engine(v)
+        before = copy.deepcopy(e.state)
+        self.assertEqual(e.operation(v["operations"][1], 1)["code"], "invalid_domain_value")
+        self.assertEqual(e.state, before)
+        self.assertEqual(e.operation(v["operations"][2], 2)["outcome"], "admitted")
+        initial = copy.deepcopy(v)
+        initial["initial_state"]["policy"]["subject_principals"] = []
+        with self.assertRaises(Refused) as caught:
+            engine(initial)
+        self.assertEqual(caught.exception.code, "invalid_domain_value")
+
+    # K-EVAL-9: an explicit multi-sequence target must not collect another sequence's history;
+    # the same authorized unfiltered projection may include that other sequence's old version.
+    def test_history_stays_in_selected_sequence(self):
+        v = vector("S24")
+        e = engine(v)
+        for index, operation in enumerate(v["operations"][:3]):
+            e.operation(operation, index)
+        q = copy.deepcopy(v["operations"][3]["query"])
+        self.assertEqual(e.read(q)["historical"], [])
+        q["scope"]["targets"] = []
+        self.assertEqual(e.read(q)["historical"], [{"id": "rec:hidden", "version": 1}])
+
     # K-EVAL-5/K-AUTH-1: a found derived witness retains its authorized exact source;
     # hiding that source removes both the witness and source metadata before accounting.
     def test_derived_source_references(self):
