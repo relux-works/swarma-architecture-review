@@ -4,7 +4,7 @@ Standalone chapters, in the Swarma book's format, on the designs the research co
 
 | Chapter | PDF |
 |---|---|
-| `ru/01-pamyat-agentov.md`: agent memory, bounded evidence memory, v0.2 with owner decisions D-001…D-007 | `pdf/01-pamyat-agentov.pdf` |
+| `ru/01-pamyat-agentov.md`: agent memory, bounded evidence memory, v0.3 with owner decisions D-001…D-008 | `pdf/01-pamyat-agentov.pdf` |
 | `ru/02-mcp-zavisimosti-skillov.md`: MCP servers as skill dependencies, design N | `pdf/02-mcp-zavisimosti-skillov.pdf` |
 | `ru/03-mcp-iz-skilla.md`: the owner's design, skill declares server and auth, Curator provisions | `pdf/03-mcp-iz-skilla.pdf` |
 | `ru/04-doma-agentov.md`: who owns agent homes (Curator, launcher, session host), interim and target, login stores | `pdf/04-doma-agentov.pdf` |
