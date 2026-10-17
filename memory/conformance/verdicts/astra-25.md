@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 17; collective active, NO PARK. Seat identity:
+Status: phase 2, round 18; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Full dual semantic coverage and new finding
@@ -45,7 +45,9 @@ report changed except profile version. The added ASTRA25-08-UNKNOWN pair checks
 transitive known-input retention through an unknown intermediate: a publish-only
 grant for the ancestor is insufficient; restoring matching read-purpose retain
 alone admits the private derivative. Both pre-adaptation runtimes fail this
-negative and pass the positive. These extend existing R7-036/037, not a new
+negative and pass the positive. A separate six-control storage/replay harness
+per evaluator passes two exact-inventory positives and detects all four known
+negative violations, including full state mutation and retain-revoked replay. These extend existing R7-036/037, not a new
 independent defect count.
 
 | First owned 0.2.3 semantic run | Pass | Fail | Unsupported |

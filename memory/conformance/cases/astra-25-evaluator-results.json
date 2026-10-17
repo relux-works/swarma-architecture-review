@@ -19140,6 +19140,308 @@
         "status": "rejected",
         "reason": "accepted proposal has absent content input ('rec:a', 1)"
       }
+    },
+    "astra22-retention-atomic-first": {
+      "package_version": "0.2.3-draft",
+      "package_commit": "23290b3a96a469d5190cb71b0e20139896b89236",
+      "evaluator_commit": "99b5a85396bcbb77c6d994f6d845b88c9d8d44be",
+      "implementation_sha256": {
+        "adapter.py": "9530afd71c4f82eef95b013964b3fa5c6dc4b7152c7f3ed60a640514c59d3d36",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "boundary.py": "8f6baefe8cc77e19fd50555550117655d57ebd95e182fc7aa78bc4f558900158",
+        "boundary_checks.py": "dbe4df1566178a6c10f0a78f76d1171c41e844d4912d110c9a2424d5d58326be",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "05febce5d4e39fc4722280703721eeaaf7671aff0c382cd873c87579eae9cd8e",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "transaction_checks.py": "fd28dffd8239a5b0cd330daaf40aa65a36e5eeee166ed98cbf9a92e4156751d7",
+        "transactions.py": "33cc43e408b1ab53daaada4753416bba08e4cb0a5fdfe6c3486548e4a94a2f59"
+      },
+      "fixture_sha256": {
+        "astra-25-retention-authority.vector.json": "7c3707b5962027e536e4dbe21210b98ac338e6ed1b7620bf610b4e71b3bc15e6",
+        "astra-25-retention-authority-authorized-control.vector.json": "97a77b3ab36034278f5170e2cd4d0414425c1cf2c57664a3da9eb51db4fcc99c",
+        "astra-25-retention-authority-transitive-unknown.vector.json": "51a77c625d846b116add222a90348687d7253d4a3246759a4c274c6994b791de",
+        "astra-25-retention-authority-transitive-unknown-control.vector.json": "9db48b9c26def00c5c6381f6762d7cd7d463f96a48555ecd4f43cbbd761e277d"
+      },
+      "scope": "Synthetic single-operation storage atomicity and current-retain replay on two owned pairs. No evaluator writes or physical storage qualification.",
+      "controls": [
+        {
+          "case": "ASTRA25-08",
+          "check": "atomic_retention_refusal",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "a83649d4650b805cc0e853d8e85800cb",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "initial",
+            "records",
+            "runtime",
+            "idempotency"
+          ]
+        },
+        {
+          "case": "ASTRA25-08-CONTROL",
+          "check": "matching_retain_admits",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "7122f3f9676798bc2c48ba6b4ae0e3e2",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        },
+        {
+          "case": "ASTRA25-08-CONTROL",
+          "check": "revoked_retain_replay",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "7122f3f9676798bc2c48ba6b4ae0e3e2",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": []
+        },
+        {
+          "case": "ASTRA25-08-UNKNOWN",
+          "check": "atomic_retention_refusal",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "e8630917dc84f40f44755e442c2880fc",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "initial",
+            "records",
+            "runtime",
+            "idempotency"
+          ]
+        },
+        {
+          "case": "ASTRA25-08-UNKNOWN-CONTROL",
+          "check": "matching_retain_admits",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "11cad259df8412b4d0d81d5b90b6ace9",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        },
+        {
+          "case": "ASTRA25-08-UNKNOWN-CONTROL",
+          "check": "revoked_retain_replay",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "11cad259df8412b4d0d81d5b90b6ace9",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": []
+        }
+      ]
+    },
+    "astra23-retention-atomic-first": {
+      "package_version": "0.2.3-draft",
+      "package_commit": "23290b3a96a469d5190cb71b0e20139896b89236",
+      "evaluator_commit": "5416283bed6f5c0f5419fd8fbf70f4666b562ce6",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+        "engine.py": "80390b7debd8badde99a8f30f91b506b02e5c0ed987847644b6f03bcdaf32a1e",
+        "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "37c836637dd48f0c1de82ffef58cedcfe66156774269f0f3be14140c666c971d"
+      },
+      "fixture_sha256": {
+        "astra-25-retention-authority.vector.json": "7c3707b5962027e536e4dbe21210b98ac338e6ed1b7620bf610b4e71b3bc15e6",
+        "astra-25-retention-authority-authorized-control.vector.json": "97a77b3ab36034278f5170e2cd4d0414425c1cf2c57664a3da9eb51db4fcc99c",
+        "astra-25-retention-authority-transitive-unknown.vector.json": "51a77c625d846b116add222a90348687d7253d4a3246759a4c274c6994b791de",
+        "astra-25-retention-authority-transitive-unknown-control.vector.json": "9db48b9c26def00c5c6381f6762d7cd7d463f96a48555ecd4f43cbbd761e277d"
+      },
+      "scope": "Synthetic single-operation storage atomicity and current-retain replay on two owned pairs. No evaluator writes or physical storage qualification.",
+      "controls": [
+        {
+          "case": "ASTRA25-08",
+          "check": "atomic_retention_refusal",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "d899d458f6d1dc92ecc6d22d581dad72",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "state"
+          ]
+        },
+        {
+          "case": "ASTRA25-08-CONTROL",
+          "check": "matching_retain_admits",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "38358ea121a9561d37feeede0330d4ec",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        },
+        {
+          "case": "ASTRA25-08-CONTROL",
+          "check": "revoked_retain_replay",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "38358ea121a9561d37feeede0330d4ec",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": []
+        },
+        {
+          "case": "ASTRA25-08-UNKNOWN",
+          "check": "atomic_retention_refusal",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "b8e37a9f69c8f4cf9d06db6a1e58ac22",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "state"
+          ]
+        },
+        {
+          "case": "ASTRA25-08-UNKNOWN-CONTROL",
+          "check": "matching_retain_admits",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "7eac87aaf2c723a0dda453c24c68d5cd",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        },
+        {
+          "case": "ASTRA25-08-UNKNOWN-CONTROL",
+          "check": "revoked_retain_replay",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "7eac87aaf2c723a0dda453c24c68d5cd",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": []
+        }
+      ]
     }
   }
 }

@@ -111,3 +111,23 @@ while passing its positive. Package has 12 exact field differences plus both
 forbidden predicates. Original no-retain failures remain too. First valid new-
 release runs are `astra23-phase2-023-first` and `astra22-phase2-023-first` in the
 evidence JSON; runtime correction and full-state refusal verification are pending.
+
+## Independent atomicity and current-replay baseline
+
+A separate six-control harness runs each owned negative directly, snapshots all
+record/policy/runtime state (including cut, dirty, custody and idempotency), and
+requires exact not_authorized plus no change. Positive controls require the
+exact admitted inventory and a stored copy of their success receipt. After each
+positive, a trusted retain-only revocation is appended; the identical request
+with later intake time must now refuse without changing any state or its stored
+receipt. Existing read/use rights are not revoked by this stimulus.
+
+Before retention adaptation, each evaluator passes the two positives and fails
+the four intended negatives: forbidden admission mutates record/runtime/replay
+state, while revoked replay incorrectly returns the unchanged success receipt.
+Thus the harness detects the actual known violations, not a setup failure or an
+arbitrary exception. Immutable results and code/input hashes are in
+`astra22-retention-atomic-first` and `astra23-retention-atomic-first`. The local
+entry point is `.temp/check-retention-atomic.py <22|23> <output.json>`; it imports
+the evaluator read-only and operates on copied synthetic fixtures. These checks
+supplement exact vector outputs and do not claim physical persistence effects.
