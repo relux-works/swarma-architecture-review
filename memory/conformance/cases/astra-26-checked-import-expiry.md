@@ -1,0 +1,59 @@
+# ASTRA26-07 — a checked publication expires without becoming current history
+
+Status: phase-2 separating case, awaiting judge classification. Package
+`0.2.1-draft` at `f31d58f`; package evaluator `8b9baf3` (runtime `f5fdd8b`),
+source evaluator `512d006`. Targets S23/P07 publication currentness and P12 frozen
+history, not a live issuer/network check.
+
+## Clauses and two readings
+
+Kernel §9.2 says a stale publication never returns as current. K-PUB-2 requires
+both an admitted current-version check and an unexpired horizon for a current
+import. K-EVAL-6 expires freshness at `now >= usable_until`; K-SNAP-1 keeps a
+previous capture immutable history. These are separate requirements: preserving
+an old capture does not authorize a new current-state claim after expiry.
+
+1. **Presence of any successful check establishes currentness indefinitely.**
+   The fresh and expired queries both have item/view currentness `current`;
+   only the freshness field changes.
+2. **Current-import qualification also depends on the horizon.** The fresh
+   query is current; at expiry the newly queried copy is `last_received`, with
+   stale freshness and its exact existing evidence/provenance. No replacement
+   was learned, so this must not invent a `historical` replacement status.
+
+Recommend reading 2. The package requires a non-current result at expiry;
+`last_received` is the existing bounded-knowledge label. If that exact label
+requires additional normative wording, close it explicitly rather than silently
+keeping an expired copy current. Judge classification determines whether the
+existing clause already fully fixes the label.
+
+## Minimal witness and controls
+
+[Complete fixture](astra-26-checked-import-expiry.vector.json) retains the three
+P07 copies of one declaration, all with admitted current-version checks. Set:
+
+- `usable_until = 2026-10-17T00:00:01Z`;
+- first capture `now = 2026-10-17T00:00:00Z`;
+- final query `now = 2026-10-17T00:00:01Z`.
+
+The corpus, issuer confirmation, source checks, rights, knowledge cut, source
+frontier and valid_at do not change. The first capture must stay fresh/current.
+The final query must be stale and cannot call the import current. Support remains
+present with one independent root; opposition stays not_found. There is no
+revision, erasure, new root, external effect or rewrite of the earlier capture.
+
+## Independent observations
+
+Both current evaluators return `current` at `/result/currentness` and
+`/result/items/0/currentness` despite returning stale freshness. The package
+report has exactly those two semantic differences and two intended forbidden
+predicate matches. The source report reproduces the same two field differences
+and two forbidden matches. The fresh capture and all other expected fields pass.
+Two independent implementations agreeing on the stale-current output does not
+establish correctness against K-PUB-2 and kernel §9.2.
+
+All eleven owned fixtures pass closed shape, initial-state/reference,
+normalization and expected-forbidden checks. Evidence in the seat work directory:
+`.temp/r7-astra-26/cases-structural-06.log`, `owned-cases-astra23-06.json` and
+`owned-cases-astra22-04.json`, including implementation/input hashes. No canonical
+vector or evaluator was edited. This is synthetic semantic evidence only.

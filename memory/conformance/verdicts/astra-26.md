@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 9, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 10 in progress, 2026-10-17.
 
 ## Baseline and scope
 
@@ -294,3 +294,57 @@ row remains **1/2 pending judge verification/closure of R7-029**; no passing
 local regression run substitutes for that review. All canonical deployment
 vectors remain unsupported, and no live publication or protected service was
 qualified.
+
+## Phase 2 — directed coverage extension
+
+Convener decision `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc` explicitly
+defers PARK and requires two independent implementations of all 57 semantic
+vectors, plus targeted attacks on the 14 source-unsupported scenarios and kernel
+v0.2 changes. The phase-1 score at `b1ae299` remains historical evidence; it is
+not a claim of complete dual implementation coverage or permission to park.
+
+Owned work plan for this phase:
+
+1. Audit S23 imported-publication currentness with horizon expiry, known
+   replacement and check availability, retaining root identity and attribution.
+   A fresh control must stay current; expiry must not synthesize opposition or
+   a known replacement, and stale copies must not be called current.
+2. Audit P06/P12 delivery against the prepared exact selected item binding,
+   including nonselected/excluded foreign records and independent forward
+   rights. Missing rights on a selected item must reject; unrelated records
+   must not veto an otherwise authorized delivery.
+3. Audit P13/P15 lineage and exclusion through public attribution. Preserve
+   foreign issuer sequences, admitted classes and private dependencies; no
+   exclusion may silently rewrite the issuer's record or public identity.
+4. Submit separating fixtures only after closed-format checks, explicit
+   positive/negative expectations and independent execution observations.
+   Retain old reports; never adjust canonical vectors or another seat's files.
+
+Current uncovered canonical source vectors are B01, B07, P05, P06, P08, P12,
+S07, S17, S20, S23, S24, S25, S26 and S27. The renewed publication/delivery
+probes specifically target S23/P06/P12 and the P15 exclusion boundary. Other
+seats own implementation changes, disclosure/erasure and semantic-budget attacks.
+
+## Phase 2 round 10 — publication expiry and selected delivery
+
+- Added **ASTRA26-07**, a checked-import horizon boundary. The fresh capture
+  succeeds; at the exact expiry boundary both evaluators still call the stale
+  publication current, contrary to kernel section 9.2 and K-PUB-2. The proposed
+  existing-label result is last_received, with no invented replacement or
+  negative evidence. Exactly two semantic fields separate the readings.
+- Added **ASTRA26-08** and a nearby control. A readable but excluded independent
+  assertion has no forward grant; package evaluator f5fdd8b wrongly refuses
+  delivery of the separately selected authorized item. Adding only the excluded
+  record's forward right makes the exact same expected sequence pass. Both
+  retain the later current-right revocation refusal. Source 512d006 reports
+  these delivery operations unsupported.
+- All 11 owned fixtures pass closed shape/reference/normalization/forbidden
+  checks. Package observation: **9 pass / 2 fail**. Source: **7 pass / 1 fail /
+  3 unsupported**. No original case changed its semantic expected answer.
+  Evidence: seat `.temp/r7-astra-26/cases-structural-06.log`,
+  `owned-cases-astra23-06.json` and `owned-cases-astra22-04.json`. New cases await
+  judge classification; they are not yet ledger dispositions.
+- The renewed current row is **1/2**: dual canonical coverage is still 43/57,
+  and the new publication/delivery differences remain unresolved. The earlier
+  2/2 supported-vector score is preserved as the phase-1 historical result.
+  Protected deployment remains unqualified.
