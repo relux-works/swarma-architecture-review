@@ -116,7 +116,7 @@ currentness, declared incompatibility, freshness, basic audience aliases and
 exclusion. Independent wire admission, raw admission and CAS revisions now run
 through `transactions.py`; `transaction_checks.py` contains atomicity controls.
 The first 0.2.1 run exposed the missing self-declaration identity gate (R7-026);
-its correction and the selected-history fix (R7-025) retain red/green evidence. It still explicitly rejects unsupported erasure transaction wire operations. Checked, expired, missing-check and replaced imported-publication currentness are now mapped independently from ordinary report freshness. RESULTS.md lists the
+its correction and the selected-history fix (R7-025) retain red/green evidence. Semantic erasure, restore and availability operations now map through `erasure.py`. Checked, expired, missing-check and replaced imported-publication currentness are now mapped independently from ordinary report freshness. RESULTS.md lists the
 precise per-vector boundaries; source model unit controls alone do not count as
 package-vector passes. Original frozen evidence is retained unchanged.
 
@@ -148,7 +148,7 @@ item before PARK; the historical supported-vector score is not that completion.
 
 ## Captures and delivery boundary
 
-`boundary.py` simulates selected-item delivery authorization over immutable captured views and protected bindings; it sends no external bytes. Live revoke events preserve pinned policy and frozen views. Run `python3 memory/conformance/impl-astra-22/boundary_checks.py` for eight controls, including selected/excluded scope, current rights, expiry, erasure/restore and binding authority. P06/P12 and the exact selected-forwarding adversary pair pass. Erasure operations still report unsupported pending their separate mapping.
+`boundary.py` simulates selected-item delivery authorization over immutable captured views and protected bindings; it sends no external bytes. Live revoke events preserve pinned policy and frozen views. Run `python3 memory/conformance/impl-astra-22/boundary_checks.py` for eight controls, including selected/excluded scope, current rights, expiry, erasure/restore and binding authority. P06/P12 and the exact selected-forwarding adversary pair pass. Semantic erasure and restore now have a separate custody mapping.
 
 Authoritative CAS now chooses a unique maximal receipt over the full exact slot before applying local transition tokens. The thirteen transaction controls preserve ambiguous/stale atomic refusals, unique current head, challenge and exact-retry precedence; first and corrected R7-040 cases are recorded in `runs/phase2-cas-*` and `DIVERGENCES.md`.
 
@@ -175,7 +175,7 @@ Receipt-DAG projection controls run with
 Canonical event ancestry is resolved before mapping it onto exact assertion
 sequences, so receipt-only intermediate events keep their ordering meaning.
 The controls preserve read-only state, candidate eligibility and incomparable
-branches. Current0.2.4 evidence is `runs/phase2-authority-projection-*`.
+branches. Historical0.2.4 evidence is `runs/phase2-authority-projection-*`.
 
 Current retention deadline controls run with
 `PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/deadline_checks.py`.
@@ -184,3 +184,29 @@ deadline before idempotency. Refusal preserves complete state and original recei
 it performs no purge. Exact0.2.5 first and corrected canonical evidence is under
 `runs/0.2.5-first.*` and `runs/phase2-deadline-corrected.*`; all112controls are
 recorded in `runs/deadline-controls-corrected.json`.
+
+## Custody, restore and availability semantics
+
+`erasure.py` computes protected admitted content closure separately from receipt
+metadata authorization, persists exact replay receipts and generation/fence state,
+and models controlled custody accounting and initial-backup restoration.
+Current-complete external witness is a trusted fixture input, not evidence that
+a real witness service or physical purge exists. Hidden load and owner-admitted
+coarse availability remain synthetic stimuli; control records observations only.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/erasure_checks.py
+PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/availability_checks.py
+```
+
+First full coverage: `runs/phase2-erasure-first.*` (57/57 semantic) and
+`runs/phase2-erasure-cases-current.*` (61/61 semantic, after explicit author
+profile migration). The initial124passing native/comparator controls are recorded in
+`runs/erasure-controls-first.json`. Deployment8+1remains unsupported. Changes,
+audience proof-reference disclosure and request_check remain unmapped wire paths
+outside these semantic inventories.
+
+An additional initial-degraded recovery control currently fails, preserved in
+`runs/availability-recovery-first.json`. The success receipt does not reopen the
+public state; judge classification is pending before correction. Canonical and
+supplemental totals above do not include this native probe.

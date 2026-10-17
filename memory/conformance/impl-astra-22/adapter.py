@@ -39,6 +39,7 @@ def refusal(code):
 class Adapter:
     def __init__(self, initial, profile):
         self.initial = copy.deepcopy(initial)
+        self.backup = copy.deepcopy({k: initial["runtime"][k] for k in ("memory_cut", "custody")})
         self.policy = self.initial["policy"]
         self.runtime = self.initial["runtime"]
         self.records = {key(ref(r)): r for r in self.initial["records"]}
@@ -112,7 +113,7 @@ class Adapter:
             return refusal("unknown_rule")
         if query["policy"] != self.policy["revision"] or query["evidence_policy"] != self.policy["evidence"]["ref"]:
             return refusal("policy_mismatch")
-        if self.policy["public_availability"] != "available":
+        if self.policy["public_availability"] != "available" or not self.runtime["memory_available"]:
             return refusal("unavailable")
         if self.runtime["restore"]["status"] != "open":
             return refusal("erasure_fenced")
@@ -365,7 +366,8 @@ class Adapter:
         return copy.deepcopy(result)
 
     def execute(self, operations, query):
-        unsupported = sorted({o["op"] for o in operations if o["op"] not in {"capture", "admit", "admit_raw", "revise", "declassify", "revoke", "revoke_declassification", "deliver"}})
+        custody_operations = {"erase", "restore", "reconcile_restore", "load", "set_availability", "control"}
+        unsupported = sorted({o["op"] for o in operations if o["op"] not in {"capture", "admit", "admit_raw", "revise", "declassify", "revoke", "revoke_declassification", "deliver"} | custody_operations})
         if unsupported:
             raise Unsupported("Unmapped frozen-core transaction operations: " + ", ".join(unsupported))
         operation_results = []
@@ -375,6 +377,12 @@ class Adapter:
                 operation_results.append(self.query(op["query"], binding=binding))
                 if binding:
                     self.captures[index] = binding
+            elif op["op"] in custody_operations:
+                from erasure import Erasure
+                try:
+                    operation_results.append(Erasure(self).apply(op))
+                except Refusal as error:
+                    operation_results.append(refusal(error.code))
             elif op["op"] in {"revoke", "revoke_declassification", "deliver"}:
                 from boundary import Boundary
                 try:
