@@ -6,7 +6,7 @@ Current package **0.2.1-draft**, `f31d58f`: all canonical semantic vectors pass.
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 57 | 0 | 0 |
 | Canonical deployment | 0 | 0 | 8 |
-| Supplemental semantic | 23 | 1 | 0 |
+| Supplemental semantic | 25 | 3 | 0 |
 | Supplemental deployment | 0 | 0 | 1 |
 
 Fourteen existing controls pass, including twelve source-state precedence
@@ -15,6 +15,9 @@ metadata-authorized control passes. The first failed report is preserved in
 PHASE2-ERASURE-FIRST.md/JSON at 127bc0b; judge classified R7-031 as a
 spec-bug requiring explicit pre-fence receipt authorization in a new release. No implicit conversion
 or deployment qualification is claimed.
+New ASTRA26-07 import-expiry and ASTRA26-08 selected-delivery differences are
+retained in PHASE2-IMPORT-DELIVERY-FIRST.md/JSON pending judge classification.
+Their positive controls and ASTRA24-07 Cartesian proof regression pass.
 The structural package validator passes 20 intended violation controls.
 
 Phase 1 supported-vector score: **2/2**, independently verified by judge

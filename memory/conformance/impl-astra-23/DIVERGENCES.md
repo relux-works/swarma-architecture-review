@@ -98,3 +98,25 @@ following the contradictory clause; runtime alignment awaits that release.
 Immutable first evidence: PHASE2-ERASURE-FIRST.md/JSON. Current supplemental
 result: 23 pass / 1 fail / 0 unsupported semantic, one deployment unsupported.
 Topic: `div-astra25-erasure-receipt`.
+
+## Phase 2 ASTRA26-07/08 — checked import expiry and selected delivery
+
+Case commit 837591e; runtime still f5fdd8b, package f31d58f. First report is
+PHASE2-IMPORT-DELIVERY-FIRST.md/JSON, before any correction or classification.
+
+- ASTRA26-07: at the exact usable_until horizon, view/item currentness wrongly
+  remain current instead of last_received. Fresh capture passes; support and
+  stale freshness otherwise match. Both forbidden current predicates fail.
+  K-PUB-2 requires an unexpired horizon. Judge classification is pending.
+- ASTRA26-08: the first delivery returns disclosure_revoked rather than the
+  expected delivered receipt because an excluded unrelated same-schema record
+  lacks forward rights. Its additional-forward positive control passes; later
+  selected-item revocation still refuses. K-PUB-1 binds the prepared selection.
+  Judge classification is pending; no broadened permission is proposed.
+- ASTRA24-07: Cartesian exact proof-reference sets, truncation and separately
+  deduplicated origin counts all pass. Retained as Phase 2 regression evidence;
+  the source evaluator's corresponding execution is still pending expansion.
+
+Current full supplemental result: 25 pass / 3 fail / 0 unsupported semantic,
+including the already classified R7-031 erasure receipt defect; one deployment
+case unsupported. Canonical baseline remains 57/57. No expectation was edited.

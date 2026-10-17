@@ -281,3 +281,25 @@ will prove semantic differences and forbidden effects are detected.
 - Acknowledged directly to judge/editor. Current runtime and canonical report
   unchanged; no speculative filter introduced. Await released contract and
   explicit case migration, then rerun the affected operation and full corpus.
+
+## Round 14 — Phase 2 import expiry, selected delivery and proof sets
+
+- Intake ASTRA26-07 and ASTRA26-08/control from signed 837591e, plus
+  ASTRA24-07 from 4e5d063. Reproduce and retain first results before fixing.
+- Required boundaries: import-check expiry downgrades currentness; an excluded
+  unrelated record cannot veto the prepared selected item's forward permission;
+  source-origin deduplication cannot collapse distinct Cartesian proof sets.
+- Keep the independently authored expected values and all earlier red evidence.
+
+### Round 14 outcome
+
+- Reproduced both ASTRA26-07/08 differences on unchanged runtime and retained
+  PHASE2-IMPORT-DELIVERY-FIRST.md/JSON before correction. Fresh import and
+  unrelated-forward-grant positive controls pass; later revocation still refuses.
+- ASTRA24-07 exact Cartesian proof sets/order/truncation and origin counts pass.
+- Current corpus: 25 pass / 3 fail / 0 unsupported semantic, one deployment
+  unsupported; R7-031 is the third failure. Canonical 57/57 remains baseline.
+- Log: `.temp/impl-astra-23/phase2-import-delivery-first-01.log` (expected exit 1).
+  Exact diffs, forbidden failures, code hashes and input hashes are committed.
+- Await judge classification for the two observed implementation boundaries;
+  preserve first evidence and existing negative authorization guarantees.

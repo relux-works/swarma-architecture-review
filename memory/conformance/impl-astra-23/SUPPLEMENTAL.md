@@ -9,7 +9,7 @@ distinctness are checked first. No runtime distribution or timing claim is made.
 
 | Profile | Pass | Fail | Unsupported | Total |
 | --- | ---: | ---: | ---: | ---: |
-| semantic | 23 | 1 | 0 | 24 |
+| semantic | 25 | 3 | 0 | 28 |
 | deployment | 0 | 0 | 1 | 1 |
 
 Deployment unsupported means no qualification claim; modeled semantic erasure
@@ -19,6 +19,7 @@ and publication transitions do not exercise live authentication, storage or deli
 
 | Vector | Profile | Result |
 | --- | --- | --- |
+| ASTRA24-07 | semantic | pass |
 | ASTRA24-04 | semantic | pass |
 | ASTRA24-03 | semantic | pass |
 | ASTRA24-05 | semantic | pass |
@@ -36,6 +37,9 @@ and publication transitions do not exercise live authentication, storage or deli
 | ASTRA25-03-CONTROL | semantic | pass |
 | ASTRA25-03-FENCE | semantic | pass |
 | ASTRA25-03 | semantic | pass |
+| ASTRA26-07 | semantic | fail |
+| ASTRA26-08-CONTROL | semantic | pass |
+| ASTRA26-08 | semantic | fail |
 | ASTRA26-06 | semantic | pass |
 | ASTRA26-01 | semantic | pass |
 | ASTRA26-04 | semantic | pass |
@@ -54,6 +58,28 @@ and publication transitions do not exercise live authentication, storage or deli
 ### ASTRA25-04
 
 Requires a real protected deployment; this evaluator implements synthetic state transitions only.
+
+### ASTRA26-07
+
+- `/result/currentness`: actual `"current"`; expected `"last_received"`.
+- `/result/items/0/currentness`: actual `"current"`; expected `"last_received"`.
+- forbidden predicate matched: {"path":"/result/currentness","test":"equals","value":"current"}
+- forbidden predicate matched: {"path":"/result/items/0/currentness","test":"equals","value":"current"}
+
+### ASTRA26-08
+
+- `/operation_results/1/code`: actual `"disclosure_revoked"`; expected `"<missing>"`.
+- `/operation_results/1/custody`: actual `"<missing>"`; expected `[]`.
+- `/operation_results/1/erasure_status`: actual `"<missing>"`; expected `null`.
+- `/operation_results/1/operation`: actual `"<missing>"`; expected `"deliver"`.
+- `/operation_results/1/outcome`: actual `"<missing>"`; expected `"delivered"`.
+- `/operation_results/1/receipt_handle`: actual `"<missing>"`; expected `"<fresh-handle>"`.
+- `/operation_results/1/refs`: actual `"<missing>"`; expected `[]`.
+- `/operation_results/1/retryable`: actual `false`; expected `"<missing>"`.
+- `/operation_results/1/type`: actual `"refusal"`; expected `"receipt"`.
+- handle slot missing: /operation_results/1/receipt_handle
+- distinct_handles violated: ['/operation_results/0/authorized_snapshot_handle', '/operation_results/1/receipt_handle', '/operation_results/2/receipt_handle', '/result/authorized_snapshot_handle']
+- forbidden predicate matched: {"path":"/operation_results/1/type","test":"equals","value":"refusal"}
 
 ## Reproducibility
 
