@@ -1,14 +1,16 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 29; no PARK. Source baseline `95f974b`, kernel v0.2; current package
-`0.2.4-draft` at `ef02647`; all owned fixtures explicitly migrated.
+Status: Phase 2 active, round 30; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+`0.2.4-draft` at `ef02647` for the twenty exact fixtures. Release `0.2.5-draft`
+at `6a04e8c` arrived during the issuer audit; explicit profile migration is next.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
-companion and design, and the released package. This seat authored eleven synthetic
-semantic cases with twenty exact package-format vectors and three preserved
-first authority-succession contract probes, including focused controls. It did not modify
+companion and design, and the released package. This seat authored twelve synthetic
+semantic cases with twenty exact package-format vectors, three preserved first
+succession probes and two issuer-boundary probes awaiting an exact contract
+verdict, including focused controls. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
 
@@ -25,8 +27,9 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
 | ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package `53266dd` and source `99b5a85` independently verified; both judge-closed |
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
-| ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Source R7-047 verified `4772258`; package R7-048 verified `942bdee`; mapping release R7-049 verified `ef02647` |
-| ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | R7-051 source correction `427fed5` independently verified; both exact witnesses pass |
+| ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Source R7-047 and package R7-048 verified and judge-closed; mapping release R7-049 verified `ef02647` |
+| ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | R7-051 source correction `427fed5` independently verified and judge-closed `de37630`; both exact witnesses pass |
+| ASTRA24-12 | Receipt ancestry through a foreign issuer separates careful readings | Native read-only probes disagree; normative adjudication pending, no typed oracle asserted |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -473,12 +476,35 @@ closure is recommended after judge review. All eleven owned cases now have
 passing exact vectors in both implementations at their documented corrected
 heads. Retention deadlines and remaining source canonical gaps are separate.
 
+## Round 30 issuer boundary in authority ancestry
+
+Two closed, reference-valid native read-only probes now separate issuer-local
+from global receipt-DAG traversal. Same-issuer ancestry selects d3 in both.
+Changing only the middle event/source attribution to H2, with H1 endpoint
+decisions and identical canonical edges/permissions, yields source ambiguity
+versus package d3/current. Admitted state remains unchanged. Kernel 5.3 names
+the authority's own ordered record, while K-REV-3 leaves intermediate issuer
+scope unstated. ASTRA24-12 persists both readings, complete first evidence and
+an issuer-local recommendation for judge adjudication; no runtime oracle or
+architecture decision is invented. Native probes stay outside the denominator.
+
+The first local issuer/submitter inconsistency was rejected structurally and
+fixed before execution. First valid evidence is at `6a04e8c` under 0.2.5 with
+unchanged non-profile input vocabulary. Existing twenty exact fixtures remain
+on their explicitly published 0.2.4 version until the next migration unit.
+
+Judge `de37630` formally closes R7-048 at `942bdee` and R7-051 at
+`427fed5`, corroborating the independent evidence in Rounds 28 and 29. Their
+original failure artifacts remain unchanged. The new issuer-boundary question
+and finite retention deadline repairs are separate from those closed cases.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Both evaluators pass all twenty owned vectors and full B01
-at their documented corrected 0.2.4 heads. Formal remaining closures, other
-collective repairs and full dual canonical coverage remain pending. Protected
-deployment is unqualified.
+**Phase 2 R7: 1/2.** Both evaluators pass all twenty owned exact vectors and
+full B01 at their corrected 0.2.4 heads. New issuer-boundary probes disagree
+and await normative adjudication. The 0.2.5 migration, other collective repairs
+and full dual canonical coverage remain pending. Protected deployment is
+unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
