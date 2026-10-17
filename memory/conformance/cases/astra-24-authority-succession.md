@@ -1,6 +1,7 @@
 # ASTRA24-10: a canonical receipt must also succeed the replaced receipt
 
-Status: new separating case; judge classification and exact refusal code pending.
+Status: judge-classified R7-047 (source), R7-048 (package), and R7-049
+(package refusal mapping). Exact typed vectors authored; repairs pending.
 Owner: astra-24. Package `0.2.3-draft` at `23290b3`; first execution checkout
 `d077064`. Both evaluators accept the forbidden replacement variants below.
 No architecture change is proposed.
@@ -74,3 +75,55 @@ as already normative. Request a classification of both accepted-write failures
 and the code mapping; then add exact package-format vectors with the adjudicated
 code. This is a narrow package-contract clarification, not an owner product or
 architecture question. Existing CAS head-selection fixes remain separately valid.
+
+## Round 25 adjudicated exact vectors
+
+Judge decision `$oswbTe0Ndkm1yCdJdGq7nbrO9wT2oEUuevIL7-Sa6Zk` assigns
+R7-047/R7-048 to the two implementation gaps and R7-049 to the missing wire-code
+mapping. The required negative result is `authority_receipt_required`,
+`retryable=false`, including an incomparable, prior or identical receipt. A
+current-head mismatch remains `version_conflict`; no architecture decision is
+needed. The editor will publish this mapping in a normal package release.
+
+Five 0.2.3 package-format vectors now express that explicit adjudication:
+
+| Vector | Required result | Source at d990131 | Package at d990131 |
+| --- | --- | --- | --- |
+| ASTRA24-10 | Incomparable successor refuses atomically | forbidden receipt and writes | forbidden receipt and writes |
+| ASTRA24-10-SAME | Identical receipt refuses atomically | forbidden receipt and writes | forbidden receipt and writes |
+| ASTRA24-10-PRIOR | Prior canonical receipt refuses atomically | forbidden receipt and writes | forbidden receipt and writes |
+| ASTRA24-10-CONTROL | Direct successor admits replacement | pass | pass |
+| ASTRA24-10-TRANSITIVE | Transitive successor admits; d2 becomes current | write passes; currentness fails | pass |
+
+Negative vectors capture cut 100 before the attempt and query the same cut
+afterwards. Their independently derived expected view is the original d1/r1,
+with no review or dirty state; inventory and forbidden predicates separately
+catch committed writes. Final historical-view equality alone is not atomicity
+evidence. The original three first inputs/reports are unchanged. The new prior
+neighbor reverses the receipt edge. The transitive positive adds a fully admitted,
+readable intermediate receipt, with complete direct lineage, between r1 and r2;
+there is deliberately no assertion for that intermediate authority event.
+
+The latter exposes a distinct source projection boundary: replacement succeeds
+correctly, but the final view returns both old and new decisions as ambiguous.
+Source adapter translation retains only direct predecessor receipts that already
+have assertion candidates, dropping the intermediate receipt path. K-REV-3
+requires transitive receipt order. Package passes the exact full result. The
+source report records eight field/shape differences plus the intended forbidden
+old-value predicate. This is submitted separately for judge disposition; a
+read-only isolation is the next unit, not a guessed extra ledger classification.
+
+All eighteen owned vectors pass closed shape, state references, normalization,
+inventory accounting and intended wrong-result plants in
+`.temp/case-vectors-validate-25.log`. Earlier logs 23/24 rejected symbolic handle
+names and object-valued forbidden predicates in the local draft; those are
+fixture-format errors corrected before any evaluator execution, not divergences.
+First exact runs: `.temp/astra22-owned-cases-28.json` = 14 pass / 4 fail;
+`.temp/astra23-owned-cases-18.json` = 15 pass / 3 fail. All thirteen previous
+fixture hashes and behavior are unchanged. New exact fixture hashes follow.
+
+- `astra-24-authority-succession-control.vector.json`: `d05fda2d702025202849c20cb5fce74fd12432a63395ac86e56dd30a3284365c`.
+- `astra-24-authority-succession-prior.vector.json`: `33645742036e006e1e43b0d4e8f5c0913601753a10a8768223f07e4aad0921e3`.
+- `astra-24-authority-succession-same.vector.json`: `66dd7cf2b4886d510dd2dde689d928b934d984ff589861cc62d5343a3c330ced`.
+- `astra-24-authority-succession-transitive.vector.json`: `26c83be7829eb22c8e72c5e10a6be7f11669547df8424e60db5e88435d137b25`.
+- `astra-24-authority-succession.vector.json`: `34b896ca9e27e996fa70d8e7f44c66d96178c15a04b190f08072c30af30365c1`.

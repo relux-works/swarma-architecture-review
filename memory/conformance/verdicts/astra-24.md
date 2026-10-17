@@ -1,14 +1,14 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 24; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 25; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.3-draft` at `23290b3`; all owned fixtures explicitly migrated.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
 companion and design, and the released package. This seat authored ten synthetic
-semantic cases with thirteen exact package-format vectors and three newly
-separating authority-succession contract probes, including focused controls. It did not modify
+semantic cases with eighteen exact package-format vectors and three preserved
+first authority-succession contract probes, including focused controls. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
 
@@ -25,7 +25,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
 | ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package `53266dd` and source `99b5a85` independently verified; both judge-closed |
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
-| ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Both implementations accept forbidden writes; classification and exact refusal mapping pending |
+| ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | R7-047/048 implementation bugs and R7-049 refusal mapping accepted; exact negative writes fail both |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -385,13 +385,32 @@ write-admission boundary and will retain their independent first evidence.
 The preceding round marker's package shorthand `c7e4160` names the judge ledger;
 the actual package retention correction is `4af0360`.
 
+## Round 25 exact authority-succession vectors
+
+Judge decision assigns R7-047 source, R7-048 package and R7-049 code mapping,
+explicitly requiring non-retryable `authority_receipt_required`. Five exact
+vectors now cover unrelated, identical and prior receipts, plus direct and
+transitive successor positives. All eighteen owned vectors pass structural and
+intended forbidden controls. First exact results at `d990131`: source 14/4,
+package 15/3. The previous thirteen fixture hashes and passing behavior are
+unchanged; original first probe reports stay immutable.
+
+All three forbidden writes are accepted by both implementations. The transitive
+positive additionally shows a source-only projection problem: a receipt-only
+intermediate node is dropped, so a valid accepted replacement is falsely
+ambiguous. Its admission succeeds; the full expected view passes in package.
+That distinct projection finding is recorded in ASTRA24-10 and submitted for
+judge disposition, with read-only isolation queued next. Reports source28 and
+package18 retain exact outputs and hashes; structural log25 distinguishes the
+two earlier corrected fixture-format drafts from valid execution evidence.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Both evaluators pass the thirteen owned fixtures at their
-recorded verification heads. The new authority-succession probes show forbidden
-writes in both evaluators. Full 0.2.3 dual coverage, classification and other
-collective repairs remain pending. Protected deployment
-is unqualified.
+**Phase 2 R7: 1/2.** Eighteen owned vectors currently yield source 14/4 and
+package 15/3 at the recorded head. Authority-succession admission repairs and
+its exact-code release remain pending; the transitive source projection finding
+also requires disposition. Full dual canonical coverage remains incomplete.
+Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
