@@ -1,12 +1,14 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 37; quiet review complete, awaiting convener PARK.
+Status: PARK, authorized by the convener at 2026-10-17T06:33Z after round 37.
 Seat identity: `ivmbp_swarma-memory_astra-25`.
 
 **R7 score: 2/2.** Signed judge closure `9d2cdd4` verifies full dual semantic
 coverage and closes R7-058 at `104fbe8`. The 58-item ledger has 47 fixed findings,
 10 rejected findings and the filed unresolved owner question R7-055. No
-specification or implementation bug remains open. This is not a PARK announcement.
+specification or implementation bug remains open. The convener verified the
+completion gate at `1f92e91` and issued PARK in rounds event
+`$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg`.
 
 ## Current evidence
 
@@ -83,7 +85,7 @@ succeed. Exact first failures, original receipts and all90 prior run records are
 preserved. Judge's seven intended old-engine failures establish that the added
 product checks detect the failure class without setup errors.
 
-## Remaining boundary and quiet round
+## Remaining boundary and PARK
 
 [R7-055](../OWNER-QUESTIONS.md) asks whether H1's canonical predecessor edge
 endorses a foreign H2 event's ordering transitively. The owner has not chosen
@@ -91,7 +93,9 @@ between issuer-local and global ordering. Its exact native pair remains outside
 pass/fail denominators; no authority option or evaluator correction was invented.
 It is the one filed owner question permitted by the rubric, not an open bug.
 
-Round37 introduces no case, divergence, runtime change, package change or fixture
-change. Required correction reviews are complete and evidence is published. The
-convener's full-coverage/quiet-round completion gate still controls PARK; this
-seat remains active until that explicit message and its parking steps.
+Round 37 introduced no case, divergence, runtime change, package change or fixture
+change. Required correction reviews are complete and evidence is published.
+The convener accepted all seven post-closure quiet rounds and issued explicit
+PARK. This finalization changes only the verdict and [park note](../parked/astra-25.md);
+all fixtures, native firsts and 90 run records remain unchanged. No assigned
+correction, unclassified intake or directed review remains pending for this seat.
