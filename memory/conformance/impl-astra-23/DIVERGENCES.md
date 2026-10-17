@@ -432,3 +432,27 @@ qualification versus global predecessor endorsement needs an attributed owner
 choice; no implementation bug, exact oracle or mixed-state rejection is inferred.
 Preserve original input/first outputs and existing same-issuer closures until
 that decision. This native pair remains outside exact vector totals.
+
+### R7-053 independent closure
+
+Judge13e3d73 closes23b4d74 after full0.2.5 canonical57/57 and supplemental61/61,
+all31product/checker controls and ten independent original deadline operations.
+All report rows, input/module hashes and normalized actuals reproduce; refusal
+state and original receipts are preserved. Independent21d0611,ead8bc1,b3ac50f
+and3e289e4 reviews agree. Earlier deadline first failures remain immutable.
+
+## ASTRA22-09 — erase changed-context priority first observation
+
+PHASE2-ERASE-CONTEXT-FIRST runs only the published0529814 native initial state
+and operations through unchanged package23b4d74. Changed ungranted receipt
+purpose under the original key returns idempotency_conflict/false, preserving
+complete state/captures/bindings/dirty-since and the original receipt. A later
+exact replay returns the same receipt; fresh-key ungranted context still purges
+the full closure with empty metadata refs. Input/output shapes validate.
+
+Our existing K-API-1/K-ERASE-2 reading gates current erase authority before intent
+comparison, and checks stored-ref metadata only for exact replay. The source
+first artifact reports not_authorized for the changed intent. Full own actuals,
+state and input/module hashes are preserved; no source implementation code was
+read, no runtime change made and no exact vector oracle inferred. Judge
+classification is pending; this native probe is outside vector denominators.

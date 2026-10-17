@@ -879,3 +879,38 @@ will prove semantic differences and forbidden effects are detected.
 - No authority runtime or expected output changes. Probe remains outside61semantic
   supplemental totals; source coverage and deadline053 review continue independently.
 - Log .temp/impl-astra-23/issuer-first-01.log; earlier firsts remain immutable.
+
+## Round 33 — deadline closure and erase-context first observation
+
+- Judge round31 closes R7-053 at23b4d74 after exact57/57canonical,61/61current
+  supplemental,31controls and independent deadline/full-state checks. Independent
+  reviews21d0611,ead8bc1,b3ac50f,3e289e4 corroborate the candidate.
+- Source dbf4892 full canonical57/57 and supplemental61/61 coverage is independently
+  reproduced. Native initial-availability recovery is R7-056, with correction
+ 87beb46 published for independent review; green vectors do not close that item.
+- Preserve ASTRA22-09 erase-context priority observations on our unchanged23b4d74
+  runtime using only the published native input/operations, never source code.
+  Check complete state on changed-intent refusal and neighboring fresh-key/exact
+  replay behavior; do not invent an exact vector oracle before judge disposition.
+- R7-055 owner hold is read back at dc6991d. Both initial issuer observations remain
+  unchanged and outside semantic denominators; no authority rule is applied.
+
+### Round 33 outcome
+
+- PHASE2-ERASE-CONTEXT-FIRST records original complete erase, same-key changed
+  ungranted purpose refusal idempotency_conflict/false with the entire engine
+  unchanged, then exact later-intake replay retaining the original receipt.
+- The identical fresh-key context from the original initial state completes
+  full closure/fence/custody handling with refs=[]; missing metadata authority
+  does not deny the erase operation. Input/output shapes pass. Full observations,
+  before/after states and source/input/module hashes are persisted.
+- This matches the existing package-only K-API-1/K-ERASE-2 reading, with stored
+  receipt authorization restricted to the exact-replay branch. It is an observed
+  native result pending judge classification, not an added exact vector oracle.
+- Log .temp/impl-astra-23/erase-context-first-01.log. The separate integrity check
+  verifies refused/replay state equality, receipt identity, full closure, fence,
+  generation and both custody dispositions. No runtime/tests/fixtures changed;
+  prior broad test results remain applicable, all first artifacts unchanged.
+- Judge053 closure is persisted13e3d73; own verdict now reflects independently
+  verified full dual semantic coverage and separate open native056. R7-055 stays
+  held for Ivan with no attributed owner choice.

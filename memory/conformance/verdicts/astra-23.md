@@ -2,7 +2,9 @@
 
 Current package **0.2.5-draft**, `6a04e8cfb1490569cd1de7468d2085dd4840cf51`:
 all canonical and explicitly migrated supplemental semantic vectors pass after
-the R7-053 live-retention correction. Independent review is pending.
+the R7-053 live-retention correction. Judge13e3d73 independently closes the
+correction at23b4d74, reproducing every report row, input/module hash and full
+normalized actual, all31controls and ten separate deadline operation checks.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
@@ -37,10 +39,19 @@ durable state; ordinary ephemeral bindings are explicit. No exact mixed-path
 oracle or runtime change is inferred, and the pair stays outside vector totals.
 
 Phase1 supported score was2/2 (judgeb1ae299). Phase2 remains **1/2, active**.
-Source deadline correction4a14a56 is independently verified50/0/7canonical;
-this package candidate awaits judge review. Seven source erasure/restore/load
-paths remain unsupported. Early PARK requires source57/57 and no new open item
-for a complete round; hard cap13:00Z. Deployment remains unqualified.
+Both evaluators now independently verify57/57canonical and61/61supplemental
+semantics (source dbf4892, package23b4d74). Native source recovery R7-056 remains
+open; correction87beb46 is published for review. Green vector totals do not
+waive that defect or the separate ASTRA22-09 erase-context priority probe.
+Early PARK still requires a full round without a new open item; hard cap13:00Z.
+Deployment remains unqualified.
+
+PHASE2-ERASE-CONTEXT-FIRST preserves unchanged ASTRA22-09 inputs on23b4d74:
+same-key ungranted receipt-context change returns idempotency_conflict/false
+with complete state unchanged; exact original replay retains its receipt. Fresh
+key with the ungranted context purges the entire closure with empty metadata
+refs. These native observations await judge disposition outside vector totals;
+no runtime/oracle change or foreign implementation intake occurred.
 
 Implementation remains package-derived; original blind first0008dc3 is immutable.
 Evidence: ../impl-astra-23/RESULTS.md/JSON, SUPPLEMENTAL.md/JSON, all FIRST reports,
