@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 28, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 29, 2026-10-17.
 
 ## Baseline and scope
 
@@ -752,3 +752,29 @@ scratch-path write failure; no input or source file was affected. Judge
 `ad16ac9` independently closes R7-052 at `4a14a56`, consistent with round 26.
 R7-053, issuer-scope adjudication and source coverage remain pending. Score
 **1/2**, deployment unqualified, no PARK received.
+
+## Phase 2 round 29 — package live-retention correction verified
+
+Package `23b4d74` passes **15/15 owned 0.2.5 fixtures** and P02/P10/P15/B01/P11
+exactly. Reviewed its parsed-time expiry gate before traversal deduplication and
+receipt replay. Three focused native groups pass API/replay, expanded P11 atomic
+priority/recovery and seven independent author expiry fixtures. Full state,
+captures, protected bindings, dirty-since state and original receipts are checked
+across the tested denials.
+
+A separate bounded matrix independently places the deadline on every proposed
+output of admit, admit_raw, revise and declassify: **seven output positions**
+using P11[8], P10[0] and P05[1]. At-deadline and later fresh writes refuse exactly
+with no state mutation. The same keys then succeed while live; live exact replay
+returns the unchanged receipt. At/after-deadline exact replay refuses without
+replacing that receipt or changing any of the four native state components.
+These controls include both the revision/replacement and released-output/
+assessment positions; no universal input or graph coverage is claimed.
+
+Evidence: seat `.temp/r7-astra-26/owned-cases-astra23-20.json`,
+`attribution-domains-astra23-05.json`, `astra23-deadline-controls-01.log`,
+`astra23-deadline-each-output-01.json` and its `-method.md` companion.
+Input/runtime hashes and the reproduction method are retained. No owned input
+or expected answer changed. Independent R7-053 evidence is sent to the judge;
+formal closure and full source coverage remain separate. ASTRA24-12 still has
+no adjudicated exact oracle. Score **1/2**, no deployment qualification or PARK.
