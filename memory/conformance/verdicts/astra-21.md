@@ -1,22 +1,23 @@
 # astra-21 package editor verdict
 
-Status: round 14, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
-signed release `6a04e8c`. This round changes only this verdict after a focused
-independent R7-057 correction audit.
+Status: round 15, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
+signed release `6a04e8c`. This round changes only this verdict after the requested
+independent R7-058 correction audit.
 
-**All 14 editor-owned specification bugs are judge-closed.** Runtime deadline
-R7-052/053 and recovery R7-056 are also closed. Both readers have independently
-verified **57/57 canonical semantics**. The supplemental corpus now has 63 cases;
-package `23b4d74` passes all 63, while judge `02d6337` preserves the source's two
-pre-fix R7-057 failures. This editor verifies both unchanged regressions and three
-native groups on source correction `946cbd8`; formal closure remains pending.
+**All 14 editor-owned specification bugs are judge-closed.** Source R7-057 is
+also judge-closed at `946cbd8` / `e3d44df`. R7-058 is the separate package runtime
+restore bug, requiring no specification change. Both readers pass **57/57 canonical
+semantics**; the five new accepted restore fixtures bring the supplemental corpus
+to 68 semantics. Source passes 68; old package passes 65 and fails three. Package
+correction `104fbe8` reports 68/68; this editor independently verifies all five
+unchanged restore fixtures, the three new product groups and original late-writer
+inputs. Formal R7-058 closure remains pending.
 
-A newer restore-obligation witness ASTRA25-12 is separately awaiting classification.
-Neither runtime evidence nor this review changes the package. R7-055 remains an
-explicit [owner question](../OWNER-QUESTIONS.md), held for Ivan without an authority
-choice or exact oracle. Phase 2 remains **1/2** under the current
-[score](../R7-SCORE.md) and [ledger](../LEDGER.md). Eight canonical and one
-supplemental deployment cases remain unsupported; no deployment qualification.
+R7-055 remains an explicit [owner question](../OWNER-QUESTIONS.md), held for Ivan
+without an authority choice or exact oracle. Phase 2 remains **1/2** while R7-058
+is open; see current [score](../R7-SCORE.md) and [ledger](../LEDGER.md). Eight
+canonical and one supplemental deployment cases remain unsupported. No package
+byte, expected output, authority option or deployment qualification changed.
 
 ## Scope and independence
 
@@ -376,6 +377,58 @@ covers two vectors and three native groups, not a repeated full-suite run.
 Recommend R7-057 closure subject to the judge. R7-056 is already judge-closed by
 `e2a797d` at `87beb46`; ASTRA25-12 restore intake is separate and unclassified.
 
+## Round 15: current external restore obligations verified
+
+Judge event `$M8NvqvBJqj0P6G_HX3wtl3-FVKIbSUxxSZFXB9YCyvE` classifies ASTRA25-12
+as package implementation bug R7-058. The existing K-ERASE-3 and normative source
+already require current complete outside-domain obligations, not only deletion
+knowledge in an old snapshot. The editor's textual assessment is persisted in
+`.temp/astra-21/restore-current-obligations-review.md`; no prose release is needed.
+Judge `55db1d3` accepts five exact author `1cefcf9` fixtures and preserves the
+source 68/68 / old-package 65/68 baseline. Original native firsts remain immutable.
+
+In response to astra-23 request `$Gi1NESKNu9thWv6mMTBMiAEW9CRCKzyBdCIfCE9Y6l8`,
+the editor audits exact candidate `104fbe8`. All seven package Python modules
+match that signed commit. All five copied fixtures byte-match `1cefcf9`; first
+artifacts at `644c793`, `1138c5d`, `b805582` and `390b208` are unchanged.
+Every exact fixture passes, and all five input/module hashes, checks and full
+actuals reproduce the committed report after only declared handle normalization.
+
+Three new native groups pass. Their four original native inputs equal the
+adversary's original state, operations and query. Controls cover full complete and
+incomplete-known content/custody closure, atomic unreachable refusal and continued
+global fencing, known/empty/current obligations, independent content and outside
+recipients, repeated recovery, generation updates and same-key independent success.
+The identical new groups against frozen old `23b4d74` produce seven intended
+assertion failures with no setup error (exit 1): missing new erased state, false
+unreachable reconciliation, four derived-closure failures and a stale derivative
+commit. This independently establishes the regression controls' sensitivity.
+
+The editor additionally executes all three unchanged adversary `1138c5d`
+late-writer inputs. Current reconciliation records generation 1 and A erased/fenced.
+Generation-0 derivative refuses stale_generation,true; generation-1 derivative of
+A refuses erasure_fenced,false. Every engine data attribute is unchanged by both
+refusals, including initial/state, captures, view bindings, dirty state and version.
+The independently reviewed generation-1 positive admits its unrelated record while
+A stays fenced and the generation remains 1. Complete before/after data is retained.
+
+Runtime review confirms that current witness closure drives reconciliation while
+retained-erasure coverage remains mandatory. All affected controlled custody must
+be reachable before mutation. New deletion refs advance generation once, full
+closure enters erased/fences, affected custody is purged, and only then does the
+global gate open. Known/empty/repeated recovery does not invent a generation.
+The scoped product diff leaves all other operations unchanged.
+
+Evidence under `.temp/astra-21/`: `restore-obligation-verification.md`,
+`restore-obligation-verify.py`, `restore-obligation-verification.json`,
+`restore-obligation-verification-01.log`, `restore-obligation-controls-green-01.log`,
+`restore-obligation-controls-red-01.log`, `restore-obligation-package.md/json`,
+`restore-obligation-package-01.log`, `restore-obligation-reproduction-01.log`,
+`restore-obligation-hashes.json` and `restore-obligation-cases/`. Both audit/vector
+commands exit 0; the isolated old-runtime check intentionally exits 1. This is a
+focused five-vector audit, not a repeated full corpus run. Recommend R7-058 closure,
+subject to judge disposition. No package or other-seat production file changed.
+
 ## Previous 0.2.1 validation and execution evidence
 
 `python3 memory/spec/checks/validate.py` passes: 94 JSON artifacts, 14 closed
@@ -418,13 +471,11 @@ RESULTS.json and runs/cases-0.2.1-current.json. Evidence:
 ## Remaining work and limits
 
 The convener's Phase 2 decision is event
-`$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc`. Full dual semantic coverage is
-now independently verified. All established package findings and both runtime
-deadline bugs and source R7-056 are judge-closed. R7-057 correction `946cbd8`
-is independently verified above and awaits judge closure. New ASTRA25-12 restore
-intake awaits classification; no conclusion is assumed from its arrival. R7-055 requires
-an attributed owner decision; both readings and their separating native pair stay
-preserved outside exact-oracle denominators. The editor will apply only resulting
+`$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc`. All established package findings
+and source R7-057 are judge-closed. Package R7-058 correction `104fbe8` is
+independently verified above and awaits judge closure. R7-055 requires an attributed
+owner decision; both readings and their separating native pair remain preserved
+outside exact-oracle denominators. The editor will apply only resulting
 judge-classified package fixes or an attributed owner decision, with a new release
 and retained regression controls. No new package assignment is pending.
 
