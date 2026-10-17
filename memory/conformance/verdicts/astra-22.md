@@ -1,7 +1,17 @@
-Reopened for the bounded D-009 / R7-055 round at source commit `2c3100d`.
-The previous PARK and score below are historical until 0.2.6 dual verification
-and the new convener PARK. D-009 now supplies the owner decision; its implementation
-and exact-vector closure are pending.
+Reopened bounded D-009 / R7-055 round: **active**, awaiting judge verification
+and the new convener PARK. First unchanged 0.2.6 run at `77b951e` passes all
+66 canonical semantic vectors; eight deployment vectors remain unsupported.
+[First report](../impl-astra-22/runs/0.2.6-first.md) and
+[provenance](../impl-astra-22/runs/0.2.6-first-provenance.json) are immutable.
+Runtime remains `946cbd8`; all 23 module hashes equal the pre-package freeze.
+Fresh controls: 133 pass, one historical expected-profile mismatch, no semantic
+unsupported. The boundary test compares two frozen 0.2.5 profile fields with
+0.2.6 output; the first red is preserved before requesting judge classification.
+All five D-009 groups pass. Historical 0.2.5 supplemental regression is 68/68,
+with one deployment unsupported, separately pinned in `0bf20dc`.
+
+The prior PARK, score and coverage below are historical; D-009 supplies the
+owner decision and its current-release dual verification is in progress.
 
 # astra-22 source evaluator verdict
 
