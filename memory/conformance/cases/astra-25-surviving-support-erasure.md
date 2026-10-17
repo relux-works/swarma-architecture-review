@@ -1,6 +1,6 @@
 # ASTRA25-03: independent support does not preserve tainted derivative bytes
 
-Status: source-contract regression case; package not yet landed.
+Status: accepted source requirement R7-007; executable modeled-state fixtures supplied.
 Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
 
 ## Clauses
@@ -57,3 +57,31 @@ No purge, service, backup or remote sink is operated in this audit. This is a
 state-machine and representation requirement, not deployment qualification.
 Package-format vectors should keep witness semantics separate from custody
 completion and expose any unsupported deployment operation explicitly.
+
+## Package inspection and executable controls
+
+At `0ef608a`, package `0.1.0-draft` K-ERASE-1/2/3 already requires content/custody
+closure, incomplete receipts for unreachable sinks, and current-generation
+rejection of erased lineage. No prose defect or evaluator failure is asserted.
+The judge accepted the source requirement in
+`$oux3OwHwQeLafO_HZvK8vHFsSwjDwRLhAI2ts4XZkoY`.
+
+- [`astra-25-surviving-support-erasure.vector.json`](astra-25-surviving-support-erasure.vector.json):
+  C and its independent root remain supported while A and its summary enter the
+  fenced erasure closure. An unreachable cache leaves `purge_pending`; C is not
+  erased and no opposite witness is invented.
+- [`astra-25-surviving-support-erasure-complete-control.vector.json`](astra-25-surviving-support-erasure-complete-control.vector.json):
+  changes only cache reachability and the corresponding expected disposition.
+  Full custody purges while C's supported result remains the same.
+- [`astra-25-surviving-support-erasure-current-generation.vector.json`](astra-25-surviving-support-erasure-current-generation.vector.json):
+  the S26 old-generation neighbor is changed to the current generation; declared
+  erased input still yields `erasure_fenced`, with no derivative admitted. The
+  canonical S26 checks the stale-generation refusal, while S14 supplies valid
+  admission controls. This does not test omitted integration lineage; P13 and
+  the v0.2 integration contract govern that distinct obligation.
+
+All four owned JSON fixtures (including ASTRA25-01) pass package schema,
+reference, normalization and forbidden-predicate checks, recorded in
+`.temp/astra25-vector-structure-01.log`. These are executable semantic state
+models, not physical purge or restore qualification. Cache custody is modeled;
+actual historical snapshot delivery requires the separate delivery boundary test.

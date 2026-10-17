@@ -1,6 +1,6 @@
 # ASTRA25-01: hidden opposition cannot taint visible premise quality
 
-Status: source-contract regression case; package not yet landed.
+Status: accepted source requirement R7-005; executable regression fixture supplied.
 Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
 
 ## Clauses
@@ -57,3 +57,26 @@ This is a separating requirement, not a claimed evaluator failure. It extends
 the direct-target hidden-opposition case to the new mandatory quality field.
 Package-format vectors and package clauses follow when the grammar lands.
 No timing, scheduling or deployment isolation proof is claimed.
+
+## Package inspection and executable trace
+
+Package `0.1.0-draft` at `0ef608a` already closes the prose reading through
+K-AUTH-1, K-EVAL-4 and K-NI-1. No prose defect or evaluator failure is asserted.
+The judge accepted the source requirement in event
+`$4qm_CUYsxwMexoqpAkx32x3rYjaa7CQPv19BtvZ6dvU`; the editor confirmed preservation
+in `$fzmyJi1dbUxv2alCDt82KR_NABvaUtAu3sSb-7Rs_dw`.
+
+[`astra-25-hidden-premise-quality.vector.json`](astra-25-hidden-premise-quality.vector.json)
+uses the package grammar and exact expected report. It captures clean B, admits
+hidden A-, captures still-clean B, then admits a visible A- as its positive
+control. The final B is supported with `conflicted_premises_only`, while B
+opposition is still absent. The root/rule budgets are one; the hidden root sorts
+first and cannot consume them. The two captures are declared equivalent after
+handle normalization, with equality/freshness constraints preserved.
+
+Checked against the release's `Validator`, `check_state`, `check_normalization`
+and forbidden predicates. A bounded plant changes only the second capture's
+quality to `conflicted_premises_only`; pair comparison rejects it specifically as
+`normalized paired outputs differ`. The unmodified pair passes. Local evidence:
+`.temp/astra25-vector-structure-01.log`. This checks the fixture and comparison
+instrument, not an independent evaluator's semantic behavior.

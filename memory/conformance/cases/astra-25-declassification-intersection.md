@@ -1,6 +1,6 @@
 # ASTRA25-02: retained declassification evidence is not a current joint release
 
-Status: source-contract regression case; package not yet landed.
+Status: accepted source requirement R7-006; concrete package representation gap.
 Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
 
 ## Clauses
@@ -59,3 +59,18 @@ No package/evaluator failure is claimed before package inspection. The positive
 and negative controls establish a semantic authorization contract. Real policy
 authenticity, provider forwarding and sink enforcement require separate
 deployment qualification. Package-format JSON will be added where representable.
+
+## Package inspection
+
+At `0ef608a`, package `0.1.0-draft` K-DISC-2 and the closed fixture encode one
+`policy.owner`, one `declassify.assessment` and one
+`disclosure.declassification` reference. They do not encode distinct input
+constraint owners and separately live release decisions, so this exact pair
+cannot be faithfully represented without inventing fields outside the schema.
+
+The judge accepted the source requirement in
+`$4tk3CWGCfuRe5mxDVNYGve3pdKReoFKZXRFdyGARQ7A`. The editor confirmed the gap and
+the planned v0.2 ownership/assessment-set/current-applicability representation in
+`$-p8jSWR4uqaSgUnAwwQjGZPMO2viay9CaW-5ayOtGaA`. Executable pair construction
+waits for that concrete shape. No synthetic one-owner substitute is claimed to
+exercise the multi-owner requirement, and no evaluator failure is asserted.

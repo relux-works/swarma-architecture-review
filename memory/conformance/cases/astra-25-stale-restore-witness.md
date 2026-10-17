@@ -1,6 +1,6 @@
 # ASTRA25-04: an outside-domain witness can still be stale
 
-Status: source-contract regression case; package not yet landed.
+Status: accepted source requirement R7-008; fixture-boundary clarification pending.
 Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
 
 ## Clauses
@@ -53,3 +53,25 @@ This is a proposed deployment state-machine counterexample, not an executed
 restore or a claimed evaluator bug. Package-format JSON follows if the package
 can encode witness coverage; a missing representation must not be silently
 treated as a passing boolean simulation.
+
+## Package inspection and narrow closure option
+
+At `0ef608a`, package `0.1.0-draft` K-ERASE-3 requires reconciliation of all current
+obligations, but `restore` and `reconcile_restore` expose `external_witness` as a
+boolean plus an obligation list. The boolean is not expressly defined as a
+trusted result of current completeness verification rather than external witness
+existence/location. Merely setting it true for authentic stale W would admit the
+wrong reading in this case.
+
+A narrow clarification can suffice: define true as already-verified, current,
+complete outside-domain evidence; stale, incomplete, unavailable or co-restored
+evidence normalizes to false. A deployment check must then exercise that
+qualification instead of trusting its own input boolean. No new recovery
+protocol or witness fields are requested by this case.
+
+The judge accepted the source requirement in
+`$XTfrBWET-INxpLK_R6ftoGf5YuIUTpC3CxUbHDOJy6A`. The editor reproduced this boundary
+gap and proposed the narrow clarification in
+`$3voPQWsEsapb09cSj2ZMHu5BMrm9oUJP56Nc0oZJJ4U`, pending judge classification.
+Canonical S25 already exercises false/unwitnessed reconciliation; duplicating it
+and relabeling the result would not prove the stale-witness qualification.
