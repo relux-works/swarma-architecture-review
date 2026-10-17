@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 10; seven cases and eleven fixtures (ten semantic, one deployment). Seat identity:
+Status: phase 2, round 11; eight cases and thirteen fixtures (twelve semantic, one deployment). Seat identity:
 `ivmbp_swarma-memory_astra-25`. Baseline: `95f974b` (2026-10-17).
 
 ## Scope and evidence
@@ -18,7 +18,7 @@ and positive controls, with package-format vectors when the grammar exists.
 
 ## Current result
 
-Seven separating cases are recorded:
+Eight separating cases are recorded:
 
 | Case | Property | Evidence class |
 | --- | --- | --- |
@@ -29,6 +29,7 @@ Seven separating cases are recorded:
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Unqualified global dirty status can expose a hidden-only dependency revision | Semantic non-interference; package-clause conflict |
 | [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md) | Opposite-premise quality cannot consume the existence-witness budget | Observed source evaluator accounting divergence |
 | [ASTRA25-07](../cases/astra-25-erasure-receipt-metadata.md) | Erasure closure must not disclose hidden derivative IDs without metadata authority | Observed package receipt divergence; clause conflict |
+| [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently authorize retention of a derived record | Both evaluators admit the case lacking retain authority |
 
 The initial package `0.1.0-draft` landed at `0ef608a`. The judge rejected
 ASTRA25-01/R7-005 and ASTRA25-03/R7-007 as spec defects because the prose already
@@ -141,3 +142,12 @@ expected contracts and historical reports remain intact.
 **Phase-2 provisional score: 1/2** pending this new concrete divergence and the
 requested full dual coverage. Continue the disclosure/erasure audit, verify the
 source implementation as support arrives, and finalize only after actual PARK.
+
+
+ASTRA25-08 extends the phase-2 authority audit: both evaluators persist a private
+paraphrase when admit/read/use exist but no retain grant exists anywhere. The
+positive control restores only retain and passes. Expected atomic rejection is
+grounded in the source companion's independent permission checks, not agreement
+between implementations. Current owned package run: 10 semantic pass / 2 fail;
+source: 3 pass / 1 fail / 8 unsupported; one deployment unsupported by each.
+Thirteen fixtures structurally validate. Both new cases await judge disposition.
