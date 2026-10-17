@@ -547,3 +547,27 @@ will prove semantic differences and forbidden effects are detected.
   canonical-actor-022-01.log, supplemental-actor-022-01.log,
   canonical-actor-023-01.log and controls-12.log.
 - Next unit implements exact released storage authority/current replay for R7-037.
+
+## Round 21 — explicit scoped retention and current replay
+
+- Implement R7-037 against released0.2.3/23290b3 after the completed actor unit.
+  First full canonical red5416283 remains unchanged. Freeze the new author-owned
+  transitive-unknown retention neighbor before correction as well.
+- Check every output and recursively resolved known content input against exact
+  actor/record/space/storage audience/purpose retain grants and live revocations.
+  Use pre-state plus whole batch, never future facts as records, and never onward
+  disclosure labels as authority. Metadata permission is independent of retain.
+- Preserve policy-before-idempotency ordering, original-output current-authorized
+  replay and canonical context conflicts, refused full state/idempotency, valid
+  same-key retry, same-batch input order, unknown lower bounds and empty labels.
+
+### Round 21 baseline outcome
+
+- All author-owned cases are now explicitly0.2.3-compatible. Full supplemental
+  44/2/0 semantic across46cases; one deployment unsupported. Only original08
+  and new08-UNKNOWN retention negatives fail; both retain-authorized positives pass.
+- Freeze PHASE2-RETENTION-023-FIRST.md/JSON before changing intake. New unknown
+  intermediate U still carries known ancestor A; grants for U/D and unrelated
+  purpose A cannot authorize the exact requested storage scope. Metadata=false
+  retain grants in the positive are valid and must not require read/use metadata.
+- Log: retention-023-first-01.log (intended exit1). Runtime3ce8ee3 is unchanged.

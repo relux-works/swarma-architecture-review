@@ -2,7 +2,10 @@
 
 Current package **0.2.3-draft**, `23290b3`: **55 pass / 2 fail / 0 unsupported**
 canonical semantic vectors; eight deployment unsupported. P11/P13 expose the
-released retention-context obligations; R7-037 correction is the next unit.
+released retention-context obligations; R7-037 scoped correction is active. Current fully migrated0.2.3 supplemental
+is44/2/0 across46semantic cases, only original/transitive-unknown retention
+negatives; both positives pass. PHASE2-RETENTION-023-FIRST preserves these inputs
+and failures before correction.
 RELEASE-0.2.3-FIRST at5416283 preserves the unchanged-runtime first run.
 
 Pinned **0.2.2-draft**, `7e71765`, after the actor-binding correction:
