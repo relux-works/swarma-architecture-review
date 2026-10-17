@@ -75,5 +75,7 @@ Preserved report: RELEASE-0.2.1-FIRST.md/JSON.
 R7-024 pre-fix head is signed `bc342e1`. Correction restricts explicit-target
 history to selected sequence identities. Unfiltered selection, explicit historical
 items and hidden-reference boundaries remain covered. Package 0.2.1 is now
-57/57 semantic pass; all thirteen checker/product controls pass. Judge closure
-is pending the separately committed corrected head. No deployment claim.
+57/57 semantic pass; all thirteen checker/product controls pass. Judge commit
+6a4f307 independently reproduces both heads and closes R7-024 fixed@f5fdd8b.
+The same review closes package fixes R7-014/018/019/021/022 at f31d58f. All
+current supplemental semantic cases pass (19/19) in d2c38ac. No deployment claim.

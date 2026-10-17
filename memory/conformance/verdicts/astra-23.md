@@ -13,10 +13,11 @@ Thirteen controls pass. All 19 explicitly migrated supplemental semantic cases
 pass on 0.2.1; no implicit conversion or deployment qualification is claimed.
 The structural package validator passes 20 intended violation controls.
 
-Seat recommendation: **2/2 once the judge closes the accepted fixes and verifies
-the exact corrected head**; collective score remains pending that review. R7-020
-and R7-023 are judge-closed. R7-024 has a retained red baseline at bc342e1 and a
-separate correction at f5fdd8b with explicit/unfiltered/historical/hidden controls.
+Current collective rubric score: **1/2**, matching judge commit 6a4f307. All
+package corrections and this evaluator's R7-020/023/024 fixes are independently
+verified and closed; source-evaluator R7-025/026 remain open. This seat is ready
+for 2/2 after those collective gates close. R7-024 retains the red baseline at
+bc342e1 and correction f5fdd8b with explicit/unfiltered/historical/hidden controls.
 
 The evaluator remains derived from the released package. Original blind run at
 0008dc3 is immutable: no design, companion, notes, inputs, other evaluator, ledger

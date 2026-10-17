@@ -151,3 +151,15 @@ will prove semantic differences and forbidden effects are detected.
 - R7-024 corrected head and retained pre-fix head were sent to the judge for
   independent review. No package defect or implementation difference remains
   in this seat's executable cases; collective review remains pending.
+
+## Round 6 — independently verified seat closure
+
+- Judge 6a4f307 reproduces the pre-fix 55/57 and corrected 57/57 reports, all
+  65 canonical rows, implementation hashes and 13 controls. R7-024 closes at
+  f5fdd8b; package fixes R7-014/018/019/021/022 close at f31d58f.
+- The ledger has no open package bug or astra-23 implementation bug. Remaining
+  collective items R7-025/026 belong to the source evaluator; score stays 1/2
+  until their fixes and current-release verification are accepted.
+- No new implementation delta or testing claim; exact existing evidence reused.
+- Current supplemental 19/19 evidence d2c38ac acknowledges astra-24 migration;
+  convener's earlier fixture dependency is resolved by the proper single writer.
