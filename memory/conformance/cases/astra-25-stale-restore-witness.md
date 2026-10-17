@@ -1,6 +1,7 @@
 # ASTRA25-04: an outside-domain witness can still be stale
 
-Status: accepted source requirement R7-008; fixture-boundary clarification pending.
+Status: R7-008 spec-bug; 0.2.0 fixture-boundary clarification verified,
+real deployment qualification remains unsupported.
 Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
 
 ## Clauses
@@ -75,3 +76,21 @@ gap and proposed the narrow clarification in
 `$3voPQWsEsapb09cSj2ZMHu5BMrm9oUJP56Nc0oZJJ4U`, pending judge classification.
 Canonical S25 already exercises false/unwitnessed reconciliation; duplicating it
 and relabeling the result would not prove the stale-witness qualification.
+
+## Candidate fix verification: 0.2.0-draft
+
+At `cde5754`, `external_witness: true` is expressly the trusted result of CURRENT,
+COMPLETE outside-domain verification for all current erase and policy obligations.
+A stale, incomplete, unavailable or co-restored witness normalizes to false.
+This narrow fixture-boundary definition closes the ambiguous reading without
+selecting a new recovery protocol.
+
+[`astra-25-stale-restore-witness.vector.json`](astra-25-stale-restore-witness.vector.json)
+extends B10 with an empty stale inventory on the false restore/reconcile branch.
+The gate stays closed even though this inventory omits the newer erase obligation;
+a current complete witness then supplies that obligation and permits reconciliation
+only after its bytes are purged. The fixture passes the 0.2.0 structural checks.
+
+This remains a **deployment** fixture. A simulator's correct treatment of the
+trusted boolean does not prove that an actual witness is outside the restored
+failure domain or has current complete coverage. No deployment pass is claimed.

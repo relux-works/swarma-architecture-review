@@ -1,6 +1,7 @@
 # ASTRA25-02: retained declassification evidence is not a current joint release
 
-Status: accepted source requirement R7-006; concrete package representation gap.
+Status: R7-006 spec-bug; 0.2.0 candidate package fix verified structurally,
+independent current-version execution pending.
 Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
 
 ## Clauses
@@ -74,3 +75,23 @@ the planned v0.2 ownership/assessment-set/current-applicability representation i
 `$-p8jSWR4uqaSgUnAwwQjGZPMO2viay9CaW-5ayOtGaA`. Executable pair construction
 waits for that concrete shape. No synthetic one-owner substitute is claimed to
 exercise the multi-owner requirement, and no evaluator failure is asserted.
+
+## Candidate fix verification: 0.2.0-draft
+
+At `cde5754`, constraint ownership, the exact declassification assessment set,
+current owner decisions and revocation are represented explicitly. The candidate
+closes the representation gap: a retained assessment cannot substitute for a
+revoked owner's live decision. The package P05 trace supplies the live/revoked
+pair; its expected result is grounded in the source requirement above.
+
+[`astra-25-declassification-intersection.vector.json`](astra-25-declassification-intersection.vector.json)
+adds a wrong-owner revocation neighbor. That operation must return `not_authorized`
+and leave the released view unchanged; the correct owner then revokes, and a new
+delivery must return `disclosure_revoked` with no second delivery effect. It uses
+explicit trusted synthetic lineage facts. Their presence does not claim that a
+real adapter establishes lineage merely from submitted citations.
+
+The complete trace passes the 0.2.0 closed schemas, state references, normalization
+and forbidden predicates. This verifies the candidate's representation and
+expected contract; independent current-version behavior remains to be run.
+Authenticity and real sink enforcement remain deployment obligations.

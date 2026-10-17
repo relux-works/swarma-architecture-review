@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: round 3, five cases and six executable regression fixtures. Seat identity:
+Status: round 4, five cases and eight fixtures (seven semantic, one deployment). Seat identity:
 `ivmbp_swarma-memory_astra-25`. Baseline: `95f974b` (2026-10-17).
 
 ## Scope and evidence
@@ -28,40 +28,50 @@ Five separating cases are recorded:
 | [ASTRA25-04](../cases/astra-25-stale-restore-witness.md) | An outside-domain witness needs current complete coverage | Deployment restore |
 | [ASTRA25-05](../cases/astra-25-hidden-dirty-invalidation.md) | Unqualified global dirty status can expose a hidden-only dependency revision | Semantic non-interference; package-clause conflict |
 
-The judge accepted all four source requirements as R7-005–R7-008. Package
-`0.1.0-draft` landed at `0ef608a`. Its structural validator passes: 53 semantic
-and 8 deployment vectors, 14 closed schemas, 49 clauses and 13 intended checker
-violation controls. This is structural evidence, not executed semantics.
+The initial package `0.1.0-draft` landed at `0ef608a`. The judge rejected
+ASTRA25-01/R7-005 and ASTRA25-03/R7-007 as spec defects because the prose already
+requires the intended behavior; their executable regressions remain useful.
+The judge classified ASTRA25-02/R7-006, ASTRA25-04/R7-008 and ASTRA25-05/R7-018
+as spec-bugs.
 
-ASTRA25-01 and ASTRA25-03 are already specified correctly in the package prose;
-four owned JSON fixtures add the hidden-quality trace, incomplete/complete
-custody pair and current-generation erasure-fence neighbor. They pass schema,
-reference, normalization and forbidden-predicate checks. A planted hidden-dependent
-quality change is rejected by the comparator for the intended reason. Evidence:
-`.temp/package-validation-01.log`, `.temp/astra25-vector-structure-01.log`, and
-the linked case files with exact JSON expectations.
+Package `0.2.0-draft` at `cde5754` passes its structural validator: 57 semantic
+and eight deployment vectors, 52 clauses, 16 intended checker controls. I verified
+the R7-006 multi-owner/current-decision representation and R7-008 trusted-current-
+complete restore-witness clarification against the source requirements. Owned
+fixtures add wrong-owner revocation with an unchanged-view control and an omitted
+stale erase inventory. These checks close the representation concerns; actual
+current-version execution remains separate. Deployment qualification is unproven.
 
-The judge classified ASTRA25-02/R7-006 and ASTRA25-04/R7-008 as spec-bugs, both
-accepted by the editor: the missing multi-owner/live-decision representation and
-the external-witness current-completeness predicate. ASTRA25-01/R7-005 and
-ASTRA25-03/R7-007 are rejected as spec defects because the prose already closes
-them; their executable regressions remain useful.
+All eight owned fixtures now use the 0.2.0 closed grammar and pass schema,
+reference, normalization and forbidden-predicate checks. A planted hidden-quality
+change and a planted global-dirty response are both rejected for the intended
+paired-output mismatch. Evidence: `.temp/astra25-vector-structure-05.log` and the
+linked exact JSON cases. Synthetic integration facts are explicit fixture inputs,
+not a claim that a real adapter may trust author-supplied lineage.
 
-ASTRA25-05 adds an actual package-clause conflict: unqualified K-EVAL-8 dirty
-short-circuiting can change public support, completeness and review flags after
-a hidden-only revision, contrary to K-AUTH-1/K-NI-1. Its hidden/visible control
-pair passes structural checks; a planted global-dirty response is detected by
-pair comparison (`.temp/astra25-vector-structure-04.log`). Judge disposition and
-independent execution remain pending. No evaluator failure or deployment pass
-is inferred from these structural checks.
+The first independent runs used the SIX ORIGINAL 0.1.0 fixtures from `3045117`
+and matching 0.1.0 schemas. They do not claim to test the migrated 0.2.0 inputs.
+Exact field differences and implementation/input hashes are persisted in
+[`astra-25-evaluator-results.json`](../cases/astra-25-evaluator-results.json).
 
-**Provisional R7 score: 1/2.** The package exists and structurally validates;
-kernel-v0.2 alignment, case disposition and both independent full vector reports
-remain pending. The initial package-absent 0/2 was only the round-0 baseline.
+| Evaluator | Pass | Fail | Unsupported | Evidence |
+| --- | ---: | ---: | ---: | --- |
+| astra-22 first adapter | 0 | 0 | 6 | These mutating operations are not implemented |
+| astra-23 first evaluator `0008dc3` | 5 | 1 | 0 | ASTRA25-05: 14 field differences, paired equality and two forbidden outcomes |
+
+The hidden-dirty failure reproduces the R7-018 contradiction. Its visible-path
+control passes. The editor accepted a fix preserving protected invalidation
+causes and filtering disclosed dirty/review/cutoff effects through eligible paths.
+The protected global dirty inventory may remain unchanged.
+
+**Provisional R7 score: 1/2.** Prose and schemas validate, but classified open
+bugs and independent semantic failures remain. No deployment pass is claimed.
+The initial package-absent 0/2 was only the round-0 baseline.
 
 ## Outstanding
 
-Await the v0.2 shape, encode the exact multi-owner pair, obtain final judge
-dispositions, run owned fixtures against available evaluators without changing
-their files, and recheck accepted package fixes through the round protocol.
-Final disposition and any owner questions will be linked here before PARK.
+Recheck the R7-018 package revision against the hidden/visible pair. Execute the
+owned current-version fixtures against each available evaluator and report
+unsupported operations honestly. Follow the judge's closure of accepted fixes
+and the collective full reports. Final disposition and owner questions will be
+linked here on PARK.

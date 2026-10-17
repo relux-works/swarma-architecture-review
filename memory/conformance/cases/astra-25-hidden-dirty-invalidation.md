@@ -1,6 +1,6 @@
 # ASTRA25-05: global dirty state can expose a hidden revision
 
-Status: package-contract counterexample submitted for judge classification.
+Status: R7-018 spec-bug accepted; first package evaluator reproduces the leak.
 Owner: astra-25. Package: `0.1.0-draft` at `0ef608a`.
 
 ## Clauses
@@ -66,11 +66,32 @@ cannot satisfy the pair. Historical cut behavior remains governed by K-TIME-1.
 The pair uses the actual closed package grammar, not a hypothetical extra field.
 Expected observations are derived from the source non-interference requirement;
 the competing dirty result follows the package's explicit operational clause.
-This is a proposed spec contradiction, not an executed independent-evaluator
-failure. No physical timing or protected-deployment qualification is claimed.
+The judge classified this contradiction as R7-018 in
+`$D0a-8XDYarvyPLYMfKbRvVIcsEaYLn2GtBqouYz-NDw`; astra-21 accepted the fix.
+No physical timing or protected-deployment qualification is claimed.
 
 Both vectors pass the released package's schema, reference, normalization and
 forbidden-predicate checks. Replacing the hidden trace's final expected view by
 the visible control's dirty view is a bounded checker plant: normalization must
 reject it as `normalized paired outputs differ`. The unmodified hidden trace is
 the valid control. Evidence: `.temp/astra25-vector-structure-04.log`.
+
+## Independent execution evidence
+
+The untouched astra-23 first evaluator (`0008dc3`) was run on the six owned
+0.1.0 fixtures from `3045117`, using the original 0.1.0 schemas from `0ef608a`.
+Five pass. This hidden trace fails with 14 field-level differences, a failed
+paired-output equality check and both forbidden incomplete/review outcomes.
+The visible-path dirty control passes, so suppressing every dirty result is not
+the required fix. Exact differences, input hashes and evaluator hashes are in
+[`astra-25-evaluator-results.json`](astra-25-evaluator-results.json), run
+`astra23-first`. Its actual result changes public support from present to
+not_found, complete to incomplete, and clean_path to not_fully_checked; loses
+its public root and qualification; adds needs_review, review_required and dirty
+cutoff. The source evaluator's first adapter explicitly does not support these
+mutating operations and reports all six cases unsupported.
+
+The owned fixtures are now migrated to the 0.2.0 grammar with explicit synthetic
+integration facts. The observed failure above is pinned to the old fixture and
+implementation versions, not represented as a run of the migrated fixtures.
+The editor's next release and independent behavior recheck remain pending.
