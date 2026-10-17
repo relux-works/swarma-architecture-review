@@ -1,12 +1,13 @@
 # R7 score
 
-Owner: astra-27 (judge). Status: phase 2 active, round 34; awaiting PARK.
+Owner: astra-27 (judge). Status: phase 2 active, round 35; no PARK.
 Current verified release: **0.2.5-draft**, `6a04e8c`.
 
-**Current R7 score: 2/2.** Both evaluators pass **57/57 canonical** and
-**63/63 supplemental semantic vectors**. No specification or implementation bug
-remains open. R7-055 is a filed, unresolved owner question; its native pair has no
-chosen oracle and is excluded from executable denominators.
+**Current R7 score: 1/2.** Both evaluators pass **57/57 canonical** and
+**63/63 supplemental semantic vectors**, but the new native restore failure
+R7-058 is an open package implementation bug. The earlier round-34 score 2/2
+is superseded. R7-055 remains a filed owner question without a chosen oracle;
+its native pair stays outside executable denominators.
 
 | Requirement | Pinned evidence | State |
 | --- | --- | --- |
@@ -18,16 +19,17 @@ chosen oracle and is excluded from executable denominators.
 | Supplemental grammar | 64 explicitly versioned artifacts, including one deployment case | All validate at 0.2.5 |
 | Source controls | 123 native tests plus five comparer controls | 128 pass |
 | Package controls | Full product/comparer suite on unchanged runtime | 31 pass |
-| Ledger | [LEDGER.md](LEDGER.md): 46 fixed, 10 rejected, one owner question | No open spec-bug or impl-bug |
+| Ledger | [LEDGER.md](LEDGER.md): 46 fixed, 10 rejected, one implementation bug, one owner question | R7-058 open; no spec-bug |
 | Owner questions | [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) | R7-055: cross-issuer predecessor-path scope |
 | Deployment inventory | 8 canonical plus 1 supplemental | Both unsupported; no deployment qualification |
 
-The last correction, R7-057 at `946cbd8`, separates changed erase intent from
-exact receipt replay. Current erase authority still comes first; changed intent
-conflicts, while an identical replay rechecks current metadata permission.
-The original native witness, both exact typed regressions and neighboring
-revocation/fresh-key/immutable-receipt controls pass with state preserved.
-First failures and original input bytes remain immutable.
+R7-058's current-complete external witness supplies an erasure obligation missing
+from an old snapshot. The package reader reports reconciliation while leaving
+controlled payloads present and obligated content readable, even with an affected
+sink unreachable. All four native traces independently reproduce; known/empty
+obligation controls and false-witness refusals remain valid. The correction is
+authorized under the existing contract. No canonical oracle was relaxed and no
+native deployment claim is made. R7-057 and previous fixes remain closed.
 
 R7-055 asks whether an H1 canonical predecessor edge endorses transitive H2
 ordering. Both source readings and the exact separating input remain recorded.

@@ -1,11 +1,11 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 34, phase 2 active; awaiting PARK. Current score: **2/2**.
+Status: round 35, phase 2 active; no PARK. Current score: **1/2**.
 
-Adjudicated 57 items: ten rejected as defects, forty-six independently fixed,
-and one filed owner question (R7-055). No specification or implementation bug
-remains open. See [LEDGER.md](../LEDGER.md), [R7-SCORE.md](../R7-SCORE.md)
+Adjudicated 58 items: ten rejected as defects, forty-six independently fixed,
+one open package implementation bug (R7-058), and one filed owner question
+(R7-055). The new native finding supersedes the round-34 score 2/2. See [LEDGER.md](../LEDGER.md), [R7-SCORE.md](../R7-SCORE.md)
 and [OWNER-QUESTIONS.md](../OWNER-QUESTIONS.md).
 
 Both independent readers pass **57/57 canonical and 63/63 supplemental semantic
@@ -15,13 +15,25 @@ committed rows, input/module hashes and actuals reproduce independently after
 only declared fresh-handle normalization. All 64 supplemental artifacts validate.
 Original failures and author fixture bytes remain preserved.
 
-R7-057, the final open implementation bug, closes at `946cbd8`. Current erase
+R7-057 closes at `946cbd8`. Current erase
 authority precedes changed-intent conflict; stored-ref metadata permission gates
 only exact replay. Both unchanged purpose/audience regressions and six independent
 native probes pass. Expanded controls retain read/use/metadata revocation,
 fresh-key empty-ref purge, lost erase authority and immutable empty receipts.
 All 128 source native/comparer controls pass; 31 package controls remain applicable
 to its unchanged runtime. Earlier expiry and public-recovery closures remain valid.
+
+R7-058 is the newly confirmed restore bug. Original native `644c793` supplies a
+current complete external obligation A missing from the old snapshot's local
+erasure inventory. The package claims reconciliation but leaves both controlled
+sinks present and A readable; an unreachable affected sink also falsely succeeds
+and opens the global fence. Judge independently reproduces every field of all
+four validated traces, including correct source behavior, known/empty-obligation
+controls, atomic false-witness refusals and restore-fenced queries. All seventeen
+snapshot hashes verify. Current witnessed obligations must actually enter the
+reconciliation closure; package correction is authorized under existing sources.
+Native firsts remain preserved outside executable denominators pending exact
+fixtures. Current green vector counts do not waive this defect.
 
 The package has no open specification finding. Its 14 schemas, 52 clauses and
 94 JSON artifacts were independently regenerated exactly, with 34 intended
