@@ -245,3 +245,7 @@ First wire expansion runs/phase2-declassification-first.* is49/1/7; matching sup
 ## R7-050 correction
 
 Judge $Jxqff_h8h6pJHraJVkiriHrvMIYcTlLKLCO1QAjUMuI confirms source impl-bug. releases.py now hashes ASCII bounded-evidence:cjson-v1, a single NUL, and canonical UTF-8 body bytes exactly as K-JSON-2 requires. Both ASCII/Unicode framed positives and raw negatives pass with atomic-state checks. Nine release control groups pass; the later private-rule test setup correction is separately documented. Canonical50/0/7, supplemental38/0/8; P05/ASTRA25-02 exact. First36983de and native firste1ba8db remain immutable. Corrected reports are runs/phase2-declassification-corrected.* and phase2-declassification-cases-corrected.*. Judge closure pending; no package/oracle change.
+
+## R7-047 strict successor correction; R7-051 kept separate
+
+R7-047 first52-case output and six native forbidden-acceptance witnesses are immutable64ef86e. Authoritative replace/correct now require a strictly succeeding canonical receipt; CAS and exact replay stay separate. Four native groups and14existing transaction groups pass. Canonical50/0/7; current54-case supplement44/2/8. Remaining failures ASTRA24-10-TRANSITIVE and ASTRA24-11 are the distinct R7-051 query adapter defect, classified by judge $lL-KfgsFVYJ8Kpol9-2KlrnISzbIcOa-A7-1Pv5Z2-k; their first actuals are preserved before changing projection. Strict successor write correction awaits judge closure. R7-050 is judge-closed at8a42945; original release failures remain unchanged.

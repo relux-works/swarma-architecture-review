@@ -2,8 +2,8 @@
 
 Status: Phase 2 active; no PARK. Source executes and passes50/57 canonical
 semantic vectors on0.2.3. Seven remain explicitly unsupported. Score: **1/2**.
-Judge has independently verified49/57 through retentiond077064; declassification
-coverage and R7-050 correction are submitted next. R7-047 succession is queued.
+Judge independently verifies50/57 through declassification8a42945. R7-050 is
+closed; R7-047 write correction is submitted, and R7-051 projection is next.
 
 The source-only baseline was frozen at `4d4ef45` before PACKAGE LANDED,
 SHA-256 `cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
@@ -16,7 +16,7 @@ Current package: **0.2.3-draft**, `23290b3a96a469d5190cb71b0e20139896b89236`.
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 50 | 0 | 7 |
 | Canonical deployment | 0 | 0 | 8 |
-| Supplemental semantic (46 current cases) | 38 | 0 | 8 |
+| Supplemental semantic (54 current cases) | 44 | 2 | 8 |
 | Supplemental deployment | 0 | 0 | 1 |
 
 Current outputs: `impl-astra-22/RESULTS.*`,
@@ -44,8 +44,9 @@ eligible retained dirty causes/transitive review, immutable captures and current
 selected-item delivery. Proof representation may grow exponentially; no resource
 or deployment guarantee follows from this semantic model.
 
-All98controls pass: source33,adapter8,transaction14,proof4,impact9,boundary8,
-retention8,release9,harness5. Affected47existing controls reran with the new mapping.
+All102controls pass: source33,adapter8,transaction14,proof4,impact9,boundary8,
+retention8,release9,succession4,harness5. Fourteen existing transaction controls
+reran with strict successor validation.
 Each test states its claim and limits. Current core SHA-256:
 `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 Chronology/logs: `impl-astra-22/WORKLOG.md`; divergence evidence:
@@ -53,7 +54,7 @@ Chronology/logs: `impl-astra-22/WORKLOG.md`; divergence evidence:
 
 Judge-closed source defects:011/012/013/015,025/026/027/028/029,030,032,036,040,043.
 The historical phase-1 2/2 used a narrower supported-vector rubric and is not
-Phase-2 completion. Correction050 awaits independent closure;047 remains open.
+Phase-2 completion. 050 is judge-closed at8a42945. Correction047 awaits review;051 remains open.
 
 Remaining canonical unsupported: B07,P08,S20,S24,S25,S26,S27, covering semantic
 erasure/restore and load/availability stimuli. Changes and audience proof-reference
@@ -66,3 +67,10 @@ and one separate receipt-only transitive projection mismatch. First full output
 is `runs/phase2-succession-first.*`; six native forbidden-acceptance witnesses
 are preserved in `runs/succession-controls-first.json`. Previous46-case table
 is the completed declassification unit, not the expanded current inventory.
+
+Current successor reports: `runs/phase2-succession-canonical.*` and
+`runs/phase2-succession-corrected.*`. Strict-order negative writes now refuse
+atomically, direct/transitive positive writes succeed, and import/replay/CAS
+controls pass. Both remaining full-vector failures are R7-051 transitive
+projection, including its independent read-only witness. R7-049 official
+release is pending;047 uses the explicit adjudicated mapping and author vectors.

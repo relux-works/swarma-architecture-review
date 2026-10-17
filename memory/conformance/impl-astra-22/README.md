@@ -165,3 +165,10 @@ inherited constraints when release authority is revoked; frozen captures do not
 change and selected delivery rechecks the release. Evidence for the first framed
 digest defect and correction is retained in `runs/phase2-declassification-*`.
 These are synthetic semantic checks, not an external publication service.
+
+Strict canonical successor controls run with
+`PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/succession_checks.py`.
+They separate authoritative replace/correct refusal from ordinary incomparable
+receipt imports, current-head CAS and exact successful replay. First and corrected
+write evidence is retained under `runs/phase2-succession-*`; the independent
+receipt-only intermediate projection defect is tracked separately as R7-051.

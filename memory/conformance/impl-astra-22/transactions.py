@@ -301,6 +301,11 @@ class Transactions:
                         or replacement["envelope"]["id"] != target["envelope"]["id"]
                         or replacement["envelope"]["version"] != target["envelope"]["version"] + 1):
                     raise Refusal("invalid_domain_value")
+                if target["body"].get("statement_kind") == "decision_record" and relation in {"replace", "correct"}:
+                    self.authority(replacement, future)
+                    if not self.strict_successor(replacement["body"]["authority_receipt"],
+                                                 target["body"]["authority_receipt"], target["envelope"]["issuer"]):
+                        raise Refusal("authority_receipt_required")
         if any(k in state for k in proposed):
             raise Refusal("duplicate_record")
         for proposal in proposals:
@@ -431,6 +436,23 @@ class Transactions:
                 a["receipt"] == citation and a["issuer"] == e["issuer"] and a["canonical"]
                 for a in self.adapter.policy["authority_events"]):
             raise Refusal("authority_receipt_required")
+
+    def strict_successor(self, successor, prior, issuer):
+        if successor is None or prior is None or successor == prior:
+            return False
+        events = {key(e["receipt"]): e for e in self.adapter.policy["authority_events"]
+                  if e["canonical"] and e["issuer"] == issuer}
+        seen, frontier = set(), [key(successor)]
+        while frontier:
+            current = frontier.pop()
+            if current in seen or current not in events:
+                continue
+            seen.add(current)
+            for parent in events[current]["predecessors"]:
+                if parent == prior:
+                    return True
+                frontier.append(key(parent))
+        return False
 
     def graph(self, state):
         edges = {}
