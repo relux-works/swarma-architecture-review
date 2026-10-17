@@ -1945,3 +1945,30 @@ the release; the source evaluator derives D-009 from source; the package evaluat
 awaits publication and will preserve an unchanged-runtime first run before any
 correction. No new finding or verification result is claimed in this intake.
 Evidence: seat `.temp/judge-r055-round02-inbox-01.log`.
+
+
+## Reopened round 3 — source-derived D-009 controls independently verified
+
+Source first evidence `abc8511` predates 0.2.6 intake. Judge independently reruns
+all 129 native source controls and five comparer controls: 134/134 pass. Module
+hashes exactly match the producer report; existing runtime remains `946cbd8`.
+The five new D-009 groups cover the original pair, assertion-free middles,
+no contraction, an all-H bypass beside a foreign path, foreign-part invariance,
+all 256 four-event DAG/issuer variants, and actual replace/correct operations.
+Currentness, CAS head and strict succession agree with the independently defined
+Boolean-matrix closure. Rejected foreign-only writes return the existing
+`authority_receipt_required,false` and preserve complete adapter state; nearby
+own-path writes succeed.
+
+Judge additionally applies full package schema and consistency validation to all
+282 constructed state instances (275 unique) while rerunning the five groups:
+all pass. Policy event issuer is deliberately independent of source-carrier
+issuer in those controls. A bounded in-memory global-order plant reproduces
+exactly the intended foreign-middle currentness assertion failure, with no setup
+error and the all-H positive passing. No runtime or fixture is changed.
+
+Local evidence: `.temp/judge-r055-round03-source-controls-01.json`,
+`.temp/judge-r055-round03-source-input-validation-01.json`, and the individual
+`judge-r055-round03-source-*-01.log` files in the astra-27 seat. This verifies
+source-derived controls only. Canonical 0.2.6 and both complete vector reports
+remain pending; R7-055 stays verification-pending and the current score is 1/2.
