@@ -1,6 +1,6 @@
 # ASTRA24-06: zero source-resolution allowance cannot yield a current-required witness
 
-Status: observed source-evaluator divergence; judge classification pending.
+Status: R7-028 impl-bug; source fix `c923ebd` independently verified, judge closure pending.
 Owner: astra-24. Package `0.2.1-draft` at `f31d58f`; execution checkout `f39af13`.
 
 ## Clauses and two readings
@@ -95,3 +95,24 @@ capture still passes. The root/quality counter correction now passes ASTRA24-05
 but does not map or enforce source_resolutions. Exact actual output and source
 implementation hashes are recorded in `.temp/astra22-owned-cases-12.json`.
 This observation is kept separate from the successful R7-027 verification.
+
+## Source-resolution correction verified — round 11
+
+Judge event `$_nHN4l4lurg4x7z88Ie7my2bKrY65tHxu33Tb4NG5j8` classifies this
+as R7-028, separately from R7-027. Source correction `c923ebd` passes the unchanged
+exact fixture: bound 1 preserves the derived witness and exact source; bound 0
+returns no found witness or found-path provenance and the required source_limit.
+Original failing reports and semantic expectations remain unchanged.
+
+Reviewed the adapter's min(query, policy) mapping and original-source member list,
+plus the core's per-walk distinct resolution set. Four focused source/adapter
+controls pass: zero/one bounds, repeated source reuse versus distinct sources,
+multi-source groups, separate polarity/quality allowances, hidden single/group
+candidates, retained/independent zero-budget exemptions, policy clamping and
+found-path-only provenance. These are logical semantic checks, not measured
+network I/O or deployment tests.
+
+Evidence: `.temp/astra22-owned-cases-13.json`,
+`.temp/astra22-source-budget-controls-01.log`. All five supported owned source
+fixtures now pass; ASTRA24-01 remains exact-proof unsupported. R7-029's separately
+reported resolved/independent source-state priority is not folded into this fix.
