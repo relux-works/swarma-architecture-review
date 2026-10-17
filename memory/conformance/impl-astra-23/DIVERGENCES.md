@@ -470,3 +470,18 @@ priority, exact-replay metadata loss, changed-intent conflict and fresh-key full
 purge with empty refs. Whole state/captures/bindings/dirty-since and original
 receipts are preserved on refusal/replay. Native first f639770 remains immutable.
 Source recovery056 is separately closed at87beb46;057 closure remains pending.
+
+## ASTRA25-12 — current restore obligations ignored by old inventory
+
+PHASE2-RESTORE-CURRENT-FIRST independently reproduces original644c793 inputs
+on unchanged23b4d74. When a current complete outside-domain witness supplies A
+absent from the old local erased inventory, reconciliation opens disclosure
+without fencing/erasing A or purging either controlled sink. The unreachable
+sink variant also falsely succeeds. Known-local and genuinely empty obligation
+controls remain intact, as do exact false-witness refusals and fenced reads.
+
+K-ERASE-3 requires current obligations, not the old snapshot list. Full input,
+actual and state/hash evidence is preserved before correction. Judge disposition
+and exact fixture mapping are pending; no inferred output oracle or source
+implementation intake. Canonical/supplemental success does not waive this native
+resurrection/disclosure witness or qualify physical purge.

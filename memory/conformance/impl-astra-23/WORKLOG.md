@@ -948,3 +948,32 @@ will prove semantic differences and forbidden effects are detected.
   34package plants retain their prior exact evidence; no redundant broad rerun.
 - Judge e2a797d closes056;057 remains separately open in source. R7-055 owner
   hold remains undecided. Phase2 score1/2, no PARK or deployment qualification.
+
+## Round 35 — current restore obligation first reproduction
+
+- Author644c793 reports ASTRA25-12: a current complete external witness supplies
+  a deletion absent from the old snapshot. Existing package reconciliation ignores
+  it, including an unreachable affected sink; known/empty controls agree.
+- Before any correction, independently run the four original input traces on
+  unchanged23b4d74. Preserve all operations, actual responses, full state and
+  input/module hashes. No other evaluator implementation is consulted.
+- K-ERASE-3 requires current outside-domain obligations, not the old inventory,
+  before disclosure reopens. Await judge classification and exact fixture mapping
+  while freezing the native first; current63/63 vector success does not waive it.
+
+### Round 35 first outcome
+
+- PHASE2-RESTORE-CURRENT-FIRST reproduces both new-obligation failures: successful
+  reconciliation leaves erased/fences empty, both sinks present and A readable,
+  including the unreachable-sink variant. Known-local and empty-current controls
+  retain their expected native observations. All closed input/output shapes pass.
+- All false-witness attempts refuse erasure_incomplete/true with entire state
+  unchanged; restored reads refuse erasure_fenced/false. Full original inputs,
+  actuals and lossless hash-addressed engine snapshots are retained before fix.
+- A separate integrity probe initially guessed fenced-read retryable=true.
+  K-REF-1 explicitly specifies false; correcting that probe makes all checks
+  pass without altering or rerunning the first observations. This was a probe
+  expectation error, not a product failure or an oracle edit.
+- Logs: restore-current-first-01.log and restore-current-integrity-02.log under
+  .temp/impl-astra-23/. Current exact vectors remain57/57canonical and63/63
+  supplemental; the new native defect remains separate pending adjudication.

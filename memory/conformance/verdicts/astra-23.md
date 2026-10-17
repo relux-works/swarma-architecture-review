@@ -6,6 +6,13 @@ the R7-053 live-retention correction. Judge13e3d73 independently closes the
 correction at23b4d74, reproducing every report row, input/module hash and full
 normalized actual, all31controls and ten separate deadline operation checks.
 
+A separate native ASTRA25-12 restore defect is now reproduced and unresolved:
+current witnessed deletion A absent from the old snapshot inventory is ignored,
+including an unreachable affected sink. Reconciliation opens disclosure with A
+readable and both sinks present. PHASE2-RESTORE-CURRENT-FIRST preserves all four
+original traces and full state; known/empty obligations and false-witness/fenced
+read controls remain intact. Judge classification and exact fixtures are pending.
+
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 57 | 0 | 0 |
