@@ -65,6 +65,27 @@ One canonical package: normative prose, closed schemas and executable conformanc
 - **Decision (Ivan, in session):** «да».
 - **Scope:** the Swarma adapter contract only (`spec/adapters/swarma.md`, package 0.2.7-draft); the kernel and its vectors are unchanged. It rests on the recorded owner decisions on identity cells (2026-10-17) and the owner registry (2026-10-18), cited in the note. The derivation of the cell id, including the self-certifying ID, is not part of this decision and stays with its own pending question.
 
+## D-011…D-014. The first working version (2026-10-18)
+
+- **Question put:** the architecture draft `notes/v1-architecture-draft.md`, decisions 1, 2 and 6, plus revising D-006.
+- **Decisions (Ivan, in session, voice transcript):** «Продолжить запись. Да.» (autonomous writing); «D006, тогда надо пересмотреть, да, нам нужно, чтобы память работала автономно»; «Пространство агента, проекты и платформа. Ну, если это про то, что это у нас гид, то да» (it is git); «Про Go один репозиторий … ядро CLI и Skill, э, да, утверждаю».
+
+### D-011. Memory is written autonomously
+
+Agents write memory themselves, from the evidence they see and read; no approval gate. Humans write through the same path under their own identity, or ask an agent to. This replaces the human review gate of D-004 for every space. The epistemic limits stay: attribution to issuer and perspective, no replacement of another issuer's sequence, no adopted decision without the deciding authority's receipt, delivery as data only, and no raw journal intake (D-005).
+
+### D-012. Autonomy does not require the protected service
+
+D-006 no longer counts autonomous writers as a trigger for the protected service. What the service remains for is tied to the v1 trust model (proposed: sensitive data, guaranteed erasure, enforcement before write).
+
+### D-013. Spaces: agent, project, platform, each a git repository
+
+Each space is a git repository with a policy file. Where an agent space is hosted and what happens to it at retirement are proposed separately (`notes/v1-architecture-draft.md`).
+
+### D-014. Go, one repository
+
+One new repository `swarma-memory` in Go: kernel module, the `memory` CLI and the skill. Curator installs the CLI through the skill. Separate modules can be split out later.
+
 ## Proposed next steps (not decisions)
 
 - **Done 2026-10-17:** the R7 package (`memory/spec/` 0.2.5-draft) and the adversarial collective (seven astra-max seats instead of a triad, by Ivan's order); both evaluators pass 57/57 canonical semantic vectors. R7-055 resolved by D-009; package 0.2.6-draft, both evaluators 66/66. Next: the platform book ch. 09 correction (D-001), then the documentary pilot on 10–30 Swarma decisions.

@@ -1,6 +1,6 @@
 # First working version: architecture draft (for owner decisions)
 
-Status: draft by the memory lane, 2026-10-18, answering Ivan's direction in session: move to a first working version, not a pilot; memory is autonomous (agents write it themselves, no approval gate); both agent-own and platform memory; shared platform memory with a second owner's agents; Go; one new repository; part of the Swarma platform architecture. Nothing here is decided until recorded in `DECISIONS.md`.
+Status: draft by the memory lane, 2026-10-18, answering Ivan's direction in session: move to a first working version, not a pilot; memory is autonomous (agents write it themselves, no approval gate); both agent-own and platform memory; shared platform memory with a second owner's agents; Go; one new repository; part of the Swarma platform architecture. Nothing here is decided until recorded in `DECISIONS.md`. Decided so far: D-011 (autonomous writing), D-012 (autonomy does not require the protected service), D-013 (spaces as git repositories), D-014 (Go, one repository).
 
 ## What the design already supports
 
@@ -35,3 +35,55 @@ Status: draft by the memory lane, 2026-10-18, answering Ivan's direction in sess
 4. Shared platform space: decision authorities per domain in the space policy; joint decisions need both receipts.
 5. Agent space lifecycle: deleted with the home on retirement unless derived into a project space.
 6. Go, one repository `swarma-memory` (kernel, CLI, skill), installed through Curator.
+
+## Second round (2026-10-18): agent memory, keys, sync, federation
+
+### Facts from the Swarma book (swarma-docs `orch/editorial-opus` at a84a74f)
+
+- Chapter «Пользователь ОС и сеть агента»: at retirement the home is deleted; **there is no home archiving, and the operator cannot preserve a home in the first version**. Code and results leave through git and task acceptance; acceptance does not prove they contain no secrets either.
+- Chapter «Ключи и ключник»: the agent holds no private identity key. The key holder signs bytes for the connecting agent (`sign(bytes)`), choosing the key by kernel peer UID plus an active account generation. Identity is a derivation path `purpose'/product'/project'/agent'`, stable across account re-creation and machine moves. The owner's published root lets anyone verify a key's origin offline. In Swarm Chain each identity has a cell with current keys, a hash of the next keys and the owner root as parent. The key holder is designed but has no module or contract yet; a temporary exception applies until then.
+- Chapter «Идентичность агента»: the history of an agent's work belongs to its stable identity and is meant to be portable.
+
+### Agent memory as its own class
+
+A new class, **agent memory**: the agent's own working knowledge (observations, choices it made in its work, hypotheses, lessons), not personal data about people. It lives in the agent space (owner, issuer and perspective = the agent). Non-sensitive ceiling as for every git space.
+
+### Agent space bound to identity, not to the home
+
+Because homes are deleted and never archived, an agent space must not live only in the home. Proposal: the agent space is a git repository addressed by the agent's identity, with a remote under the owner; the home holds only a working clone. Then:
+
+- retirement deletes the clone; the memory remains with the identity;
+- a persistent agent that returns under the same identity path gets the same memory, on any machine;
+- moving to another owner or team: the space travels as a signed export or a repository transfer; receivers verify record signatures against the identity's attestation chain;
+- revoked identity: the space is sealed with a final record and kept or deleted by the owner's policy;
+- one-off workers write straight into the project space and have no space of their own.
+
+This treats memory like code and results: a work artifact that leaves the home through git, with the same residual secret risk the book already accepts for code. Mitigations: schema-typed, length-limited fields, no blobs or arbitrary files, a secret scan at write and at export. The residual risk needs explicit owner acceptance.
+
+### Signatures
+
+- Every record carries the submitter's signature over its canonical bytes (package K-JSON-2), made through the key holder's `sign(bytes)`. Record signatures make records verifiable outside git (export, transfer, later anchoring); commit signatures remain for transport and history.
+- Readers verify against the public key attested by the owner root, or later the identity cell (D-010).
+- Gap: the key holder does not exist yet, and today all ivmbp agents sign with one shared key, so per-agent attribution is impossible. Proposal: temporary per-agent Ed25519 keys registered in the space policy (like the caller key exception), migrated to the key holder when it exists.
+
+### Promotion to platform memory and session decisions
+
+- An agent promotes a record by writing a record in the platform space that cites its agent-space record as source, with lineage; the original stays in the agent space. The issuer stays the agent; owner-level "platform decided" still needs an owner receipt.
+- "Decided in session S": the evidence is the agent's own signed record naming the session; once the session host exports admitted journal positions, the record cites the exact journal position.
+
+### Sync protocol
+
+The engine provides primitives; the skill tells the agent when to use them.
+
+- `memory sync`: fetch every readable space, verify new records, advance a per-space cursor (the last verified head).
+- Start of task: `sync`, then `recall` for the task topic. Before a write: `sync` (compare-and-set sees the current head), then write and push; a non-fast-forward means retry. At checkpoints and before finishing: `changes --since <cursor>`. End of task: write what was learned, `sync`.
+- A space directory (in the platform space) maps identities and projects to space remotes and access, so an agent can find another agent's memory.
+- Optional later: an authorized client posts change notices through the bridge; memory itself wakes no one.
+
+### Federation and projections
+
+There is no central store. Memory is a set of spaces; a view is computed over the spaces the caller may read, with issuer and perspective filters. Sharing an agent space with a second owner means granting git read access and listing it in the directory; that owner's agents add it as a readable space and query it.
+
+### Owner authority in a shared space (simplified)
+
+This matters only for records of the kind "the platform adopted X". Default for v1: each owner's decisions stand as that owner's; a platform view shows both, and a disagreement shows as an evidence conflict. A per-area authority rule in the platform space policy is added only if that becomes a problem.
