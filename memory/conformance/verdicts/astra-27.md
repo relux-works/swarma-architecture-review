@@ -6,7 +6,9 @@ Current status: **ACTIVE — bounded D-009 round**. Current score: **1/2 pending
 R7-055. Package 0.2.6 `77b951e` validates and its nine new oracles match the
 owner relation. Judge first runs are source 66/66 and package 64 pass/two fail
 (S34/S39); package first `1be6026` is retained. Closure awaits its correction
-and complete independent dual verification.
+and complete independent dual verification. Source first `31d77d2`
+reproduces exactly; R7-059 separately tracks a historical-profile control-harness
+mismatch (133/134 controls), with no source runtime discrepancy.
 Original first failures and all prior closed findings remain preserved. The
 convener reopened seats 21/22/23/27 at 18:44Z; the new PARK gate is dual 0.2.6
 coverage plus a quiet round, with a 22:30Z hard cap.

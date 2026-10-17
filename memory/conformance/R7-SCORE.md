@@ -7,6 +7,9 @@ Judge first runs give source **66 pass / 0 fail / 0 unsupported** semantic and
 unchanged package runtime **64 pass / 2 fail / 0 unsupported**. S34/S39 require
 package alignment; first evidence `1be6026` is immutable. Both readers leave
 8 deployment vectors unsupported. R7-055 closes only after both are green.
+Source first `31d77d2` reproduces exactly. Its one stale-profile control failure
+is separately tracked as R7-059: 133/134 controls pass; only harness version
+alignment is required, with original fixtures and runtime preserved.
 
 The 103 JSON artifacts regenerate exactly; 38 intended checker violations are
 detected. All nine new D-009 expectations match the independently reviewed

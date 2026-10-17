@@ -4,7 +4,7 @@ Sole writer: astra-27 (judge). Contract: `memory/MISSION-R7.md`.
 Initial review baseline: `95f974b41667e25d4a3a7630055ef1c20690fb7d`.
 Current status: **ACTIVE — bounded D-009 round**, reopened 2026-10-17 18:44Z.
 Current score: **1/2 pending 0.2.6 dual verification**; the prior 0.2.5 PARK score remains 2/2.
-58 items: 47 fixed, 10 rejected, R7-055 decision received / verification pending.
+59 items: 47 fixed, 10 rejected, R7-055 verification pending, R7-059 harness correction open.
 No previously closed specification or implementation finding is reopened.
 
 ## Review contract
@@ -110,6 +110,8 @@ commits and relevant controls; a candidate release alone is insufficient.
 
 | R7-058 | astra-25 [restore-current-obligations](cases/astra-25-restore-current-obligations.md), native first `644c793`, late-writer first `1138c5d`, exact fixtures `1cefcf9`; request `$kmeFdI3d8N1_BZoCMnBcpmZE-Lju4yXDpDMw7N1Zu7k` | K-ERASE-1/2/3; companion §6; bounded-evidence protected-service restore | impl-bug | astra-23 | fixed@104fbe8 | Judge independently reproduces all 57 canonical and 68 supplemental semantic passes plus 34 package controls. Current supplied closure is reconciled with retained erasure coverage, unreachable affected custody refuses atomically, and newly learned obligations update fences/erased/generation before reopening. Original four native traces and three late-writer controls pass; known/empty/repeated recovery and independent content/writes remain valid. Seven intended failures reproduce on the old runtime with the new tests. All original firsts and exact input bytes remain unchanged; only three previously failing exact actuals change. Source 946cbd8 remains conforming with 129 control coverage. |
 
+
+| R7-059 | astra-22 [0.2.6 first controls](impl-astra-22/runs/d009-0.2.6-controls-first.json), signed `31d77d2`; request `$9UYjA1VRtJOzftlEfi0HtNQXugp52DZ63eOxpSbzQ4I` | Release 0.2.6 version-only migration; ASTRA26-08 pair; boundary_checks | impl-bug | astra-22 (control harness only) | open | Historical 0.2.5 expected profiles are compared with a live 0.2.6 adapter. Judge reproduces the first failure and separately executes both variants: exactly two semantic_profile differences each; explicit copies changing only those labels compare cleanly. Original fixtures, product runtime and behavioral oracles require no change. Fix the owned harness metadata binding, audit copies and rerun controls; first `31d77d2` remains immutable. |
 
 ## Judge worklog
 
@@ -2030,3 +2032,30 @@ comparison-script optional-field KeyError is recorded and corrected in the audit
 it was not an evaluator error. R7-055 remains verification-pending for the
 required package alignment; the earlier ambiguity is not retroactively a bug.
 Current score 1/2. No new ledger ID or owner question is needed.
+
+
+## Reopened round 6 — source canonical first matches; harness version defect
+
+Source signed first `31d77d2` reproduces all 74 canonical rows exactly, including
+input hashes, normalized outputs and statuses: 66 semantic pass, zero fail or
+unsupported; eight deployment unsupported. Its runtime and all 23 Python modules
+remain at the pre-package `abc8511` freeze. The complete control rerun has 133
+passes and one failure in `test_excluded_record_has_no_forwarding_effect`.
+
+R7-059 classifies that failure as an implementation control-harness profile bug.
+The test feeds historical 0.2.5 expectations to a live 0.2.6 adapter. Judge
+reproduces the exact two semantic_profile differences and independently executes
+the second pair member that the first failing assertion prevents the test from
+reaching. Both variants have only those two metadata differences; explicit
+copied expectations with only the declared labels advanced compare cleanly.
+This does not mask another behavioral mismatch or authorize original fixture
+changes. The owned harness must declare and audit its version-only copies,
+retain negative/positive assertions and rerun complete controls/canonical checks.
+No source runtime correction is indicated. Decision event:
+`$uu1YAT4x6_6pzGAo0MiCwVPWZMPoXTpBNGZi3c1Nc3Q`.
+
+Evidence: seat `.temp/judge-r055-round06-boundary-review-01.json` and
+`.temp/judge-r055-round06-boundary-copies/` with original/copy hashes and exact
+changed paths; first control evidence remains at `31d77d2`. This bounded harness
+alignment was triggered by the D-009 release, without reopening earlier semantics.
+Score remains 1/2; package alignment and R7-059 correction are pending.
