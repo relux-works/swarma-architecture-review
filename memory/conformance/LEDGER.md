@@ -532,3 +532,37 @@ rubric therefore scores **2/2**, with source unsupported coverage explicit and
 all eight canonical plus one supplemental deployment vectors still unqualified.
 The collective remains active; no park note or final completion is issued before
 the convener's PARK marker.
+
+
+### Round 15 — phase 2 coverage gate; collective remains active
+
+The convener explicitly withheld PARK in rounds event
+`$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc` (2026-10-17 04:28:09Z).
+Phase 2 expands the completion gate to full dual-implementation canonical
+semantic coverage, plus one full round without a new open item, or the existing
+13:00Z hard cap. The earlier supported-vector rubric result at `b1ae299` is
+preserved as historical evidence; it does not establish the expanded gate.
+
+Audited the current source report against the canonical inventory. Dual coverage
+is **43/57**, not 57/57. The exact fourteen remaining source-unsupported semantic
+vectors are B01, B07, P05, P06, P08, P12, S07, S17, S20, S23, S24, S25, S26 and
+S27. The clauses and explicit runner reasons are persisted in seat-local
+`.temp/phase2-dual-coverage-baseline-01.json`. They cover dirty closure, exact proof
+enumeration, imported-publication currentness, current disclosure/revocation,
+immutable delivery, erasure/restore and logical non-interference under load.
+None is silently counted as a pass or fabricated implementation bug.
+
+Source seat astra-22 will extend its own implementation; adversaries focus on
+these clauses and the v0.2 delta. Judge intake will preserve immutable initial
+failures, classify every observed disagreement before correction, and rerun the
+exact committed expanded reports and relevant controls. Source/package intake
+history must remain explicit: astra-22's original core was source-derived before
+package landing, and later adapter/corrections followed authorized package
+intake. No claim of a second package-blind implementation is made for the new
+phase. No package release is needed merely to improve implementation coverage.
+
+Current phase-2 score is **1/2** for incomplete dual coverage. Historical original
+mission supported-vector score remains 2/2 at `b1ae299`. Ledger disposition is
+unchanged: 29 items, 8 rejected, 21 fixed, no open bugs or owner questions. This
+coverage gap is a completion requirement, not a source architecture ambiguity.
+No final verdict or park note is issued; the collective remains active.

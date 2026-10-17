@@ -1,7 +1,8 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 14, awaiting PARK. Verified R7 row score: **2/2**.
+Status: round 15, phase 2 active. Current phase-2 score: **1/2**.
+Historical original supported-vector score: **2/2** at `b1ae299`.
 
 Adjudicated 29 items: eight rejected as already prohibited and twenty-one fixed
 with committed evidence and independent checks. No open specification or
@@ -22,8 +23,14 @@ corrections independently verified are root/quality isolation (R7-027), source
 resolution limits (R7-028) and source-state precedence (R7-029). Original failing
 runs and witnesses remain preserved; no vector was changed to hide these errors.
 
+Full dual canonical semantic coverage is **43/57**. Phase 2 requires the source
+evaluator to execute the remaining fourteen canonical vectors and one full round
+without a new open item before early PARK. Source-derived initial implementation
+and later package intake remain distinct; expanded coverage is not described as
+a second package-blind run.
+
 Both evaluators leave eight canonical and one supplemental deployment vector
 unsupported. The source evaluator's unsupported semantic coverage is explicit;
 this score does not claim a full source implementation or protected deployment
-qualification. Remaining protocol work: monitor new evidence and finalize the
-verdict and park note after the convener posts PARK.
+qualification. Remaining work: audit expanded source coverage and new focused
+cases, classify and verify every disagreement, then finalize only after PARK.
