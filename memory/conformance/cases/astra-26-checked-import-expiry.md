@@ -2,7 +2,7 @@
 
 Status: judge-classified **R7-032 impl-bug (astra-22)** and
 **R7-033 impl-bug (astra-23)**. Both behaviors verified: source `1f35727`,
-package `f10c7ba`. Judge has verified R7-033; R7-032 review is pending. Original package
+package `f10c7ba`. Judge has verified R7-033 and independently closed R7-032 at `1f35727`. Original package
 `0.2.1-draft` at `f31d58f`; package evaluator `8b9baf3` (runtime `f5fdd8b`),
 source evaluator `512d006`. Targets S23/P07 publication currentness and P12 frozen
 history, not a live issuer/network check.
@@ -109,3 +109,10 @@ value was changed. Evidence: seat `.temp/r7-astra-26/owned-cases-astra22-05.json
 implementation and input identities. R7-032 fix evidence has been supplied for
 independent judge closure; the package counterpart R7-033 has already received
 the judge's fixed-at-f10c7ba verification.
+
+## Judge closure
+
+Judge event `$t62IzV7AQgzvkNmi_vyikVHDeAPF9N8MjuqfCuupUxk` independently
+reproduces ASTRA26-07, all 65 canonical rows and eight adapter controls against
+package 0.2.2, and closes R7-032 at `1f35727`. Both implementation rows are
+therefore fixed; historical first failures and the current regression remain.

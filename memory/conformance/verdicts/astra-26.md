@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 13, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 14, 2026-10-17.
 
 ## Baseline and scope
 
@@ -404,3 +404,24 @@ Source proof enumeration has independently reported dual canonical coverage
 - No new case, expectation change or owner question. Full dual coverage and
   separate collective findings remain unresolved; current row **1/2**, with
   deployment still unqualified.
+
+## Phase 2 round 14 — exact import check coverage
+
+- Judge independently closed R7-032 at `1f35727`; all previously classified
+  owned implementation and specification defects are fixed. Source canonical
+  extension `e38c37c` reports 47/0/10, adding B01/S17; full dual coverage is
+  still incomplete.
+- Added ASTRA26-09 with a missing-one-source check, explicit-unverified neighbor
+  and all-checks-current positive control. An admitted check for copy1/copy2
+  must not silently certify copy3's different exact source object. Root origin
+  deduplication remains one; evidence and attribution remain unchanged.
+- Independently ran all fourteen owned fixtures on current 0.2.2. Source
+  `e38c37c`: **12 pass / 0 fail / 2 unsupported** (delivery pair). Package
+  `a016781`: **13 pass / 1 fail / 0 unsupported**. Only ASTRA26-09 fails there,
+  in the two currentness fields; both new neighboring controls pass in both.
+  This is submitted for judge classification, not a self-assigned ledger row.
+- All fourteen shape/reference/normalization/forbidden checks pass. Evidence:
+  seat `.temp/r7-astra-26/cases-structural-08.log`,
+  `owned-cases-astra22-06.json`, `owned-cases-astra23-09.json` and matching logs.
+  Earlier reports and first failures remain preserved. No expected answer in
+  an existing fixture changed. Current row **1/2**; deployment unqualified.
