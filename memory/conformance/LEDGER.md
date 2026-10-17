@@ -48,6 +48,8 @@ evaluator, or vice versa.
 | R7-021 | astra-23; [B01 divergence](impl-astra-23/DIVERGENCES.md) at `1439219`; event `$ej8DWxYS8jYpwc8WvM3_qATyIHrZ9DtPhPRSMP_rSmI` | B01; K-DISC-1 | spec-bug | astra-21 | open | Proposal rec:decision-replace/1 lacks its mandatory integration fact. Judge reproduces invalid_reference with unchanged state; adding only the direct complete fact restores the exact expected revision. Fix fixture construction and checker coverage without rejecting intentional missing-fact refusal fixtures or changing expected behavior. |
 | R7-022 | astra-26; [foreign-self-declaration](cases/astra-26-foreign-self-declaration.md) at `4b5d034`; event `$LFCNfaFCUty4LXmmxpSWyukWTQC8nhjAmkocbEFA9Hw` | P15; K-ENV-1/3, K-REC-1; kernel §§2, 4, 8, 11.2 | spec-bug | astra-21 | open | Organisation assessment of an explicitly different subject uses the competence self_declaration schema. Preserve its separate issuer sequence and projection exclusion, but use a correctly typed assessment. Close self attribution using explicit identity evidence, never opaque-ID spelling; retain actual/delegated self controls and wrong-subject rejection for proposals and initial state. Current package behavior is not an implementation defect. |
 
+| R7-023 | astra-24 [derived-source-refs](cases/astra-24-derived-source-refs.md) at `fb00b35`, astra-23 supplemental report; events `$7UDumulp6n1Yh6BKA4PimUs-cFL2shg1GIRRBmlSoDw`, `$JC4s7_UyfP-jBJGDKUt2Wh2NG8ZUYvSeVZbP7ASaF9k` | ASTRA24-03/04; K-EVAL-1/3/5; companion §§4, 7 | impl-bug | astra-23 | open | Direct A discloses exact source S, but derived A→B loses it despite a found qualified path. Judge reproduces on current 0.2.0, not merely old syntax: two missing-list differences and intended pair/forbidden checks; mixed AND/OR qualification is already correct. Propagate separately authorized sources through found paths; exclude hidden/unfound candidates and unrelated same-origin copies, without minting roots. |
+
 Every received case is classified against its cited package release. Rejection
 means the proposed bad reading already contradicts explicit package clauses; it
 does not discard useful implementation regression fixtures. Both independent
@@ -237,8 +239,8 @@ an exact `git archive 0ef608a memory/spec` copy. All statuses, input hashes,
 normalized actual reports and differences match committed RESULTS.json: semantic
 24 pass / 0 fail / 29 unsupported, deployment 8 unsupported. Supplemental inventory
 at that checkout: 3 pass / 0 fail / 13 unsupported, separately from canonical
-counts. Its three supported cases cover mixed AND qualification, the stronger
-complete OR control and rule expiry. Source controls: 24 passed; adapter visibility
+counts. Its three supported cases are ASTRA24-03 (mixed AND/stronger OR), ASTRA24-02
+(rule expiry), and ASTRA26-02-CONTROL (checked publication currentness). Source controls: 24 passed; adapter visibility
 control: 1 passed; harness controls: 5 passed. Closed R7-011/012/013/015.
 Evidence in seat scratch: `.temp/astra22-judge-fixed-canonical-01.json`,
 `.temp/astra22-judge-fixed-adversarial-01.json`,
@@ -273,3 +275,36 @@ bugs or established owner questions at this round. Score stays 1/2 until package
 corrections and both same-release runs satisfy the rubric. A failed initial file
 search used a nonexistent profiles directory; the successful follow-up inspected
 the actual profiles-synthetic path. No validation relied on that failed read.
+
+### Round 9 — same-release baseline and derived provenance
+
+At judge checkout `dcde639`, reviewed source evaluator extension `8b97e1e` and
+reran canonical 0.2.0. The report matches committed package version/commit, core
+hash, totals and every vector row exactly: semantic 29 pass / 0 fail / 28
+unsupported; deployment 8 unsupported. Source controls 25, adapter controls 2,
+and runner harness controls 5 pass. New supported read paths cover declared
+incompatibility, audience aliases/redaction and versioned exclusion. Evidence:
+`.temp/astra22-judge-020.md` / `.json`,
+`.temp/astra22-judge-020-comparison-01.log`,
+`.temp/run_vectors-judge-020-01.log`,
+`.temp/source_checks-judge-020-01.log`, `.temp/adapter_checks-judge-020-01.log`.
+Both independently verified current reports now target package `cde5754`.
+
+Reviewed ASTRA24-04 and astra-23's same defect report. Executed current 0.2.0
+cases with package implementation `1439219`: ASTRA24-04 has two exact source-ref
+field differences and both intended paired/forbidden checks; ASTRA24-03 has four
+source-ref differences while its source-state controls agree. Classified one
+implementation defect R7-023; the first-run matched old-package evidence remains
+historical evidence, not a claimed new-release run. Also reproduced ASTRA25-05's
+14 hidden-dirty field differences, paired inequality and two forbidden checks;
+the visible dirty control passes. This extends R7-018 evidence without charging
+an implementation for following the package's contradictory global instruction.
+The current ASTRA25-02 joint-release/wrong-owner-revoke/correct-owner-revoke fixture
+passes exactly. Evidence: `.temp/astra23-judge-round9-cases-01.json`.
+
+Five spec bugs and one implementation bug remain open. Editor acknowledgments
+accept R7-021 and R7-022 for the next release. All directed findings have decisions
+or closure replies. A source-closure reply initially used a nonexistent topic;
+no message was delivered there, and the reply was sent to the actual
+`div-astra22-current-source` topic after listing topics. No missing delivery is
+assumed successful.

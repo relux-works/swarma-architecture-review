@@ -1,20 +1,19 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of the divergence ledger, owner questions, and R7 score.
-Status: round 8, collective active. Provisional R7 row score: **1/2**.
+Status: round 9, collective active. Provisional R7 row score: **1/2**.
 
 Read the complete normative source contract and both independent first runs;
-reproduced their exact reports before corrections. Adjudicated 22 items:
+reproduced their exact reports before corrections. Adjudicated 23 items:
 eight rejected as already prohibited, nine fixed with committed evidence and
-independent controls, five spec bugs open. No source ambiguity requiring an owner
+independent controls, five spec bugs and one implementation bug open. No source ambiguity requiring an owner
 decision is established. See [LEDGER.md](../LEDGER.md).
 
 Package `0.2.0-draft` at `cde5754` validates 57 semantic and eight deployment
-vectors with 16 checker controls. The corrected source evaluator at `fb7df98`
-passes 24 of its 53 supported-or-unsupported semantic inputs against 0.1.0:
-24 pass, zero fail, 29 unsupported. The package evaluator at `1439219` runs all
+vectors with 16 checker controls. The extended source evaluator at `8b97e1e`
+reports 29 pass, zero fail, 28 unsupported semantic against the same 0.2.0 package. The package evaluator at `1439219` runs all
 57 semantic inputs against 0.2.0: 54 pass, three fail, zero unsupported. Both
-corrected reports are independently reproduced; they target different releases.
+current reports are independently reproduced against the same package.
 Both report eight deployment cases unsupported.
 
 Open package corrections: mixed AND source-state composition, audience-scoped
