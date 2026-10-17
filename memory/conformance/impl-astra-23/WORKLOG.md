@@ -502,3 +502,29 @@ will prove semantic differences and forbidden effects are detected.
   supplemental-round19-01.log and controls-11.log.
 - ASTRA26-10 has been classified R7-046; first reproduction and correction are
   queued next. Source49/57 candidate and retention0.2.3 remain separate work.
+
+## Round 20 — foreign delivery actor and 0.2.3 first full baseline
+
+- R7-046 is classified; preserve exact first ASTRA26-10 result against frozen
+  0.2.2 before correction, with rightful delivery/revocation controls unchanged.
+- Explicitly snapshot released0.2.2 and author-owned case bytes under task scratch
+  for pinned verification; no fixture migration or expectation changes are made.
+- Released0.2.3 at23290b3 supplies the missing R7-039 retention scope and R7-042
+  future-fact checker correction. Preserve its first full run on unchangedf6c339d
+  before adapting any intake code. Actor delivery correction comes first, then
+  R7-037 scoped retention/current replay under the published rule.
+- Judge independently closed R7-041 at53266dd and verified source49/57 coverage.
+
+### Round 20 first baseline outcome
+
+- PHASE2-ACTOR-FIRST on exact frozen0.2.2:42/2/0 semantic across44 cases,
+  deployment1unsupported. ASTRA26-10 returns delivered for the ungranted actor
+  (nine exact differences plus forbidden receipt); rightful delivery and later
+  revocation pass. R7-037 is the other failure; new authority NEXT case passes.
+- RELEASE-0.2.3-FIRST on unchangedf6c339d:55/2/0 semantic, deployment8unsupported.
+  Only P11/P13 fail, exposing new exact retention and replay obligations. This
+  first report is preserved before either queued runtime correction.
+- Read the complete0.2.3 normative/release delta. Actor binding is fixed for
+  storage; retained closure includes outputs and transitive known inputs in the
+  whole batch, independent of labels, with live retain revocation/current replay.
+- Logs: phase2-actor-first-01.log and release-023-first-01.log (both intended exit1).

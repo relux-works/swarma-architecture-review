@@ -278,3 +278,18 @@ extra review. Selected evidence stays unchanged and the state is never dirtied b
 this read. Exact fixture/forbidden checks and all22controls pass. Canonical57/57
 and pinned42-case supplemental41/1/0 are retained. Independent review is pending;
 first08c4b9a is immutable. The remaining supplemental failure is separate R7-037.
+
+## Phase 2 R7-046 — ungranted actor reuses a saved delivery binding
+
+PHASE2-ACTOR-FIRST preserves the first exact package result on frozen0.2.2 at
+runtimef6c339d: ASTRA26-10 incorrectly returns delivered, nine differing fields
+and one forbidden receipt. Rightful delivery, later selected revocation, frozen
+capture and state otherwise match. Judge already classified R7-046; no delegated
+publisher API is inferred from this ungranted-actor case. Correction is next.
+
+## 0.2.3 retention release first result
+
+RELEASE-0.2.3-FIRST preserves55/2/0 semantic and8deployment unsupported before
+adaptation. P11/P13 are the only failures. The released context resolves R7-039,
+so R7-037 can now be corrected against an explicit storage scope rather than a
+label quantifier or later query. All prior first reports remain unchanged.

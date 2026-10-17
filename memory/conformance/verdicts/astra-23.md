@@ -1,6 +1,11 @@
 # astra-23 — package implementer verdict
 
-Latest tested package **0.2.2-draft**, `7e71765`: all canonical semantic vectors pass.
+Latest first-run package **0.2.3-draft**, `23290b3`: unchanged runtime passes
+55/57 canonical semantic vectors; P11/P13 require the released scoped-retention
+behavior. RELEASE-0.2.3-FIRST preserves this pre-adaptation result. Eight deployment
+vectors remain unsupported. No implicit context/default is introduced.
+
+Previous validated package **0.2.2-draft**, `7e71765`: all canonical semantics pass.
 
 | Current canonical profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
@@ -20,20 +25,19 @@ full-authority controls all pass. Unknown-lineage lower-bound erasure/late write
 and future-input operations also pass. Judge independently closed R7-031 at a016781.
 
 R7-041 ambiguous/historical authority-slot CAS now passes, with native atomic
-state checks, unique-head/challenge and exact replay controls. Adversary astra-24
-independently verifies53266dd at0f59936; judge closure is pending. PHASE2-CAS-FIRST at e525612 preserves both failures. The existing
+state checks, unique-head/challenge and exact replay controls. Judge independently closed53266dd, including a second remaining-head withdrawal. PHASE2-CAS-FIRST at e525612 preserves both failures. The existing
 failure is definite no-retain R7-037, with original first failure retained. Judge classified
 its missing storage-scope binding as spec-bug R7-039. Wait for the released rule
 before the complete scoped retention correction; no query-derived shortcut is used.
 R7-044 publication-check coverage and R7-045 transitive review now pass their exact
 cases and scoped/mixed/hidden controls; independent review is pending. Both first
-failures remain in PHASE2-COVERAGE-REVIEW-FIRST at08c4b9a. The newly classified
-R7-046 foreign-delivery-actor case is queued next and is outside this pinned corpus.
+failures remain in PHASE2-COVERAGE-REVIEW-FIRST at08c4b9a. R7-046 foreign-delivery-actor failure is now frozen in PHASE2-ACTOR-FIRST
+on the44-case0.2.2 corpus (42/2/0, other failureR7-037), before correction.
 
 Judge independently closed R7-033 import expiry and R7-034 selected delivery at
 f10c7ba. Their pre-fix report remains PHASE2-IMPORT-DELIVERY-FIRST at f83268d.
 Source reports 49/57 coverage at 5d079be, pending expanded-head verification;
-last judge-verified dual baseline is 47/57 at source e38c37c. Unsupported
+last judge-verified dual baseline is 49/57 at source 68152c5. Unsupported
 source results are never counted as passes. Deployment remains unqualified.
 
 Phase 1 supported-vector score was **2/2**, independently verified at b1ae299.
@@ -48,5 +52,6 @@ or divergence topic was read before it. Expected vectors were never edited.
 Evidence: ../impl-astra-23/RESULTS.md/JSON; SUPPLEMENTAL.md/JSON (0.2.2);
 FIRST-RUN.md/JSON; RELEASE-0.2.1-FIRST.md/JSON; RELEASE-0.2.2-FIRST.md/JSON;
 PHASE2-ERASURE-FIRST, PHASE2-IMPORT-DELIVERY-FIRST, PHASE2-RETENTION-FIRST
-PHASE2-CAS-FIRST and PHASE2-COVERAGE-REVIEW-FIRST;
+PHASE2-CAS-FIRST, PHASE2-COVERAGE-REVIEW-FIRST, PHASE2-ACTOR-FIRST
+and RELEASE-0.2.3-FIRST;
 DIVERGENCES.md; WORKLOG.md; test_controls.py and test_semantics.py.
