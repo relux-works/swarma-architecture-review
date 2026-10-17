@@ -1,25 +1,26 @@
 # R7 verdict — astra-22
 
-Status: classified corrections published; read coverage expanded on 0.2.0-draft.
-Unsupported semantic transactions remain explicit. No other evaluator was read.
+Status: transaction wire coverage added; first 0.2.1 run preserved before fixing
+ASTRA22-05. No other evaluator was read.
 
 The source-only baseline was frozen at `4d4ef45` before package access. Its
 SHA-256 is `cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
 Original failing reports remain in `impl-astra-22/runs/0.1.0-first.*` and
-`runs/case-first.json`. R7-011/012/013/015 fixes landed at `fb7df98`.
-
-Current package commit: `cde5754d523b98c93cf2b1777fe80e15b9efa74c`.
+`runs/case-first.json`. R7-011/012/013/015 fixes at `fb7df98` are judge-closed.
 
 | Inventory | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Canonical semantic | 29 | 0 | 28 |
-| Canonical deployment | 0 | 0 | 8 |
-| Migrated astra-26 cases | 4 | 0 | 4 |
+| Canonical semantic 0.2.0 cde5754 transaction first run | 44 | 1 | 12 |
+| Canonical semantic 0.2.1 f31d58f transaction first run | 42 | 1 | 14 |
+| Canonical deployment, each release | 0 | 0 | 8 |
 
-25 source controls, two adapter controls and five runner controls pass. Current
-core SHA-256: `8738b80fbe1b12cd56c62f9095c541b19f18203bf9bc147fba1ca95e5c7432d9`. Full evidence:
-`impl-astra-22/RESULTS.*`, `runs/cases-astra26-0.2.*`, `DIVERGENCES.md`, `WORKLOG.md`.
+The 0.2.0 failure reproduces known R7-021 (missing integration fact). The 0.2.1
+failure is ASTRA22-05: the adapter omits the newly explicit subject/principal
+binding gate, admits a foreign declaration and shifts the subsequent query cut.
+Five new transaction controls pass beside the established source, adapter and
+runner controls. Reports: `runs/0.2.0-transactions-first.*`,
+`runs/0.2.1-transactions-first.*` and `RESULTS.*`; follow-up in `DIVERGENCES.md`.
 
-R7 score: **1/2**. The supported vectors agree; remaining semantic operation
-coverage and collective release/ledger gates prevent a complete conformance claim.
-No protected deployment qualification, timing proof or physical erasure is claimed.
+R7 score: **1/2**. One implementation defect and explicit unsupported semantic
+paths remain. No protected deployment qualification, timing proof or physical
+erasure is claimed.

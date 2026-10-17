@@ -46,6 +46,7 @@ class Adapter:
         self.rules = {key(r): r for r in self.initial["projection_rules"]}
         self.profile = profile
         self.captures = []
+        self.writer = None
 
     def granted(self, record, query, right):
         envelope = record["envelope"]
@@ -308,10 +309,21 @@ class Adapter:
                 "cutoffs": sorted(cutoffs), "changes": {"state": "initial", "refs": []}}
 
     def execute(self, operations, query):
-        unsupported = sorted({o["op"] for o in operations if o["op"] != "capture"})
+        unsupported = sorted({o["op"] for o in operations if o["op"] not in {"capture", "admit", "admit_raw", "revise"}})
         if unsupported:
             raise Unsupported("Unmapped frozen-core transaction operations: " + ", ".join(unsupported))
-        operation_results = [self.query(op["query"]) for op in operations]
+        operation_results = []
+        for op in operations:
+            if op["op"] == "capture":
+                operation_results.append(self.query(op["query"]))
+            else:
+                if self.writer is None:
+                    from transactions import Transactions
+                    self.writer = Transactions(self)
+                try:
+                    operation_results.append(self.writer.apply(op))
+                except Refusal as error:
+                    operation_results.append(refusal(error.code))
         result = self.query(query)
         return {"operation_results": operation_results, "result": result,
                 "postconditions": {"record_refs": sorted_refs(ref(r) for r in self.records.values()),

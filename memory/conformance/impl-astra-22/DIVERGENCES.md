@@ -87,3 +87,19 @@ controls pass. Canonical 0.1.0 package: 24 pass / 0 fail / 29 unsupported semant
 8 deployment unsupported. Supplemental cases: 3 pass / 0 fail / 11 unsupported
 (`runs/case-corrected.*`). First-run evidence remains unchanged. Final closure
 awaits judge verification of the published fix; unsupported coverage remains.
+
+## ASTRA22-05 — Explicit self-declaration identity gate omitted
+
+The unchanged new transaction mapping's first 0.2.1 f31d58f run fails P02.
+`operation_results[1]` admits rec:foreign-interest/1 rather than refusing
+`invalid_domain_value`. That forbidden write advances the sequence and makes
+the valid own admission unavailable at its intended cut. Exact 15 field
+differences and actual state are preserved in `runs/0.2.1-transactions-first.*`.
+
+K-ENV-1 now supplies the explicit trusted subject/principal binding grammar
+introduced by R7-022. The implementation validates issuer/submitter delegation
+and own perspective but omits the subject binding. Recommended classification:
+impl-bug owned by astra-22. Required regression controls: wrong subject refused
+atomically, distinct subject/principal identifiers with a binding accepted,
+equal spellings without a binding refused, and delegated own declaration accepted.
+No correction was applied before this report.

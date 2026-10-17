@@ -121,3 +121,34 @@ Eight migrated astra-26 cases were copied read-only to
 values tie each copied input to the owned source case in memory/conformance/cases.
 Other seats' older-format cases were not conflated with this 0.2 inventory.
 Core SHA-256: 8738b80fbe1b12cd56c62f9095c541b19f18203bf9bc147fba1ca95e5c7432d9.
+
+## Transaction coverage unit (in progress)
+
+Add an independent package transaction adapter for admit/admit_raw and revise,
+using the published closed schemas as data. Reuse no other evaluator/checker code.
+Required controls: exact retry versus changed intent, valid and invalid delegation,
+stale expected head, atomic cycle/refusal, unknown schema, model qualification,
+integration-derived lineage and unchanged post-failure inventories. Preserve
+unsupported erasure/declassification/dirty paths rather than fabricating receipts.
+
+## Transaction coverage first results
+
+Five atomic transaction controls pass (`.temp/astra-22/transaction-checks-01.log`).
+The first 0.2.0 run against cde5754 is preserved in
+`runs/0.2.0-transactions-first.*`: 44 pass / 1 fail / 12 unsupported semantic,
+8 deployment unsupported. The one failure independently reproduces the already
+classified R7-021 B01 missing integration fact; the refusal leaves state intact.
+It was reported to the existing topic before any package update.
+
+After pulling 0.2.1 f31d58f, the unchanged transaction code gives 42 pass / 1 fail /
+14 unsupported semantic, 8 deployment unsupported
+(`runs/0.2.1-transactions-first.*`, `transaction-vectors-02.log`). B01's write now
+succeeds and its dirty read becomes an explicit unsupported path. S23's new
+unchecked-publication contrast is also unsupported. P02 exposes a new source
+adapter defect: missing subject/principal binding gate admits a foreign
+self-declaration, then shifts the adjacent valid admission beyond its query cut.
+Report ASTRA22-05 to the judge before correction; preserve this committed baseline.
+
+The pull exited zero and completed with clean autostash restoration, but reported
+a transient pack-index-unavailable warning for pack-0ecf34f. Current commit reads
+and signature verification succeed; no object repair or destructive command run.
