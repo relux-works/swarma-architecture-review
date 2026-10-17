@@ -1,38 +1,42 @@
 # R7 score
 
-Owner: astra-27 (judge). Status: phase 2 active, round 20; no PARK.
-Current verified release: **0.2.2-draft**, `7e71765`.
-Retention-scope/future-input release 0.2.3 is pending.
+Owner: astra-27 (judge). Status: phase 2 active, round 21; no PARK.
+Current verified release: **0.2.3-draft**, `23290b3`.
 
-**Current phase-2 score: 1/2.** Verified dual canonical coverage is **49/57**.
-Full 57/57 coverage plus one full round without a new open item is required for
-early PARK. Two specification bugs and seven implementation bugs remain open.
-The original supported-vector score 2/2 at `b1ae299` is historical and narrower.
+**Current phase-2 score: 1/2.** Current exact dual canonical passes: **47/57**.
+Source implements 49 vectors; the new P11/P13 retention cases fail both runtimes.
+Full 57/57 dual coverage plus one full round without a new open item is required
+for early PARK. Three implementation bugs remain open; no specification bug or
+owner question is open. The original score 2/2 at `b1ae299` is historical and
+used the narrower supported-vector rubric.
 
 | Requirement | Pinned evidence | State |
 | --- | --- | --- |
-| Closed package | `7e71765`, 14 schemas, 52 clauses | R7-039 retention scope and R7-042 checker gaps open |
-| Package validator | 94 JSON files, 14 domains, 23 intended violation controls; exact regeneration | Canonical pass; supplemental future-input false positive remains |
+| Closed package | `23290b3`, 14 schemas, 52 clauses | R7-039 retention scope and R7-042 checker gaps fixed |
+| Package validator | 94 JSON files, 14 domains, 32 intended violation controls | Pass; exact regeneration |
 | Canonical semantic inventory | 57 vectors | Every vector executable |
-| Dual coverage | Source `68152c5`, package runtime `53266dd`, package 0.2.2 | **49/57; 8 source-unsupported** |
-| Source evaluator | Exact independent canonical report | 49 pass / 0 fail / 8 unsupported semantic |
-| Package evaluator | Exact independent canonical report | 57 pass / 0 fail / 0 unsupported semantic |
-| Supplemental execution | 43 semantic cases | Source 33/1/9; package 39/4/0 (pass/fail/unsupported) |
-| Additional judge probes | Rule/check invalidation and remaining authority head | Source failures remain; package controls pass |
-| Ledger | [LEDGER.md](LEDGER.md): 10 rejected, 27 fixed | R7-039/042 spec; R7-036/037/040/043/044/045/046 impl open |
+| Current dual exact passes | Source `99b5a85`, package runtime at `5416283`, package 0.2.3 | **47/57; 2 failures shared, 8 source-unsupported** |
+| Source evaluator | Independent full 0.2.3 run | 47 pass / 2 fail / 8 unsupported semantic |
+| Package evaluator | Independent full 0.2.3 run | 55 pass / 2 fail / 0 unsupported semantic |
+| Previous-release correction checks | Exact 0.2.2, source `99b5a85`, package `f6c339d` | Source 49/0/8; package 57/0/0; dual 49/57 |
+| Frozen supplemental corpus | 44 semantic cases at `3f06da5`, package 0.2.2 | Source 34/1/9; package 42/2/0 |
+| Judge invalidation probes | Three original exact inputs | Both pass after source correction |
+| Ledger | [LEDGER.md](LEDGER.md): 10 rejected, 33 fixed | R7-036/037 retention and R7-046 delivery actor remain open |
 | Owner questions | [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) | None established |
 | Deployment inventory | 8 canonical plus 1 supplemental | Both unsupported; no deployment qualification |
 
-P06 and P12 now pass both implementations. Package CAS R7-041 closes, while
-source R7-040 remains open: it rejects a valid remaining-head withdrawal after
-passing the original four fixtures. Source established controls total 77 with
-unchanged groups reused; package controls total 19. These passing suites do not
-cover all newly exposed failures. First reports, input hashes, case migrations,
-setup failures and correction evidence remain explicitly preserved in the ledger.
+Round 21 closes source CAS R7-040 and rule/certificate invalidation R7-043,
+package exact-import coverage R7-044 and transitive review R7-045, plus both
+specification gaps. Source established controls total 81 with unchanged groups
+reused explicitly; package 22 controls were rerun on frozen 0.2.2. These results
+do not claim that the new retention requirements are implemented. Isolated
+positive P11/P13 traces verify the new oracles without bypassing the full red runs.
+Incoming actor correction `3ce8ee3`, current supplemental migrations and the
+transitive-unknown retention pair are queued for independent review.
 
 Remaining canonical source gaps: B07, P05, P08, S20, S24, S25, S26 and S27.
-Canonical agreement does not close the separate adversarial bugs. Unsupported
-inputs never count as passes. Synthetic erasure, restore, release or delivery
-does not qualify a real deployment. Phase 2 follows convener event
-`$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc`; 13:00Z hard cap remains.
-Continue until the convener posts PARK.
+First failures, exact pins, input hashes and setup errors remain preserved in the
+ledger. Unsupported inputs never count as passes. Synthetic erasure, restore,
+release or delivery does not qualify a real deployment. Phase 2 follows convener
+event `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc`; the 13:00Z hard cap
+remains. Continue until the convener posts PARK.
