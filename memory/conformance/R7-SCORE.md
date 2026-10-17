@@ -1,36 +1,35 @@
 # R7 score
 
-Owner: astra-27 (judge). Status: provisional, round 13; collective active.
-Latest validated release: **0.2.1-draft**, package commit `f31d58f`.
+Owner: astra-27 (judge). Status: verified, round 14; awaiting PARK.
+Release: **0.2.1-draft**, package commit `f31d58f`.
 
-**Current rubric score: 1/2.** Package corrections are verified. Two source
-evaluator bugs remain: source-resolution accounting and source-state precedence.
+**R7 rubric score: 2/2.** The package validates, every semantic vector is
+executable, both evaluators pass every semantic vector they support, and no
+classified specification or implementation bug remains open. No source ambiguity
+requiring an owner question was established.
 
 | Requirement | Evidence | State |
 | --- | --- | --- |
-| Closed package and release | `f31d58f`, 14 schemas, 52 clauses | All classified package corrections verified |
-| Package validator | 94 JSON files, 14 domain documents, 20 intended violation controls | Structural pass |
-| Semantic inventory | 57 canonical vectors | Every vector executable; package evaluator 57 pass |
-| Deployment inventory | 8 canonical vectors | Both evaluators explicitly unsupported |
-| Source evaluator | `4e647ea`, package 0.2.1, exact independent reproduction | 43 pass / 0 fail / 14 unsupported semantic |
-| Package evaluator | `f5fdd8b`, package 0.2.1, exact independent reproduction | 57 pass / 0 fail / 0 unsupported semantic |
-| Ledger | [LEDGER.md](LEDGER.md): 8 rejected, 19 fixed, 0 open spec bugs, 2 open impl bugs | R7-028/029 |
+| Closed package and release | `f31d58f`, 14 schemas, 52 clauses | All package corrections verified |
+| Package validator | 94 JSON files, 14 domain documents, 20 intended violation controls | Pass |
+| Semantic inventory | 57 canonical vectors | Every vector executable |
+| Source evaluator | `512d006`, exact independent report reproduction | 43 pass / 0 fail / 14 unsupported semantic |
+| Package evaluator | Code `f5fdd8b`, report/control update `8b9baf3`, exact independent reproduction | 57 pass / 0 fail / 0 unsupported semantic |
+| Supplemental inventory | 22 semantic cases, counted separately | Source 14/0/8; package 22/0/0 (pass/fail/unsupported) |
+| Ledger | [LEDGER.md](LEDGER.md): 8 rejected, 21 fixed | No open spec or impl bugs |
 | Owner questions | [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) | None established |
+| Deployment inventory | 8 canonical and 1 supplemental vector | Both evaluators explicitly unsupported |
 
-Both immutable original runs remain preserved and independently reproduced:
-source [0.1.0-first](impl-astra-22/runs/0.1.0-first.md) and package
-[FIRST-RUN](impl-astra-23/FIRST-RUN.md). Later first release failures and corrected
-runs are preserved and independently checked as detailed in ledger rounds 10–13.
-Source canonical reproduction has 44 passing source/adapter/transaction/harness
-controls; package reproduction has 13 passing checker/product controls.
+Immutable first runs and later failures remain preserved, with corrections and
+independent checks detailed in ledger rounds 5–14. Latest source controls:
+33 source, 5 adapter, 7 transaction and 5 harness tests, all passing (50 total).
+Latest package controls: 4 checker and 10 product tests, all passing (14 total).
+The new source-state controls retain genuine unavailability and budget cutoffs,
+existing evidence qualification, and input-state preservation.
 
-Current supplemental 0.2.1 inventory: 22 semantic cases. Package: 22 pass / zero
-fail / zero unsupported; source: 13 pass / one fail / eight unsupported. The
-source failure is R7-028; R7-029 has separate schema-valid targeted probes.
-Both evaluators leave one supplemental deployment case unsupported. Counts stay
-outside canonical totals, and unsupported inputs never count as passes.
-
-Score 2 requires no open spec/implementation bug, every semantic vector
-executable, both evaluators passing every semantic vector they support, and
-all source ambiguities filed. No real protected-deployment qualification is
-claimed from any synthetic erasure, release, restore or delivery trace.
+This is the mission's supported-semantic-vector score. The source evaluator's
+14 unsupported canonical and 8 unsupported supplemental semantic cases are not
+passes. No real protected-deployment qualification follows from synthetic
+publication, erasure, release, restore or delivery traces. See each evaluator's
+report for exact unsupported reasons. Await the convener's PARK before the final
+verdict and park note.

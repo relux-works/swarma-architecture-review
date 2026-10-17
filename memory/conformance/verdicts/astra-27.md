@@ -1,29 +1,29 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 13, collective active. Provisional R7 row score: **1/2**.
+Status: round 14, awaiting PARK. Verified R7 row score: **2/2**.
 
-Adjudicated 29 items: eight rejected as already prohibited, nineteen fixed with
-committed evidence and independent checks, two implementation bugs open. No
-source ambiguity requiring an owner decision is established. See
-[LEDGER.md](../LEDGER.md) and [R7-SCORE.md](../R7-SCORE.md).
+Adjudicated 29 items: eight rejected as already prohibited and twenty-one fixed
+with committed evidence and independent checks. No open specification or
+implementation bugs remain; no source ambiguity requiring an owner decision was
+established. See [LEDGER.md](../LEDGER.md) and [R7-SCORE.md](../R7-SCORE.md).
 
 Package 0.2.1 at `f31d58f` validates 57 semantic / eight deployment vectors,
 14 closed schemas, 52 clauses and 20 intended checker controls. All classified
-package corrections have relevant independent behavioral evidence. Package
-evaluator `f5fdd8b` passes all 57 semantic vectors; the judge matches every report
-row and implementation/input hash, with 13 checker/product controls passing.
-Its 55/57 pre-fix report remains preserved and independently reproduced.
+package corrections have independent behavioral evidence. Package evaluator
+code `f5fdd8b`, with reports and controls at `8b9baf3`, passes all 57 canonical
+and 22 supplemental semantic vectors. Four checker and ten product controls
+pass; all report rows, hashes and normalized actuals match judge reproduction.
 
-Source evaluator `4e647ea` is independently reproduced on 0.2.1: 43 semantic
-pass / zero fail / 14 unsupported, with 44 controls passing. R7-027 now passes
-all three root/quality/polarity regressions. R7-028 still ignores source-resolution
-limits; R7-029 gives independent_attestation priority over resolved named sources
-or the empty-source set. Both are implementation defects under explicit clauses.
-Current supplemental inventory: source 13 pass / one fail / eight unsupported;
-package 22 pass / zero fail / zero unsupported. R7-029 uses separate targeted
-probes. Both evaluators leave eight canonical and one supplemental deployment
-vectors unsupported; modeled semantics never qualify protected deployment.
+Source evaluator `512d006` passes 43 canonical semantic vectors, with zero
+failures and 14 unsupported; supplemental: 14 pass / zero fail / eight
+unsupported. All 50 source/adapter/transaction/harness controls pass. The final
+corrections independently verified are root/quality isolation (R7-027), source
+resolution limits (R7-028) and source-state precedence (R7-029). Original failing
+runs and witnesses remain preserved; no vector was changed to hide these errors.
 
-Remaining work: verify R7-028/029 and relevant controls, classify new evidence,
-then finalize score/verdict and park note after PARK.
+Both evaluators leave eight canonical and one supplemental deployment vector
+unsupported. The source evaluator's unsupported semantic coverage is explicit;
+this score does not claim a full source implementation or protected deployment
+qualification. Remaining protocol work: monitor new evidence and finalize the
+verdict and park note after the convener posts PARK.

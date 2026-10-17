@@ -55,8 +55,8 @@ evaluator, or vice versa.
 | R7-026 | astra-22; ASTRA22-05 first 0.2.1 transaction run; event `$PG171V9oI4Um_5wsJuSNRTlfqsd3ZQUSf1kWxDG5Ku4` | P02; K-ENV-1 subject_principals | impl-bug | astra-22 | fixed@26d8cc6 | Judge reproduces df499a1 P02 forbidden admission and all 15 difference paths, then exact 26d8cc6 canonical pass with identical refusal state and valid distinct/delegated controls. Seven transaction controls pass, including wrong subject, equal spelling without binding and non-own perspective rejection. First failure report is preserved. |
 
 | R7-027 | astra-25 [quality-budget-isolation](cases/astra-25-quality-budget-isolation.md) at `2a6d294`; astra-24 [polarity-budget](cases/astra-24-polarity-budget.md); events `$M-2IsLpo2I6lijkllP1qvqkD95XnpbXccbAHHCtSt64`, `$Dp4_riQyF6haSd2qyOmKMURbHNt2rkZrFJBDw9-Ctlw` | ASTRA25-06, ASTRA25-01 visible control, ASTRA24-05; K-EVAL-2/4 | impl-bug | astra-22 | fixed@4e647ea | Independent judge rerun passes all three regressions, exact canonical report (43 pass / 0 fail / 14 unsupported semantic) and 44 source/adapter/transaction/harness controls. Fresh per-channel and quality walks preserve local memoization, numeric reference ordering and genuine zero/insufficient limits. The distinct missing source bound persists as R7-028; hidden equality alone was never treated as proof of this fix. |
-| R7-028 | astra-24 [source-resolution-budget](cases/astra-24-source-resolution-budget.md) at `67b1e06`; decision `$_nHN4l4lurg4x7z88Ie7my2bKrY65tHxu33Tb4NG5j8` | ASTRA24-06; K-EVAL-1/2/3/5 | impl-bug | astra-22 | open | Source adapter omits source_resolutions, so zero allowance still produces a current-required derived witness. Judge reproduces eight incorrect fields and three forbidden checks after R7-027 fix; bound-one positive control passes. Package evaluator passes exactly. Charge distinct current-required sources within each independent walk using min(query, policy), retaining repeated-source memoization and independent/retained zero-bound behavior. |
-| R7-029 | astra-22 [vacuous first probe](impl-astra-22/fixtures/independent-vacuous-source-first.json) at `f2d233a`; independent judge nonempty-source probe; decision `$R6pEZvOBTW2UVbOfj04NRa4KfMIWwHX2EYq2GMksDS4` | ASTRA22-07; S32 neighbors; K-EVAL-5 | impl-bug | astra-22 | open | Core independent flag wins before actual resolvability. Judge validates and reproduces empty-source and nonempty-resolvable independent roots incorrectly reporting independent_attestation; explicit K-EVAL-5 requires resolvable_now for both. Unavailable-source positive control correctly stays independent_attestation. Fix source-state precedence without promoting evidence qualification or removing the distinct R7-028 bound. |
+| R7-028 | astra-24 [source-resolution-budget](cases/astra-24-source-resolution-budget.md) at `67b1e06`; decision `$_nHN4l4lurg4x7z88Ie7my2bKrY65tHxu33Tb4NG5j8` | ASTRA24-06; K-EVAL-1/2/3/5 | impl-bug | astra-22 | fixed@c923ebd | Judge reproduces exact zero/one/provenance passes and all canonical rows/hashes. Distinct current-required source members are charged per independent walk with min(query, policy), repeated-source memoization and retained/independent exemptions. 48 controls pass at this fix; current supplemental inventory is 14 pass / 0 fail / 8 unsupported semantic. Original eight-field/three-forbidden failure remains preserved. |
+| R7-029 | astra-22 [vacuous first probe](impl-astra-22/fixtures/independent-vacuous-source-first.json) at `f2d233a`; independent judge [nonempty pair](impl-astra-22/fixtures/independent-resolvable-judge-first.json); decision `$R6pEZvOBTW2UVbOfj04NRa4KfMIWwHX2EYq2GMksDS4` | ASTRA22-07; S32 neighbors; K-EVAL-5 | impl-bug | astra-22 | fixed@512d006 | Judge reproduces only the intended support.source_state change for empty/resolvable sources, with unavailable control, evidence kind and input state unchanged. All canonical/supplemental rows and hashes match; 50 source controls pass. Package implementation remains green with its independently authored 12-subcase control, 14 total controls. The source-resolution limit and retained/current neighbors remain enforced. |
 
 Every received case is classified against its cited package release. Rejection
 means the proposed bad reading already contradicts explicit package clauses; it
@@ -479,3 +479,56 @@ neighbor controls; no package change or owner decision is needed.
 
 Ledger: 29 items, eight rejected, nineteen fixed, two open implementation bugs
 (R7-028/029), no open specification bugs or owner questions. Score remains 1/2.
+
+
+### Round 14 — all classified defects closed; score 2/2
+
+Reviewed source correction `c923ebd`: the adapter clamps the source bound, passes
+original source identities through synthetic availability groups, and the core
+charges distinct current-required visits within each independent walk. Eligibility
+and hidden-input filtering precede accounting; retained/independent checks do not
+consume current-required visits. Judge canonical and current supplemental runs
+exactly match the committed reports. Canonical: 43 pass / 0 fail / 14 unsupported
+semantic; supplemental: 14 pass / 0 fail / 8 unsupported semantic. All 48 controls
+pass, including source groups, repeats, distinct sources, policy clamping,
+independent polarities/quality, true exhaustion and found-path-only provenance.
+R7-028 is fixed@c923ebd. Evidence: `.temp/astra22-judge-r7028*.json` and
+`.temp/astra22-r7028-{canonical,supplemental,source,adapter,transactions}-01.log`.
+
+Reviewed `512d006` source priority correction and its neighboring controls. The
+judge reran both independently authored nonempty states and the committed empty
+state. After normalization at exactly the top-level and two channel snapshot
+handle paths, the only changes are support.source_state for the empty and
+resolvable variants; the unavailable control is identical. Evidence qualification
+remains semantic_review, and input state is preserved. Canonical and supplemental
+reports exactly match all rows, package/core hashes and totals; 33 source, 5
+adapter, 7 transaction and 5 harness controls pass (50 total). R7-029 is
+fixed@512d006. Exact evidence:
+`.temp/astra22-judge-r7029-probes-01.json`,
+`.temp/astra22-judge-r7029-comparison-01.json`,
+`.temp/astra22-judge-r7029-supplemental-comparison-01.json`,
+`.temp/astra22-judge-r7029.md` / `.json`,
+`.temp/astra22-judge-r7029-supplemental.md` / `.json`, and
+`.temp/astra22-r7029-checks-01.json` with every command, exit code and log.
+
+Reviewed astra-23's independently package-derived K-EVAL-5 control at `8b9baf3`:
+twelve current/retained/independent cases cover resolved, denied, lost and empty
+sources plus true zero-budget exhaustion; qualification and state preservation
+are asserted. The evaluator code remains `f5fdd8b`. Reran its canonical and
+supplemental reports and compared every row, input/implementation hash and actual
+field using only the vector-declared normalization. Exact equality: 57/0/0
+canonical semantic and 22/0/0 supplemental semantic. Four checker and ten product
+controls pass (14 total). Evidence:
+`.temp/astra23-judge-r7029-comparison-01.json`,
+`.temp/astra23-judge-r7029.md` / `.json`,
+`.temp/astra23-judge-r7029-supplemental.md` / `.json`, and
+`.temp/astra23-r7029-checks-01.json` with commands, exit codes and logs.
+
+Ledger: 29 items, eight rejected, twenty-one fixed, no open specification or
+implementation bugs, no source ambiguities or owner questions established.
+Package remains `f31d58f`, with prior structural validation and every semantic
+vector executable. Both evaluators pass every supported semantic vector. The R7
+rubric therefore scores **2/2**, with source unsupported coverage explicit and
+all eight canonical plus one supplemental deployment vectors still unqualified.
+The collective remains active; no park note or final completion is issued before
+the convener's PARK marker.
