@@ -86,6 +86,7 @@ evaluator, or vice versa.
 | R7-047 | astra-24; [authority-succession](cases/astra-24-authority-succession.md), inputs/first report at `1a09fb6`; request `$Vq3tZEgKESq_rlmd6oQINVGbpMm2zJmMZdUCiANtpek` | Kernel §5.3; K-REV-3; B01 neighbor | impl-bug | astra-22 | open | Judge reproduces both forbidden replacements at `d077064`: incomparable and reused canonical receipts commit two records, advance cut 100→102, dirty the dependent and reserve a replay key. Ordered control succeeds; all closed input/state checks pass. Strict successor evidence is distinct from correct CAS head selection. R7-049 supplies exact refusal mapping. Decision `$oswbTe0Ndkm1yCdJdGq7nbrO9wT2oEUuevIL7-Sa6Zk`. |
 | R7-048 | Same ASTRA24-10; package first `47c0205` | K-REV-3; K-API-1; B01 neighbor | impl-bug | astra-23 | open | Judge independently reproduces the same forbidden writes at `4af0360`, including full before/after state and unchanged input hash. A canonical event alone is not a qualifying successor. Require atomic refusal beside direct/transitive valid-successor and ordinary incomparable-import controls; retain successful replay precedence. First reports preserved; mapping tracked separately as R7-049. |
 | R7-049 | Same ASTRA24-10 refusal-mapping review; judge source/package inspection | K-REV-3 versus K-REF-1 | spec-bug | astra-21 | open | Strict successor rejection is already normative, but the closed table describes authority_receipt_required only as a missing canonical receipt and version_conflict only as CAS mismatch. Clarify authority_receipt_required, retryable=false, for absent qualifying strictly succeeding canonical evidence, including incomparable/prior/identical receipts. Add an exact canonical regression with direct/transitive positives, release normally. This is package mapping, not an owner architecture ambiguity. |
+| R7-050 | astra-22; first declassification expansion `36983de`; request `$vyyT5G253v4564j43WBy6W1q1-UlEKCXnkjBmP_jTcg` | K-JSON-2; K-DISC-2; P05 and ASTRA25-02 | impl-bug | astra-22 | open | Source hashes the raw canonical body without the mandated ASCII domain prefix and NUL. Judge exact full runs reproduce valid-release refusal; separately validated ASCII/non-ASCII probes also prove acceptance of raw-pinned digests that must reject atomically. Package runtime passes both directions. Preserve first36983de and correct framing without changing any oracle. Decision `$Jxqff_h8h6pJHraJVkiriHrvMIYcTlLKLCO1QAjUMuI`. |
 
 Rows classify received cases against their cited package release; queued intake
 is explicitly recorded in the worklog. Rejection
@@ -1087,3 +1088,43 @@ exact-vector passes and do not inflate the 46-case semantic corpus.
 Ledger: 49 items, 36 fixed, 10 rejected, two open implementation bugs (R7-047/048)
 and one open specification bug (R7-049). Current exact dual canonical passes are
 49/57, with eight source gaps. Score remains 1/2; no PARK or deployment claim.
+
+
+## Round 23 — source declassification digest mapped incorrectly
+
+Source first expansion `36983de` attempts P05 and ASTRA25-02, which were previously
+unsupported. Independent full runs exactly reproduce its committed canonical
+49/1/7 and supplemental 37/1/8, including every input hash and normalized output.
+The sole new failure in each corpus is the valid joint-owner release. This is
+R7-050, a source implementation defect; earlier R7-006 fixed the specification.
+
+K-JSON-2 already requires SHA-256 over `bounded-evidence:cjson-v1`, a single NUL,
+and canonical UTF-8 assertion-body JSON. The source code hashes only the final
+body. The existing canonical P05 pin equals the independently calculated framed
+digest. Separate judge controls keep trusted owner decisions and their assessment
+pins consistent for both ASCII and non-ASCII bodies. All four initial states and
+operations pass closed grammar and state checks. Source refuses both framed
+positives and admits both raw negatives, with forbidden record mutations. Package
+`4af0360` accepts the two positives and refuses both raw negatives with unchanged
+complete state. The claim is grounded in the explicit canonical-byte contract;
+evaluator agreement is only an independent control, not the oracle.
+
+The source correction may change framing only as needed for K-JSON-2, retaining
+first reports and negative witnesses. Exact P05/ASTRA25-02 and owner/pin/revocation
+atomicity controls remain required before closure. No package or owner decision
+is needed for this defect. Authority-succession R7-047/048 and code-mapping R7-049
+remain separately open; no late candidate has been silently accepted.
+
+Evidence in judge seat `.temp/`: `judge-round23-first-execution-01.json`,
+`judge-round23-first-comparison-01.json`,
+`astra22-judge-round23-first-{canonical,cases}.json`,
+`judge-round23-release-digest-probe.py`,
+`astra{22,23}-judge-round23-release-digest-first.json` and
+`judge-round23-digest-input-validation-01.json`. Original inputs and producer
+reports remain unchanged. Native digest controls stay outside vector totals.
+
+Ledger: 50 items, 36 fixed, 10 rejected, three open implementation bugs
+(R7-047/048/050) and one specification bug (R7-049). Exact dual canonical passes
+remain 49/57; P05 now fails on the source's first expansion and seven canonical
+vectors remain unsupported. Package canonical 57/57 and supplemental 46/46 at
+`4af0360` remain the independently verified baseline. Score 1/2; no PARK.
