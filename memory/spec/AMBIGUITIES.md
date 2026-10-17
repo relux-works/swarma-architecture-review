@@ -78,4 +78,14 @@ Open owner inputs are **deployment inputs, not missing semantic defaults**:
 There is no open choice about real profile admission: it is excluded from this
 pilot by D-003/D-006/D-008. Domain disclosure consent and real profile rollout must
 be separately approved when that later product work is authorized. There is no
-open kernel question needed to run any of the 61 supplied fixtures.
+open kernel question needed to run any of the 65 supplied fixtures.
+
+## 0.2.0-draft amendments
+
+Kernel v0.2 closes the source questions about snapshot applicability, integration-established lineage, live per-owner declassification and projection exclusion. K-REV-4, K-SNAP-1 and K-PROJ-2 are new stable clauses; P12–P15 are the required new vectors.
+
+- **A19 superseded:** disclosure.declassification is now a set of assessments, each naming an exact external owner decision. Current applicability is distinct from retained assessment bytes. P05 has missing/revoked second-owner negatives and a valid two-owner release/delivery control (R7-006).
+- **A25 clarified:** external_witness=true means trusted current-complete outside-domain verification, not mere external existence. B10 retains a stale-witness refusal and a current-complete control (R7-008). The real verifier remains outside this synthetic profile.
+- **A33 — Integration lineage:** protected policy.lineage_facts describe actual controlled inputs under a named integration profile. Complete facts replace proposed citations; missing facts are refused, while unknown/partial lineage keeps the known restrictive lower bound and cannot contribute to audience projection. P13 includes tainted, unknown and clean controls. No assertion about model prior knowledge is made.
+- **A34 — Exclusion grammar:** a new audience projection rule version may list exact excluded_refs. This narrows its displayed items without altering another issuer's record, revision sequence or independent projections (P15).
+- **A35 — Frozen applicability:** saved response bytes remain historical; current rights, release decisions and erasure govern the next delivery. Renderers bind items to their snapshot cut without disclosing protected numeric cuts (P12).

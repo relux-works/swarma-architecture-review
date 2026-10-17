@@ -1,9 +1,9 @@
 # Bounded evidence memory — R7 specification package
 
-Version: **0.1.0-draft**. Status: reviewable specification, not an implemented or
+Version: **0.2.0-draft**. Status: reviewable specification, not an implemented or
 security-qualified service. All examples are synthetic or admitted non-sensitive
-architecture examples. There are **49 normative clauses and 61 conformance
-vectors: 53 semantic and 8 protected-deployment checks**.
+architecture examples. There are **52 normative clauses and 65 conformance
+vectors: 57 semantic and 8 protected-deployment checks**.
 
 The complete implementation contract is here. No source design document, private
 system, network lookup or external library is required to interpret it. Owner
@@ -15,7 +15,7 @@ close gaps. The kernel is portable; the adapter is a separate consumer contract.
 | --- | --- |
 | [kernel/semantics.md](kernel/semantics.md) | Normative meanings, algorithms, authorization vocabulary, operation order, refusal codes and fixture execution |
 | `kernel/schemas/` | Fourteen JSON Schema 2020-12 documents, including one additional schema for a reusable fixture corpus |
-| `kernel/vectors/semantic/` | S01–S33, P01–P11 and nine reclassified boundary cases |
+| `kernel/vectors/semantic/` | S01–S33, P01–P15 and nine reclassified boundary cases |
 | `kernel/vectors/deployment/` | B04–B06, B09–B11, B16–B17; enforcement requires a real protected deployment |
 | [domains/decisions/README.md](domains/decisions/README.md) | Decision, rule, assumption and explicit proposal schemas; archive-home → delete-home fixture |
 | [domains/profiles-synthetic/README.md](domains/profiles-synthetic/README.md) | Eight requested profile schemas plus explicit hypothesis and released-city variants |
@@ -62,7 +62,7 @@ schema. Admission stamps, source cuts, lineage and resource accounting stay in t
 protected binding, not the response. The fixture format is an internal test
 interface: numeric cuts and capture indices are not public capabilities.
 
-Semantic conformance requires all 53 semantic vectors to pass under the named
+Semantic conformance requires all 57 semantic vectors to pass under the named
 profile, including modeled erasure and delivery transitions. A narrower read-only
 implementation must declare unsupported operations and cannot claim complete
 profile conformance. A documentary pilot may admit writes through reviewed files,

@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE='urn:bounded-evidence:0.1.0:'
+BASE='urn:bounded-evidence:0.2.0:'
 ERRORS=[]
 class Invalid(ValueError): pass
 
@@ -140,9 +140,35 @@ def check_state(s,documents):
     require(len(ds)==len(s['domain_schemas']),'duplicate embedded domain')
     for k,d in ds.items():require(k in documents and strict_equal(d,documents[k]),'embedded domain differs from canonical document '+str(k))
     def exists(r,label):require(rkey(r) in known,'dangling '+label+' '+str(rkey(r)))
+    facts=s['policy']['lineage_facts']
+    fact_by_output={rkey(f['output']):f for f in facts}
+    require(len(fact_by_output)==len(facts),'duplicate integration lineage fact')
+    for f in facts:
+        require(len(f['inputs'])==len({rkey(r) for r in f['inputs']}),'duplicate integration input')
+        if f['kind']=='direct':require(not f['inputs'] and f['complete'],'direct lineage is not complete and empty')
+        for r in f['inputs']:exists(r,'integration input')
+    owners=s['policy']['constraint_owners']
+    require(len(owners)==len({rkey(o['input']) for o in owners}),'duplicate constraint owner binding')
+    for o in owners:
+        exists(o['input'],'constraint owner input')
+        require(bool(o['owners']) and len(o['owners'])==len(set(o['owners'])),'empty or duplicate constraint owners')
+    decisions=s['policy']['declassification_decisions']
+    require(len(decisions)==len({rkey(d['ref']) for d in decisions}),'duplicate release decision')
+    for d in decisions:
+        for r in d['pins']['inputs']:exists(r,'release decision input')
+    for r in s['runtime']['revoked_declassifications']:
+        require(rkey(r) in {rkey(d['ref']) for d in decisions},'unknown revoked release decision')
+    mappings=s['policy']['handles']
+    require(len(mappings)==len({(h['subject'],h['space'],h['audience']) for h in mappings}),'duplicate public alias key')
+    require(len(mappings)==len({(h['handle'],h['space'],h['audience']) for h in mappings}),'public aliases merge principals')
+    for rule in s['projection_rules']:
+        if rule['family']!='audience_projection':require(not rule['excluded_refs'],'exclusion outside audience projection')
     for rec in records:
         e=rec['envelope'];b=rec['body']
-        for r in e['lineage']:exists(r,'lineage')
+        require(ref_of(rec) in fact_by_output,'missing integration lineage fact')
+        f=fact_by_output[ref_of(rec)]
+        require(e['lineage']==(f['inputs'] if f['complete'] else 'unknown'),'lineage differs from integration fact')
+        for r in (e['lineage'] if isinstance(e['lineage'],list) else []):exists(r,'lineage')
         if e['issuer']==e['submitter']:require(e['representation_ref'] is None,'unneeded representation reference')
         else:require(e['representation_ref'] is not None and e['representation_ref']['checked'],'missing checked representation')
         if e['kind']=='assertion':
@@ -246,6 +272,17 @@ def controls(validator,vectors):
     rejected('domain-required-field',lambda:validator.check(domain,validator.schemas[BASE+'domain-schema']),'missing')
     pair=copy.deepcopy(vectors['S13']);pair['expected']['result']['items'][0]['support']['evaluation']='incomplete'
     rejected('normalization-preserves-semantic-difference',lambda:check_normalization(pair),'paired outputs differ')
+    # These plants check admitted integration provenance, owner uniqueness and alias separation.
+    documents={schema_ref(d):d for d in vector['initial_state']['domain_schemas']}
+    check_state(vector['initial_state'],documents)
+    state=copy.deepcopy(vector['initial_state']);state['policy']['lineage_facts'][0]['complete']=False
+    state['policy']['lineage_facts'][0]['kind']='model'
+    rejected('complete-lineage-needs-integration-evidence',lambda:check_state(state,documents),'lineage differs')
+    state=copy.deepcopy(vector['initial_state']);binding=dict(input=dict(id='rec:a',version=1),owners=['owner:a'])
+    state['policy']['constraint_owners']=[binding,copy.deepcopy(binding)]
+    rejected('one-owner-binding-per-input',lambda:check_state(state,documents),'duplicate constraint owner')
+    state=copy.deepcopy(vector['initial_state']);state['policy']['handles']=[dict(subject='a',space='s',audience='p',handle='same'),dict(subject='b',space='s',audience='p',handle='same')]
+    rejected('alias-does-not-merge-principals',lambda:check_state(state,documents),'aliases merge')
     return len(cases)
 
 def main():
@@ -296,7 +333,7 @@ def main():
     for p,f in fixtures:
         try:validator.check(f,schemas[BASE+'fixture']);check_state(f['initial_state'],documents)
         except (Invalid,KeyError) as e:ERRORS.append(f'{p.relative_to(ROOT)}: {e}')
-    expected_ids={f'S{i:02d}' for i in range(1,34)}|{f'P{i:02d}' for i in range(1,12)}|{f'B{i:02d}' for i in range(1,18)}
+    expected_ids={f'S{i:02d}' for i in range(1,34)}|{f'P{i:02d}' for i in range(1,16)}|{f'B{i:02d}' for i in range(1,18)}
     if set(vectors)!=expected_ids:ERRORS.append('vector inventory mismatch: '+str(sorted(expected_ids^set(vectors))))
     coverage=(ROOT/'COVERAGE.md').read_text()
     rows=[]

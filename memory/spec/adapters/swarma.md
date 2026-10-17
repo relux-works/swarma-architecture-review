@@ -1,10 +1,10 @@
-# Swarma adapter contract — 0.1.0-draft
+# Swarma adapter contract — 0.2.0-draft
 
 Destination: the platform architecture repository beside the handoff-package
 contract. This is a reviewable draft in the R7 package; it does not publish or
 change any platform repository. The kernel remains portable and owns only its
 admitted record history. D-002/D-007 require identical normalized semantic results
-for the same admitted corpus without the dispatcher, board or session host.
+for the same normalized tuple (corpus, exact schema/rule versions, perspective, authorized projection, cut and logical budget) without the dispatcher, board or session host.
 
 The adapter MUST implement the kernel contract by clause id, not by adding
 platform interpretations to record kinds. Documentary, embedded and protected
@@ -44,7 +44,7 @@ The following source distinctions are mandatory:
   profile and configuration authority. Memory changes none of them.
 
 D-001 delivery is a **separate data-only block**, delivered through an explicit
-tool result or the session host's owned data-input channel. The session-start
+tool result in the first slice. There is no automatic seeding or change to swarm-handoff/2. A later session-start mechanism must use the session host's owned data-input channel. The session-start
 snapshot may stay fixed for that session to preserve cache behavior. Its contents
 remain a historical view; current authorization, freshness and erasure are
 rechecked before resolution or new delivery. A snapshot has no overlay weight.
@@ -55,7 +55,7 @@ meaning, not an unauthorized extension of an existing platform wire schema:
 | Field | Required value or meaning |
 | --- | --- |
 | classification | Literal `data` |
-| semantic_profile | Literal `0.1.0-draft` |
+| semantic_profile | Literal `0.2.0-draft` |
 | view | The closed kernel View, retaining every polarity field and item attribution |
 | scope_binding | Protected binding to recipient, audience, purpose, source frontiers and policy; disclose only admitted metadata |
 | provenance_binding | Protected per-item issuer, submitter, source owner/revision, class, qualification and lineage; retain attribution through every summary, expansion and reimport |
@@ -121,3 +121,5 @@ not evidence. B16's observations must come from the actual independent stop/park
 revocation paths; B17 must observe that no candidate execution was launched.
 Semantic results and deployment results are reported separately. Timing and
 traffic-analysis isolation require their own named tests and are not claimed here.
+
+For v0.2 the adapter computes content lineage from controlled inputs, never merely from model citations: exact reads for deterministic transformations and all context/tool results/recalled views supplied to a model call within the declared integration profile. Unknown completeness remains unknown and is not publishable. Declassification assessments record each constrained owner's exact decision; the effecting component checks all decisions again before each new disclosure. A revoked snapshot stays historical data; memory does not restart or re-prompt the session. An audience owner's exclusion changes only that named projection.

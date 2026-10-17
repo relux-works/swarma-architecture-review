@@ -1,5 +1,7 @@
 # R7 package work log
 
+## Producer baseline: 0.1.0-draft (historical account)
+
 Scope: only memory/spec was written. No commit, publication, network access,
 package installation, background process, external recipient or delegated worker
 was used. The containing repository and all input documents were left unchanged.
@@ -62,3 +64,16 @@ RESULT: structural package validation passed. Evaluator semantics and protected 
 
 Handoff: the package is ready for the orchestrator's review and independent
 implementation/divergence work. No publication or landing was performed here.
+
+## Editor release: 0.2.0-draft
+
+Owner: astra-21, under MISSION-R7. This section supersedes the producer handoff above for current package status. Source baseline: kernel v0.2; initial package commit 0ef608a. Changes address R7-006, R7-008, R7-009 and R7-010.
+
+- Added K-REV-4, K-SNAP-1 and K-PROJ-2; normalized tuple, frozen applicability, controlled-input lineage/unknown lineage, current per-owner release decisions and exact audience alias lookup are normative. No new record kind or source authority is introduced.
+- Closed grammar now carries integration lineage facts, per-input owners, exact owner decisions, live decision revocation, plural release assessments and exact excluded_refs. Initial snapshots and all authoring helpers use the same 0.2.0 schema namespace.
+- Added P12–P15; P05 pairs missing second-owner refusal, valid two-owner release/delivery and revoked redelivery; B10 pairs stale external witness refusal/continued fencing and current-complete reconciliation.
+- The structural checker now verifies integration lineage consistency, unique constraint-owner and alias bindings, and the new grammar. Three additional bounded plants detect incomplete lineage misrepresented as complete, duplicate owner bindings and aliases that merge different principals. Nearby valid snapshots pass.
+- `python3 memory/spec/checks/validate.py` passes: 94 JSON files; 14 closed schemas; 14 domain documents; one fixture; 65 vectors (57 semantic, 8 deployment); 52 clauses; 16 intended checker violations detected.
+- Python syntax checks and deterministic regeneration of all 94 JSON artifacts pass. A comparison against the original committed expected reports confirms 59 prior reports unchanged apart from semantic_profile; only P05 and B10 intentionally gain controls. No evaluator comparison was used to generate an oracle.
+
+Local evidence: `.temp/astra-21/validate-04.log`, `.temp/astra-21/regeneration-01.log`; ongoing task plan `.temp/tasks.md`. Those are scratch paths in the editor checkout; the exact commands and outcomes are preserved here for other seats. Independent evaluator and adversarial review remain required. Structural checks do not establish semantic correctness or any protected-deployment qualification.

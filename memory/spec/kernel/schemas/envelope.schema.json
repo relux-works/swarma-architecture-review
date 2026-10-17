@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:bounded-evidence:0.1.0:envelope",
+  "$id": "urn:bounded-evidence:0.2.0:envelope",
   "type": "object",
   "properties": {
     "id": {
@@ -188,23 +188,31 @@
       "additionalProperties": false
     },
     "lineage": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "version": {
-            "type": "integer"
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false
           }
         },
-        "required": [
-          "id",
-          "version"
-        ],
-        "additionalProperties": false
-      }
+        {
+          "type": "string",
+          "const": "unknown"
+        }
+      ]
     },
     "disclosure": {
       "type": "object",
@@ -243,27 +251,23 @@
           }
         },
         "declassification": {
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "version": {
-                  "type": "integer"
-                }
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
               },
-              "required": [
-                "id",
-                "version"
-              ],
-              "additionalProperties": false
+              "version": {
+                "type": "integer"
+              }
             },
-            {
-              "type": "null"
-            }
-          ]
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false
+          }
         }
       },
       "required": [

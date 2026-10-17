@@ -53,7 +53,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -113,7 +113,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -173,7 +173,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -233,7 +233,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -293,7 +293,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -350,7 +350,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -431,7 +431,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -512,7 +512,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -593,7 +593,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -674,7 +674,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -761,7 +761,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -848,7 +848,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -923,7 +923,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -998,7 +998,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -1092,6 +1092,7 @@
         "sequence_resolution": "issuer_and_authority",
         "time_policy": "query_cut",
         "freshness_policy": "query_override_else_schema",
+        "excluded_refs": [],
         "family": "issuer_current",
         "audience": null,
         "purpose": null
@@ -1103,6 +1104,192 @@
         "version": 1
       },
       "owner": "subj:h1",
+      "lineage_facts": [
+        {
+          "output": {
+            "id": "cert:j1",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "cert:j2",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:a",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:b",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:c",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:d",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:e",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:ea",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:eb",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:ed",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:ee",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:j1",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:j2",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:withdraw-b",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        }
+      ],
+      "constraint_owners": [],
+      "declassification_decisions": [],
       "profile": "protected",
       "grants": [
         {
@@ -1343,6 +1530,7 @@
       ]
     },
     "runtime": {
+      "revoked_declassifications": [],
       "committed_cuts": [
         100
       ],
@@ -1419,7 +1607,7 @@
     "operation_results": [],
     "result": {
       "type": "view",
-      "semantic_profile": "0.1.0-draft",
+      "semantic_profile": "0.2.0-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

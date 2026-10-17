@@ -1,4 +1,4 @@
-# Bounded evidence memory 0.1.0-draft
+# Bounded evidence memory 0.2.0-draft
 
 This document and the closed schemas and vectors are one contract. MUST, MUST NOT,
 REQUIRED, SHALL, SHALL NOT, SHOULD and MAY have their RFC 2119 meanings. A heading
@@ -11,8 +11,12 @@ beginning `K-` is a stable normative clause. No other paragraph adds a requireme
 The implementation MUST answer only which admitted evidence supports or opposes
 an attributed assertion. It MUST NOT infer truth, permission, adoption, execution,
 or a negative witness from absence. There are exactly five stored record kinds;
-a view is derived data. Identical admitted inputs, policy facts, cuts and bounds
-MUST give identical normalized semantic outputs in every deployment profile.
+a view is derived data. The normalized input tuple consists of the admitted
+corpus, exact schema and projection-rule versions, perspective, authorized
+projection (including current policy facts), evaluation cut and logical budget.
+Identical tuples MUST give equivalent semantic outputs in every deployment
+profile, modulo only the fresh opaque-handle normalization in K-NI-2. Different
+rights or cuts are different inputs and carry no equivalence promise.
 
 ### K-JSON-1 — Closed input
 
@@ -209,6 +213,18 @@ receipt ordering alone determines currentness. The id/version must still be new.
 Memory-only revision links MUST NOT override receipt ordering or create adoption.
 For authoritative replacements the new receipt MUST succeed the prior receipt.
 
+### K-REV-4 — Three distinct conflict outcomes
+
+`version_conflict` is only a refused write: nothing commits and no assertion,
+assessment, opposite witness or dirty marker is created by the collision.
+`ambiguous_current` is only a projection result for incomparable authoritative
+candidates; it neither refuses their admission nor establishes opposition.
+Evidence conflict means `witness: present` on both polarities of one exact
+assertion, even if enumeration is incomplete. Both admissible witnesses remain.
+APIs and renderers MUST preserve these three meanings separately. S02, S28 and
+P14 provide the three distinct controls; no generic contradictory-state code
+may replace them.
+
 ### K-RULE-1 — Closed finite graph
 
 Justifications MUST be ground, finite and versioned, with nonempty premises.
@@ -267,6 +283,23 @@ explicit target list selects those exact versions, preserving `historical`
 labels. A withdrawn target is omitted. Dependencies may use other assertions in
 the same authorized scope even if not selected for display. Perspective and
 context MUST match throughout a witness. The kernel MUST NOT vote on a true model.
+
+### K-PROJ-2 — Owner-selected exclusion
+
+`excluded_refs` is a sorted set of exact assertion references in a named,
+versioned `audience_projection`. Its admitted configuration is selected by the
+space or audience owner, independently of the assertions' issuers. The other
+two rule families MUST have an empty set. Exclusion removes those exact items
+from that projection's selection and historical/review lists before producing
+counts or metadata; it does not remove authorized premises of another selected
+item. Such premise use still obeys disclosure and lineage rules. Excluded refs
+MUST NOT be disclosed as removal reasons. Unknown refs in this filter have no
+effect and MUST NOT reveal whether an unseen record exists.
+
+A different exclusion set requires a new rule version; the query pins that
+version. Exclusion creates no revision, withdrawal, negative witness, erasure
+or external effect. The issuer's sequence and other projections remain intact.
+If an owner separately erases a local copy, K-ERASE applies independently.
 
 ### K-EVAL-1 — Witness definition
 
@@ -397,6 +430,24 @@ authorized changed items; a removal may give changed with an empty list. Hidden 
 that comparison. `since` is a protected saved-view binding, not a public global cursor.
 For recall/explain the changes object is always initial with empty references.
 
+### K-SNAP-1 — Frozen history and current applicability
+
+A captured view is immutable history bound to its protected cut, source
+frontiers, policy pins and selected item versions. Later knowledge or freshness
+changes MUST NOT rewrite those bytes. Renderers MUST identify the item as being
+at that snapshot's cut, never as an assertion about "now"; where numeric cuts
+are protected, use its authorized snapshot handle and the historical label,
+not a disclosed global counter. A current-state claim requires a new view.
+
+The next delivery or external effect MUST apply current use/disclosure rights,
+release decisions and erasure fences. It either refuses or uses a newly admitted
+context; a cache, frozen snapshot or prompt-cache optimization grants no standing
+permission. In these fixtures deliver refuses and never silently substitutes a
+new context. The captured operation result remains unchanged after revocation.
+Memory only reports changes; it does not restart, stop or re-prompt consumers,
+and cannot recall bytes already delivered. P12 includes an allowed delivery
+before revocation and a refused one afterwards with the same saved binding.
+
 ## Disclosure, handles and publication boundary
 
 ### K-DISC-1 — Lineage taint
@@ -409,17 +460,71 @@ not a public one. Every paraphrase, summary, excerpt, embedding, index, cache an
 controlled export MUST retain content lineage. Read access does not authorize
 retention or forwarding. No derivative may relabel away inherited constraints.
 
+`lineage` is either an exact reference set or the literal `unknown`. A client's
+citations are not a complete input inventory. The integration supplies protected
+`policy.lineage_facts`, at most one per output, pinned to its integration profile:
+`direct` lists no content inputs, `deterministic` lists the exact inputs read,
+and `model` lists everything supplied to that call (context, tool results and
+recalled views) within that profile's tracking boundary. `complete` asserts
+completeness within that boundary, not knowledge of a model's prior training.
+These are trusted intake facts in fixtures, never claims authenticated by an
+output's own proposed lineage or logical premises.
+
+Every proposal requires one integration fact; an absent fact is
+`invalid_reference`. At intake, a complete fact's inputs replace the proposed
+lineage. An incomplete fact yields `lineage: unknown`; its known input lower
+bound is that fact's inputs, retained in the protected binding. In both cases all known inputs and
+their transitive lineage constrain disclosure and erasure. Unknown lineage MUST
+NOT contribute an item or evidence path to an audience_projection or delivery,
+even with a public label or declassification assessment; this draft has no
+default release of an unbounded derivation. Ordinary authorized private queries
+may still inspect its qualified record under those inherited constraints.
+Initial complete snapshots MUST retain the corresponding integration facts;
+the fixture's facts for future proposals are protected admission evidence,
+not already-admitted output records. Partial facts cannot be upgraded by copying their citations. No lineage fact grants read/use/retain rights.
+
 ### K-DISC-2 — Declassification
 
-Only the policy owner with declassify, admit and retain rights may call declassify.
-The admitted passing declassification assessment MUST pin exact input refs,
-transformation id/version, output schema, output body digest, audience and purpose,
-and carry exact policy/environment pins. Its issuer MUST be the policy owner and
-executor MUST be human or deterministic. The output is a new assertion whose
-lineage includes exactly those inputs, and whose disclosure cites that assessment.
-This releases only the exact pinned output for that audience/purpose; other
-inherited constraints remain. Field defaults may be widened only for the pinned
-output. The audience may verify the released issuer statement, but MUST NOT see
+The caller needs declassify, admit and retain rights. `declassify.assessments`
+contains a nonempty array of proposed owner assessments, followed atomically by
+one new output assertion. Ordinary representation checks apply to each proposal
+using relation `admit`; one caller does not impersonate several owners.
+`disclosure.declassification` is the sorted set of those assessment references.
+Each passing assessment MUST pin exact inputs, transformation id/version, output
+schema, output body digest, audience and purpose, and exact policy/environment
+pins. Its additional `decision` reference MUST match a trusted entry in
+`policy.declassification_decisions`: exact owner and identical release pins.
+Its issuer is that owner and executor is human or deterministic. A model's
+semantic_review can propose a release but never supply this evidence.
+
+`policy.constraint_owners` assigns the owners of each input's own constraints;
+an absent entry means policy.owner. An entry's owners are nonempty and each exact
+input appears at most once. Inherited constraints retain their original owners
+through the transitive content-lineage closure. Every owner whose audience,
+purpose or field-class restriction is lifted needs its own matching decision
+and assessment; one owner's decision lifts only that owner's restriction.
+Each assessment pins the same complete direct input set and output, even when
+its owner's restriction originates deeper in that closure. The integration's
+complete input set MUST equal the output lineage and every assessment's inputs.
+Unknown lineage, missing owner evidence or mismatched pins yield
+`declassification_invalid` atomically. Retention deadlines and erasure fences
+are never widened by a release.
+
+An assessment records evidence; it is not live authority. At admission and every
+new disclosure, including queries and delivery, every cited decision MUST be active and absent
+from `runtime.revoked_declassifications`. The `revoke_declassification` boundary
+stimulus records an existing owner's revocation: only the exact decision owner
+may apply it, otherwise `not_authorized`; it appends the exact decision ref and
+returns a revoked receipt without changing any semantic record or cut. Retained
+assessments remain history. If a decision no longer applies, ordinary inherited
+constraints apply again: an inadmissible audience item is filtered, and delivery
+of the prepared item yields `disclosure_revoked`.
+
+This releases only the exact pinned structured output for that audience/purpose;
+other inherited constraints remain. Field defaults may be widened only for that
+output. The first publication path assembles structured audience fields; agent
+free text enters only as a separately admitted semantic_inference proposal.
+The audience may verify the released issuer statement, but MUST NOT see
 hidden inputs, derivation, their ids, or hashes. An audience-projected item hides
 internal ref, representation ref and authority receipt (null), source refs and
 incompatibility refs (empty), and all internal witness-root ids (empty); the
@@ -441,6 +546,12 @@ Every disclosed principal equal to the internal subject, including issuer,
 submitter and perspective principal, MUST use the same audience handle. Other
 principal identities require their own admitted public alias; absent aliases
 yield `not_authorized` instead of exposing internal identity.
+The closed `policy.handles` mapping is the alias source for EVERY disclosed
+principal: look up the exact (internal principal as `subject`, record `space`,
+query `audience`) tuple. This applies independently to subject, issuer,
+submitter and perspective principal; a distinct representative MUST NOT be
+rewritten as the issuer. Each mapping key has at most one handle. Handle values
+must distinguish different internal principals within that space/audience.
 Each (subject, space, audience) MUST have a policy-assigned opaque subject handle
 for audience projection; absent mapping yields `not_authorized`. Handles across
 spaces or audiences MUST NOT encode or share the internal subject id. Linking
@@ -494,7 +605,7 @@ stores a protected binding to it. The revoke operation appends a live revocation
 purpose and right, authorized only by the policy owner; it changes no pinned
 policy or historical receipt. A deliver request requires a prepared
 `audience_projection` and rechecks current read, use and
-forward rights, current policy, freshness and erasure fences using the prepared
+forward rights, current policy, applicable owner release decisions, freshness and erasure fences using the prepared
 view's exact selected items. Revocation gives `disclosure_revoked` even when the
 old view was authorized. A stale, replaced or unconfirmed imported item gives
 `publication_stale`. Success returns only a delivery receipt, not control rights.
@@ -529,7 +640,7 @@ including handle, even if current head changed. Different request is
 or idempotency entries. A successful batch commits records, lineage/custody
 entries and dirty marking atomically. No received receipt means no assumed commit;
 retry resolves uncertainty. For revise, admission sequence assignment orders the replacement (if any) before
-the revision. Declassify orders the assessment before its output. Other writes
+the revision. Declassify orders the assessments in proposal-array order before its output. Other writes
 that create no semantic record do not advance the record sequence.
 Receipts MUST disclose only authorized record refs and
 no writer sequence. Input arrays of proposals are transaction order, not sets.
@@ -541,7 +652,8 @@ explain and changes are reads. `capture` is a harness read saved for later
 comparison/delivery. `admit_raw` is the malformed-wire test variant of admit:
 parse raw_json as an object containing only a proposals array, then use the
 surrounding authenticated context, key and generation exactly as for admit. Restore, reconciliation, delivery and request_check exercise
-boundary contracts; load, set_availability and control are harness stimuli, not
+boundary contracts; revoke_declassification records an external policy event;
+load, set_availability and control are harness stimuli, not
 kernel powers. Validation order is: JSON/shape/profile; policy and actor rights;
 idempotency replay/conflict; representation/review; erasure generation/fence;
 reference/schema/content/time/context; authority/CAS; rule/cycle; resource limits.
@@ -613,6 +725,15 @@ bytes are inaccessible even if restored storage is present. Restore records
 unwitnessed reconciliation gives `erasure_incomplete`; reads while fenced give
 `erasure_fenced`. A witnessed reconciliation reapplies fences and custody closure
 before returning `reconciled`. An old snapshot's own erasure list is not that witness.
+`external_witness: true` is a trusted adapter result establishing CURRENT COMPLETE
+outside-domain verification of every current erasure and policy obligation at
+reconciliation, not merely that an external, genuine or signed witness exists.
+A stale external witness that covers only earlier obligations MUST be encoded
+false; an incomplete obligation inventory MUST likewise never receive true.
+The boolean abstracts verification, not its real deployment evidence. Fixtures
+may trust this admitted fact; deployment reports must demonstrate its current
+coverage and outside-domain origin. B10 pairs stale-witness refusal and continued
+fencing with current-complete reconciliation.
 
 ### K-BOUND-1 — Data-only transport and control independence
 

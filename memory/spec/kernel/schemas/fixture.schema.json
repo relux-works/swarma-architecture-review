@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:bounded-evidence:0.1.0:fixture",
+  "$id": "urn:bounded-evidence:0.2.0:fixture",
   "type": "object",
   "properties": {
     "name": {
@@ -14,19 +14,19 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "urn:bounded-evidence:0.1.0:assertion"
+                "$ref": "urn:bounded-evidence:0.2.0:assertion"
               },
               {
-                "$ref": "urn:bounded-evidence:0.1.0:source"
+                "$ref": "urn:bounded-evidence:0.2.0:source"
               },
               {
-                "$ref": "urn:bounded-evidence:0.1.0:justification"
+                "$ref": "urn:bounded-evidence:0.2.0:justification"
               },
               {
-                "$ref": "urn:bounded-evidence:0.1.0:assessment"
+                "$ref": "urn:bounded-evidence:0.2.0:assessment"
               },
               {
-                "$ref": "urn:bounded-evidence:0.1.0:revision"
+                "$ref": "urn:bounded-evidence:0.2.0:revision"
               }
             ]
           }
@@ -34,13 +34,13 @@
         "domain_schemas": {
           "type": "array",
           "items": {
-            "$ref": "urn:bounded-evidence:0.1.0:domain-schema"
+            "$ref": "urn:bounded-evidence:0.2.0:domain-schema"
           }
         },
         "projection_rules": {
           "type": "array",
           "items": {
-            "$ref": "urn:bounded-evidence:0.1.0:projection-rule"
+            "$ref": "urn:bounded-evidence:0.2.0:projection-rule"
           }
         },
         "policy": {
@@ -64,6 +64,230 @@
             },
             "owner": {
               "type": "string"
+            },
+            "lineage_facts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "output": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "version"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "profile": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "version"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "direct",
+                      "deterministic",
+                      "model"
+                    ]
+                  },
+                  "inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "version"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "complete": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "output",
+                  "profile",
+                  "kind",
+                  "inputs",
+                  "complete"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "constraint_owners": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "input": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "version"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "owners": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "input",
+                  "owners"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "declassification_decisions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "version"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "pins": {
+                    "type": "object",
+                    "properties": {
+                      "inputs": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "version"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "transformation": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "version"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "output_schema": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "version"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "output_digest": {
+                        "type": "string"
+                      },
+                      "audience": {
+                        "type": "string"
+                      },
+                      "purpose": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "inputs",
+                      "transformation",
+                      "output_schema",
+                      "output_digest",
+                      "audience",
+                      "purpose"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "active": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "owner",
+                  "pins",
+                  "active"
+                ],
+                "additionalProperties": false
+              }
             },
             "profile": {
               "type": "string",
@@ -599,6 +823,9 @@
           "required": [
             "revision",
             "owner",
+            "lineage_facts",
+            "constraint_owners",
+            "declassification_decisions",
             "profile",
             "grants",
             "representations",
@@ -619,6 +846,25 @@
         "runtime": {
           "type": "object",
           "properties": {
+            "revoked_declassifications": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id",
+                  "version"
+                ],
+                "additionalProperties": false
+              }
+            },
             "committed_cuts": {
               "type": "array",
               "items": {
@@ -867,7 +1113,7 @@
                     "type": "string"
                   },
                   "receipt": {
-                    "$ref": "urn:bounded-evidence:0.1.0:receipt"
+                    "$ref": "urn:bounded-evidence:0.2.0:receipt"
                   }
                 },
                 "required": [
@@ -905,6 +1151,7 @@
             }
           },
           "required": [
+            "revoked_declassifications",
             "committed_cuts",
             "revocations",
             "memory_cut",
@@ -934,7 +1181,7 @@
       "additionalProperties": false
     },
     "query": {
-      "$ref": "urn:bounded-evidence:0.1.0:query"
+      "$ref": "urn:bounded-evidence:0.2.0:query"
     }
   },
   "required": [

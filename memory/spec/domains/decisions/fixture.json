@@ -46,7 +46,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -106,7 +106,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -166,7 +166,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -229,7 +229,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -286,7 +286,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -363,7 +363,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -423,7 +423,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -589,6 +589,7 @@
         "sequence_resolution": "issuer_and_authority",
         "time_policy": "query_cut",
         "freshness_policy": "query_override_else_schema",
+        "excluded_refs": [],
         "family": "issuer_current",
         "audience": null,
         "purpose": null
@@ -600,6 +601,101 @@
         "version": 1
       },
       "owner": "subj:h1",
+      "lineage_facts": [
+        {
+          "output": {
+            "id": "rec:d",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:d",
+            "version": 2
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:decision-replace",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:dependent",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:receipt1",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:receipt2",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:review-dependent",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        }
+      ],
+      "constraint_owners": [],
+      "declassification_decisions": [],
       "profile": "protected",
       "grants": [
         {
@@ -823,6 +919,7 @@
       ]
     },
     "runtime": {
+      "revoked_declassifications": [],
       "committed_cuts": [
         100
       ],

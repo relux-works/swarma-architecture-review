@@ -53,7 +53,7 @@
             "field_classes": [
               "restricted"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -214,6 +214,7 @@
         "sequence_resolution": "issuer_and_authority",
         "time_policy": "query_cut",
         "freshness_policy": "query_override_else_schema",
+        "excluded_refs": [],
         "family": "issuer_current",
         "audience": null,
         "purpose": null
@@ -229,6 +230,7 @@
         "sequence_resolution": "issuer_and_authority",
         "time_policy": "query_cut",
         "freshness_policy": "query_override_else_schema",
+        "excluded_refs": [],
         "family": "observer_model",
         "audience": null,
         "purpose": null
@@ -240,6 +242,23 @@
         "version": 1
       },
       "owner": "subj:h1",
+      "lineage_facts": [
+        {
+          "output": {
+            "id": "rec:hypothesis",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "model",
+          "inputs": [],
+          "complete": true
+        }
+      ],
+      "constraint_owners": [],
+      "declassification_decisions": [],
       "profile": "protected",
       "grants": [
         {
@@ -376,6 +395,7 @@
       ]
     },
     "runtime": {
+      "revoked_declassifications": [],
       "committed_cuts": [
         100
       ],
@@ -494,7 +514,7 @@
     "operation_results": [
       {
         "type": "view",
-        "semantic_profile": "0.1.0-draft",
+        "semantic_profile": "0.2.0-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -527,7 +547,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.1.0-draft",
+      "semantic_profile": "0.2.0-draft",
       "projection_rule": {
         "id": "projection:observer",
         "version": 1

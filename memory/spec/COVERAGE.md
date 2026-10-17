@@ -4,7 +4,7 @@
 semantic companion, and `design` the bounded-evidence design. These citations
 identify provenance only: an implementer needs only this package. Owner decisions
 D-001–D-008 take precedence over all three sources. Source clause numbers are the
-versions supplied for this draft. All 49 normative clause ids are exercised by at
+versions supplied for this draft. All 52 normative clause ids are exercised by at
 least one fixture; there are no unlisted normative clauses or not-vector-tested
 clauses. A citation does not claim exhaustive testing of every sentence.
 
@@ -54,6 +54,10 @@ clauses. A citation does not claim exhaustive testing of every sentence.
 | P09 | semantic | K-DISC-4, K-DISC-2, K-NI-1 | kernel §9.4, §12 P09; profiles gaps A5 |
 | P10 | semantic | K-REV-1, K-ENV-2, K-API-1, K-TIME-1 | kernel §5.2, §12 P10; profiles gaps A3 |
 | P11 | semantic | K-DISC-1, K-AUTH-1, K-ENV-3 | kernel §7.1, §12 P11; profiles gaps A4 |
+| P12 | semantic | K-SNAP-1, K-PUB-1, K-AUTH-1, K-SCOPE-1 | kernel §§1,6.4,9.3, §12 P12 |
+| P13 | semantic | K-DISC-1, K-ENV-3, K-PROJ-1, K-NI-1 | kernel §§7.1,8, §12 P13 |
+| P14 | semantic | K-REV-4, K-REV-1, K-API-1 | kernel §§5.2,5.4, §12 P14 |
+| P15 | semantic | K-PROJ-2, K-PROJ-1, K-REV-2, K-DISC-4 | kernel §9.3, §12 P15 |
 | B01 | semantic | K-REV-3, K-EVAL-8, K-EVAL-9 | design First-slice acceptance vectors, row 1; kernel §11.1 |
 | B02 | semantic | K-REV-3, K-REC-1, K-ENV-3 | design First-slice acceptance vectors, row 2; kernel §5.3 |
 | B03 | semantic | K-REC-1, K-REV-3, K-BOUND-1 | design First-slice acceptance vectors, row 3; companion §3 |
@@ -91,3 +95,5 @@ vector is a hand-derived oracle; its source is the cited normative clauses.
 Additional controls inside S01, S10, S30, S32 and P04 pin unknown valid time,
 cross-assertion incompatibility, declared coverage, surviving attestation states
 and exact freshness expiry, respectively.
+
+Release 0.2.0-draft targets kernel v0.2. P05 includes missing-owner rejection, two-owner release/delivery and revocation. B10 includes a stale external witness refusal before current-complete reconciliation. These controls do not qualify deployment enforcement.

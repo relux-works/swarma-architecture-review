@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:bounded-evidence:0.1.0:projection-rule",
+  "$id": "urn:bounded-evidence:0.2.0:projection-rule",
   "oneOf": [
     {
       "type": "object",
@@ -47,6 +47,25 @@
           "type": "string",
           "const": "query_override_else_schema"
         },
+        "excluded_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false
+          }
+        },
         "family": {
           "type": "string",
           "const": "issuer_current"
@@ -66,6 +85,7 @@
         "sequence_resolution",
         "time_policy",
         "freshness_policy",
+        "excluded_refs",
         "family",
         "audience",
         "purpose"
@@ -116,6 +136,25 @@
         "freshness_policy": {
           "type": "string",
           "const": "query_override_else_schema"
+        },
+        "excluded_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false
+          }
         },
         "family": {
           "type": "string",
@@ -136,6 +175,7 @@
         "sequence_resolution",
         "time_policy",
         "freshness_policy",
+        "excluded_refs",
         "family",
         "audience",
         "purpose"
@@ -187,6 +227,25 @@
           "type": "string",
           "const": "query_override_else_schema"
         },
+        "excluded_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false
+          }
+        },
         "family": {
           "type": "string",
           "const": "audience_projection"
@@ -206,6 +265,7 @@
         "sequence_resolution",
         "time_policy",
         "freshness_policy",
+        "excluded_refs",
         "family",
         "audience",
         "purpose"

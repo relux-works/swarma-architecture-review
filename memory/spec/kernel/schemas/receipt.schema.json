@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:bounded-evidence:0.1.0:receipt",
+  "$id": "urn:bounded-evidence:0.2.0:receipt",
   "type": "object",
   "properties": {
     "type": {
@@ -15,6 +15,7 @@
         "declassify",
         "erase",
         "revoke",
+        "revoke_declassification",
         "restore",
         "reconcile_restore",
         "deliver",

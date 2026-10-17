@@ -36,7 +36,7 @@ An enabled statement with adult_opt_in false may be stored as attributed data;
 it cannot authorize a romantic introduction. The schemas deliberately include no
 matching, catalog, contact or relationship-action operation.
 
-P01–P11 supply the complete embedded synthetic snapshots. P01/P03 keep observer
+P01–P15 supply the complete embedded synthetic snapshots. P01/P03 keep observer
 assertions distinct from self-description; P02/P10 exercise representation and
 concurrency; P04 pins expiry; P05 releases only a city; P06 rechecks send rights;
 P07 preserves one root across three carriers; P08 erases controlled derivatives;

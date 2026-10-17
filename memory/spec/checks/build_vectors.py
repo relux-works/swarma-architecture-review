@@ -18,7 +18,7 @@ def pers(issuer=H,kind='own'): return dict(kind=kind,principal=issuer)
 def schema(n): return R('schema:'+n)
 def known(start=START,end=None): return {'kind':'known','from':start,'to':end,'precision':'second'}
 def env(id,kind,sch=None,issuer=H,subject=H,perspective=None,version=1,private=False,space=SPACE,valid=None,confirmed=T,lineage=None,cls='machine_observation',context='real'):
- return dict(id=R(id)['id'],version=version,kind=kind,schema=schema(sch) if sch else None,subject=subject,issuer=issuer,submitter=issuer,representation_ref=None,perspective=perspective or pers(issuer),admission_class=cls,space=space,valid=valid or known(),confirmed_at=confirmed,recorded=dict(sequence=1,at=T),lineage=lineage or [],disclosure=dict(audiences=[PRIV] if private else [PRIV,PUB],purposes=[PUBLISH,READ],retain_until=None,field_classes=['restricted'] if private else ['public'],declassification=None),context=context)
+ return dict(id=R(id)['id'],version=version,kind=kind,schema=schema(sch) if sch else None,subject=subject,issuer=issuer,submitter=issuer,representation_ref=None,perspective=perspective or pers(issuer),admission_class=cls,space=space,valid=valid or known(),confirmed_at=confirmed,recorded=dict(sequence=1,at=T),lineage=lineage or [],disclosure=dict(audiences=[PRIV] if private else [PRIV,PUB],purposes=[PUBLISH,READ],retain_until=None,field_classes=['restricted'] if private else ['public'],declassification=[]),context=context)
 def A(id='a',value='alpha',sch='assumption',fields=None,**kw):
  e=env(id,'assertion',sch,**kw); d=DOM[sch]
  c=fields or {'value':value}
@@ -44,15 +44,22 @@ def proposal(r):
  return p
 
 def Rule(id='projection:main',issuer=H,perspective=None,family='issuer_current',aud=None,purpose=None):
- return dict(id=id,version=1,issuer=issuer,perspective=perspective or pers(issuer),sequence_resolution='issuer_and_authority',time_policy='query_cut',freshness_policy='query_override_else_schema',family=family,audience=aud,purpose=purpose)
+ return dict(id=id,version=1,issuer=issuer,perspective=perspective or pers(issuer),sequence_resolution='issuer_and_authority',time_policy='query_cut',freshness_policy='query_override_else_schema',excluded_refs=[],family=family,audience=aud,purpose=purpose)
 BOUNDS=dict(roots=32,rules=32,source_resolutions=32,explanations=8)
 def grant(actor=H,space=SPACE,aud=PUB,purpose=READ):
  return dict(principal=actor,space=space,audience=aud,purpose=purpose,rights=['admit','declassify','erase','forward','read','retain','revise','use'],records=['*'],metadata=True)
+def lineage_facts(records):
+ # Fixture inputs explicitly simulate trusted integration facts, never a production citation inference.
+ facts={}
+ for r in records:
+  e=r['envelope']; inputs=e['lineage'] if isinstance(e['lineage'],list) else []
+  facts[key(rr(r))]=dict(output=rr(r),profile=R('integration:synthetic'),kind='model' if e['admission_class']=='semantic_inference' else ('deterministic' if inputs else 'direct'),inputs=cp(inputs),complete=e['lineage']!='unknown')
+ return [facts[k] for k in sorted(facts)]
 def state(records,schemas=None,rules=None,review=None):
  rs=cp(records)
  for i,r in enumerate(rs,1): r['envelope']['recorded']['sequence']=i
  used=sorted(set(schemas or [])|{r['envelope']['schema']['id'][7:] for r in rs if r['envelope']['schema']})
- return dict(records=rs,domain_schemas=[cp(DOM[x]) for x in used],projection_rules=rules or [Rule()],policy=dict(revision=R('policy:1'),owner=H,profile='protected',grants=[grant(aud=a,purpose=p) for a in [PRIV,PUB] for p in [PUBLISH,READ]],representations=[],reviews=[dict(record=r,reviewer=H,result='allow') for r in sorted(setrefs(refs(rs)+[rr(x) for x in (review or [])]),key=key)],evidence=dict(ref=R('evidence:1'),root_kinds=['formal_entailment','semantic_review','test_result'],policy_pin=R('evidence:1'),environment_pin=R('environment:1')),coverage=[],authority_events=[],handles=[],imports=[],public_availability='available',availability_disclosure='none',limits=dict(max_records=1000,max_fan_in=32,max_payload_bytes=1000000,read=cp(BOUNDS)),source_access=[dict(source=rr(r),resolvable=r['body']['availability']=='resolvable') for r in rs if r['envelope']['kind']=='source'],external_effect_owners=['authority:external']),runtime=dict(committed_cuts=[100],revocations=[],memory_cut=100,source_cuts=[],dirty=[],erasure_generation=0,erased=[],fences=[],custody=[],restore=dict(status='open',external_witness=True,obligations=[]),idempotency=[],hidden_work=0,memory_available=True,control_observations=[],external_effects=[]))
+ return dict(records=rs,domain_schemas=[cp(DOM[x]) for x in used],projection_rules=rules or [Rule()],policy=dict(revision=R('policy:1'),owner=H,lineage_facts=lineage_facts(rs+(review or [])),constraint_owners=[],declassification_decisions=[],profile='protected',grants=[grant(aud=a,purpose=p) for a in [PRIV,PUB] for p in [PUBLISH,READ]],representations=[],reviews=[dict(record=r,reviewer=H,result='allow') for r in sorted(setrefs(refs(rs)+[rr(x) for x in (review or [])]),key=key)],evidence=dict(ref=R('evidence:1'),root_kinds=['formal_entailment','semantic_review','test_result'],policy_pin=R('evidence:1'),environment_pin=R('environment:1')),coverage=[],authority_events=[],handles=[],imports=[],public_availability='available',availability_disclosure='none',limits=dict(max_records=1000,max_fan_in=32,max_payload_bytes=1000000,read=cp(BOUNDS)),source_access=[dict(source=rr(r),resolvable=r['body']['availability']=='resolvable') for r in rs if r['envelope']['kind']=='source'],external_effect_owners=['authority:external']),runtime=dict(revoked_declassifications=[],committed_cuts=[100],revocations=[],memory_cut=100,source_cuts=[],dirty=[],erasure_generation=0,erased=[],fences=[],custody=[],restore=dict(status='open',external_witness=True,obligations=[]),idempotency=[],hidden_work=0,memory_available=True,control_observations=[],external_effects=[]))
 def setrefs(rs): return [dict(id=i,version=v) for i,v in sorted({(x['id'],x['version']) for x in rs})]
 def Q(sch='assumption',targets=None,rule='projection:main',issuer=H,aud=PUB,purpose=READ,space=SPACE,subject=H,cut=100,kind='recall',bounds=None,valid_at=T,now=T):
  return dict(kind=kind,principal=issuer,purpose=purpose,audience=aud,scope=dict(space=space,subject=subject,schema=schema(sch),targets=[rr(x) if 'envelope' in x else x for x in (targets or [])]),projection_rule=R(rule),evidence_policy=R('evidence:1'),policy=R('policy:1'),cut=dict(memory=cut,sources=[]),valid_at=valid_at,now=now,mode='real',bounds=cp(bounds or BOUNDS),usable_until=None,render='full',since=None)
@@ -72,10 +79,10 @@ def audience_item(i,handle):
 
 def view(items=(),q=None,current=None,historical=(),review=(),cutoffs=(),explanation=None,changes=None):
  q=q or Q()
- return dict(type='view',semantic_profile='0.1.0-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
+ return dict(type='view',semantic_profile='0.2.0-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
 def refused(code): return dict(type='refusal',code=code,retryable=code in ['version_conflict','policy_mismatch','stale_generation','erasure_incomplete','publication_stale','unavailable'])
 def receipt(op,rs=(),outcome=None,custody=(),status=None,handle='@receipt'):
- return dict(type='receipt',operation=op,outcome=outcome or dict(admit='admitted',revise='revised',erase='purged',declassify='declassified',revoke='revoked',restore='fenced',deliver='delivered',control='proceeded',load='proceeded',set_availability='availability_changed')[op],receipt_handle=handle,refs=sorted([rr(x) if 'envelope' in x else x for x in rs],key=key),custody=sorted(custody),erasure_status=status)
+ return dict(type='receipt',operation=op,outcome=outcome or dict(admit='admitted',revise='revised',erase='purged',declassify='declassified',revoke='revoked',revoke_declassification='revoked',restore='fenced',deliver='delivered',control='proceeded',load='proceeded',set_availability='availability_changed')[op],receipt_handle=handle,refs=sorted([rr(x) if 'envelope' in x else x for x in rs],key=key),custody=sorted(custody),erasure_status=status)
 def ctx(actor=H,cls='machine_observation'): return dict(actor=actor,at=T,admission_class=cls)
 def admit(rs,key='key:1',actor=H,cls='machine_observation',generation=0): return dict(op='admit',context=ctx(actor,cls),idempotency_key=key,proposals=[proposal(x) for x in rs],expected_generation=generation)
 def revise(r,new=None,actor=H,key='key:revise',expected=None): return dict(op='revise',context=ctx(actor),idempotency_key=key,revision=proposal(r),replacement=proposal(new) if new else None,expected_version=expected or r['body']['target'],expected_generation=0)
@@ -248,12 +255,35 @@ emit('P03','Later observer evidence cannot replace the issuer sequence',s,q,view
 confirmed='2026-09-17T00:00:00Z';until='2026-09-24T00:00:00Z';a=A('location',sch='location',fields={'kind':'current','value':'synthetic:district-a'},private=True,confirmed=confirmed,cls='self_declaration');e=E('ep',a,private=True);s=state([a,e]);q=Q('location',aud=PRIV)
 qf=Q('location',aud=PRIV,now='2026-09-23T23:59:59Z');qb=Q('location',aud=PRIV,now=until)
 emit('P04','Expired seven-day location horizon stays a stale statement',s,q,view([item(a,['origin:ep'],fresh='stale',until=until)],q),['K-EVAL-6','K-DOM-1','K-TIME-1'],ops=[capture(qf),capture(qb)],results=[view([item(a,['origin:ep'],fresh='fresh',until=until)],qf),view([item(a,['origin:ep'],fresh='stale',until=until)],qb)],forbid=[forbidden('/result/items/0/support/freshness',value='fresh'),forbidden('/result/items/0/oppose/witness')])
-# P05: only the exact declassified city is released; hidden inputs never appear.
-a=A('coordinates',sch='location',fields={'kind':'current','value':'synthetic:coordinate-17'},private=True,cls='self_declaration');city=A('city','Synthetic City',sch='location_city',lineage=[rr(a)],cls='self_declaration');release=E('release',check='declassification',subject=rr(city));release['body']['target']=None;city['envelope']['disclosure']['declassification']=rr(release)
-body_bytes=json.dumps(city['body'],sort_keys=True,ensure_ascii=False,separators=(',',':')).encode();digest=hashlib.sha256(b'bounded-evidence:cjson-v1\0'+body_bytes).hexdigest()
-release['body']['declassification']=dict(inputs=[rr(a)],transformation=R('transform:city'),output_schema=schema('location_city'),output_digest=digest,audience=PUB,purpose=PUBLISH)
-rule=Rule('projection:public',family='audience_projection',aud=PUB,purpose=PUBLISH);s=state([a],schemas=['location_city'],rules=[rule],review=[city,release]);s['policy']['handles']=[dict(subject=H,space=SPACE,audience=PUB,handle='subj:public-a')];q=Q('location_city',rule='projection:public',purpose=PUBLISH,cut=102);op=dict(op='declassify',context=ctx(cls='self_declaration'),idempotency_key='key:release',assessment=proposal(release),output=proposal(city),expected_generation=0)
-emit('P05','Declassification releases the city without its protected derivation',s,q,view([audience_item(item(city,fresh='fresh',until='2026-10-24T00:00:00Z'),'subj:public-a')],q),['K-DISC-1','K-DISC-2','K-DISC-4','K-JSON-2','K-PUB-1'],ops=[op],results=[receipt('declassify',[release,city])],added=[release,city],forbid=[forbidden('/result/items/0/ref','equals','rec:city'),forbidden('/result/items/0/lineage','exists',None),forbidden('/result/items/0/source_refs','size_equals',1)])
+# P05: two live owner decisions release one exact city; missing/revoked OB cannot.
+a=A('coordinates',sch='location',fields={'kind':'current','value':'synthetic:coordinate-17'},private=True,cls='self_declaration')
+b=A('private-preference','synthetic preference',private=True)
+city=A('city','Synthetic City',sch='location_city',lineage=[rr(a),rr(b)],cls='self_declaration')
+owner_b='principal:owner-b'
+release=E('release-a',check='declassification',subject=rr(city))
+release_b=E('release-b',check='declassification',subject=rr(city),issuer=owner_b)
+release_b['envelope']['submitter']=H
+release_b['envelope']['representation_ref']=dict(id='delegation:release-b',version=1,checked=True)
+for evidence in [release,release_b]: evidence['body']['target']=None
+city['envelope']['disclosure']['declassification']=[rr(release),rr(release_b)]
+body_bytes=json.dumps(city['body'],sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()
+digest=hashlib.sha256(b'bounded-evidence:cjson-v1\0'+body_bytes).hexdigest()
+pins=dict(inputs=[rr(a),rr(b)],transformation=R('transform:city'),output_schema=schema('location_city'),output_digest=digest,audience=PUB,purpose=PUBLISH)
+for evidence,decision in [(release,'decision:release-a'),(release_b,'decision:release-b')]:
+ evidence['body']['declassification']=dict(decision=R(decision),**cp(pins))
+rule=Rule('projection:public',family='audience_projection',aud=PUB,purpose=PUBLISH)
+s=state([a,b],schemas=['location_city'],rules=[rule],review=[city,release,release_b])
+s['policy']['constraint_owners']=[dict(input=rr(a),owners=[H]),dict(input=rr(b),owners=[owner_b])]
+s['policy']['declassification_decisions']=[dict(ref=R('decision:release-a'),owner=H,pins=cp(pins),active=True),dict(ref=R('decision:release-b'),owner=owner_b,pins=cp(pins),active=True)]
+s['policy']['representations']=[dict(ref=R('delegation:release-b'),issuer=owner_b,submitter=H,space=SPACE,relations=['admit'],valid=True)]
+s['policy']['handles']=[dict(subject=H,space=SPACE,audience=PUB,handle='subj:public-a')]
+q=Q('location_city',rule='projection:public',purpose=PUBLISH,cut=103)
+op=dict(op='declassify',context=ctx(cls='self_declaration'),idempotency_key='key:release',assessments=[proposal(release),proposal(release_b)],output=proposal(city),expected_generation=0)
+missing=cp(op);missing['idempotency_key']='key:missing-owner';missing['assessments']=[proposal(release)];missing['output']['envelope']['disclosure']['declassification']=[rr(release)]
+v=view([audience_item(item(city,fresh='fresh',until='2026-10-24T00:00:00Z'),'subj:public-a')],q)
+delivery=dict(op='deliver',actor=H,at=T,view_operation=2,audience=PUB,purpose=PUBLISH,publication=dict(id='publication:city',version=1))
+revoked=dict(op='revoke_declassification',actor=owner_b,at=T,decision=R('decision:release-b'))
+emit('P05','Every constrained owner must currently release the exact city',s,q,view([],q),['K-DISC-1','K-DISC-2','K-DISC-4','K-JSON-2','K-PUB-1'],ops=[missing,op,capture(q),delivery,revoked,cp(delivery)],results=[refused('declassification_invalid'),receipt('declassify',[release,release_b,city]),v,receipt('deliver'),receipt('revoke_declassification'),refused('disclosure_revoked')],added=[release,release_b,city],forbid=[forbidden('/operation_results/0/type',value='receipt'),forbidden('/operation_results/2/items/0/lineage','exists',None),forbidden('/operation_results/2/items/0/source_refs','size_equals',1),forbidden('/operation_results/5/type',value='receipt'),forbidden('/result/items','size_equals',1)])
 # P06: prepared data is not future permission.
 a=A('interest','gardening',sch='interest',cls='self_declaration');rule=Rule('projection:public',family='audience_projection',aud=PUB,purpose=PUBLISH);s=state([a],rules=[rule]);s['policy']['handles']=[dict(subject=H,space=SPACE,audience=PUB,handle='subj:public-a')];q=Q('interest',rule='projection:public',purpose=PUBLISH);v=view([audience_item(item(a),'subj:public-a')],q)
 revoke=dict(op='revoke',actor=H,at=T,principal=H,audience=PUB,purpose=PUBLISH,right='forward');delivery=dict(op='deliver',actor=H,at=T,view_operation=0,audience=PUB,purpose=PUBLISH,publication=dict(id='publication:a',version=1))
@@ -279,12 +309,63 @@ emit('P10','Concurrent representatives receive one commit and one version confli
 a=A('private','synthetic private',private=True);b=A('paraphrase','synthetic rewording',lineage=[rr(a)]);s=state([a],review=[b]);q=Q(cut=101);qp=Q(aud=PRIV,targets=[b],cut=101)
 emit('P11','A public-labelled paraphrase inherits private input restrictions',s,q,view(),['K-DISC-1','K-AUTH-1','K-ENV-3'],ops=[admit([b]),capture(qp)],results=[receipt('admit',[b]),view([item(b)],qp)],added=[b],forbid=[forbidden('/result/items','size_equals',1)])
 
+# P12: one frozen historical response survives, but current permission does not.
+a=A('snapshot-interest','gardening',sch='interest',cls='self_declaration')
+rule=Rule('projection:public',family='audience_projection',aud=PUB,purpose=PUBLISH)
+s=state([a],rules=[rule]);s['policy']['handles']=[dict(subject=H,space=SPACE,audience=PUB,handle='subj:snapshot')]
+q=Q('interest',rule='projection:public',purpose=PUBLISH)
+v=view([audience_item(item(a),'subj:snapshot')],q)
+delivery=dict(op='deliver',actor=H,at=T,view_operation=0,audience=PUB,purpose=PUBLISH,publication=dict(id='publication:snapshot',version=1))
+revoke=dict(op='revoke',actor=H,at=T,principal=H,audience=PUB,purpose=PUBLISH,right='read')
+emit('P12','Frozen snapshot stays historical after current disclosure is revoked',s,q,view([],q),['K-SNAP-1','K-PUB-1','K-AUTH-1','K-SCOPE-1'],ops=[capture(q),delivery,revoke,cp(delivery)],results=[v,receipt('deliver'),receipt('revoke'),refused('disclosure_revoked')],forbid=[forbidden('/operation_results/0/items','size_equals',0),forbidden('/operation_results/3/type',value='receipt'),forbidden('/result/items','size_equals',1)])
+# P13: integration inputs override citations; an unknown derivation has no default release.
+a=A('private-input','synthetic private context',private=True)
+b=A('public-input','synthetic public card')
+tainted=A('model-tainted','candidate with private context',sch='decision_proposal',lineage=[rr(b)],cls='semantic_inference')
+clean=A('model-clean','candidate from only public context',sch='decision_proposal',lineage=[rr(b)],cls='semantic_inference')
+unknown=A('model-unknown','candidate without complete input tracking',sch='decision_proposal',lineage=[rr(b)],cls='semantic_inference')
+rule=Rule('projection:public',family='audience_projection',aud=PUB,purpose=PUBLISH)
+s=state([a,b],schemas=['decision_proposal'],rules=[Rule(),rule],review=[tainted,clean,unknown])
+s['policy']['handles']=[dict(subject=H,space=SPACE,audience=PUB,handle='subj:model-output')]
+for f in s['policy']['lineage_facts']:
+ if f['output']==rr(tainted): f.update(kind='model',inputs=[rr(a),rr(b)],complete=True)
+ if f['output']==rr(unknown): f.update(kind='model',inputs=[rr(b)],complete=False)
+q=Q('decision_proposal',rule='projection:public',purpose=PUBLISH,cut=103)
+qp=Q('decision_proposal',aud=PRIV,targets=[tainted,unknown],cut=103)
+emit('P13','Cited public evidence is not complete model lineage',s,q,view([audience_item(item(clean),'subj:model-output')],q),['K-DISC-1','K-ENV-3','K-PROJ-1','K-NI-1'],ops=[admit([tainted,clean,unknown],cls='semantic_inference'),capture(qp)],results=[receipt('admit',[tainted,clean,unknown]),view([item(tainted),item(unknown)],qp)],added=[tainted,clean,unknown],forbid=[forbidden('/result/items','size_equals',3),forbidden('/result/items/0/content/0/value',value='candidate with private context'),forbidden('/result/items/0/content/0/value',value='candidate without complete input tracking')])
+# P14: a refused collision creates no contradictory knowledge or additional record.
+base=next(x for x in VECTORS if x['id']=='P10')
+s=cp(base['initial_state']);q=cp(base['query'])
+added=[]
+for proposal_record in [base['operations'][0]['replacement'],base['operations'][0]['revision']]:
+ r=cp(proposal_record);r['envelope'].update(submitter='principal:rep1',recorded=dict(sequence=101+len(added),at=T),admission_class='machine_observation')
+ r['envelope']['representation_ref']['checked']=True;added.append(r)
+emit('P14','Write version conflict is neither ambiguous currentness nor evidence conflict',s,q,cp(base['expected']['result']),['K-REV-4','K-REV-1','K-API-1'],ops=cp(base['operations']),results=cp(base['expected']['operation_results']),added=added,forbid=[forbidden('/result/currentness',value='ambiguous_current'),forbidden('/result/items/0/support/witness'),forbidden('/result/items/0/oppose/witness'),forbidden('/postconditions/record_refs','size_equals',4)])
+# P15: excluding one exact organisation attestation leaves its issuer sequence intact.
+org='principal:organisation'
+a=A('attestation-a',sch='competence',fields={'skill':'gardening','level':'organisation assessment'},issuer=org)
+b=A('attestation-b',sch='competence',fields={'skill':'pottery','level':'organisation assessment'},issuer=org)
+r0=Rule('projection:card',issuer=org,family='audience_projection',aud=PUB,purpose=PUBLISH)
+r1=cp(r0);r1['version']=2;r1['excluded_refs']=[rr(a)]
+ri=Rule('projection:organisation',issuer=org)
+s=state([a,b],rules=[r0,r1,ri]);s['policy']['grants'].append(grant(org))
+s['policy']['handles']=[dict(subject=H,space=SPACE,audience=PUB,handle='subj:card'),dict(subject=org,space=SPACE,audience=PUB,handle='principal:public-organisation')]
+q0=Q('competence',rule='projection:card',purpose=PUBLISH)
+q=cp(q0);q['projection_rule']['version']=2
+qi=Q('competence',rule='projection:organisation')
+def org_card(record):
+ i=audience_item(item(record),'subj:card')
+ i['issuer']=i['submitter']=i['perspective']['principal']='principal:public-organisation'
+ return i
+emit('P15','Audience exclusion does not revise the organisation record',s,q,view([org_card(b)],q),['K-PROJ-2','K-PROJ-1','K-REV-2','K-DISC-4'],ops=[capture(q0),capture(qi)],results=[view([org_card(a),org_card(b)],q0),view([item(a),item(b)],qi)],forbid=[forbidden('/result/items','size_equals',2),forbidden('/result/items/0/content/0/value',value='gardening'),forbidden('/postconditions/erased_refs','size_equals',1),forbidden('/postconditions/record_refs','size_equals',3)])
+
 # B01-B17 retain source table order; nine are semantic checks and eight deployment checks.
 # B01: the small archive-home -> delete-home pilot, with a registered stale dependent.
 s,d1,d2,r1,r2=decisions();dep=A('dependent','depends_on_archive_home');edge=J('review-dependent',dep,[d1],role='review_on_change');s=state([d1,r1,r2,dep,edge],schemas=['decision'],review=[d2]);s['policy']['authority_events']=[dict(receipt=rr(r1),issuer=H,predecessors=[],canonical=True),dict(receipt=rr(r2),issuer=H,predecessors=[rr(r1)],canonical=True)];rev=Rev('decision-replace',d1,d2,'replace');s['policy']['reviews'] += [dict(record=rr(rev),reviewer=H,result='allow')];q=Q('decision',cut=102)
 emit('B01','New authority decision is current and registered dependents need review',s,q,view([item(d2,sources=[r2])],q,historical=[d1],review=[dep]),['K-REV-3','K-EVAL-8','K-EVAL-9'],ops=[revise(rev,d2)],results=[receipt('revise',[rev,d2])],added=[rev,d2],dirty=[dep],forbid=[forbidden('/result/items/0/content/0/value',value='archive_home')])
 # Export the post-change pilot as a complete already-recomputed decision fixture.
 fixture_state=cp(s);fixture_state['records'] += [cp(d2),cp(rev)]
+fixture_state['policy']['lineage_facts']=lineage_facts(fixture_state['records'])
 for n,x in enumerate(fixture_state['records'],1):x['envelope']['recorded']['sequence']=n
 fixture_state['runtime']['dirty']=[rr(dep)]
 fixture=dict(name='archive-home-to-delete-home',initial_state=fixture_state,query=Q('decision'))
@@ -317,7 +398,7 @@ base=next(x for x in VECTORS if x['id']=='S27')
 emit('B09','Shared exhaustion exposes only a preauthorized coarse transition',cp(base['initial_state']),cp(base['query']),cp(base['expected']['result']),['K-NI-3','K-BOUND-2','K-VEC-2'],ops=cp(base['operations']),results=cp(base['expected']['operation_results']),pairs=[('/operation_results/0','/operation_results/2')],profile='deployment',forbid=cp(base['forbidden']))
 # B10: a restored snapshot remains closed, then outside evidence reapplies the purge.
 a=A(private=True);b=A('index-payload',private=True,lineage=[rr(a)]);s=state([a,b]);ids=['custody:index','custody:payload'];s['runtime']['custody']=[custody(ids[0],[b],'index'),custody(ids[1],[a])];q=Q(aud=PRIV);restore=dict(op='restore',actor=H,at=T,restore_cut=100,external_witness=False,obligations=[rr(a)]);recon=dict(op='reconcile_restore',actor=H,at=T,external_witness=True,obligations=[rr(a)])
-emit('B10','An external restore witness reapplies erasure before reopening reads',s,q,view([],q),['K-ERASE-1','K-ERASE-2','K-ERASE-3','K-BOUND-2'],ops=[erase([a],ids),restore,capture(q),recon],results=[receipt('erase',[a,b],custody=ids,status='purged_within_boundary'),receipt('restore',status='access_closed'),refused('erasure_fenced'),receipt('reconcile_restore',outcome='reconciled',custody=ids,status='purged_within_boundary')],erased=[a,b],present=[],profile='deployment',forbid=[forbidden('/result/items','size_equals',1),forbidden('/postconditions/custody_present','contains','custody:index')])
+emit('B10','An external restore witness reapplies erasure before reopening reads',s,q,view([],q),['K-ERASE-1','K-ERASE-2','K-ERASE-3','K-BOUND-2'],ops=[erase([a],ids),restore,{**recon,'external_witness':False},capture(q),recon],results=[receipt('erase',[a,b],custody=ids,status='purged_within_boundary'),receipt('restore',status='access_closed'),refused('erasure_incomplete'),refused('erasure_fenced'),receipt('reconcile_restore',outcome='reconciled',custody=ids,status='purged_within_boundary')],erased=[a,b],present=[],profile='deployment',forbid=[forbidden('/result/items','size_equals',1),forbidden('/postconditions/custody_present','contains','custody:index')])
 base=next(x for x in VECTORS if x['id']=='S26')
 emit('B11','A physically delayed derivative writer cannot cross an erasure fence',cp(base['initial_state']),cp(base['query']),cp(base['expected']['result']),['K-ERASE-3','K-BOUND-2'],ops=cp(base['operations']),results=cp(base['expected']['operation_results']),erased=[base['initial_state']['records'][0]],profile='deployment',forbid=cp(base['forbidden']))
 base=next(x for x in VECTORS if x['id']=='S14');a=cp(base['operations'][0]['proposals'][0]);a['envelope'].update(submitter=H,recorded=dict(sequence=101,at=T),admission_class='machine_observation')

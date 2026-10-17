@@ -87,6 +87,7 @@
         "sequence_resolution": "issuer_and_authority",
         "time_policy": "query_cut",
         "freshness_policy": "query_override_else_schema",
+        "excluded_refs": [],
         "family": "issuer_current",
         "audience": null,
         "purpose": null
@@ -98,6 +99,23 @@
         "version": 1
       },
       "owner": "subj:h1",
+      "lineage_facts": [
+        {
+          "output": {
+            "id": "rec:a",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        }
+      ],
+      "constraint_owners": [],
+      "declassification_decisions": [],
       "profile": "protected",
       "grants": [
         {
@@ -234,6 +252,7 @@
       ]
     },
     "runtime": {
+      "revoked_declassifications": [],
       "committed_cuts": [
         100
       ],
@@ -266,7 +285,7 @@
         "admission_class": "machine_observation"
       },
       "idempotency_key": "key:raw",
-      "raw_json": "{\"proposals\": [{\"envelope\": {\"id\": \"rec:a\", \"version\": 1, \"kind\": \"assertion\", \"schema\": {\"id\": \"schema:assumption\", \"version\": 1}, \"subject\": \"subj:h1\", \"issuer\": \"subj:h1\", \"representation_ref\": null, \"perspective\": {\"kind\": \"own\", \"principal\": \"subj:h1\"}, \"space\": \"space:main\", \"valid\": {\"kind\": \"known\", \"from\": \"2026-09-01T00:00:00Z\", \"to\": null, \"precision\": \"second\"}, \"confirmed_at\": \"2026-10-17T00:00:00Z\", \"lineage\": [], \"disclosure\": {\"audiences\": [\"aud:private\", \"aud:public\"], \"purposes\": [\"purpose:publish\", \"purpose:read\"], \"retain_until\": null, \"field_classes\": [\"public\"], \"declassification\": null}, \"context\": \"real\"}, \"body\": {\"statement_kind\": \"fact\", \"slot\": \"[]\", \"content\": [{\"field\": \"value\", \"value\": \"alpha\"}], \"authority_receipt\": null}, \"unexpected\": true}]}",
+      "raw_json": "{\"proposals\": [{\"envelope\": {\"id\": \"rec:a\", \"version\": 1, \"kind\": \"assertion\", \"schema\": {\"id\": \"schema:assumption\", \"version\": 1}, \"subject\": \"subj:h1\", \"issuer\": \"subj:h1\", \"representation_ref\": null, \"perspective\": {\"kind\": \"own\", \"principal\": \"subj:h1\"}, \"space\": \"space:main\", \"valid\": {\"kind\": \"known\", \"from\": \"2026-09-01T00:00:00Z\", \"to\": null, \"precision\": \"second\"}, \"confirmed_at\": \"2026-10-17T00:00:00Z\", \"lineage\": [], \"disclosure\": {\"audiences\": [\"aud:private\", \"aud:public\"], \"purposes\": [\"purpose:publish\", \"purpose:read\"], \"retain_until\": null, \"field_classes\": [\"public\"], \"declassification\": []}, \"context\": \"real\"}, \"body\": {\"statement_kind\": \"fact\", \"slot\": \"[]\", \"content\": [{\"field\": \"value\", \"value\": \"alpha\"}], \"authority_receipt\": null}, \"unexpected\": true}]}",
       "expected_generation": 0
     }
   ],
@@ -323,7 +342,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.1.0-draft",
+      "semantic_profile": "0.2.0-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1
