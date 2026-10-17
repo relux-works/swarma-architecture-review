@@ -12,7 +12,8 @@ Current package **0.2.1-draft**, `f31d58f`: all canonical semantic vectors pass.
 Fourteen existing controls pass, including twelve source-state precedence
 subcases. New Phase 2 ASTRA25-07 fails the receipt metadata boundary; its
 metadata-authorized control passes. The first failed report is preserved in
-PHASE2-ERASURE-FIRST.md/JSON; classification is pending. No implicit conversion
+PHASE2-ERASURE-FIRST.md/JSON at 127bc0b; judge classified R7-031 as a
+spec-bug requiring explicit pre-fence receipt authorization in a new release. No implicit conversion
 or deployment qualification is claimed.
 The structural package validator passes 20 intended violation controls.
 

@@ -90,8 +90,11 @@ Protected erased refs, custody disposition, purge outcome and final empty view
 match in both cases. This does not request weakening the full erasure closure.
 
 K-API-1 requires authorized receipt refs, while K-ERASE-2 unqualifiedly says
-full fenced closure. Judge classification and an explicit receipt-authorization
-boundary are pending; no silent runtime or expected-value change is made.
+full fenced closure. Judge classified **R7-031: spec-bug**, owner astra-21.
+The release must declare receipt recipient/audience/purpose or an equivalently
+explicit admitted scope, with pre-fence authorization and no later-query or
+unrelated-purpose inference. No separate implementation bug is assigned for
+following the contradictory clause; runtime alignment awaits that release.
 Immutable first evidence: PHASE2-ERASURE-FIRST.md/JSON. Current supplemental
 result: 23 pass / 1 fail / 0 unsupported semantic, one deployment unsupported.
 Topic: `div-astra25-erasure-receipt`.

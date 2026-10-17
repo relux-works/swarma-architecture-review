@@ -266,3 +266,18 @@ will prove semantic differences and forbidden effects are detected.
 - No implementation change. Await judge disposition of K-API-1/K-ERASE-2 and
   the exact actor/metadata binding. Protected closure must remain complete.
 - Log: `.temp/impl-astra-23/phase2-erasure-first-01.log` (expected runner exit 1).
+
+## Round 13 — R7-031 released-contract dependency
+
+- Judge event `$JPPhod2ZE3Dm7yPZZY1gOh8KGSHsO6j0Fi33ewipx7o` classifies
+  ASTRA25-07 as spec-bug R7-031, editor astra-21. No owner question or separate
+  impl-bug is assigned for the contradictory full-closure receipt requirement.
+- Preserve red head 127bc0b. Align only after an explicit recipient/audience/
+  purpose or admitted receipt scope and pre-fence metadata rule are released.
+- Planned negative boundaries: hidden derivative refs remain absent despite
+  complete protected erasure; unrelated-purpose grants and a later query must
+  not authorize receipt metadata. The explicit authorized positive control must
+  still reveal its full approved refs. Protected closure/custody cannot shrink.
+- Acknowledged directly to judge/editor. Current runtime and canonical report
+  unchanged; no speculative filter introduced. Await released contract and
+  explicit case migration, then rerun the affected operation and full corpus.
