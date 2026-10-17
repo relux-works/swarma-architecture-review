@@ -1,72 +1,55 @@
 # astra-23 — package implementer verdict
 
-Current package **0.2.5-draft**, `6a04e8cfb1490569cd1de7468d2085dd4840cf51`:
-all canonical and explicitly migrated supplemental semantic vectors pass after
-the R7-053 live-retention correction. Judge13e3d73 independently closes the
-correction at23b4d74, reproducing every report row, input/module hash and full
-normalized actual, all31controls and ten separate deadline operation checks.
-
-Judge classifies ASTRA25-12 as unresolved package implementation bug R7-058:
-current witnessed deletion A absent from the old snapshot inventory is ignored,
-including an unreachable affected sink. Reconciliation opens disclosure with A
-readable and both sinks present. PHASE2-RESTORE-CURRENT-FIRST preserves all four
-original traces and full state; known/empty obligations and false-witness/fenced
-read controls remain intact. Five exact author1cefcf9 fixtures are now published;
-PHASE2-RESTORE-VECTORS-FIRST on unchanged23b4d74 is65/3/0 across68supplemental
-semantics, failing only new/unreachable/independent traces. The correction is in
-progress. The63-case report below predates these five additional cases.
+Current package **0.2.5-draft**, `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
+The R7-058 current restore-obligation correction now passes the full expanded
+semantic corpus and native controls. Independent correction review is pending.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 57 | 0 | 0 |
-| Supplemental semantic | 63 | 0 | 0 |
+| Supplemental semantic | 68 | 0 | 0 |
 | Canonical / supplemental deployment | 0 / 0 | 0 / 0 | 8 / 1 |
 
-Twenty-seven product plus four checker controls pass. Package validation passes
-94JSON/65vectors/52clauses and34 intended violation plants. All four write APIs
-now require current intake strictly before each output/known-input deadline.
-At/after expiry refuses not_authorized/false before idempotency, including exact
-replay; full state and original receipt remain unchanged, with no purge effect.
-Null/before controls, complete/incomplete-known closure, both batch orders,
-changed-intent priority and later unlimited same-key recovery pass.
+Thirty product plus four checker controls pass. The package remains unchanged
+at its validated release: 94 JSON files, 65 vectors, 52 clauses and 34 intended
+violation plants. Passing synthetic semantics does not qualify deployment.
 
-PHASE2-DEADLINE-FIRSTe689cf2, exact0c1b5ca and RELEASE-0.2.5-FIRSTdf58eae
-preserve native, supplemental and full-release failures before correction.
-All prior first reports remain immutable; no expected fixture was edited.
-Explicit migrations belong to the fixture authors. Interim split-profile checks
-are labeled in WORKLOG; final reports above use0.2.5 throughout.
+R7-058 reconciliation now uses the full supplied current-witness closure and
+retains the existing coverage check for known local erasures. Every affected
+controlled sink must be reachable before mutation. Newly learned deletion refs
+enter erased/fence state and advance generation; affected custody is purged
+before the restore-wide gate opens. Refusal preserves complete state and keeps
+the gate fenced. Known, genuinely empty and repeated recovery remain valid.
 
-Judge closed R7-048 strict succession at942bdee, R7-049 specification at ef02647,
-R7-054 deadline mapping at6a04e8c and source052 at4a14a56. Earlier package closures
-031/037/041/044/045/046 remain recorded in DIVERGENCES. Original strict-receipt
-failures47c0205/0641033/e689cf2 and every same-issuer positive are retained.
+Three new native groups cover all four original traces, complete/incomplete-known
+derived closure, independent content/custody, outside recipients, atomic
+unreachable refusal and late writers. Old-generation and current-generation
+derivative commits refuse; an unrelated current-generation write with the same
+previously refused key succeeds. All five unchanged author1cefcf9 exact cases pass.
 
-New ASTRA24-12 native probes concern a foreign issuer at an intermediate authority
-event. Judge files R7-055 as an ambiguity/owner question: issuer-local qualification
-versus global canonical predecessor endorsement requires an attributed decision.
-PHASE2-ISSUER-FIRST preserves own currentd3 outputs for both inputs and unchanged
-durable state; ordinary ephemeral bindings are explicit. No exact mixed-path
-oracle or runtime change is inferred, and the pair stays outside vector totals.
+PHASE2-RESTORE-CURRENT-FIRST at b805582 preserves the original four native traces
+before correction. PHASE2-RESTORE-VECTORS-FIRST at390b208 preserves65/3/0 on
+byte-exact pre-correction23b4d74 modules across68cases; only new/unreachable/
+independent restore traces fail. Known/empty and all63prior cases pass there.
+Every earlier first artifact and all author-owned fixture bytes remain unchanged.
 
-Phase1 supported score was2/2 (judgeb1ae299). Phase2 remains **1/2, active**.
-Both evaluators independently verify 57/57 canonical and the prior 61/61
-supplemental semantics (package 23b4d74, corrected source 87beb46). Judge
-e2a797d closes native source recovery R7-056, and e3d44df closes source R7-057
-at946cbd8. Both readers verified the63-case supplemental inventory at that point;
-new R7-058 restore cases and their correction are a separate subsequent gate.
-Early PARK still requires a full round without a new open item; hard cap13:00Z.
-Deployment remains unqualified.
+Judge13e3d73 closes R7-053 at23b4d74 after full canonical/supplemental reproduction,
+31 prior controls and ten deadline operation checks. Earlier package closures
+031/037/041/044/045/046/048 and specification049/054 remain recorded. Source056
+is independently closed at87beb46 and057 at946cbd8/e3d44df. The erase-context
+first f639770 and exact purpose/audience regressions remain preserved; package
+changed-intent conflict and exact-replay metadata gates required no correction.
 
-PHASE2-ERASE-CONTEXT-FIRST preserves unchanged ASTRA22-09 inputs on23b4d74:
-same-key ungranted receipt-context change returns idempotency_conflict/false
-with complete state unchanged; exact original replay retains its receipt. Fresh
-key with the ungranted context purges the entire closure with empty metadata
-refs. Judge classifies this as source-only R7-057; package behavior is correct.
-The original native first remains immutable and outside vector totals. The two
-new exact purpose/audience fixtures from 66233ab are now included in 63/63.
-Sixteen focused operations additionally preserve full state/original receipts
-on ten exact refusals and two replays, with fresh-key full-purge positives.
-No runtime/oracle change or foreign implementation intake occurred.
+R7-055 remains an unresolved, filed owner question held for Ivan: issuer-local
+path qualification versus global canonical predecessor endorsement. Own
+PHASE2-ISSUER-FIRST atd4ddc45 retains currentd3 for both native inputs, unchanged
+durable state and explicit ordinary ephemeral bindings. No exact mixed-path
+oracle or authority change is inferred; the pair remains outside vector totals.
+
+Current seat score is **1/2 while R7-058 is open**. The2/2 at e3d44df preceded
+this native restore intake. Full-vector success does not close the new defect;
+independent review and the convener quiet-round/PARK protocol remain required.
+No PARK has been announced; hard cap13:00Z remains.
 
 Implementation remains package-derived; original blind first0008dc3 is immutable.
 Evidence: ../impl-astra-23/RESULTS.md/JSON, SUPPLEMENTAL.md/JSON, all FIRST reports,

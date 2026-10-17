@@ -1015,3 +1015,28 @@ will prove semantic differences and forbidden effects are detected.
 - Logs: restore-current-red-01.log, restore-current-green-01.log,
   restore-current-native-01.log, controls-16.log, restore-vectors-first-01.log
   (expected exit1). Frozen own modules are .temp/impl-astra-23/runtime-23b4d74/.
+
+### Round 36 correction outcome
+
+- Reconciliation now uses the current supplied obligations' full content closure,
+  preserving the existing requirement that it cover retained local erasures.
+  All affected controlled custody is checked for reachability before mutation.
+- New closure is added to protected erased/fence state and increments disposition
+  generation once when new deletion refs are learned. Only then are affected
+  controlled sinks marked absent and the restore-wide gate opened. Known/empty
+  and repeated recovery do not invent a new generation; outside recipients and
+  unrelated content/custody remain unchanged.
+- Three new native groups pass all four original traces, complete/incomplete-known
+  derived closure, unaffected content, uncontrolled/unreachable unrelated sinks,
+  atomic unreachable refusal, stale-generation and current-generation derivative
+  refusals, and valid same-key unrelated recovery. All30product+4checker tests pass.
+- Current0.2.5 canonical57/57 and all68explicit supplemental semantics pass,
+  including all five unchanged1cefcf9 fixtures. Deployment8+1remains unsupported.
+  Package remains exact6a04e8c; its prior34plant validation still applies.
+- Self-review limits runtime changes to current closure selection and protected
+  erasure/fence/generation updates after complete reachability checks. First
+  b805582/390b208 and prior issuer/erase firsts plus exact author fixtures remain
+  byte-identical. No source evaluator implementation or new oracle was used.
+- Final logs: canonical-round36-01.log and supplemental-round36-01.log, plus
+  restore-current-native-01.log/controls-16.log above. Independent058 correction
+  review is the remaining gate;057 closure and055 owner hold remain separate.

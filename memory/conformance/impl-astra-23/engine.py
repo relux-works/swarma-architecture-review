@@ -224,12 +224,16 @@ class Engine:
                 rt["restore"] = {"status": "fenced", "external_witness": op["external_witness"], "obligations": op["obligations"]}
                 return receipt(kind, "fenced", status="access_closed")
             obligations = {key(r) for r in rt["erased"]}
-            if not op["external_witness"] or not obligations <= self.erasure_closure({key(r) for r in op["obligations"]}):
+            closure = self.erasure_closure({key(r) for r in op["obligations"]})
+            if not op["external_witness"] or not obligations <= closure:
                 raise Refused("erasure_incomplete")
-            closure = self.erasure_closure(obligations)
             affected = [c for c in rt["custody"] if c["controlled"] and any(key(r) in closure for r in c["inputs"])]
             if any(not c["reachable"] for c in affected):
                 raise Refused("erasure_incomplete")
+            if closure - obligations:
+                rt["erasure_generation"] += 1
+            rt["fences"] = refs([*rt["fences"], *closure])
+            rt["erased"] = refs([*rt["erased"], *closure])
             for c in affected:
                 c["present"] = False
             rt["restore"] = {"status": "open", "external_witness": True, "obligations": refs(closure)}

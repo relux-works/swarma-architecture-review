@@ -325,6 +325,129 @@ class Semantics(unittest.TestCase):
                 self.assertEqual(e.state, before)
                 self.assertEqual(e.state["runtime"]["idempotency"][0]["receipt"], first)
 
+    # R7-058: the four preserved native traces distinguish newly witnessed, unreachable,
+    # known-local and genuinely empty obligations; refusals/repeated recovery preserve state.
+    def test_restore_current_obligations(self):
+        cases = strict_loads((pathlib.Path(__file__).parent / "PHASE2-RESTORE-CURRENT-FIRST.json").read_text())
+        for case in cases["rows"]:
+            with self.subTest(case=case["name"]):
+                v, name = case["inputs"], case["name"]
+                e = engine(v)
+                for index, op in enumerate(v["operations"]):
+                    before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+                    actual = e.operation(op, index)
+                    denied = op["op"] == "reconcile_restore" and (
+                        not op["external_witness"] or name == "new_obligation_unreachable_sink")
+                    if denied:
+                        self.assertEqual(actual, {"type": "refusal", "code": "erasure_incomplete", "retryable": True})
+                        self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+                    else:
+                        self.assertEqual(actual["type"], "receipt")
+                        self.assertEqual(actual["outcome"], {"erase": "purged", "restore": "fenced",
+                                                           "reconcile_restore": "reconciled"}[op["op"]])
+                    if op["op"] == "restore":
+                        self.assertEqual(e.read(v["query"]),
+                                         {"type": "refusal", "code": "erasure_fenced", "retryable": False})
+                if name == "new_obligation_unreachable_sink":
+                    self.assertEqual(e.state["runtime"]["restore"]["status"], "fenced")
+                    self.assertEqual(e.read(v["query"]),
+                                     {"type": "refusal", "code": "erasure_fenced", "retryable": False})
+                    continue
+                empty = name == "empty_obligation_control"
+                expected = [] if empty else [{"id": "rec:a", "version": 1}]
+                self.assertEqual(e.state["runtime"]["erased"], expected)
+                self.assertEqual(e.state["runtime"]["fences"], expected)
+                self.assertEqual(e.state["runtime"]["restore"]["obligations"], expected)
+                self.assertEqual(e.state["runtime"]["erasure_generation"], 0 if empty else 1)
+                self.assertTrue(all(c["present"] == empty for c in e.state["runtime"]["custody"]))
+                self.assertEqual([i["ref"] for i in e.read(v["query"])["items"]],
+                                 [{"id": "rec:a", "version": 1}] if empty else [])
+                before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+                self.assertEqual(e.operation(v["operations"][-1], 9)["outcome"], "reconciled")
+                self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+
+    # R7-058/K-ERASE-1/2: current obligations include complete and incomplete-known derived
+    # closure; unreachable affected custody refuses atomically, unrelated/external sinks survive.
+    def test_restore_current_closure_and_unaffected_content(self):
+        for unknown in (False, True):
+            for reachable in (False, True):
+                with self.subTest(unknown=unknown, reachable=reachable):
+                    v = vector("S20")
+                    initial = v["initial_state"]
+                    independent = copy.deepcopy(initial["records"][0])
+                    independent["envelope"]["id"] = "rec:independent"
+                    independent["envelope"]["recorded"]["sequence"] = 3
+                    initial["records"].append(independent)
+                    fact = copy.deepcopy(initial["policy"]["lineage_facts"][0])
+                    fact["output"] = ref(independent)
+                    initial["policy"]["lineage_facts"].append(fact)
+                    initial["policy"]["reviews"].append({"record": ref(independent), "reviewer": "subj:h1", "result": "allow"})
+                    initial["runtime"]["custody"][1]["reachable"] = reachable
+                    initial["runtime"]["custody"] += [
+                        {"id": "custody:independent", "inputs": [ref(independent)], "kind": "payload",
+                         "controlled": True, "reachable": False, "present": True},
+                        {"id": "custody:external", "inputs": [{"id": "rec:a", "version": 1}], "kind": "export",
+                         "controlled": False, "reachable": False, "present": True}]
+                    if unknown:
+                        initial["records"][1]["envelope"]["lineage"] = "unknown"
+                        initial["policy"]["lineage_facts"][1]["complete"] = False
+                    e = engine(v)
+                    self.assertTrue(e.grammar.matches(initial, e.grammar.schemas["vector"]["properties"]["initial_state"]))
+                    restore = vector("S25")["operations"][1]
+                    reconcile = vector("S25")["operations"][2]
+                    reconcile["external_witness"] = True
+                    self.assertEqual(e.operation(restore, 0)["outcome"], "fenced")
+                    before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+                    actual = e.operation(reconcile, 1)
+                    if not reachable:
+                        self.assertEqual(actual, {"type": "refusal", "code": "erasure_incomplete", "retryable": True})
+                        self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+                        self.assertEqual(e.read(v["query"]),
+                                         {"type": "refusal", "code": "erasure_fenced", "retryable": False})
+                        continue
+                    self.assertEqual(actual["outcome"], "reconciled")
+                    self.assertEqual(actual["custody"], ["custody:embedding", "custody:payload"])
+                    expected = [{"id": "rec:a", "version": 1}, {"id": "rec:summary", "version": 1}]
+                    self.assertEqual(e.state["runtime"]["erased"], expected)
+                    self.assertEqual(e.state["runtime"]["fences"], expected)
+                    self.assertEqual(e.state["runtime"]["erasure_generation"], 1)
+                    self.assertEqual(e.state["records"], before[0]["records"])
+                    self.assertEqual(e.state["policy"], before[0]["policy"])
+                    self.assertEqual([c["id"] for c in e.state["runtime"]["custody"] if c["present"]],
+                                     ["custody:independent", "custody:external"])
+                    query = copy.deepcopy(v["query"])
+                    query["scope"]["targets"] = [ref(independent)]
+                    self.assertEqual([i["ref"] for i in e.read(query)["items"]], [ref(independent)])
+
+    # R7-058/K-ERASE-3: newly learned deletion advances generation and blocks old writers
+    # plus current-generation derivatives, while a same-key unrelated authorized write succeeds.
+    def test_restore_current_late_writers(self):
+        v = vector("S26")
+        independent = copy.deepcopy(v["operations"][1])
+        independent["proposals"][0]["envelope"]["id"] = "rec:independent"
+        independent["proposals"][0]["envelope"]["lineage"] = []
+        reference = ref(independent["proposals"][0])
+        fact = copy.deepcopy(v["initial_state"]["policy"]["lineage_facts"][0])
+        fact["output"] = reference
+        v["initial_state"]["policy"]["lineage_facts"].append(fact)
+        v["initial_state"]["policy"]["reviews"].append({"record": reference, "reviewer": "subj:h1", "result": "allow"})
+        e = engine(v)
+        self.assertEqual(e.operation(vector("S25")["operations"][1], 0)["outcome"], "fenced")
+        reconcile = vector("S25")["operations"][2]
+        reconcile["external_witness"] = True
+        self.assertEqual(e.operation(reconcile, 1)["outcome"], "reconciled")
+        for generation, code, retryable in ((0, "stale_generation", True), (1, "erasure_fenced", False)):
+            op = copy.deepcopy(v["operations"][1])
+            op["expected_generation"] = generation
+            before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+            self.assertEqual(e.operation(op, 2), {"type": "refusal", "code": code, "retryable": retryable})
+            self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+        independent["expected_generation"] = 1
+        self.assertEqual(e.operation(independent, 3)["outcome"], "admitted")
+        self.assertEqual(e.state["runtime"]["erasure_generation"], 1)
+        self.assertEqual([ref(r) for r in e.state["records"]], [{"id": "rec:a", "version": 1}, reference])
+        self.assertEqual(len(e.state["runtime"]["idempotency"]), 1)
+
     # R7-041: incomparable and historical authority candidates refuse atomically; current
     # receipt order, challenge exemption and exact replay remain valid independently of arrival.
     def test_authority_slot_cas(self):

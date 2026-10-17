@@ -499,3 +499,19 @@ PHASE2-RESTORE-VECTORS-FIRST freezes all68current supplemental semantic cases
 on original23b4d74:65pass/3fail, only new/unreachable/independent restore traces.
 Known/empty and all63prior cases pass. Author1cefcf9 fixture bytes are unchanged;
 one deployment remains unsupported. Native b805582 first remains immutable.
+
+### R7-058 correction candidate
+
+The supplied current-witness closure now drives reconciliation rather than only
+old local erasures. The existing retained-obligation coverage guard remains;
+all affected controlled sinks must be reachable before any mutation. Current
+closure enters erased/fence state, advances generation for newly learned deletion
+refs, purges affected controlled custody and only then reopens the restore gate.
+
+Canonical57/57 and expanded supplemental68/68 pass unchanged at0.2.5. Three new
+native groups bring product tests to30, with4checker controls: original new/known/
+empty/unreachable traces, complete/incomplete-known derived closure, unrelated
+content/custody, external recipients, repeated recovery and late writers all pass.
+Unreachable and forbidden writer attempts preserve full state; same-key unrelated
+authorized recovery succeeds. Native b805582 and exact390b208 firsts remain
+immutable. Independent review is required before R7-058 can be marked closed.

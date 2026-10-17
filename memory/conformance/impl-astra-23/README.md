@@ -102,7 +102,7 @@ state. PHASE2-COVERAGE-REVIEW-FIRST preserves both prior failures.
 
 Delivery validates the authenticated actor against the saved projection principal
 before using its binding. Frozen 0.2.2 regression evidence is separately retained
-in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current0.2.5 RESULTS passes57/57canonical semantics and SUPPLEMENTAL passes all63
+in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current0.2.5 RESULTS passes57/57canonical semantics and SUPPLEMENTAL passes all68
 semantic cases; deployment remains unsupported. RELEASE-0.2.3-FIRST and
 PHASE2-ACTOR-FIRST retain the unchanged-runtime first results.
 
@@ -117,7 +117,7 @@ PHASE2-SUCCESSION-FIRST preserves forbidden authoritative replacements before
 correction. Released0.2.4 specifies strict canonical receipt ancestry and exact
 refusals; current replace/correct enforce it with atomic state preservation.
 Direct/transitive successors, plain incomparable import and exact authorized replay
-remain valid. RELEASE-0.2.4-FIRST retains the pre-fix B01 failure. Current27product and4checker controls pass.
+remain valid. RELEASE-0.2.4-FIRST retains the pre-fix B01 failure. Current30product and4checker controls pass.
 Released0.2.5 live deadlines gate all four intake APIs and current replay over
 outputs/transitive known inputs, before idempotency. At/after expiry refuses
 without changing existing records/receipts or running a purge. PHASE2-DEADLINE-FIRST,
@@ -129,4 +129,14 @@ runtime23b4d74. Current erase authority precedes intent conflict; current stored
 receipt metadata is checked only for exact replay. Missing metadata does not
 prevent full fresh-key purge with empty refs. PHASE2-ERASE-CONTEXT-FIRST preserves
 the native observation before adjudication; author-owned exact cases expand
-the current supplemental semantic inventory to63 without changing the31controls.
+the supplemental semantic inventory to63 at that stage without a runtime change.
+
+Current restore reconciliation applies the supplied current-complete witness
+closure, retains the existing coverage check for known deletions, and refuses
+unreachable affected controlled custody atomically before reopening. Newly learned
+closure enters erased/fence state and advances generation once; repeated known
+reconciliation leaves it unchanged. Derived commits and old-generation writers
+remain blocked while unrelated current-generation writes and independent content
+remain available. PHASE2-RESTORE-CURRENT-FIRST and PHASE2-RESTORE-VECTORS-FIRST
+preserve the original native and exact failures. The five new exact fixtures bring
+the current supplemental semantic inventory to68;30product plus4checker tests pass.
