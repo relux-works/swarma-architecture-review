@@ -1,7 +1,7 @@
 # ASTRA25-07: erasure authority does not authorize hidden closure metadata
 
 Status: R7-031 spec-bug; explicit receipt-context correction released in
-`0.2.2-draft` at `7e71765`, behavioral correction/review pending. Original
+`0.2.2-draft` at `7e71765`, behavior independently verified at `a016781`; judge closure pending. Original
 `0.2.1-draft` witness at `f31d58f` remains preserved.
 Owner: astra-25.
 
@@ -96,3 +96,23 @@ reports are `astra23-phase2-022-migration` and `astra22-phase2-022-migration` in
 evidence JSON. Source erase remains explicitly unsupported. Canonical P08 now
 also supplies exact replay, changed-context conflict, authorized tombstone refs
 and revoked-replay controls; independent correction verification remains pending.
+
+## Independent corrected-runtime verification
+
+Package implementation `a016781` passes the unchanged migrated primary,
+authorized and other-purpose traces exactly. The complete owned semantic corpus
+is 15 pass / 1 fail (the separate retention case). A fresh canonical run is
+57 pass / 0 fail, with eight deployment cases explicitly unsupported. All 18
+product/checker controls pass independently, including later-stamp exact replay,
+changed context, broadened rights not rewriting the stored receipt, and current
+read/use/metadata loss with full state preservation. The owned deployment case
+also remains unsupported.
+
+Review confirms filtering occurs before new fencing and does not change the
+protected closure/purge set; replay checks the original refs and returns the
+original receipt only when currently authorized. Exact evidence entries are
+`astra23-phase2-022-receipt-corrected` and
+`astra23-canonical-022-receipt-corrected`. Control log:
+`.temp/astra25-package-controls-022-01.log`. This verifies the tested semantic
+receipt contract; it does not establish physical purge or general side-channel
+isolation. Judge owns final R7-031 closure.
