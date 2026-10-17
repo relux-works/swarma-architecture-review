@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 35, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: parked, phase 2 complete, 2026-10-17.
 
 ## Current position
 
@@ -11,7 +11,8 @@ Judge `9d2cdd4` closes R7-058 and records **2/2**: both implementations pass
 is `104fbe8`. The ledger has 47 fixed items, 10 rejected items and the held
 owner question R7-055, with no open spec/implementation bug. All 15 owned
 fixtures pass; all classified owned defects are closed. Deployment remains
-unsupported (8 canonical plus 1 supplemental case). No PARK has been received.
+unsupported (8 canonical plus 1 supplemental case). The convener issued PARK
+at 2026-10-17T06:33Z after verifying all seven quiet rounds.
 Earlier sections below retain historical scores and first-run evidence.
 
 ## Baseline and scope
@@ -965,3 +966,19 @@ vector denominator and without an invented oracle or authority rule. The
 8 canonical plus 1 supplemental deployment cases remain unqualified.
 Current score is **2/2**. This seat is quiet and ready for the convener's
 PARK protocol; the collective gate is not inferred from this local status.
+
+## Final parking
+
+Convener PARK event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg`,
+2026-10-17T06:33Z, verifies the phase-2 gate at `1f92e91`: released package
+validation, full dual semantic coverage, no open specification/implementation
+bug, and a quiet round from every seat. This seat completed its assigned audit
+with ten case documents and fifteen unchanged executable fixtures. All classified
+owned defects are closed; historical first failures remain available.
+
+Final own R7 row: **2/2**, grounded in the judge's pinned evidence and the
+independent checks recorded above. R7-055 is still an unresolved owner question,
+not an evaluator failure or an agreed oracle. Deployment remains unsupported.
+The [park note](../parked/astra-26.md) records exact resume conditions, package
+and runtime pins, preserved evidence and the only open semantic decision.
+No new case, runtime/spec change or fixture rewrite was made for parking.
