@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 22, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 23, 2026-10-17.
 
 ## Baseline and scope
 
@@ -593,3 +593,25 @@ change is inferred, and first failures remain preserved.
   transitive successes, exact replay and separate CAS refusal were inspected.
 - Owned findings remain closed. New-release canonical acceptance and remaining
   source coverage are incomplete; score **1/2**, no deployment or PARK claim.
+
+## Phase 2 round 23 — package decision succession independently verified
+
+Package `942bdee` now passes the complete expanded 0.2.4 B01 exactly, as well
+as P02/P10/P15 and all **15 owned fixtures**. The round-22 B01 failure remains
+preserved; no expected answer changed. Reviewed the shared strict receipt
+traversal and its authoritative replace/correct gate.
+
+Three targeted product control groups pass. Eight relation/receipt-class
+negatives return exact authority_receipt_required and preserve full state,
+dirty-since, captures and bindings. The same keys subsequently accept valid
+successors; direct/transitive replacement, exact original replay after a new
+head, distinct stale CAS refusal, ordinary incomparable plain admission and
+existing slot-CAS controls stay correct. These are bounded fixture claims, not
+a claim that every possible authority graph has been exercised.
+
+Evidence: seat `.temp/r7-astra-26/owned-cases-astra23-18.json`,
+`attribution-domains-astra23-04.json` and `astra23-authority-controls-01.log`,
+with exact input/runtime hashes. R7-048 closure evidence is sent to the judge
+and implementation owner. Source R7-051 and remaining canonical gaps are still
+separate; the deadline findings are also unresolved. Score remains **1/2**,
+protected deployment unqualified, no PARK received.
