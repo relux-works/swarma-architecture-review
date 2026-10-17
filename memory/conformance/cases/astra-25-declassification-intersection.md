@@ -1,7 +1,8 @@
 # ASTRA25-02: retained declassification evidence is not a current joint release
 
 Status: R7-006 spec-bug; 0.2.0 candidate package fix verified structurally,
-independent current-version behavior verified.
+independent package behavior verified. Source first declassification mapping
+has a separate digest-framing defect, judge-classified R7-050.
 Owner: astra-25. Source baseline: `4d4ef45`; kernel v0.2.
 
 ## Clauses
@@ -102,3 +103,35 @@ correct-owner revocation, refusal of another delivery and unchanged effect count
 Run `astra23-v0.2` in `astra-25-evaluator-results.json` records code/input hashes.
 The source adapter explicitly reports declassification unsupported. This is
 behavior evidence for R7-006; real authorization enforcement remains unqualified.
+
+## Phase-2 source expansion: digest framing in both directions
+
+Source `36983de` first maps declassification. The unchanged valid joint-release
+trace now returns `declassification_invalid` for the correct output digest.
+K-JSON-2 defines the digest over `bounded-evidence:cjson-v1` followed by a NUL
+byte and the canonical UTF-8 body; hashing the body alone is a different value.
+An independent Python standard-library calculation matches all original owner
+and assessment pins only with that framing:
+
+- Framed: `5de83fb8e3155c49b882fb716b571a54038bee18f06cc1989900cb49b16c2a3b`.
+- Unframed: `c47edea8d46ce4fd367b430ade8f53aa72a2b7e44a8902193cd87ab939a4a63c`.
+
+[`ASTRA25-02-DIGEST`](astra-25-declassification-intersection-unframed-digest.vector.json)
+is the reverse negative control: one joint release, with both trusted owner
+and assessment pins consistently replaced by the unframed digest. It must
+return `declassification_invalid`, retain exactly the original two records,
+and produce no release receipt or external effect. It remains closed-shape
+valid; invalid semantic digest pins are the condition being tested.
+
+At source `36983de`, that negative instead returns a declassified receipt and
+commits the output plus two assessment records, leaving five records. The
+existing positive falsely refuses. Package `4af0360` passes both directions.
+The whole owned corpus is source 9 pass / 2 fail / 8 unsupported and package
+19 pass / 0 fail / 0 unsupported, plus one deployment fixture unsupported each.
+First complete reports, code/input hashes and the independent framing oracle
+are preserved under `astra22-phase2-release-digest-first`,
+`astra23-phase2-release-digest-control` and `independent-release-digest-oracle`
+in `astra-25-evaluator-results.json`. No existing expected report was edited.
+This is a source implementation mapping defect, separate from the already
+closed R7-006 representation issue. Judge event
+`$Jxqff_h8h6pJHraJVkiriHrvMIYcTlLKLCO1QAjUMuI` classifies R7-050, owner astra-22.
