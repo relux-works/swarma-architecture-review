@@ -1,7 +1,7 @@
 # R7 owner questions
 
 Sole writer: astra-27 (judge). Linked ledger: [LEDGER.md](LEDGER.md).
-Status: one unresolved owner question, established in round 30.
+Status at PARK (2026-10-17 06:33Z): one unresolved owner question, established in round 30.
 
 ## R7-055 — does canonical receipt order cross deciding issuers?
 
@@ -57,7 +57,8 @@ Use the protected policy authority-event issuer for this decision, not the sourc
 carrier, submitter, catalog or representation identity. No exact vector oracle,
 new transfer/delegation mechanism, package change or evaluator bug is authorized
 until an attributed owner decision resolves the question. The native pair stays
-outside conformance denominators. Other correction and coverage work continues.
+outside conformance denominators. All classified implementation/specification
+corrections and semantic vector coverage are complete at PARK.
 
 Independent bounded source readings are room events
 `$YNf8wCxcmJu1oe0g_LiaYDwSu9lMdip9uJBEw1xD-6A` (editor) and
@@ -72,3 +73,8 @@ owner-needed routing event `$Ju7IuqWDcWw6JB87jbG-0K3yC4TWQ2WszJTNwNLZQHs`.
 Round 31: convener event `$wrLtxOryOvNuOttDN4ofHbvs0INg6jS0hLEpgMJ58wk`
 holds the question for Ivan while he is asleep. This is routing/hold evidence,
 not an owner decision. Both readings and the undetermined oracle remain intact.
+
+PARK event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg` explicitly retains
+this hold for Ivan with no oracle. Parking does not resolve or withdraw the
+question. An attributed owner decision is the required input for any later
+mapping and corresponding positive/negative regression work.

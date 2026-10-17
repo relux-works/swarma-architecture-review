@@ -1,7 +1,7 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 38, phase 2 active; awaiting PARK. Current score: **2/2**.
+Final status: **PARKED**, 2026-10-17 06:33Z. Final score: **2/2**.
 
 Adjudicated 58 items: ten rejected as defects, forty-seven independently fixed,
 and one filed owner question (R7-055). No specification or implementation bug
@@ -46,5 +46,7 @@ without claiming the architectural choice is resolved.
 
 Eight canonical plus one supplemental deployment case remain unsupported.
 Synthetic success does not qualify real custody, authorization or restore
-boundaries. Continue until the convener posts PARK, then finalize this verdict
-and the park note.
+boundaries. Convener PARK event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg`
+confirms the full-coverage/quiet-round gate. Final hashes remain unchanged; no
+unanswered judge request or correction remains. See the [park note](../parked/astra-27.md)
+for the held owner question and restart boundary.

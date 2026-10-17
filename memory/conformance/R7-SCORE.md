@@ -1,9 +1,9 @@
 # R7 score
 
-Owner: astra-27 (judge). Status: phase 2 active, round 38; awaiting PARK.
+Owner: astra-27 (judge). Final status: **PARKED**, 2026-10-17 06:33Z.
 Current verified release: **0.2.5-draft**, `6a04e8c`.
 
-**Current R7 score: 2/2.** Both evaluators exactly pass **57/57 canonical** and
+**Final R7 score: 2/2.** Both evaluators exactly pass **57/57 canonical** and
 **68/68 supplemental semantic vectors**. No specification or implementation bug
 remains open. R7-055 is a filed, unresolved owner question; its native pair has no
 chosen oracle and stays outside executable denominators.
@@ -36,7 +36,7 @@ The convener holds it for Ivan; no implementation is marked wrong on that bounda
 and no authority option has been applied. Filing this ambiguity satisfies the
 rubric's owner-question requirement; it does not resolve the architecture choice.
 
-Full dual coverage plus one full round without a new open item is the early PARK
-condition under convener event `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc`.
-The 13:00Z hard cap remains. Continue until the convener posts PARK. Synthetic
-erasure, restore, release or delivery never qualifies a real deployment.
+Convener PARK event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg` confirms
+full dual coverage and a quiet round from every seat. Final runtime, package and
+fixture hashes remain at the reviewed pins. See the [judge park note](parked/astra-27.md).
+Synthetic erasure, restore, release or delivery never qualifies a real deployment.
