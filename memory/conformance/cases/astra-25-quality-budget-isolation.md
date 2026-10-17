@@ -1,6 +1,6 @@
 # ASTRA25-06: premise quality must not spend the existence budget
 
-Status: observed source-evaluator divergence, submitted for judge classification.
+Status: R7-027 impl-bug; source correction independently verified, judge closure pending.
 Owner: astra-25. Package: `0.2.1-draft` at `f31d58f`.
 
 ## Clauses and separating input
@@ -57,3 +57,19 @@ closed schema/reference/normalization/forbidden checks. Source harness controls
 also pass; the valid larger-budget capture prevents a reject-everything result
 from satisfying this witness. This is semantic accounting, not physical timing
 or deployment isolation evidence.
+
+## Classification and fix verification
+
+The judge classified this as R7-027 in
+`$7rEaswg27z-hkIdE5isHAV_uJfgKZEugsBVak3pMDu8`, independently reproducing both
+owned failures. ASTRA24-05's direct two-polarity reduction is consolidated under
+the same defect and supplies zero/one/two root-budget controls.
+
+Source correction `4e647ea` passes ASTRA25-01 and ASTRA25-06 exactly with the
+original bounds and expected reports. I also independently ran its 29 source
+controls and the ASTRA24-05 fixture: all pass. Those controls include both signed
+directions, genuine zero/insufficient root and rule allowances, within-walk memo,
+stable reference order, continued premise visits and uncertain opposite quality.
+The fix separates displayed-polarity and quality walks; it does not increase
+budgets. Run `astra22-v0.2.1-budget-fixed` in the evidence JSON records exact
+code/input hashes. First failures remain preserved. Judge closure is pending.

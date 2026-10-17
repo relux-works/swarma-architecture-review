@@ -2561,6 +2561,112 @@
       "fixture_commit": null,
       "fixture_worktree_modified": true,
       "fixture_note": "Input bytes are identified by each vector_sha256; these owned additions/edits were not yet committed at execution."
+    },
+    "astra22-v0.2.1-budget-fixed": {
+      "package_version": "0.2.1-draft",
+      "package_commit": "f31d58f58d05de2ae4159dedaacfa1e32bdc656d",
+      "evaluator_commit": "4e647ea02ad8a9f7df18a42925dfe47473c936a5",
+      "fixture_commit": "2a6d2942329af98143ca1dcdadde8c4d2cb1727c",
+      "implementation_sha256": {
+        "adapter.py": "12eb2f6232bea3878fb8dd8179750d0cc1845a5e38631f7c888ff5b475e2ae1b",
+        "adapter_checks.py": "d2fddcaa611b4e53ef0eeb9561eda743fa27432bd43a85c825baa3435cf2e634",
+        "evaluator.py": "d81a4ae9956802b82d4710d85dfc54efb5679c91eb623e6515e12d8907ba8b9e",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "402dc6720005f2ea9148005b9d2df8ca3e420430e65f43292c9958ba155474c0",
+        "transaction_checks.py": "3b700e9e8760ac4342a2f86f318dc8d135ebdddbef27d6e32b1d840e0f3c2c96",
+        "transactions.py": "913accd5b81becfaccdb04eead763a26969fdc1ad6025c19a9d06f63c8100f04"
+      },
+      "scope": "Owned current-version adversarial fixtures; untouched evaluator; five harness controls passed. Deployment unsupported is not a pass.",
+      "vectors": [
+        {
+          "id": "ASTRA25-02",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
+          "vector_sha256": "f8dedbc7e38d7fa7699c5fdab332c4e1fdfaa7ff338db63bf496ce03bef94bf2",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: declassify, deliver, revoke_declassification"
+        },
+        {
+          "id": "ASTRA25-05-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "vector_sha256": "a75be249b59dc03a7bd4546e12313e8322c6d649f891ddfc945046a43f819a65",
+          "status": "unsupported",
+          "reason": "Frozen core has no dirty/review-closure output"
+        },
+        {
+          "id": "ASTRA25-05",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
+          "vector_sha256": "466e1c685e1ba9cf4b04636cae25ab10f84617ac9c371552b73aa42069f8b4be",
+          "status": "unsupported",
+          "reason": "Frozen core has no dirty/review-closure output"
+        },
+        {
+          "id": "ASTRA25-01",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
+          "vector_sha256": "6e836d3bc71a8e481d8f8b496d7676d94849bf6b30d993789782a68f951e3b29",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-06",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-quality-budget-isolation.vector.json",
+          "vector_sha256": "ce6f6322eeb1398fe710c1360e0d739fae5863228954b1de6c48fd326568dfa0",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-04",
+          "profile": "deployment",
+          "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
+          "vector_sha256": "021ea4e4964291793222432afa32158c440ce70f1295ddd086c9bfcc87981a7b",
+          "status": "unsupported",
+          "reason": "No protected deployment; simulated state cannot qualify current witness and failure-domain boundaries."
+        },
+        {
+          "id": "ASTRA25-03-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
+          "vector_sha256": "d88799a30a0879c647c464c5b2e591aa562974b1b9575f29a2a8a254e5e6b3e9",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-03-FENCE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
+          "vector_sha256": "ab746e3c73b9f2e15b1eb5f24797a94ee82eafb5cabbf50a21e5747bfbec10ac",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-03",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
+          "vector_sha256": "ec107d6ebd1e3781ec752dd2ad379151a99bba76737c8cd85fe3db9bd88a9a6e",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "unsupported": 6,
+          "pass": 2
+        },
+        "deployment": {
+          "unsupported": 1
+        }
+      },
+      "additional_verification": {
+        "source_controls": 29,
+        "source_controls_result": "pass",
+        "companion_fixture": "ASTRA24-05",
+        "companion_fixture_result": "pass",
+        "limits": "No deployment or unsupported-operation pass implied."
+      }
     }
   }
 }

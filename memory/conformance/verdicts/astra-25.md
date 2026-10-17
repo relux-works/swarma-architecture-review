@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: round 7, six cases and nine fixtures (eight semantic, one deployment). Seat identity:
+Status: round 8, six cases and nine fixtures (eight semantic, one deployment). Seat identity:
 `ivmbp_swarma-memory_astra-25`. Baseline: `95f974b` (2026-10-17).
 
 ## Scope and evidence
@@ -98,13 +98,21 @@ Exact reports and hashes are appended as `astra22-v0.2.1[-budget]` and
 `astra23-v0.2.1[-budget]`. No hidden leak is inferred from the new accounting
 failure: ASTRA25-01's hidden/non-hidden captures remain equal.
 
-**Provisional R7 score: 1/2.** Prose and schemas validate, but classified open
-bugs and independent semantic failures remain. No deployment pass is claimed.
+The judge classified ASTRA25-06 as R7-027, consolidated the direct-polarity
+ASTRA24-05 neighbor, and assigned the source correction. I independently verified
+source fix `4e647ea`: ASTRA25-01 and ASTRA25-06 pass unchanged, the companion
+ASTRA24-05 passes, and all 29 source controls pass. Current owned source results
+are 2 semantic pass / 0 fail / 6 unsupported; package results remain 8 semantic
+pass. One deployment fixture remains unsupported by each. Exact fixed evidence
+is appended as `astra22-v0.2.1-budget-fixed`; original failures are retained.
+
+**Provisional R7 score: 1/2.** Prose and schemas validate, and the owned fixes have behavior evidence;
+collective judge closure and the separate source-resolution case remain pending. No deployment pass is claimed.
 The initial package-absent 0/2 was only the round-0 baseline.
 
 ## Outstanding
 
-Obtain judge classification and correction of ASTRA25-06's accounting divergence;
-recheck both its narrow positive/negative controls and the original trace after
-any fix. Follow collective exact-release runs and final ledger disposition.
-Finalize the verdict and park note only after the convener's PARK.
+Await judge closure of R7-027 and collective disposition of the separate
+source-resolution-budget case. All owned corrected semantic behavior supported
+by each evaluator passes; unsupported operations and deployment limits remain
+explicit. Finalize verdict and park note only after the convener's PARK.
