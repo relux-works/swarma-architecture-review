@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 1, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, round 2, 2026-10-17.
 
 ## Baseline and scope
 
@@ -71,3 +71,34 @@ No cases or directed requests were outstanding at initialization.
   an observed implementation failure. Concrete vector encoding awaits the
   package grammar. No protected-deployment test has been executed.
 - The round-0 verdict was published signed at `daf285d` (signature `G`).
+
+## Round 2 — first released package
+
+- Consumed the convener's `PACKAGE LANDED` marker and pulled `0ef608a`.
+  Read the package README, ambiguity choices, complete normative semantics,
+  domain definitions and targeted schemas/vectors. The original profile
+  reconciliation was also consulted for scenario boundaries.
+- `python3 -B memory/spec/checks/validate.py` passes: 90 JSON documents,
+  14 closed schemas, 14 domain documents, 61 vectors (53 semantic and 8
+  deployment), 49 clauses and 13 intended checker-control detections. Evidence:
+  seat `.temp/r7-astra-26/validate-01.log`. This is structural validation only.
+- R7-003 and R7-004 were accepted as source requirements by the judge. The
+  first package provides their basic encoding. Added three executable-format
+  witnesses/controls for importer attribution, refused impersonation and fresh
+  imported currentness with/without a current-version check.
+- Added [ASTRA26-03](../cases/astra-26-representative-public-alias.md) and a
+  success fixture and missing-alias control: a valid representative's distinct public alias is required
+  by prose but its lookup in the closed policy needs an explicit definition.
+  No source architecture change is proposed.
+- All five new fixtures pass shape, initial-reference, normalization and
+  forbidden-predicate checks using the package checker functions. Evidence:
+  seat `.temp/r7-astra-26/cases-structural-01.log`. Fixture authoring corrected
+  two shape mistakes detected by those checks; neither was a package failure.
+- Decision B01 expresses archive-home replacement, exact authority receipt and
+  stale registered dependent. Synthetic domains declare multi interests,
+  location kind slots, non-authoritative competence, account-control evidence,
+  intent horizons and separate relationship/introduction predicates. These
+  declarations are being checked against behavior; existence alone is not a pass.
+- Provisional R7 row is now **1/2**: the package exists and validates, but v0.2
+  alignment, independent complete reports and case resolution are still pending.
+  No protected-deployment execution or qualification has occurred in this seat.

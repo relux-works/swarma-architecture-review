@@ -83,5 +83,20 @@ Positive control: the same replacement with a checked, applicable representation
 reference may proceed subject to the ordinary version and admission checks.
 Three catalog copies still have one root origin and three attributed copies.
 
-No evaluator failure is claimed. A package-format vector is pending publication
-of the actual closed grammar; this file records the separating behavior first.
+## Released-package check
+
+Judge intake R7-003 selected reading 2; no owner question was needed. At
+`0ef608a`, package K-ENV-2, K-ENV-3, K-REC-1 and K-DISC-3 together with the source
+body's `original_issuer` and `carrier` fields can express that distinction.
+P07 alone does not exercise a distinct importer: its issuer, submitter and
+original issuer all equal the same synthetic principal.
+
+[astra-26-import-attribution.vector.json](astra-26-import-attribution.vector.json)
+therefore adds a reviewed source report by `principal:reader`, preserving
+`original_issuer=subj:h1` and `carrier=principal:catalog-C`. Its first admission
+succeeds; a second request that actually uses `issuer=subj:h1` without
+representation refuses. Exact postconditions exclude the forged source, and the
+original self-description remains unchanged with no newly invented support.
+The fixture passes the package's structural/reference/normalization checks.
+No evaluator result is claimed yet. P02 and P10 remain the adjacent refused and
+accepted representative-update controls.
