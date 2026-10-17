@@ -145,3 +145,21 @@ and state checks, not a physical-purge claim. Evidence runs are
 Judge event `$SbEXLoMfdvIL1PJIOlfGVne-nAiumUitpRJTZRnx5Z4` closes R7-054 at
 `6a04e8c`. This seat recommends R7-052 closure at `4a14a56` on the verified
 coverage above. Package R7-053 correction remains a separate verification unit.
+
+## Package correction verification
+
+Package runtime `23b4d74` independently passes all seven unchanged expiry vectors,
+all 26 owned semantic vectors and all 57 canonical semantic vectors under0.2.5.
+The independent ten-control state harness and all31 package product/checker tests
+pass. Native deadline tests cover all four intake APIs, before/at/after expiry,
+live and expired exact replay, original receipt and full-state preservation,
+known/unknown inputs, batch ordering, conflict precedence and unlimited same-key
+recovery. The shared traversal checks each deadline before deduplication and
+idempotency, then separately checks the original stored outputs on replay.
+
+Exact corrected evidence is `astra23-phase2-025-deadline-corrected`,
+`astra23-deadline-atomic-corrected`, `astra23-canonical-025-deadline-corrected`
+and `astra23-native-deadline-025-corrected`. Earlier native and exact-vector
+failures are unchanged. Judge event `$HZk3768zLdVELKOLbBdEC07KP_j0-uY6h775onLttZc`
+closes source R7-052 at `4a14a56`. This seat recommends package R7-053 closure
+at `23b4d74`. All deployment fixtures remain unsupported.
