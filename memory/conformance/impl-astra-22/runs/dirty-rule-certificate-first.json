@@ -1,0 +1,581 @@
+{
+  "checkout_commit": "68152c58c1d19eb50ce42d5cddb93cc4b8cc6216",
+  "package_commit": "7e71765317088d4ac1ea6946fdfb4b2f8012643c",
+  "package_version": "0.2.2-draft",
+  "vector_directory": "memory/conformance/impl-astra-22/fixtures/dirty-rule-certificate",
+  "core_sha256": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+  "totals": {
+    "semantic": {
+      "pass": 1,
+      "fail": 2,
+      "unsupported": 0
+    },
+    "deployment": {
+      "pass": 0,
+      "fail": 0,
+      "unsupported": 0
+    }
+  },
+  "vectors": {
+    "JUDGE-DIRTY-CERTIFICATE": {
+      "file": "memory/conformance/impl-astra-22/fixtures/dirty-rule-certificate/certificate.vector.json",
+      "sha256": "f5e32b119a44c5817977ada5109aa47bd94e43684aaf037afaca15ab94e56b61",
+      "actual": {
+        "operation_results": [
+          {
+            "type": "receipt",
+            "operation": "revise",
+            "outcome": "revised",
+            "receipt_handle": "<fresh>",
+            "refs": [
+              {
+                "id": "rec:r",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        ],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.2-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:b",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "alpha"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "cert:j",
+              "version": 1
+            },
+            {
+              "id": "rec:a",
+              "version": 1
+            },
+            {
+              "id": "rec:b",
+              "version": 1
+            },
+            {
+              "id": "rec:ea",
+              "version": 1
+            },
+            {
+              "id": "rec:j",
+              "version": 1
+            },
+            {
+              "id": "rec:r",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [
+        {
+          "path": "$.postconditions.dirty.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "$.result.cutoffs.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "$.result.items[0].needs_review",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "path": "$.result.items[0].oppose.evaluation",
+          "expected": "incomplete",
+          "actual": "complete"
+        },
+        {
+          "path": "$.result.items[0].support.evaluation",
+          "expected": "incomplete",
+          "actual": "complete"
+        },
+        {
+          "path": "$.result.review_required.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "forbidden:/result/items/0/support/evaluation",
+          "expected": "predicate false",
+          "actual": {
+            "path": "/result/items/0/support/evaluation",
+            "test": "equals",
+            "value": "complete"
+          }
+        }
+      ],
+      "status": "fail",
+      "reason": "7 exact differences"
+    },
+    "JUDGE-DIRTY-PREMISE-CONTROL": {
+      "file": "memory/conformance/impl-astra-22/fixtures/dirty-rule-certificate/premise-control.vector.json",
+      "sha256": "1fbc0bd7933302e8912f1aa57be381d9f65bccacb017c05e81ed2fdcf242937a",
+      "actual": {
+        "operation_results": [
+          {
+            "type": "receipt",
+            "operation": "revise",
+            "outcome": "revised",
+            "receipt_handle": "<fresh>",
+            "refs": [
+              {
+                "id": "rec:r",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        ],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.2-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:b",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "alpha"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": true,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "incomplete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "incomplete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [
+            {
+              "id": "rec:b",
+              "version": 1
+            }
+          ],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [
+            "dirty"
+          ],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "cert:j",
+              "version": 1
+            },
+            {
+              "id": "rec:a",
+              "version": 1
+            },
+            {
+              "id": "rec:b",
+              "version": 1
+            },
+            {
+              "id": "rec:ea",
+              "version": 1
+            },
+            {
+              "id": "rec:j",
+              "version": 1
+            },
+            {
+              "id": "rec:r",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [
+            {
+              "id": "rec:b",
+              "version": 1
+            }
+          ],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
+    },
+    "JUDGE-DIRTY-RULE": {
+      "file": "memory/conformance/impl-astra-22/fixtures/dirty-rule-certificate/rule.vector.json",
+      "sha256": "2bf7ddcb1ce794a54490b58a93dfbf9dccca0271d64d012f452859138bc4bab8",
+      "actual": {
+        "operation_results": [
+          {
+            "type": "receipt",
+            "operation": "revise",
+            "outcome": "revised",
+            "receipt_handle": "<fresh>",
+            "refs": [
+              {
+                "id": "rec:r",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        ],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.2-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:b",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "alpha"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "cert:j",
+              "version": 1
+            },
+            {
+              "id": "rec:a",
+              "version": 1
+            },
+            {
+              "id": "rec:b",
+              "version": 1
+            },
+            {
+              "id": "rec:ea",
+              "version": 1
+            },
+            {
+              "id": "rec:j",
+              "version": 1
+            },
+            {
+              "id": "rec:r",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [
+        {
+          "path": "$.postconditions.dirty.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "$.result.cutoffs.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "$.result.items[0].needs_review",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "path": "$.result.items[0].oppose.evaluation",
+          "expected": "incomplete",
+          "actual": "complete"
+        },
+        {
+          "path": "$.result.items[0].support.evaluation",
+          "expected": "incomplete",
+          "actual": "complete"
+        },
+        {
+          "path": "$.result.review_required.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "forbidden:/result/items/0/support/evaluation",
+          "expected": "predicate false",
+          "actual": {
+            "path": "/result/items/0/support/evaluation",
+            "test": "equals",
+            "value": "complete"
+          }
+        }
+      ],
+      "status": "fail",
+      "reason": "7 exact differences"
+    }
+  }
+}

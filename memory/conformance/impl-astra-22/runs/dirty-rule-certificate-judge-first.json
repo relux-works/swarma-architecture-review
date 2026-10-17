@@ -1,0 +1,730 @@
+{
+  "checkout_commit": "1cdcb36ab51f5d66af831ac667d440b7588a2498",
+  "package_commit": "7e71765317088d4ac1ea6946fdfb4b2f8012643c",
+  "code_hashes": {
+    "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+    "adapter.py": "bddd7a2feff54d4eb62abe5ebee8a7505a917dcdfec3b983eeb9e3c8a63c4da6",
+    "transactions.py": "b522c3f28a5daa87f4b41a63b1780a8b1b06931c95edb47057262f1d1e0e98d7",
+    "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+    "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+    "transaction_checks.py": "8aba38ab6bf16073823fe43218a566e4423818439212f217110f4bda9abe2a49",
+    "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+    "impact_checks.py": "0a2491a8c00f69ca8422e1a29da3ec17c390d8160737c03c760ec0d5604175a2",
+    "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+    "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+    "impact.py": "b54f64bb675934a3f64fe1354fe0df36d73933b4bd18d10a728bebfa924db9e3"
+  },
+  "vectors": {
+    "JUDGE-DIRTY-CERTIFICATE": {
+      "sha256": "f5e32b119a44c5817977ada5109aa47bd94e43684aaf037afaca15ab94e56b61",
+      "actual": {
+        "operation_results": [
+          {
+            "type": "receipt",
+            "operation": "revise",
+            "outcome": "revised",
+            "receipt_handle": "<fresh>",
+            "refs": [
+              {
+                "id": "rec:r",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        ],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.2-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:b",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "alpha"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "cert:j",
+              "version": 1
+            },
+            {
+              "id": "rec:a",
+              "version": 1
+            },
+            {
+              "id": "rec:b",
+              "version": 1
+            },
+            {
+              "id": "rec:ea",
+              "version": 1
+            },
+            {
+              "id": "rec:j",
+              "version": 1
+            },
+            {
+              "id": "rec:r",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [
+        {
+          "path": "$.postconditions.dirty.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "$.result.cutoffs.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "$.result.items[0].needs_review",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "path": "$.result.items[0].oppose.evaluation",
+          "expected": "incomplete",
+          "actual": "complete"
+        },
+        {
+          "path": "$.result.items[0].support.evaluation",
+          "expected": "incomplete",
+          "actual": "complete"
+        },
+        {
+          "path": "$.result.review_required.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "forbidden:/result/items/0/support/evaluation",
+          "expected": "predicate false",
+          "actual": {
+            "path": "/result/items/0/support/evaluation",
+            "test": "equals",
+            "value": "complete"
+          }
+        }
+      ],
+      "status": "fail",
+      "runtime": {
+        "dirty_causes": [],
+        "revoked_declassifications": [],
+        "committed_cuts": [
+          100,
+          101
+        ],
+        "revocations": [],
+        "memory_cut": 101,
+        "source_cuts": [],
+        "dirty": [],
+        "erasure_generation": 0,
+        "erased": [],
+        "fences": [],
+        "custody": [],
+        "restore": {
+          "status": "open",
+          "external_witness": true,
+          "obligations": []
+        },
+        "idempotency": [
+          {
+            "actor": "subj:h1",
+            "space": "space:main",
+            "key": "key:revise",
+            "canonical_request": "{\"context\":{\"actor\":\"subj:h1\",\"admission_class\":\"machine_observation\"},\"expected_generation\":0,\"expected_version\":{\"id\":\"cert:j\",\"version\":1},\"op\":\"revise\",\"replacement\":null,\"revision\":{\"body\":{\"authority_receipt\":null,\"availability\":null,\"relation\":\"withdraw\",\"replacement\":null,\"target\":{\"id\":\"cert:j\",\"version\":1}},\"envelope\":{\"confirmed_at\":\"2026-10-17T00:00:00Z\",\"context\":\"real\",\"disclosure\":{\"audiences\":[\"aud:private\",\"aud:public\"],\"declassification\":[],\"field_classes\":[\"public\"],\"purposes\":[\"purpose:publish\",\"purpose:read\"],\"retain_until\":null},\"id\":\"rec:r\",\"issuer\":\"subj:h1\",\"kind\":\"revision\",\"lineage\":[],\"perspective\":{\"kind\":\"own\",\"principal\":\"subj:h1\"},\"representation_ref\":null,\"schema\":null,\"space\":\"space:main\",\"subject\":\"subj:h1\",\"valid\":{\"from\":\"2026-09-01T00:00:00Z\",\"kind\":\"known\",\"precision\":\"second\",\"to\":null},\"version\":1}}}",
+            "receipt": {
+              "type": "receipt",
+              "operation": "revise",
+              "outcome": "revised",
+              "receipt_handle": "68d11f66de948a2656d6254b6e9e35cd",
+              "refs": [
+                {
+                  "id": "rec:r",
+                  "version": 1
+                }
+              ],
+              "custody": [],
+              "erasure_status": null
+            }
+          }
+        ],
+        "hidden_work": 0,
+        "memory_available": true,
+        "control_observations": [],
+        "external_effects": []
+      }
+    },
+    "JUDGE-DIRTY-PREMISE-CONTROL": {
+      "sha256": "1fbc0bd7933302e8912f1aa57be381d9f65bccacb017c05e81ed2fdcf242937a",
+      "actual": {
+        "operation_results": [
+          {
+            "type": "receipt",
+            "operation": "revise",
+            "outcome": "revised",
+            "receipt_handle": "<fresh>",
+            "refs": [
+              {
+                "id": "rec:r",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        ],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.2-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:b",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "alpha"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": true,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "incomplete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "incomplete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [
+            {
+              "id": "rec:b",
+              "version": 1
+            }
+          ],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [
+            "dirty"
+          ],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "cert:j",
+              "version": 1
+            },
+            {
+              "id": "rec:a",
+              "version": 1
+            },
+            {
+              "id": "rec:b",
+              "version": 1
+            },
+            {
+              "id": "rec:ea",
+              "version": 1
+            },
+            {
+              "id": "rec:j",
+              "version": 1
+            },
+            {
+              "id": "rec:r",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [
+            {
+              "id": "rec:b",
+              "version": 1
+            }
+          ],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [],
+      "status": "pass",
+      "runtime": {
+        "dirty_causes": [
+          {
+            "assertion": {
+              "id": "rec:b",
+              "version": 1
+            },
+            "revision": {
+              "id": "rec:r",
+              "version": 1
+            }
+          }
+        ],
+        "revoked_declassifications": [],
+        "committed_cuts": [
+          100,
+          101
+        ],
+        "revocations": [],
+        "memory_cut": 101,
+        "source_cuts": [],
+        "dirty": [
+          {
+            "id": "rec:b",
+            "version": 1
+          }
+        ],
+        "erasure_generation": 0,
+        "erased": [],
+        "fences": [],
+        "custody": [],
+        "restore": {
+          "status": "open",
+          "external_witness": true,
+          "obligations": []
+        },
+        "idempotency": [
+          {
+            "actor": "subj:h1",
+            "space": "space:main",
+            "key": "key:revise",
+            "canonical_request": "{\"context\":{\"actor\":\"subj:h1\",\"admission_class\":\"machine_observation\"},\"expected_generation\":0,\"expected_version\":{\"id\":\"rec:a\",\"version\":1},\"op\":\"revise\",\"replacement\":null,\"revision\":{\"body\":{\"authority_receipt\":null,\"availability\":null,\"relation\":\"withdraw\",\"replacement\":null,\"target\":{\"id\":\"rec:a\",\"version\":1}},\"envelope\":{\"confirmed_at\":\"2026-10-17T00:00:00Z\",\"context\":\"real\",\"disclosure\":{\"audiences\":[\"aud:private\",\"aud:public\"],\"declassification\":[],\"field_classes\":[\"public\"],\"purposes\":[\"purpose:publish\",\"purpose:read\"],\"retain_until\":null},\"id\":\"rec:r\",\"issuer\":\"subj:h1\",\"kind\":\"revision\",\"lineage\":[],\"perspective\":{\"kind\":\"own\",\"principal\":\"subj:h1\"},\"representation_ref\":null,\"schema\":null,\"space\":\"space:main\",\"subject\":\"subj:h1\",\"valid\":{\"from\":\"2026-09-01T00:00:00Z\",\"kind\":\"known\",\"precision\":\"second\",\"to\":null},\"version\":1}}}",
+            "receipt": {
+              "type": "receipt",
+              "operation": "revise",
+              "outcome": "revised",
+              "receipt_handle": "e150b6a323d182bc419a6516ee6944b2",
+              "refs": [
+                {
+                  "id": "rec:r",
+                  "version": 1
+                }
+              ],
+              "custody": [],
+              "erasure_status": null
+            }
+          }
+        ],
+        "hidden_work": 0,
+        "memory_available": true,
+        "control_observations": [],
+        "external_effects": []
+      }
+    },
+    "JUDGE-DIRTY-RULE": {
+      "sha256": "2bf7ddcb1ce794a54490b58a93dfbf9dccca0271d64d012f452859138bc4bab8",
+      "actual": {
+        "operation_results": [
+          {
+            "type": "receipt",
+            "operation": "revise",
+            "outcome": "revised",
+            "receipt_handle": "<fresh>",
+            "refs": [
+              {
+                "id": "rec:r",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          }
+        ],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.2-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:b",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "machine_observation",
+              "statement_kind": "fact",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "alpha"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "cert:j",
+              "version": 1
+            },
+            {
+              "id": "rec:a",
+              "version": 1
+            },
+            {
+              "id": "rec:b",
+              "version": 1
+            },
+            {
+              "id": "rec:ea",
+              "version": 1
+            },
+            {
+              "id": "rec:j",
+              "version": 1
+            },
+            {
+              "id": "rec:r",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [
+        {
+          "path": "$.postconditions.dirty.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "$.result.cutoffs.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "$.result.items[0].needs_review",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "path": "$.result.items[0].oppose.evaluation",
+          "expected": "incomplete",
+          "actual": "complete"
+        },
+        {
+          "path": "$.result.items[0].support.evaluation",
+          "expected": "incomplete",
+          "actual": "complete"
+        },
+        {
+          "path": "$.result.review_required.length",
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "path": "forbidden:/result/items/0/support/evaluation",
+          "expected": "predicate false",
+          "actual": {
+            "path": "/result/items/0/support/evaluation",
+            "test": "equals",
+            "value": "complete"
+          }
+        }
+      ],
+      "status": "fail",
+      "runtime": {
+        "dirty_causes": [],
+        "revoked_declassifications": [],
+        "committed_cuts": [
+          100,
+          101
+        ],
+        "revocations": [],
+        "memory_cut": 101,
+        "source_cuts": [],
+        "dirty": [],
+        "erasure_generation": 0,
+        "erased": [],
+        "fences": [],
+        "custody": [],
+        "restore": {
+          "status": "open",
+          "external_witness": true,
+          "obligations": []
+        },
+        "idempotency": [
+          {
+            "actor": "subj:h1",
+            "space": "space:main",
+            "key": "key:revise",
+            "canonical_request": "{\"context\":{\"actor\":\"subj:h1\",\"admission_class\":\"machine_observation\"},\"expected_generation\":0,\"expected_version\":{\"id\":\"rec:j\",\"version\":1},\"op\":\"revise\",\"replacement\":null,\"revision\":{\"body\":{\"authority_receipt\":null,\"availability\":null,\"relation\":\"withdraw\",\"replacement\":null,\"target\":{\"id\":\"rec:j\",\"version\":1}},\"envelope\":{\"confirmed_at\":\"2026-10-17T00:00:00Z\",\"context\":\"real\",\"disclosure\":{\"audiences\":[\"aud:private\",\"aud:public\"],\"declassification\":[],\"field_classes\":[\"public\"],\"purposes\":[\"purpose:publish\",\"purpose:read\"],\"retain_until\":null},\"id\":\"rec:r\",\"issuer\":\"subj:h1\",\"kind\":\"revision\",\"lineage\":[],\"perspective\":{\"kind\":\"own\",\"principal\":\"subj:h1\"},\"representation_ref\":null,\"schema\":null,\"space\":\"space:main\",\"subject\":\"subj:h1\",\"valid\":{\"from\":\"2026-09-01T00:00:00Z\",\"kind\":\"known\",\"precision\":\"second\",\"to\":null},\"version\":1}}}",
+            "receipt": {
+              "type": "receipt",
+              "operation": "revise",
+              "outcome": "revised",
+              "receipt_handle": "b9bed507e3eb3dfc706d68f792a2d2cd",
+              "refs": [
+                {
+                  "id": "rec:r",
+                  "version": 1
+                }
+              ],
+              "custody": [],
+              "erasure_status": null
+            }
+          }
+        ],
+        "hidden_work": 0,
+        "memory_available": true,
+        "control_observations": [],
+        "external_effects": []
+      }
+    }
+  }
+}

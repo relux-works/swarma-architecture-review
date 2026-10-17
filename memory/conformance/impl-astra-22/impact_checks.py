@@ -22,6 +22,90 @@ def visible_case():
 
 
 class ImpactControls(unittest.TestCase):
+    # R7-043: rule and certificate identities are dependencies of their target.
+    # Both withdrawals retain the exact cause and replay cannot duplicate it.
+    def test_changed_rule_and_certificate(self):
+        for name in ("rule", "certificate"):
+            with self.subTest(name=name):
+                vector = json.loads((BASE / "fixtures/dirty-rule-certificate" / (name + ".vector.json")).read_text())
+                adapter = Adapter(vector["initial_state"], "control")
+                writer = Transactions(adapter)
+                result = writer.apply(vector["operations"][0])
+                self.assertEqual(adapter.runtime["dirty"], [{"id": "rec:b", "version": 1}])
+                self.assertEqual(adapter.runtime["dirty_causes"], [{"assertion": {"id": "rec:b", "version": 1},
+                                                                  "revision": {"id": "rec:r", "version": 1}}])
+                before = copy.deepcopy(adapter.runtime)
+                self.assertEqual(writer.apply(vector["operations"][0]), result)
+                self.assertEqual(adapter.runtime, before)
+                current = adapter.query(vector["query"])
+                self.assertEqual(current["cutoffs"], ["dirty"])
+                self.assertTrue(current["items"][0]["needs_review"])
+
+    # Hidden changed rules/checks keep protected dirtiness without a public
+    # effect; the private control remains dirty. Challenges invalidate nothing.
+    def test_rule_check_visibility_and_challenge(self):
+        for name in ("rule", "certificate"):
+            vector = json.loads((BASE / "fixtures/dirty-rule-certificate" / (name + ".vector.json")).read_text())
+            initial = copy.deepcopy(vector["initial_state"])
+            target = vector["operations"][0]["revision"]["body"]["target"]
+            changed = next(r for r in initial["records"] if ref(r) == target)
+            changed["envelope"]["disclosure"]["audiences"] = ["aud:private"]
+            adapter = Adapter(initial, "control")
+            Transactions(adapter).apply(vector["operations"][0])
+            self.assertEqual(adapter.runtime["dirty"], [{"id": "rec:b", "version": 1}])
+            public = adapter.query(vector["query"])
+            self.assertFalse(public["items"][0]["needs_review"])
+            self.assertEqual(public["cutoffs"], [])
+            private = copy.deepcopy(vector["query"])
+            private["audience"] = "aud:private"
+            self.assertTrue(adapter.query(private)["items"][0]["needs_review"])
+            adapter = Adapter(vector["initial_state"], "control")
+            op = copy.deepcopy(vector["operations"][0])
+            op["revision"]["body"]["relation"] = "challenge"
+            self.assertEqual(Transactions(adapter).apply(op)["outcome"], "challenged")
+            self.assertEqual(adapter.runtime["dirty"], [])
+            self.assertEqual(adapter.runtime["dirty_causes"], [])
+            self.assertEqual(adapter.query(vector["query"])["items"][0]["support"]["witness"], "present")
+
+    # A changed rule reaches downstream registered consumers transitively;
+    # pre-cause and recomputed snapshots must not invent an unresolved cause.
+    def test_transitive_rule_cause_history_and_recompute(self):
+        vector = json.loads((BASE / "fixtures/dirty-rule-certificate/rule.vector.json").read_text())
+        initial = copy.deepcopy(vector["initial_state"])
+        c = copy.deepcopy(next(r for r in initial["records"] if r["envelope"]["id"] == "rec:b"))
+        j = copy.deepcopy(next(r for r in initial["records"] if r["envelope"]["id"] == "rec:j"))
+        cert = copy.deepcopy(next(r for r in initial["records"] if r["envelope"]["id"] == "cert:j"))
+        for record, name, sequence in ((c, "rec:c", 97), (j, "rec:jc", 98), (cert, "cert:jc", 99)):
+            record["envelope"]["id"] = name
+            record["envelope"]["recorded"]["sequence"] = sequence
+            initial["records"].append(record)
+            initial["policy"]["lineage_facts"].append({"output": ref(record), "profile": {"id": "integration:synthetic", "version": 1},
+                                                       "kind": "direct", "inputs": [], "complete": True})
+        j["body"]["target"]["assertion"] = ref(c)
+        j["body"]["premises"][0]["literal"]["assertion"] = {"id": "rec:b", "version": 1}
+        j["body"]["check"] = ref(cert)
+        j["body"]["rule"]["id"] = "rule:jc"
+        cert["body"]["pins"].update(subject=ref(j), rule=copy.deepcopy(j["body"]["rule"]))
+        adapter = Adapter(initial, "control")
+        Transactions(adapter).apply(vector["operations"][0])
+        expected = [{"id": "rec:b", "version": 1}, {"id": "rec:c", "version": 1}]
+        self.assertEqual(adapter.runtime["dirty"], expected)
+        self.assertEqual([c["assertion"] for c in adapter.runtime["dirty_causes"]], expected)
+        query = copy.deepcopy(vector["query"])
+        query["scope"]["targets"] = [ref(c)]
+        self.assertTrue(adapter.query(query)["items"][0]["needs_review"])
+        query["cut"]["memory"] = 100
+        self.assertEqual(adapter.query(query)["items"][0]["support"]["witness"], "present")
+        query["cut"]["memory"] = 101
+        query["bounds"].update(roots=0, rules=0, source_resolutions=0)
+        self.assertEqual(adapter.query(query)["cutoffs"], ["dirty"])
+        adapter.runtime["dirty"] = []
+        adapter.runtime["dirty_causes"] = []
+        query["bounds"] = vector["query"]["bounds"]
+        result = adapter.query(query)
+        self.assertEqual(result["items"][0]["support"]["evaluation"], "complete")
+        self.assertFalse(result["items"][0]["needs_review"])
+
     # Revision and exact cause commit together. Before-cause reads stay complete;
     # resolved causes are not reconstructed from immutable revision history.
     def test_retained_cause_and_historical_cut(self):
