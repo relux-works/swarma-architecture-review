@@ -58,3 +58,13 @@ and versioned projection exclusions. Clause-derived product controls include
 missing-owner atomic rejection, release/revoke delivery, integration input
 completeness, exclusion isolation and the B01 missing-fact regression witness.
 `DIVERGENCES.md` records judge classifications and pending package discrepancies.
+
+To run independently authored cases without merging their totals into canonical
+conformance, use:
+
+```sh
+python3 -B memory/conformance/impl-astra-23/run_vectors.py --vector-root memory/conformance/cases --output memory/conformance/impl-astra-23/SUPPLEMENTAL.md
+```
+
+A case outside the selected package's closed grammar is reported unsupported;
+select its original package with --spec-root to run it without conversion.

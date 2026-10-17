@@ -65,3 +65,23 @@ will prove semantic differences and forbidden effects are detected.
 - `DIVERGENCES.md` retains first-run classifications and the B01 separating control.
 - Logs: `.temp/impl-astra-23/controls-02.log`, `semantics-controls-01.log`,
   `release-020-02.log`. All P12-P15 and extended P05 pass.
+
+## Round 2 — supplemental case intake
+
+- Add an explicit --vector-root lane for independently authored package-format
+  cases after the committed blind run. It never rewrites cases or converts grammar.
+- Supplemental fixtures outside the selected release grammar are unsupported with
+  an exact reason; canonical and supplemental totals remain separate.
+- Editor acknowledged the B01 omission and plans the narrow integration-fact fix.
+- Previous round had a pre-commit pull refused due tracked local work, then one
+  push race. A signed rebase preserved scope and G verification; final 1439219
+  pushed successfully. Subsequent pulls use automatic stash only for owned edits.
+
+### Round 2 outcome
+
+- Current grammar: 7/8 compatible supplemental cases pass; ASTRA26-06 is the
+  judge-classified R7-022 package defect. Nine older cases are unsupported there.
+- Original 0.1.0 grammar: 7/9 compatible cases pass; ASTRA25-05 reproduces R7-018;
+  ASTRA24-03 reveals derived source-reference omission (classification requested).
+- B01 now classified R7-021 spec-bug. Acknowledged; evaluator remains unchanged.
+- Logs: `.temp/impl-astra-23/supplemental-01.log`, `supplemental-legacy-01.log`.

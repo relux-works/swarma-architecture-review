@@ -123,15 +123,18 @@ def package_version(root):
     return re.search(r"Version: \*\*([^*]+)\*\*", text).group(1)
 
 
-def run(spec, commit):
+def run(spec, commit, vector_root=None):
     version = package_version(spec)
     grammar = Grammar(spec / "kernel/schemas")
     rows = []
-    for path in sorted((spec / "kernel/vectors").glob("*/*.json")):
+    paths = ((spec / "kernel/vectors").glob("*/*.json") if vector_root is None else vector_root.glob("*.vector.json"))
+    for path in sorted(paths):
         vector = strict_loads(path.read_text())
-        row = {"id": vector["id"], "profile": vector["profile"], "path": str(path.relative_to(spec)),
+        row = {"id": vector["id"], "profile": vector["profile"], "path": str(path.relative_to(spec) if vector_root is None else path),
                "vector_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
-        if vector["profile"] == "deployment":
+        if vector_root is not None and not grammar.matches(vector, grammar.schemas["vector"]):
+            row.update(status="unsupported", reason="Supplemental fixture does not match this package's closed vector grammar; no implicit conversion performed.")
+        elif vector["profile"] == "deployment":
             row.update(status="unsupported", reason="Requires a real protected deployment; this evaluator implements synthetic state transitions only.")
         else:
             try:
@@ -186,11 +189,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--spec-root", type=pathlib.Path, default=HERE.parents[1] / "spec")
     parser.add_argument("--package-commit")
+    parser.add_argument("--vector-root", type=pathlib.Path, help="Optional supplemental *.vector.json directory; replaces canonical selection.")
     parser.add_argument("--output", type=pathlib.Path, default=HERE / "RESULTS.md")
     args = parser.parse_args()
     commit = args.package_commit or subprocess.check_output(
         ["git", "log", "-1", "--format=%H", "--", "memory/spec"], cwd=HERE.parents[2], text=True).strip()
-    report = run(args.spec_root, commit)
+    report = run(args.spec_root, commit, args.vector_root)
     args.output.write_text(markdown(report))
     args.output.with_suffix(".json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
     for profile in ("semantic", "deployment"):

@@ -22,3 +22,9 @@ the released specification. No deployment qualification is claimed.
 
 Evidence: `../impl-astra-23/RESULTS.md`, `RESULTS.json`, `FIRST-RUN.md`,
 `FIRST-RUN.json`, `DIVERGENCES.md`, `WORKLOG.md`, and the two test modules.
+
+Supplemental evidence: current 0.2.0 grammar 7/8 compatible cases pass; original
+0.1.0 grammar 7/9 pass. Remaining cases expose R7-018 dirty projection, R7-022
+foreign self-declaration and a newly submitted derived source-reference omission.
+Grammar-incompatible cases are unsupported per run, never silently converted.
+See SUPPLEMENTAL.md and SUPPLEMENTAL-0.1.0.md for exact field differences.

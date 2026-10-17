@@ -29,6 +29,26 @@ The negative control removes that fact and verifies the intended refusal plus
 identical state. The package vector is never edited. See
 `test_semantics.py::test_b01_lineage_fact_control` and the exact RESULTS reports.
 
-Proposed classification: spec-bug in B01 fixture construction. Judge decision
-pending. The structural checker was green on this package and did not catch the
+Judge **R7-021: spec-bug**, editor astra-21. The judge independently
+reproduced the missing-fact refusal and isolated positive control. The structural checker was green on this package and did not catch the
 missing proposal integration fact.
+
+## Supplemental cases, kept separate from canonical totals
+
+The current evaluator was exercised against each case without implicit migration:
+0.2.0 grammar admits eight cases (7 pass, ASTRA26-06 differs); the original 0.1.0
+grammar admits nine others (7 pass, ASTRA24-03 and ASTRA25-05 differ). A case not
+in the selected grammar is explicitly unsupported in that report, not a pass.
+
+- **ASTRA26-06 / R7-022: spec-bug.** Foreign self-declaration is admitted under
+  the current package. Judge requires explicit identity evidence and correct
+  organisation-attestation typing in the next release. No silent evaluator fix.
+- **ASTRA25-05 / R7-018: spec-bug.** Global dirty produces observable dirty
+  cutoffs, missing witness and review flags after a hidden revision. The visible
+  dirty positive control passes. Wait for package projection-scoped dirty rules.
+- **ASTRA24-03: derived source-reference omission, classification requested.**
+  Channel source-state aggregation already matches the proposed mixed AND and
+  stronger OR controls, but `/operation_results/1/items/0/source_refs` and
+  `/result/items/0/source_refs` omit `rec:s/1`. The evaluator currently gathers
+  only directly associated sources, not the sources on found derived paths.
+  Exact reports: `SUPPLEMENTAL-0.1.0.md`/JSON; no vector/expected edits.

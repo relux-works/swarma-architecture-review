@@ -179,7 +179,7 @@ Implementation SHA-256:
 - `disclosure.py`: `b0f057b04b8e1776c9cefea638607c4cea88df2b4477e78d7d8144104a6bd079`
 - `engine.py`: `601939ae52a7ecd7ed7395c27f40862ec5b756f2be78fa020a3e9644a681bda2`
 - `evaluator.py`: `381e1da34e86c193cf8a15c5057a6171aa0727428a35b0bca37744598a9e8eca`
-- `run_vectors.py`: `43b0730dba15b009c38c2ba2e0e317423b575341924699ff4c49afe907b5ebc0`
+- `run_vectors.py`: `20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a`
 - `test_controls.py`: `6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083`
 - `test_semantics.py`: `113cb8012ce6fdd50524bd914efb9f4791e00e13abba3e703dea89bb0fa0856d`
 
