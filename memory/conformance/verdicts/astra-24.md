@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 36; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 37; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.5-draft` at `6a04e8c`; all twenty owned exact fixtures explicitly migrated.
 
 ## Scope and method
@@ -675,14 +675,46 @@ native R7-056 open for correction review. The separate erase-context priority
 probe remains unadjudicated here. R7-055 stays held for Ivan without an exact
 oracle or authority change.
 
+## Round 37 independent erase-context priority correction review
+
+Source `946cbd8` passes both adjudicated ASTRA25-07 changed-purpose/audience
+regressions byte-identical to `66233ab`, plus complete canonical P08. All three
+exact reports pass with zero differences or forbidden predicates; execution
+receives no expected values. Eleven source erasure groups also pass, including
+three newly added priority/replay groups and the existing custody/restore bounds.
+The targeted report records checkout `644c793`, all input and module hashes.
+
+The reviewed delta compares canonical request intent before disclosing any
+stored receipt, while retaining current erase operation authorization first.
+Changed authorized audience/purpose conflicts even without metadata permission
+in the new context. Exact replay after loss of read, use or metadata refuses
+without changing state or the original receipt; an authorized fresh-key request
+can still erase with empty disclosed refs. Expanded rights never enlarge an
+old empty receipt on replay, and empty refs never bypass revoked erase authority.
+The native assertions cover complete refusal-state equality and original receipt
+preservation, with nearby successful replay/fresh-key controls.
+
+Evidence: `.temp/astra22-erase-priority-corrected-01.json/.log` and
+`.temp/astra22-erasure-controls-02.json/.log`. No input, expectation or old first
+artifact changes. The nonexistent guessed priority-test filename was a read
+lookup error; the actual new methods reside in `erasure_checks.py`, identified
+from the published diff before execution. This is a focused verification of the
+priority delta; full canonical/owned-corpus evidence remains pinned to Round 36.
+R7-057 closure is recommended after judge review.
+
+Judge `e2a797d` closes R7-056 at `87beb46`; the ledger was read back. The new
+ASTRA25-12 external restore-obligation native witness at `644c793` is a separate
+unadjudicated finding, with no exact oracle claimed here. R7-055 remains held for
+Ivan and outside exact denominators.
+
 ## Provisional R7 row and remaining work
 
 **Phase 2 R7: 1/2.** Both evaluators independently pass all 57 canonical
-semantic vectors and the twenty owned exact fixtures on 0.2.5. R7-053 is
-judge-closed; R7-056 correction is independently verified and awaits formal
-closure. The separate erase-context priority probe still awaits adjudication.
-Issuer ambiguity R7-055 remains held for an owner decision with no exact oracle.
-Protected deployment is unqualified.
+semantic vectors and the twenty owned exact fixtures at their documented 0.2.5
+heads. R7-053 and R7-056 are judge-closed; R7-057 correction is independently
+verified and awaits closure. A separate current restore-obligation witness
+awaits adjudication. Issuer ambiguity R7-055 remains held for an owner decision
+with no exact oracle. Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
