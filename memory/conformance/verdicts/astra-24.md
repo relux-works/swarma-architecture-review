@@ -1,13 +1,13 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 18; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 19; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.2-draft` released at `7e71765`.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
 companion and design, and the released package. This seat authored nine synthetic
-semantic cases with twelve exact package-format vectors, including focused controls. It did not modify
+semantic cases with thirteen exact package-format vectors, including focused controls. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
 
@@ -22,7 +22,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 fixed `4e647ea`, judge-closed `56e5909` |
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028 fixed `c923ebd`, judge-closed `b1ae299` |
 | ASTRA24-07 | Four exact AND proofs remain distinct despite two root origins | R7-035 no defect; regression passes both, source extension `4960d24` |
-| ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package R7-041 verified `53266dd`; source R7-040 pending |
+| ASTRA24-08 | CAS must use the unique current authority head; challenge is exempt | Package verified `53266dd`; source `68152c5` passes original cases but fails remaining-head continuation |
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Source passes; package omits the second dependent; judge pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
@@ -279,12 +279,28 @@ R7-041 is independently verified by this seat; judge closure is pending. R7-040
 source and the new transitive review finding remain separate, so this result
 is not represented as collective completion. First failures remain preserved.
 
+## Round 19 source repair exposes a remaining-head neighbor
+
+Source `68152c5` passes all twelve prior owned vectors and two focused native
+CAS/state/replay controls. A fifth CAS fixture then checks a remaining boundary:
+withdraw unique current d3, read d2/current, then withdraw that d2 with its exact
+current token. Package passes. Source incorrectly retains withdrawn d3 in head
+selection and refuses d2, contradicting its own valid intermediate current view.
+This is proposed as the remaining R7-040 head-selection family, not a new count.
+
+At checkout `0f59936`, thirteen fixtures give **12 pass /1 fail** each: source
+fails ASTRA24-08-NEXT; package fails ASTRA24-09 transitive review. Original
+negative CAS cases remain repaired. Source23/package15 preserve exact outcomes;
+source22 and source-authority-cas-controls01 retain the positive repair evidence.
+All13 structural/inventory/normalization/forbidden controls pass validate21.
+No previous input or expected behavior changed. Do not declare source CAS closure
+from the smaller suite while this continuation remains unresolved.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** The package CAS repair passes, while source CAS and the new
-package review-path finding still require resolution. Full dual coverage and
-other collective repairs remain pending. Protected deployment remains unsupported
-and unqualified.
+**Phase 2 R7: 1/2.** Source remaining-head continuation and package transitive
+review still require resolution. Other collective repairs and full dual coverage
+remain pending. Protected deployment remains unsupported and unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.

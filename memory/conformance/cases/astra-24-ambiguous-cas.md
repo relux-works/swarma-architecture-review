@@ -1,7 +1,8 @@
 # ASTRA24-08: an exact candidate is not an unambiguous compare-and-set head
 
 Status: judge-classified R7-040 (source) and R7-041 (package), both implementation bugs.
-Package correction independently verified at `53266dd`; source correction pending.
+Package correction independently verified at `53266dd`; source `68152c5` fixes
+the original refusals but fails the new remaining-head continuation.
 Owner: astra-24.
 Execution checkout `7e71765`, package `0.2.2-draft`; first valid separating run
 was at `1f3180d` on package `0.2.1-draft` with the same semantic expectations.
@@ -134,3 +135,37 @@ Evidence: `.temp/astra23-owned-cases-14.json` and
 `.temp/astra23-authority-cas-controls-01.log`. Fixture hashes remain unchanged;
 first package failure `e525612` remains immutable. R7-041 is behaviorally verified
 by this seat; formal judge closure and source R7-040 correction are separate.
+
+## Round 19 source repair and remaining-head continuation
+
+Source `68152c5` passes all four original CAS fixtures and all twelve previously
+authored vectors. Two focused native transaction controls pass exact refusal
+state/policy/runtime equality, current/challenge behavior, admitted common
+successor and replay after head advancement. This evidence verifies the original
+failures; it does not establish the next-head boundary below.
+
+`ASTRA24-08-NEXT` extends the unchanged ordered positive control: withdraw
+current d3; capture the new-cut view identifying d2 as current; then withdraw
+d2 with expected_version=d2. Both writes are separately authorized/reviewed,
+with complete direct lineage facts. K-REV-1's current head and K-REV-3's eligible
+receipt order require the second write to succeed, leaving d1 current at cut102.
+The package evaluator passes this exact sequence.
+
+The source returns d2/current in the intermediate capture but refuses the same
+exact candidate as version_conflict. Its head selection still includes withdrawn
+d3 and advances to that retired candidate's local revision token. It stores only
+the first revision; the expected new cut102 is consequently unavailable. The
+report has27 comparison entries including this cascading invalid_time result
+and the intended forbidden refusal. These are manifestations of one continuation
+failure, not27 defects. The first withdrawal and intermediate read pass exactly.
+
+At checkout `0f59936`, thirteen owned fixtures give **12 pass /1 fail** in
+each evaluator, with different failures: source NEXT; package transitive review.
+Original four CAS fixture bytes remain unchanged. Source closure is not recommended
+until the judge disposes of this continuation, proposed under the same R7-040
+head-selection family. The source's previously fixed negative cases remain fixed.
+
+Fixture SHA-256: `8b0c5faeffd07c106fce0babde245b1420ec9951a00a7ba68ee8e4de3589a151`. Exact reports: source23/package15; initial repaired
+source corpus: source22; native controls: source-authority-cas-controls01;
+structural/normalization/inventory/intended-refusal plant: validate21, all in
+seat-local `.temp/`. Existing immutable first failures remain untouched.
