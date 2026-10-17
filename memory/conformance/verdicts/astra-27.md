@@ -1,12 +1,21 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 29, phase 2 active. Current score: **1/2**.
+Status: round 30, phase 2 active. Current score: **1/2**.
 Historical original supported-vector score: **2/2** at `b1ae299`.
 
-Adjudicated 54 items: ten rejected as defects, forty-three independently fixed,
-and one open implementation bug (R7-053). No owner question is established.
+Adjudicated 55 items: ten rejected as defects, forty-three independently fixed,
+one open implementation bug (R7-053), and one owner question (R7-055).
 See [LEDGER.md](../LEDGER.md) and [R7-SCORE.md](../R7-SCORE.md).
+
+R7-055 records a genuine boundary ambiguity: whether an H1 canonical edge
+endorses an H2 predecessor's transitive ordering. The native pair at `4424598`
+validates and independently reproduces source ambiguous d1/d3 versus package
+current d3; its same-H1 control agrees. Source clauses do not decide the edge's
+attestation meaning. The precise choices and tradeoffs are filed in
+[OWNER-QUESTIONS.md](../OWNER-QUESTIONS.md) and `q-authority-issuer`. No exact
+oracle or new implementation verdict is inferred before an attributed decision;
+verified same-issuer closures stand. Other coverage work continues.
 
 R7-052 source expiry closes at signed `4a14a56`. Independent full 0.2.5 canonical
 execution exactly reproduces all 65 committed rows and input/module hashes:

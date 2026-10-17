@@ -99,6 +99,7 @@ commits and relevant controls; a candidate release alone is insufficient.
 | R7-052 | astra-25 [retention-deadline](cases/astra-25-retention-deadline.md), first `604af18`; request `$XkFYu2DEMaA0d8d3wUeCqkwMVrlPAqRQAg0B_ViVOAg` | ASTRA25-11 native probes; K-DISC-1, K-AUTH-1, K-API-1/2 | impl-bug | astra-22 | fixed@4a14a56 | Judge exactly reproduces all 65 canonical 0.2.5 rows at 50/0/7 with correction module hashes and all 112 controls green. All seven migrated expiry vectors pass; independent three-positive/seven-negative operation checks now pass, with exact refusals and complete state preservation. Six native groups cover admit/raw/revise/declassify, every output, transitive/incomplete-known/batch deadlines, original live/expired replay, null/unrelated limits and authorization-before-duplicate priority. First c9e1faf and full old-runtime 0.2.5 failure remain immutable. |
 | R7-053 | Same ASTRA25-11 submission and independently repeated inputs as R7-052 | Same deadline and authorized-replay clauses | impl-bug | astra-23 | open | Package runtime `4af0360` independently reproduces the same three forbidden fresh commits and expired successful replay. All input states and operations validate; first results remain immutable. Required refusal preserves the original receipt and complete state, without triggering an erasure job. Before-deadline and unbounded positive neighbors remain required. |
 | R7-054 | Judge review of ASTRA25-11; editor recommendation `$rhmPEMI5yxqbjQprbScOEovbpGlhuBzhcvFNwa--FmA` | K-DISC-1, K-AUTH-1, K-API-1/2, K-REF-1 | spec-bug | astra-21 | fixed@6a04e8c | Judge verifies 0.2.5 explicit strict context.at expiry, not_authorized,false before idempotency, original-output/known-closure replay and no purge. All 94 JSON artifacts regenerate exactly; 34 intended checker plants pass. Only P11 changes beyond version; its first 16 operations/results and other 64 vectors/pilot are preserved. Isolated unchanged-runtime probes give five forbidden writes, two expired success replays and one wrong conflict priority; a separate 20-operation positive trace matches every expected field. Runtime fixes stay R7-052/053. |
+| R7-055 | astra-24 [authority-issuer](cases/astra-24-authority-issuer.md), native pair/first `4424598`; request `$2uzH35MbQZgpUZcKniiv8nGpIIxyeCjJQVyjABqbYvU` | Kernel §§5.1/5.3; K-REV-3; package A07 | ambiguity | Ivan (owner decision) | owner-question | Exact validated pair separates issuer-local and global canonical predecessor paths: H1 endpoints through H2 intermediate yield ambiguous d1/d3 in source, current d3 in package; same-H1 control agrees. Kernel own ordered record does not define whether H1's canonical edge endorses H2's predecessor order. D-004/008 and sequence ownership do not decide that attestation meaning. No evaluator bug or invalid-state rule is inferred. See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md); preserve both native outputs and existing same-issuer closures. |
 
 ## Judge worklog
 
@@ -1458,3 +1459,43 @@ Package `942bdee` still has its verified 56/1/0 first 0.2.5 result, so dual exac
 canonical coverage remains 49/57 despite source P11 recovery. Seven source
 canonical gaps and eight canonical plus one supplemental deployment case remain
 unsupported. No owner question; score 1/2, no PARK.
+
+
+## Round 30 — cross-issuer receipt order needs an owner decision
+
+R7-055 classifies ASTRA24-12 as ambiguity, not an evaluator bug. The original
+signed `4424598` native pair validates against the closed state/query grammar.
+Independent isolated reader processes reproduce every actual field: both select
+current d3 for the all-H1 path; changing the intermediate event/source attribution
+to H2 produces ambiguous d1/d3 in source `4a14a56` and current d3 in package
+`942bdee`. Durable records, runtime and policy remain unchanged. The original
+representation-invalid preparation is excluded from semantic evidence.
+
+Kernel §5.3's own ordered record and D-004/D-008 do not define the endorsement
+meaning of an H1 edge pointing to an H2 canonical predecessor. Both endpoint
+decisions remain H1, so foreign sequence ownership alone does not settle the
+case. Bounded independent editor and attribution reviews explicitly distinguish
+an issuer-local recommendation from a logically required reading. The package's
+A07 supplies the graph representation without resolving that intermediate scope.
+
+[OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) records the exact input hash, outputs,
+source limits and viable owner choices. Issuer-local paths can ignore valid
+foreign edges while retaining any all-H1 bypass; global endorsement can accept
+the foreign chain. Declaring mixed edges invalid would be a separate admitted-
+state/refusal decision. No exact oracle, transfer mechanism, package change or
+new implementation verdict follows until an attributed owner decision. Prior
+same-issuer R7-048/R7-051 closures remain supported.
+
+Owner topic `q-authority-issuer` was created at
+`$xI3um-5-5mtAfRLub6enUIlkEPrUbVS41wk0hCp6-4Y`, with owner-needed event
+`$Ju7IuqWDcWw6JB87jbG-0K3yC4TWQ2WszJTNwNLZQHs` addressed to the convener for
+routing. Other correction and coverage work is independent of this decision.
+Judge evidence in seat `.temp/`: `judge-round30-issuer-probe.py`,
+`astra{22,23}-judge-round30-issuer-first.json`,
+`judge-round30-issuer-analysis.md` and `judge-round30-issuer-signature-01.log`.
+
+Ledger: 55 items, 43 fixed, 10 rejected, one open implementation bug R7-053 and
+one owner question R7-055. Latest verified canonical results remain source
+50/0/7 and package 56/1/0, giving 49/57 dual exact passes. The native pair does not
+enter vector denominators. Seven source canonical gaps and eight canonical plus
+one supplemental deployment case remain unsupported. Score 1/2; no PARK.
