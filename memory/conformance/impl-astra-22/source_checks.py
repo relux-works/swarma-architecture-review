@@ -35,19 +35,65 @@ class SourceClaims(unittest.TestCase):
     # ASTRA25-06: an opposite-quality root cannot consume the existence walk's
     # one-root allowance. Both polarities also receive independent allowances.
     def test_quality_and_polarity_budgets_are_independent(self):
-        model = Evaluator([claim(k) for k in "AB"],
-                          [root("a-", "A", "oppose"), root("a+", "A")],
-                          [rule("ab", "B", "A")])
-        one = model.evaluate("B", {"root_budget": 1, "rule_budget": 1})
-        two = model.evaluate("B", {"root_budget": 2, "rule_budget": 1})
-        self.assertEqual(one, two)
-        self.assertEqual(one["support"]["witness"], "present")
-        self.assertEqual(one["support"]["premise_quality"], "conflicted_premises_only")
-        self.assertEqual(one["cutoffs"], [])
+        for conclusion in ("support", "oppose"):
+            for premise in ("support", "oppose"):
+                with self.subTest(conclusion=conclusion, premise=premise):
+                    edge = rule("ab", "B", "A")
+                    edge.update(target=["B", conclusion], premises=[["A", premise]])
+                    model = Evaluator([claim(k) for k in "AB"],
+                                      [root("a-", "A", "oppose"), root("a+", "A")], [edge])
+                    one = model.evaluate("B", {"root_budget": 1, "rule_budget": 1})
+                    two = model.evaluate("B", {"root_budget": 2, "rule_budget": 1})
+                    self.assertEqual(one, two)
+                    self.assertEqual(one[conclusion]["witness"], "present")
+                    self.assertEqual(one[conclusion]["premise_quality"], "conflicted_premises_only")
+                    self.assertEqual(one["cutoffs"], [])
+                    for zero, cutoff in (("root_budget", "root_limit"), ("rule_budget", "rule_limit")):
+                        stopped = model.evaluate("B", {"root_budget": 1, "rule_budget": 1, zero: 0})
+                        self.assertEqual(stopped[conclusion]["witness"], "not_found")
+                        self.assertEqual(stopped[conclusion]["evaluation"], "incomplete")
+                        self.assertEqual(stopped["cutoffs"], [cutoff])
         for sign in ("support", "oppose"):
             channel = model.evaluate("A", {"root_budget": 1})[sign]
             self.assertEqual(channel["witness"], "present")
             self.assertEqual(channel["evaluation"], "complete")
+
+    # An exhausted opposite lookup makes quality uncertain without changing the
+    # independently found witness or own completeness. A found opposite taints it.
+    def test_quality_uncertainty_does_not_spend_existence(self):
+        opposite = rule("cd-a", "A", "C", "D")
+        opposite["target"][1] = "oppose"
+        model = Evaluator([claim(k) for k in "ABCD"],
+                          [root(k, k) for k in "ACD"],
+                          [rule("ab", "B", "A"), opposite])
+        limited = model.evaluate("B", {"root_budget": 1, "rule_budget": 1})
+        self.assertEqual(limited["support"]["witness"], "present")
+        self.assertEqual(limited["support"]["evaluation"], "complete")
+        self.assertEqual(limited["support"]["premise_quality"], "not_fully_checked")
+        self.assertEqual(limited["cutoffs"], [])
+        sufficient = model.evaluate("B", {"root_budget": 2, "rule_budget": 1})
+        self.assertEqual(sufficient["support"]["premise_quality"], "conflicted_premises_only")
+
+    # A shared premise is charged once in one DFS walk. Exhaustion elsewhere is
+    # still recorded after an earlier missing premise, and reference order wins
+    # over insertion order (including numeric versions).
+    def test_within_walk_memo_and_stable_order(self):
+        model = Evaluator([claim(k) for k in "ABCD"], [root("a", "A")],
+                          [rule("bd", "D", "B"), rule("cd", "D", "C"),
+                           rule("ab", "B", "A"), rule("ac", "C", "A")])
+        result = model.evaluate("D", {"root_budget": 1, "rule_budget": 4})
+        self.assertEqual(result["support"]["witness"], "present")
+        self.assertEqual(result["support"]["evaluation"], "complete")
+        self.assertEqual(result["support"]["witness_assessments"], ["a"])
+        model = Evaluator([claim(k) for k in "ABC"], [root("b", "B")], [rule("abc", "C", "A", "B")])
+        result = model.evaluate("C", {"root_budget": 0})
+        self.assertEqual(result["support"]["evaluation"], "incomplete")
+        self.assertEqual(result["cutoffs"], ["root_limit"])
+        model = Evaluator([claim("A")], [root("ten", "A", reference_order=["r", 10]),
+                                         root("two", "A", reference_order=["r", 2])])
+        result = model.evaluate("A", {"root_budget": 1})
+        self.assertEqual(result["support"]["witness_assessments"], ["two"])
+        self.assertEqual(result["support"]["evaluation"], "incomplete")
 
     # Separate quality accounting does not make existence unbounded. A second
     # necessary positive root exceeds one slot; with two slots the AND succeeds.

@@ -2,7 +2,7 @@
 
 Package: **0.2.1-draft**, package commit `f31d58f58d05de2ae4159dedaacfa1e32bdc656d`.
 Vector directory: `memory/spec/kernel/vectors` (this inventory only).
-Checkout: `df499a15dd76ad1bf369de9872f5c53e0b8199f6`. Source core SHA-256: `8738b80fbe1b12cd56c62f9095c541b19f18203bf9bc147fba1ca95e5c7432d9`.
+Checkout: `f39af133eec28b4a613cb5e85c7d4ebb7c3163ff`. Source core SHA-256: `d81a4ae9956802b82d4710d85dfc54efb5679c91eb623e6515e12d8907ba8b9e`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.

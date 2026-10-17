@@ -30,9 +30,10 @@ write any external authority, journal, publisher or retained payload store.
 
 ## Source-level choices to scrutinize in package comparison
 
-- A finite pass orders claims topologically, roots in normalized input order,
-  and same-conclusion rules in input order. Root and rule budgets are separate.
-  The source has no closed numeric-work-unit or traversal-order grammar.
+- The original finite topological pass had shared polarity/quality counters.
+  R7-027 replaces it with independent per-polarity depth-first walks, stable
+  reference order and within-walk literal memoization. Opposite-quality walks
+  receive fresh bounds; real root/rule exhaustion remains visible.
 - A clean witnessed path takes precedence over a conflicted alternative.
   Without a witness, premise quality is `not_fully_checked`. After R7-012,
   authorized unavailable source associations remain `prior_assessment_only`;
@@ -57,7 +58,8 @@ write any external authority, journal, publisher or retained payload store.
 - Erasure models content-dependency reachability and refusal, not actual purge
   completion across sinks/backups. No managed deployment is installed or tested.
 
-These choices are published before package intake. Any mismatch remains a
+The initial choices were published before package intake; changes above name
+their judge classification. Any new mismatch remains a
 divergence until classified by the judge; an adapter must not silently change
 them to obtain a passing score.
 

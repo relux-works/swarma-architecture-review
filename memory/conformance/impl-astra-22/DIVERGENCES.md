@@ -140,3 +140,19 @@ retained in `runs/cases-0.2.1-first.*`. ASTRA25-01's visible control exposes the
 same property; its hidden pair remains equal, so this is not a demonstrated
 hidden-data leak. New unit regression is red before correction and a two-root
 AND boundary remains correctly limited. Awaiting judge classification.
+
+## R7-027 correction
+
+Judge events $7rEaswg27z-hkIdE5isHAV_uJfgKZEugsBVak3pMDu8 and
+$Dp4_riQyF6haSd2qyOmKMURbHNt2rkZrFJBDw9-Ctlw classify ASTRA25-01/06 and
+ASTRA24-05 as one source counter-scope defect. The core now uses independent
+depth-first existence and opposite-quality walks with local memoization and
+stable reference order. Bounds are unchanged; genuine exhaustion still produces
+incompleteness. Quality uncertainty does not consume existence counters or
+create conclusion evidence.
+
+All three case witnesses exactly pass, including their paired and forbidden
+checks. Canonical 0.2.1 stays 43/0/14; current supplemental is 13/0/8. Twenty-nine
+source tests, three adapter tests, seven transaction tests and five harness
+controls pass. Exact original evidence is in signed f39af13; current outputs in
+`runs/cases-0.2.1-corrected.*`. Judge review pending. R7-025/026 are judge-closed.

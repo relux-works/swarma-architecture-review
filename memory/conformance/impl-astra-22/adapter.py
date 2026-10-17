@@ -62,6 +62,7 @@ class Adapter:
         e, b = record["envelope"], record["body"]
         valid = e["valid"]
         out = {"id": key(ref(record)), "kind": e["kind"], "issuer": e["issuer"],
+               "reference_order": [e["id"], e["version"]],
                "subject": e["subject"], "space": e["space"],
                "perspective": json.dumps(e["perspective"], sort_keys=True),
                "mode": e["context"], "recorded": e["recorded"]["sequence"],

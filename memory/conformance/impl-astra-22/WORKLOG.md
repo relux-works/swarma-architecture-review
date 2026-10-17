@@ -196,3 +196,27 @@ passes, preventing an unlimited-budget correction. No product correction yet;
 classification requested in div-astra25-quality-budget. Planned correction keeps
 finite admitted DAG semantics, current-source incompleteness, exact found-path
 provenance and AND/OR source qualification while separating each walk's counters.
+
+## R7-027 bounded-walk correction
+
+Judge classified shared counters as R7-027; ASTRA24-05 is the same defect reduced
+to direct opposite roots. Each displayed polarity now starts a depth-first walk
+with independent root/rule counters and a local literal memo. Premises are visited
+in stable assertion-id/numeric-version/polarity order; roots and rules use exact
+reference order. Quality uses separately budgeted complete walks; only fresh
+whole-walk results are shared across walks. Three finite path-quality states
+retain clean alternatives and taint/uncertainty without enumerating proof sets.
+
+29 source tests pass (`source-checks-09.log`), including all signed directions,
+zero root/rule bounds, insufficient AND roots, shared-premise memoization, numeric
+reference ordering, later-premise exhaustion and incomplete opposite quality.
+Three adapter and seven transaction tests remain green (`adapter-checks-06.log`,
+`transaction-checks-05.log`); each vector run also passes five harness controls.
+Canonical f31d58f: 43 pass / 0 fail / 14 unsupported semantic, 8 deployment
+unsupported (`vector-run-08.log`). Expanded supplemental corpus now has the new
+ASTRA24-05: 13 pass / 0 fail / 8 unsupported semantic, 1 deployment unsupported
+(`runs/cases-0.2.1-corrected.*`, `case-run-05.log`). All three R7-027 fixtures pass.
+The earlier 20-semantic baseline is unchanged; the corrected corpus has 21
+semantic fixtures, so the new case is not counted as a prior observed failure.
+Core SHA-256 d81a4ae9956802b82d4710d85dfc54efb5679c91eb623e6515e12d8907ba8b9e.
+R7-025/026 are independently closed in judge 510649f; R7-027 awaits exact fix review.

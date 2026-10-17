@@ -91,6 +91,7 @@ class Channel:
     proof_count: int = 0
     cutoffs: set = field(default_factory=set)
     assessment_refs: set = field(default_factory=set)
+    path_qualities: set = field(default_factory=set)
 
 
 class Evaluator:
@@ -147,7 +148,6 @@ class Evaluator:
         if target not in self.assertions:
             raise Refusal("unknown_reference")
         visible = {k for k, r in self.assertions.items() if applicable(r, query)}
-        channels = {(k, p): Channel() for k in visible for p in ("support", "oppose")}
         rules = [r for r in self.rules if applicable(r, query)
                  and literal(r["target"])[0] in visible
                  and all(literal(p)[0] in visible for p in r["premises"])
@@ -156,90 +156,106 @@ class Evaluator:
                  and literal(r["target"])[0] in visible
                  and (not r.get("source") or (r["source"] in self.sources
                       and applicable(self.sources[r["source"]], query)))]
-        # Only the queried dependency closure is logical work. Opposite channels
-        # of a premise are needed to qualify the witness, without explosion.
-        required = {target} if target in visible else set()
-        changed = True
-        while changed:
-            previous = len(required)
-            for rule in rules:
-                if literal(rule["target"])[0] in required:
-                    required.update(literal(p)[0] for p in rule["premises"])
-            changed = len(required) != previous
-        roots = [r for r in roots if literal(r["target"])[0] in required]
-        rules = [r for r in rules if literal(r["target"])[0] in required]
         root_budget = query.get("root_budget", float("inf"))
         rule_budget = query.get("rule_budget", float("inf"))
-        used_roots = used_rules = 0
-        for root in roots:
-            state = channels[literal(root["target"])]
-            if used_roots >= root_budget:
-                state.complete = False
-                state.cutoffs.add("root_limit")
+        order = lambda record: tuple(record.get("reference_order", (record["id"], 0)))
+        root_index, rule_index = {}, {}
+        for root in sorted(roots, key=order):
+            pins, expected = root.get("pins", {}), query.get("pins", {})
+            if (not root.get("admitted", True) or root.get("result", "pass") != "pass"
+                    or any(pins.get(k) != v for k, v in expected.items())
+                    or root.get("qualification") not in query.get(
+                        "qualifications", ["semantic_review", "test_result", "formal_entailment",
+                                           "independent_attestation", "direct_declaration"])):
                 continue
-            used_roots += 1
-            if not root.get("admitted", True) or root.get("result", "pass") != "pass":
-                continue
-            pins = root.get("pins", {})
-            expected = query.get("pins", {})
-            if any(pins.get(k) != v for k, v in expected.items()):
-                continue
-            if root.get("qualification") not in query.get(
-                    "qualifications", ["semantic_review", "test_result", "formal_entailment",
-                                       "independent_attestation", "direct_declaration"]):
-                continue
-            source = self.sources.get(root.get("source"), {})
-            availability = source.get("availability", "resolvable")
-            if availability != "resolvable" and not root.get("retained", True):
-                state.complete = False
-                state.cutoffs.add("source_unavailable")
-                continue
-            state.present = state.clean = True
-            state.qualifications.add(root["qualification"])
-            state.roots.add(root.get("origin", root["id"]))
-            state.assessment_refs.add(root["id"])
-            state.source_states.add(
-                "independent_attestation" if root.get("independent", False)
-                else "resolvable_now" if availability == "resolvable"
-                else "prior_assessment_only")
-            state.proof_count += 1
-        for claim in self.order:
-            if claim not in required:
-                continue
-            for rule in (r for r in rules if literal(r["target"])[0] == claim):
-                state = channels[literal(rule["target"])]
-                if used_rules >= rule_budget:
-                    state.complete = False
-                    state.cutoffs.add("rule_limit")
-                    continue
-                used_rules += 1
-                premises = [channels[literal(p)] for p in rule["premises"]]
-                opposites = [channels[(literal(p)[0],
-                                      "oppose" if literal(p)[1] == "support" else "support")]
-                             for p in rule["premises"]]
-                if not all(p.complete for p in premises):
-                    state.complete = False
-                for premise in premises:
-                    state.cutoffs.update(premise.cutoffs)
-                if not all(p.present for p in premises):
-                    continue
-                state.present = True
-                clean_path = (all(p.clean for p in premises)
-                              and all(o.complete and not o.present for o in opposites))
-                state.clean = state.clean or clean_path
-                state.unchecked = state.unchecked or any(
-                    p.unchecked or not o.complete for p, o in zip(premises, opposites))
-                for premise in premises:
-                    state.qualifications.update(premise.qualifications)
-                    state.roots.update(premise.roots)
-                    state.assessment_refs.update(premise.assessment_refs)
-                # Every required premise constrains this AND path. A preference
-                # between complete OR paths must not discard a weaker premise.
-                ranks = {"prior_assessment_only": 0, "independent_attestation": 1, "resolvable_now": 2}
-                path_rank = min(max(ranks[s] for s in p.source_states) for p in premises)
-                state.source_states.add(next(s for s, rank in ranks.items() if rank == path_rank))
-                state.qualifications.add("checked_entailment")
-                state.proof_count += 1
+            root_index.setdefault(literal(root["target"]), []).append(root)
+        for rule in sorted(rules, key=order):
+            rule_index.setdefault(literal(rule["target"]), []).append(rule)
+
+        # Only results from a fresh independent walk can be reused across walks.
+        # The local memo below shares a literal within one bounded existence walk.
+        full_walks = {}
+
+        def walk(requested):
+            if requested in full_walks:
+                return full_walks[requested]
+            used = {"roots": 0, "rules": 0}
+            memo = {}
+
+            def visit(current):
+                if current in memo:
+                    return memo[current]
+                state = Channel()
+                memo[current] = state
+                if current[0] not in visible:
+                    return state
+                for root in root_index.get(current, []):
+                    if used["roots"] >= root_budget:
+                        state.complete = False
+                        state.cutoffs.add("root_limit")
+                        continue
+                    used["roots"] += 1
+                    source = self.sources.get(root.get("source"), {})
+                    availability = source.get("availability", "resolvable")
+                    if availability != "resolvable" and not root.get("retained", True):
+                        state.complete = False
+                        state.cutoffs.add("source_unavailable")
+                        continue
+                    state.present = True
+                    state.path_qualities.add("clean")
+                    state.qualifications.add(root["qualification"])
+                    state.roots.add(root.get("origin", root["id"]))
+                    state.assessment_refs.add(root["id"])
+                    state.source_states.add(
+                        "independent_attestation" if root.get("independent", False)
+                        else "resolvable_now" if availability == "resolvable"
+                        else "prior_assessment_only")
+                    state.proof_count += 1
+                for rule in rule_index.get(current, []):
+                    if used["rules"] >= rule_budget:
+                        state.complete = False
+                        state.cutoffs.add("rule_limit")
+                        continue
+                    used["rules"] += 1
+                    literals = sorted((literal(p) for p in rule["premises"]),
+                                      key=lambda p: (order(self.assertions[p[0]]), p[1]))
+                    # Evaluate every necessary premise, including after a miss.
+                    premises = [visit(p) for p in literals]
+                    state.complete = state.complete and all(p.complete for p in premises)
+                    for premise in premises:
+                        state.cutoffs.update(premise.cutoffs)
+                    if not all(p.present for p in premises):
+                        continue
+                    state.present = True
+                    qualities = {"clean"}
+                    for reference, premise in zip(literals, premises):
+                        opposite = walk((reference[0], "oppose" if reference[1] == "support" else "support"))
+                        alternatives = {"tainted" if opposite.present or q == "tainted"
+                                        else "unchecked" if not opposite.complete or q == "unchecked"
+                                        else "clean" for q in premise.path_qualities}
+                        # This finite three-state join preserves taint over
+                        # uncertainty on one path and clean OR alternatives.
+                        qualities = {"tainted" if "tainted" in (a, b)
+                                     else "unchecked" if "unchecked" in (a, b)
+                                     else "clean" for a in qualities for b in alternatives}
+                        state.qualifications.update(premise.qualifications)
+                        state.roots.update(premise.roots)
+                        state.assessment_refs.update(premise.assessment_refs)
+                    state.path_qualities.update(qualities)
+                    ranks = {"prior_assessment_only": 0, "independent_attestation": 1, "resolvable_now": 2}
+                    path_rank = min(max(ranks[s] for s in p.source_states) for p in premises)
+                    state.source_states.add(next(s for s, rank in ranks.items() if rank == path_rank))
+                    state.qualifications.add("checked_entailment")
+                    state.proof_count += 1
+                state.clean = "clean" in state.path_qualities
+                state.unchecked = "unchecked" in state.path_qualities
+                return state
+
+            result = visit(requested)
+            full_walks[requested] = result
+            return result
+
+        channels = {(target, sign): walk((target, sign)) for sign in ("support", "oppose")}
         assertion = self.assertions[target]
         until = query.get("usable_until", assertion.get("usable_until"))
         now = query.get("now", query.get("valid_at"))
