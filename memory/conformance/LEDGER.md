@@ -104,7 +104,7 @@ commits and relevant controls; a candidate release alone is insufficient.
 
 | R7-057 | astra-22 ASTRA22-09, signed native first `0529814`, [first evidence](impl-astra-22/runs/erase-changed-context-first.json); request `$Jls_nbueo2sF-siMYb-5Xqb_iijrTcnTQ4UT_NDB2gU` | K-API-1/2; K-ERASE-2 | impl-bug | astra-22 | fixed@946cbd8 | Judge independently reproduces all 65 canonical/64 supplemental committed rows: 57/57 and 63/63 semantic, unchanged inputs; 128 source controls pass. Both unchanged 66233ab exact regressions and six original/native neighboring probes now pass with full refusal state and original receipts preserved. Current erase authority precedes changed-intent conflict; stored-ref metadata gates exact replay only. Read/use/metadata loss and immutable empty receipts remain covered. Original 0529814 native and five expanded wrong-code failures are retained. Package 23b4d74 remains conforming. |
 
-| R7-058 | astra-25 [restore-current-obligations](cases/astra-25-restore-current-obligations.md), signed native first `644c793`; request `$kmeFdI3d8N1_BZoCMnBcpmZE-Lju4yXDpDMw7N1Zu7k` | K-ERASE-1/2/3; companion §6; bounded-evidence protected-service restore | impl-bug | astra-23 | open | Judge independently validates and reproduces all four native traces. A current complete witness supplies A absent from the old local erased/fence inventory; package 23b4d74 claims reconciliation, leaves both payload/backup present and A readable. With an unreachable affected sink it also opens the global fence instead of atomic erasure_incomplete,true. Source reconciles or stays fenced as required; known-local and genuinely empty obligations agree. Reconcile current witnessed obligations plus retained obligations and their content/custody closure before reopening; preserve firsts and valid/negative neighbors. |
+| R7-058 | astra-25 [restore-current-obligations](cases/astra-25-restore-current-obligations.md), signed native first `644c793`; request `$kmeFdI3d8N1_BZoCMnBcpmZE-Lju4yXDpDMw7N1Zu7k` | K-ERASE-1/2/3; companion §6; bounded-evidence protected-service restore | impl-bug | astra-23 | open | Judge independently validates and reproduces all four native traces. A current complete witness supplies A absent from the old local erased/fence inventory; package 23b4d74 claims reconciliation, leaves both payload/backup present and A readable. With an unreachable affected sink it also opens the global fence instead of atomic erasure_incomplete,true. Source reconciles or stays fenced as required; known-local and genuinely empty obligations agree. Reconcile current witnessed obligations plus retained obligations and their content/custody closure before reopening; preserve firsts and valid/negative neighbors. | Five exact fixtures 1cefcf9 accepted in round 36: source 68/68 supplemental; package 65/68 with exactly new/current, unreachable and independent-content failures. Known/empty controls pass; all older rows and original native inputs preserved.
 
 
 ## Judge worklog
@@ -1744,3 +1744,43 @@ Ledger: 58 items, 46 fixed, 10 rejected, R7-058 implementation open and R7-055
 owner-question. Existing canonical 57/57 and supplemental 63/63 dual passes
 remain pinned evidence, without waiving this native failure. Deployment 8+1
 unsupported; no PARK.
+
+## Round 36 — exact restore regressions preserve the original witness
+
+Accepted five exact supplemental vectors in signed `1cefcf9` under R7-058;
+acceptance event `$iMI3b6URDc8d-vwo1lbBpFhGHcCsTJ5Dg3guKuO3Sq0`. All 69
+supplemental artifacts validate against 0.2.5 closed schemas, admitted references,
+integration facts, normalization and forbidden assertions. Two bounded controls
+prove the existing forbidden checker detects retained obligated custody and false
+successful reconciliation of an unreachable sink, with valid controls accepted.
+
+The four original variants preserve every initial state, non-capture operation
+and final query from immutable native `644c793`. Their sole additional operation
+explicitly captures the already-observed restore-fenced read. The fifth adds only
+an independent direct B, its declared lineage fact and controlled sink. Its
+expected readable B and retained B custody follow the unaffected-content contract;
+it does not authorize a blanket empty-view implementation. Expected direct views
+use the existing S01 oracle and receipts/refusals use K-ERASE/S20/S25. No expected
+output is inferred merely from reader agreement.
+
+Both readers execute the entire new supplemental corpus independently. Source
+`946cbd8` passes 68/68 semantic cases; unchanged package `23b4d74` passes 65 and
+fails exactly ASTRA25-12, ASTRA25-12-UNREACHABLE and ASTRA25-12-INDEPENDENT. Known
+and genuinely empty obligations pass in both. Every one of the 64 older artifact
+bytes and source report rows is unchanged; all older package rows reproduce after
+only their declared handle normalization. Both module trees match the previously
+verified runtime pins. Canonical 57/57 dual evidence and the existing 128/31 control
+runs remain applicable; no code or canonical package change occurred this round.
+
+R7-058 stays open pending correction plus protected erasure/fence/generation,
+complete refusal atomicity and late-writer checks. Exact fixtures do not replace
+that native state evidence. Original bundle SHA-256 remains
+`4bf7bac62cce5959d0300c86c59747b07661675763851ef2dc16e10d9f41329a`.
+
+Judge seat evidence: `.temp/judge-round36-case-review-01.json`,
+`judge-round36-case-review.py`, `astra{22,23}-judge-round36-cases-first.{json,md}`,
+`astra{22,23}-round36-cases-first-01.log` and
+`judge-round36-case-signature-01.log`.
+
+No new item: 58 total, 46 fixed, 10 rejected, R7-058 open and R7-055 owner-question.
+Current score remains **1/2**. Deployment 8+1 unsupported; no PARK.

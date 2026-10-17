@@ -1,19 +1,18 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 35, phase 2 active; no PARK. Current score: **1/2**.
+Status: round 36, phase 2 active; no PARK. Current score: **1/2**.
 
 Adjudicated 58 items: ten rejected as defects, forty-six independently fixed,
 one open package implementation bug (R7-058), and one filed owner question
 (R7-055). The new native finding supersedes the round-34 score 2/2. See [LEDGER.md](../LEDGER.md), [R7-SCORE.md](../R7-SCORE.md)
 and [OWNER-QUESTIONS.md](../OWNER-QUESTIONS.md).
 
-Both independent readers pass **57/57 canonical and 63/63 supplemental semantic
-vectors** on release 0.2.5 `6a04e8c`. Source runtime is `946cbd8`; package runtime
-is `23b4d74`, unchanged by its latest supplemental report `348ea38`. Complete
-committed rows, input/module hashes and actuals reproduce independently after
-only declared fresh-handle normalization. All 64 supplemental artifacts validate.
-Original failures and author fixture bytes remain preserved.
+Both independent readers pass **57/57 canonical semantic vectors** on release
+0.2.5 `6a04e8c`. Source `946cbd8` passes **68/68 supplemental**; package `23b4d74`
+passes **65/68**, with three exact R7-058 failures. All 69 supplemental artifacts
+validate. Every older report row, input/module hash and normalized actual remains
+unchanged; original failures and author fixture bytes are preserved.
 
 R7-057 closes at `946cbd8`. Current erase
 authority precedes changed-intent conflict; stored-ref metadata permission gates
@@ -32,8 +31,11 @@ four validated traces, including correct source behavior, known/empty-obligation
 controls, atomic false-witness refusals and restore-fenced queries. All seventeen
 snapshot hashes verify. Current witnessed obligations must actually enter the
 reconciliation closure; package correction is authorized under existing sources.
-Native firsts remain preserved outside executable denominators pending exact
-fixtures. Current green vector counts do not waive this defect.
+Five exact fixtures `1cefcf9` enter the supplemental denominator: original four
+native inputs are preserved and an independent-content neighbor protects B.
+New/current, unreachable and independent-B cases fail only in the package reader;
+known/empty controls pass. Two intended checker plants are detected. Closure
+still requires complete protected state, atomicity and late-writer verification.
 
 The package has no open specification finding. Its 14 schemas, 52 clauses and
 94 JSON artifacts were independently regenerated exactly, with 34 intended
