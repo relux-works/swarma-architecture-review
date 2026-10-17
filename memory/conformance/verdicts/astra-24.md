@@ -1,12 +1,12 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: active, round 8. Source baseline `95f974b`, kernel v0.2; current package
+Status: active, round 9. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.1-draft` released at `f31d58f`.
 
 ## Scope and method
 
 Read the complete mission, owner decisions D-001–D-008, kernel v0.2, normative
-companion and design, and the released package. This seat authored five synthetic
+companion and design, and the released package. This seat authored six synthetic
 semantic counterexamples and exact package-format vectors. It did not modify
 specification, evaluators, ledger or another seat's artifacts. Expected outputs
 were derived from the contract and never supplied to the execution APIs.
@@ -17,9 +17,10 @@ were derived from the contract and never supplied to the execution APIs.
 | --- | --- | --- |
 | ASTRA24-01 | Clean alternative survives truncated explanation | R7-001 rejected as spec defect; regression retained |
 | ASTRA24-02 | Checked rule expires at its exclusive endpoint; another root may survive | R7-002 rejected as spec defect; regression retained |
-| ASTRA24-03 | Mixed necessary AND states must be combined before OR preference | R7-014 release verified; judge closure pending. R7-015 source fix judge-closed |
+| ASTRA24-03 | Mixed necessary AND states must be combined before OR preference | R7-014 fixed `f31d58f`, judge-closed `6a4f307`; R7-015 judge-closed |
 | ASTRA24-04 | Derived witness must retain exact authorized premise sources | R7-023 fixed `7c765fe`, judge-closed `73ebb62` |
-| ASTRA24-05 | Each polarity must have an independent bounded root counter | Observed source failure; judge classification pending |
+| ASTRA24-05 | Each polarity must have an independent bounded root counter | Observed source failure; requested consolidation into R7-027 |
+| ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | Observed source failure; judge classification pending |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -81,13 +82,32 @@ setup and was corrected before the valid comparison; no setup error is counted
 as an evaluator failure. The existing four cases retain unchanged inputs and
 expected outputs. The new counterexample requires judge disposition.
 
+## Round 9 source-resolution boundary
+
+ASTRA24-06 at `f39af13` passes with one source-resolution visit but the source
+evaluator incorrectly preserves the full derived witness with zero source
+allowance. Eight exact field differences and three intended forbidden checks
+show the omitted bound. The package evaluator passes both queries. Original
+case expectations remain unchanged; the source core hash is the same as round 8.
+
+Current owned corpus: package 6 pass / 0 fail; source 3 pass / 2 fail / 1
+unsupported (exact proof enumeration). Exact reports:
+`.temp/astra22-owned-cases-11.json`, `.temp/astra23-owned-cases-06.json`.
+All six fixtures and bounded forbidden plants pass structural validation in
+`.temp/case-vectors-validate-12.log`. ASTRA24-05 is a complementary root-only
+witness of concurrently classified R7-027; consolidation was requested. The
+judge decides whether the omitted source bound extends that family.
+
+R7-014 is now judge-closed at release `f31d58f`; current package-evaluator
+canonical 57/57 and source 43 pass / 0 fail / 14 unsupported reports remain
+separate from this newer adversarial corpus. Deployment remains unsupported.
+
 ## Provisional R7 row and remaining work
 
-**R7: 1/2.** The package exists and validates; ASTRA24-05 now demonstrates a supported source-evaluator disagreement,
-and collective release verification and open ledger work remain. Judge round 10
-reported five candidate spec fixes pending behavioral evidence; R7-024 was then
-classified as a package-implementation historical-selection bug. This seat's
-local green regressions do not establish the collective score-2 gates.
+**R7: 1/2.** The package exists and validates. ASTRA24-05 and ASTRA24-06
+show supported source-evaluator disagreements on bounded work. R7-027 is open;
+the new source-resolution witness awaits judge disposition. All package fixes
+are judge-closed, but those canonical results cannot hide supplemental failures.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.

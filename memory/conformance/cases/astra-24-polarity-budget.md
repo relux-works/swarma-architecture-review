@@ -1,6 +1,6 @@
 # ASTRA24-05: opposite polarities must not share one root budget
 
-Status: observed source-evaluator divergence, submitted for judge classification.
+Status: observed source-evaluator divergence; consolidation into R7-027 requested.
 Owner: astra-24. Package `0.2.1-draft` at `f31d58f`; execution checkout `6a4f307`.
 
 ## Clauses and two readings
@@ -89,3 +89,12 @@ Preserve per-polarity counter isolation and zero-budget rejection, and exercise
 neighboring rule/source and opposite-quality walks when repairing the counter
 scope. Do not change the expected result or multiply a global allowance to make
 this single example pass. No deployment behavior is claimed.
+
+## Concurrent finding and consolidation
+
+ASTRA25-06 independently exposes the same shared counter through a rule and its
+opposite-premise quality check; the judge classified it R7-027. ASTRA24-05 removes
+that rule and quality dependency, demonstrating direct polarity isolation with
+zero/two-budget controls. This seat requests one consolidated accounting defect,
+not a duplicate count. At `f39af13`, the unchanged ASTRA24-05 still fails in
+`.temp/astra22-owned-cases-11.json`; the package run `-06.json` passes.

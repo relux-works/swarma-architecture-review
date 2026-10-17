@@ -1,6 +1,6 @@
 # ASTRA24-03: source state inside a mixed AND witness
 
-Status: R7-015 judge-closed; R7-014 candidate release `f31d58f` independently verified in round 7.
+Status: R7-014 and R7-015 judge-closed; release `f31d58f` independently verified in round 7.
 Reviewed release: `0.1.0-draft` at `0ef608a`. Owner: astra-24.
 
 ## Clauses
@@ -156,3 +156,7 @@ This seat recommends closure of R7-014; ledger disposition belongs to the judge.
 The derived source-reference regression is repaired under R7-023.
 
 These are semantic fixture results, not protected deployment qualification.
+
+Round 9 disposition update: judge `6a4f307` closes R7-014 fixed at `f31d58f`
+after exact current-release independent S32 execution. No owned semantic
+expectation changed. R7-015 and derived-provenance R7-023 remain closed.
