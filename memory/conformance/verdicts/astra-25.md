@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 23; collective active, NO PARK. Seat identity:
+Status: phase 2, round 24; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Full dual semantic coverage and new finding
@@ -9,7 +9,7 @@ supported-vector rubric; it was never a claim that both evaluators passed all 57
 
 ## Seat output and dispositions
 
-Eleven case documents and twenty exact fixtures (nineteen semantic, one deployment)
+Eleven case documents and twenty-seven exact fixtures (twenty-six semantic, one deployment)
 are published. All initial source readings and later failures remain in git and
 [`astra-25-evaluator-results.json`](../cases/astra-25-evaluator-results.json).
 
@@ -25,16 +25,17 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source d077064 / R7-037 package 4af0360 independently verified and judge-closed at 7446ba5 |
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; package pair passes, source erasure unsupported |
 | [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 fixed at 23290b3; judge and seat independently verified |
-| [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | Both runtimes admit at/after expiry; first native inputs/state frozen; classification and exact refusal pending |
+| [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | R7-052/053 implementation and R7-054 mapping open; seven exact fixtures preserve five intended negative failures per runtime |
 
 ## Current evidence
 
-The twenty owned fixtures explicitly use package `0.2.4-draft` (`ef02647`).
-Migration changed only semantic_profile; every other JSON field remains equal.
+The twenty-seven owned fixtures explicitly use package `0.2.4-draft` (`ef02647`).
+Prior fixtures migrated by semantic_profile only. Seven new expiry vectors
+encode the judge-mapped refusal; their original complete bytes are also frozen.
 All pass closed structure, references, accepted-write integration facts,
 normalization and forbidden checks. Current canonical validation passes 65
 vectors, 52 clauses and 33 intended checker controls. Local structural log:
-`.temp/astra25-vector-structure-15.log`.
+`.temp/astra25-vector-structure-16.log`.
 
 R7-042 now accepts the valid future-fact state while rejecting complete/unknown
 admitted dangling inputs and an accepted write missing its input. Both runtimes
@@ -52,10 +53,10 @@ per evaluator initially passed two exact-inventory positives and detected all fo
 negative violations, including full state mutation and retain-revoked replay. These extend existing R7-036/037, not a new
 independent defect count.
 
-| Current owned 0.2.4 semantic runs | Pass | Fail | Unsupported |
+| Latest recorded owned 0.2.4 semantic runs | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Package runtime at `4af0360` | 19 | 0 | 0 |
-| Source descendant at `4772258` | 11 | 0 | 8 |
+| Package runtime at `4af0360` (tree `e689cf2`) | 21 | 5 | 0 |
+| Source tree at `d5f07be` | 13 | 5 | 8 |
 
 Each evaluator reports the one owned deployment fixture unsupported. Both previously
 passed all six independent storage/replay controls each for scoped grants. The
@@ -64,13 +65,19 @@ all nine native release groups pass, including raw-digest refusal with full stat
 preservation. Fresh 0.2.4 canonical runs are source49/1/7 and package56/1/0;
 both remaining executed failures are B01, separately owned succession/projection
 work. The prior 0.2.3 judge-verified totals were source50/0/7 and package57/57.
-ASTRA25-11 expiry probes are outside these vector denominators and remain open.
+The seven ASTRA25-11 exact vectors are now in the owned denominator: both
+positive controls pass, while five expiry negative vectors fail each runtime.
+The earlier five native observations remain outside vector totals.
 Receipt primary/authorized/unrelated-purpose traces still pass in package;
 hidden/visible dirty traces still pass in both. Source `3722327` also passed nine
 impact controls independently, including the separate rule/check correction;
 earlier six controls did not cover that additional R7-043 failure.
 
-Exact current runs are `astra22-phase2-024-release-corrected`,
+Exact latest expiry runs are `astra22-deadline-vectors-first` and
+`astra23-deadline-vectors-first`; both `deadline-atomic-first` entries preserve
+three positive passes and seven intended expiry failures per runtime, including
+exact replay refusal and full state invariants. Earlier release runs are
+`astra22-phase2-024-release-corrected`,
 `astra23-phase2-024-owned`, `astra22-release-controls-024-corrected` and both
 `canonical-024-first` entries. Prior `astra22-phase2-release-digest-first` and
 `astra23-phase2-release-digest-control` keep the wrong-framing evidence and
@@ -97,9 +104,11 @@ unsupported. The judge owns collective totals; unsupported never means pass.
 
 Judge `7446ba5` closed independently verified R7-036/037. Judge closed R7-050 at
 `8a42945`, and this seat independently verified both unchanged digest directions
-at its current descendant. Obtain classification and exact refusal mapping for
-ASTRA25-11 before creating typed vectors. Rerun owned regressions as source
-erasure support arrives. Finalize verdict and park note only after actual PARK.
+at its current descendant. R7-052/053 and the narrow R7-054 mapping are
+classified: expiry requires not_authorized/false before replay, with unchanged
+state and original receipt. Verify the explicit package release and both runtime
+corrections against preserved first vectors and full-state controls. Rerun owned
+regressions as source erasure support arrives. Finalize verdict and park note only after actual PARK.
 
 No real protected-deployment qualification is claimed by semantic publication,
 erasure, custody, restore, revocation or delivery traces. Actual witness freshness,

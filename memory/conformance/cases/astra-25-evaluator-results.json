@@ -25681,6 +25681,2663 @@
         }
       ],
       "scope": "Every field other than semantic_profile is exactly equal to the previous committed fixture."
+    },
+    "astra22-deadline-vectors-first": {
+      "package_version": "0.2.4-draft",
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "evaluator_commit": "d5f07bead4844844bf52c2e96cd074fc54977154",
+      "implementation_sha256": {
+        "adapter.py": "9b6677c7dab869bf81d4a07835ced6c43ae2590d10fea86a676dd4c1223602bb",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "authority_projection_checks.py": "2fc29a885d283718ffe6298445449057b46a37252d1a78b4053334533faffe5f",
+        "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+        "boundary_checks.py": "057cca3daba4bf03ffbf8acd87bda3a0f5a9b9a97088539d0714af434917457b",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "5285af6df7e8554c6726a87fd4219056e0a2cceb3d6e61e741a40550c1aca2a6",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+        "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+        "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+        "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+        "transactions.py": "fff9dc04a8be92f091cbc6d9f47a2772983867ef3b3930ed50052de5ed605444"
+      },
+      "scope": "Owned current-version adversarial fixtures; untouched evaluator; five harness controls passed. Deployment unsupported is not a pass.",
+      "vectors": [
+        {
+          "id": "ASTRA25-02-DIGEST",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection-unframed-digest.vector.json",
+          "vector_sha256": "062d307030f125732c3e6560ece8a64955b2cd1568438df2c7d7d996ea24b0ca",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-02",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
+          "vector_sha256": "915f68a9e03ccff5d0ce582cecaf37024824be47bedb0ed18b4144e8915208d7",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-07-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-authorized-control.vector.json",
+          "vector_sha256": "92697e97e4edba791763218c19e58c20d18ac0791a0c367049fb059833bb0010",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-07-PURPOSE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-other-purpose.vector.json",
+          "vector_sha256": "7d790726ea1f0ca4f5ab3ba1f02c9024366a9b90e13fbbfa298db0bc8ba35d8d",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-07",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata.vector.json",
+          "vector_sha256": "3eca41aa50eeac9690944da96621c2f6ad807b79bcf222f791fc3759c6531c1d",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-10",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-future-lineage-input.vector.json",
+          "vector_sha256": "b8e3962c8a33f3523f84d843f4a1f71904a331c63232583b0bf8c4e88218aed2",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-05-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "vector_sha256": "8f668df8210970ad5c55821f82f1f9fef4e85a71d8c5a893d95589c87a422e99",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-05",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
+          "vector_sha256": "aea70b2e04d76571a1b0eb7bc41d8765b4e8316b9db2a423543d30c241c6e4ad",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-01",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
+          "vector_sha256": "aa7a0ad28643c28b05ab4720b203dbe4354f1002057ba4f5a61f01549ecaac79",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-06",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-quality-budget-isolation.vector.json",
+          "vector_sha256": "6db93050a9e008bee54013f430d668f49aa1f70b7273b60f488a4838bf960803",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-authorized-control.vector.json",
+          "vector_sha256": "791ff7f9ff65d80f8966783ae3dc5a7609fbc539f8eb84b18b8e27bc04c3b88c",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown-control.vector.json",
+          "vector_sha256": "e6c47ff0ac40c0e824274e28f96f5ccd22e83ad9206c90ae732534bb620149c8",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown.vector.json",
+          "vector_sha256": "c3aafefa028a1469177061f8a4092689d57e6e8ca18e36c703a9478bec77fe2a",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority.vector.json",
+          "vector_sha256": "00c7fd12f8749802d92500c21aa2639551fb210061484d99c71aa6c0bfb2dc97",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11-BEFORE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-before-control.vector.json",
+          "vector_sha256": "00ed1e85e4350b84d3feaf395b28172efc207a58851d06e7b757986ab2460462",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11-OWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-own.vector.json",
+          "vector_sha256": "e0f6bd53b423d3aaabe2d303a682534d41336af0f28016ee5f97111e05fc0998",
+          "status": "fail",
+          "differences": [
+            {
+              "path": "$.operation_results[0].code",
+              "expected": "not_authorized",
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].custody",
+              "expected": "<absent>",
+              "actual": []
+            },
+            {
+              "path": "$.operation_results[0].erasure_status",
+              "expected": "<absent>",
+              "actual": null
+            },
+            {
+              "path": "$.operation_results[0].operation",
+              "expected": "<absent>",
+              "actual": "admit"
+            },
+            {
+              "path": "$.operation_results[0].outcome",
+              "expected": "<absent>",
+              "actual": "admitted"
+            },
+            {
+              "path": "$.operation_results[0].receipt_handle",
+              "expected": "<absent>",
+              "actual": "ae046ea0b857ef0be6a4cc0232b58d7f"
+            },
+            {
+              "path": "$.operation_results[0].refs",
+              "expected": "<absent>",
+              "actual": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ]
+            },
+            {
+              "path": "$.operation_results[0].retryable",
+              "expected": false,
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].type",
+              "expected": "refusal",
+              "actual": "receipt"
+            },
+            {
+              "path": "$.postconditions.record_refs.length",
+              "expected": 1,
+              "actual": 2
+            },
+            {
+              "path": "$.postconditions.record_refs[0].id",
+              "expected": "rec:private",
+              "actual": "rec:paraphrase"
+            },
+            {
+              "path": "forbidden:/operation_results/0/type",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/operation_results/0/type",
+                "test": "equals",
+                "value": "receipt"
+              }
+            },
+            {
+              "path": "forbidden:/postconditions/record_refs",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/postconditions/record_refs",
+                "test": "size_equals",
+                "value": 2
+              }
+            }
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "ae046ea0b857ef0be6a4cc0232b58d7f",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "<fresh>",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-11-REPLAY",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-replay.vector.json",
+          "vector_sha256": "47faea724066f5963efb2e9cee982f51888252feee719c41e96c655cae367c50",
+          "status": "fail",
+          "differences": [
+            {
+              "path": "$.operation_results[1].code",
+              "expected": "not_authorized",
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[1].custody",
+              "expected": "<absent>",
+              "actual": []
+            },
+            {
+              "path": "$.operation_results[1].erasure_status",
+              "expected": "<absent>",
+              "actual": null
+            },
+            {
+              "path": "$.operation_results[1].operation",
+              "expected": "<absent>",
+              "actual": "admit"
+            },
+            {
+              "path": "$.operation_results[1].outcome",
+              "expected": "<absent>",
+              "actual": "admitted"
+            },
+            {
+              "path": "$.operation_results[1].receipt_handle",
+              "expected": "<absent>",
+              "actual": "885394e1c60f9a87df37b5b719ac4b75"
+            },
+            {
+              "path": "$.operation_results[1].refs",
+              "expected": "<absent>",
+              "actual": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ]
+            },
+            {
+              "path": "$.operation_results[1].retryable",
+              "expected": false,
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[1].type",
+              "expected": "refusal",
+              "actual": "receipt"
+            },
+            {
+              "path": "forbidden:/operation_results/1/type",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/operation_results/1/type",
+                "test": "equals",
+                "value": "receipt"
+              }
+            }
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "<fresh>",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "885394e1c60f9a87df37b5b719ac4b75",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "<fresh>",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-11-BATCH-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-same-batch-control.vector.json",
+          "vector_sha256": "b069bb2163be81696563607ae3fc499e9919c8538ba1c625204903a3effd2c9d",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-11-BATCH",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-same-batch.vector.json",
+          "vector_sha256": "df18ddc922f93f740f9d746b330cdf067066e0e58cc3ddb173ca8f5256cc4af1",
+          "status": "fail",
+          "differences": [
+            {
+              "path": "$.operation_results[0].code",
+              "expected": "not_authorized",
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].custody",
+              "expected": "<absent>",
+              "actual": []
+            },
+            {
+              "path": "$.operation_results[0].erasure_status",
+              "expected": "<absent>",
+              "actual": null
+            },
+            {
+              "path": "$.operation_results[0].operation",
+              "expected": "<absent>",
+              "actual": "admit"
+            },
+            {
+              "path": "$.operation_results[0].outcome",
+              "expected": "<absent>",
+              "actual": "admitted"
+            },
+            {
+              "path": "$.operation_results[0].receipt_handle",
+              "expected": "<absent>",
+              "actual": "a24ca3863f0f2f21340582e2acc664da"
+            },
+            {
+              "path": "$.operation_results[0].refs",
+              "expected": "<absent>",
+              "actual": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ]
+            },
+            {
+              "path": "$.operation_results[0].retryable",
+              "expected": false,
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].type",
+              "expected": "refusal",
+              "actual": "receipt"
+            },
+            {
+              "path": "$.operation_results[1].code",
+              "expected": "not_authorized",
+              "actual": "duplicate_record"
+            },
+            {
+              "path": "$.postconditions.record_refs.length",
+              "expected": 0,
+              "actual": 2
+            },
+            {
+              "path": "forbidden:/operation_results/0/type",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/operation_results/0/type",
+                "test": "equals",
+                "value": "receipt"
+              }
+            },
+            {
+              "path": "forbidden:/postconditions/record_refs",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/postconditions/record_refs",
+                "test": "size_equals",
+                "value": 2
+              }
+            }
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "a24ca3863f0f2f21340582e2acc664da",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  },
+                  {
+                    "id": "rec:private",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "refusal",
+                "code": "duplicate_record",
+                "retryable": false
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "<fresh>",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-11-UNKNOWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-transitive-unknown.vector.json",
+          "vector_sha256": "9338ac0b1d99f94d12583359d73daa8e5a8801d9ab481738d5676bb57cba42c5",
+          "status": "fail",
+          "differences": [
+            {
+              "path": "$.operation_results[0].code",
+              "expected": "not_authorized",
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].custody",
+              "expected": "<absent>",
+              "actual": []
+            },
+            {
+              "path": "$.operation_results[0].erasure_status",
+              "expected": "<absent>",
+              "actual": null
+            },
+            {
+              "path": "$.operation_results[0].operation",
+              "expected": "<absent>",
+              "actual": "admit"
+            },
+            {
+              "path": "$.operation_results[0].outcome",
+              "expected": "<absent>",
+              "actual": "admitted"
+            },
+            {
+              "path": "$.operation_results[0].receipt_handle",
+              "expected": "<absent>",
+              "actual": "cac4c91fe206e631cc5ac91172ccff34"
+            },
+            {
+              "path": "$.operation_results[0].refs",
+              "expected": "<absent>",
+              "actual": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ]
+            },
+            {
+              "path": "$.operation_results[0].retryable",
+              "expected": false,
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].type",
+              "expected": "refusal",
+              "actual": "receipt"
+            },
+            {
+              "path": "$.postconditions.record_refs.length",
+              "expected": 2,
+              "actual": 3
+            },
+            {
+              "path": "$.postconditions.record_refs[1].id",
+              "expected": "rec:private",
+              "actual": "rec:paraphrase"
+            },
+            {
+              "path": "forbidden:/operation_results/0/type",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/operation_results/0/type",
+                "test": "equals",
+                "value": "receipt"
+              }
+            },
+            {
+              "path": "forbidden:/postconditions/record_refs",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/postconditions/record_refs",
+                "test": "size_equals",
+                "value": 3
+              }
+            }
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "cac4c91fe206e631cc5ac91172ccff34",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "<fresh>",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:intermediate",
+                  "version": 1
+                },
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-11",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline.vector.json",
+          "vector_sha256": "4b67e651158410f326335416ac823cda1aabf6354654fdd5413b6af445657ffc",
+          "status": "fail",
+          "differences": [
+            {
+              "path": "$.operation_results[0].code",
+              "expected": "not_authorized",
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].custody",
+              "expected": "<absent>",
+              "actual": []
+            },
+            {
+              "path": "$.operation_results[0].erasure_status",
+              "expected": "<absent>",
+              "actual": null
+            },
+            {
+              "path": "$.operation_results[0].operation",
+              "expected": "<absent>",
+              "actual": "admit"
+            },
+            {
+              "path": "$.operation_results[0].outcome",
+              "expected": "<absent>",
+              "actual": "admitted"
+            },
+            {
+              "path": "$.operation_results[0].receipt_handle",
+              "expected": "<absent>",
+              "actual": "ab1f3a7759a5595d28e6351754e5a276"
+            },
+            {
+              "path": "$.operation_results[0].refs",
+              "expected": "<absent>",
+              "actual": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ]
+            },
+            {
+              "path": "$.operation_results[0].retryable",
+              "expected": false,
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].type",
+              "expected": "refusal",
+              "actual": "receipt"
+            },
+            {
+              "path": "$.operation_results[1].code",
+              "expected": "not_authorized",
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[1].custody",
+              "expected": "<absent>",
+              "actual": []
+            },
+            {
+              "path": "$.operation_results[1].erasure_status",
+              "expected": "<absent>",
+              "actual": null
+            },
+            {
+              "path": "$.operation_results[1].operation",
+              "expected": "<absent>",
+              "actual": "admit"
+            },
+            {
+              "path": "$.operation_results[1].outcome",
+              "expected": "<absent>",
+              "actual": "admitted"
+            },
+            {
+              "path": "$.operation_results[1].receipt_handle",
+              "expected": "<absent>",
+              "actual": "ab1f3a7759a5595d28e6351754e5a276"
+            },
+            {
+              "path": "$.operation_results[1].refs",
+              "expected": "<absent>",
+              "actual": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ]
+            },
+            {
+              "path": "$.operation_results[1].retryable",
+              "expected": false,
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[1].type",
+              "expected": "refusal",
+              "actual": "receipt"
+            },
+            {
+              "path": "$.postconditions.record_refs.length",
+              "expected": 1,
+              "actual": 2
+            },
+            {
+              "path": "$.postconditions.record_refs[0].id",
+              "expected": "rec:private",
+              "actual": "rec:paraphrase"
+            },
+            {
+              "path": "forbidden:/operation_results/0/type",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/operation_results/0/type",
+                "test": "equals",
+                "value": "receipt"
+              }
+            },
+            {
+              "path": "forbidden:/operation_results/1/type",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/operation_results/1/type",
+                "test": "equals",
+                "value": "receipt"
+              }
+            },
+            {
+              "path": "forbidden:/postconditions/record_refs",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/postconditions/record_refs",
+                "test": "size_equals",
+                "value": 2
+              }
+            }
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "ab1f3a7759a5595d28e6351754e5a276",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "ab1f3a7759a5595d28e6351754e5a276",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "<fresh>",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-04",
+          "profile": "deployment",
+          "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
+          "vector_sha256": "aefb261795968f2a06c9435e82bd35d9d95988ae704291674e1d670c0442e514",
+          "status": "unsupported",
+          "reason": "No protected deployment; simulated state cannot qualify current witness and failure-domain boundaries."
+        },
+        {
+          "id": "ASTRA25-03-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
+          "vector_sha256": "b0fe46f09466eb6135c0deefbae4d1c8deb5067cac3e1c17a61f7cc9813153e0",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-03-FENCE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
+          "vector_sha256": "c38de4afa8839b2b9f133ceffc3bf9ad9972ab1629ff4996821bb2cc388502f0",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-03",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
+          "vector_sha256": "526c37ba2d99734457755c1f403067405a9f08551d75c5c2599a2459914642f9",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-09-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure-independent-control.vector.json",
+          "vector_sha256": "1354541cb25793998b34cef86d5ece893454430b556c7ba6dab04c7cb2c7f584",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-09",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure.vector.json",
+          "vector_sha256": "100dca2e8b83215c08a71e1eb6d47878c9e2984bc777554478b7535a57d6fe0c",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "pass": 13,
+          "unsupported": 8,
+          "fail": 5
+        },
+        "deployment": {
+          "unsupported": 1
+        }
+      },
+      "fixture_base_commit": "1164e5be10d353d10dc43d2e94161d8ae3eb445d",
+      "fixture_commit": null,
+      "fixture_worktree_modified": true,
+      "fixture_note": "Input bytes are identified by each vector_sha256; these owned additions/edits were not yet committed at execution."
+    },
+    "astra23-deadline-vectors-first": {
+      "package_version": "0.2.4-draft",
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "evaluator_commit": "e689cf20b1f9839fbcd9b2aebb845ad67c640e0e",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+        "engine.py": "cca7a0544c903e521b093c0906bc1e6e092bfe90e54284c7c122e522b344b450",
+        "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "3189cb141f3d464c3bdc35117b2bfa189557f2920b434f12d634316275516bcb"
+      },
+      "scope": "Owned adversarial fixtures. Evaluator receives only initial state, operations and query; comparator receives expected output. No evaluator files were changed. Deployment unsupported is not a pass.",
+      "vectors": [
+        {
+          "id": "ASTRA25-02-DIGEST",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection-unframed-digest.vector.json",
+          "vector_sha256": "062d307030f125732c3e6560ece8a64955b2cd1568438df2c7d7d996ea24b0ca",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-02",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
+          "vector_sha256": "915f68a9e03ccff5d0ce582cecaf37024824be47bedb0ed18b4144e8915208d7",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-authorized-control.vector.json",
+          "vector_sha256": "92697e97e4edba791763218c19e58c20d18ac0791a0c367049fb059833bb0010",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07-PURPOSE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-other-purpose.vector.json",
+          "vector_sha256": "7d790726ea1f0ca4f5ab3ba1f02c9024366a9b90e13fbbfa298db0bc8ba35d8d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata.vector.json",
+          "vector_sha256": "3eca41aa50eeac9690944da96621c2f6ad807b79bcf222f791fc3759c6531c1d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-10",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-future-lineage-input.vector.json",
+          "vector_sha256": "b8e3962c8a33f3523f84d843f4a1f71904a331c63232583b0bf8c4e88218aed2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-05-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "vector_sha256": "8f668df8210970ad5c55821f82f1f9fef4e85a71d8c5a893d95589c87a422e99",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-05",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
+          "vector_sha256": "aea70b2e04d76571a1b0eb7bc41d8765b4e8316b9db2a423543d30c241c6e4ad",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-01",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
+          "vector_sha256": "aa7a0ad28643c28b05ab4720b203dbe4354f1002057ba4f5a61f01549ecaac79",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-06",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-quality-budget-isolation.vector.json",
+          "vector_sha256": "6db93050a9e008bee54013f430d668f49aa1f70b7273b60f488a4838bf960803",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-authorized-control.vector.json",
+          "vector_sha256": "791ff7f9ff65d80f8966783ae3dc5a7609fbc539f8eb84b18b8e27bc04c3b88c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown-control.vector.json",
+          "vector_sha256": "e6c47ff0ac40c0e824274e28f96f5ccd22e83ad9206c90ae732534bb620149c8",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-UNKNOWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-transitive-unknown.vector.json",
+          "vector_sha256": "c3aafefa028a1469177061f8a4092689d57e6e8ca18e36c703a9478bec77fe2a",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority.vector.json",
+          "vector_sha256": "00c7fd12f8749802d92500c21aa2639551fb210061484d99c71aa6c0bfb2dc97",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-11-BEFORE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-before-control.vector.json",
+          "vector_sha256": "00ed1e85e4350b84d3feaf395b28172efc207a58851d06e7b757986ab2460462",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-11-OWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-own.vector.json",
+          "vector_sha256": "e0f6bd53b423d3aaabe2d303a682534d41336af0f28016ee5f97111e05fc0998",
+          "status": "fail",
+          "differences": [
+            [
+              "/operation_results/0/code",
+              "<missing>",
+              "not_authorized"
+            ],
+            [
+              "/operation_results/0/custody",
+              [],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/erasure_status",
+              null,
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/operation",
+              "admit",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/outcome",
+              "admitted",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/receipt_handle",
+              "c9e96aaacee4a8be3e644bf17d089076",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/refs",
+              [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/retryable",
+              "<missing>",
+              false
+            ],
+            [
+              "/operation_results/0/type",
+              "receipt",
+              "refusal"
+            ],
+            [
+              "/postconditions/record_refs/length",
+              2,
+              1
+            ],
+            [
+              "/postconditions/record_refs/0/id",
+              "rec:paraphrase",
+              "rec:private"
+            ],
+            [
+              "/postconditions/record_refs/1",
+              {
+                "id": "rec:private",
+                "version": 1
+              },
+              "<missing>"
+            ]
+          ],
+          "checks": [
+            "forbidden predicate matched: {\"path\":\"/operation_results/0/type\",\"test\":\"equals\",\"value\":\"receipt\"}",
+            "forbidden predicate matched: {\"path\":\"/postconditions/record_refs\",\"test\":\"size_equals\",\"value\":2}"
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "c9e96aaacee4a8be3e644bf17d089076",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "fccbfa8d123da71d9bcc95cc0096d339",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-11-REPLAY",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-replay.vector.json",
+          "vector_sha256": "47faea724066f5963efb2e9cee982f51888252feee719c41e96c655cae367c50",
+          "status": "fail",
+          "differences": [
+            [
+              "/operation_results/1/code",
+              "<missing>",
+              "not_authorized"
+            ],
+            [
+              "/operation_results/1/custody",
+              [],
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/erasure_status",
+              null,
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/operation",
+              "admit",
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/outcome",
+              "admitted",
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/receipt_handle",
+              "f5428b5770481defc68a8ae0e9ccedf1",
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/refs",
+              [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/retryable",
+              "<missing>",
+              false
+            ],
+            [
+              "/operation_results/1/type",
+              "receipt",
+              "refusal"
+            ]
+          ],
+          "checks": [
+            "forbidden predicate matched: {\"path\":\"/operation_results/1/type\",\"test\":\"equals\",\"value\":\"receipt\"}"
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "f5428b5770481defc68a8ae0e9ccedf1",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "f5428b5770481defc68a8ae0e9ccedf1",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "815cc6a3ac23a8e2de9f84875b5e953b",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-11-BATCH-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-same-batch-control.vector.json",
+          "vector_sha256": "b069bb2163be81696563607ae3fc499e9919c8538ba1c625204903a3effd2c9d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-11-BATCH",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-same-batch.vector.json",
+          "vector_sha256": "df18ddc922f93f740f9d746b330cdf067066e0e58cc3ddb173ca8f5256cc4af1",
+          "status": "fail",
+          "differences": [
+            [
+              "/operation_results/0/code",
+              "<missing>",
+              "not_authorized"
+            ],
+            [
+              "/operation_results/0/custody",
+              [],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/erasure_status",
+              null,
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/operation",
+              "admit",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/outcome",
+              "admitted",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/receipt_handle",
+              "991a4a676e5cd4a21ad1e5124dbd9dd8",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/refs",
+              [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/retryable",
+              "<missing>",
+              false
+            ],
+            [
+              "/operation_results/0/type",
+              "receipt",
+              "refusal"
+            ],
+            [
+              "/operation_results/1/code",
+              "duplicate_record",
+              "not_authorized"
+            ],
+            [
+              "/postconditions/record_refs/length",
+              2,
+              0
+            ],
+            [
+              "/postconditions/record_refs/0",
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              },
+              "<missing>"
+            ],
+            [
+              "/postconditions/record_refs/1",
+              {
+                "id": "rec:private",
+                "version": 1
+              },
+              "<missing>"
+            ]
+          ],
+          "checks": [
+            "forbidden predicate matched: {\"path\":\"/operation_results/0/type\",\"test\":\"equals\",\"value\":\"receipt\"}",
+            "forbidden predicate matched: {\"path\":\"/postconditions/record_refs\",\"test\":\"size_equals\",\"value\":2}"
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "991a4a676e5cd4a21ad1e5124dbd9dd8",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  },
+                  {
+                    "id": "rec:private",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "refusal",
+                "code": "duplicate_record",
+                "retryable": false
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "81fe29d29fe30cce69b98e1a2295e901",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-11-UNKNOWN",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline-transitive-unknown.vector.json",
+          "vector_sha256": "9338ac0b1d99f94d12583359d73daa8e5a8801d9ab481738d5676bb57cba42c5",
+          "status": "fail",
+          "differences": [
+            [
+              "/operation_results/0/code",
+              "<missing>",
+              "not_authorized"
+            ],
+            [
+              "/operation_results/0/custody",
+              [],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/erasure_status",
+              null,
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/operation",
+              "admit",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/outcome",
+              "admitted",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/receipt_handle",
+              "2662fdd91ca916313e0be0c0185b950a",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/refs",
+              [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/retryable",
+              "<missing>",
+              false
+            ],
+            [
+              "/operation_results/0/type",
+              "receipt",
+              "refusal"
+            ],
+            [
+              "/postconditions/record_refs/length",
+              3,
+              2
+            ],
+            [
+              "/postconditions/record_refs/1/id",
+              "rec:paraphrase",
+              "rec:private"
+            ],
+            [
+              "/postconditions/record_refs/2",
+              {
+                "id": "rec:private",
+                "version": 1
+              },
+              "<missing>"
+            ]
+          ],
+          "checks": [
+            "forbidden predicate matched: {\"path\":\"/operation_results/0/type\",\"test\":\"equals\",\"value\":\"receipt\"}",
+            "forbidden predicate matched: {\"path\":\"/postconditions/record_refs\",\"test\":\"size_equals\",\"value\":3}"
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "2662fdd91ca916313e0be0c0185b950a",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "0c8c417bebf2a1dc2fa2c508ee4975a6",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:intermediate",
+                  "version": 1
+                },
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-11",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-deadline.vector.json",
+          "vector_sha256": "4b67e651158410f326335416ac823cda1aabf6354654fdd5413b6af445657ffc",
+          "status": "fail",
+          "differences": [
+            [
+              "/operation_results/0/code",
+              "<missing>",
+              "not_authorized"
+            ],
+            [
+              "/operation_results/0/custody",
+              [],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/erasure_status",
+              null,
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/operation",
+              "admit",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/outcome",
+              "admitted",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/receipt_handle",
+              "315255d1dff7ece0a0aa820c25785aaa",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/refs",
+              [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/retryable",
+              "<missing>",
+              false
+            ],
+            [
+              "/operation_results/0/type",
+              "receipt",
+              "refusal"
+            ],
+            [
+              "/operation_results/1/code",
+              "<missing>",
+              "not_authorized"
+            ],
+            [
+              "/operation_results/1/custody",
+              [],
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/erasure_status",
+              null,
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/operation",
+              "admit",
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/outcome",
+              "admitted",
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/receipt_handle",
+              "315255d1dff7ece0a0aa820c25785aaa",
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/refs",
+              [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/1/retryable",
+              "<missing>",
+              false
+            ],
+            [
+              "/operation_results/1/type",
+              "receipt",
+              "refusal"
+            ],
+            [
+              "/postconditions/record_refs/length",
+              2,
+              1
+            ],
+            [
+              "/postconditions/record_refs/0/id",
+              "rec:paraphrase",
+              "rec:private"
+            ],
+            [
+              "/postconditions/record_refs/1",
+              {
+                "id": "rec:private",
+                "version": 1
+              },
+              "<missing>"
+            ]
+          ],
+          "checks": [
+            "forbidden predicate matched: {\"path\":\"/operation_results/0/type\",\"test\":\"equals\",\"value\":\"receipt\"}",
+            "forbidden predicate matched: {\"path\":\"/operation_results/1/type\",\"test\":\"equals\",\"value\":\"receipt\"}",
+            "forbidden predicate matched: {\"path\":\"/postconditions/record_refs\",\"test\":\"size_equals\",\"value\":2}"
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "315255d1dff7ece0a0aa820c25785aaa",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              },
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "315255d1dff7ece0a0aa820c25785aaa",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.4-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "e18cb9077fc4392f19e26751a2002935",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-04",
+          "profile": "deployment",
+          "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
+          "vector_sha256": "aefb261795968f2a06c9435e82bd35d9d95988ae704291674e1d670c0442e514",
+          "status": "unsupported",
+          "reason": "Requires real protected deployment, current witness and failure-domain evidence; modeled state transitions are insufficient."
+        },
+        {
+          "id": "ASTRA25-03-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
+          "vector_sha256": "b0fe46f09466eb6135c0deefbae4d1c8deb5067cac3e1c17a61f7cc9813153e0",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-03-FENCE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
+          "vector_sha256": "c38de4afa8839b2b9f133ceffc3bf9ad9972ab1629ff4996821bb2cc388502f0",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-03",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
+          "vector_sha256": "526c37ba2d99734457755c1f403067405a9f08551d75c5c2599a2459914642f9",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-09-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure-independent-control.vector.json",
+          "vector_sha256": "1354541cb25793998b34cef86d5ece893454430b556c7ba6dab04c7cb2c7f584",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-09",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure.vector.json",
+          "vector_sha256": "100dca2e8b83215c08a71e1eb6d47878c9e2984bc777554478b7535a57d6fe0c",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "pass": 21,
+          "fail": 5
+        },
+        "deployment": {
+          "unsupported": 1
+        }
+      },
+      "fixture_base_commit": "1164e5be10d353d10dc43d2e94161d8ae3eb445d",
+      "fixture_commit": null,
+      "fixture_worktree_modified": true,
+      "fixture_note": "Input bytes are identified by each vector_sha256; these owned additions/edits were not yet committed at execution."
+    },
+    "astra22-deadline-atomic-first": {
+      "package_version": "0.2.4-draft",
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "evaluator_commit": "d5f07bead4844844bf52c2e96cd074fc54977154",
+      "implementation_sha256": {
+        "adapter.py": "9b6677c7dab869bf81d4a07835ced6c43ae2590d10fea86a676dd4c1223602bb",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "authority_projection_checks.py": "2fc29a885d283718ffe6298445449057b46a37252d1a78b4053334533faffe5f",
+        "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+        "boundary_checks.py": "057cca3daba4bf03ffbf8acd87bda3a0f5a9b9a97088539d0714af434917457b",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "5285af6df7e8554c6726a87fd4219056e0a2cceb3d6e61e741a40550c1aca2a6",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+        "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+        "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+        "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+        "transactions.py": "fff9dc04a8be92f091cbc6d9f47a2772983867ef3b3930ed50052de5ed605444"
+      },
+      "fixture_sha256": {
+        "astra-25-retention-deadline-before-control.vector.json": "00ed1e85e4350b84d3feaf395b28172efc207a58851d06e7b757986ab2460462",
+        "astra-25-retention-deadline-own.vector.json": "e0f6bd53b423d3aaabe2d303a682534d41336af0f28016ee5f97111e05fc0998",
+        "astra-25-retention-deadline-replay.vector.json": "47faea724066f5963efb2e9cee982f51888252feee719c41e96c655cae367c50",
+        "astra-25-retention-deadline-same-batch-control.vector.json": "b069bb2163be81696563607ae3fc499e9919c8538ba1c625204903a3effd2c9d",
+        "astra-25-retention-deadline-same-batch.vector.json": "df18ddc922f93f740f9d746b330cdf067066e0e58cc3ddb173ca8f5256cc4af1",
+        "astra-25-retention-deadline-transitive-unknown.vector.json": "9338ac0b1d99f94d12583359d73daa8e5a8801d9ab481738d5676bb57cba42c5",
+        "astra-25-retention-deadline.vector.json": "4b67e651158410f326335416ac823cda1aabf6354654fdd5413b6af445657ffc"
+      },
+      "harness_sha256": "a9d88a0268bf1e0e8c6e7213fb4fda9ea63066cf1433bda5e49ab9e74c154f39",
+      "scope": "Independent exact expiry/refusal and full state checks against R7-052/053/054; synthetic storage only. Original receipt is included in state snapshots.",
+      "controls": [
+        {
+          "id": "ASTRA25-11-BEFORE",
+          "operation": 0,
+          "claim": "live_retention_commits_exact_inventory_and_receipt",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "103d9ec94046803e46d18736c8abbf73",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "initial",
+            "records",
+            "runtime",
+            "idempotency"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-OWN",
+          "operation": 0,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "76bbcd4ae7362c6c781bb938ed2e4718",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "initial",
+            "records",
+            "runtime",
+            "idempotency"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-REPLAY",
+          "operation": 0,
+          "claim": "live_retention_commits_exact_inventory_and_receipt",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "a2088aff297a1523812bbd734d2b94ee",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "initial",
+            "records",
+            "runtime",
+            "idempotency"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-REPLAY",
+          "operation": 1,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "a2088aff297a1523812bbd734d2b94ee",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": []
+        },
+        {
+          "id": "ASTRA25-11-BATCH-CONTROL",
+          "operation": 0,
+          "claim": "live_retention_commits_exact_inventory_and_receipt",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "82e7104ff55e2fb2f3af0817e36af6c4",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              },
+              {
+                "id": "rec:private",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "initial",
+            "records",
+            "runtime",
+            "idempotency"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-BATCH",
+          "operation": 0,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "9afb837e4661dfbc64898fb164715896",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              },
+              {
+                "id": "rec:private",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "initial",
+            "records",
+            "runtime",
+            "idempotency"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-BATCH",
+          "operation": 1,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "refusal",
+            "code": "duplicate_record",
+            "retryable": false
+          },
+          "changed_state_components": []
+        },
+        {
+          "id": "ASTRA25-11-UNKNOWN",
+          "operation": 0,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "ed9d66823908a30c3dbac619abc2ce59",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "initial",
+            "records",
+            "runtime",
+            "idempotency"
+          ]
+        },
+        {
+          "id": "ASTRA25-11",
+          "operation": 0,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "3588948568e88aafeb2f297988ade23f",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "initial",
+            "records",
+            "runtime",
+            "idempotency"
+          ]
+        },
+        {
+          "id": "ASTRA25-11",
+          "operation": 1,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "3588948568e88aafeb2f297988ade23f",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": []
+        }
+      ]
+    },
+    "astra23-deadline-atomic-first": {
+      "package_version": "0.2.4-draft",
+      "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+      "evaluator_commit": "e689cf20b1f9839fbcd9b2aebb845ad67c640e0e",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+        "engine.py": "cca7a0544c903e521b093c0906bc1e6e092bfe90e54284c7c122e522b344b450",
+        "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "3189cb141f3d464c3bdc35117b2bfa189557f2920b434f12d634316275516bcb"
+      },
+      "fixture_sha256": {
+        "astra-25-retention-deadline-before-control.vector.json": "00ed1e85e4350b84d3feaf395b28172efc207a58851d06e7b757986ab2460462",
+        "astra-25-retention-deadline-own.vector.json": "e0f6bd53b423d3aaabe2d303a682534d41336af0f28016ee5f97111e05fc0998",
+        "astra-25-retention-deadline-replay.vector.json": "47faea724066f5963efb2e9cee982f51888252feee719c41e96c655cae367c50",
+        "astra-25-retention-deadline-same-batch-control.vector.json": "b069bb2163be81696563607ae3fc499e9919c8538ba1c625204903a3effd2c9d",
+        "astra-25-retention-deadline-same-batch.vector.json": "df18ddc922f93f740f9d746b330cdf067066e0e58cc3ddb173ca8f5256cc4af1",
+        "astra-25-retention-deadline-transitive-unknown.vector.json": "9338ac0b1d99f94d12583359d73daa8e5a8801d9ab481738d5676bb57cba42c5",
+        "astra-25-retention-deadline.vector.json": "4b67e651158410f326335416ac823cda1aabf6354654fdd5413b6af445657ffc"
+      },
+      "harness_sha256": "a9d88a0268bf1e0e8c6e7213fb4fda9ea63066cf1433bda5e49ab9e74c154f39",
+      "scope": "Independent exact expiry/refusal and full state checks against R7-052/053/054; synthetic storage only. Original receipt is included in state snapshots.",
+      "controls": [
+        {
+          "id": "ASTRA25-11-BEFORE",
+          "operation": 0,
+          "claim": "live_retention_commits_exact_inventory_and_receipt",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "c9f3b8b6abeab5cc62020d8020e23972",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "state"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-OWN",
+          "operation": 0,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "8a3b4a7ddabca128f2d1a8e89b6ad186",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "state"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-REPLAY",
+          "operation": 0,
+          "claim": "live_retention_commits_exact_inventory_and_receipt",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "02d3488560c87e3ddfc533ee0d688f9b",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "state"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-REPLAY",
+          "operation": 1,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "02d3488560c87e3ddfc533ee0d688f9b",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": []
+        },
+        {
+          "id": "ASTRA25-11-BATCH-CONTROL",
+          "operation": 0,
+          "claim": "live_retention_commits_exact_inventory_and_receipt",
+          "status": "pass",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "4a726b2bf25c5870668fa3176dba824c",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              },
+              {
+                "id": "rec:private",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "state"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-BATCH",
+          "operation": 0,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "3b5d57f8181aa70badbab9579268ee08",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              },
+              {
+                "id": "rec:private",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "state"
+          ]
+        },
+        {
+          "id": "ASTRA25-11-BATCH",
+          "operation": 1,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "refusal",
+            "code": "duplicate_record",
+            "retryable": false
+          },
+          "changed_state_components": []
+        },
+        {
+          "id": "ASTRA25-11-UNKNOWN",
+          "operation": 0,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "2da378358b9044f561c7c891ceb62a36",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "state"
+          ]
+        },
+        {
+          "id": "ASTRA25-11",
+          "operation": 0,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "48b0daba669a929ba5f4ad91da62bb6b",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": [
+            "state"
+          ]
+        },
+        {
+          "id": "ASTRA25-11",
+          "operation": 1,
+          "claim": "exact_expiry_refusal_and_unchanged_state",
+          "status": "fail",
+          "actual": {
+            "type": "receipt",
+            "operation": "admit",
+            "outcome": "admitted",
+            "receipt_handle": "48b0daba669a929ba5f4ad91da62bb6b",
+            "refs": [
+              {
+                "id": "rec:paraphrase",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          "changed_state_components": []
+        }
+      ]
     }
   }
 }

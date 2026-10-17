@@ -1,7 +1,8 @@
 # ASTRA25-11: a retained deadline must constrain new storage
 
-Status: first native observations preserved; judge/editor classification and
-exact refusal mapping requested. Owner: astra-25. Package `0.2.3-draft`.
+Status: judge-classified R7-052 source implementation, R7-053 package
+implementation and R7-054 specification mapping. First native and exact vector
+failures preserved. Owner: astra-25. Initial package `0.2.3-draft`; exact vectors `0.2.4-draft`.
 
 ## Contract and two readings
 
@@ -59,3 +60,43 @@ invent a typed oracle or accept whichever rejection an implementation emits.
 Once mapped, add exact vectors and full unchanged-state assertions. This is
 separate from missing grants in R7-036/037; both corrected grant checks are present.
 No physical deletion, remote custody or protected-deployment qualification follows.
+
+## Adjudicated mapping and exact witnesses
+
+Judge event `$JPRw0HAxhQiEJ-rN4erBtnvRBnBXixLi2Rap_jcFAN0` requires live retention
+iff trusted `context.at` is strictly before every applicable non-null deadline.
+At or after expiry, return exactly `not_authorized`, `retryable: false`, in the
+current retention-authorization class before idempotency. Replay checks original
+outputs and their transitive known inputs, preserving the old receipt and full
+state on refusal. Null adds no deadline. No refusal runs a purge job. The editor
+will make this mapping explicit in R7-054's next release.
+
+Seven exact fixtures exercise that ruling:
+
+| Fixture | Required behavior |
+| --- | --- |
+| [ASTRA25-11](astra-25-retention-deadline.vector.json) | Both at-deadline and later attempts refuse; no D or replay entry |
+| [BEFORE](astra-25-retention-deadline-before-control.vector.json) | Matching live deadline admits D |
+| [OWN](astra-25-retention-deadline-own.vector.json) | D's own expired deadline refuses the whole operation |
+| [REPLAY](astra-25-retention-deadline-replay.vector.json) | First valid admission succeeds; late identical retry refuses without a new receipt |
+| [UNKNOWN](astra-25-retention-deadline-transitive-unknown.vector.json) | A known ancestor's deadline survives an unknown intermediate |
+| [BATCH](astra-25-retention-deadline-same-batch.vector.json) | Expired future input refuses both proposal orders with zero records |
+| [BATCH-CONTROL](astra-25-retention-deadline-same-batch-control.vector.json) | Live future input admits the output-first batch atomically |
+
+The existing ASTRA25-08 authorized control supplies the null-deadline positive.
+All 27 owned fixtures pass closed structure/reference/accepted-write checks.
+Both runtimes pass the two new positive vectors and fail all five new negative
+vectors before correction. Independent operation-level assertions produce three
+positive passes and seven intended negative failures per runtime. They compare
+all records, policy, runtime/cuts/custody/dirty state, captures/bindings and replay
+storage before/after each rejection; the late replay returns success without
+state mutation, which still fails the exact required refusal. A wrong rejection
+or crash cannot count as passing this check.
+
+First complete runs and code/input hashes are `astra22-deadline-vectors-first`,
+`astra23-deadline-vectors-first`, `astra22-deadline-atomic-first` and
+`astra23-deadline-atomic-first` in `astra-25-evaluator-results.json`. Exact first
+0.2.4 vector text is additionally frozen in
+[`astra-25-retention-deadline-vectors-first.json`](astra-25-retention-deadline-vectors-first.json).
+The original native evidence file remains byte-identical. No forbidden storage
+observation or expected rejection was changed to agree with a runtime.
