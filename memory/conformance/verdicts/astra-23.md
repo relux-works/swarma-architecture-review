@@ -14,18 +14,20 @@ protected purge. Exact replay keeps the original receipt and checks current righ
 changed context conflicts. First 0.2.2 failure (56/57) remains at 0ca2d27 in
 RELEASE-0.2.2-FIRST. Independent review and migrated erase cases are pending.
 
-Pinned 38-case 0.2.2 supplemental: **37 pass / 1 fail / 0 unsupported semantic**,
+Current 42-case 0.2.2 supplemental: **39 pass / 3 fail / 0 unsupported semantic**,
 one deployment unsupported. R7-031 migrated hidden-ref, purpose-isolation and
 full-authority controls all pass. Unknown-lineage lower-bound erasure/late writes
 and future-input operations also pass. Independent R7-031 closure remains pending.
 
 R7-041 ambiguous/historical authority-slot CAS now passes, with native atomic
 state checks, unique-head/challenge and exact replay controls; independent review
-is pending. PHASE2-CAS-FIRST at e525612 preserves both failures. The remaining
+is pending. PHASE2-CAS-FIRST at e525612 preserves both failures. The existing
 failure is definite no-retain R7-037, with original first failure retained. Judge classified
 its missing storage-scope binding as spec-bug R7-039. Wait for the released rule
 before the complete scoped retention correction; no query-derived shortcut is used.
-New publication-check-coverage and transitive-review cases are queued for first intake.
+New ASTRA26-09 publication-check-coverage and ASTRA24-09 transitive-review
+failures are preserved in PHASE2-COVERAGE-REVIEW-FIRST before correction; judge
+classification is pending. Their authorized/hidden positive controls pass.
 
 Judge independently closed R7-033 import expiry and R7-034 selected delivery at
 f10c7ba. Their pre-fix report remains PHASE2-IMPORT-DELIVERY-FIRST at f83268d.
@@ -45,5 +47,5 @@ or divergence topic was read before it. Expected vectors were never edited.
 Evidence: ../impl-astra-23/RESULTS.md/JSON; SUPPLEMENTAL.md/JSON (0.2.2);
 FIRST-RUN.md/JSON; RELEASE-0.2.1-FIRST.md/JSON; RELEASE-0.2.2-FIRST.md/JSON;
 PHASE2-ERASURE-FIRST, PHASE2-IMPORT-DELIVERY-FIRST, PHASE2-RETENTION-FIRST
-and PHASE2-CAS-FIRST;
+PHASE2-CAS-FIRST and PHASE2-COVERAGE-REVIEW-FIRST;
 DIVERGENCES.md; WORKLOG.md; test_controls.py and test_semantics.py.

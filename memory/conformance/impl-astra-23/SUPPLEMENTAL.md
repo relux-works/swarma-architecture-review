@@ -9,7 +9,7 @@ distinctness are checked first. No runtime distribution or timing claim is made.
 
 | Profile | Pass | Fail | Unsupported | Total |
 | --- | ---: | ---: | ---: | ---: |
-| semantic | 37 | 1 | 0 | 38 |
+| semantic | 39 | 3 | 0 | 42 |
 | deployment | 0 | 0 | 1 | 1 |
 
 Deployment unsupported means no qualification claim; modeled semantic erasure
@@ -30,6 +30,7 @@ and publication transitions do not exercise live authentication, storage or deli
 | ASTRA24-01 | semantic | pass |
 | ASTRA24-02 | semantic | pass |
 | ASTRA24-06 | semantic | pass |
+| ASTRA24-09 | semantic | fail |
 | ASTRA25-02 | semantic | pass |
 | ASTRA25-07-CONTROL | semantic | pass |
 | ASTRA25-07-PURPOSE | semantic | pass |
@@ -52,12 +53,21 @@ and publication transitions do not exercise live authentication, storage or deli
 | ASTRA26-08 | semantic | pass |
 | ASTRA26-06 | semantic | pass |
 | ASTRA26-01 | semantic | pass |
+| ASTRA26-09-CONTROL | semantic | pass |
+| ASTRA26-09-UNVERIFIED | semantic | pass |
+| ASTRA26-09 | semantic | fail |
 | ASTRA26-04 | semantic | pass |
 | ASTRA26-02-CONTROL | semantic | pass |
 | ASTRA26-02 | semantic | pass |
 | ASTRA26-05 | semantic | pass |
 | ASTRA26-03-CONTROL | semantic | pass |
 | ASTRA26-03 | semantic | pass |
+
+### ASTRA24-09
+
+- `/result/review_required/length`: actual `1`; expected `2`.
+- `/result/review_required/1`: actual `"<missing>"`; expected `{"id":"rec:dependent-c","version":1}`.
+- forbidden predicate matched: {"path":"/result/review_required","test":"size_equals","value":1}
 
 ### ASTRA25-08
 
@@ -66,7 +76,7 @@ and publication transitions do not exercise live authentication, storage or deli
 - `/operation_results/0/erasure_status`: actual `null`; expected `"<missing>"`.
 - `/operation_results/0/operation`: actual `"admit"`; expected `"<missing>"`.
 - `/operation_results/0/outcome`: actual `"admitted"`; expected `"<missing>"`.
-- `/operation_results/0/receipt_handle`: actual `"797ff5122f4b9eebcf910f3f0b9353c5"`; expected `"<missing>"`.
+- `/operation_results/0/receipt_handle`: actual `"091d7dd88abbb6f9b3992c819dd51f0f"`; expected `"<missing>"`.
 - `/operation_results/0/refs`: actual `[{"id":"rec:paraphrase","version":1}]`; expected `"<missing>"`.
 - `/operation_results/0/retryable`: actual `"<missing>"`; expected `false`.
 - `/operation_results/0/type`: actual `"receipt"`; expected `"refusal"`.
@@ -79,6 +89,13 @@ and publication transitions do not exercise live authentication, storage or deli
 ### ASTRA25-04
 
 Requires a real protected deployment; this evaluator implements synthetic state transitions only.
+
+### ASTRA26-09
+
+- `/result/currentness`: actual `"current"`; expected `"last_received"`.
+- `/result/items/0/currentness`: actual `"current"`; expected `"last_received"`.
+- forbidden predicate matched: {"path":"/result/currentness","test":"equals","value":"current"}
+- forbidden predicate matched: {"path":"/result/items/0/currentness","test":"equals","value":"current"}
 
 ## Reproducibility
 

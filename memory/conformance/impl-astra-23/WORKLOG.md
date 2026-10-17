@@ -435,3 +435,25 @@ will prove semantic differences and forbidden effects are detected.
 - Incoming ASTRA26-09 missing publication-check coverage and ASTRA24-09
   transitive-review cases are queued for first reproduction after this unit.
   R7-039/042 release work remains independent; no inferred retention scope.
+
+## Round 19 — exact import-check coverage and transitive review first intake
+
+- Intake ASTRA26-09 missing-one-publication-check primary/unverified/all-checked
+  controls and ASTRA24-09 transitive review path at 03a0f85/783b83a.
+- Run unchanged import/review code, now on CAS-corrected 53266dd, and freeze full
+  first report before classification/correction. Expected outputs remain author-owned.
+- Required boundaries under review: a same-origin copy cannot borrow another
+  exact object's current check; an authorized multi-edge impact path must preserve
+  transitive review after recomputation while hidden paths remain invisible.
+
+### Round 19 baseline outcome
+
+- ASTRA26-09 reproduces exactly two currentness field differences and both
+  forbidden current predicates. Explicit-unverified and all-checked controls pass.
+- ASTRA24-09 reproduces only the missing second review-required ref/length plus
+  the intended forbidden size predicate. Both hidden-path public controls pass.
+- Freeze PHASE2-COVERAGE-REVIEW-FIRST.md/JSON before either runtime change.
+  Current42-case supplemental is39/3/0 semantic, one deployment unsupported;
+  the third failure is known R7-037. Corrected CAS family remains green.
+- Log: `.temp/impl-astra-23/phase2-coverage-review-first-01.log` (intended exit 1).
+  Request judge classifications before correcting these two new boundaries.

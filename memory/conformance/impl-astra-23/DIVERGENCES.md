@@ -243,3 +243,21 @@ conflict and the next remaining unique head after withdrawal all pass.
 Canonical 57/57 and nineteen product/checker tests pass. The same 38-case corpus
 is now 37 pass / 1 fail / 0 unsupported semantic, with only R7-037 remaining.
 PHASE2-CAS-FIRST at e525612 is unchanged; independent closure is pending.
+
+## Phase 2 ASTRA26-09 and ASTRA24-09 — first exact failures
+
+PHASE2-COVERAGE-REVIEW-FIRST pins runtime53266dd and 0.2.2 inputs. The new
+import-coverage primary has exactly two differences: item/view are current
+instead of last_received when one exact associated publication lacks its check.
+The explicit-unverified and all-checked neighbors pass. K-PUB-2 requires the
+exact publication check; K-DISC-3 origin deduplication does not transfer authority.
+
+The transitive-review case omits only rec:dependent-c and its list length from
+review_required, while both hidden-path public controls pass. K-EVAL-8 requires
+transitive registered impact independently of cleared recomputation dirtiness.
+The source result is not used to define either oracle. Judge classifications
+are requested; no implementation correction has yet been applied.
+
+Full42-case supplemental:39 pass / 3 fail / 0 unsupported semantic; one deployment
+unsupported. R7-037 is the third failure. Canonical57/57 remains the last checked
+baseline; R7-041 corrected family remains green. All first reports stay immutable.
