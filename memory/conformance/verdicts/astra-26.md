@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 0, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, round 1, 2026-10-17.
 
 ## Baseline and scope
 
@@ -55,3 +55,19 @@ separately. The source-only audit is not an implementation pass.
 This round changes documentation only. Validation consists of scope/diff and
 signature checks; product negative tests await the landed fixture format.
 No cases or directed requests were outstanding at initialization.
+
+## Round 1 — source-level separating cases
+
+- [ASTRA26-01](../cases/astra-26-import-attribution.md): ordinary publication
+  import must preserve original issuer/catalog attribution without implicitly
+  granting representation or creating an assertion in the original sequence.
+  The source allows competing envelope interpretations that the package must
+  resolve. Includes refused impersonation and valid representation controls.
+- [ASTRA26-02](../cases/astra-26-publication-currentness.md): an unexpired local
+  freshness horizon does not itself establish issuer-current version knowledge.
+  Separates identical importer inputs under two possible issuer histories,
+  plus successful version-check, known replacement and expiry controls.
+- Both cases are submitted for judge classification; neither is presented as
+  an observed implementation failure. Concrete vector encoding awaits the
+  package grammar. No protected-deployment test has been executed.
+- The round-0 verdict was published signed at `daf285d` (signature `G`).
