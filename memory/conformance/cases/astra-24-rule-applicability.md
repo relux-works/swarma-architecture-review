@@ -103,3 +103,7 @@ Both independent evaluators pass all interval and surviving-alternative
 expectations: source `fb7df98` on current 0.2.0 syntax, package evaluator
 `0008dc3` on the matched original 0.1.0 fixture and schemas. Evidence:
 `.temp/astra22-owned-cases-06.json` and `.temp/astra23-owned-cases-0.1.json`.
+
+Round 6: both current implementations pass this identical 0.2.0 fixture,
+including all interval boundaries and the surviving-root control. Evidence:
+`.temp/astra23-owned-cases-02.json` and `.temp/astra22-owned-cases-07.json`.

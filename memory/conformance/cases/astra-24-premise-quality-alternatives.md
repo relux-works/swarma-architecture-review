@@ -106,3 +106,7 @@ against 0.1.0 schemas, including full versus truncated explanation. Source
 evaluator `fb7df98` continues to declare exact proof enumeration unsupported.
 Evidence: `.temp/astra23-owned-cases-0.1.json` and
 `.temp/astra22-owned-cases-06.json`.
+
+Round 6: the current 0.2.0 package evaluator also passes the exact fixture
+(`.temp/astra23-owned-cases-02.json`); no old-profile workaround is needed
+for the current result. Source exact-proof enumeration remains unsupported.

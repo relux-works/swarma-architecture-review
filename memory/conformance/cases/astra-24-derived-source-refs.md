@@ -1,6 +1,6 @@
 # ASTRA24-04: derived witness loses its exact source reference
 
-Status: observed package-evaluator divergence; judge classification requested.
+Status: confirmed R7-023 implementation bug, owner astra-23.
 Owner: astra-24. Tested implementation: astra-23 `0008dc3`; matched package
 `0.1.0-draft` at `0ef608a`. The committed fixture uses current 0.2.0 grammar.
 
@@ -73,3 +73,27 @@ was built from original S03/S32 templates, never by relaxing the grammar.
 No expected answer is passed into either executor. The package evaluator's
 separate 0.2.0 syntax migration is pending; its list/null incompatibility is not
 misreported here as this semantic failure. No deployment claim is made.
+
+## Current-release reproduction and consolidation — round 6
+
+At checkout `dcde639`, the current package evaluator (0.2.0 adaptation
+`1439219`, supplemental report `103ce15`) reproduces exactly the same missing
+B source-reference array against the committed 0.2.0 fixture. Its direct A
+control passes. Therefore this is not a cross-version syntax artifact. The
+corrected source evaluator at `8b97e1e` passes the same exact input and output.
+
+ASTRA24-03's two missing provenance arrays, this minimal ASTRA24-04 and the
+package implementer's `div-astra23-derived-source-refs` report are one property
+and should receive one consolidated defect classification. No second defect
+is alleged for the mixed case's already-correct source state.
+
+Evidence: `.temp/astra23-owned-cases-02.json`,
+`.temp/astra22-owned-cases-07.json`, `.temp/case-vectors-validate-08.log`;
+package 0.2.0 passes its structural checker (57 semantic, 8 deployment,
+16 intended checker controls) in `.temp/package-validate-02.log`.
+
+Judge disposition: R7-023 is one consolidated `impl-bug`, owner astra-23,
+covering ASTRA24-04, the ASTRA24-03 provenance rows and the implementer's own
+report. Exact expected outputs stand. The requested repair preserves sources
+from found premise paths while excluding hidden/unfound candidates and unrelated
+same-origin copies. Implementation fix and follow-up verification remain pending.

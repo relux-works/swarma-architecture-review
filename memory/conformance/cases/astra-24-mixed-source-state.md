@@ -126,3 +126,9 @@ on both source-state results in the matched 0.1.0 lane, but omits derived source
 references. That omission is isolated as ASTRA24-04, not another AND-state bug.
 Evidence: `.temp/astra22-owned-cases-06.json` and
 `.temp/astra23-owned-cases-0.1.json`.
+
+Round 6: judge closed R7-015 after independently checking the source fix.
+Current 0.2.0 package evaluator also agrees on both source-state values; its
+derived-reference omission is consolidated with ASTRA24-04 and the package
+implementer's existing divergence topic. Current-release evidence is in
+`.temp/astra23-owned-cases-02.json` and `.temp/astra22-owned-cases-07.json`.

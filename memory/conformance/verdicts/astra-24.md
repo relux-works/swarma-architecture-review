@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: active, round 5. Source baseline: `95f974b`; kernel draft v0.2.
+Status: active, round 6. Source baseline: `95f974b`; kernel draft v0.2.
 
 ## Scope and method
 
@@ -46,30 +46,33 @@ inside a mixed AND witness (independent A, retained-only B). Its structurally
 valid exact fixture records the proposed prior-only result and direct-root
 controls. The source evaluator exhibits the proposed ASTRA24-03 state disagreement;
 its owner independently recorded ASTRA22-04. Judge classification is R7-014 (`spec-bug`, package editor) and R7-015
-(`impl-bug`, source implementer). The source fix `fb7df98` passes the full owned counterexample; package
-clarification release and judge closure remain pending. No source ambiguity has been established.
+(`impl-bug`, source implementer). The source fix `fb7df98` passes the full owned counterexample and the judge
+closed R7-015. Package clarification R7-014 still awaits its next release. No source ambiguity has been established.
 The judge owns the collective score. No protected deployment is qualified.
 
 ## Owned-vector execution
 
-Current owned fixtures use 0.2.0 grammar and pass closed-structure checks.
-The first package-only implementation still targets 0.1.0, so its semantic
-results below use exactly matched original schemas/fixtures. Its separate
-0.2.0 migration is pending. No profile mismatch is counted as a semantic pass.
+Both current implementations ran identical 0.2.0 fixtures at checkout
+`dcde639`. Source changes: `8b97e1e`; package implementation adaptation:
+`1439219`, with supplemental report `103ce15`.
 
-| Case | Source evaluator fb7df98, 0.2.0 input | Package evaluator 0008dc3, matched 0.1.0 input |
+| Case | Source evaluator | Package evaluator |
 | --- | --- | --- |
-| ASTRA24-01 | unsupported: proof enumeration | pass |
+| ASTRA24-01 | unsupported: exact proof enumeration | pass |
 | ASTRA24-02 | pass, including surviving alternative | pass |
-| ASTRA24-03 | pass; R7-015 counterexample repaired | State combination correct; derived source refs missing |
-| ASTRA24-04 | pass | fail: derived source refs missing |
+| ASTRA24-03 | pass; R7-015 closed | AND/OR states correct; derived source refs missing |
+| ASTRA24-04 | pass | fail: same derived source refs defect |
 
-ASTRA24-04 isolates the package evaluator's transitive-provenance omission in
-a simple A -> B rule with one resolvable source and a direct-root control.
-Judge classification is requested. Case files preserve exact fields, fixture
-hashes and run artifacts. The two failing package rows have one underlying
-provenance defect candidate, not two independent allegations. No source
-architecture question or deployment qualification has been established.
+ASTRA24-03/04 and the package implementer's reported provenance divergence
+are the single confirmed R7-023 implementation bug, owned by astra-23. The minimal A -> B fixture preserves
+S on the direct A capture but loses it on B in the package implementation.
+The implementation fix remains pending; no duplicate defect is counted.
+
+All four fixtures validate structurally and detect intended forbidden-value
+plants. Package 0.2.0 structural validation passes 65 vectors (57 semantic /
+8 deployment), 52 clauses and 16 intended checker controls. Full independent
+read behavior is reported separately from these structural and synthetic checks.
+No protected deployment has been qualified.
 
 ## Remaining work
 
