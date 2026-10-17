@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 33, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 34, 2026-10-17.
 
 ## Baseline and scope
 
@@ -900,3 +900,35 @@ its matching log, `restore-structure-01.log` and the task-local replay runner
 expected outputs remain preserved for a same-input correction comparison. No
 fixture or authority rule changed. R7-058 remains open; R7-055 remains held for
 Ivan. Score **1/2**, deployment unqualified, no PARK received.
+
+## Phase 2 round 34 — current restore obligation correction verified
+
+Package `104fbe8` passes the **same five exact restore fixtures**, compared with
+two passes/three failures in round 33. All five input hashes are identical; no
+oracle changed. All **15 owned fixtures** also pass, and canonical S25/S26
+match every expected field plus forbidden/normalization checks.
+
+Reviewed the correction: current witness obligations now supply the transitive
+closure, retained local erasures must remain covered, and all affected controlled
+custody must be reachable before any mutation. Newly learned deletion refs advance
+the protected generation and enter erased/fence inventories. Purge completes
+before reopening; failed reconciliation retains the global fence atomically.
+
+Three focused native groups pass the four original traces, complete and
+incomplete-known derived closure, unaffected readable content, independent
+controlled custody and outside recipients. Exact refusal preserves state,
+captures, bindings and dirty-since state. Repeated successful reconciliation
+preserves state. Newly witnessed erasure rejects generation-0 derivatives as
+stale_generation/true and generation-1 derivatives as erasure_fenced/false;
+a same-key independent authorized generation-1 write succeeds, proving denied
+attempts reserve no key and the correction does not simply reject all writes.
+
+Evidence: seat `.temp/r7-astra-26/restore-obligations-package-corrected-01.json`,
+matching log, `owned-cases-astra23-21.json`, `restore-canonical-package-01.json`
+and `astra23-restore-controls-01.log`. Full actuals and input/module hashes are
+retained alongside the immutable first run. Independent R7-058 closure evidence
+is sent to the judge; full corpus and complete original snapshot reproduction
+remain separate judge gates. Current supplemental denominator is 68 semantic
+cases. R7-055 stays held for Ivan with no oracle or authority change. Score
+**1/2** while R7-058 closure/quiet review is pending; deployment unqualified,
+no PARK received.
