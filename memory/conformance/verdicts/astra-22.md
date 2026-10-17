@@ -55,3 +55,9 @@ set_availability available succeeds. Exact inputs/state/actuals and module hashe
 are frozen in `runs/availability-recovery-first.json`; prior124controls pass,
 this125thfails. It is outside both semantic vector denominators. No silent fix;
 judge classification is requested before correction.
+
+ASTRA22-09 also preserves an unclassified native priority question in
+`runs/erase-changed-context-first.json`: a changed ungranted receipt purpose
+under the same identity returns not_authorized, although the same fresh-key
+erase is authorized with empty refs and K-API-1 specifies context conflict.
+No exact oracle or code fix is imposed before judge disposition.
