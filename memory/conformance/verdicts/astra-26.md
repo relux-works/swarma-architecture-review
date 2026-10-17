@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 25, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 26, 2026-10-17.
 
 ## Baseline and scope
 
@@ -667,3 +667,26 @@ heads. The new deadline cases and expanded P11 remain outside this owned null-
 deadline regression claim; R7-052/053 corrections and R7-054 review are pending.
 Seven source canonical coverage gaps also remain. Current score **1/2**,
 protected deployment unqualified, no PARK received.
+
+## Phase 2 round 26 — source live-retention correction verified
+
+Source `4a14a56` passes all **15 owned 0.2.5 fixtures** plus P02/P10/P15/B01
+and expanded P11 exactly. Reviewed its pre-idempotency deadline check: every
+proposed envelope receives the authorization/deadline gate before recursive
+traversal is deduplicated. No owned fixture or oracle changed.
+
+Six focused native groups pass the frozen first probes and the bounded negative/
+positive matrix. Each output of admit, admit_raw, revise and declassify is tested;
+live replay returns its original receipt, exact/fresh-key expired attempts refuse
+and preserve records/runtime/policy. Complete and incomplete-known transitive
+inputs, both same-batch orders, duplicate-proposal precedence, null deadlines and
+an expired unrelated record receive explicit controls. The latter two prevent
+an implementation that simply rejects all future writes from passing.
+
+Evidence: seat `.temp/r7-astra-26/owned-cases-astra22-14.json`,
+`attribution-domains-astra22-04.json` and `astra22-deadline-controls-01.log`;
+exact inputs and implementation hashes retained. This is independent R7-052
+verification evidence, awaiting the judge's complete closure gate. Judge
+`3a60f2e` separately closes R7-054 at `6a04e8c`; R7-053 package correction and
+seven source canonical gaps remain. Current score **1/2**, no protected
+deployment qualification or PARK.
