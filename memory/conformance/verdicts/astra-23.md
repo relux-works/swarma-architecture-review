@@ -1,64 +1,65 @@
-# astra-23 — package implementer verdict
+# astra-23 — final package implementer verdict
 
-Current package **0.2.5-draft**, `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
-The R7-058 current restore-obligation correction now passes the full expanded
-semantic corpus and native controls. Signed judge9d2cdd4 independently closes
-R7-058 at104fbe8 with every committed report row, input/module hash and complete
-normalized actual reproduced. Independent a7fa673, b949afb and21221cb reviews agree.
+**PARK accepted: 2026-10-17 06:33Z. R7 score: 2/2.** Convener event
+`$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg` confirms full dual semantic
+coverage, no open specification or implementation bug, and a quiet round from
+every seat. [Park note](../parked/astra-23.md) records the remaining limits.
+
+Package: **0.2.5-draft**, `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
+Package evaluator: `104fbe8dd5be973698e1b226fd9a52bcb79a1d2c`. Judge closure
+`9d2cdd4` and quiet record `73408ec` independently verify the final result.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 57 | 0 | 0 |
 | Supplemental semantic | 68 | 0 | 0 |
-| Canonical / supplemental deployment | 0 / 0 | 0 / 0 | 8 / 1 |
+| Canonical deployment | 0 | 0 | 8 |
+| Supplemental deployment | 0 | 0 | 1 |
 
-Thirty product plus four checker controls pass. The package remains unchanged
-at its validated release: 94 JSON files, 65 vectors, 52 clauses and 34 intended
-violation plants. Passing synthetic semantics does not qualify deployment.
+All 30 product tests and four checker controls pass. The unchanged package
+release validates 94 JSON files, 65 canonical vectors and 52 clauses, including
+34 intended violation plants. Both independent evaluators exactly pass all
+125 semantic vectors. Source control coverage is 129: 12 erasure groups rerun
+plus 117 unchanged controls with explicit prior evidence reuse.
 
-R7-058 reconciliation now uses the full supplied current-witness closure and
-retains the existing coverage check for known local erasures. Every affected
-controlled sink must be reachable before mutation. Newly learned deletion refs
-enter erased/fence state and advance generation; affected custody is purged
-before the restore-wide gate opens. Refusal preserves complete state and keeps
-the gate fenced. Known, genuinely empty and repeated recovery remain valid.
+The latest correction, R7-058, reconciles the supplied current-witness closure
+before reopening restored disclosure. The existing coverage check for retained
+local erasures remains. Every affected controlled sink must be reachable before
+mutation; newly learned deletion refs enter erased/fence state and advance
+generation. Unreachable custody refuses atomically with the restore gate fenced.
+Known, genuinely empty and repeated recovery remain valid. Independent content,
+uncontrolled recipients and unrelated current-generation writes remain supported.
 
-Three new native groups cover all four original traces, complete/incomplete-known
-derived closure, independent content/custody, outside recipients, atomic
-unreachable refusal and late writers. Old-generation and current-generation
-derivative commits refuse; an unrelated current-generation write with the same
-previously refused key succeeds. All five unchanged author1cefcf9 exact cases pass.
+Three new native groups cover the four original restore traces, complete and
+incomplete-known derived closure, unaffected content/custody, atomic refusal and
+late writers. Old-generation and current-generation derivative writes refuse
+exactly; an unrelated write with the same previously refused key succeeds.
+Judge validation covers nine constructed initial states and all exercised shapes.
+The new tests reproduce seven intended failures on the old engine without setup
+errors. Independent reviews `a7fa673`, `b949afb`, `21221cb` and `45dbd67` agree.
 
-PHASE2-RESTORE-CURRENT-FIRST at b805582 preserves the original four native traces
-before correction. PHASE2-RESTORE-VECTORS-FIRST at390b208 preserves65/3/0 on
-byte-exact pre-correction23b4d74 modules across68cases; only new/unreachable/
-independent restore traces fail. Known/empty and all63prior cases pass there.
-Every earlier first artifact and all author-owned fixture bytes remain unchanged.
+The evaluator remains package-derived. The original blind first run `0008dc3`
+is immutable, and no other evaluator implementation was read. Every subsequent
+first failure and author-owned fixture is preserved. Native restore first
+`b805582` predates correction; exact first `390b208` records 65/3/0 on byte-exact
+old runtime `23b4d74`, with only the three adjudicated restore failures.
 
-Judge13e3d73 closes R7-053 at23b4d74 after full canonical/supplemental reproduction,
-31 prior controls and ten deadline operation checks. Earlier package closures
-031/037/041/044/045/046/048 and specification049/054 remain recorded. Source056
-is independently closed at87beb46 and057 at946cbd8/e3d44df. The erase-context
-first f639770 and exact purpose/audience regressions remain preserved; package
-changed-intent conflict and exact-replay metadata gates required no correction.
+[The divergence record](../impl-astra-23/DIVERGENCES.md) and
+[worklog](../impl-astra-23/WORKLOG.md) retain the other corrected findings,
+release transitions, first observations and independent closure evidence.
+Final exact reports are [canonical](../impl-astra-23/RESULTS.md) and
+[supplemental](../impl-astra-23/SUPPLEMENTAL.md), with complete actuals and hashes
+in their adjacent JSON files. [README](../impl-astra-23/README.md) gives entry points.
 
-R7-055 remains an unresolved, filed owner question held for Ivan: issuer-local
-path qualification versus global canonical predecessor endorsement. Own
-PHASE2-ISSUER-FIRST atd4ddc45 retains currentd3 for both native inputs, unchanged
-durable state and explicit ordinary ephemeral bindings. No exact mixed-path
-oracle or authority change is inferred; the pair remains outside vector totals.
+The final ledger contains 58 items: 47 fixed, 10 rejected and one unresolved
+[filed owner question, R7-055](../OWNER-QUESTIONS.md). Ivan must choose whether
+a deciding issuer's canonical predecessor path can adopt a foreign issuer's
+transitive order. Both readings and the separating input remain preserved; no
+authority change or exact mixed-path oracle was inferred. The native pair stays
+outside executable denominators.
 
-Current seat and judge score is **2/2**, established at9d2cdd4 after R7-058
-closure. Ledger58 has47fixed,10rejected and one owner question055; no open
-specification or implementation bug remains. Both readers verify57/57canonical
-and68/68supplemental semantics. Source129control coverage explicitly combines
-12rerun erasure groups with117unchanged prior controls; package34controls were
-rerun in full. The owner question and deployment limits remain unresolved.
-
-No new case, divergence or package change in this status round. Continue the
-convener quiet-round/PARK protocol; no PARK has been announced. Hard cap13:00Z remains.
-
-Implementation remains package-derived; original blind first0008dc3 is immutable.
-Evidence: ../impl-astra-23/RESULTS.md/JSON, SUPPLEMENTAL.md/JSON, all FIRST reports,
-WORKLOG.md, DIVERGENCES.md and product/checker controls. Historical0.2.2 reports
-remain separately labeled with their recorded runtime. Unsupported never means pass.
+Deployment vectors remain unsupported. Synthetic erasure, restore, delivery and
+control checks do not establish physical purge, an actual outside-domain witness
+or hostile-writer isolation. There is no pending owned correction or unanswered
+directed request at PARK; resuming the held authority question requires an
+attributed owner decision.
