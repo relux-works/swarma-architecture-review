@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 32; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 33; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.5-draft` at `6a04e8c`; all twenty owned exact fixtures explicitly migrated.
 
 ## Scope and method
@@ -28,7 +28,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-09 | Transitive registered review paths survive dirty recomputation | Package R7-045 verified and judge-closed `f6c339d`; both exact fixtures pass |
 | ASTRA24-10 | Replacement receipt must strictly succeed the prior receipt | Source R7-047 and package R7-048 verified and judge-closed; mapping release R7-049 verified `ef02647` |
 | ASTRA24-11 | Transitive authority order survives an absent intermediate assertion | R7-051 source correction `427fed5` independently verified and judge-closed `de37630`; both exact witnesses pass |
-| ASTRA24-12 | Receipt ancestry through a foreign issuer separates careful readings | Native read-only probes disagree; normative adjudication pending, no typed oracle asserted |
+| ASTRA24-12 | Receipt ancestry through a foreign issuer separates careful readings | Judge announces ambiguity R7-055 / owner question; no typed oracle asserted |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
 All original failures and earlier-profile evidence are retained in the case
@@ -553,12 +553,45 @@ Judge `ad16ac9` closes source deadline R7-052 at `4a14a56`. Our prior migration
 regression is unchanged and does not replace the judge's finite-deadline review.
 Package deadline R7-053 and remaining source erasure/restore coverage are separate.
 
+## Round 33 package deadline correction
+
+Package `23b4d74` independently passes the same twenty owned 0.2.5 vectors
+with identical input hashes and full canonical P11 with zero differences or
+forbidden/shape errors. P11 includes all 28 operations, final view and inventory;
+it is not the earlier positive-only trace. Three focused native deadline groups
+also pass, with exact `not_authorized`, `retryable: false` and complete state,
+captures, view-binding and dirty-time equality on refused attempts.
+
+The controls cover equality/later own-output expiry through admit, admit_raw,
+revise and declassify, valid earlier admission and replay, expiry on current
+replay preserving the original receipt, changed-intent precedence and same-key
+unlimited recovery. The seven independent deadline fixtures add inherited,
+transitive-unknown and same-batch negatives with before-deadline and whole-batch
+positives. The code change checks each resolved record's deadline in the shared
+retention traversal before idempotency and before deduplicating identities.
+These bounded controls do not qualify deployment or every possible lineage.
+
+Evidence at `23b4d74`: `astra23-owned-cases-23.json/.log`,
+`astra23-p11-025-fixed.json/.log`, and `astra23-deadline-controls-01.log` in this
+seat's `.temp/`. Exact inputs and all implementation module hashes are retained;
+the four checker controls also pass. No fixture, oracle, prior failure or native
+issuer artifact changes. R7-053 closure is recommended to the judge.
+
+Judge event `$Ju7IuqWDcWw6JB87jbG-0K3yC4TWQ2WszJTNwNLZQHs` announces
+ASTRA24-12 as ambiguity R7-055 and opens `q-authority-issuer`. The announced
+owner decision distinguishes issuer-local path scope from explicit global
+canonical order; mixed-edge invalidity is a separate unchosen constraint.
+At this unit's final fetch the ledger commit has not yet arrived, so this is
+an attributed classification announcement, not a claim of read-back verified
+ledger publication. No authority implementation or exact oracle may change
+without that attributed contract decision. Other coverage work continues.
+
 ## Provisional R7 row and remaining work
 
 **Phase 2 R7: 1/2.** Both evaluators pass all twenty owned exact vectors on
 explicit 0.2.5 fixtures; prior exact B01 evidence remains at its corrected
-0.2.4 heads. New issuer-boundary probes disagree and await normative
-adjudication. Other collective repairs and full dual canonical coverage remain
+0.2.4 heads. New issuer-boundary probes disagree and are announced as an owner
+question. Formal repair closure and full dual canonical coverage remain
 pending. Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
