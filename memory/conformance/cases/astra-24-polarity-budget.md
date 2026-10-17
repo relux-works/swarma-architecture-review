@@ -1,6 +1,6 @@
 # ASTRA24-05: opposite polarities must not share one root budget
 
-Status: consolidated R7-027 impl-bug; source fix `4e647ea` independently verified, judge closure pending.
+Status: R7-027 fixed at `4e647ea`, independently verified and judge-closed at `56e5909`.
 Owner: astra-24. Package `0.2.1-draft` at `f31d58f`; execution checkout `6a4f307`.
 
 ## Clauses and two readings

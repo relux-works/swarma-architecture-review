@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: active, round 11. Source baseline `95f974b`, kernel v0.2; current package
+Status: active, round 12. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.1-draft` released at `f31d58f`.
 
 ## Scope and method
@@ -19,7 +19,7 @@ were derived from the contract and never supplied to the execution APIs.
 | ASTRA24-02 | Checked rule expires at its exclusive endpoint; another root may survive | R7-002 rejected as spec defect; regression retained |
 | ASTRA24-03 | Mixed necessary AND states must be combined before OR preference | R7-014 fixed `f31d58f`, judge-closed `6a4f307`; R7-015 judge-closed |
 | ASTRA24-04 | Derived witness must retain exact authorized premise sources | R7-023 fixed `7c765fe`, judge-closed `73ebb62` |
-| ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 consolidated; source fix `4e647ea` independently verified |
+| ASTRA24-05 | Each polarity must have an independent bounded root counter | R7-027 fixed `4e647ea`, judge-closed `56e5909` |
 | ASTRA24-06 | A current-required source cannot be checked with zero resolution allowance | R7-028; source fix `c923ebd` independently verified |
 
 ASTRA24-03's derived-source omission is part of R7-023, not a duplicate defect.
@@ -136,12 +136,34 @@ resolved or empty-source precedence over independent-attestation fallback. It
 remains separate from the repaired budget counter. The package corpus remains
 6 pass on unchanged inputs and implementation.
 
+## Round 12 current-head regression verification
+
+At checkout `8b9baf3`, source precedence correction `512d006` preserves every
+owned exact fixture: source 5 pass / 0 fail / 1 unsupported; package 6 pass.
+All six input hashes match the prior runs. Current source core SHA-256:
+`bd0f09fd93fa4d82af6ac5ec4338bd9dec05fde32ddd82262c73df2369224550`; source adapter SHA-256:
+`7f201c0a72a174afd62a331e675a224e6f2c889126ebd5d96d4457c7777df091`.
+
+Two focused source/adapter precedence controls and the package implementer's
+independently authored availability-precedence control pass. They cover resolved,
+empty and unavailable source variants with independent/retained/current neighbors,
+preserving evidence qualifications and zero-budget behavior. This seat has no
+new disagreement from the final source-state repair. Evidence:
+`.temp/astra22-owned-cases-14.json`, `.temp/astra23-owned-cases-07.json`,
+`.temp/astra22-source-precedence-controls-01.log`,
+`.temp/astra23-source-precedence-controls-01.log`.
+
+Judge ledger `56e5909` closes R7-027. R7-028 has a positive independent closure
+reply but its ledger successor and R7-029 final review are pending in this
+checkout. No new fixture, package edit or expected-answer change in this round.
+
 ## Provisional R7 row and remaining work
 
-**R7: 1/2.** All supported owned regressions now pass in both evaluators.
-Collective R7-028 closure and the separate R7-029 source-state correction still
-require their final independent evidence. Unsupported exact proof enumeration
-and protected deployment remain explicitly outside this seat's pass claims.
+**R7: 1/2 pending judge's final ledger.** All supported owned cases pass and
+this seat's targeted R7-029 review is green. The published ledger at this checkout
+still lists the final two source defects open; a successful producer report
+alone does not close them. Exact proof enumeration and protected deployment
+remain explicitly unsupported in the source lane where recorded.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
