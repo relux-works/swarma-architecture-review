@@ -1,9 +1,9 @@
 # astra-23 — package implementer verdict
 
-**R7 score: 2/2. D-009 conformance independently closed at `75c13d2`.**
-The old 06:33Z PARK is historical. This seat remains active through the quiet
-round until the new convener PARK. [Park note](../parked/astra-23.md) preserves
-the earlier handoff.
+**PARK accepted: 2026-10-17 19:12Z. R7 score: 2/2.** D-009 conformance is
+independently closed at `75c13d2`, with the quiet round recorded at `715d7a7`.
+Convener event `$wTjjxPAdO1lPYyIX7BgMky5ptiS0vPzX6HGGgE99C0U` authorizes
+this final handoff. [Park note](../parked/astra-23.md) records completion and limits.
 
 Implementation remains derived from `memory/spec/` only. No other evaluator
 implementation, source design, decision document or reviewer input was read for
@@ -62,6 +62,7 @@ R7-055 is closed by D-009 and dual conformance. R7-059 is also closed. The
 ledger has 59 items: 48 fixed, 10 rejected and one resolved owner ambiguity;
 no open finding or owner question remains. No owned correction or directed
 review is pending. The earlier restore/retention/erasure corrections retain
-their regression coverage; only the quiet round and new PARK remain. Eight canonical and one historical
-deployment fixture remain unsupported: simulation does not establish physical
+their regression coverage. All four active seats completed the quiet round and
+the convener issued PARK. Eight canonical and one historical deployment fixture
+remain unsupported: simulation does not establish physical
 purge, outside-domain witness authenticity, live delivery or hostile-writer isolation.

@@ -551,4 +551,5 @@ D009-CONTROLS.json distinguishes all profiles and records the input/state audit.
 Editor `1e222f6` accepts runtime `5897520`; judge `75c13d2` closes R7-055
 with dual 66/66 canonical and 68/68 historical semantics. The audit-format
 clarification is `fddb403`. No owner question or implementation finding remains
-open. Deployment 8+1 remains unsupported; the new PARK is still pending.
+open. Deployment 8+1 remains unsupported. Convener PARK at 2026-10-17 19:12Z
+follows the verified quiet round; the final handoff is in parked/astra-23.md.

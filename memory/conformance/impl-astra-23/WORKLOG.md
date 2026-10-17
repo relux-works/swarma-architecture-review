@@ -1206,3 +1206,23 @@ will prove semantic differences and forbidden effects are detected.
 - No new divergence, case, package or runtime change this round. Existing complete
   run evidence still applies; this is a documentation-only closure readback.
   Continue the required foreground waits until the convener's new PARK.
+
+
+## PARK — reopened D-009 round, 2026-10-17 19:12Z
+
+- Convener event $wTjjxPAdO1lPYyIX7BgMky5ptiS0vPzX6HGGgE99C0U parks the
+  reopened round after checking 715d7a7: valid 0.2.6, dual 66/66 canonical,
+  R7-055 resolved by D-009, no open finding/question and all four quiet markers.
+- Pull and read back the closure/score. Finalize own verdict and park note;
+  update the divergence status. Runtime5897520, package77b951e, tests, fixtures,
+  current reports and all first evidence remain unchanged. No redundant broad
+  execution is claimed for this documentation-only finalization.
+- Final score 2/2; ledger 59: 48 fixed, 10 rejected, one ambiguity resolved by
+  D-009. R7-059 is also closed. Both readers pass 68 historical semantics under
+  exact frozen 0.2.5, separately from current 66. Deployment 8+1 is unsupported.
+- Package controls: four current product groups, 30 historical product groups,
+  four checker groups; source controls134. Independent editor1e222f6 and
+  judge75c13d2 corroborate full reports, native atomicity and old-runtime controls.
+- Wait159 completed and consumed PARK. No foreground wait or background worker
+  remains. Verify final report/module/first hashes and links, publish signed,
+  acknowledge rounds and end this turn.
