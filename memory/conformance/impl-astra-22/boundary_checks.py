@@ -1,6 +1,7 @@
 """Frozen-view and current selected-delivery controls; no external bytes sent."""
 
 import copy
+import hashlib
 import json
 from pathlib import Path
 import unittest
@@ -65,14 +66,41 @@ class BoundaryControls(unittest.TestCase):
                 adapter.policy["grants"] = grants
                 self.assertEqual(Boundary(adapter).apply(op)["outcome"], "delivered")
 
-    # Unselected same-schema records cannot veto delivery. Exact unchanged
-    # adversary fixtures also require the later selected revocation refusal.
+    # Unselected same-schema records cannot veto delivery; the paired fixture
+    # also requires selected revocation refusal. Only expected profile metadata
+    # is migrated from the frozen 0.2.5 fixtures to the tested 0.2.6 release.
     def test_excluded_record_has_no_forwarding_effect(self):
         for suffix in ("", "-control"):
-            path = BASE.parent / ("cases/astra-26-excluded-forward-right" + suffix + ".vector.json")
-            vector = json.loads(path.read_text())
-            actual = Adapter(vector["initial_state"], PROFILE).execute(vector["operations"], vector["query"])
-            self.assertEqual(compare(actual, vector["expected"], vector["normalization"], vector["forbidden"])[1], [])
+            with self.subTest(suffix=suffix):
+                path = BASE.parent / ("cases/astra-26-excluded-forward-right" + suffix + ".vector.json")
+                original_bytes = path.read_bytes()
+                original = json.loads(original_bytes)
+                vector = copy.deepcopy(original)
+                self.assertEqual(PROFILE, "0.2.6-draft")
+                for view in (vector["expected"]["operation_results"][0], vector["expected"]["result"]):
+                    self.assertEqual(view["semantic_profile"], "0.2.5-draft")
+                    view["semantic_profile"] = PROFILE
+                restored = copy.deepcopy(vector)
+                for view in (restored["expected"]["operation_results"][0], restored["expected"]["result"]):
+                    view["semantic_profile"] = "0.2.5-draft"
+                self.assertEqual(restored, original)  # Recursive equality excludes every other change.
+                scratch = BASE.parents[2] / ".temp/astra-22/r7-059"
+                scratch.mkdir(parents=True, exist_ok=True)
+                migrated_bytes = (json.dumps(vector, indent=2) + "\n").encode()
+                (scratch / path.name).write_bytes(migrated_bytes)
+                audit = {
+                    "original": str(path.relative_to(BASE.parents[2])),
+                    "original_sha256": hashlib.sha256(original_bytes).hexdigest(),
+                    "copy_sha256": hashlib.sha256(migrated_bytes).hexdigest(),
+                    "old_profile": "0.2.5-draft", "new_profile": PROFILE,
+                    "changed_paths": ["expected.operation_results[0].semantic_profile", "expected.result.semantic_profile"],
+                    "recursive_other_fields_unchanged": restored == original,
+                }
+                (scratch / (path.stem + ".audit.json")).write_text(json.dumps(audit, indent=2) + "\n")
+                vector = json.loads((scratch / path.name).read_bytes())
+                actual = Adapter(vector["initial_state"], PROFILE).execute(vector["operations"], vector["query"])
+                self.assertEqual(compare(actual, vector["expected"], vector["normalization"], vector["forbidden"])[1], [])
+                self.assertEqual(path.read_bytes(), original_bytes)
 
     # Exact expiry is stale; fresh delivery does not refresh the saved horizon
     # or mutate the earlier view's freshness claim at its original cut.

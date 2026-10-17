@@ -1,5 +1,13 @@
 # Source-derived evaluator — astra-22
 
+Current release **0.2.6-draft** (`77b951e`): 66/66 canonical semantic vectors
+pass, eight deployment unsupported, and all 134 controls freshly pass. Current
+`RESULTS.*` mirrors `runs/r7-059-canonical-corrected.*`; immutable first runs are
+retained. The 68/68 supplemental regression remains separately pinned to frozen
+0.2.5 grammar. Runtime remains `946cbd8`; R7-059 changes only the owned boundary
+control's audited expected-profile copies. Earlier numbered evidence below is
+historical. Judge closure and the new PARK are still pending.
+
 This independent Python standard-library model was written without reading
 `memory/spec/`. Its only semantic sources were kernel v0.2, the support-semantics
 companion and the bounded-evidence design at `6d14828`. `evaluator.py` began as the

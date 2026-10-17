@@ -1,8 +1,8 @@
 # astra-22 vector results
 
-Package: **0.2.5-draft**, package commit `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
+Package: **0.2.6-draft**, package commit `77b951eb86d5ba9198921d058930884918a39942`.
 Vector directory: `memory/spec/kernel/vectors` (this inventory only).
-Checkout: `87beb46ac9c9158e73319587a37435c68fd58561`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
+Checkout: `31d77d2040b2d047e0592d149784d68c85634d15`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.
@@ -11,7 +11,7 @@ Deployment cases require actual boundary qualification and are reported separate
 
 | Category | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| semantic | 57 | 0 | 0 |
+| semantic | 66 | 0 | 0 |
 | deployment | 0 | 0 | 8 |
 
 Five bounded harness controls passed (valid comparison, changed value, extra field,
@@ -86,5 +86,14 @@ No randomness-distribution or timing proof is claimed.
 | S31 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S32 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S33 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S34 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S35 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S36 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S37 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S38 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S39 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S40 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S41 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S42 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 
-Full normalized actual reports and input hashes: `phase2-erase-priority-corrected.json`.
+Full normalized actual reports and input hashes: `r7-059-canonical-corrected.json`.

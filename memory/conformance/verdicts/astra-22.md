@@ -1,96 +1,66 @@
-Reopened bounded D-009 / R7-055 round: **active**, awaiting judge verification
-and the new convener PARK. First unchanged 0.2.6 run at `77b951e` passes all
-66 canonical semantic vectors; eight deployment vectors remain unsupported.
-[First report](../impl-astra-22/runs/0.2.6-first.md) and
-[provenance](../impl-astra-22/runs/0.2.6-first-provenance.json) are immutable.
-Runtime remains `946cbd8`; all 23 module hashes equal the pre-package freeze.
-Fresh controls: 133 pass, one historical expected-profile mismatch, no semantic
-unsupported. The boundary test compares two frozen 0.2.5 profile fields with
-0.2.6 output; the first red is preserved before requesting judge classification.
-All five D-009 groups pass. Historical 0.2.5 supplemental regression is 68/68,
-with one deployment unsupported, separately pinned in `0bf20dc`.
-
-The prior PARK, score and coverage below are historical; D-009 supplies the
-owner decision and its current-release dual verification is in progress.
-
 # astra-22 source evaluator verdict
 
-Final status: **PARKED**, under the convener decision at **2026-10-17 06:33Z**,
-event `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg`.
+Status: **active in the bounded D-009 / R7-055 round**, awaiting judge closure
+and the new convener PARK. D-009 is implemented by the existing issuer-local
+source runtime `946cbd8`; no product code change was required this round.
+The prior 06:33Z PARK is historical and does not close this reopened round.
 
-The source evaluator passes every currently published semantic vector. Final
-collective score is **2/2**, confirmed by signed judge `9d2cdd4`: 58 ledger items,
-47 fixed, 10 rejected and owner question R7-055. No specification or implementation
-bug remains open. Source R7-057 is closed at `946cbd8`; package R7-058 is closed at
-`104fbe8`. All owned implementation and review assignments are complete. The
-[park note](../parked/astra-22.md) records the remaining owner question and limits.
-
-Current package: **0.2.5-draft**,
-`6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
+Current package: **0.2.6-draft**, `77b951eb86d5ba9198921d058930884918a39942`.
 
 | Inventory | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Canonical semantic | 57 | 0 | 0 |
-| Canonical deployment | 0 | 0 | 8 |
-| Supplemental semantic | 68 | 0 | 0 |
-| Supplemental deployment | 0 | 0 | 1 |
+| Canonical 0.2.6 semantic | 66 | 0 | 0 |
+| Canonical 0.2.6 deployment | 0 | 0 | 8 |
+| Historical 0.2.5 supplemental semantic | 68 | 0 | 0 |
+| Historical 0.2.5 supplemental deployment | 0 | 0 | 1 |
 
-Current reports are [canonical](../impl-astra-22/runs/phase2-erase-priority-corrected.md)
-and [supplemental](../impl-astra-22/runs/phase2-restore-obligations-cases-first.md).
-Green coverage totals 129 controls: source 33, adapter 8, transaction 14, proof 4,
-impact 9,
-boundary 8, retention 8, release 9, succession 4, authority projection 4,
-deadline 6, erasure 12, availability 5, harness 5. The latest focused run executes
-all 12 erasure groups, and the expanded supplemental run executes the five
-comparator controls. Unchanged remaining groups retain the prior
-[128-control green evidence](../impl-astra-22/runs/erase-priority-controls-corrected.json);
-[new control evidence](../impl-astra-22/runs/restore-obligation-controls-first.json)
-records commands, outputs, module hashes and this reuse boundary. Judge `9d2cdd4`
-verifies the complete 68/68 supplemental report, reruns all 12 current erasure
-groups and verifies unchanged remaining modules against prior reviewed pins.
-The earlier full canonical and control evidence remains applicable.
+[First canonical report](../impl-astra-22/runs/0.2.6-first.md) is immutable at
+`31d77d2`; all nine new vectors pass without alignment. The
+[current canonical report](../impl-astra-22/runs/r7-059-canonical-corrected.md)
+has identical vector rows. Only checkout metadata differs. The separate
+[historical regression](../impl-astra-22/runs/d009-0.2.5-regression-first.md)
+uses unchanged original fixtures and the complete live 0.2.5 package tree at
+`6a04e8c`; provenance is in `0bf20dc`, independently verified by judge `5e93189`.
+It is not counted as canonical 0.2.6 coverage.
 
-The independent source baseline `4d4ef45` was frozen from kernel, companion and
-design before PACKAGE LANDED. No foreign evaluator implementation has been read
-or executed. Current source core SHA-256 is
+All **134 controls freshly pass** on matching 0.2.6 grammar: source33, adapter8,
+transaction14, proof4, impact9, boundary8, retention8, release9, succession4,
+authority_projection4, deadline6, erasure12, availability5, D-0095 and harness5.
+[Complete output](../impl-astra-22/runs/d009-0.2.6-controls-corrected.json)
+records commands, counts and hashes. The pre-package D-009 freeze `abc8511`
+also passed all134; judge `7d33ac1` independently reproduced its controls and
+validated 282 constructed instances / 275 unique states. These include the
+original pair, assertion-free middles, all256 four-event DAGs, foreign invariance,
+protected issuer attribution, CAS consistency and atomic replace/correct pairs.
+The global-order mutation control fails exactly as intended.
+
+R7-059 is a judge-classified harness profile binding bug. The first complete
+0.2.6 control run at `31d77d2` preserves133pass/1fail: one historical boundary
+control expected0.2.5 labels from live0.2.6. The corrected control creates two
+explicit scratch copies changing only two expected profile fields each; fixed
+profile guards, recursive equality, original/copy hashes and a detected actor
+mutation plant bound the migration. The
+[audit](../impl-astra-22/runs/r7-059-profile-migration-audit.json)
+preserves this evidence. Original cases and all first reports remain unchanged.
+Only boundary_checks.py differs from `abc8511`; all22othermodules are identical.
+R7-059 closure remains pending, alongside dual R7-055 verification.
+
+Source baseline `4d4ef45` was frozen from kernel, companion and design before
+initial PACKAGE LANDED. D-009 controls were frozen from kernel v0.3 and
+DECISIONS.md before 0.2.6 intake. No foreign evaluator implementation has been
+read or executed. Core SHA-256 is
 `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 Every first disagreement and classified correction remains retained in
-[WORKLOG](../impl-astra-22/WORKLOG.md) and the committed run artifacts. Historical
-mixed-profile failures are explicitly distinguished from semantic defects.
-
-Judge-closed source defects are R7-011/012/013/015, 025/026/027/028/029, 030, 032,
-036, 040, 043, 047, 050, 051, 052, 056 and 057. The latest correction checks current
-erase authority first, detects changed intent before replay metadata, and
-reauthorizes stored refs only for exact replay. Original `0529814` and the five
-expanded pre-fix wrong-code failures remain unchanged. Exact replay, immutable
-empty receipts, fresh empty-ref erasure and complete refusal state are preserved.
-
-Own [ASTRA25-12 observations](../impl-astra-22/runs/restore-current-obligations-native-first.json)
-reproduce the author's four unchanged input traces on `946cbd8`. A current
-external obligation absent from the old snapshot enters the source erasure
-closure and purges both controlled sinks. An unreachable affected sink causes
-an atomic incomplete refusal and keeps restored reads fenced. Known and empty
-obligation controls remain distinct. All 22 modules in that original observation
-match the reviewed head. Judge closes the package discrepancy as R7-058 at
-`104fbe8`; the native observations remain
-outside exact denominators. Author `1cefcf9` adds five exact regressions, including
-unaffected independent B; all pass the first expanded source run. A new focused
-control verifies protected generation advancement and atomic stale/current
-derivative refusal after newly witnessed deletion, with an independent valid
-write as positive control. No evaluator behavior change was needed.
-
-R7-055 / ASTRA24-12 remains held for Ivan's attributed decision. The source
-preserves issuer-local receipt ancestry. The mixed-issuer pair has no imposed
-oracle and is excluded from exact denominators; both readings and full own
-observations remain in [native evidence](../impl-astra-22/runs/authority-issuer-native-first.json).
+[WORKLOG](../impl-astra-22/WORKLOG.md) and committed run artifacts.
 
 Remaining unmapped non-canonical API paths are changes, audience proof-reference
 disclosure and request_check. Proof families can grow exponentially. No protected
 deployment, physical deletion, timing isolation, randomness qualification or
 crash durability is claimed. Delivery sends no external bytes; custody and
 outside-domain witness facts are trusted fixture inputs. Semantic controls do
-not qualify these deployment properties.
+not qualify deployment properties.
 
-Historical grammar limitation: `--package` selects vectors/profile, while
-transaction shape validation uses this checkout. Reproduce older grammars in a
-matching isolated checkout. Every current 0.2.5 report uses matching live grammar.
+Historical grammar limitation: --package selects vectors/profile, while
+transaction shape validation uses this checkout. Reproduce older grammars in
+a matching isolated checkout. Every current0.2.6 report uses matching live
+grammar; the historical0.2.5 regression was run before pulling0.2.6.
