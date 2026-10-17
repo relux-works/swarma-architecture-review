@@ -925,6 +925,12 @@
           "inputs": [],
           "complete": true
         }
+      ],
+      "subject_principals": [
+        {
+          "subject": "subj:h1",
+          "principal": "subj:h1"
+        }
       ]
     },
     "runtime": {
@@ -949,7 +955,8 @@
       "memory_available": true,
       "control_observations": [],
       "external_effects": [],
-      "revoked_declassifications": []
+      "revoked_declassifications": [],
+      "dirty_causes": []
     }
   },
   "operations": [],
@@ -1000,7 +1007,7 @@
     "operation_results": [],
     "result": {
       "type": "view",
-      "semantic_profile": "0.2.0-draft",
+      "semantic_profile": "0.2.1-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

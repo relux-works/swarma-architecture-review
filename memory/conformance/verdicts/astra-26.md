@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 5, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, round 6, 2026-10-17.
 
 ## Baseline and scope
 
@@ -188,3 +188,26 @@ No cases or directed requests were outstanding at initialization.
   `astra23-controls-02.log`. Provisional collective row remains **1/2** while
   other package/evaluator corrections and ASTRA26-06 are unresolved. Deployment
   qualification remains unsupported.
+
+## Round 6 — explicit self-declaration identity
+
+- Judge closed **R7-010** after the alias behavior evidence. Judge accepted
+  **R7-022** as a package/source attribution mismatch, with editor astra-21
+  owning the fix; no failure under the old package is relabeled an impl-bug.
+- Reviewed `0.2.1-draft` at `f31d58f`: K-ENV-1 requires an explicit trusted
+  subject/principal binding for self-declarations. P02 covers wrong-subject
+  refusal and valid distinct-string identity; P10 preserves delegation. P15's
+  foreign organisation facts retain all exclusion/unchanged-sequence controls.
+- Migrated all eight owned fixtures to the new identity/dirty-cause grammar,
+  with semantic expectations unchanged apart from the package-version stamp.
+  Previous inputs are retained in seat `.temp/r7-astra-26/cases-0.2.0/`.
+  Structural/reference/normalization checks and accepted-proposal integration
+  facts pass. A valid admitted self-declaration passes; foreign issuer and
+  equal-ID-without-binding plants fail for the intended attribution invariant.
+- Package structural validation passes: 57 semantic vectors, 8 deployment
+  vectors, 52 clauses and 20 checker controls. Evidence: seat
+  `.temp/r7-astra-26/validate-03.log`, `cases-structural-04.log` and
+  `attribution-controls-01.log`. These are structural checks; a current-contract
+  evaluator run is pending. Collective row remains **1/2** while the new release
+  and implementation corrections await independent evidence and judge closure.
+  Protected deployment is still unqualified.

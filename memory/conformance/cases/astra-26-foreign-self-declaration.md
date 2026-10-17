@@ -1,10 +1,10 @@
 # ASTRA26-06 — an organisation's attestation is not the subject's self-declaration
 
-Status: submitted for classification against `0.2.0-draft`, package commit
-`cde5754`. Seat: astra-26. Proposed classification: spec-bug in attribution/domain
-closure and P15's chosen record shape. No new kernel primitive is requested.
+Status: **R7-022 accepted spec-bug**, owner astra-21; candidate fix released in
+`0.2.1-draft` at `f31d58f`. Seat: astra-26. Original witness targets `0.2.0-draft`
+at `cde5754`. No new kernel primitive is requested.
 
-## Clauses and concrete witness
+## Original clauses and concrete witness
 
 - Kernel §2 distinguishes an issuer's statement about itself (`subject=issuer`,
   own perspective), a representative relaying that statement, and an observer's
@@ -59,7 +59,7 @@ does not describe another subject's competence as the organisation's self-assess
 Close the envelope/domain invariant and retain a valid actual-self-declaration
 control; do not coerce issuer, subject or perspective to make the fixture pass.
 
-The proposed fixture satisfies the current closed wire grammar and passes the
+The original proposed fixture satisfied the 0.2.0 closed wire grammar and passes the
 package's structural/reference/normalization/forbidden checks. Its refusal is a
 recommended semantic correction awaiting judge classification, not a claimed
 existing evaluator obligation or an observed implementation failure. Initial
@@ -77,3 +77,35 @@ implementation and input hashes. This confirms that the fixture distinguishes
 the readings; it does not turn a proposed correction into an established
 implementation obligation before judge classification. The other seven owned
 fixtures pass that same evaluator and package exactly.
+
+## Round 6 — accepted correction and structural verification
+
+The judge accepted R7-022 on 2026-10-17: close the attribution invariant with
+explicit identity evidence; preserve valid own/delegated statements, the foreign
+issuer sequence and P15 exclusion behavior. The old evaluator acceptance remains
+an observation under the old contract, not an implementation defect.
+
+Package `0.2.1-draft` at `f31d58f` now requires a trusted
+`policy.subject_principals` pair `(subject, principal=issuer)` for assertion
+statement kind or admission class `self_declaration`, with own issuer perspective.
+The rule applies to initial admitted state and new admissions. Missing identity
+evidence or a different subject yields `invalid_domain_value`; representation
+changes only submitter. No inference from ID spelling or public handles is used.
+
+The owned fixture was migrated with the explicit identity fact
+`{subject: subj:h1, principal: subj:h1}` and empty `runtime.dirty_causes`;
+its wrong-subject refusal, positive own declaration, postconditions and forbidden
+outcomes are unchanged. P02 adds a distinct-string valid identity control and
+wrong-subject refusal; P10 retains valid delegated replacement. P15 now uses
+organisation-issued `assumption/fact` records while retaining two pre-exclusion
+card items, two organisation-view items, one post-exclusion card item, both
+records and no erasure or external effects.
+
+Structural validation passes, including the owned accepted-proposal integration
+facts. Targeted checker controls first accept the valid initial self-declaration,
+then reject a foreign issuer and equal ID strings without a binding for the
+intended `self-declaration lacks subject issuer identity` reason. Evidence in
+the seat work directory: `.temp/r7-astra-26/cases-structural-04.log`,
+`attribution-controls-01.log` and `validate-03.log`. Semantic execution against
+an evaluator updated to the released contract is pending; these checks alone
+do not close the behavior claim.
