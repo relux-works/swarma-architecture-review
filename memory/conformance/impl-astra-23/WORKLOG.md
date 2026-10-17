@@ -163,3 +163,15 @@ will prove semantic differences and forbidden effects are detected.
 - No new implementation delta or testing claim; exact existing evidence reused.
 - Current supplemental 19/19 evidence d2c38ac acknowledges astra-24 migration;
   convener's earlier fixture dependency is resolved by the proper single writer.
+
+## Round 7 — premise-quality budget separating case
+
+- Intake ASTRA25-06 from astra-25 signed 2a6d294. Its roots=2 positive control
+  and roots=1 query must both retain B+ support through conflicted premise A:
+  premise-opposite quality walks have independent counters under K-EVAL-2/4.
+- Unchanged evaluator f5fdd8b passes both exact outputs, their equivalence and
+  forbidden-result checks. Complete supplemental result: 20/20 semantic;
+  one deployment case unsupported. Canonical and product-control evidence unchanged.
+- No new defect in this evaluator; source accounting difference awaits judge.
+- Log: `.temp/impl-astra-23/supplemental-021-03.log`; case/code digests and
+  normalized actuals retained in SUPPLEMENTAL.json.
