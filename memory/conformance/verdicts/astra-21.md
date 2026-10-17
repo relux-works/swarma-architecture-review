@@ -1,21 +1,21 @@
 # astra-21 package editor verdict
 
-Status: round 13, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
-signed release `6a04e8c`. This round changes only this verdict to record current
-judge decisions and the bounded erase-context priority review.
+Status: round 14, Phase 2 active; no PARK. Current package: **0.2.5-draft**,
+signed release `6a04e8c`. This round changes only this verdict after a focused
+independent R7-057 correction audit.
 
-**All 14 editor-owned specification bugs are judge-closed.** R7-052 and R7-053
-runtime deadline corrections are also closed. Judge `13e3d73` independently
-verified source `dbf4892` and package `23b4d74`: **57/57 canonical and 61/61
-supplemental semantic vectors in each**. This supersedes the incomplete source
-coverage in this editor's earlier pinned deadline audit, which remains below.
+**All 14 editor-owned specification bugs are judge-closed.** Runtime deadline
+R7-052/053 and recovery R7-056 are also closed. Both readers have independently
+verified **57/57 canonical semantics**. The supplemental corpus now has 63 cases;
+package `23b4d74` passes all 63, while judge `02d6337` preserves the source's two
+pre-fix R7-057 failures. This editor verifies both unchanged regressions and three
+native groups on source correction `946cbd8`; formal closure remains pending.
 
-Green vectors do not close separate native findings. Source recovery R7-056 has
-correction `87beb46` awaiting judge closure; newly classified source R7-057 concerns
-changed erase-context conflict priority. Neither requires a package edit.
-R7-055 remains an explicit [owner question](../OWNER-QUESTIONS.md), held for Ivan
-without an authority choice or exact oracle. Phase 2 remains **1/2** under the
-current [score](../R7-SCORE.md) and [ledger](../LEDGER.md). Eight canonical and one
+A newer restore-obligation witness ASTRA25-12 is separately awaiting classification.
+Neither runtime evidence nor this review changes the package. R7-055 remains an
+explicit [owner question](../OWNER-QUESTIONS.md), held for Ivan without an authority
+choice or exact oracle. Phase 2 remains **1/2** under the current
+[score](../R7-SCORE.md) and [ledger](../LEDGER.md). Eight canonical and one
 supplemental deployment cases remain unsupported; no deployment qualification.
 
 ## Scope and independence
@@ -343,6 +343,39 @@ implementation bug and authorizes correction with exact replay, revoked metadata
 revoked erase authority, fresh-key success and complete refusal-state controls.
 No new owner question, canonical expected answer or package edit is needed.
 
+## Round 14: R7-057 correction independently verified
+
+At checkout `02d6337`, all 22 source Python modules byte-match signed runtime
+`946cbd8`. The original native first remains byte-identical to `0529814`; both
+purpose/audience vectors remain byte-identical to author `66233ab`. The product
+delta only moves canonical intent comparison ahead of stored-ref metadata checks
+inside an existing idempotency entry. Current erase authority remains before
+lookup, and identical replay retains its metadata gate.
+
+Both exact vectors pass with every report field and forbidden/normalization
+predicate. Input/core hashes and complete normalized actuals match the committed
+source current report. Three focused native groups also pass: changed purpose or
+audience; current erase authority and exact-replay read/use/metadata loss; and
+immutable empty receipts after wider metadata grants. The preserved old-runtime
+control record contains five intended wrong-code failures and no unrelated error.
+
+An independent execution of the original native input now returns exactly
+idempotency_conflict,false. Every Adapter state attribute remains unchanged,
+including records, runtime, initial/backup, policy, schemas/rules and captures;
+the original stored receipt is intact. A later exact retry returns that identical
+receipt with state unchanged. Fresh-key erasure in the ungranted metadata context
+succeeds with empty refs, the full protected erased/fenced/custody closure and the
+original receipt retained. No expected answer or implementation byte was changed.
+
+Evidence in this seat's `.temp/astra-21/`: `erase-priority-verification.md`,
+`erase-priority-verify.py`, `erase-priority-verification.json` (full native states
+and hashes), `erase-priority-verification-01.log`, `erase-priority-controls-01.log`,
+`erase-priority-source.md/json`, `erase-priority-source-01.log`, and
+`erase-priority-reproduction-01.log`. Both commands exit 0. This focused audit
+covers two vectors and three native groups, not a repeated full-suite run.
+Recommend R7-057 closure subject to the judge. R7-056 is already judge-closed by
+`e2a797d` at `87beb46`; ASTRA25-12 restore intake is separate and unclassified.
+
 ## Previous 0.2.1 validation and execution evidence
 
 `python3 memory/spec/checks/validate.py` passes: 94 JSON artifacts, 14 closed
@@ -387,8 +420,9 @@ RESULTS.json and runs/cases-0.2.1-current.json. Evidence:
 The convener's Phase 2 decision is event
 `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc`. Full dual semantic coverage is
 now independently verified. All established package findings and both runtime
-deadline bugs are judge-closed. Source R7-056 correction review and R7-057 conflict
-priority remain separate open implementation work at this update. R7-055 requires
+deadline bugs and source R7-056 are judge-closed. R7-057 correction `946cbd8`
+is independently verified above and awaits judge closure. New ASTRA25-12 restore
+intake awaits classification; no conclusion is assumed from its arrival. R7-055 requires
 an attributed owner decision; both readings and their separating native pair stay
 preserved outside exact-oracle denominators. The editor will apply only resulting
 judge-classified package fixes or an attributed owner decision, with a new release
