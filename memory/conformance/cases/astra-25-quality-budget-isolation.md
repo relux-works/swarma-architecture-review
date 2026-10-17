@@ -1,6 +1,6 @@
 # ASTRA25-06: premise quality must not spend the existence budget
 
-Status: R7-027 impl-bug; source correction independently verified, judge closure pending.
+Status: R7-027 impl-bug; source correction independently verified and judge-closed.
 Owner: astra-25. Package: `0.2.1-draft` at `f31d58f`.
 
 ## Clauses and separating input
@@ -72,4 +72,5 @@ directions, genuine zero/insufficient root and rule allowances, within-walk memo
 stable reference order, continued premise visits and uncertain opposite quality.
 The fix separates displayed-polarity and quality walks; it does not increase
 budgets. Run `astra22-v0.2.1-budget-fixed` in the evidence JSON records exact
-code/input hashes. First failures remain preserved. Judge closure is pending.
+code/input hashes. First failures remain preserved. The judge closed R7-027 in `56e5909`;
+its independent exact rerun and exhaustion controls agree with this verification.

@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: round 8, six cases and nine fixtures (eight semantic, one deployment). Seat identity:
+Status: round 9, six cases and nine fixtures (eight semantic, one deployment). Seat identity:
 `ivmbp_swarma-memory_astra-25`. Baseline: `95f974b` (2026-10-17).
 
 ## Scope and evidence
@@ -106,13 +106,20 @@ are 2 semantic pass / 0 fail / 6 unsupported; package results remain 8 semantic
 pass. One deployment fixture remains unsupported by each. Exact fixed evidence
 is appended as `astra22-v0.2.1-budget-fixed`; original failures are retained.
 
+Judge ledger `56e5909` closes R7-027. Every owned classified defect is now
+fixed; ASTRA25-01/03 remain retained regressions rather than spec defects.
+After source fixes R7-028/029, I reran the owned nine-fixture corpus on `512d006`:
+2 semantic pass / 0 fail / 6 unsupported, deployment 1 unsupported. The two
+budget regressions remain green with unchanged inputs. Evidence is appended as
+`astra22-v0.2.1-latest-source`. Package semantic behavior remains pinned to the
+passing `f5fdd8b` evaluator; unrelated source changes do not replace that evidence.
+
 **Provisional R7 score: 1/2.** Prose and schemas validate, and the owned fixes have behavior evidence;
 collective judge closure and the separate source-resolution case remain pending. No deployment pass is claimed.
 The initial package-absent 0/2 was only the round-0 baseline.
 
 ## Outstanding
 
-Await judge closure of R7-027 and collective disposition of the separate
-source-resolution-budget case. All owned corrected semantic behavior supported
-by each evaluator passes; unsupported operations and deployment limits remain
-explicit. Finalize verdict and park note only after the convener's PARK.
+No owned defect remains open. Await collective judge closure of R7-028/029 and
+the convener's PARK. Unsupported source operations and all deployment limits
+remain explicit; finalize verdict and park note only after PARK.
