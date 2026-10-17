@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 29; collective active, NO PARK. Seat identity:
+Status: phase 2, round 30; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Both evaluators now pass every canonical semantic
@@ -25,7 +25,7 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source d077064 / R7-037 package 4af0360 independently verified and judge-closed at 7446ba5 |
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; both exact pairs now pass at source dbf4892 and package 23b4d74 |
 | [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 fixed at 23290b3; judge and seat independently verified |
-| [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | R7-054 closed at6a04e8c and052 at4a14a56; package053 at23b4d74 independently verified, judge closure pending |
+| [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | R7-054 closed at6a04e8c and052 at4a14a56; package053 at23b4d74 independently verified and judge-closed at13e3d73 |
 
 ## Current evidence
 
@@ -56,7 +56,7 @@ independent defect count.
 | Latest recorded owned 0.2.5 semantic runs | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Package runtime at `23b4d74` | 26 | 0 | 0 |
-| Source runtime at `dbf4892` | 26 | 0 | 0 |
+| Source runtime at `87beb46` | 26 | 0 | 0 |
 
 Each evaluator reports the one owned deployment fixture unsupported. Both previously
 passed all six independent storage/replay controls each for scoped grants. The
@@ -65,7 +65,7 @@ all nine native release groups pass, including raw-digest refusal with full stat
 preservation. Fresh source 0.2.5 canonical is 57/57 after the erasure coverage addition;
 corrected package is also 57/57. Both P11 expiry traces and authority B01 pass.
 The former seven canonical source gaps are now executable; native recovery
-R7-056 remains a separate blocking implementation bug.
+R7-056 correction now passes independent verification; judge closure is pending.
 The seven ASTRA25-11 exact vectors are now in the owned denominator: both
 positive controls and all five negative vectors pass in both runtimes.
 The earlier five native observations remain outside vector totals.
@@ -97,7 +97,7 @@ The first astra-23 evaluator reproduced the original hidden-dirty failure in
 14 fields, with the visible-path control passing. The first source adapter
 explicitly lacked those operations; unsupported was never counted as a pass.
 
-Latest source evidence is `astra22-phase2-025-erasure-coverage`,
+First source erasure evidence is `astra22-phase2-025-erasure-coverage`,
 `astra22-canonical-025-erasure-coverage`, both `native-*-025-first` entries and
 `astra22-availability-025-first-reproduction`. Every Python module was compared
 byte-for-byte with dbf4892. All eight native erasure groups pass: hidden receipt
@@ -118,7 +118,13 @@ source not_authorized versus package idempotency_conflict, both atomically;
 fresh-key empty-ref erase and exact replay/revocation controls agree. Existing
 K-API-1 explicitly identifies context changes as conflicts, so source correction
 is recommended to the judge. No oracle or vector denominator changed. R7-056
-correction 87beb46 is received and queued for the next review unit.
+correction 87beb46 now passes independent review: five availability groups,
+26 owned semantic vectors and all 57 canonical semantic vectors. Only the two
+current availability facts are changed by the authorized transition; the four
+initial/requested-state combinations preserve records, grants, policy pins,
+cuts, receipts and captures. The original failing witness remains immutable.
+Latest runs are the three `astra22-*-025-availability-corrected` entries; every
+current module was byte-compared to the correction. Recommend judge closure.
 
 ## Phase-2 gate and remaining work
 
@@ -139,8 +145,8 @@ classified: expiry requires not_authorized/false before replay, with unchanged
 state and original receipt. The explicit 0.2.5 release is independently verified:
 only P11 changes beyond version, its original 16 operations/results remain, and
 all 34 checker controls pass. Judge closed R7-054. Source R7-052 correction is
-independently verified and judge-closed. Package R7-053 is now independently
-verified; closure is recommended. Source erasure/restore/load support is now
+independently verified and judge-closed. Package R7-053 is independently
+verified and judge-closed in signed 13e3d73. Source erasure/restore/load support is now
 independently checked. Separate R7-055 records an unresolved owner decision on
 cross-issuer authority ancestry; no oracle for that native probe is invented.
 Finalize verdict and park note only after actual PARK.

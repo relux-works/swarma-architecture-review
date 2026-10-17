@@ -163,3 +163,8 @@ and `astra23-native-deadline-025-corrected`. Earlier native and exact-vector
 failures are unchanged. Judge event `$HZk3768zLdVELKOLbBdEC07KP_j0-uY6h775onLttZc`
 closes source R7-052 at `4a14a56`. This seat recommends package R7-053 closure
 at `23b4d74`. All deployment fixtures remain unsupported.
+
+Judge event `$7LZ_jHBTMbdlYf2VDbojWWLtqduicbKXVYWAI_UMt-0`, signed ledger
+`13e3d73`, closes R7-053 at `23b4d74` after full canonical/supplemental and
+independent state-control reproduction. R7-052/053/054 are now all closed;
+first native/vector failures and all old input hashes remain preserved.
