@@ -498,6 +498,32 @@ class Semantics(unittest.TestCase):
                     certs[0]["envelope"]["disclosure"]["audiences"] = []
                     self.assertEqual(e.read(q)["review_required"], [])
 
+    # R7-046: a saved projection does not authorize an ungranted actor; invalid actor,
+    # audience, purpose and capture index leave state/bindings unchanged beside rightful delivery.
+    def test_delivery_actor_binding(self):
+        v = strict_loads((SPEC.parent / "conformance/cases/astra-26-delivery-actor-binding.vector.json").read_text())
+        with self.subTest(exact_fixture=True):
+            self.assertEqual(compare(engine(v).execute(v["operations"], v["query"]), v,
+                                     Grammar(SPEC / "kernel/schemas")), ([], []))
+        for field, value in (("actor", "principal:ungranted-deliverer"), ("audience", "aud:other"),
+                             ("purpose", "purpose:other"), ("view_operation", 999)):
+            with self.subTest(invalid_binding=field):
+                e = engine(v)
+                e.operation(v["operations"][0], 0)
+                op = copy.deepcopy(v["operations"][2])
+                op[field] = value
+                before = copy.deepcopy((e.state, e.captures, e.view_bindings, e.dirty_since))
+                self.assertEqual(e.operation(op, 1), {"type": "refusal", "code": "not_authorized", "retryable": False})
+                self.assertEqual((e.state, e.captures, e.view_bindings, e.dirty_since), before)
+                self.assertEqual(e.operation(v["operations"][2], 2)["outcome"], "delivered")
+                self.assertEqual(e.captures, before[1])
+                self.assertEqual(e.state, before[0])
+                e.operation(v["operations"][3], 3)
+                revoked = copy.deepcopy(e.state)
+                self.assertEqual(e.operation(v["operations"][4], 4)["code"], "disclosure_revoked")
+                self.assertEqual(e.state, revoked)
+                self.assertEqual(e.captures, before[1])
+
     # R7-020: authorized coverage uses the closed ref field; no declaration remains unknown.
     # A planted declaration spelling must fail both the exact comparison and closed view grammar.
     def test_coverage_mapping(self):

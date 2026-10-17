@@ -74,8 +74,8 @@ impact paths, requires explicit self-declaration identity bindings, and applies
 publication currentness only to authorized publication-source associations.
 Explicit-target history is restricted to the selected sequence identities.
 RELEASE-0.2.1-FIRST preserves the pre-fix R7-024 report; FIRST-RUN preserves the
-original package-only independence baseline. Current canonical results are 57/57
-semantic with eight deployment cases unsupported; twenty-two controls pass. The
+original package-only independence baseline. Pinned 0.2.2 canonical results are 57/57
+semantic with eight deployment cases unsupported; twenty-three controls pass. The
 source-state precedence control covers resolved, policy-denied, lost and empty
 source lists without upgrading evidence, including real current-source exhaustion.
 
@@ -99,3 +99,9 @@ Import currentness requires a check for every exact authorized publication sourc
 origin deduplication affects evidence counts only. Registered review obligations
 follow eligible transitive/mixed paths without manufacturing witnesses or dirty
 state. PHASE2-COVERAGE-REVIEW-FIRST preserves both prior failures.
+
+Delivery validates the authenticated actor against the saved projection principal
+before using its binding. Frozen 0.2.2 regression evidence is separately retained
+in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current 0.2.3 RESULTS exposes pending
+P11/P13 retention adaptation; RELEASE-0.2.3-FIRST and PHASE2-ACTOR-FIRST retain
+the unchanged-runtime first results.

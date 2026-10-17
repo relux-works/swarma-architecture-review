@@ -153,6 +153,8 @@ class Engine:
             if captured is None or captured[1]["type"] != "view":
                 raise Refused("not_authorized")
             q, view = copy.deepcopy(captured)
+            if op["actor"] != q["principal"]:
+                raise Refused("not_authorized")
             ev = Evaluation(self, q)
             if ev.rule["family"] != "audience_projection" or op["audience"] != q["audience"] or op["purpose"] != q["purpose"]:
                 raise Refused("not_authorized")

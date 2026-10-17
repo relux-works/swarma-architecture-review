@@ -528,3 +528,22 @@ will prove semantic differences and forbidden effects are detected.
   storage; retained closure includes outputs and transitive known inputs in the
   whole batch, independent of labels, with live retain revocation/current replay.
 - Logs: phase2-actor-first-01.log and release-023-first-01.log (both intended exit1).
+
+### Round 20 actor-binding correction outcome
+
+- Red actor/exact-fixture controls reproduce R7-046 before the runtime change.
+  Delivery now verifies the authenticated actor against the captured principal
+  before using the saved query. This finite API adds no delegated publisher lane.
+- Native controls pass wrongful actor/audience/purpose/index refusals with entire
+  runtime, captures, bindings and dirty-since unchanged; rightful delivery and
+  later selected read revocation retain their outcomes and frozen captures.
+- Current0.2.3 actor fixture passes. All19product controls on explicitly frozen
+  0.2.2 plus4checker controls pass (23 total); canonical0.2.2 is57/57 and the
+  frozen44-case supplemental is43/1/0 (R7-037 only), deployment8+1unsupported.
+- Current0.2.3 RESULTS remains honestly55/2/0, only retentionP11/P13. Pinned old
+  results are separately named RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. First actor
+  and release reports at5416283 remain immutable; no old fixture was relabeled.
+- Logs: actor-red-01.log, actor-green-01.log, actor-frozen-controls-01.log,
+  canonical-actor-022-01.log, supplemental-actor-022-01.log,
+  canonical-actor-023-01.log and controls-12.log.
+- Next unit implements exact released storage authority/current replay for R7-037.

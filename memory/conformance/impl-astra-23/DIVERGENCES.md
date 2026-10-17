@@ -293,3 +293,16 @@ RELEASE-0.2.3-FIRST preserves55/2/0 semantic and8deployment unsupported before
 adaptation. P11/P13 are the only failures. The released context resolves R7-039,
 so R7-037 can now be corrected against an explicit storage scope rather than a
 label quantifier or later query. All prior first reports remain unchanged.
+
+### R7-046 correction
+
+The delivery actor must match the saved projection's authenticated principal
+before the stored query/binding can authorize any delivery check. The exact
+ungranted-actor witness now refuses without changing records/runtime/captures/
+view bindings/dirty-since. Rightful delivery, current selected revocation and
+invalid audience/purpose/index controls pass. No hypothetical delegated publisher
+API is added or used to weaken this boundary. First5416283 remains immutable;
+independent correction review is pending.
+
+Pinned0.2.2:57/57canonical,43/1/0 supplemental,23controls; deployment8+1unsupported.
+Current0.2.3:55/2/0canonical before the separate scoped-retention correction.
