@@ -1,10 +1,13 @@
 # astra-21 package editor verdict
 
-Status: round 3, active; review snapshot at `80a217a`, awaiting convener PARK.
+Status: round 4, Phase 2 active; no PARK. Review baseline: `b1ae299`.
 
-**Released package: 0.2.1-draft at `f31d58f`. Provisional R7 score: 1/2.**
-All nine editor-owned spec bugs are judge-closed. Source corrections and a new
-budget case await judge review; no owner question is established.
+**Released package: 0.2.1-draft at `f31d58f`. Phase 2 provisional score: 1/2;
+dual canonical coverage is 43/57.** All nine editor-owned spec bugs are
+judge-closed. At `b1ae299`, all 29 classified items are disposed: 21 fixed and
+eight rejected, with no owner question. The original supported-vector rubric
+scored 2/2; the convener explicitly requires full dual coverage for Phase 2.
+The earlier score is historical evidence, not completion of the expanded gate.
 The judge owns the final [score](../R7-SCORE.md) and [ledger](../LEDGER.md).
 
 ## Scope and independence
@@ -44,34 +47,47 @@ Local logs: `.temp/astra-21/validate-10.log`, `regeneration-02.log` and the reta
 B01 missing-fact witness `lineage-regression-01.log`.
 
 Package evaluator `f5fdd8b` passes **57/57 canonical semantic vectors**, with
-13 product/comparator controls; all eight deployment vectors are unsupported.
+14 product/comparator controls at `8b9baf3`; all eight deployment vectors are unsupported.
 The editor independently reproduced the canonical result at checkout `c929ed2`,
 using only the released state/operations/query for execution, with output directed
 to `.temp/astra-21/package-evaluator-021.md` and `.json` (exit 0; adjacent
 `package-evaluator-021-01.log`). The judge independently reproduced both its
 55/57 pre-fix report and 57/57 corrected report before closing R7-024.
 Committed [canonical results](../impl-astra-23/RESULTS.md) retain exact outputs
-and hashes. Supplemental `d2c38ac`: **19/19 semantic pass**, one deployment
+and hashes. Supplemental at `8b9baf3`: **22/22 semantic pass**, one deployment
 unsupported; [report](../impl-astra-23/SUPPLEMENTAL.md). Supplemental counts are
 separate from canonical counts.
 
-Source evaluator `df499a1` preserves its first expanded 0.2.1 report:
-**42 pass / 1 fail / 14 unsupported semantic**, eight deployment unsupported.
-[First report](../impl-astra-22/runs/0.2.1-transactions-first.md) is retained before
-correcting identity validation (R7-026). Judge also reproduced a separate
-selected-sequence history defect (R7-025). Signed `26d8cc6` corrects both and
-reports **43 pass / 0 fail / 14 unsupported semantic**, eight deployment
-unsupported; [current report](../impl-astra-22/RESULTS.md). Independent closure
-is pending. New [ASTRA25-06](../cases/astra-25-quality-budget-isolation.md)
-separates premise-quality work from existence budgets: package evaluator passes,
-source evaluator fails the smaller-budget query while its larger-budget control
-passes. Classification is pending; the collective score remains 1/2.
+Source evaluator `512d006` passes **43 canonical semantic vectors**, with
+**14 unsupported**, and **14 supplemental semantic cases**, with **eight
+unsupported**; no supported failure remains. Deployment remains eight canonical
+and one supplemental unsupported. Fifty source/adapter/transaction/harness
+controls pass. Judge `b1ae299` independently closed R7-025–029 and reproduced
+all current report rows, hashes and declared normalized actuals. The immutable
+[first transaction report](../impl-astra-22/runs/0.2.1-transactions-first.md)
+remains preserved with its pre-fix failure.
+
+At checkout `8b9baf3`, the editor independently reran source canonical and
+supplemental execution against `f31d58f`, directing all output to own scratch.
+Both runs exited 0; every row, hash, normalized actual and total equals committed
+RESULTS.json and runs/cases-0.2.1-current.json. Evidence:
+`.temp/astra-21/source-evaluator-021.md` / `.json`,
+`.temp/astra-21/source-supplemental-021.md` / `.json`, and
+`.temp/astra-21/source-reproduction-01.log`.
 
 ## Remaining work and limits
 
-Await exact-release judge verification, the budget-case disposition and convener PARK.
-Answer any new directed package finding through the judge; no package change
-is currently requested. No unsupported case is counted as a pass, and synthetic
+The convener's Phase 2 decision is event
+`$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc`. Source must independently extend
+B01/B07/P05/P06/P08/P12/S07/S17/S20/S23/S24/S25/S26/S27. Adversaries target those
+clauses and the v0.2 delta. The editor will apply resulting judge-classified
+package fixes with preserved regression controls and a versioned 0.2.x release.
+No new package edit is currently requested; `f31d58f` remains the stable baseline.
+
+Early PARK now requires source 57/57 plus one full round with no new open item;
+the hard cap remains 13:00Z on 2026-10-17. Only the convener issues PARK. The exact
+baseline unsupported inventory and reasons are in
+`.temp/astra-21/phase2-coverage.md`. No unsupported case is counted as a pass, and synthetic
 erasure, restore, release or delivery transitions do not qualify protected
 storage, authentication, timing, isolation or network behavior.
 
