@@ -5,6 +5,18 @@ import copy
 from common import digest, key, ref, refs
 
 
+def record_grant(engine, record, context, right, metadata=True):
+    e = record["envelope"]
+    if any(v["principal"] == context["principal"] and v["audience"] == context["audience"]
+           and v["purpose"] == context["purpose"] and v["right"] == right
+           for v in engine.state["runtime"]["revocations"]):
+        return False
+    return any(g["principal"] == context["principal"] and g["space"] == e["space"]
+               and g["audience"] == context["audience"] and g["purpose"] == context["purpose"]
+               and right in g["rights"] and ("*" in g["records"] or e["id"] in g["records"])
+               and (not metadata or g["metadata"]) for g in engine.state["policy"]["grants"])
+
+
 def lineage_inputs(engine, record):
     lineage = record["envelope"]["lineage"]
     if isinstance(lineage, list):

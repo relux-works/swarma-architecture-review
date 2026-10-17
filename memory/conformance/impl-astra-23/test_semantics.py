@@ -231,6 +231,100 @@ class Semantics(unittest.TestCase):
         self.assertEqual(e.operation(delivery, 1)["code"], "publication_stale")
         self.assertEqual(e.state, before)
 
+    # K-ERASE-2: scoped metadata filters only receipt refs; erase-only authority, missing
+    # use/metadata, foreign grants and disclosure expiry cannot expose refs or shrink purge.
+    def test_erasure_receipt_scope(self):
+        v = vector("P08")
+        complete = [{"id": "rec:sensitive", "version": 1}, {"id": "rec:summary", "version": 1}]
+        e = engine(v)
+        self.assertEqual(compare(e.execute(v["operations"], v["query"]), v,
+                                 Grammar(SPEC / "kernel/schemas")), ([], []))
+        for variant in ("erase_only", "no_use", "no_metadata", "other_principal",
+                        "other_space", "other_record", "other_audience", "other_purpose",
+                        "disclosure_audience", "expired"):
+            with self.subTest(variant=variant):
+                e = engine(v)
+                op = copy.deepcopy(v["operations"][0])
+                for grant in e.state["policy"]["grants"]:
+                    # Preserve operation-level erase authority separately from metadata grants.
+                    if "erase" in grant["rights"]:
+                        e.state["policy"]["grants"] = [copy.deepcopy(grant)]
+                        e.state["policy"]["grants"][0]["rights"] = ["erase"]
+                        break
+                authorized = {"principal": op["actor"], "space": "space:personal",
+                              "audience": op["receipt_context"]["audience"],
+                              "purpose": op["receipt_context"]["purpose"],
+                              "rights": ["read", "use"], "metadata": True,
+                              "records": ["rec:sensitive", "rec:summary"]}
+                authorized["space"] = v["initial_state"]["records"][0]["envelope"]["space"]
+                if variant == "no_use": authorized["rights"] = ["read"]
+                if variant == "no_metadata": authorized["metadata"] = False
+                for suffix, field, value in (("principal", "principal", "subj:other"),
+                                              ("space", "space", "space:other"),
+                                              ("record", "records", ["rec:other"]),
+                                              ("audience", "audience", "aud:other"),
+                                              ("purpose", "purpose", "purpose:other")):
+                    if variant == "other_" + suffix: authorized[field] = value
+                if variant != "erase_only": e.state["policy"]["grants"].append(authorized)
+                if variant in ("disclosure_audience", "expired"):
+                    for record in e.state["records"]:
+                        if variant == "disclosure_audience":
+                            record["envelope"]["disclosure"]["audiences"] = ["aud:other"]
+                        else:
+                            record["envelope"]["disclosure"]["retain_until"] = op["at"]
+                result = e.operation(op, 0)
+                self.assertEqual(result["refs"], [])
+                self.assertEqual(result["outcome"], "purged")
+                self.assertEqual(e.state["runtime"]["erased"], complete)
+                self.assertEqual(e.state["runtime"]["fences"], complete)
+                self.assertEqual(e.state["runtime"]["erasure_generation"], 1)
+                self.assertTrue(all(not c["present"] for c in e.state["runtime"]["custody"]
+                                    if c["controlled"]))
+
+    # K-API-1: later intake stamps replay the immutable receipt; newly broader rights do not
+    # expand it. Changed intent conflicts and expired/revoked current rights refuse atomically.
+    def test_erasure_receipt_replay(self):
+        v = vector("P08")
+        e = engine(v)
+        op = copy.deepcopy(v["operations"][0])
+        first = e.operation(op, 0)
+        retry = copy.deepcopy(op)
+        retry["at"] = "2026-10-17T00:00:01Z"
+        before = copy.deepcopy(e.state)
+        self.assertEqual(e.operation(retry, 1), first)
+        self.assertEqual(e.state, before)
+        broader = copy.deepcopy(next(g for g in e.state["policy"]["grants"]
+                                      if g["purpose"] == "purpose:publish" and "read" in g["rights"]))
+        broader["purpose"] = "purpose:read"
+        e.state["policy"]["grants"].append(broader)
+        before = copy.deepcopy(e.state)
+        self.assertEqual(e.operation(retry, 2), first)
+        self.assertEqual(e.state, before)
+        retry["receipt_context"]["purpose"] = "purpose:publish"
+        self.assertEqual(e.operation(retry, 3)["code"], "idempotency_conflict")
+        self.assertEqual(e.state, before)
+        for variant in ("deadline", "read", "use", "metadata"):
+            with self.subTest(replay_loss=variant):
+                e = engine(v)
+                op = copy.deepcopy(v["operations"][0])
+                if variant == "deadline":
+                    e.state["records"][0]["envelope"]["disclosure"]["retain_until"] = "2026-10-17T00:00:01Z"
+                first = e.operation(op, 0)
+                retry = copy.deepcopy(op)
+                retry["at"] = "2026-10-17T00:00:01Z"
+                if variant == "metadata":
+                    for grant in e.state["policy"]["grants"]: grant["metadata"] = False
+                elif variant != "deadline":
+                    e.state["runtime"]["revocations"].append({"principal": op["actor"],
+                        "audience": op["receipt_context"]["audience"],
+                        "purpose": op["receipt_context"]["purpose"], "right": variant,
+                        "owner": op["actor"], "at": retry["at"]})
+                before = copy.deepcopy(e.state)
+                self.assertEqual(e.operation(retry, 1),
+                                 {"type": "refusal", "code": "not_authorized", "retryable": False})
+                self.assertEqual(e.state, before)
+                self.assertEqual(e.state["runtime"]["idempotency"][0]["receipt"], first)
+
     # R7-020: authorized coverage uses the closed ref field; no declaration remains unknown.
     # A planted declaration spelling must fail both the exact comparison and closed view grammar.
     def test_coverage_mapping(self):

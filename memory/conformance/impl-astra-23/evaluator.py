@@ -6,7 +6,7 @@ import itertools
 import secrets
 
 from common import Refused, applicable, cjson, key, ref, refs, stamp
-from disclosure import lineage_complete
+from disclosure import lineage_complete, record_grant
 
 
 class Evaluation:
@@ -84,15 +84,7 @@ class Evaluation:
         return affected
 
     def grant(self, r, right, metadata=True):
-        e = r["envelope"]
-        q = self.q
-        if any(v["principal"] == q["principal"] and v["audience"] == q["audience"]
-               and v["purpose"] == q["purpose"] and v["right"] == right for v in self.rt["revocations"]):
-            return False
-        return any(g["principal"] == q["principal"] and g["space"] == e["space"]
-                   and g["audience"] == q["audience"] and g["purpose"] == q["purpose"]
-                   and right in g["rights"] and ("*" in g["records"] or e["id"] in g["records"])
-                   and (not metadata or g["metadata"]) for g in self.p["grants"])
+        return record_grant(self.engine, r, self.q, right, metadata)
 
     def visible(self, r, active=True, time=True):
         if r is None:

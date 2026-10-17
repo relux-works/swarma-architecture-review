@@ -4,7 +4,7 @@ import copy
 
 from common import Grammar, Refused, cjson, digest, key, receipt, ref, refs, stamp, strict_loads
 from evaluator import Evaluation
-from disclosure import effective_label, lineage_complete, lineage_inputs, release_valid
+from disclosure import effective_label, lineage_complete, lineage_inputs, record_grant, release_valid
 
 
 class Engine:
@@ -143,10 +143,14 @@ class Engine:
                 raise Refused("not_authorized")
             replay, identity, request = self.idempotency(op, op["actor"], self.operation_space(op))
             if replay is not None:
+                if not all(self.receipt_metadata_authorized(self.index().get(key(r)), op)
+                           for r in replay["refs"]):
+                    raise Refused("not_authorized")
                 return replay
             if any(key(t) not in self.index() for t in op["targets"]):
                 raise Refused("invalid_reference")
             closure = self.erasure_closure({key(t) for t in op["targets"]})
+            disclosed = {k for k in closure if self.receipt_metadata_authorized(self.index()[k], op)}
             rt["fences"] = refs([*rt["fences"], *closure])
             rt["erased"] = refs([*rt["erased"], *closure])
             rt["erasure_generation"] += 1
@@ -157,7 +161,7 @@ class Engine:
                     c["present"] = False
                     accounted.append(c["id"])
             complete = all(c["id"] in accounted for c in affected)
-            result = receipt(kind, "purged" if complete else "incomplete", closure, accounted,
+            result = receipt(kind, "purged" if complete else "incomplete", disclosed, accounted,
                              "purged_within_boundary" if complete else "purge_pending")
             self.remember(identity, request, result)
             return result
@@ -186,6 +190,18 @@ class Engine:
             return receipt(kind, "reconciled", custody=[c["id"] for c in affected], status="purged_within_boundary")
         raise Refused("unsupported_operation")
 
+    def receipt_metadata_authorized(self, record, operation):
+        if record is None:
+            return False
+        context = {"principal": operation["actor"], "now": operation["at"],
+                   **operation["receipt_context"]}
+        label = self.disclosure(record, context)
+        return (record_grant(self, record, context, "read")
+                and record_grant(self, record, context, "use")
+                and context["audience"] in label["audiences"]
+                and context["purpose"] in label["purposes"]
+                and (label["retain_until"] is None or context["now"] < label["retain_until"]))
+
     def operation_space(self, op):
         for r in op.get("targets", []):
             if key(r) in self.index():
@@ -197,6 +213,8 @@ class Engine:
         identity = {"actor": actor, "space": space, "key": intent.pop("idempotency_key")}
         if "context" in intent:
             intent["context"].pop("at", None)
+        if intent["op"] == "erase":
+            intent.pop("at", None)
         request = cjson(intent)
         prior = next((i for i in self.state["runtime"]["idempotency"] if all(i[k] == v for k, v in identity.items())), None)
         if prior:

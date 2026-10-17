@@ -370,3 +370,21 @@ will prove semantic differences and forbidden effects are detected.
   `.temp/impl-astra-23/package-022-01.log` (structural validation pass).
 - The release explicitly supplies top-level erase `at`, including replay stamp
   exclusion from canonical intent; no later-query clock or scope is needed.
+
+### Round 17 correction outcome
+
+- Published red baseline is 0ca2d27. The added controls first reproduce both
+  metadata disclosure and later-stamp replay failures in receipt-red-01.log.
+- Factor the existing exact grant predicate for shared query/receipt use; filter
+  receipt refs before fencing under actor/context/clock and effective disclosure.
+  Keep full closure, generation and custody unchanged. Replay checks all stored
+  refs against current authorization and returns the original unmodified receipt.
+- Canonical erase intent excludes only the intake `at`, retaining receipt_context.
+  Changed scope conflicts; revoked/expired metadata refuses atomically without
+  regenerating or redacting the stored receipt. Broader later rights do not add refs.
+- Fourteen product tests plus four checker controls pass. Full canonical 0.2.2
+  is 57/0/0 semantic, eight deployment unsupported. Prior first reports unchanged.
+- Logs: receipt-green-01.log, controls-09.log, canonical-round17-01.log.
+- Judge/editor classified the separate storage-scope gap R7-039; R7-037 remains
+  open pending 0.2.3. ASTRA24-08 exact first reproduction is queued next. Owned
+  external erase fixtures await author migration; no silent conversion is used.

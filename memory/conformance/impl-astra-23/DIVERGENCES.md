@@ -191,3 +191,23 @@ purpose-specific rejection; a label-based rule needs a declared quantifier and
 must preserve the stated non-disclosable-record contract. A space-wide any-retain
 shortcut would fail the judge's unrelated-purpose/record negative requirement.
 Requested judge/editor disposition; runtime remains unchanged pending that rule.
+
+### R7-031 adaptation to released 0.2.2
+
+First new-release failure is immutable at 0ca2d27. Current correction passes P08
+and all 57 canonical semantic vectors. Exact actor/audience/purpose/record/space
+read and use grants with metadata, live revocations and effective disclosure now
+filter receipt refs before the new fence. Existing fences do not suppress approved
+structural refs; complete protected erasure and custody are unchanged.
+
+Additional controls cover erase-only authority, missing use or metadata, unrelated
+principal/space/record/audience/purpose, disclosure restrictions and expiry; every
+case retains full purge. Later-stamp retries preserve the receipt, broader grants
+do not expand it, changed scope conflicts, and revoked/expired authorization
+refuses with unchanged state/idempotency. Eighteen product/checker controls pass.
+Independent review and explicitly migrated adversarial erase cases remain pending.
+
+Judge independently closed R7-033/034 at f10c7ba. The exact retention wire gap
+above is now spec-bug R7-039, editor astra-21, separate from R7-037. The package
+must publish storage scope before the complete scoped retention correction;
+no new authorization reading is inferred locally.

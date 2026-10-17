@@ -1,6 +1,6 @@
 # astra-23 vector run
 
-Package: **0.2.1-draft** at `f31d58f58d05de2ae4159dedaacfa1e32bdc656d`.
+Package: **0.2.2-draft** at `7e71765317088d4ac1ea6946fdfb4b2f8012643c`.
 
 The evaluator receives only initial_state, operations and query. Expected outputs,
 forbidden predicates and normalization are consumed only by the comparison runner.
@@ -122,11 +122,11 @@ Requires a real protected deployment; this evaluator implements synthetic state 
 Implementation SHA-256:
 
 - `common.py`: `22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033`
-- `disclosure.py`: `b0f057b04b8e1776c9cefea638607c4cea88df2b4477e78d7d8144104a6bd079`
-- `engine.py`: `073f1f66f6440b370535d10182fe1ebf7a247319a872e4983762f34702674a5c`
-- `evaluator.py`: `ff349c1fd1ae0feb398776069c4e43dbe348678268a3e2e0745e2eb62d8023ce`
+- `disclosure.py`: `ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366`
+- `engine.py`: `1b122fda2e9ebfd67afbea82838a686973f2805b29410edb9e7418982af8db68`
+- `evaluator.py`: `627c4f878ba31f9689610bb09f02c50ea2c5cc94ef93ef21e211040e66df40c3`
 - `run_vectors.py`: `20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a`
 - `test_controls.py`: `6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083`
-- `test_semantics.py`: `d02f2da07331dc46389816acb747b3bb8f08069d57948a0ea5caa7f9cbfa4154`
+- `test_semantics.py`: `56094e02c54f101e2d57d6014fe040183d0155302ed65b376ade4fe246355a75`
 
 Full actual reports, exact differences and vector digests are in the adjacent JSON report.

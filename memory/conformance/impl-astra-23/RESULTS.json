@@ -1,21 +1,21 @@
 {
-  "package_version": "0.2.1-draft",
-  "package_commit": "f31d58f58d05de2ae4159dedaacfa1e32bdc656d",
+  "package_version": "0.2.2-draft",
+  "package_commit": "7e71765317088d4ac1ea6946fdfb4b2f8012643c",
   "implementation_sha256": {
     "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
-    "disclosure.py": "b0f057b04b8e1776c9cefea638607c4cea88df2b4477e78d7d8144104a6bd079",
-    "engine.py": "073f1f66f6440b370535d10182fe1ebf7a247319a872e4983762f34702674a5c",
-    "evaluator.py": "ff349c1fd1ae0feb398776069c4e43dbe348678268a3e2e0745e2eb62d8023ce",
+    "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+    "engine.py": "1b122fda2e9ebfd67afbea82838a686973f2805b29410edb9e7418982af8db68",
+    "evaluator.py": "627c4f878ba31f9689610bb09f02c50ea2c5cc94ef93ef21e211040e66df40c3",
     "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
     "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
-    "test_semantics.py": "d02f2da07331dc46389816acb747b3bb8f08069d57948a0ea5caa7f9cbfa4154"
+    "test_semantics.py": "56094e02c54f101e2d57d6014fe040183d0155302ed65b376ade4fe246355a75"
   },
   "vectors": [
     {
       "id": "B04",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B04.json",
-      "vector_sha256": "83e9df98bed72c393e17dd3f3cd7d1b1f24d7c63440625d3e9343e07e493abd6",
+      "vector_sha256": "a673a841ee3009cdbed8a198f55bc0dbef523837500e5a6d44b742bd26579278",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -23,7 +23,7 @@
       "id": "B05",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B05.json",
-      "vector_sha256": "84e754ebe0bdccf6623192e3facdedae17982eb7ca2438fa45e1e2b0a922c5df",
+      "vector_sha256": "a79a6b7d642a3d0d41f83d24c4f635b6e9a5afa8f7bff91ff393680956660241",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -31,7 +31,7 @@
       "id": "B06",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B06.json",
-      "vector_sha256": "1c3db20c3e61d3965d702090fffbda821d14c7c78375d81b9b12bc50aeb50f3c",
+      "vector_sha256": "7669ed398b786674fd8c3159fec318b3e6c7a40aae40d1a3d33fa48512aed1dc",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -39,7 +39,7 @@
       "id": "B09",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B09.json",
-      "vector_sha256": "7dbf50831cbad85b2d34f261e636ff713f0b75d11563d86e7b488a087cf62bf9",
+      "vector_sha256": "600ab852d984404e97e3523c56161c5fd648cec26be284a28fc65e05d30bc8d7",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -47,7 +47,7 @@
       "id": "B10",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B10.json",
-      "vector_sha256": "cc6d27ec3f587e48dd36754ec3252079f61ecdee0811f60d4ab74abfd1f7a174",
+      "vector_sha256": "fec455f68c38d22ad859ca4266b318836584a7f5ae8faa3164bd75b315695fed",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -55,7 +55,7 @@
       "id": "B11",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B11.json",
-      "vector_sha256": "4864127833762791718adff90414d7c001b85457ae982cdb252fa4ce95b50c13",
+      "vector_sha256": "1d804824fdd1635e82157a9faeab65330906c2a086203c384bc644c967f772bd",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -71,7 +71,7 @@
       "id": "B17",
       "profile": "deployment",
       "path": "kernel/vectors/deployment/B17.json",
-      "vector_sha256": "ac6542d7931d653545fbb2d93fe6810697eb9592bd63c9691b1253225482b873",
+      "vector_sha256": "5411430ce20a7291a18b0ea3cb8432b7863191e9032017f0ff5a32e244d78d54",
       "status": "unsupported",
       "reason": "Requires a real protected deployment; this evaluator implements synthetic state transitions only."
     },
@@ -79,7 +79,7 @@
       "id": "B01",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B01.json",
-      "vector_sha256": "8051a1b5f4fa1f4defd299e95334447c5c9bc49a679f8c6d57f8ce4416902f41",
+      "vector_sha256": "0d334e5f8ae9712ff1e0d2dc4ca5f27a513c9aa1ae2e6d78b78363d66bcae3d1",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -89,7 +89,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "6a6f15892362a6b191e8968b116cfbb8",
+            "receipt_handle": "f0de9f904f7a0cc19fd7a835d25a6d68",
             "refs": [
               {
                 "id": "rec:d",
@@ -106,7 +106,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -119,7 +119,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "3719897648981aa4fc89333a961c3ec2",
+          "authorized_snapshot_handle": "e6c03e665a9877ba42894984a5b689a8",
           "data_classification": "data",
           "items": [
             {
@@ -174,7 +174,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "3719897648981aa4fc89333a961c3ec2",
+                "authorized_snapshot_handle": "e6c03e665a9877ba42894984a5b689a8",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -189,7 +189,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "3719897648981aa4fc89333a961c3ec2",
+                "authorized_snapshot_handle": "e6c03e665a9877ba42894984a5b689a8",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -268,7 +268,7 @@
       "id": "B02",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B02.json",
-      "vector_sha256": "ae09c5b32a8cc9a2c289829d62ddd9bf92598229f5237a26718eca1956858ded",
+      "vector_sha256": "545fbe0c0882cdab5ab9303a701805ddd4497fcef84dc9e849265964e20f4ffa",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -283,7 +283,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "ec8e82dd23a38c44e95063e834d51e39",
+            "receipt_handle": "ded1560674167f382e0df0a5f84fff0c",
             "refs": [
               {
                 "id": "rec:proposal",
@@ -296,7 +296,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -309,7 +309,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "1b5cbb6318f0c924fccd73fb82f4641c",
+          "authorized_snapshot_handle": "2c6861684cd2420ce9f70550400121f0",
           "data_classification": "data",
           "items": [
             {
@@ -356,7 +356,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1b5cbb6318f0c924fccd73fb82f4641c",
+                "authorized_snapshot_handle": "2c6861684cd2420ce9f70550400121f0",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -371,7 +371,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "1b5cbb6318f0c924fccd73fb82f4641c",
+                "authorized_snapshot_handle": "2c6861684cd2420ce9f70550400121f0",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -411,7 +411,7 @@
       "id": "B03",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B03.json",
-      "vector_sha256": "f7e817a160e1c4048b72bd62b4e0ebb4ae8c34bd79c1cce45340041cb41f946d",
+      "vector_sha256": "3e494e849ccff1a62ce0ab83d18770e84dc5d270e0933b608dac5f15a04b3f27",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -419,7 +419,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -432,7 +432,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "e860f813629b77b64f23f9a8c19f8f73",
+          "authorized_snapshot_handle": "5510114e32095563d5e11d55fe336f57",
           "data_classification": "data",
           "items": [
             {
@@ -484,7 +484,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e860f813629b77b64f23f9a8c19f8f73",
+                "authorized_snapshot_handle": "5510114e32095563d5e11d55fe336f57",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -499,7 +499,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e860f813629b77b64f23f9a8c19f8f73",
+                "authorized_snapshot_handle": "5510114e32095563d5e11d55fe336f57",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -559,7 +559,7 @@
       "id": "B07",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B07.json",
-      "vector_sha256": "33b313b064bea6e02a1563881bb9f4f4eb65e505da969cba8871d966ba2a51a3",
+      "vector_sha256": "ab58dfa7c8f375232d44d119f155993ac4729eba86634e016d108dea0b970e62",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -567,7 +567,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -580,7 +580,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "1ce9285a348af5148946985e662f7bf5",
+            "authorized_snapshot_handle": "814b9998f54403333287ade7a79402d3",
             "data_classification": "data",
             "items": [
               {
@@ -629,7 +629,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1ce9285a348af5148946985e662f7bf5",
+                  "authorized_snapshot_handle": "814b9998f54403333287ade7a79402d3",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -646,7 +646,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "1ce9285a348af5148946985e662f7bf5",
+                  "authorized_snapshot_handle": "814b9998f54403333287ade7a79402d3",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -671,7 +671,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "d3694ff3093979c6ad79c4d35635ce59",
+            "receipt_handle": "89ad0dc36c4709f0c3412dc9ab63b852",
             "refs": [
               {
                 "id": "cert:hidden-rule",
@@ -697,7 +697,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "5704a021eae2eb2c74c535238d566680",
+            "receipt_handle": "5572362bf0b31579e9a0c39b2e780c20",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -713,7 +713,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -726,7 +726,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "d1afe8f2d9999b77e8a41a2dbf66d9a4",
+            "authorized_snapshot_handle": "ca34bd72bba3b46a1e7822fac7bd3b90",
             "data_classification": "data",
             "items": [
               {
@@ -773,7 +773,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "d1afe8f2d9999b77e8a41a2dbf66d9a4",
+                  "authorized_snapshot_handle": "ca34bd72bba3b46a1e7822fac7bd3b90",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -788,7 +788,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "d1afe8f2d9999b77e8a41a2dbf66d9a4",
+                  "authorized_snapshot_handle": "ca34bd72bba3b46a1e7822fac7bd3b90",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -820,7 +820,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "10a5df6c1d38a263cfe37cdf05e72b68",
+            "receipt_handle": "57a6abdacf0866a875e981a4a3b95841",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -833,7 +833,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -846,7 +846,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "0be22ce0ae0b2c299b0b055ed0e4792c",
+          "authorized_snapshot_handle": "a47d0d1b7531d0fdbbe41737a0de672f",
           "data_classification": "data",
           "items": [
             {
@@ -895,7 +895,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "0be22ce0ae0b2c299b0b055ed0e4792c",
+                "authorized_snapshot_handle": "a47d0d1b7531d0fdbbe41737a0de672f",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -912,7 +912,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "0be22ce0ae0b2c299b0b055ed0e4792c",
+                "authorized_snapshot_handle": "a47d0d1b7531d0fdbbe41737a0de672f",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -990,7 +990,7 @@
       "id": "B08",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B08.json",
-      "vector_sha256": "990c5d5d8fe22e87518a03649025dc725d9f06bfec7ae2778e16f166a9b0b7dc",
+      "vector_sha256": "d6418f2a0bf39ec59e27e38ac1a6010d0e866440db864a1b1bd4a570895717ab",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -998,7 +998,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1011,7 +1011,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "77bf6d8525542f9d56a8be13c5612d82",
+          "authorized_snapshot_handle": "74ab655d61cc145862f98ac1f04c496f",
           "data_classification": "data",
           "items": [
             {
@@ -1060,7 +1060,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "77bf6d8525542f9d56a8be13c5612d82",
+                "authorized_snapshot_handle": "74ab655d61cc145862f98ac1f04c496f",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:z-visible"
@@ -1077,7 +1077,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "77bf6d8525542f9d56a8be13c5612d82",
+                "authorized_snapshot_handle": "74ab655d61cc145862f98ac1f04c496f",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1133,7 +1133,7 @@
       "id": "B12",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B12.json",
-      "vector_sha256": "6365a78362c198c7fbc2d6e731fabd93f9b752f43d9c8554e800be952c43cfcc",
+      "vector_sha256": "54d74142669930421d822a77d77b2c46b99d7238019d3c4bd7c41a7e00494b36",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1143,7 +1143,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "fca74f7fe9d57e70ea0b6ab2c49c4105",
+            "receipt_handle": "79d6963fa24d334510560b516928a450",
             "refs": [
               {
                 "id": "rec:a",
@@ -1157,7 +1157,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "fca74f7fe9d57e70ea0b6ab2c49c4105",
+            "receipt_handle": "79d6963fa24d334510560b516928a450",
             "refs": [
               {
                 "id": "rec:a",
@@ -1175,7 +1175,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1188,7 +1188,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "3fdd95780a5611cfd956407da28d4a2a",
+          "authorized_snapshot_handle": "104614dd26fac6309012b07b41f7c8ea",
           "data_classification": "data",
           "items": [
             {
@@ -1235,7 +1235,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "3fdd95780a5611cfd956407da28d4a2a",
+                "authorized_snapshot_handle": "104614dd26fac6309012b07b41f7c8ea",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1250,7 +1250,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "3fdd95780a5611cfd956407da28d4a2a",
+                "authorized_snapshot_handle": "104614dd26fac6309012b07b41f7c8ea",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1290,7 +1290,7 @@
       "id": "B13",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B13.json",
-      "vector_sha256": "ae342376c97ce8163d1a26687f79bca68561647b717caa5206e1246da8bd445c",
+      "vector_sha256": "b06989f91f37d7a98b951233ec3b30b76546216a51a212c1416b8b1b86f796ab",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1298,7 +1298,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1311,7 +1311,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "a4a605f31dd9ed0ab76b9ccd5ede0fee",
+          "authorized_snapshot_handle": "45786adfa1e2cec8495808fc9eadb10d",
           "data_classification": "data",
           "items": [
             {
@@ -1363,7 +1363,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a4a605f31dd9ed0ab76b9ccd5ede0fee",
+                "authorized_snapshot_handle": "45786adfa1e2cec8495808fc9eadb10d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1378,7 +1378,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "a4a605f31dd9ed0ab76b9ccd5ede0fee",
+                "authorized_snapshot_handle": "45786adfa1e2cec8495808fc9eadb10d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1428,7 +1428,7 @@
       "id": "B14",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B14.json",
-      "vector_sha256": "b7420bdc8ed6445af809512a494914b1e0b34cc9704cb95031252f956b9a4a59",
+      "vector_sha256": "89aea3b7c9dfb63cc8b055bf6c9f89f228ced40dbe46688dd3dc0f16264de5ec",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1436,7 +1436,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1449,7 +1449,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "e63d5d904fa0171a82041b9c76838794",
+          "authorized_snapshot_handle": "f2d667284280bd810bf181a2da502b13",
           "data_classification": "data",
           "items": [
             {
@@ -1499,7 +1499,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e63d5d904fa0171a82041b9c76838794",
+                "authorized_snapshot_handle": "f2d667284280bd810bf181a2da502b13",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ed",
@@ -1517,7 +1517,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e63d5d904fa0171a82041b9c76838794",
+                "authorized_snapshot_handle": "f2d667284280bd810bf181a2da502b13",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1609,7 +1609,7 @@
       "id": "B15",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/B15.json",
-      "vector_sha256": "777e58aafaad5f15eedcca4272f72fed335a6abe0910f9a26cacf2d0b1e71592",
+      "vector_sha256": "19251090476932e72de8278fe69863fb091cec23903ced5c166a97f800811cf7",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1617,7 +1617,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1630,7 +1630,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "412f019f5a67fcdcbe94f1d4fc13b528",
+          "authorized_snapshot_handle": "05c2d3f315e76cd3c65443ea74aafa94",
           "data_classification": "data",
           "items": [
             {
@@ -1677,7 +1677,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "412f019f5a67fcdcbe94f1d4fc13b528",
+                "authorized_snapshot_handle": "05c2d3f315e76cd3c65443ea74aafa94",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1692,7 +1692,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "412f019f5a67fcdcbe94f1d4fc13b528",
+                "authorized_snapshot_handle": "05c2d3f315e76cd3c65443ea74aafa94",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1786,7 +1786,7 @@
       "id": "P01",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P01.json",
-      "vector_sha256": "9a63b3e50a3ec7728af252d9a91f91f794c117f507c5d65109ecb1e025308b70",
+      "vector_sha256": "95430776d9bea5efa8bd66dae6089192da638e42260b087a152bb3a20915cd02",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1794,7 +1794,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -1807,7 +1807,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "807645ce782f26de875a09a9541c5a32",
+            "authorized_snapshot_handle": "d7bf1ef78d072ebbb22714fa26bdb1a7",
             "data_classification": "data",
             "items": [],
             "currentness": "none",
@@ -1827,7 +1827,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:observer",
             "version": 1
@@ -1840,7 +1840,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "f4156341be6b491a3ce43ffc6475a1d7",
+          "authorized_snapshot_handle": "c4bc733855186443a87721923d939280",
           "data_classification": "data",
           "items": [
             {
@@ -1887,7 +1887,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "f4156341be6b491a3ce43ffc6475a1d7",
+                "authorized_snapshot_handle": "c4bc733855186443a87721923d939280",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1902,7 +1902,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "f4156341be6b491a3ce43ffc6475a1d7",
+                "authorized_snapshot_handle": "c4bc733855186443a87721923d939280",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -1942,7 +1942,7 @@
       "id": "P02",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P02.json",
-      "vector_sha256": "37f6a264ae16d6c446b275a22202219a2c54d0f9fd93ef6046bbf9af302c3cf2",
+      "vector_sha256": "b13ac30a2d935fa4283f0e76e8ef7dd4b931840ffbfe1f8cd3cc954ff21f246d",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -1962,7 +1962,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "14474541c7dc182aba6e70eaf1eb39e6",
+            "receipt_handle": "6ffe4e1a1e29897505b0b2c197b2a3e3",
             "refs": [
               {
                 "id": "rec:own-interest",
@@ -1974,7 +1974,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:other",
               "version": 1
@@ -1987,7 +1987,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "c403883d45f8390498d09949befa2b61",
+            "authorized_snapshot_handle": "3b9f88816cadcabe1234476ef7f149bf",
             "data_classification": "data",
             "items": [
               {
@@ -2034,7 +2034,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "c403883d45f8390498d09949befa2b61",
+                  "authorized_snapshot_handle": "3b9f88816cadcabe1234476ef7f149bf",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2049,7 +2049,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "c403883d45f8390498d09949befa2b61",
+                  "authorized_snapshot_handle": "3b9f88816cadcabe1234476ef7f149bf",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2073,7 +2073,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2086,7 +2086,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "64a689b8675bf9aa56b9e669add3880e",
+          "authorized_snapshot_handle": "f72d88daec49d3d80f387bfb6ad6d8c7",
           "data_classification": "data",
           "items": [
             {
@@ -2133,7 +2133,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "64a689b8675bf9aa56b9e669add3880e",
+                "authorized_snapshot_handle": "f72d88daec49d3d80f387bfb6ad6d8c7",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2148,7 +2148,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "64a689b8675bf9aa56b9e669add3880e",
+                "authorized_snapshot_handle": "f72d88daec49d3d80f387bfb6ad6d8c7",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2192,7 +2192,7 @@
       "id": "P03",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P03.json",
-      "vector_sha256": "fbb8e02effb2b80de20e5148e9768a98b6be0b2d152bc68bac65bcc3c69568f7",
+      "vector_sha256": "7bee9185093a8aa6df3467a705f3736e93cdaf83331644b230bbf222affc6608",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -2202,7 +2202,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "021d07504b8e46a23132b022e194ef73",
+            "receipt_handle": "6344f40adb429ea8bc4ff5efa658571a",
             "refs": [
               {
                 "id": "rec:guess",
@@ -2218,7 +2218,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:observer",
               "version": 1
@@ -2231,7 +2231,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "474ef8648160da52d1a7bf36dedd5232",
+            "authorized_snapshot_handle": "d6b06183f5c4a6329f54391c98b64609",
             "data_classification": "data",
             "items": [
               {
@@ -2280,7 +2280,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "474ef8648160da52d1a7bf36dedd5232",
+                  "authorized_snapshot_handle": "d6b06183f5c4a6329f54391c98b64609",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:observer-review"
@@ -2297,7 +2297,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "474ef8648160da52d1a7bf36dedd5232",
+                  "authorized_snapshot_handle": "d6b06183f5c4a6329f54391c98b64609",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2321,7 +2321,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2334,7 +2334,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "642ab65b5d7459b3a83451cd1d9471ba",
+          "authorized_snapshot_handle": "8bd97b5df9f9ba85dc8e860fb2a55cf3",
           "data_classification": "data",
           "items": [
             {
@@ -2381,7 +2381,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "642ab65b5d7459b3a83451cd1d9471ba",
+                "authorized_snapshot_handle": "8bd97b5df9f9ba85dc8e860fb2a55cf3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2396,7 +2396,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "642ab65b5d7459b3a83451cd1d9471ba",
+                "authorized_snapshot_handle": "8bd97b5df9f9ba85dc8e860fb2a55cf3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2444,7 +2444,7 @@
       "id": "P04",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P04.json",
-      "vector_sha256": "e9da01f31697a10b6585648c8ba2e1659ffa147d006ef69c60c4cf82d1b9e57e",
+      "vector_sha256": "e43c7e461d76c9616efd5b54ba6fec48759c3234d7f853e2c595fad307facfe0",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -2452,7 +2452,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -2465,7 +2465,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "230a5ecb5cd4237d92b90f4f2248684c",
+            "authorized_snapshot_handle": "1591156ca49ee5f54e7f2fd5abd00a8b",
             "data_classification": "data",
             "items": [
               {
@@ -2518,7 +2518,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "230a5ecb5cd4237d92b90f4f2248684c",
+                  "authorized_snapshot_handle": "1591156ca49ee5f54e7f2fd5abd00a8b",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -2535,7 +2535,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "230a5ecb5cd4237d92b90f4f2248684c",
+                  "authorized_snapshot_handle": "1591156ca49ee5f54e7f2fd5abd00a8b",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2558,7 +2558,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -2571,7 +2571,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "dee48a9fb984b5d609393c44968ad79b",
+            "authorized_snapshot_handle": "77ce69aabf09e475fbb9ce2465dc276c",
             "data_classification": "data",
             "items": [
               {
@@ -2624,7 +2624,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "stale",
-                  "authorized_snapshot_handle": "dee48a9fb984b5d609393c44968ad79b",
+                  "authorized_snapshot_handle": "77ce69aabf09e475fbb9ce2465dc276c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -2641,7 +2641,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "stale",
-                  "authorized_snapshot_handle": "dee48a9fb984b5d609393c44968ad79b",
+                  "authorized_snapshot_handle": "77ce69aabf09e475fbb9ce2465dc276c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2665,7 +2665,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2678,7 +2678,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "7d8c7d73774acbd10093c4b176496b04",
+          "authorized_snapshot_handle": "81e0b6825319eff30fa5cdfdc4e0966d",
           "data_classification": "data",
           "items": [
             {
@@ -2731,7 +2731,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "stale",
-                "authorized_snapshot_handle": "7d8c7d73774acbd10093c4b176496b04",
+                "authorized_snapshot_handle": "81e0b6825319eff30fa5cdfdc4e0966d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -2748,7 +2748,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "stale",
-                "authorized_snapshot_handle": "7d8c7d73774acbd10093c4b176496b04",
+                "authorized_snapshot_handle": "81e0b6825319eff30fa5cdfdc4e0966d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -2792,7 +2792,7 @@
       "id": "P05",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P05.json",
-      "vector_sha256": "70e8a7ac3652e51a04a90957e2256f6762397f1970401b7a9ec27a8fa761bd07",
+      "vector_sha256": "19bdfc774a76cbdf0f8bd7d37f52785508a34268a29d6ef3893858a22a8debde",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -2807,7 +2807,7 @@
             "type": "receipt",
             "operation": "declassify",
             "outcome": "declassified",
-            "receipt_handle": "f0c4b4a10f9d7b168c0a9365e1a49bb1",
+            "receipt_handle": "4a59681a2d0d5856a0eaaf9b540a5049",
             "refs": [
               {
                 "id": "rec:city",
@@ -2827,7 +2827,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -2840,7 +2840,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "b915baebf079ab374d9bf84cc9ad14b6",
+            "authorized_snapshot_handle": "41adcc6060913e22a4e5cd4bd533f4eb",
             "data_classification": "data",
             "items": [
               {
@@ -2884,7 +2884,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "b915baebf079ab374d9bf84cc9ad14b6",
+                  "authorized_snapshot_handle": "41adcc6060913e22a4e5cd4bd533f4eb",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2899,7 +2899,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "fresh",
-                  "authorized_snapshot_handle": "b915baebf079ab374d9bf84cc9ad14b6",
+                  "authorized_snapshot_handle": "41adcc6060913e22a4e5cd4bd533f4eb",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -2924,7 +2924,7 @@
             "type": "receipt",
             "operation": "deliver",
             "outcome": "delivered",
-            "receipt_handle": "0d678a762da273901bab46a711fcdc23",
+            "receipt_handle": "fe4373ab28a53e0f83abd844cbe260da",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -2933,7 +2933,7 @@
             "type": "receipt",
             "operation": "revoke_declassification",
             "outcome": "revoked",
-            "receipt_handle": "42d8e116b2feacbe965025b73eaede88",
+            "receipt_handle": "4c878d0115f51d0dbe12ee3f55ee1b6d",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -2946,7 +2946,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -2959,7 +2959,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "6142c7f75eb4b20b7ac40df4525d45cd",
+          "authorized_snapshot_handle": "959090c350bb022c2f609ca19c321ea1",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -3011,7 +3011,7 @@
       "id": "P06",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P06.json",
-      "vector_sha256": "5c000d510c939db230b2220318bec3246e0cf9b49b007c8b5aa1504bc944ff21",
+      "vector_sha256": "c36fcbdd8ceb90cc8e707eae0eefd9f4d2deeb329b4dc859d95c26d0967e9b32",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3019,7 +3019,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -3032,7 +3032,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "dcc3e88208d55c64c7dd1954606e5118",
+            "authorized_snapshot_handle": "43dcba1694b9b19455ffc4aa28268ee3",
             "data_classification": "data",
             "items": [
               {
@@ -3076,7 +3076,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "dcc3e88208d55c64c7dd1954606e5118",
+                  "authorized_snapshot_handle": "43dcba1694b9b19455ffc4aa28268ee3",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3091,7 +3091,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "dcc3e88208d55c64c7dd1954606e5118",
+                  "authorized_snapshot_handle": "43dcba1694b9b19455ffc4aa28268ee3",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3116,7 +3116,7 @@
             "type": "receipt",
             "operation": "revoke",
             "outcome": "revoked",
-            "receipt_handle": "ae4e856ba4ebe3d81840470209faadcd",
+            "receipt_handle": "724a9fb8a58ee187c69448bc14c9dccf",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -3129,7 +3129,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -3142,7 +3142,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "ef1d59bd8712d0706c89737172381101",
+          "authorized_snapshot_handle": "8ae6299b444cf61686b7e0137c1609ab",
           "data_classification": "data",
           "items": [
             {
@@ -3186,7 +3186,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ef1d59bd8712d0706c89737172381101",
+                "authorized_snapshot_handle": "8ae6299b444cf61686b7e0137c1609ab",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3201,7 +3201,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ef1d59bd8712d0706c89737172381101",
+                "authorized_snapshot_handle": "8ae6299b444cf61686b7e0137c1609ab",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3241,7 +3241,7 @@
       "id": "P07",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P07.json",
-      "vector_sha256": "3cefb120589860328533529c846674c4337915fc8d0198b6896d692adbd8cced",
+      "vector_sha256": "3e0b2f14e02ff326dadcbd3a15aa1858b5a7e44e9b928485f5a36d6e82af4265",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3249,7 +3249,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3262,7 +3262,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "e2ce3d0cc7dc2ffee983dd63d78281cf",
+          "authorized_snapshot_handle": "05b9e8c7f8856bbb51d3c04462856765",
           "data_classification": "data",
           "items": [
             {
@@ -3324,7 +3324,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e2ce3d0cc7dc2ffee983dd63d78281cf",
+                "authorized_snapshot_handle": "05b9e8c7f8856bbb51d3c04462856765",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:declaration"
@@ -3341,7 +3341,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e2ce3d0cc7dc2ffee983dd63d78281cf",
+                "authorized_snapshot_handle": "05b9e8c7f8856bbb51d3c04462856765",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3405,7 +3405,7 @@
       "id": "P08",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P08.json",
-      "vector_sha256": "4dabbb85cccbe723977001cfb40577fe6c569e26fe76d72eac4ce3d2e6d381ef",
+      "vector_sha256": "e6abf977788977e1e15ad375e8e28644970870d234addc8b4bb2ef7cbfa6f0ed",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3415,7 +3415,54 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "84bb6757fcd9c790de2523c8527acfcf",
+            "receipt_handle": "4a6a67d81d066655355bb93e25ab0440",
+            "refs": [
+              {
+                "id": "rec:sensitive",
+                "version": 1
+              }
+            ],
+            "custody": [
+              "custody:backup",
+              "custody:cache",
+              "custody:export",
+              "custody:payload",
+              "custody:summary",
+              "custody:telemetry"
+            ],
+            "erasure_status": "purged_within_boundary"
+          },
+          {
+            "type": "receipt",
+            "operation": "erase",
+            "outcome": "purged",
+            "receipt_handle": "4a6a67d81d066655355bb93e25ab0440",
+            "refs": [
+              {
+                "id": "rec:sensitive",
+                "version": 1
+              }
+            ],
+            "custody": [
+              "custody:backup",
+              "custody:cache",
+              "custody:export",
+              "custody:payload",
+              "custody:summary",
+              "custody:telemetry"
+            ],
+            "erasure_status": "purged_within_boundary"
+          },
+          {
+            "type": "refusal",
+            "code": "idempotency_conflict",
+            "retryable": false
+          },
+          {
+            "type": "receipt",
+            "operation": "erase",
+            "outcome": "purged",
+            "receipt_handle": "d2aae94b9cfcea37f27708f04bc41a9c",
             "refs": [
               {
                 "id": "rec:sensitive",
@@ -3435,11 +3482,25 @@
               "custody:telemetry"
             ],
             "erasure_status": "purged_within_boundary"
+          },
+          {
+            "type": "receipt",
+            "operation": "revoke",
+            "outcome": "revoked",
+            "receipt_handle": "d282058350277ef8c6966a70a1238635",
+            "refs": [],
+            "custody": [],
+            "erasure_status": null
+          },
+          {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
           }
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3452,7 +3513,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "bf63799e78753278305bc08a89c9585b",
+          "authorized_snapshot_handle": "af59bdad5ae1314f9175fe2789100754",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -3501,7 +3562,7 @@
       "id": "P09",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P09.json",
-      "vector_sha256": "a35ceb4787906f40c7b4d62828ad82ea721c431f6de0143bd20719fb7a42bb19",
+      "vector_sha256": "5733412f0351a3e7619eae1dbea99be272cbd4fb9b12413198d3663f35cc0287",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3509,7 +3570,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:left",
               "version": 1
@@ -3522,7 +3583,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "cc75e7ef31aaadd683dbeffc3b4a6730",
+            "authorized_snapshot_handle": "af516bf9b0cab75fad1ada903a26589f",
             "data_classification": "data",
             "items": [
               {
@@ -3566,7 +3627,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "cc75e7ef31aaadd683dbeffc3b4a6730",
+                  "authorized_snapshot_handle": "af516bf9b0cab75fad1ada903a26589f",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3581,7 +3642,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "cc75e7ef31aaadd683dbeffc3b4a6730",
+                  "authorized_snapshot_handle": "af516bf9b0cab75fad1ada903a26589f",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3605,7 +3666,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:right",
             "version": 1
@@ -3618,7 +3679,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "87be33bf7edd766133fa82d641759ab3",
+          "authorized_snapshot_handle": "7c652f9421b21da02875d51085077709",
           "data_classification": "data",
           "items": [
             {
@@ -3662,7 +3723,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "87be33bf7edd766133fa82d641759ab3",
+                "authorized_snapshot_handle": "7c652f9421b21da02875d51085077709",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3677,7 +3738,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "87be33bf7edd766133fa82d641759ab3",
+                "authorized_snapshot_handle": "7c652f9421b21da02875d51085077709",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3725,7 +3786,7 @@
       "id": "P10",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P10.json",
-      "vector_sha256": "2ee097c9961fb38b797b428426430f3a2043a083b7008d2c1296433f870ebbc5",
+      "vector_sha256": "9d41d8b6512be53bfd8b0626cd3d311fcb32d8791b004435a7b5a93123f68096",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3735,7 +3796,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "fa46e6784192d493043723b3b09c3543",
+            "receipt_handle": "dd35c637f1709d14c2ccd16ba945be3a",
             "refs": [
               {
                 "id": "rec:interest",
@@ -3762,7 +3823,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3775,7 +3836,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "aa59e121f42f9fe462f54debf2b55591",
+          "authorized_snapshot_handle": "d29799a75e61d1faaec0706171d69fea",
           "data_classification": "data",
           "items": [
             {
@@ -3826,7 +3887,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "aa59e121f42f9fe462f54debf2b55591",
+                "authorized_snapshot_handle": "d29799a75e61d1faaec0706171d69fea",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3841,7 +3902,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "aa59e121f42f9fe462f54debf2b55591",
+                "authorized_snapshot_handle": "d29799a75e61d1faaec0706171d69fea",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -3894,7 +3955,7 @@
       "id": "P11",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P11.json",
-      "vector_sha256": "cb02adb2f16fbf87613ec98511fe2837361e28bb500effe7665e87ddbec4f4e3",
+      "vector_sha256": "3259e999a55e64962c3e1e91a75efcc2ad05c52f6699aaf140e9a0d046aa8d92",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -3904,7 +3965,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "071d91ce6c778cff67eeff86bbc61963",
+            "receipt_handle": "67524581de8a548f17a935960f0b68f7",
             "refs": [
               {
                 "id": "rec:paraphrase",
@@ -3916,7 +3977,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -3929,7 +3990,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "bc8aedbc2e8e5ddbb15032dd5283783d",
+            "authorized_snapshot_handle": "4e758fd9682159e6ca7b8702c12fdc4d",
             "data_classification": "data",
             "items": [
               {
@@ -3976,7 +4037,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "bc8aedbc2e8e5ddbb15032dd5283783d",
+                  "authorized_snapshot_handle": "4e758fd9682159e6ca7b8702c12fdc4d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -3991,7 +4052,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "bc8aedbc2e8e5ddbb15032dd5283783d",
+                  "authorized_snapshot_handle": "4e758fd9682159e6ca7b8702c12fdc4d",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4015,7 +4076,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -4028,7 +4089,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "086a15f662536667631de77aa2cfeb1a",
+          "authorized_snapshot_handle": "4d1c2e465ff4007bc88ff901bcfb3128",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -4068,7 +4129,7 @@
       "id": "P12",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P12.json",
-      "vector_sha256": "d3f4d187b14d3873a625e8dcca87c44ca73ea7a81f0b63bf6bdc5f7cae9668d3",
+      "vector_sha256": "a5b27e2e6d031975c50bd8c835f0638cb2804f50a207daf25d320c76571aa555",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4076,7 +4137,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -4089,7 +4150,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "a456d751fedcae03d1cda036bbb273f7",
+            "authorized_snapshot_handle": "07f7a211a355d47743fbb64610ac46a7",
             "data_classification": "data",
             "items": [
               {
@@ -4133,7 +4194,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "a456d751fedcae03d1cda036bbb273f7",
+                  "authorized_snapshot_handle": "07f7a211a355d47743fbb64610ac46a7",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4148,7 +4209,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "a456d751fedcae03d1cda036bbb273f7",
+                  "authorized_snapshot_handle": "07f7a211a355d47743fbb64610ac46a7",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4173,7 +4234,7 @@
             "type": "receipt",
             "operation": "deliver",
             "outcome": "delivered",
-            "receipt_handle": "489a1c3166ff715384cac4990dbb92e6",
+            "receipt_handle": "38933c68cc02fd1f6b053f521b98642c",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -4182,7 +4243,7 @@
             "type": "receipt",
             "operation": "revoke",
             "outcome": "revoked",
-            "receipt_handle": "d9e9e1ea108423b3291fcaa13fc3e74f",
+            "receipt_handle": "2896b5ccfd8c95198ac1989f1c19cdd9",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -4195,7 +4256,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -4208,7 +4269,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "6fc3828b4a1e9abed1f4678d7074a3b6",
+          "authorized_snapshot_handle": "8389bddfba5e00b4a6d772e05e1f3cb6",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -4244,7 +4305,7 @@
       "id": "P13",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P13.json",
-      "vector_sha256": "c3d2096d658390ab3ee1b0eb3b52c70286a4986f4b42f780c89cf759aa8c6df4",
+      "vector_sha256": "ec5a7ee85e5b5ce109354937679b446919e2cde006604fa50e62e8240ea2ba12",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4254,7 +4315,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "a64bd8b072cd14668ffa9d906c3676fd",
+            "receipt_handle": "cdaa8eefb0283694db5beff6959a835a",
             "refs": [
               {
                 "id": "rec:model-clean",
@@ -4274,7 +4335,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -4287,7 +4348,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "3bb2c71a5f79db09c9be1383565c8121",
+            "authorized_snapshot_handle": "0c84776deb63d66046fdfb754cb7cc9e",
             "data_classification": "data",
             "items": [
               {
@@ -4334,7 +4395,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "3bb2c71a5f79db09c9be1383565c8121",
+                  "authorized_snapshot_handle": "0c84776deb63d66046fdfb754cb7cc9e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4349,7 +4410,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "3bb2c71a5f79db09c9be1383565c8121",
+                  "authorized_snapshot_handle": "0c84776deb63d66046fdfb754cb7cc9e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4399,7 +4460,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "3bb2c71a5f79db09c9be1383565c8121",
+                  "authorized_snapshot_handle": "0c84776deb63d66046fdfb754cb7cc9e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4414,7 +4475,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "3bb2c71a5f79db09c9be1383565c8121",
+                  "authorized_snapshot_handle": "0c84776deb63d66046fdfb754cb7cc9e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4438,7 +4499,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -4451,7 +4512,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "28fd578ee3a596486e0cdaa30987e36d",
+          "authorized_snapshot_handle": "9351ab58edb700a3eca6020bec37d2be",
           "data_classification": "data",
           "items": [
             {
@@ -4495,7 +4556,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "28fd578ee3a596486e0cdaa30987e36d",
+                "authorized_snapshot_handle": "9351ab58edb700a3eca6020bec37d2be",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4510,7 +4571,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "28fd578ee3a596486e0cdaa30987e36d",
+                "authorized_snapshot_handle": "9351ab58edb700a3eca6020bec37d2be",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4566,7 +4627,7 @@
       "id": "P14",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P14.json",
-      "vector_sha256": "f108ed44d2eb77daa4e9a0a6d0e2727c298355d0e85f5d2ff8cc12f637687206",
+      "vector_sha256": "db13cc3aacf89efa42345173a12c6b5acdbe26b7a237e15ab8942a6f0f85ca23",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4576,7 +4637,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "920678099d4d96058c9e33980016e34d",
+            "receipt_handle": "d1c42412ee6d7a36d16b1ca522ebb721",
             "refs": [
               {
                 "id": "rec:interest",
@@ -4603,7 +4664,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -4616,7 +4677,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "be841ff19444fc85e4bb9adf99b74efa",
+          "authorized_snapshot_handle": "484b9a4bd74ecb94e7e1844604885ed3",
           "data_classification": "data",
           "items": [
             {
@@ -4667,7 +4728,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "be841ff19444fc85e4bb9adf99b74efa",
+                "authorized_snapshot_handle": "484b9a4bd74ecb94e7e1844604885ed3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4682,7 +4743,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "be841ff19444fc85e4bb9adf99b74efa",
+                "authorized_snapshot_handle": "484b9a4bd74ecb94e7e1844604885ed3",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -4735,7 +4796,7 @@
       "id": "P15",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/P15.json",
-      "vector_sha256": "6b1e1c330e80888324ad07a478ce64bfec5266c99e4ce122eaa4aa2583c8e56d",
+      "vector_sha256": "6b897de50ea46173da2f4abc065ec7770fb7b13507dbd0768daf6d847326e375",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -4743,7 +4804,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:card",
               "version": 1
@@ -4756,7 +4817,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "b3a5f596e889a87d107852eae403f866",
+            "authorized_snapshot_handle": "767bbcbcdd7ad047c268af269e26193c",
             "data_classification": "data",
             "items": [
               {
@@ -4800,7 +4861,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b3a5f596e889a87d107852eae403f866",
+                  "authorized_snapshot_handle": "767bbcbcdd7ad047c268af269e26193c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4815,7 +4876,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b3a5f596e889a87d107852eae403f866",
+                  "authorized_snapshot_handle": "767bbcbcdd7ad047c268af269e26193c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4862,7 +4923,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b3a5f596e889a87d107852eae403f866",
+                  "authorized_snapshot_handle": "767bbcbcdd7ad047c268af269e26193c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4877,7 +4938,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "b3a5f596e889a87d107852eae403f866",
+                  "authorized_snapshot_handle": "767bbcbcdd7ad047c268af269e26193c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4900,7 +4961,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:organisation",
               "version": 1
@@ -4913,7 +4974,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "d04c241d3e90ea416f8c7bd2a1d9e6c4",
+            "authorized_snapshot_handle": "ee27b61e85c726df83369f0db19d79f0",
             "data_classification": "data",
             "items": [
               {
@@ -4960,7 +5021,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "d04c241d3e90ea416f8c7bd2a1d9e6c4",
+                  "authorized_snapshot_handle": "ee27b61e85c726df83369f0db19d79f0",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -4975,7 +5036,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "d04c241d3e90ea416f8c7bd2a1d9e6c4",
+                  "authorized_snapshot_handle": "ee27b61e85c726df83369f0db19d79f0",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -5025,7 +5086,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "d04c241d3e90ea416f8c7bd2a1d9e6c4",
+                  "authorized_snapshot_handle": "ee27b61e85c726df83369f0db19d79f0",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -5040,7 +5101,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "d04c241d3e90ea416f8c7bd2a1d9e6c4",
+                  "authorized_snapshot_handle": "ee27b61e85c726df83369f0db19d79f0",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -5064,7 +5125,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:card",
             "version": 2
@@ -5077,7 +5138,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "8a18bb4278232315321107856ba3f5fa",
+          "authorized_snapshot_handle": "1ac67f6081808a369fadc98d0a9a3768",
           "data_classification": "data",
           "items": [
             {
@@ -5121,7 +5182,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "8a18bb4278232315321107856ba3f5fa",
+                "authorized_snapshot_handle": "1ac67f6081808a369fadc98d0a9a3768",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5136,7 +5197,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "8a18bb4278232315321107856ba3f5fa",
+                "authorized_snapshot_handle": "1ac67f6081808a369fadc98d0a9a3768",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5180,7 +5241,7 @@
       "id": "S01",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S01.json",
-      "vector_sha256": "71e4f5432a95995c526db3501acaae330f17f9ea515936039f7e870f796b4587",
+      "vector_sha256": "b8423784abdcd93e410f9e221366207daf232294f29deb8f11efbaa7e69b3584",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5188,7 +5249,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -5201,7 +5262,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "4399b99639025bf7208f4bf1ba4edcf0",
+            "authorized_snapshot_handle": "0daf0af80753b92c6106cd2dc72fbfb3",
             "data_classification": "data",
             "items": [],
             "currentness": "none",
@@ -5220,7 +5281,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -5233,7 +5294,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "e1a34eb1c83569532ce7e9c18ce43955",
+            "authorized_snapshot_handle": "ac44c2318ef7e6047b41311ce4bc5e1c",
             "data_classification": "data",
             "items": [
               {
@@ -5277,7 +5338,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "e1a34eb1c83569532ce7e9c18ce43955",
+                  "authorized_snapshot_handle": "ac44c2318ef7e6047b41311ce4bc5e1c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -5292,7 +5353,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "e1a34eb1c83569532ce7e9c18ce43955",
+                  "authorized_snapshot_handle": "ac44c2318ef7e6047b41311ce4bc5e1c",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -5316,7 +5377,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5329,7 +5390,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "7ad2ed294b6b6e70179c0429a95df544",
+          "authorized_snapshot_handle": "c6d5e1c189af20b5875fe2d56a4af0bb",
           "data_classification": "data",
           "items": [
             {
@@ -5376,7 +5437,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "7ad2ed294b6b6e70179c0429a95df544",
+                "authorized_snapshot_handle": "c6d5e1c189af20b5875fe2d56a4af0bb",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5391,7 +5452,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "7ad2ed294b6b6e70179c0429a95df544",
+                "authorized_snapshot_handle": "c6d5e1c189af20b5875fe2d56a4af0bb",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5435,7 +5496,7 @@
       "id": "S02",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S02.json",
-      "vector_sha256": "e645d0ef6976d226702cee144e502f3be5ab0d771fd8b72e8bf60153b5a9c975",
+      "vector_sha256": "9d5f3739630d2d5369cc08a97a8f451b5cac4d744d8c1d9abe6973230d0b0623",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5443,7 +5504,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5456,7 +5517,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "87f3f5d4b169a82b2e73ada699dc2a4c",
+          "authorized_snapshot_handle": "e7f9d6b9e602b1e0bdaaafe1b1f352a1",
           "data_classification": "data",
           "items": [
             {
@@ -5505,7 +5566,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "87f3f5d4b169a82b2e73ada699dc2a4c",
+                "authorized_snapshot_handle": "e7f9d6b9e602b1e0bdaaafe1b1f352a1",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -5524,7 +5585,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "87f3f5d4b169a82b2e73ada699dc2a4c",
+                "authorized_snapshot_handle": "e7f9d6b9e602b1e0bdaaafe1b1f352a1",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:en"
@@ -5574,7 +5635,7 @@
       "id": "S03",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S03.json",
-      "vector_sha256": "64e34510c15ceea1d19a1cdeb654401cd9146595ef051ed3932e99fc87d0636f",
+      "vector_sha256": "9494f252920168f9048e70c48080b070dcc24b90592ce444ed489c0b315ba9f9",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5582,7 +5643,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5595,7 +5656,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "90bd77a670831300c2ba501aff39fa38",
+          "authorized_snapshot_handle": "754bb17c8309edb664220e6a620980d5",
           "data_classification": "data",
           "items": [
             {
@@ -5645,7 +5706,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "90bd77a670831300c2ba501aff39fa38",
+                "authorized_snapshot_handle": "754bb17c8309edb664220e6a620980d5",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -5662,7 +5723,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "90bd77a670831300c2ba501aff39fa38",
+                "authorized_snapshot_handle": "754bb17c8309edb664220e6a620980d5",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5726,7 +5787,7 @@
       "id": "S04",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S04.json",
-      "vector_sha256": "174248f42d30f4ad4f98d87e19910f998aa399d618343947ea16a7b210dea111",
+      "vector_sha256": "f6b033a78551e8d313e691511c59742acd1434a4445f65c66a2b85177d51cbe6",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5734,7 +5795,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5747,7 +5808,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "c2546e1fab324935caaf4cfcda515273",
+          "authorized_snapshot_handle": "fa477e70600b9f35bdbd70f902e546ce",
           "data_classification": "data",
           "items": [
             {
@@ -5797,7 +5858,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c2546e1fab324935caaf4cfcda515273",
+                "authorized_snapshot_handle": "fa477e70600b9f35bdbd70f902e546ce",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ed",
@@ -5815,7 +5876,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c2546e1fab324935caaf4cfcda515273",
+                "authorized_snapshot_handle": "fa477e70600b9f35bdbd70f902e546ce",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5907,7 +5968,7 @@
       "id": "S05",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S05.json",
-      "vector_sha256": "b6c6c6b2daaa6472b6b2af28fab0776450e77f4c1c21a74832db3170c833251e",
+      "vector_sha256": "6aa302145c06212c61c920c7d208849fc0af67e0bda3f741f417226aabccb479",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -5915,7 +5976,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5928,7 +5989,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "ac68765bdbf773f4d51c12718ed491e0",
+          "authorized_snapshot_handle": "4d509acc4b0f6d99aa0d77c33aa4859d",
           "data_classification": "data",
           "items": [
             {
@@ -5975,7 +6036,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ac68765bdbf773f4d51c12718ed491e0",
+                "authorized_snapshot_handle": "4d509acc4b0f6d99aa0d77c33aa4859d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -5990,7 +6051,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "ac68765bdbf773f4d51c12718ed491e0",
+                "authorized_snapshot_handle": "4d509acc4b0f6d99aa0d77c33aa4859d",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6058,7 +6119,7 @@
       "id": "S06",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S06.json",
-      "vector_sha256": "1d00ae6be1ad1ff612d93c6b43a46022e0ebad658999b68733a587fb23fe791a",
+      "vector_sha256": "2d42534de8df64950fcc4f6582ec8538c696499e937be80f9a26ae4e8d9694ae",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6066,7 +6127,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6079,7 +6140,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "6ee935717b37cd0f1fa60f65e68ffb47",
+          "authorized_snapshot_handle": "b6b9452067b3fd2ae10203dca100e5b0",
           "data_classification": "data",
           "items": [
             {
@@ -6126,7 +6187,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "6ee935717b37cd0f1fa60f65e68ffb47",
+                "authorized_snapshot_handle": "b6b9452067b3fd2ae10203dca100e5b0",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6141,7 +6202,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "6ee935717b37cd0f1fa60f65e68ffb47",
+                "authorized_snapshot_handle": "b6b9452067b3fd2ae10203dca100e5b0",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6235,7 +6296,7 @@
       "id": "S07",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S07.json",
-      "vector_sha256": "77971a999864841a8f1a67cf62ce86e7d15964b3c2f2900fca7b0e3983637194",
+      "vector_sha256": "2246373ad3924cd09b74051c90e3972c6bc8b7343db5a5ed762ec42dfa54649e",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6243,7 +6304,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6256,7 +6317,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "eabda42e157acade63ff95fb6e5731aa",
+          "authorized_snapshot_handle": "905f32373484c4fce2a3fc868159ae64",
           "data_classification": "data",
           "items": [
             {
@@ -6306,7 +6367,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "eabda42e157acade63ff95fb6e5731aa",
+                "authorized_snapshot_handle": "905f32373484c4fce2a3fc868159ae64",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ea",
@@ -6326,7 +6387,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "eabda42e157acade63ff95fb6e5731aa",
+                "authorized_snapshot_handle": "905f32373484c4fce2a3fc868159ae64",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6429,7 +6490,7 @@
       "id": "S08",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S08.json",
-      "vector_sha256": "94e578053e6ec93ea0d055380d3d2b3c78c5706301d999479f870638ac3b483a",
+      "vector_sha256": "140202f225147a14785503bab218cdcea0b79f807716846c565308085798e5e7",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6443,7 +6504,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6456,7 +6517,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "86d2b57538fe09247989fbf4bae68089",
+          "authorized_snapshot_handle": "9ce0600b0d7eb2ac50eb13c85a8fbcb2",
           "data_classification": "data",
           "items": [
             {
@@ -6503,7 +6564,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "86d2b57538fe09247989fbf4bae68089",
+                "authorized_snapshot_handle": "9ce0600b0d7eb2ac50eb13c85a8fbcb2",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6518,7 +6579,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "86d2b57538fe09247989fbf4bae68089",
+                "authorized_snapshot_handle": "9ce0600b0d7eb2ac50eb13c85a8fbcb2",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6562,7 +6623,7 @@
       "id": "S09",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S09.json",
-      "vector_sha256": "1c02f1f99eeba4d161cd587209f2634dd4f5d5d481e6ef304201758b42979188",
+      "vector_sha256": "72642ef1b3131baf9fede8d20cd5ea8aed7a72a20bd8e197ef8bbe54dd392a86",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6570,7 +6631,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6583,7 +6644,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "27c8ef16d8cd3e4e6e7f5e4f4a4c9737",
+          "authorized_snapshot_handle": "013f3f8e80ba6aba94f67910715c4e71",
           "data_classification": "data",
           "items": [
             {
@@ -6630,7 +6691,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "27c8ef16d8cd3e4e6e7f5e4f4a4c9737",
+                "authorized_snapshot_handle": "013f3f8e80ba6aba94f67910715c4e71",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6645,7 +6706,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "27c8ef16d8cd3e4e6e7f5e4f4a4c9737",
+                "authorized_snapshot_handle": "013f3f8e80ba6aba94f67910715c4e71",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6693,7 +6754,7 @@
       "id": "S10",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S10.json",
-      "vector_sha256": "6c2009123212d471a4b69d9dc014a55f14dbdf115e7e3c3db9bab69f3c803e4b",
+      "vector_sha256": "f1f27853d7978e1bdc5ea05b97d238ab5a68d77b8c81b688eb0545e49ae11b29",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6701,7 +6762,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:team",
               "version": 1
@@ -6714,7 +6775,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "d64162d535fc9bcc7e3a187c6f193248",
+            "authorized_snapshot_handle": "9708e12fd7f6c5e62daa0464d72dbe6e",
             "data_classification": "data",
             "items": [
               {
@@ -6766,7 +6827,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "d64162d535fc9bcc7e3a187c6f193248",
+                  "authorized_snapshot_handle": "9708e12fd7f6c5e62daa0464d72dbe6e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -6781,7 +6842,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "d64162d535fc9bcc7e3a187c6f193248",
+                  "authorized_snapshot_handle": "9708e12fd7f6c5e62daa0464d72dbe6e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -6805,7 +6866,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6818,7 +6879,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "39fd9d52baf9ec3bd8582e999d4ffff9",
+          "authorized_snapshot_handle": "c993d21db14d930f831840a53031bca2",
           "data_classification": "data",
           "items": [
             {
@@ -6867,7 +6928,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "39fd9d52baf9ec3bd8582e999d4ffff9",
+                "authorized_snapshot_handle": "c993d21db14d930f831840a53031bca2",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:eb"
@@ -6884,7 +6945,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "39fd9d52baf9ec3bd8582e999d4ffff9",
+                "authorized_snapshot_handle": "c993d21db14d930f831840a53031bca2",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -6948,7 +7009,7 @@
       "id": "S11",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S11.json",
-      "vector_sha256": "d646732917f7fd7ef004fffbc9aacd8c0245dcc9fdcab6f4c9cb9e0a93d4e7b2",
+      "vector_sha256": "f5a1554d25bc898b5e2386476884f16245fe8997d282e2d784caed94037b5647",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -6956,7 +7017,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6969,7 +7030,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "5fcb77cff608d32d8efa94f31bd9b3da",
+          "authorized_snapshot_handle": "257766c6faee65b148ae91d6d973ffd8",
           "data_classification": "data",
           "items": [
             {
@@ -7016,7 +7077,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "5fcb77cff608d32d8efa94f31bd9b3da",
+                "authorized_snapshot_handle": "257766c6faee65b148ae91d6d973ffd8",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7031,7 +7092,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "5fcb77cff608d32d8efa94f31bd9b3da",
+                "authorized_snapshot_handle": "257766c6faee65b148ae91d6d973ffd8",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7083,7 +7144,7 @@
       "id": "S12",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S12.json",
-      "vector_sha256": "5e014662b94d800fae8c47b26dbb5218ced4ec0cba68729f4a072c29aba48013",
+      "vector_sha256": "df45835974b72c3923acdf5e2cdffb493b339a2f3e860e2f06d76ae830d0efec",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7091,7 +7152,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7104,7 +7165,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "70f15dc4e34dc9b78e82ccacf6d4cbf2",
+          "authorized_snapshot_handle": "d42caff72500d62831979d8e566d0c30",
           "data_classification": "data",
           "items": [
             {
@@ -7156,7 +7217,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "70f15dc4e34dc9b78e82ccacf6d4cbf2",
+                "authorized_snapshot_handle": "d42caff72500d62831979d8e566d0c30",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7171,7 +7232,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "70f15dc4e34dc9b78e82ccacf6d4cbf2",
+                "authorized_snapshot_handle": "d42caff72500d62831979d8e566d0c30",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7221,7 +7282,7 @@
       "id": "S13",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S13.json",
-      "vector_sha256": "a45edf728c067c47a7154cb2b4510fd16bc77184a0795041ce3eec8df2aba641",
+      "vector_sha256": "465c2e35c2c904b5e5fde8fe5db335ee6c1bfad020407ce4b239e1e522943201",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7229,7 +7290,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -7242,7 +7303,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "2ec8730ea4758bb47c78a6cf277a48a1",
+            "authorized_snapshot_handle": "b267bcb4488d3fad35313b72e8c82200",
             "data_classification": "data",
             "items": [
               {
@@ -7291,7 +7352,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "2ec8730ea4758bb47c78a6cf277a48a1",
+                  "authorized_snapshot_handle": "b267bcb4488d3fad35313b72e8c82200",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -7308,7 +7369,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "2ec8730ea4758bb47c78a6cf277a48a1",
+                  "authorized_snapshot_handle": "b267bcb4488d3fad35313b72e8c82200",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -7333,7 +7394,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "646e67c7039aff5fc66ff35e353e86be",
+            "receipt_handle": "2f8d2cc5c295a02b89a5762f4baf0c98",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -7346,7 +7407,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7359,7 +7420,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "93d91c814c0b067b5348d49555fc0f50",
+          "authorized_snapshot_handle": "d8ee9eac3dec79065a9e9baed5ac7ecb",
           "data_classification": "data",
           "items": [
             {
@@ -7408,7 +7469,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "93d91c814c0b067b5348d49555fc0f50",
+                "authorized_snapshot_handle": "d8ee9eac3dec79065a9e9baed5ac7ecb",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -7425,7 +7486,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "93d91c814c0b067b5348d49555fc0f50",
+                "authorized_snapshot_handle": "d8ee9eac3dec79065a9e9baed5ac7ecb",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7473,7 +7534,7 @@
       "id": "S14",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S14.json",
-      "vector_sha256": "f2d280af35f401cc769b8f18a833d891550a64ada1aaedcb72a10610cd9c85bb",
+      "vector_sha256": "7838efdde6c8c8a584143562899e709fcdf3ac9971269d62a006292103b7bb43",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7483,7 +7544,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "487ef88f3ba3cfab0dd48b3046087d25",
+            "receipt_handle": "bb11a06be11b9e6e3fc944c1251373fc",
             "refs": [
               {
                 "id": "rec:a",
@@ -7497,7 +7558,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "487ef88f3ba3cfab0dd48b3046087d25",
+            "receipt_handle": "bb11a06be11b9e6e3fc944c1251373fc",
             "refs": [
               {
                 "id": "rec:a",
@@ -7515,7 +7576,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7528,7 +7589,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "0b257698c88f12bfee52786322cbaff5",
+          "authorized_snapshot_handle": "226c4c0176c9702bc67cb0444ccce6ef",
           "data_classification": "data",
           "items": [
             {
@@ -7575,7 +7636,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "0b257698c88f12bfee52786322cbaff5",
+                "authorized_snapshot_handle": "226c4c0176c9702bc67cb0444ccce6ef",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7590,7 +7651,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "0b257698c88f12bfee52786322cbaff5",
+                "authorized_snapshot_handle": "226c4c0176c9702bc67cb0444ccce6ef",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7630,7 +7691,7 @@
       "id": "S15",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S15.json",
-      "vector_sha256": "330f649e7b8136187f85529d50ac22eb8136ad86be529b082cb4281a7929ad8f",
+      "vector_sha256": "16c88b16c54c803870969a4f86ec2666ba339bbb629dfb9e2824ef1ad52fc80d",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7638,7 +7699,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7651,7 +7712,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "b203fa204a599fa5dab4938f6dc50f3a",
+          "authorized_snapshot_handle": "089ce6c690b6478ccb30ec27ad6b67f7",
           "data_classification": "data",
           "items": [
             {
@@ -7698,7 +7759,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "b203fa204a599fa5dab4938f6dc50f3a",
+                "authorized_snapshot_handle": "089ce6c690b6478ccb30ec27ad6b67f7",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7713,7 +7774,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "b203fa204a599fa5dab4938f6dc50f3a",
+                "authorized_snapshot_handle": "089ce6c690b6478ccb30ec27ad6b67f7",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7757,7 +7818,7 @@
       "id": "S16",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S16.json",
-      "vector_sha256": "b786e477d8260775fc49a1b05eba6bea1e47d6a4136edbdf304c2e72a24e97dc",
+      "vector_sha256": "b6ec6d131364808a4223204ec0bb988994ed2fc935621ce3dcba51005245e873",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7771,7 +7832,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7784,7 +7845,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "99a22071a84121bf3cd22c170873d73a",
+          "authorized_snapshot_handle": "01fd785a87bce30d6038cd5cc1ec6883",
           "data_classification": "data",
           "items": [
             {
@@ -7831,7 +7892,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "99a22071a84121bf3cd22c170873d73a",
+                "authorized_snapshot_handle": "01fd785a87bce30d6038cd5cc1ec6883",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7846,7 +7907,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "99a22071a84121bf3cd22c170873d73a",
+                "authorized_snapshot_handle": "01fd785a87bce30d6038cd5cc1ec6883",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7890,7 +7951,7 @@
       "id": "S17",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S17.json",
-      "vector_sha256": "26d7eb30578120ec12feaee422221321d80ba430360f40676d17d44ba44751df",
+      "vector_sha256": "97e40fcc3f71051ad6e78e40618a3c9eec12e40888fe96f3657a40ed268ef4eb",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -7900,7 +7961,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "cd7b0e8ef25fc5bfb3996aa2b5ba67e8",
+            "receipt_handle": "f52ae8e28a4bbb8eb6812579d4d7f393",
             "refs": [
               {
                 "id": "rec:a",
@@ -7917,7 +7978,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7930,7 +7991,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "c9da728d6e7d625e101feebd7dd51ae5",
+          "authorized_snapshot_handle": "fb6e8d9f66aa9a423fc68a8715a256f1",
           "data_classification": "data",
           "items": [
             {
@@ -7977,7 +8038,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c9da728d6e7d625e101feebd7dd51ae5",
+                "authorized_snapshot_handle": "fb6e8d9f66aa9a423fc68a8715a256f1",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -7992,7 +8053,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "c9da728d6e7d625e101feebd7dd51ae5",
+                "authorized_snapshot_handle": "fb6e8d9f66aa9a423fc68a8715a256f1",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8068,7 +8129,7 @@
       "id": "S18",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S18.json",
-      "vector_sha256": "2a32be7d21478d77aca796d343f12bb2f040fa0a97f818897b87b26af5fc6d75",
+      "vector_sha256": "0a18d217d8871f4965abaa22eb77ea130364fa3663387fc8ee8c00928633962c",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8082,7 +8143,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8095,7 +8156,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "7425fc5373c41880b4365f5b372e000a",
+          "authorized_snapshot_handle": "52d20c2dd0fab52cff4bc72fd7235179",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -8126,7 +8187,7 @@
       "id": "S19",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S19.json",
-      "vector_sha256": "53b7b72811e3779a2d41e7617f0d4c02eb1f5fad2c5c51e99bd61e5e7e176f1f",
+      "vector_sha256": "7c0d2cb26bb1c6efa62a3791d20509bfe033c5d16de925d8b7eb78ccec3d1668",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8136,7 +8197,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "challenged",
-            "receipt_handle": "0b0294fbf9a07fb38a1817ba8b2705cf",
+            "receipt_handle": "97e10f56d3c24214001fb9edfcbc61e1",
             "refs": [
               {
                 "id": "rec:challenge",
@@ -8149,7 +8210,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8162,7 +8223,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "da44786d18e4cf02c4ef477cc51f5cc2",
+          "authorized_snapshot_handle": "652a26c141ceff5f52fcafea880b4d83",
           "data_classification": "data",
           "items": [
             {
@@ -8217,7 +8278,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "da44786d18e4cf02c4ef477cc51f5cc2",
+                "authorized_snapshot_handle": "652a26c141ceff5f52fcafea880b4d83",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8232,7 +8293,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "da44786d18e4cf02c4ef477cc51f5cc2",
+                "authorized_snapshot_handle": "652a26c141ceff5f52fcafea880b4d83",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8280,7 +8341,7 @@
       "id": "S20",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S20.json",
-      "vector_sha256": "00832d5070425b4e9f384150f09cc4ee3dc3a5835299d9f591647889230cd485",
+      "vector_sha256": "de07bd8eea83e3937bbae6d43e909ee6c860fc14ff5f863c14330a4f86848717",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8290,7 +8351,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "incomplete",
-            "receipt_handle": "9e4f091c27a4eea52855d8872cc370ce",
+            "receipt_handle": "e143e0093fafbb998352d3909602d730",
             "refs": [
               {
                 "id": "rec:a",
@@ -8310,7 +8371,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "340daed7cfb82918bea92f9e08524d06",
+            "receipt_handle": "57089f1f75c613b18696becb7dfb2d90",
             "refs": [
               {
                 "id": "rec:a",
@@ -8330,7 +8391,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8343,7 +8404,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "cf470c4884ca8ac9f0e2d7a0ba08ad04",
+          "authorized_snapshot_handle": "a04a0e13690bcf792335725c8f95988b",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -8392,7 +8453,7 @@
       "id": "S21",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S21.json",
-      "vector_sha256": "6c1d02a44ab79eeb571fee6c59776716338779c0d920bd4a71c5d563fe7aebff",
+      "vector_sha256": "ead087d3042c015d4dfa1611b940c161c7a515ea27d1c6962565bf7a2b39ef3c",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8400,7 +8461,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8413,7 +8474,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "b3f25510ab8c447c902110e2725ddafd",
+          "authorized_snapshot_handle": "7be1a194cfbed44545a12165a2a4cfc1",
           "data_classification": "data",
           "items": [
             {
@@ -8460,7 +8521,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "b3f25510ab8c447c902110e2725ddafd",
+                "authorized_snapshot_handle": "7be1a194cfbed44545a12165a2a4cfc1",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8475,7 +8536,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "b3f25510ab8c447c902110e2725ddafd",
+                "authorized_snapshot_handle": "7be1a194cfbed44545a12165a2a4cfc1",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8555,7 +8616,7 @@
       "id": "S22",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S22.json",
-      "vector_sha256": "bc85634baf8fb61e83e5a8d2d12639c6bc612d40e2abbd2ef9ae41f86cfe6f7e",
+      "vector_sha256": "21d4cfe216a6792d6b49d92e9e20fa80ca9c6c0643551dfbc46ec6145828499f",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8563,7 +8624,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8576,7 +8637,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "936131f18cdd508e173dc9c39bedcec8",
+          "authorized_snapshot_handle": "f9f2a36f6831123599b8d1378e16dab4",
           "data_classification": "data",
           "items": [
             {
@@ -8628,7 +8689,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "936131f18cdd508e173dc9c39bedcec8",
+                "authorized_snapshot_handle": "f9f2a36f6831123599b8d1378e16dab4",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8643,7 +8704,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "936131f18cdd508e173dc9c39bedcec8",
+                "authorized_snapshot_handle": "f9f2a36f6831123599b8d1378e16dab4",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8699,7 +8760,7 @@
       "id": "S23",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S23.json",
-      "vector_sha256": "ebb045088afea140c47bf62c2622fa8fc2251e496f12fd49e76478c28f40b6e2",
+      "vector_sha256": "b84dc1cde7a08a326efa218edc29a436931b71b412cf9a30ae7fb5c3ec343b60",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8707,7 +8768,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -8720,7 +8781,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "2aac3a491933f474d6a06be98c6c8ddf",
+            "authorized_snapshot_handle": "9a03531a94a9d45e91a6c831784537d6",
             "data_classification": "data",
             "items": [
               {
@@ -8772,7 +8833,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "2aac3a491933f474d6a06be98c6c8ddf",
+                  "authorized_snapshot_handle": "9a03531a94a9d45e91a6c831784537d6",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -8787,7 +8848,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "2aac3a491933f474d6a06be98c6c8ddf",
+                  "authorized_snapshot_handle": "9a03531a94a9d45e91a6c831784537d6",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -8811,7 +8872,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8824,7 +8885,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "4849e985ecfcbeedc685c3812d7fd364",
+          "authorized_snapshot_handle": "ddcfd7d7e5c02aed97f1584d6616a288",
           "data_classification": "data",
           "items": [
             {
@@ -8876,7 +8937,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "4849e985ecfcbeedc685c3812d7fd364",
+                "authorized_snapshot_handle": "ddcfd7d7e5c02aed97f1584d6616a288",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8891,7 +8952,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "4849e985ecfcbeedc685c3812d7fd364",
+                "authorized_snapshot_handle": "ddcfd7d7e5c02aed97f1584d6616a288",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -8951,7 +9012,7 @@
       "id": "S24",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S24.json",
-      "vector_sha256": "4e8777a6a820251368a3e9eb82c7040dcc667dedb5be49b31fc96b60cf84794d",
+      "vector_sha256": "9861387ecf077d0a8ff7e7c3e7c0090980d42d6c9eaa2975a2f3280e0b7e651f",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -8959,7 +9020,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -8972,7 +9033,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "4f15ba79596b15694a82c67d5e8a433b",
+            "authorized_snapshot_handle": "06e3b44322ee42444cd4a2b415a7770e",
             "data_classification": "data",
             "items": [
               {
@@ -9021,7 +9082,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "4f15ba79596b15694a82c67d5e8a433b",
+                  "authorized_snapshot_handle": "06e3b44322ee42444cd4a2b415a7770e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -9038,7 +9099,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "4f15ba79596b15694a82c67d5e8a433b",
+                  "authorized_snapshot_handle": "06e3b44322ee42444cd4a2b415a7770e",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -9063,7 +9124,7 @@
             "type": "receipt",
             "operation": "admit",
             "outcome": "admitted",
-            "receipt_handle": "9ab9a8afec4aa1ad578b8b9ed75276c7",
+            "receipt_handle": "789516dec7a6e3dab32b0698fac6fba4",
             "refs": [
               {
                 "id": "cert:hidden-rule",
@@ -9089,7 +9150,7 @@
             "type": "receipt",
             "operation": "revise",
             "outcome": "revised",
-            "receipt_handle": "c796469ed26c637b3785618429d4febe",
+            "receipt_handle": "9e7c709207aec9c26559bc853376d25b",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -9105,7 +9166,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -9118,7 +9179,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "c4249c46c06809f419115dcbd55c7c31",
+            "authorized_snapshot_handle": "7c0d1a51e1001a8eaafd454d772c6984",
             "data_classification": "data",
             "items": [
               {
@@ -9165,7 +9226,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "c4249c46c06809f419115dcbd55c7c31",
+                  "authorized_snapshot_handle": "7c0d1a51e1001a8eaafd454d772c6984",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -9180,7 +9241,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "c4249c46c06809f419115dcbd55c7c31",
+                  "authorized_snapshot_handle": "7c0d1a51e1001a8eaafd454d772c6984",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -9212,7 +9273,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "773fa8cce07b9a21c708e03b2e81cad2",
+            "receipt_handle": "0eb7fed21f19308606871273375ccb29",
             "refs": [
               {
                 "id": "rec:hidden",
@@ -9225,7 +9286,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9238,7 +9299,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "6b585a2978c2edaeea56b3b398d8b1e7",
+          "authorized_snapshot_handle": "12b1dfefc0a4a13bd20ef6243af52ef6",
           "data_classification": "data",
           "items": [
             {
@@ -9287,7 +9348,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "6b585a2978c2edaeea56b3b398d8b1e7",
+                "authorized_snapshot_handle": "12b1dfefc0a4a13bd20ef6243af52ef6",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -9304,7 +9365,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "6b585a2978c2edaeea56b3b398d8b1e7",
+                "authorized_snapshot_handle": "12b1dfefc0a4a13bd20ef6243af52ef6",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9382,7 +9443,7 @@
       "id": "S25",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S25.json",
-      "vector_sha256": "e6b25e0d4a4ed0d54050ac34d4f5e9b13e201e24cbc92dd15f7853b481f206e5",
+      "vector_sha256": "6117598835e5c2090b7e8dbce6b7d645d52ab44f855ced313e56e021ac528d0b",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9392,7 +9453,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "2a08550db74ebec9c1e9180205f3a52f",
+            "receipt_handle": "ce2d613c60a43cf3b0a04f6c26cb341d",
             "refs": [
               {
                 "id": "rec:a",
@@ -9409,7 +9470,7 @@
             "type": "receipt",
             "operation": "restore",
             "outcome": "fenced",
-            "receipt_handle": "cf758cd82cb758e78bc22647e70a6b56",
+            "receipt_handle": "4879a8d47be358a0b414fb2435eca09c",
             "refs": [],
             "custody": [],
             "erasure_status": "access_closed"
@@ -9452,7 +9513,7 @@
       "id": "S26",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S26.json",
-      "vector_sha256": "425d9b7ee61cf4dfafd009f9d601d2c08ab4434fc7361319b486f2890f7825b2",
+      "vector_sha256": "9ebf97bb44be556adbd5267d44d13cbbff14f3582c80530b847146b7008be32d",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9462,7 +9523,7 @@
             "type": "receipt",
             "operation": "erase",
             "outcome": "purged",
-            "receipt_handle": "cba978bb2a0c7df0ab08d61e8486b89a",
+            "receipt_handle": "6d7fad4c0311027ddbfd71984042654c",
             "refs": [
               {
                 "id": "rec:a",
@@ -9480,7 +9541,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9493,7 +9554,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "2f85d0ee8766dc770e399bd21b67d8a4",
+          "authorized_snapshot_handle": "323d66965ac6428e632fba3a2f55ff5d",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
@@ -9534,7 +9595,7 @@
       "id": "S27",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S27.json",
-      "vector_sha256": "1a69461d6f3758156a8aa7e65ab9ffe132a912a5deb113e9f3cb4cce7ce69c9b",
+      "vector_sha256": "e3bd4b4a669ef0a1382d0dd3294499094f6eb771bff4740cdbea539a7297ba8c",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9542,7 +9603,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -9555,7 +9616,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "9ec768be9df97bfb168997dcf01151fb",
+            "authorized_snapshot_handle": "d12b8ca1544bd38d69f59b74047d6af2",
             "data_classification": "data",
             "items": [
               {
@@ -9604,7 +9665,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "9ec768be9df97bfb168997dcf01151fb",
+                  "authorized_snapshot_handle": "d12b8ca1544bd38d69f59b74047d6af2",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -9621,7 +9682,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "9ec768be9df97bfb168997dcf01151fb",
+                  "authorized_snapshot_handle": "d12b8ca1544bd38d69f59b74047d6af2",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -9646,14 +9707,14 @@
             "type": "receipt",
             "operation": "load",
             "outcome": "proceeded",
-            "receipt_handle": "a6414806de92fe7f8f370a2489cd4c23",
+            "receipt_handle": "a0459e19cc333b5ae24cb37d4daa085e",
             "refs": [],
             "custody": [],
             "erasure_status": null
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -9666,7 +9727,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "e03f8aada619fc5ad79d87d5f7c7930d",
+            "authorized_snapshot_handle": "192eca2481a2c28672248f2f5c0fb921",
             "data_classification": "data",
             "items": [
               {
@@ -9715,7 +9776,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "e03f8aada619fc5ad79d87d5f7c7930d",
+                  "authorized_snapshot_handle": "192eca2481a2c28672248f2f5c0fb921",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ep"
@@ -9732,7 +9793,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "e03f8aada619fc5ad79d87d5f7c7930d",
+                  "authorized_snapshot_handle": "192eca2481a2c28672248f2f5c0fb921",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -9757,7 +9818,7 @@
             "type": "receipt",
             "operation": "set_availability",
             "outcome": "availability_changed",
-            "receipt_handle": "20f0aa95fac9cfb2dc8784f50f14e38f",
+            "receipt_handle": "e2f32a96e5a5ad5f504cc90a8a4eb752",
             "refs": [],
             "custody": [],
             "erasure_status": null
@@ -9791,7 +9852,7 @@
       "id": "S28",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S28.json",
-      "vector_sha256": "8e5fc41094daaf0b1c2f075821fd22c584ea2d792af845423fe258987b497211",
+      "vector_sha256": "7cb291f04dac346ae7bb6190602f2b80daa372f61a992790310d481e5087e2e4",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -9799,7 +9860,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9812,7 +9873,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "e462558d7c5805ff7f0ab6dc5f788228",
+          "authorized_snapshot_handle": "7ee4c28f691cc81df17d36f3d016859c",
           "data_classification": "data",
           "items": [
             {
@@ -9867,7 +9928,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e462558d7c5805ff7f0ab6dc5f788228",
+                "authorized_snapshot_handle": "7ee4c28f691cc81df17d36f3d016859c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9882,7 +9943,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e462558d7c5805ff7f0ab6dc5f788228",
+                "authorized_snapshot_handle": "7ee4c28f691cc81df17d36f3d016859c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9940,7 +10001,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e462558d7c5805ff7f0ab6dc5f788228",
+                "authorized_snapshot_handle": "7ee4c28f691cc81df17d36f3d016859c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -9955,7 +10016,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "e462558d7c5805ff7f0ab6dc5f788228",
+                "authorized_snapshot_handle": "7ee4c28f691cc81df17d36f3d016859c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -10020,7 +10081,7 @@
       "id": "S29",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S29.json",
-      "vector_sha256": "98883aae59348ffab45b2aa2a67125ba4a44b93f4398eb15b542ca8daf57b144",
+      "vector_sha256": "f40b57c4750032e624e453db5cacaac1ca78eb86e069dd997e41b017dd9cddbf",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -10028,7 +10089,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -10041,7 +10102,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "f3cfbc4332b423d69e6406f4709c9b6f",
+          "authorized_snapshot_handle": "23a6aef7aabffec7538db191bdd2ed5b",
           "data_classification": "data",
           "items": [
             {
@@ -10096,7 +10157,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "f3cfbc4332b423d69e6406f4709c9b6f",
+                "authorized_snapshot_handle": "23a6aef7aabffec7538db191bdd2ed5b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -10111,7 +10172,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "f3cfbc4332b423d69e6406f4709c9b6f",
+                "authorized_snapshot_handle": "23a6aef7aabffec7538db191bdd2ed5b",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -10168,7 +10229,7 @@
       "id": "S30",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S30.json",
-      "vector_sha256": "afcb41aa4a5d750275abc924a4482008603ef0165bf8d92250e04fa9cb042a90",
+      "vector_sha256": "a3df3847b461ab9c798d5737aee4869f47ec6b91a42abf77704e15b722564dde",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -10176,7 +10237,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -10189,7 +10250,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "f02e4ad5d3b760dc7de9d29bc76ddec4",
+            "authorized_snapshot_handle": "88131a3c6cb17dd1e4e5aebb622e5bf2",
             "data_classification": "data",
             "items": [
               {
@@ -10240,7 +10301,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "f02e4ad5d3b760dc7de9d29bc76ddec4",
+                  "authorized_snapshot_handle": "88131a3c6cb17dd1e4e5aebb622e5bf2",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -10259,7 +10320,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "f02e4ad5d3b760dc7de9d29bc76ddec4",
+                  "authorized_snapshot_handle": "88131a3c6cb17dd1e4e5aebb622e5bf2",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -10283,7 +10344,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -10296,7 +10357,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "02ea3c02b17b74862a9f95806f6188e3",
+          "authorized_snapshot_handle": "0731c6e42f13321bd3932b5cd58fa09a",
           "data_classification": "data",
           "items": [
             {
@@ -10350,7 +10411,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "02ea3c02b17b74862a9f95806f6188e3",
+                "authorized_snapshot_handle": "0731c6e42f13321bd3932b5cd58fa09a",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:grounds"
@@ -10367,7 +10428,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "02ea3c02b17b74862a9f95806f6188e3",
+                "authorized_snapshot_handle": "0731c6e42f13321bd3932b5cd58fa09a",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -10431,7 +10492,7 @@
       "id": "S31",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S31.json",
-      "vector_sha256": "68877114b06cdf81de189a2c595e2fea3c6d01abaa761207b275b776d8da8663",
+      "vector_sha256": "a317debd45908581b3a060daecbdfef79abc7456f365d1ae49893eb0f868b62f",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -10439,7 +10500,7 @@
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -10452,7 +10513,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "47e9c84d2f93a96d1501930e2465c54b",
+          "authorized_snapshot_handle": "0f8cfdca463ad443e312c88f2cdde74c",
           "data_classification": "data",
           "items": [
             {
@@ -10502,7 +10563,7 @@
                 ],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "47e9c84d2f93a96d1501930e2465c54b",
+                "authorized_snapshot_handle": "0f8cfdca463ad443e312c88f2cdde74c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [
                   "origin:ep"
@@ -10519,7 +10580,7 @@
                 "evidence_qualification": [],
                 "source_state": "resolvable_now",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "47e9c84d2f93a96d1501930e2465c54b",
+                "authorized_snapshot_handle": "0f8cfdca463ad443e312c88f2cdde74c",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -10583,7 +10644,7 @@
       "id": "S32",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S32.json",
-      "vector_sha256": "832a9da6e8b11bbfa3761934da8912b81d9e1cb3d817aee8bad6710c8fc6f3ff",
+      "vector_sha256": "8a43b305cfa8fca771dfff70618ebf655462a5d8ab2b8eaf4ad5b9307adfcc93",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -10591,7 +10652,7 @@
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -10604,7 +10665,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "0960a0aba675b4ee133c0fcb36640011",
+            "authorized_snapshot_handle": "9b529a78d62b74f7f20933ed643d91d6",
             "data_classification": "data",
             "items": [
               {
@@ -10658,7 +10719,7 @@
                   ],
                   "source_state": "independent_attestation",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "0960a0aba675b4ee133c0fcb36640011",
+                  "authorized_snapshot_handle": "9b529a78d62b74f7f20933ed643d91d6",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:att"
@@ -10675,7 +10736,7 @@
                   "evidence_qualification": [],
                   "source_state": "prior_assessment_only",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "0960a0aba675b4ee133c0fcb36640011",
+                  "authorized_snapshot_handle": "9b529a78d62b74f7f20933ed643d91d6",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -10732,7 +10793,7 @@
                   ],
                   "source_state": "prior_assessment_only",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "0960a0aba675b4ee133c0fcb36640011",
+                  "authorized_snapshot_handle": "9b529a78d62b74f7f20933ed643d91d6",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:ret"
@@ -10749,7 +10810,7 @@
                   "evidence_qualification": [],
                   "source_state": "prior_assessment_only",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "0960a0aba675b4ee133c0fcb36640011",
+                  "authorized_snapshot_handle": "9b529a78d62b74f7f20933ed643d91d6",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -10772,7 +10833,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -10785,7 +10846,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "de6091771b51d23abce5ecc99f54f7da",
+            "authorized_snapshot_handle": "16ce4ab9c49151302c652d115f9d9fbb",
             "data_classification": "data",
             "items": [
               {
@@ -10840,7 +10901,7 @@
                   ],
                   "source_state": "prior_assessment_only",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "de6091771b51d23abce5ecc99f54f7da",
+                  "authorized_snapshot_handle": "16ce4ab9c49151302c652d115f9d9fbb",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:att",
@@ -10858,7 +10919,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "de6091771b51d23abce5ecc99f54f7da",
+                  "authorized_snapshot_handle": "16ce4ab9c49151302c652d115f9d9fbb",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -10881,7 +10942,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.1-draft",
+            "semantic_profile": "0.2.2-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -10894,7 +10955,7 @@
               "id": "policy:1",
               "version": 1
             },
-            "authorized_snapshot_handle": "53fe013329a006f43839a488c06aef91",
+            "authorized_snapshot_handle": "714f155b3858f64f04ded100e0b891fe",
             "data_classification": "data",
             "items": [
               {
@@ -10949,7 +11010,7 @@
                   ],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "53fe013329a006f43839a488c06aef91",
+                  "authorized_snapshot_handle": "714f155b3858f64f04ded100e0b891fe",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [
                     "origin:att",
@@ -10968,7 +11029,7 @@
                   "evidence_qualification": [],
                   "source_state": "resolvable_now",
                   "freshness": "not_applicable",
-                  "authorized_snapshot_handle": "53fe013329a006f43839a488c06aef91",
+                  "authorized_snapshot_handle": "714f155b3858f64f04ded100e0b891fe",
                   "dependency_coverage": "registered_only",
                   "witness_roots": [],
                   "independent_root_count": 0
@@ -10992,7 +11053,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -11005,7 +11066,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "2cf47ce14f5165b02a9db790a0f743d3",
+          "authorized_snapshot_handle": "45ded18c564f1d87fcd00c25eab04ee5",
           "data_classification": "data",
           "items": [
             {
@@ -11057,7 +11118,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "2cf47ce14f5165b02a9db790a0f743d3",
+                "authorized_snapshot_handle": "45ded18c564f1d87fcd00c25eab04ee5",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -11072,7 +11133,7 @@
                 "evidence_qualification": [],
                 "source_state": "prior_assessment_only",
                 "freshness": "not_applicable",
-                "authorized_snapshot_handle": "2cf47ce14f5165b02a9db790a0f743d3",
+                "authorized_snapshot_handle": "45ded18c564f1d87fcd00c25eab04ee5",
                 "dependency_coverage": "registered_only",
                 "witness_roots": [],
                 "independent_root_count": 0
@@ -11152,7 +11213,7 @@
       "id": "S33",
       "profile": "semantic",
       "path": "kernel/vectors/semantic/S33.json",
-      "vector_sha256": "82c10cbf08b9fa81d925dfdb3454d1cf58025a233f7d5a8de2a42a2dfcc38de0",
+      "vector_sha256": "f81d0ad51f441feea5d87451539167e0d448984144a0446238d80064130119e3",
       "status": "pass",
       "differences": [],
       "checks": [],
@@ -11166,7 +11227,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.1-draft",
+          "semantic_profile": "0.2.2-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -11179,7 +11240,7 @@
             "id": "policy:1",
             "version": 1
           },
-          "authorized_snapshot_handle": "e8b998a0e93d92766164c3f5188d93d7",
+          "authorized_snapshot_handle": "bdbf62943de1e3f15d69e9f68e468b82",
           "data_classification": "data",
           "items": [],
           "currentness": "none",
