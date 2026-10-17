@@ -382,3 +382,12 @@ All57canonical and54explicitly migrated supplemental semantic vectors pass;
 24product+4checker controls and33package plants pass. First47c0205,0641033 and
 e689cf2 reports remain unchanged. Independent review is requested; expiry remains
 a separate untyped native observation, not silently folded into this correction.
+
+### Retention deadline classification R7-053/054
+
+Judge classifies package implementation053 and exact contract mapping054.
+The required boundary is context.at < every applicable non-null deadline;
+at/after expiry is not_authorized/false before idempotency, including current
+replay checks of original outputs and transitive known input closure. Refusal
+must preserve full state/original receipt and has no purge effect. Editor0.2.5
+is pending; no deadline runtime change precedes that published contract.

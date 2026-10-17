@@ -743,3 +743,15 @@ will prove semantic differences and forbidden effects are detected.
 - Final logs: succession-native-green-01.log, supplemental-round27-01.log plus
   canonical-round27-01.log/controls-14.log/package-024-01.log. R7-048 awaits
   independent review; ASTRA25-11 expiry code/order/replay remains separately pending.
+
+## Round 28 — R7-053 deadline classification and next unit
+
+- Succession correction942bdee is published; deadline work is now the next unit.
+- Judge classifies original ASTRA25-11 as source052, package053 and mapping054.
+  Required live retention is trusted context.at strictly before every applicable
+  non-null deadline. At/after expiry: not_authorized/false before idempotency.
+- Exact replay must recheck original outputs/transitive known inputs at current
+  intake time; refusal preserves original receipt and full state without purging.
+  Null, complete/incomplete-known and same-batch resolution retain existing rules.
+- Await editor0.2.5 and explicit exact fixtures; freeze the full new release before
+  changing the package-only runtime. Native firste689cf2 remains unchanged.
