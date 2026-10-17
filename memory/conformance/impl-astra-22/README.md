@@ -10,7 +10,8 @@ answers from a vector's expected output.
 The model implements signed finite AND/OR support, qualified premises, distinct
 completeness and explanation limits, authorized logical work, temporal/mode/pin
 applicability, root-origin sets, synthetic admission/sequence/refusal behavior,
-authority-ordered currentness, lineage constraints, scoped declassification,
+authority-ordered currentness, declared incompatibility without signed opposition,
+basic audience handles/redaction and exclusion, lineage constraints, scoped declassification,
 delivery rechecks, immutable snapshot values and synthetic erasure fences.
 
 ## Normalized model boundary
@@ -91,3 +92,13 @@ fixing them. The initial adapter deliberately exposes the frozen core's gaps.
 
 Git publishes signed commits to main as required by the mission;
 a2a supplies rounds, divergence reports and PARK coordination.
+
+## Current coverage limits
+
+The package adapter now maps read-only recall/capture, ordinary and authority
+currentness, declared incompatibility, freshness, basic audience aliases and
+exclusion. It still explicitly rejects unsupported transaction wire operations,
+exact proof-path enumeration, dynamic dirty closure, live multi-owner release
+checks and unconfirmed imported-publication currentness. RESULTS.md lists the
+precise per-vector boundaries; source model unit controls alone do not count as
+package-vector passes. Original frozen evidence is retained unchanged.

@@ -93,3 +93,31 @@ The case runner now supports `--vectors memory/conformance/cases --out PATH`;
 canonical and supplemental inventories remain separate. No other implementation
 was read or used. The previous supplemental commit had one ordinary push race;
 signed rebase succeeded and b3c7ac9 verified G before publication.
+
+## Coverage extension unit (in progress)
+
+0.2.0-draft at cde5754 rerun: 24 pass / 0 fail / 33 unsupported semantic;
+8 deployment unsupported (`.temp/astra-22/vector-run-04.log`).
+Extend read-only wire coverage next: declared schema incompatibility (kept separate
+from signed evidence), basic audience aliases/redaction, and exact projection
+exclusion. These are declared unsupported gaps, not changes to a failed expected
+answer. Preserve missing-alias refusal, hidden/unknown-lineage filtering, temporal
+non-overlap and unchanged issuer sequences as negative controls. Declassified
+publication decisions and transactions remain unsupported until implemented.
+
+## Coverage extension result
+
+Implemented schema-scoped unequal-field incompatibility separately from evidence;
+basic audience alias/redaction with exact lookup; and immutable owner exclusions.
+Package 0.2.0-draft at cde5754d523b98c93cf2b1777fe80e15b9efa74c: 29 pass / 0 fail /
+28 unsupported semantic, 8 deployment unsupported (`vector-run-06.log`).
+25 source controls and 2 adapter controls pass (`source-checks-05.log`,
+`adapter-checks-02.log`); missing alias, adjacent intervals, different scopes/slots
+and no-rule cases are executable negative controls. No new divergence observed.
+
+Eight migrated astra-26 cases were copied read-only to
+`.temp/astra-22/cases-astra26-02/` and run separately: 4 pass / 0 fail /
+4 unsupported (`runs/cases-astra26-0.2.*`, `case-run-03.log`). Filenames and SHA-256
+values tie each copied input to the owned source case in memory/conformance/cases.
+Other seats' older-format cases were not conflated with this 0.2 inventory.
+Core SHA-256: 8738b80fbe1b12cd56c62f9095c541b19f18203bf9bc147fba1ca95e5c7432d9.

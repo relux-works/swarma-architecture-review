@@ -29,6 +29,28 @@ class AssociationControls(unittest.TestCase):
         self.assertEqual(item["support"]["witness"], "not_found")
         self.assertEqual(item["support"]["evaluation"], "complete")
 
+    # Basic audience projection uses its own subject handle and hides memory
+    # references. A missing exact alias refuses rather than leaking the subject.
+    def test_audience_alias_and_missing_mapping(self):
+        path = Path(__file__).resolve().parents[2] / "spec/kernel/vectors/semantic/P09.json"
+        vector = json.loads(path.read_text())
+        initial, query = vector["initial_state"], vector["query"]
+        before = copy.deepcopy(initial)
+        result = Adapter(initial, "control").query(query)
+        item = result["items"][0]
+        mapping = next(h for h in initial["policy"]["handles"]
+                       if h["subject"] == query["scope"]["subject"] and h["space"] == query["scope"]["space"]
+                       and h["audience"] == query["audience"])
+        self.assertEqual(item["subject"], mapping["handle"])
+        self.assertIsNone(item["ref"])
+        self.assertEqual(item["source_refs"], [])
+        self.assertNotIn("lineage", item)
+        self.assertEqual(initial, before)
+        missing = copy.deepcopy(initial)
+        missing["policy"]["handles"].remove(mapping)
+        self.assertEqual(Adapter(missing, "control").query(query),
+                         {"type": "refusal", "code": "not_authorized", "retryable": False})
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -10,7 +10,7 @@ import datetime
 import json
 import secrets
 
-from evaluator import Evaluator, Memory, Refusal, applicable
+from evaluator import Evaluator, Memory, Refusal, applicable, incompatibilities
 
 
 class Unsupported(Exception):
@@ -72,6 +72,7 @@ class Adapter:
         if e["kind"] == "assertion":
             schema = self.schemas[key(e["schema"])]
             out.update(schema=key(e["schema"]), statement_kind=b["statement_kind"], slot=b["slot"],
+                       schema_slot=b["slot"], content={f["field"]: f["value"] for f in b["content"]},
                        authority_receipt=key(b["authority_receipt"]) if b["authority_receipt"] else None)
             # The source's multi sequences use one identity for each coexisting value.
             if schema["cardinality"]["mode"] == "multi":
@@ -114,11 +115,12 @@ class Adapter:
         if self.runtime["revocations"]:
             raise Unsupported("Live policy revocation event grammar is not mapped in the first adapter")
         rule = self.rules[key(query["projection_rule"])]
-        if rule["family"] == "audience_projection":
-            raise Unsupported("Frozen core has no full audience item redaction/alias output")
+        audience = rule["family"] == "audience_projection"
+        if audience and (query["audience"] != rule["audience"] or query["purpose"] != rule["purpose"]):
+            return refusal("not_authorized")
+        if audience and any(r["envelope"]["disclosure"]["declassification"] for r in self.records.values()):
+            raise Unsupported("Current multi-owner declassification decisions are not mapped yet")
         schema = self.schemas[key(query["scope"]["schema"])]
-        if schema["incompatibilities"]:
-            raise Unsupported("Frozen core has no cross-assertion incompatible_with computation")
         nq = {"cut": query["cut"]["memory"], "valid_at": None if query["valid_at"] == "any" else query["valid_at"],
               "now": query["now"], "mode": query["mode"],
               "perspective": json.dumps(rule["perspective"], sort_keys=True),
@@ -126,6 +128,10 @@ class Adapter:
               "root_budget": min(query["bounds"]["roots"], self.policy["limits"]["read"]["roots"]),
               "rule_budget": min(query["bounds"]["rules"], self.policy["limits"]["read"]["rules"])}
         normalized = {k: self.normalized(r, query) for k, r in self.records.items()}
+        if audience:
+            for k, record in self.records.items():
+                if record["envelope"]["lineage"] == "unknown":
+                    normalized[k]["visible"] = False
         replacements = {}
         for k, record in self.records.items():
             if record["envelope"]["kind"] != "revision" or not applicable(normalized[k], nq):
@@ -225,8 +231,13 @@ class Adapter:
                            {k: [key(s) for s in refs] for k, refs in associated.items()})
         projection_records = [a for a in assertions if a["schema"] == key(query["scope"]["schema"])]
         projection = Memory(projection_records).project(nq | {"issuer": rule["issuer"], "subject": query["scope"]["subject"]})
+        all_current = Memory(projection_records).project(nq | {"subject": query["scope"]["subject"]})["current"]
+        incompatible = incompatibilities([normalized[k] for k in all_current], schema["incompatibilities"])
+        excluded = {key(r) for r in rule.get("excluded_refs", [])} if audience else set()
+        projection["historical"] = [k for k in projection["historical"] if k not in excluded]
         selected = ([key(r) for r in query["scope"]["targets"]] if query["scope"]["targets"] else projection["current"])
         selected = [k for k in selected if k in normalized and normalized[k]["kind"] == "assertion"
+                    and k not in excluded
                     and applicable(normalized[k], nq) and normalized[k]["issuer"] == rule["issuer"]
                     and normalized[k]["schema"] == key(query["scope"]["schema"])
                     and normalized[k]["subject"] == query["scope"]["subject"]]
@@ -268,8 +279,26 @@ class Adapter:
                           "admission_class": e["admission_class"], "statement_kind": b["statement_kind"],
                           "content": b["content"], "valid": e["valid"], "confirmed_at": e["confirmed_at"],
                           "usable_until": nr["usable_until"], "currentness": currentness, "authority_receipt": b["authority_receipt"],
-                          "incompatible_with": [], "needs_review": False, "source_refs": sorted_refs(displayed_sources),
+                          "incompatible_with": sorted_refs(ref(self.records[x]) for x in incompatible.get(k, [])),
+                          "needs_review": False, "source_refs": sorted_refs(displayed_sources),
                           "support": result["support"], "oppose": result["oppose"]})
+            if audience:
+                item = items[-1]
+                aliases = {(row["subject"], row["space"], row["audience"]): row["handle"]
+                           for row in self.policy["handles"]}
+                for field in ("subject", "issuer", "submitter"):
+                    alias = aliases.get((item[field], e["space"], query["audience"]))
+                    if alias is None:
+                        return refusal("not_authorized")
+                    item[field] = alias
+                alias = aliases.get((item["perspective"]["principal"], e["space"], query["audience"]))
+                if alias is None:
+                    return refusal("not_authorized")
+                item["perspective"] = dict(item["perspective"], principal=alias)
+                item.update(ref=None, representation_ref=None, authority_receipt=None,
+                            source_refs=[], incompatible_with=[])
+                for sign in ("support", "oppose"):
+                    item[sign]["witness_roots"] = []
         return {"type": "view", "semantic_profile": self.profile, "projection_rule": query["projection_rule"],
                 "evidence_policy": query["evidence_policy"], "policy": query["policy"], "authorized_snapshot_handle": handle,
                 "data_classification": "data", "items": items,

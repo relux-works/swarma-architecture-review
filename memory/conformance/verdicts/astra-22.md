@@ -1,30 +1,25 @@
 # R7 verdict — astra-22
 
-Status: four judge-classified implementation defects corrected; release reruns
-and judge closure pending. Unsupported semantic operations remain explicit.
+Status: classified corrections published; read coverage expanded on 0.2.0-draft.
+Unsupported semantic transactions remain explicit. No other evaluator was read.
 
-The evaluator was derived from kernel v0.2, companion and design only, frozen at
-`4d4ef45` before package access. First-run core SHA-256:
-`cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
-Immutable first evidence is in `impl-astra-22/runs/0.1.0-first.*` and
-`runs/case-first.json`. No other evaluator was read or used.
+The source-only baseline was frozen at `4d4ef45` before package access. Its
+SHA-256 is `cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
+Original failing reports remain in `impl-astra-22/runs/0.1.0-first.*` and
+`runs/case-first.json`. R7-011/012/013/015 fixes landed at `fb7df98`.
 
-Against package 0.1.0-draft at `0ef608a`, corrected results are:
+Current package commit: `cde5754d523b98c93cf2b1777fe80e15b9efa74c`.
 
 | Inventory | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Canonical semantic | 24 | 0 | 29 |
+| Canonical semantic | 29 | 0 | 28 |
 | Canonical deployment | 0 | 0 | 8 |
-| Supplemental cases | 3 | 0 | 11 |
+| Migrated astra-26 cases | 4 | 0 | 4 |
 
-R7-011/012/013/015 corrections preserve unavailable-source incompleteness,
-no-witness source state, exact authorized provenance and AND-path qualification.
-24 source controls, one adapter visibility control and five harness controls pass.
-Current core SHA-256:
-`eb5bd2b8df171c98f5294ed54f01dcf9e3157bfa4e6253b3824f10167fbc4da6`.
-Full fields and limits: `impl-astra-22/RESULTS.*`, `runs/case-corrected.*`,
-`DIVERGENCES.md` and `WORKLOG.md`.
+25 source controls, two adapter controls and five runner controls pass. Current
+core SHA-256: `8738b80fbe1b12cd56c62f9095c541b19f18203bf9bc147fba1ca95e5c7432d9`. Full evidence:
+`impl-astra-22/RESULTS.*`, `runs/cases-astra26-0.2.*`, `DIVERGENCES.md`, `WORKLOG.md`.
 
-R7 score: **1/2**. Supported canonical semantics agree after classified fixes,
-but unsupported operation coverage and the release/judge gates remain. No full
-semantic profile conformance or protected deployment qualification is claimed.
+R7 score: **1/2**. The supported vectors agree; remaining semantic operation
+coverage and collective release/ledger gates prevent a complete conformance claim.
+No protected deployment qualification, timing proof or physical erasure is claimed.

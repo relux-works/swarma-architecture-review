@@ -1,0 +1,551 @@
+{
+  "checkout_commit": "56e45ed34d0c619aa76943892fa16b32677b73ca",
+  "package_commit": "cde5754d523b98c93cf2b1777fe80e15b9efa74c",
+  "package_version": "0.2.0-draft",
+  "vector_directory": ".temp/astra-22/cases-astra26-02",
+  "core_sha256": "8738b80fbe1b12cd56c62f9095c541b19f18203bf9bc147fba1ca95e5c7432d9",
+  "totals": {
+    "semantic": {
+      "pass": 4,
+      "fail": 0,
+      "unsupported": 4
+    },
+    "deployment": {
+      "pass": 0,
+      "fail": 0,
+      "unsupported": 0
+    }
+  },
+  "vectors": {
+    "ASTRA26-06": {
+      "file": ".temp/astra-22/cases-astra26-02/astra-26-foreign-self-declaration.vector.json",
+      "sha256": "81329a17c2e3030eb85b7a365fa68eabfbcc3d5f4ce91fb52e50b2b70849be60",
+      "status": "unsupported",
+      "reason": "Unmapped frozen-core transaction operations: admit"
+    },
+    "ASTRA26-01": {
+      "file": ".temp/astra-22/cases-astra26-02/astra-26-import-attribution.vector.json",
+      "sha256": "09c1438d7db64c6a14905bcf59f9e7bac2dfd5f367cde830011c59397240d638",
+      "status": "unsupported",
+      "reason": "Unmapped frozen-core transaction operations: admit"
+    },
+    "ASTRA26-04": {
+      "file": ".temp/astra-22/cases-astra26-02/astra-26-location-slots.vector.json",
+      "sha256": "3ae82b4bf2aecdd4bb4c82af4c5983e3fef05a668a06e821722769c26939fde1",
+      "actual": {
+        "operation_results": [],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.0-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:current-location",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "self_declaration",
+              "statement_kind": "self_declaration",
+              "content": [
+                {
+                  "field": "kind",
+                  "value": "current"
+                },
+                {
+                  "field": "value",
+                  "value": "synthetic-city-B"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": "2026-10-24T00:00:00Z",
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "fresh",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "fresh",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            },
+            {
+              "ref": {
+                "id": "rec:residence-location",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "self_declaration",
+              "statement_kind": "self_declaration",
+              "content": [
+                {
+                  "field": "kind",
+                  "value": "residence"
+                },
+                {
+                  "field": "value",
+                  "value": "synthetic-city-A"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": "2026-10-24T00:00:00Z",
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "fresh",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "fresh",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "rec:current-location",
+              "version": 1
+            },
+            {
+              "id": "rec:residence-location",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
+    },
+    "ASTRA26-02-CONTROL": {
+      "file": ".temp/astra-22/cases-astra26-02/astra-26-publication-currentness-checked.vector.json",
+      "sha256": "afe8e252555abb7e8be66c94beafd976cd471d4834a53c90265aa7c15ecd50ed",
+      "actual": {
+        "operation_results": [],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.0-draft",
+          "projection_rule": {
+            "id": "projection:main",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": {
+                "id": "rec:interest",
+                "version": 1
+              },
+              "subject": "subj:h1",
+              "issuer": "subj:h1",
+              "submitter": "subj:h1",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:h1"
+              },
+              "representation_ref": null,
+              "admission_class": "imported_publication",
+              "statement_kind": "self_declaration",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "gardening"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": "2026-10-18T00:00:00Z",
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [
+                {
+                  "id": "rec:copy1",
+                  "version": 1
+                },
+                {
+                  "id": "rec:copy2",
+                  "version": 1
+                },
+                {
+                  "id": "rec:copy3",
+                  "version": 1
+                }
+              ],
+              "support": {
+                "witness": "present",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "clean_path",
+                "evidence_qualification": [
+                  "semantic_review"
+                ],
+                "source_state": "resolvable_now",
+                "freshness": "fresh",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [
+                  "origin:declaration"
+                ],
+                "independent_root_count": 1
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "fresh",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "rec:copy-review1",
+              "version": 1
+            },
+            {
+              "id": "rec:copy-review2",
+              "version": 1
+            },
+            {
+              "id": "rec:copy-review3",
+              "version": 1
+            },
+            {
+              "id": "rec:copy1",
+              "version": 1
+            },
+            {
+              "id": "rec:copy2",
+              "version": 1
+            },
+            {
+              "id": "rec:copy3",
+              "version": 1
+            },
+            {
+              "id": "rec:interest",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
+    },
+    "ASTRA26-02": {
+      "file": ".temp/astra-22/cases-astra26-02/astra-26-publication-currentness.vector.json",
+      "sha256": "99c3235f8035cabb6b0dac6fb39642fe28e180afeecb93f0382178e4b6c5922c",
+      "status": "unsupported",
+      "reason": "Frozen core has no imported-publication currentness state"
+    },
+    "ASTRA26-05": {
+      "file": ".temp/astra-22/cases-astra26-02/astra-26-relationship-introductions.vector.json",
+      "sha256": "176c112308ced67ddcb9fedf95ad976353c2086bd31c2c5553203de13bb3b297",
+      "status": "unsupported",
+      "reason": "Unmapped frozen-core transaction operations: admit"
+    },
+    "ASTRA26-03-CONTROL": {
+      "file": ".temp/astra-22/cases-astra26-02/astra-26-representative-public-alias-missing.vector.json",
+      "sha256": "44ef963d77fccb71c26d05bb8b500fc070b3000efcfdd84a7dac4f250d02a7f7",
+      "actual": {
+        "operation_results": [],
+        "result": {
+          "type": "refusal",
+          "code": "not_authorized",
+          "retryable": false
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "rec:interest",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
+    },
+    "ASTRA26-03": {
+      "file": ".temp/astra-22/cases-astra26-02/astra-26-representative-public-alias.vector.json",
+      "sha256": "fb0b553531c510ea1caf097ec7311ac67b42935ae7a700696eff8741394b3842",
+      "actual": {
+        "operation_results": [],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.0-draft",
+          "projection_rule": {
+            "id": "projection:public",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": null,
+              "subject": "subj:public-a",
+              "issuer": "subj:public-a",
+              "submitter": "subj:public-representative",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:public-a"
+              },
+              "representation_ref": null,
+              "admission_class": "self_declaration",
+              "statement_kind": "self_declaration",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "gardening"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "rec:interest",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
+    }
+  }
+}

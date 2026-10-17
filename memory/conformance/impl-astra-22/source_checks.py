@@ -3,7 +3,7 @@
 import copy
 import unittest
 
-from evaluator import Evaluator, Memory, Refusal, field_differences, strict_json
+from evaluator import Evaluator, Memory, Refusal, field_differences, strict_json, incompatibilities
 
 
 def claim(key, **extra):
@@ -279,6 +279,19 @@ class SourceClaims(unittest.TestCase):
         self.assertEqual(memory.project(query)["current"], [])
         self.assertEqual(memory.records, original)
         self.assertEqual(memory.project({})["current"], ["org"])
+
+    # Declared incompatibility needs exact schema/scope and overlapping validity;
+    # adjacent intervals, distinct slots and missing rules do not create links.
+    def test_declared_incompatibility_scope(self):
+        a = claim("A", slot="s", space="space", statement_kind="fact", valid=[1, 3], content={"value": "one"})
+        b = claim("B", slot="s", space="space", statement_kind="fact", valid=[2, 4], content={"value": "two"})
+        relations = [{"relation": "unequal", "field": "value", "statement_kinds": ["fact"]}]
+        self.assertEqual(incompatibilities([a, b], relations), {"A": ["B"], "B": ["A"]})
+        for change in ({"valid": [3, 4]}, {"valid": "unknown"}, {"slot": "else"},
+                       {"perspective": "observer"}, {"space": "else"}, {"content": {"value": "one"}}):
+            self.assertEqual(incompatibilities([a, b | change], relations), {"A": [], "B": []})
+        self.assertEqual(incompatibilities([a, b], []), {"A": [], "B": []})
+        self.assertEqual(Evaluator([a, b]).evaluate("A")["oppose"]["witness"], "not_found")
 
     # The harness catches a planted field change and unexpected output field;
     # duplicate JSON keys and nonfinite numbers cannot silently normalize.

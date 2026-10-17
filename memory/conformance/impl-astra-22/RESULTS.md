@@ -1,7 +1,8 @@
 # astra-22 vector results
 
-Package: **0.1.0-draft**, package commit `0ef608ae279a9bc209ad78ffdc72dbbbdc828f8f`.
-Checkout: `b3c7ac93d30e9149a252295b0905a63a85a00125`. Source core SHA-256: `eb5bd2b8df171c98f5294ed54f01dcf9e3157bfa4e6253b3824f10167fbc4da6`.
+Package: **0.2.0-draft**, package commit `cde5754d523b98c93cf2b1777fe80e15b9efa74c`.
+Vector directory: `memory/spec/kernel/vectors` (this inventory only).
+Checkout: `56e45ed34d0c619aa76943892fa16b32677b73ca`. Source core SHA-256: `8738b80fbe1b12cd56c62f9095c541b19f18203bf9bc147fba1ca95e5c7432d9`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.
@@ -10,7 +11,7 @@ Deployment cases require actual boundary qualification and are reported separate
 
 | Category | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| semantic | 24 | 0 | 29 |
+| semantic | 29 | 0 | 28 |
 | deployment | 0 | 0 | 8 |
 
 Five bounded harness controls passed (valid comparison, changed value, extra field,
@@ -40,14 +41,18 @@ No randomness-distribution or timing proof is claimed.
 | P01 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P02 | semantic | unsupported | Unmapped frozen-core transaction operations: revise |
 | P03 | semantic | unsupported | Unmapped frozen-core transaction operations: admit |
-| P04 | semantic | unsupported | Frozen core has no cross-assertion incompatible_with computation |
-| P05 | semantic | unsupported | Unmapped frozen-core transaction operations: declassify |
+| P04 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| P05 | semantic | unsupported | Unmapped frozen-core transaction operations: declassify, deliver, revoke_declassification |
 | P06 | semantic | unsupported | Unmapped frozen-core transaction operations: deliver, revoke |
 | P07 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P08 | semantic | unsupported | Unmapped frozen-core transaction operations: erase |
-| P09 | semantic | unsupported | Frozen core has no full audience item redaction/alias output |
+| P09 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P10 | semantic | unsupported | Unmapped frozen-core transaction operations: revise |
 | P11 | semantic | unsupported | Unmapped frozen-core transaction operations: admit |
+| P12 | semantic | unsupported | Unmapped frozen-core transaction operations: deliver, revoke |
+| P13 | semantic | unsupported | Unmapped frozen-core transaction operations: admit |
+| P14 | semantic | unsupported | Unmapped frozen-core transaction operations: revise |
+| P15 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S01 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S02 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S03 | semantic | pass | Exact report and forbidden/normalization checks passed. |
@@ -56,8 +61,8 @@ No randomness-distribution or timing proof is claimed.
 | S06 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S07 | semantic | unsupported | Frozen core has no exact proof-path enumeration or changes output |
 | S08 | semantic | unsupported | Unmapped frozen-core transaction operations: admit |
-| S09 | semantic | unsupported | Frozen core has no cross-assertion incompatible_with computation |
-| S10 | semantic | unsupported | Frozen core has no cross-assertion incompatible_with computation |
+| S09 | semantic | pass | Exact report and forbidden/normalization checks passed. |
+| S10 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S11 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S12 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S13 | semantic | unsupported | Unmapped frozen-core transaction operations: admit |

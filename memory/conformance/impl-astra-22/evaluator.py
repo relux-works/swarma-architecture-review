@@ -291,6 +291,35 @@ def sequence_key(record):
     return tuple(record.get(k) for k in ("issuer", "subject", "schema", "perspective", "slot"))
 
 
+def incompatibilities(assertions, relations):
+    """Declared unequal fields relate current assertions, never signed evidence."""
+    result = {r["id"]: set() for r in assertions}
+    for index, left in enumerate(assertions):
+        for right in assertions[index + 1:]:
+            if left["schema"] != right["schema"]:
+                continue
+            for relation in relations:
+                if relation["relation"] != "unequal":
+                    raise Refusal("unknown_incompatibility")
+                if any(left.get(k) != right.get(k) for k in ("subject", "space", "perspective")):
+                    continue
+                if left.get("schema_slot", left.get("slot")) != right.get("schema_slot", right.get("slot")):
+                    continue
+                if any(r["statement_kind"] not in relation["statement_kinds"] for r in (left, right)):
+                    continue
+                a, b = left.get("valid"), right.get("valid")
+                if a == "unknown" or b == "unknown" or a is None or b is None:
+                    continue
+                if (a[1] is not None and b[0] is not None and a[1] <= b[0]
+                        or b[1] is not None and a[0] is not None and b[1] <= a[0]):
+                    continue
+                field = relation["field"]
+                if canonical(left["content"][field]) != canonical(right["content"][field]):
+                    result[left["id"]].add(right["id"])
+                    result[right["id"]].add(left["id"])
+    return {k: sorted(v) for k, v in result.items()}
+
+
 class Memory:
     """Synthetic transaction, projection, lineage and delivery model."""
 
