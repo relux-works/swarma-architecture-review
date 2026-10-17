@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 35; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 36; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.5-draft` at `6a04e8c`; all twenty owned exact fixtures explicitly migrated.
 
 ## Scope and method
@@ -646,13 +646,43 @@ already establishes the observations; no new runtime claim or exact oracle needs
 an additional test. Local documentation checks confirm the owner-question link,
 matching classification and unchanged frozen input/output bytes.
 
+## Round 36 independent public-availability correction review
+
+Source `87beb46` exactly passes all 57 canonical 0.2.5 semantic vectors and all
+twenty owned fixtures. Their input hashes are unchanged from the previous full
+run and explicit migration. Five focused availability groups now pass, including
+the expanded four-pair initial/requested public-state matrix and the original
+initial-degraded recovery regression. The earlier focused failure report remains
+unchanged and is not replaced by this corrected run.
+
+The correction updates the current public availability fact alongside the
+existing runtime availability stimulus. The matrix checks that only those two
+facts change: records, policy pins, grants, cuts, receipts and captures remain
+intact. Unauthorized actors, missing coarse admission and malformed state still
+refuse atomically with their specified codes; hidden load leaves the public view
+unchanged apart from allowed fresh handles. These are synthetic state transitions,
+not actual infrastructure recovery. R7-056 closure is recommended after judge review.
+
+Evidence: seat-local `astra22-canonical-025-full-02.json/.log`,
+`astra22-owned-cases-34.json/.log` and `astra22-availability-controls-02.json/.log`.
+Exact inputs and full implementation module hashes are retained. Package code and
+owned oracles did not change, so its prior independent exact evidence is retained
+without another package rerun.
+
+Judge `13e3d73` formally closes R7-053 at `23b4d74`, corroborating Round 33.
+That ledger also verifies full dual canonical/supplemental coverage while keeping
+native R7-056 open for correction review. The separate erase-context priority
+probe remains unadjudicated here. R7-055 stays held for Ivan without an exact
+oracle or authority change.
+
 ## Provisional R7 row and remaining work
 
 **Phase 2 R7: 1/2.** Both evaluators independently pass all 57 canonical
-semantic vectors and the twenty owned exact fixtures on 0.2.5. The separate
-initial-degraded recovery failure is source bug R7-056 and awaits repair;
-R7-053 formal closure is pending. Issuer ambiguity R7-055 is held for an owner
-decision with no exact oracle. Protected deployment remains unqualified.
+semantic vectors and the twenty owned exact fixtures on 0.2.5. R7-053 is
+judge-closed; R7-056 correction is independently verified and awaits formal
+closure. The separate erase-context priority probe still awaits adjudication.
+Issuer ambiguity R7-055 remains held for an owner decision with no exact oracle.
+Protected deployment is unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
