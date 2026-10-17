@@ -54,7 +54,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -114,7 +114,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -174,7 +174,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -231,7 +231,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -291,7 +291,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -377,7 +377,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -463,7 +463,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -550,7 +550,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -625,7 +625,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -744,6 +744,7 @@
         "sequence_resolution": "issuer_and_authority",
         "time_policy": "query_cut",
         "freshness_policy": "query_override_else_schema",
+        "excluded_refs": [],
         "family": "issuer_current",
         "audience": null,
         "purpose": null
@@ -755,6 +756,127 @@
         "version": 1
       },
       "owner": "subj:h1",
+      "lineage_facts": [
+        {
+          "output": {
+            "id": "cert:j",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:a",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:att",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:b",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:c",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:fresh",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:j",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:ret",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:s",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        }
+      ],
+      "constraint_owners": [],
+      "declassification_decisions": [],
       "profile": "protected",
       "grants": [
         {
@@ -963,6 +1085,7 @@
       ]
     },
     "runtime": {
+      "revoked_declassifications": [],
       "committed_cuts": [
         100
       ],
@@ -1146,7 +1269,7 @@
     "operation_results": [
       {
         "type": "view",
-        "semantic_profile": "0.1.0-draft",
+        "semantic_profile": "0.2.0-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -1327,7 +1450,7 @@
       },
       {
         "type": "view",
-        "semantic_profile": "0.1.0-draft",
+        "semantic_profile": "0.2.0-draft",
         "projection_rule": {
           "id": "projection:main",
           "version": 1
@@ -1438,7 +1561,7 @@
     ],
     "result": {
       "type": "view",
-      "semantic_profile": "0.1.0-draft",
+      "semantic_profile": "0.2.0-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1

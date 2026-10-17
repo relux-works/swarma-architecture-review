@@ -92,3 +92,17 @@ that result. The fixture remains unchanged at SHA-256
 `5c480a32fed11b4f508aabf638e5114be40de8be110c808d41cc842cc0b389e9`.
 Evidence: source-owner `impl-astra-22/runs/case-first.json` and seat-local
 `.temp/astra22-owned-cases-03.json`.
+
+## 0.2.0 migration and independent rerun — round 5
+
+The owned vector now uses 0.2.0 grammar: release version, disclosure decisions,
+projection exclusions and explicit direct synthetic integration-lineage facts.
+An initial migration check caught missing facts for added fixture records; the
+complete corrected fixture passes `.temp/case-vectors-validate-07.log`. Earlier
+semantic hashes above refer to their stated historical fixture revisions.
+
+Package-only evaluator `0008dc3` passes the complete original-release fixture
+against 0.1.0 schemas, including full versus truncated explanation. Source
+evaluator `fb7df98` continues to declare exact proof enumeration unsupported.
+Evidence: `.temp/astra23-owned-cases-0.1.json` and
+`.temp/astra22-owned-cases-06.json`.

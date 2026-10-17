@@ -109,3 +109,20 @@ original fixture, and seat-local `.temp/astra22-owned-cases-01.json` through
 the reproduced source-core behavior as R7-015 (`impl-bug`, astra-22). Exact
 target and necessary-premise scope resolve the choice without an owner question.
 Expected outputs have not been changed to match the implementation. No deployment behavior was exercised.
+
+## 0.2.0 migration and independent rerun — round 5
+
+The owned vector now uses 0.2.0 grammar: release version, disclosure decisions,
+projection exclusions and explicit direct synthetic integration-lineage facts.
+An initial migration check caught missing facts for added fixture records; the
+complete corrected fixture passes `.temp/case-vectors-validate-07.log`. Earlier
+semantic hashes above refer to their stated historical fixture revisions.
+
+Source fix `fb7df98` passes the entire mixed-state and stronger-alternative
+fixture, including every source reference and prior-only opposite channel.
+R7-015's counterexample is repaired in that implementation. Package clarification
+R7-014 still awaits its release. Package-only evaluator `0008dc3` already agrees
+on both source-state results in the matched 0.1.0 lane, but omits derived source
+references. That omission is isolated as ASTRA24-04, not another AND-state bug.
+Evidence: `.temp/astra22-owned-cases-06.json` and
+`.temp/astra23-owned-cases-0.1.json`.

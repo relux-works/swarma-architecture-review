@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: active, round 4. Source baseline: `95f974b`; kernel draft v0.2.
+Status: active, round 5. Source baseline: `95f974b`; kernel draft v0.2.
 
 ## Scope and method
 
@@ -46,23 +46,30 @@ inside a mixed AND witness (independent A, retained-only B). Its structurally
 valid exact fixture records the proposed prior-only result and direct-root
 controls. The source evaluator exhibits the proposed ASTRA24-03 state disagreement;
 its owner independently recorded ASTRA22-04. Judge classification is R7-014 (`spec-bug`, package editor) and R7-015
-(`impl-bug`, source implementer). Both fixes remain pending. No source ambiguity has been established.
+(`impl-bug`, source implementer). The source fix `fb7df98` passes the full owned counterexample; package
+clarification release and judge closure remain pending. No source ambiguity has been established.
 The judge owns the collective score. No protected deployment is qualified.
 
 ## Owned-vector execution
 
-Frozen source evaluator at `3045117`, package `0.1.0-draft`:
+Current owned fixtures use 0.2.0 grammar and pass closed-structure checks.
+The first package-only implementation still targets 0.1.0, so its semantic
+results below use exactly matched original schemas/fixtures. Its separate
+0.2.0 migration is pending. No profile mismatch is counted as a semantic pass.
 
-| Case | Result | Evidence |
+| Case | Source evaluator fb7df98, 0.2.0 input | Package evaluator 0008dc3, matched 0.1.0 input |
 | --- | --- | --- |
-| ASTRA24-01 | unsupported | Exact explanation enumeration is explicitly unimplemented. |
-| ASTRA24-02 | pass | Both interval controls, exclusive endpoint and surviving alternative match exactly. |
-| ASTRA24-03 | fail; confirmed R7-015 | Mixed AND conclusion is independent_attestation; required prior-only result, source references and already-known empty-channel states differ. |
+| ASTRA24-01 | unsupported: proof enumeration | pass |
+| ASTRA24-02 | pass, including surviving alternative | pass |
+| ASTRA24-03 | pass; R7-015 counterexample repaired | State combination correct; derived source refs missing |
+| ASTRA24-04 | pass | fail: derived source refs missing |
 
-The case documents retain exact field differences, fixture hashes, independent
-source-owner evidence and seat-local logs. Structural checks and intended
-wrong-result plants pass for all three current fixtures. Execution never reads
-expected answers; no other seat's files were changed.
+ASTRA24-04 isolates the package evaluator's transitive-provenance omission in
+a simple A -> B rule with one resolvable source and a direct-root control.
+Judge classification is requested. Case files preserve exact fields, fixture
+hashes and run artifacts. The two failing package rows have one underlying
+provenance defect candidate, not two independent allegations. No source
+architecture question or deployment qualification has been established.
 
 ## Remaining work
 

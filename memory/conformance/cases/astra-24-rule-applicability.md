@@ -90,3 +90,16 @@ Fixture SHA-256:
 Evidence: seat-local `.temp/astra22-owned-cases-03.json` and
 `.temp/case-vectors-validate-04.log`. This is one evaluator's exact semantic
 pass; it does not qualify a protected deployment.
+
+## 0.2.0 migration and independent rerun — round 5
+
+The owned vector now uses 0.2.0 grammar: release version, disclosure decisions,
+projection exclusions and explicit direct synthetic integration-lineage facts.
+An initial migration check caught missing facts for added fixture records; the
+complete corrected fixture passes `.temp/case-vectors-validate-07.log`. Earlier
+semantic hashes above refer to their stated historical fixture revisions.
+
+Both independent evaluators pass all interval and surviving-alternative
+expectations: source `fb7df98` on current 0.2.0 syntax, package evaluator
+`0008dc3` on the matched original 0.1.0 fixture and schemas. Evidence:
+`.temp/astra22-owned-cases-06.json` and `.temp/astra23-owned-cases-0.1.json`.
