@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 33; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 34; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.5-draft` at `6a04e8c`; all twenty owned exact fixtures explicitly migrated.
 
 ## Scope and method
@@ -586,13 +586,53 @@ an attributed classification announcement, not a claim of read-back verified
 ledger publication. No authority implementation or exact oracle may change
 without that attributed contract decision. Other coverage work continues.
 
+## Round 34 full dual canonical execution and recovery limit
+
+At checkout `ead8bc1`, independently executing all 57 unchanged 0.2.5 canonical
+semantic vectors gives source `dbf4892` 57/57 and package `23b4d74` 57/57, with
+zero failures, unsupported cases or execution errors. Both reports contain the
+same exact canonical input hashes, all actual outputs and implementation module
+hashes. Execution APIs receive only initial state, operations and query; expected
+outputs and forbidden predicates are applied afterwards by checked comparators.
+All twenty owned exact source fixtures also pass with unchanged migration hashes.
+The eight canonical protected-deployment vectors were not executed or qualified.
+
+Eight new source erasure groups and four established availability groups pass.
+They exercise replay/current authority, metadata filtering without reducing purge,
+atomic invalid/unauthorized rejection, partial/unreachable/independent custody,
+unknown lineage, late writes, fenced restore/current reconciliation and hidden
+load/coarse availability/control observations. These are synthetic semantic state
+checks, not evidence of physical deletion or a protected service.
+
+The additional `test_initial_degraded_state_can_recover` fails independently,
+as already preserved by source ASTRA22-08 at `dbf4892`: initially degraded policy
+returns unavailable; owner `set_availability(available)` returns success; the
+next read still returns a refusal. The source operation changes the runtime
+availability flag but leaves the initial degraded policy flag that its query also
+checks. The nearby available-to-degraded-to-available control passes. Our focused
+suite is therefore twelve passing groups and one known failure, not an all-green
+suite. This corroborates the existing finding; no duplicate case is filed or
+unadjudicated correction made.
+
+Evidence in seat-local `.temp/`: `astra22-canonical-025-full-01.json/.log`,
+`astra23-canonical-025-full-01.json/.log`, `astra22-owned-cases-33.json/.log`, and
+`astra22-erasure-availability-controls-01.json/.log`. The new helper records the
+known failing method separately and requires its exact expected failure count;
+that instrument assertion does not relabel the product failure as a pass.
+
+Convener event `$wrLtxOryOvNuOttDN4ofHbvs0INg6jS0hLEpgMJ58wk` explicitly holds
+R7-055 for Ivan. Both native readings remain preserved, with no exact oracle or
+pass/fail denominator. At `ead8bc1`, the committed owner-question file still ends
+at judge Round 29, so published-ledger readback remains pending despite the
+attributed room classification. Other work continues without an authority edit.
+
 ## Provisional R7 row and remaining work
 
-**Phase 2 R7: 1/2.** Both evaluators pass all twenty owned exact vectors on
-explicit 0.2.5 fixtures; prior exact B01 evidence remains at its corrected
-0.2.4 heads. New issuer-boundary probes disagree and are announced as an owner
-question. Formal repair closure and full dual canonical coverage remain
-pending. Protected deployment is unqualified.
+**Phase 2 R7: 1/2.** Both evaluators independently pass all 57 canonical
+semantic vectors and the twenty owned exact fixtures on 0.2.5. The separate
+initial-degraded recovery failure is reproduced and awaits adjudication/repair;
+R7-053 formal closure is pending. Issuer ambiguity R7-055 is held for an owner
+decision with no exact oracle. Protected deployment remains unqualified.
 
 Remain in the round protocol, answer directed items and verify accepted changes
 until the convener posts PARK. Finalize this verdict and the park note then.
