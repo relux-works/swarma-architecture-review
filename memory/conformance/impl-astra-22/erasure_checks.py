@@ -55,6 +55,78 @@ class ErasureControls(unittest.TestCase):
         self.denied(a, v["operations"][5], "not_authorized")
         self.assertEqual(a.runtime["idempotency"][-1]["receipt"], full)
 
+    # A different audience/purpose is a key conflict even without metadata in
+    # that new scope; current erase authority still precedes the conflict.
+    def test_changed_context_before_replay_metadata(self):
+        for dimension in ("audience", "purpose"):
+            with self.subTest(dimension=dimension):
+                v = fixture("S20")
+                a = Adapter(v["initial_state"], "control")
+                original = v["operations"][1]
+                first = self.apply(a, original)
+                self.assertEqual(len(first["refs"]), 2)
+                self.assertEqual(self.apply(a, original), first)
+                changed = copy.deepcopy(original)
+                changed["receipt_context"][dimension] += ":ungranted"
+                fresh = copy.deepcopy(changed)
+                fresh["idempotency_key"] = "key:new-context"
+                fresh_receipt = self.apply(a, fresh)
+                self.assertEqual((fresh_receipt["outcome"], fresh_receipt["refs"]), ("purged", []))
+                self.denied(a, changed, "idempotency_conflict")
+                self.assertEqual(a.runtime["idempotency"][0]["receipt"], first)
+                for grant in a.policy["grants"]:
+                    grant["rights"].remove("erase")
+                self.denied(a, changed, "not_authorized")
+                self.denied(a, original, "not_authorized")
+
+    # Current read/use/metadata loss blocks only the exact stored-ref replay;
+    # fresh empty-ref erasure and changed-intent conflict remain distinct.
+    def test_replay_metadata_loss_and_changed_intent(self):
+        for missing in ("read", "use", "metadata"):
+            with self.subTest(missing=missing):
+                v = fixture("S20")
+                a = Adapter(v["initial_state"], "control")
+                original = v["operations"][1]
+                first = self.apply(a, original)
+                for grant in a.policy["grants"]:
+                    if grant["audience"] == "aud:private" and grant["purpose"] == "purpose:read":
+                        if missing == "metadata":
+                            grant["metadata"] = False
+                        else:
+                            grant["rights"].remove(missing)
+                self.denied(a, original, "not_authorized")
+                fresh = copy.deepcopy(original)
+                fresh["idempotency_key"] = "key:without-metadata"
+                fresh_receipt = self.apply(a, fresh)
+                self.assertEqual((fresh_receipt["outcome"], fresh_receipt["refs"]), ("purged", []))
+                changed = copy.deepcopy(original)
+                changed["receipt_context"]["purpose"] += ":ungranted"
+                self.denied(a, changed, "idempotency_conflict")
+                self.assertEqual(a.runtime["idempotency"][0]["receipt"], first)
+
+    # Broader metadata rights cannot expand a stored empty receipt on replay;
+    # its empty refs also cannot bypass later loss of erase operation authority.
+    def test_empty_receipt_replay_stays_immutable(self):
+        v = fixture("S20")
+        a = Adapter(v["initial_state"], "control")
+        grants = [g for g in a.policy["grants"] if g["audience"] == "aud:private" and g["purpose"] == "purpose:read"]
+        for grant in grants:
+            grant["metadata"] = False
+        original = v["operations"][1]
+        first = self.apply(a, original)
+        self.assertEqual(first["refs"], [])
+        for grant in grants:
+            grant["metadata"] = True
+        before = snapshot(a)
+        self.assertEqual(self.apply(a, original), first)
+        self.assertEqual(snapshot(a), before)
+        fresh = copy.deepcopy(original)
+        fresh["idempotency_key"] = "key:broader-metadata"
+        self.assertEqual(len(self.apply(a, fresh)["refs"]), 2)
+        for grant in a.policy["grants"]:
+            grant["rights"].remove("erase")
+        self.denied(a, original, "not_authorized")
+
     # Removing read/use or metadata for the exact receipt scope hides refs, but
     # does not spare any payload, generation or protected closure from erasure.
     def test_receipt_metadata_does_not_reduce_purge(self):

@@ -10,12 +10,13 @@ Current package: **0.2.5-draft**,
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 57 | 0 | 0 |
 | Canonical deployment | 0 | 0 | 8 |
-| Supplemental semantic (61, explicitly migrated by authors) | 61 | 0 | 0 |
+| Supplemental semantic (63, author-owned exact fixtures) | 63 | 0 | 0 |
 | Supplemental deployment | 0 | 0 | 1 |
 
 Evidence: `impl-astra-22/RESULTS.*`, `runs/phase2-erasure-first.*`,
-`runs/phase2-erasure-cases-current.*`. Current R7-056 correction reports are
-`runs/phase2-availability-corrected.*` and `phase2-availability-cases-corrected.*`.
+`runs/phase2-erasure-cases-current.*`. Current R7-057 correction reports are
+`runs/phase2-erase-priority-corrected.*` and `phase2-erase-priority-cases-current.*`.
+Author66233ab added two exact purpose/audience regressions; both pass unchanged.
 The initial mixed-profile supplemental
 41/20/0 is retained in `phase2-erasure-cases-first.*`; author24's explicit27303e4
 profile migration alone resolves those20differences. No oracle is edited.
@@ -32,18 +33,20 @@ and unreachable custody, initial-backup restore and current-witness reconciliati
 It preserves tombstone inventory and independent recipients. Load and availability
 stimuli preserve logical non-interference; control only records observations.
 
-All125controls pass: source33,adapter8,transaction14,proof4,impact9,boundary8,
-retention8,release9,succession4,authority-projection4,deadline6,erasure8,
+All128controls pass: source33,adapter8,transaction14,proof4,impact9,boundary8,
+retention8,release9,succession4,authority-projection4,deadline6,erasure11,
 availability5,harness5. Exact native outputs and module hashes are in
-`runs/availability-controls-corrected.json`; initial124green outputs remain
+`runs/erase-priority-controls-corrected.json`; prior125green outputs remain
+`runs/availability-controls-corrected.json` and initial124green outputs remain
 `runs/erasure-controls-first.json`. Chronology/claims/limits: `WORKLOG.md`.
 
 Judge-closed source defects:011/012/013/015,025/026/027/028/029,030,032,036,040,043,
-047,050,051,052. Deadline052 is closed at4a14a56; native firstc9e1faf and exact
+047,050,051,052,056. Deadline052 is closed at4a14a56; native firstc9e1faf and exact
 old-source0.2.5 first49/1/7 remain unchanged. R7-055/ASTRA24-12 cross-issuer
 ancestry is a filed owner question held for Ivan; issuer-local source behavior
 stays unchanged. Exact own native observations and full-state preservation are
-in `runs/authority-issuer-native-first.json`, outside pass/fail denominators. Package053candidate23b4d74 and this coverage extension await judge.
+in `runs/authority-issuer-native-first.json`, outside pass/fail denominators. Judge13e3d73 closes package053@23b4d74 and independently verifies this source
+coverage57/57+61/61. Source056 is closed at87beb46 by judgee2a797d;057 correction awaits closure.
 
 Remaining unmapped non-canonical API paths: changes, audience proof-reference
 disclosure and request_check. Proof families can grow exponentially. No protected
@@ -55,11 +58,16 @@ and is not Phase-2 completion.
 R7-056/ASTRA22-08 correction updates current public availability for every
 authorized transition, including initial degraded -> available. Four state pairs
 and current authorization/full-state neighbors now pass. Original native red
-dbf4892 and expanded transition matrix are immutable. All125controls are green;
-judge closure remains pending. No infrastructure recovery is claimed.
+dbf4892 and expanded transition matrix are immutable. Judgee2a797d independently closes this correction at87beb46;
+original failures remain unchanged. No infrastructure recovery is claimed.
 
-ASTRA22-09 also preserves an unclassified native priority question in
-`runs/erase-changed-context-first.json`: a changed ungranted receipt purpose
-under the same identity returns not_authorized, although the same fresh-key
-erase is authorized with empty refs and K-API-1 specifies context conflict.
-No exact oracle or code fix is imposed before judge disposition.
+R7-057/ASTRA22-09 correction returns idempotency_conflict,false for changed
+erase intent after current operation authority. Stored-ref metadata applies only
+to exact replay. Original0529814 and five expanded red cases remain unchanged;
+all128controls and both new exact author regressions pass. Full state, original
+receipt, revoked replay and fresh-empty-ref guarantees remain.057 closure is
+pending independent judge review.
+
+Historical grammar note: --package selects vectors/profile but transaction
+shape validation uses this checkout. Use a matching isolated checkout for older
+grammar reproduction; all current025evidence uses matching live grammar.

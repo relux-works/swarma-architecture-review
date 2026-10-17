@@ -99,7 +99,11 @@ PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/run_vectors.p
 
 This loads every package vector and writes `RESULTS.md` and `RESULTS.json` in this
 directory. `--package PATH` selects a different package checkout; `--out PATH`
-selects the report destination. `--vectors memory/conformance/cases` runs a
+selects the report destination. Transaction shape validation still uses this
+checkout's `memory/spec`, so `--package` alone does not isolate a different
+historical grammar. Use a matching isolated checkout for grammar-changing
+historical reproduction; current reports use the matching live package.
+`--vectors memory/conformance/cases` runs a
 separate adversarial inventory; choose a distinct output path for that report. `runs/0.1.0-first.*` preserves the first comparison.
 The executor receives no vector identifier or expected answer. Unsupported paths
 are explicit, and every supported response and postcondition is compared exactly
@@ -212,3 +216,12 @@ now match the requested state; the original and expanded red witnesses remain.
 All125controls pass in `runs/availability-controls-corrected.json`; current exact
 vector reports are `runs/phase2-availability-corrected.*` and
 `runs/phase2-availability-cases-corrected.*`.
+
+R7-057 keeps current erase authority before idempotency, then distinguishes
+changed intent from exact replay. Only the latter rechecks stored-ref metadata;
+new authorized erasures may return empty refs. Eleven erasure groups preserve
+revocation, original/empty receipts and atomic-state neighbors. Current evidence:
+`runs/phase2-erase-priority-corrected.*` (57/57 canonical),
+`runs/phase2-erase-priority-cases-current.*` (63/63 supplemental after two new
+author-owned regressions), and `runs/erase-priority-controls-corrected.json`
+(all128controls). Original native failures remain unchanged.

@@ -88,10 +88,10 @@ class Erasure:
         digest = canonical(intent)
         if identity in self.writer.idempotency:
             old_digest, old_receipt = self.writer.idempotency[identity]
-            if not all(self.metadata_allowed(r, op) for r in old_receipt["refs"]):
-                raise Refusal("not_authorized")
             if old_digest != digest:
                 raise Refusal("idempotency_conflict")
+            if not all(self.metadata_allowed(r, op) for r in old_receipt["refs"]):
+                raise Refusal("not_authorized")
             return copy.deepcopy(old_receipt)
         timestamp(op["at"])
         affected = self.closure(op["targets"])
