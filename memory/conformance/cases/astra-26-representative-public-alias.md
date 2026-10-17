@@ -76,3 +76,10 @@ in the seat work directory. Judge decision of 2026-10-17 03:46:35Z accepted this
 exact lookup clarification and both controls. The first astra-22 adapter reports
 both fixtures unsupported because it has no full audience redaction/alias output;
 this is not execution evidence for the proposed fix.
+
+Package `0.2.0-draft` at `cde5754` now explicitly defines that exact mapping in
+K-DISC-4, including distinct-principal aliases and missing-alias refusal. The
+prose correction is verified. Both controls passed the independent package-only
+evaluator's first code at `0008dc3` against the original `0.1.0` grammar. Their
+current copies are migrated to `0.2.0` and structurally validate; execution with
+the new full grammar is pending evaluator migration.

@@ -55,7 +55,7 @@
               "restricted",
               "sensitive"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -120,7 +120,7 @@
               "restricted",
               "sensitive"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -248,7 +248,8 @@
         "freshness_policy": "query_override_else_schema",
         "family": "issuer_current",
         "audience": null,
-        "purpose": null
+        "purpose": null,
+        "excluded_refs": []
       }
     ],
     "policy": {
@@ -398,6 +399,36 @@
       "source_access": [],
       "external_effect_owners": [
         "authority:external"
+      ],
+      "constraint_owners": [],
+      "declassification_decisions": [],
+      "lineage_facts": [
+        {
+          "output": {
+            "id": "rec:current-location",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        },
+        {
+          "output": {
+            "id": "rec:residence-location",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        }
       ]
     },
     "runtime": {
@@ -421,7 +452,8 @@
       "hidden_work": 0,
       "memory_available": true,
       "control_observations": [],
-      "external_effects": []
+      "external_effects": [],
+      "revoked_declassifications": []
     }
   },
   "operations": [],
@@ -472,7 +504,7 @@
     "operation_results": [],
     "result": {
       "type": "view",
-      "semantic_profile": "0.1.0-draft",
+      "semantic_profile": "0.2.0-draft",
       "projection_rule": {
         "id": "projection:main",
         "version": 1
@@ -527,23 +559,19 @@
           "needs_review": false,
           "source_refs": [],
           "support": {
-            "witness": "present",
+            "witness": "not_found",
             "evaluation": "complete",
             "corpus_coverage": {
               "kind": "unknown"
             },
-            "premise_quality": "clean_path",
-            "evidence_qualification": [
-              "semantic_review"
-            ],
+            "premise_quality": "not_fully_checked",
+            "evidence_qualification": [],
             "source_state": "resolvable_now",
             "freshness": "fresh",
             "authorized_snapshot_handle": "@h1",
             "dependency_coverage": "registered_only",
-            "witness_roots": [
-              "origin:ep"
-            ],
-            "independent_root_count": 1
+            "witness_roots": [],
+            "independent_root_count": 0
           },
           "oppose": {
             "witness": "not_found",
@@ -600,23 +628,19 @@
           "needs_review": false,
           "source_refs": [],
           "support": {
-            "witness": "present",
+            "witness": "not_found",
             "evaluation": "complete",
             "corpus_coverage": {
               "kind": "unknown"
             },
-            "premise_quality": "clean_path",
-            "evidence_qualification": [
-              "semantic_review"
-            ],
+            "premise_quality": "not_fully_checked",
+            "evidence_qualification": [],
             "source_state": "resolvable_now",
             "freshness": "fresh",
             "authorized_snapshot_handle": "@h1",
             "dependency_coverage": "registered_only",
-            "witness_roots": [
-              "origin:ep"
-            ],
-            "independent_root_count": 1
+            "witness_roots": [],
+            "independent_root_count": 0
           },
           "oppose": {
             "witness": "not_found",
@@ -687,6 +711,16 @@
       "path": "/result/currentness",
       "test": "equals",
       "value": "ambiguous_current"
+    },
+    {
+      "path": "/result/items/0/support/witness",
+      "test": "equals",
+      "value": "present"
+    },
+    {
+      "path": "/result/items/1/support/witness",
+      "test": "equals",
+      "value": "present"
     }
   ],
   "normalization": {

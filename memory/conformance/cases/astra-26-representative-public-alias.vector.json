@@ -58,7 +58,7 @@
             "field_classes": [
               "public"
             ],
-            "declassification": null
+            "declassification": []
           },
           "context": "real"
         },
@@ -156,7 +156,8 @@
         "freshness_policy": "query_override_else_schema",
         "family": "audience_projection",
         "audience": "aud:public",
-        "purpose": "purpose:publish"
+        "purpose": "purpose:publish",
+        "excluded_refs": []
       }
     ],
     "policy": {
@@ -325,6 +326,23 @@
       "source_access": [],
       "external_effect_owners": [
         "authority:external"
+      ],
+      "constraint_owners": [],
+      "declassification_decisions": [],
+      "lineage_facts": [
+        {
+          "output": {
+            "id": "rec:interest",
+            "version": 1
+          },
+          "profile": {
+            "id": "integration:synthetic",
+            "version": 1
+          },
+          "kind": "direct",
+          "inputs": [],
+          "complete": true
+        }
       ]
     },
     "runtime": {
@@ -348,7 +366,8 @@
       "hidden_work": 0,
       "memory_available": true,
       "control_observations": [],
-      "external_effects": []
+      "external_effects": [],
+      "revoked_declassifications": []
     }
   },
   "operations": [],
@@ -399,7 +418,7 @@
     "operation_results": [],
     "result": {
       "type": "view",
-      "semantic_profile": "0.1.0-draft",
+      "semantic_profile": "0.2.0-draft",
       "projection_rule": {
         "id": "projection:public",
         "version": 1

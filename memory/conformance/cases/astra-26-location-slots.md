@@ -45,3 +45,19 @@ directory `.temp/r7-astra-26/owned-cases-astra22-01.json`.
 
 Recommendation: preserve the package's existing slot semantics and use this
 fixture to catch a flat-profile implementation when the evaluators support it.
+
+## Follow-up
+
+Judge R7-016 rejected a spec-defect allegation and retained this regression.
+The package-only evaluator's first code at `0008dc3` detected an authoring error
+in this fixture: it had inherited P04's positive support in expected output even
+though this case contains only two assertions and no assessment. Corrected both
+support channels to `not_found`, empty qualifications/roots and zero roots under
+K-EVAL-1; added forbidden positive witnesses. This was a case-author error, not an
+evaluator defect. The corrected fixture passes the independent evaluator exactly.
+The original mismatch and corrected run are retained locally as
+`owned-cases-astra23-01.json` and `owned-cases-astra23-02.json`.
+
+The current fixture is migrated to `0.2.0-draft` with exact direct-lineage facts,
+empty release decisions and exclusion sets; these additions do not change the
+location-slot expectation. Current-version execution remains a separate check.

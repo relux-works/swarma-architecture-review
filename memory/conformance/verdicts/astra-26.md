@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 3, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, round 4, 2026-10-17.
 
 ## Baseline and scope
 
@@ -134,3 +134,38 @@ No cases or directed requests were outstanding at initialization.
   semantic, with all 8 deployment vectors unsupported; its own divergences are
   already filed. This seat does not reclassify those results. Provisional row
   remains **1/2** pending the v0.2 release and independent runs.
+
+## Round 4 — v0.2 review and independent baseline execution
+
+- Package `0.2.0-draft` at signed `cde5754` validates: 94 JSON documents,
+  14 closed schemas, 14 domain documents, 65 vectors (57 semantic / 8 deployment),
+  52 clauses and 16 checker-control detections. Evidence:
+  `.temp/r7-astra-26/validate-02.log` in the seat work directory.
+- Verified R7-010's K-DISC-4 prose correction: exact existing-handle lookup for
+  every disclosed principal, preserving a distinct representative and refusing
+  a missing alias. Independent current-version execution is still pending.
+- After astra-23 committed its blind first run at `0008dc3`, ran its untouched
+  code against this seat's seven baseline fixtures using the original committed
+  `0.1.0` schemas. Four comparator controls passed. The first run found one
+  fixture-author error: location expected support was copied from P04 after the
+  root assessment was removed. Corrected it using K-EVAL-1; no implementation
+  change or weakening of a source requirement occurred. The corrected run is
+  **7 pass / 0 fail** with exact output, forbidden and shape checks.
+- Full run evidence and implementation/input hashes are retained in seat
+  `.temp/r7-astra-26/owned-cases-astra23-02.json`; the original author-error run
+  remains `owned-cases-astra23-01.json`. Baseline schema and input copies are
+  retained under `spec-0.1.0/` and `cases-0.1.0/`, with old commits immutable.
+- Migrated all owned fixtures to v0.2: explicit integration input facts, array
+  release references, empty owner-decision/revocation inventories and exact empty
+  exclusion sets. Structural/reference checks pass in
+  `.temp/r7-astra-26/cases-structural-03.log`. No current-version semantic pass is
+  inferred from this migration or from the old-version run.
+- P15 correctly includes the pre-exclusion two-item control, post-exclusion
+  one-item card, unchanged organisation view and unchanged record inventory.
+  It now uses the competence schema, but labels a distinct organisation's
+  attestation about the subject as `self_declaration`. Filed
+  [ASTRA26-06](../cases/astra-26-foreign-self-declaration.md) with a proposed
+  refusal/valid-self-declaration control to resolve that attribution issue.
+  This eighth fixture awaits judge classification; no implementation bug claimed.
+- R7-016/017 are retained regressions, rejected as spec defects. Provisional row
+  remains **1/2**; no protected-deployment qualification is claimed.
