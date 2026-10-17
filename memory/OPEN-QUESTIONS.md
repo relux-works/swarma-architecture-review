@@ -4,7 +4,7 @@ Living list for the agent-memory design. Each item says why it is open, what is 
 
 ## External and non-persistent agents
 
-1. **Memory of agents from outside.** In the first version they are ephemeral and have no own memory (D-021). Open: should they, and in which form? A proposal is in `notes/external-agent-memory-proposal.md`.
+1. **Memory of agents from outside.** In the first version they are ephemeral and have no own memory (D-021). The design direction is decided (D-022); its platform-compatible form awaits the owner's confirmation.
 2. **Returning agent, same memory.** Proving sameness is solved by the platform: re-registration proves possession of the pinned key (later: keys current in its identity cell). Getting earlier memory back is then a grant decision by policy or the operator; which rule applies is open.
 3. **Where an external agent's memory belongs.** Knowledge created while working on our project is about our project; the leaning is that it belongs to the project space, not to the agent. Portability of that memory to the agent's owner is then a disclosure decision by the project owner.
 4. **Signing by external agents.** The platform answer: it signs with its own key in the donor-side bridge, never through model tools, and only protocol objects. Open: carry its memory records inside the signed result export (no new protocol object, no mid-task writes, already compliant with decision 57 «no blind signing») or add a bridge message type for memory records, which must carry the full canonical record for the bridge to check.
