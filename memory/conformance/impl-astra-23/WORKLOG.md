@@ -1126,3 +1126,47 @@ will prove semantic differences and forbidden effects are detected.
   The exact106-file package snapshot and manifest are under
   .temp/impl-astra-23/package-0.2.5/. Any optional current-profile native fixture
   migration must follow the explicit new RELEASES.md rule and preserve originals.
+
+## Round 39 — package-derived D-009 correction and complete reruns
+
+- First1be6026 was signed/pushed and sent to judge eventqn87Kxbc before correction.
+  Judge independently reproduces64/2 and accepts package77b951e's mapping/oracles;
+  no package change or new ledger ID is indicated. PACKAGE LANDED is observed.
+- Add four package-derived product groups: all64 three-event DAG edge/issuer/carrier/
+  event-order variants; the two exact foreign-only pairs; both replacement relations
+  over mixed, all-H and mixed-plus-direct paths; ordinary import/ambiguous CAS/replay.
+  Before the runtime change they produce eight intended failures and zero errors.
+  Positive all-H/direct paths pass. This is bounded graph evidence, not arbitrary-
+  graph exhaustion. Red log: d009-red-01.log.
+- The runtime change is five lines in authority_succeeds: retain only canonical
+  events with the later receipt's protected policy issuer before traversal; refuse
+  an earlier endpoint outside that subgraph. Existing callers already share this
+  function for projection, CAS head and strict replace/correct succession. No vector,
+  refusal code, schema, authorization rule or replay precedence is changed.
+- Four new0.2.6 product groups and four checker groups pass. Both revision relations
+  refuse exactly and leave the full native tuple unchanged; a qualifying policy
+  path then permits the identical key. Replay stays unchanged; stale/ambiguous CAS
+  keeps version_conflict/true. Mixed ordinary import remains admitted without a
+  revision, dirty state or fabricated current head.
+- The old native suite against live0.2.6 produces14 subtest failures, all solely
+  semantic_profile0.2.6 versus historical0.2.5 expectations. Preserve its log
+  native-026-before-01.log. Per the judge's already-agreed historical boundary, add
+  only an explicit --spec-root CLI option and rerun all30 legacy groups against
+  exact frozen0.2.5. All30 pass before and after the runtime change. No historical
+  oracle migration or author-owned edit occurs; do not call this a fresh30-group
+  run against0.2.6. Native logs: native-025-before-01.log/native-025-final-01.log.
+- Current canonical0.2.6:66pass/0fail/0unsupported semantic,8deployment unsupported.
+  Historical unchanged supplemental0.2.5:68pass/0fail/0unsupported semantic,
+ 1deployment unsupported. Reports include all eight current Python module hashes.
+  Logs: canonical-026-final-01.log, supplemental-025-regression-01.log,
+  d009-green-01.log and controls-026-01.log.
+- A separate execution audit validates125 state instances/74unique states using the
+  package's closed grammar and consistency checker, plus every exercised operation
+  and response shape. All four new groups pass with25 native write observations:
+ 11exact refusals preserve the entire native tuple; positive/replay paths remain.
+  D009-CONTROLS.json preserves state/module hashes and traces. Audit source/log are
+  .temp/impl-astra-23/d009-audit.py and d009-audit-01.log.
+- Self-review confines behavior to the protected issuer subgraph. Initial/expected
+  package inputs, original supplemental bytes and every first report remain intact.
+  Await independent exact-candidate review and judge closure before claiming the
+  reopened round complete. New PARK remains required.

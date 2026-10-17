@@ -58,6 +58,11 @@ class Engine:
         later, earlier = key(later), key(earlier)
         if later == earlier or later not in events or earlier not in events:
             return False
+        # K-REV-3: restrict protected event issuers before reachability; never contract a foreign path.
+        issuer = events[later]["issuer"]
+        events = {receipt: event for receipt, event in events.items() if event["issuer"] == issuer}
+        if earlier not in events:
+            return False
         pending, seen = [later], set()
         while pending:
             current = pending.pop()

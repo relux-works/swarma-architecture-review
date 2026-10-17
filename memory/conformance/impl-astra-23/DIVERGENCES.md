@@ -528,3 +528,24 @@ All first failures and author fixtures remain immutable.
 Current ledger58 has47fixed,10rejected and owner question055; no open specification
 or implementation bug remains. Rubric score2/2 does not resolve055, qualify any
 deployment fixture or authorize assuming PARK. No new finding in this round.
+
+### R7-055 — D-009 package alignment, verification pending
+
+The owner resolved the choice with D-009. Package0.2.6/77b951e now defines issuer-
+local order in K-REV-3 and supplies S34–S42. The preceding ambiguity discussion is
+historical; no owner choice remains outstanding. The package implementation still
+uses only the released package as its implementation contract.
+
+Immutable first1be6026 records unchanged104fbe8:64pass/2fail, only S34 and S39.
+The same global traversal incorrectly contracts a foreign intermediate for both
+currentness and replacement succession. All exact differences and forbidden
+outputs remain in RELEASE-0.2.6-FIRST; original native firstd4ddc45 is unchanged.
+
+The candidate filters canonical events by protected policy issuer before the
+existing shared reachability walk. No new refusal code or mixed-state rejection
+is introduced. New controls first reproduce eight intended failures, then pass64
+three-event graph variants, both foreign-only pairs and full atomic revision/import/
+CAS/replay boundaries. Current canonical66/66, unchanged historical supplemental
+68/68 under exact0.2.5, four new plus30legacy product groups and4checker groups pass.
+D009-CONTROLS.json distinguishes all profiles and records the input/state audit.
+Independent judge closure is pending; deployment8+1 remains unsupported.

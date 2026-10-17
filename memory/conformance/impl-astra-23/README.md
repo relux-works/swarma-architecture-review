@@ -1,142 +1,97 @@
 # astra-23 package-only evaluator
 
-Independent Python standard-library implementation of `memory/spec/`. The first
-implementation and full report are produced before source-design, companion,
-notes, inputs, other-evaluator, ledger or divergence-topic intake. It neither
-imports the package's authoring helpers nor selects behavior by vector IDs.
+Independent Python standard-library implementation of `memory/spec/`. The original
+blind first run was committed before source designs or divergence intake. Runtime
+behavior is derived from the package; no other evaluator implementation was read.
+The engine receives only initial state, operations and query. Expected outputs,
+vector IDs, forbidden predicates and normalization belong exclusively to the runner.
 
-`engine.py` accepts only the initial state, operations and query. It models atomic
-state transitions; `evaluator.py` computes authorized bounded evidence; `common.py`
-handles exact references, canonical JSON, schema shapes and refusals. The runner
-alone loads expected outputs and normalization. Initial snapshots are trusted
-admitted synthetic inputs, as required by K-API-2; this is not a production intake
-validator or a protected deployment.
+`engine.py` models atomic transitions and shared issuer-local authority order;
+`evaluator.py` computes bounded evidence; `disclosure.py` handles protected lineage
+and grants; `common.py` implements closed grammar, exact refs and JSON boundaries.
+Initial snapshots are admitted synthetic inputs under K-API-2, not production intake.
+
+## Current evidence
+
+- Canonical **0.2.6-draft**, package `77b951eb86d5ba9198921d058930884918a39942`:
+  `RESULTS.md/json` records 66 semantic passes, zero failures or unsupported;
+  eight deployment fixtures are unsupported.
+- Historical **0.2.5-draft**, package `6a04e8cfb1490569cd1de7468d2085dd4840cf51`:
+  `SUPPLEMENTAL.md/json` records 68 unchanged semantic passes and one deployment
+  unsupported, using the current runtime and the exact old grammar. This is a
+  separate regression denominator, not additional canonical 0.2.6 coverage.
+- Product controls: four new 0.2.6 groups plus 30 legacy groups pinned to 0.2.5;
+  four independent checker groups also pass. `D009-CONTROLS.json` records module
+  hashes, 64 three-event graph variants, 125 validated state instances (74 unique),
+  and 25 native write observations, including 11 atomic exact refusals.
+
+K-REV-3 restricts the canonical event graph by protected authority-event issuer
+before reachability. Assertion-free intermediates count; foreign paths are never
+contracted and cannot veto an all-issuer path. Currentness, revision CAS head and
+strict replacement succession share this relation. Exact authorized replay retains
+its original priority and receipt. Other retention, disclosure, erasure, restore and
+late-writer behavior remains covered by the canonical and historical regressions.
 
 ## Tools and commands
 
-Python 3 is the only runtime dependency. Run from the repository root:
+Python 3 and Git are the only tools needed for local execution. From the repository
+root, create the exact legacy package snapshot used by the historical tests:
 
 ```sh
+python3 -B - <<'PY'
+from pathlib import Path
+import subprocess
+commit = '6a04e8cfb1490569cd1de7468d2085dd4840cf51'
+root = Path('.temp/impl-astra-23/package-0.2.5')
+for name in subprocess.check_output(
+        ['git', 'ls-tree', '-r', '--name-only', commit, '--', 'memory/spec'], text=True).splitlines():
+    target = root / name
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(subprocess.check_output(['git', 'show', commit + ':' + name]))
+cases = root / 'memory/conformance/cases'
+cases.parent.mkdir(parents=True, exist_ok=True)
+if not cases.exists():
+    cases.symlink_to(Path('memory/conformance/cases').resolve(), target_is_directory=True)
+PY
+python3 -B memory/conformance/impl-astra-23/test_semantics.py --spec-root .temp/impl-astra-23/package-0.2.5/memory/spec
+python3 -B memory/conformance/impl-astra-23/test_authority.py
 python3 -B memory/conformance/impl-astra-23/test_controls.py
-python3 -B memory/conformance/impl-astra-23/test_semantics.py
-python3 -B memory/conformance/impl-astra-23/run_vectors.py
+python3 -B memory/spec/checks/validate.py
+python3 -B memory/conformance/impl-astra-23/run_vectors.py --package-commit 77b951eb86d5ba9198921d058930884918a39942
+python3 -B memory/conformance/impl-astra-23/run_vectors.py --spec-root .temp/impl-astra-23/package-0.2.5/memory/spec --package-commit 6a04e8cfb1490569cd1de7468d2085dd4840cf51 --vector-root memory/conformance/cases --output memory/conformance/impl-astra-23/SUPPLEMENTAL.md
 ```
 
-The runner reads every JSON vector under `memory/spec/kernel/vectors/` and writes
-`RESULTS.md` and `RESULTS.json` here. Each semantic vector executes from a fresh
-deep-copied state. Every deployment vector is explicitly unsupported for actual
-qualification; simulated transitions cannot prove host, transport or custody
-boundaries. A nonzero runner exit means at least one execution or comparison fails.
+The legacy test CLI accepts `--spec-root` explicitly because its author-owned
+supplemental expectations still name 0.2.5. Running those comparisons against 0.2.6
+without migration reports version differences. No fixture or expected value is
+rewritten by the option. The source cases remain read-only, including through the
+scratch symlink. Current 0.2.6 behavior is checked by all canonical vectors and the
+new authority controls. Logs and frozen inputs live under `.temp/impl-astra-23/`;
+Git signed commits preserve reviewed artifacts, and a2a carries collective notices.
 
-For a pinned package snapshot, supply `--spec-root PATH --package-commit SHA`.
-`--output PATH.md` keeps additional versioned reports separate. `FIRST-RUN.md`
-and `FIRST-RUN.json` preserve the independent baseline. Git records and publishes
-signed seat-owned artifacts; a2a carries round markers and divergence notices.
-Readiness/check logs and the initial package copy live in `.temp/`.
+The runner writes exact Markdown/JSON reports beside this README; `--output PATH.md`
+selects a separate report. `--spec-root PATH --package-commit SHA` pins a package.
+`--vector-root PATH` selects supplemental `*.vector.json` files. Wrong-profile
+supplemental inputs are unsupported, with no implicit conversion. A nonzero exit
+means an execution or exact comparison failed, not a successful refusal test.
 
-## Exact comparison
+## Comparison and preserved first observations
 
-All operation results, final results and postconditions are compared recursively
-with typed JSON equality. Handle normalization replaces only declared paths;
-syntax, equality, distinctness, forbidden predicates and equivalent-output pairs
-are checked. Output shapes are checked against the published closed schemas.
-All exact field differences are retained in both reports. The bounded checker
-controls plant semantic, forbidden-effect and equality violations with valid
-controls. A single run does not prove uniform randomness or timing isolation.
+Every operation response, final result and postcondition is compared with typed
+JSON equality and closed output schemas. Only declared fresh-handle paths are
+normalized, after checking syntax, equality and distinctness. Forbidden predicates
+and paired-output equivalence remain active. No random-distribution or timing
+qualification is inferred from these checks.
 
-## Scope and limitations
+`RELEASE-0.2.6-FIRST.md/json` preserves unchanged runtime `104fbe8`: 64 semantic
+passes and S34/S39 failures before the issuer-local correction. The first is signed
+at `1be6026`. The new product controls independently produced eight intended old-
+runtime failures, without setup errors. `FIRST-RUN`, earlier `RELEASE-*-FIRST` and
+`PHASE2-*-FIRST` reports remain immutable. Their recorded package/runtime revisions
+are required for reproduction; current outputs must not replace historical failures.
 
-The finite fixture API is implemented without external execution, source reads,
-network access or live publication. Policy facts are admitted test inputs. Results
-report observed conformance, including defects and unsupported qualification;
-they do not establish service security. Known discrepancies are retained for judge
-classification before semantic implementation changes.
-
-The current evaluator also implements the 0.2 integration-lineage grammar,
-per-owner declassification decisions/revocation, pinned captured-item delivery,
-and versioned projection exclusions. Clause-derived product controls include
-missing-owner atomic rejection, release/revoke delivery, integration input
-completeness, exclusion isolation and the B01 missing-fact regression witness.
-`DIVERGENCES.md` records judge classifications and pending package discrepancies.
-
-To run independently authored cases without merging their totals into canonical
-conformance, use:
-
-```sh
-python3 -B memory/conformance/impl-astra-23/run_vectors.py --vector-root memory/conformance/cases --output memory/conformance/impl-astra-23/SUPPLEMENTAL.md
-```
-
-A case outside the selected package's closed grammar is reported unsupported;
-select its original package with --spec-root to run it without conversion.
-
-The 0.2.1 evaluator scopes unresolved dirty causes through authorized pre-revision
-impact paths, requires explicit self-declaration identity bindings, and applies
-publication currentness only to authorized publication-source associations.
-Explicit-target history is restricted to the selected sequence identities.
-RELEASE-0.2.1-FIRST preserves the pre-fix R7-024 report; FIRST-RUN preserves the
-original package-only independence baseline. Pinned 0.2.2 canonical results are 57/57
-semantic with eight deployment cases unsupported; twenty-six controls pass. The
-source-state precedence control covers resolved, policy-denied, lost and empty
-source lists without upgrading evidence, including real current-source exhaustion.
-
-Phase 2 corrections additionally enforce the import freshness horizon and bind
-current delivery forward checks to exact prepared selected items. Independent
-pre-fix reports remain PHASE2-IMPORT-DELIVERY-FIRST; receipt-metadata and
-retention-authority counterexamples remain in separately named first reports.
-
-The 0.2.2 erase API binds structural receipt refs to its explicit receipt_context
-and intake clock. It checks current authorization on exact replay, preserves the
-stored receipt, and retains full protected purge even when no refs are disclosed.
-RELEASE-0.2.2-FIRST preserves the pre-adaptation 56/57 result. Retention scope
-R7-039 is resolved by the0.2.3 storage context; the R7-037 correction is independently closed at4af0360.
-
-Authority-slot CAS now shares sequence identity and receipt partial-order selection
-with projection currentness. Ambiguous and historical candidates refuse atomically;
-challenge and exact replay retain their exemptions. PHASE2-CAS-FIRST preserves
-both pre-correction failures and the passing unique-head/challenge controls.
-
-Import currentness requires a check for every exact authorized publication source;
-origin deduplication affects evidence counts only. Registered review obligations
-follow eligible transitive/mixed paths without manufacturing witnesses or dirty
-state. PHASE2-COVERAGE-REVIEW-FIRST preserves both prior failures.
-
-Delivery validates the authenticated actor against the saved projection principal
-before using its binding. Frozen 0.2.2 regression evidence is separately retained
-in RESULTS-0.2.2 and SUPPLEMENTAL-0.2.2. Current0.2.5 RESULTS passes57/57canonical semantics and SUPPLEMENTAL passes all68
-semantic cases; deployment remains unsupported. RELEASE-0.2.3-FIRST and
-PHASE2-ACTOR-FIRST retain the unchanged-runtime first results.
-
-All four intake APIs enforce explicit actor-bound retention_context over each
-output and transitive known content input, with whole-batch resolution and current
-authorization on exact replay. Retain is independent of metadata and onward labels.
-PHASE2-RETENTION-023-FIRST preserves original and unknown-ancestor failures. Older
-release reports are historical and must be reproduced with their recorded runtime
-revision; current intake does not infer missing legacy contexts.
-
-PHASE2-SUCCESSION-FIRST preserves forbidden authoritative replacements before
-correction. Released0.2.4 specifies strict canonical receipt ancestry and exact
-refusals; current replace/correct enforce it with atomic state preservation.
-Direct/transitive successors, plain incomparable import and exact authorized replay
-remain valid. RELEASE-0.2.4-FIRST retains the pre-fix B01 failure. Current30product and4checker controls pass.
-Released0.2.5 live deadlines gate all four intake APIs and current replay over
-outputs/transitive known inputs, before idempotency. At/after expiry refuses
-without changing existing records/receipts or running a purge. PHASE2-DEADLINE-FIRST,
-PHASE2-DEADLINE-VECTORS-FIRST and RELEASE-0.2.5-FIRST preserve original failures.
-New mixed-issuer authority probes await separate adjudication outside vector totals.
-
-The R7-057 exact purpose/audience changed-context fixtures pass on unchanged
-runtime23b4d74. Current erase authority precedes intent conflict; current stored
-receipt metadata is checked only for exact replay. Missing metadata does not
-prevent full fresh-key purge with empty refs. PHASE2-ERASE-CONTEXT-FIRST preserves
-the native observation before adjudication; author-owned exact cases expand
-the supplemental semantic inventory to63 at that stage without a runtime change.
-
-Current restore reconciliation applies the supplied current-complete witness
-closure, retains the existing coverage check for known deletions, and refuses
-unreachable affected controlled custody atomically before reopening. Newly learned
-closure enters erased/fence state and advances generation once; repeated known
-reconciliation leaves it unchanged. Derived commits and old-generation writers
-remain blocked while unrelated current-generation writes and independent content
-remain available. PHASE2-RESTORE-CURRENT-FIRST and PHASE2-RESTORE-VECTORS-FIRST
-preserve the original native and exact failures. The five new exact fixtures bring
-the current supplemental semantic inventory to68;30product plus4checker tests pass.
+[WORKLOG.md](WORKLOG.md) records rounds, test boundaries and independent review.
+[DIVERGENCES.md](DIVERGENCES.md) records classifications and corrections. Semantic
+simulation does not qualify real authentication, physical purge, outside-domain
+witness verification, delivery isolation or hostile writers. No servers, external
+execution, packages or child agents are used.

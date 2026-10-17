@@ -99,10 +99,11 @@ Implementation SHA-256:
 
 - `common.py`: `22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033`
 - `disclosure.py`: `ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366`
-- `engine.py`: `7f5be6d7c1f2dbe0233b717b4f399f4d1975ed8d49e5888145f6813849845a4f`
+- `engine.py`: `e17a2810de4e47da100e3576a41b4ecbdb773c559121aca0393535c077c2c4dc`
 - `evaluator.py`: `098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100`
 - `run_vectors.py`: `20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a`
+- `test_authority.py`: `9b4e25a459b67d145c1b899df5624e5a01d410b79cab66c99b467461ffec3f9a`
 - `test_controls.py`: `6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083`
-- `test_semantics.py`: `3570d7f37ead854217c76128cf566794b2d7943b3a13b49a45ad583a5d1e871b`
+- `test_semantics.py`: `0b24606c496e11ef23504ec8a5145a22b69fdfba84363f99caed1f323c86cdbd`
 
 Full actual reports, exact differences and vector digests are in the adjacent JSON report.

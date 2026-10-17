@@ -1,7 +1,9 @@
 """Clause-derived positive/negative controls for corrected and newly released behavior."""
 
+import argparse
 import copy
 import pathlib
+import sys
 import unittest
 
 from common import Grammar, Refused, cjson, ref, strict_loads
@@ -942,4 +944,10 @@ class Semantics(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("--spec-root", type=pathlib.Path,
+                        help="Pin legacy controls and their supplemental fixtures to a package snapshot.")
+    args, remaining = parser.parse_known_args()
+    if args.spec_root:
+        SPEC = args.spec_root.resolve()
+    unittest.main(argv=[sys.argv[0], *remaining])

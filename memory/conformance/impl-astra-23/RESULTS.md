@@ -1,6 +1,6 @@
 # astra-23 vector run
 
-Package: **0.2.5-draft** at `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
+Package: **0.2.6-draft** at `77b951eb86d5ba9198921d058930884918a39942`.
 
 The evaluator receives only initial_state, operations and query. Expected outputs,
 forbidden predicates and normalization are consumed only by the comparison runner.
@@ -9,7 +9,7 @@ distinctness are checked first. No runtime distribution or timing claim is made.
 
 | Profile | Pass | Fail | Unsupported | Total |
 | --- | ---: | ---: | ---: | ---: |
-| semantic | 57 | 0 | 0 | 57 |
+| semantic | 66 | 0 | 0 | 66 |
 | deployment | 0 | 0 | 8 | 8 |
 
 Deployment unsupported means no qualification claim; modeled semantic erasure
@@ -84,6 +84,15 @@ and publication transitions do not exercise live authentication, storage or deli
 | S31 | semantic | pass |
 | S32 | semantic | pass |
 | S33 | semantic | pass |
+| S34 | semantic | pass |
+| S35 | semantic | pass |
+| S36 | semantic | pass |
+| S37 | semantic | pass |
+| S38 | semantic | pass |
+| S39 | semantic | pass |
+| S40 | semantic | pass |
+| S41 | semantic | pass |
+| S42 | semantic | pass |
 
 ### B04
 
@@ -123,10 +132,11 @@ Implementation SHA-256:
 
 - `common.py`: `22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033`
 - `disclosure.py`: `ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366`
-- `engine.py`: `7f5be6d7c1f2dbe0233b717b4f399f4d1975ed8d49e5888145f6813849845a4f`
+- `engine.py`: `e17a2810de4e47da100e3576a41b4ecbdb773c559121aca0393535c077c2c4dc`
 - `evaluator.py`: `098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100`
 - `run_vectors.py`: `20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a`
+- `test_authority.py`: `9b4e25a459b67d145c1b899df5624e5a01d410b79cab66c99b467461ffec3f9a`
 - `test_controls.py`: `6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083`
-- `test_semantics.py`: `3570d7f37ead854217c76128cf566794b2d7943b3a13b49a45ad583a5d1e871b`
+- `test_semantics.py`: `0b24606c496e11ef23504ec8a5145a22b69fdfba84363f99caed1f323c86cdbd`
 
 Full actual reports, exact differences and vector digests are in the adjacent JSON report.
