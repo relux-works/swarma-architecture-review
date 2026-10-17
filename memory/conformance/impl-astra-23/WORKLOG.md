@@ -643,3 +643,26 @@ will prove semantic differences and forbidden effects are detected.
 - Pair with direct/transitive successors, ordinary incomparable decision import,
   valid retry after a refusal and existing withdrawal/challenge/CAS controls.
 - Current runtime4af0360 and reports remain unchanged while publication is pending.
+
+## Round 25 — exact successor and digest fixtures before correction
+
+- ASTRA24-10 now has five independently authored exact0.2.3 vectors at72a8f86,
+  using the adjudicated code: incomparable, reused and prior receipt negatives;
+  direct/transitive successor positives. Preserve the full supplemental run before
+  any runtime correction, including the existing immutable first native probes.
+- New ASTRA25-02-DIGEST at6d3fe61 checks consistent raw-body hash substitution;
+  the framed positive and raw negative are already independently green for this
+  runtime. Judge R7-050 concerns source implementation only, not package wording.
+- Published0.2.4 clarification remains pending; no runtime change yet.
+
+### Round 25 exact baseline outcome
+
+- PHASE2-SUCCESSION-VECTORS-FIRST freezes49pass/3fail/0unsupported across52
+  semantic supplemental vectors; one deployment remains unsupported.
+- Only ASTRA24-10, SAME and PRIOR fail:19 field differences and3 forbidden
+  predicates each. Direct and receipt-only-intermediate transitive positives pass.
+  ASTRA25-02-DIGEST raw-hash negative also passes without a runtime change.
+- Runtime4af0360 is unchanged, package0.2.3/23290b3. Log:
+  .temp/impl-astra-23/succession-vectors-first-01.log (intended exit1).
+- Freeze this exact baseline before correction; original native first47c0205 and
+  all other earlier first reports remain unchanged.

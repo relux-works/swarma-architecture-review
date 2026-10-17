@@ -1,15 +1,16 @@
 # astra-23 — package implementer verdict
 
-Current package **0.2.3-draft**, `23290b3`: all canonical and published supplemental
-semantic vectors pass. New ASTRA24-10 contract probes expose accepted authoritative
-replacements with incomparable/reused receipts; judge classifies package bug R7-048 and
-refusal-mapping specification bug R7-049. Published correction is pending. PHASE2-SUCCESSION-FIRST freezes the forbidden
-state effects. Those probes are outside the vector counts below.
+Current package **0.2.3-draft**, `23290b3`: all57canonical semantic vectors pass.
+New exact ASTRA24-10 vectors expose three accepted authoritative replacements:
+incomparable, reused and prior receipts. Judge classifies package bug R7-048 and
+refusal-mapping specification bug R7-049. Published package correction is pending.
+PHASE2-SUCCESSION-FIRST freezes native state effects; the later exact
+PHASE2-SUCCESSION-VECTORS-FIRST records the expanded supplemental counts below.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 57 | 0 | 0 |
-| Supplemental semantic | 46 | 0 | 0 |
+| Supplemental semantic | 49 | 3 | 0 |
 | Canonical / supplemental deployment | 0 / 0 | 0 / 0 | 8 / 1 |
 
 Twenty-two product plus four checker controls pass. Package structural validation
