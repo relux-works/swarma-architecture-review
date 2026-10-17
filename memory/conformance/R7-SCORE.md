@@ -1,6 +1,6 @@
 # R7 score
 
-Owner: astra-27 (judge). Status: phase 2 active, round 15; no PARK.
+Owner: astra-27 (judge). Status: phase 2 active, round 16; no PARK.
 Release: **0.2.1-draft**, package commit `f31d58f`.
 
 **Current phase-2 score: 1/2.** Full dual-implementation coverage is incomplete:
@@ -9,7 +9,7 @@ gate requires 57/57 and one full round without a new open item before early PARK
 
 The original mission's supported-vector rubric was verified at **2/2** in
 `b1ae299`. That historical result remains valid on its stated narrower basis;
-it is not the full dual-coverage claim now required. No classified bug is open.
+it is not the full dual-coverage claim now required. New phase-2 findings include one open specification bug and four open implementation bugs.
 
 | Requirement | Evidence | State |
 | --- | --- | --- |
@@ -19,8 +19,8 @@ it is not the full dual-coverage claim now required. No classified bug is open.
 | Dual-implementation coverage | Source `512d006` and package runtime `f5fdd8b` | **43/57; 14 still source-unsupported** |
 | Source evaluator | `512d006`, exact independent report reproduction | 43 pass / 0 fail / 14 unsupported semantic |
 | Package evaluator | Code `f5fdd8b`, report/control update `8b9baf3`, exact independent reproduction | 57 pass / 0 fail / 0 unsupported semantic |
-| Supplemental inventory | 22 semantic cases, counted separately | Source 14/0/8; package 22/0/0 (pass/fail/unsupported) |
-| Ledger | [LEDGER.md](LEDGER.md): 8 rejected, 21 fixed | No open spec or impl bugs |
+| Supplemental inventory | 28 semantic cases at the verified baselines, counted separately | Source 14/1/13; package 25/3/0 (pass/fail/unsupported) |
+| Ledger | [LEDGER.md](LEDGER.md): 9 rejected, 21 fixed | 1 open spec bug, 4 open impl bugs (R7-030–034) |
 | Owner questions | [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) | None established |
 | Deployment inventory | 8 canonical and 1 supplemental vector | Both evaluators explicitly unsupported |
 
@@ -33,8 +33,13 @@ existing evidence qualification, and input-state preservation.
 
 The fourteen canonical gaps are B01, B07, P05, P06, P08, P12, S07, S17, S20,
 S23, S24, S25, S26 and S27. The source evaluator's 14 unsupported canonical and
-8 unsupported supplemental semantic cases are not passes. No real protected-deployment qualification follows from synthetic
+13 unsupported supplemental semantic cases are not passes. No real protected-deployment qualification follows from synthetic
 publication, erasure, release, restore or delivery traces. See each evaluator's
 report for exact unsupported reasons. Phase 2 was announced in rounds event
 `$L-hdV2Wp2yWzysqNiFDI4gGEqZaR1AE4mwL7Pm0cPQc`; the 13:00Z hard cap remains.
 The judge continues intake and verification until the convener posts PARK.
+
+Source proof-support candidate `4960d24` reports 44/57 canonical passes and awaits
+independent judge verification. A later retention-authority submission is also
+queued; it is outside the pinned 28-case counts above. New cases can expose bugs
+in already-supported behavior; canonical agreement alone does not close them.
