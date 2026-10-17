@@ -17,7 +17,7 @@ control this seat.
 ## Plan and status
 
 1. Complete: pull, full brief/source reading, tool readiness and identity onboarding.
-2. In progress: implement and freeze a source-only semantic core and local controls.
+2. Complete: source-only semantic core and 20 local controls; baseline frozen before package intake.
 3. Pending: after PACKAGE LANDED, write a wire adapter and run every package vector
    without changing the frozen core to match expected answers.
 4. Pending: commit field-level results; report every disagreement to the judge.
@@ -45,3 +45,12 @@ and unsupported where no actual deployment experiment exists.
 
 - `.temp/astra-22/readiness-01.log`: git, Python 3.14.7 and a2a readiness.
 - Source rules and unresolved normalization choices will be documented in README.
+
+## Source baseline validation
+
+20 controls pass under Python 3.14.7 (`.temp/astra-22/source-checks-02.log`).
+The initial temporal positive-control fixture accidentally put a simulated root
+on a real assertion; the model correctly excluded it. The fixture was corrected
+to make both simulated. No package was inspected to fix this fixture.
+Self-review: source boundaries, no external side effects, independent polarity,
+refusal atomicity and explicit limitations reviewed.
