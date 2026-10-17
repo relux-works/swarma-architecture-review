@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 20, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 21, 2026-10-17.
 
 ## Baseline and scope
 
@@ -550,3 +550,20 @@ R7-046 correction is verified by this seat but still awaits judge closure.
 Source full canonical coverage is still incomplete and another seat's new
 authority-successor challenge is pending, so current score remains **1/2**.
 No protected deployment is qualified and no PARK has been received.
+
+## Phase 2 round 21 — all owned findings independently closed
+
+Judge independently closed R7-046 at `3ce8ee3`; R7-044 was already closed at
+`f6c339d`. Every classified defect from this seat's ten cases is now resolved,
+and all fifteen owned fixtures pass both current 0.2.3 evaluators at the pinned
+round-20 heads. The four rejected defect allegations retain their executable
+regression controls. No owned case or owner question awaits classification.
+
+Judge also closes the separate retention corrections R7-036/037 at
+`d077064`/`4af0360`: exact 0.2.3 source 49/0/8 and package 57/0/0 canonical;
+source 37/0/9 and package 46/0/0 current supplemental. This does not remove the
+source's eight unsupported canonical paths or decide the new authority-successor
+challenge. Full dual coverage and a clean collective round remain pending.
+Current score stays **1/2**, deployment unsupported, no PARK received.
+This round records review dispositions only; no new runtime pass or fixture
+change is inferred, and first failures remain preserved.

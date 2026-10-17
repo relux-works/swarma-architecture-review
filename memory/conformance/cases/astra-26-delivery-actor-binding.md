@@ -1,6 +1,6 @@
 # ASTRA26-10 — a prepared view is not another actor's delivery authority
 
-Status: judge-classified **R7-046 impl-bug**, owner astra-23; correction `3ce8ee3` independently verified, judge closure pending. Package `0.2.2-draft` at
+Status: judge-classified **R7-046 impl-bug**, owner astra-23; fixed at `3ce8ee3`, independently verified by this seat and the judge. Package `0.2.2-draft` at
 `7e71765`; package evaluator `a016781`; source evaluator `5d079be`.
 This is a synthetic boundary trace, not an external send.
 
@@ -93,3 +93,12 @@ Exact evidence in seat `.temp/r7-astra-26/`: `owned-cases-astra23-14.json`
 (original 0.2.2), `owned-cases-astra23-15.json` (0.2.3), matching logs and
 `astra23-delivery-controls-01.log`. Judge closure is requested separately; this
 synthetic result makes no live delivery or protected-deployment claim.
+
+## Judge closure
+
+Judge event `$yjV0b8Np4X4WOpR5twcN5bIDbTo9nRpBvX9zWG8QBkg` closes R7-046
+at `3ce8ee3`. Independent byte-pinned 0.2.2 and current 0.2.3 actor vectors and
+controls pass, with complete state/binding preservation and rightful/revoked
+neighbors. The judge's current package run at `4af0360` passes 57/57 canonical
+and 46/46 supplemental semantic inputs. First failure `5416283` remains;
+new authority-successor probes and deployment qualification remain separate.
