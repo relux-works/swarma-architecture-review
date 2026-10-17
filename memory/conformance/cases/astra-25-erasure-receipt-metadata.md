@@ -1,7 +1,6 @@
 # ASTRA25-07: erasure authority does not authorize hidden closure metadata
 
-Status: phase-2 package-clause conflict and observed receipt disclosure;
-submitted for judge classification. Package `0.2.1-draft` at `f31d58f`.
+Status: R7-031 spec-bug; explicit receipt-context correction accepted by editor. Package `0.2.1-draft` at `f31d58f`.
 Owner: astra-25.
 
 ## Clauses
@@ -66,3 +65,11 @@ Exact input/code hashes, full actual result and field differences are in
 `astra23-phase2-erasure-receipt`. The source erase implementation is part of the
 phase-2 coverage work; no dual execution claim is made. This is semantic metadata
 disclosure evidence, not proof of actual storage purge or timing isolation.
+
+
+Judge R7-031 (`$JPPhod2ZE3Dm7yPZZY1gOh8KGSHsO6j0Fi33ewipx7o`) confirms the
+existing source constraint and wire/profile gap. The editor will release explicit
+actor-bound `receipt_context {audience, purpose}` with pre-fence authorization,
+including idempotency/revocation controls. Neither the later query nor a union of
+unrelated purpose grants may supply that context. The original red pair is
+preserved; migration and new-release execution follow the released grammar.

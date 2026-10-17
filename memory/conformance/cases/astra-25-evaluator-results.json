@@ -3658,6 +3658,707 @@
       "fixture_commit": null,
       "fixture_worktree_modified": true,
       "fixture_note": "Input bytes are identified by each vector_sha256; these owned additions/edits were not yet committed at execution."
+    },
+    "astra23-phase2-unknown-erasure": {
+      "package_version": "0.2.1-draft",
+      "package_commit": "f31d58f58d05de2ae4159dedaacfa1e32bdc656d",
+      "evaluator_commit": "c78e9054efa03bc2785f2a69724c56504d30120f",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "b0f057b04b8e1776c9cefea638607c4cea88df2b4477e78d7d8144104a6bd079",
+        "engine.py": "5ec5dda196812c46529714ff94be83a83a30a54e2e771c5864bc1b589f21e4ea",
+        "evaluator.py": "8bc6ae4535b4b3b59f612488d80638496b72b55b90ce7e2e74009a6d8fe95e24",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "2343a6ca9a034a051844b29cde7047b3c8ca7baf36dc67ac8e488ab167f03fc3"
+      },
+      "scope": "Owned adversarial fixtures. Evaluator receives only initial state, operations and query; comparator receives expected output. No evaluator files were changed. Deployment unsupported is not a pass.",
+      "vectors": [
+        {
+          "id": "ASTRA25-02",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
+          "vector_sha256": "f8dedbc7e38d7fa7699c5fdab332c4e1fdfaa7ff338db63bf496ce03bef94bf2",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-authorized-control.vector.json",
+          "vector_sha256": "e0ffb99a67a7f6e709f21aa7e9d21cbac86c445e90171e005b979584280e633d",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-07",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata.vector.json",
+          "vector_sha256": "e2b70448a82d0d75007fa2f4f97a77a1a2deaaea917ff560edc8c119369648ea",
+          "status": "fail",
+          "differences": [
+            [
+              "/operation_results/0/refs/length",
+              2,
+              1
+            ],
+            [
+              "/operation_results/0/refs/1",
+              {
+                "id": "rec:summary",
+                "version": 1
+              },
+              "<missing>"
+            ]
+          ],
+          "checks": [
+            "forbidden predicate matched: {\"path\":\"/operation_results/0/refs/1/id\",\"test\":\"equals\",\"value\":\"rec:summary\"}"
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "erase",
+                "outcome": "purged",
+                "receipt_handle": "8abd8373cb2c50a7d4bf99fbc664d181",
+                "refs": [
+                  {
+                    "id": "rec:a",
+                    "version": 1
+                  },
+                  {
+                    "id": "rec:summary",
+                    "version": 1
+                  }
+                ],
+                "custody": [
+                  "custody:embedding",
+                  "custody:payload"
+                ],
+                "erasure_status": "purged_within_boundary"
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.1-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "17770f8a0c00bd14b215c22ba3e889a9",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:a",
+                  "version": 1
+                },
+                {
+                  "id": "rec:summary",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [
+                {
+                  "id": "rec:a",
+                  "version": 1
+                },
+                {
+                  "id": "rec:summary",
+                  "version": 1
+                }
+              ],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-05-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "vector_sha256": "a75be249b59dc03a7bd4546e12313e8322c6d649f891ddfc945046a43f819a65",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-05",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
+          "vector_sha256": "466e1c685e1ba9cf4b04636cae25ab10f84617ac9c371552b73aa42069f8b4be",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-01",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
+          "vector_sha256": "6e836d3bc71a8e481d8f8b496d7676d94849bf6b30d993789782a68f951e3b29",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-06",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-quality-budget-isolation.vector.json",
+          "vector_sha256": "ce6f6322eeb1398fe710c1360e0d739fae5863228954b1de6c48fd326568dfa0",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-authorized-control.vector.json",
+          "vector_sha256": "12ebe3931b165dbe1218990378b57c4a4aef883325d996851c8f5a978eb507df",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-08",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority.vector.json",
+          "vector_sha256": "e9ce4b4b07e3872d8837ad77fd8d64d565505ed60c524006196f8b26c45d342e",
+          "status": "fail",
+          "differences": [
+            [
+              "/operation_results/0/code",
+              "<missing>",
+              "not_authorized"
+            ],
+            [
+              "/operation_results/0/custody",
+              [],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/erasure_status",
+              null,
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/operation",
+              "admit",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/outcome",
+              "admitted",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/receipt_handle",
+              "91f05df202b490af517dd8dbb44cd0e4",
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/refs",
+              [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ],
+              "<missing>"
+            ],
+            [
+              "/operation_results/0/retryable",
+              "<missing>",
+              false
+            ],
+            [
+              "/operation_results/0/type",
+              "receipt",
+              "refusal"
+            ],
+            [
+              "/postconditions/record_refs/length",
+              2,
+              1
+            ],
+            [
+              "/postconditions/record_refs/0/id",
+              "rec:paraphrase",
+              "rec:private"
+            ],
+            [
+              "/postconditions/record_refs/1",
+              {
+                "id": "rec:private",
+                "version": 1
+              },
+              "<missing>"
+            ]
+          ],
+          "checks": [
+            "forbidden predicate matched: {\"path\":\"/operation_results/0/type\",\"test\":\"equals\",\"value\":\"receipt\"}",
+            "forbidden predicate matched: {\"path\":\"/postconditions/record_refs/0/id\",\"test\":\"equals\",\"value\":\"rec:paraphrase\"}"
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "91f05df202b490af517dd8dbb44cd0e4",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.1-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "493b9dd61e439d700695f433861e2a81",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-04",
+          "profile": "deployment",
+          "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
+          "vector_sha256": "021ea4e4964291793222432afa32158c440ce70f1295ddd086c9bfcc87981a7b",
+          "status": "unsupported",
+          "reason": "Requires real protected deployment, current witness and failure-domain evidence; modeled state transitions are insufficient."
+        },
+        {
+          "id": "ASTRA25-03-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
+          "vector_sha256": "d88799a30a0879c647c464c5b2e591aa562974b1b9575f29a2a8a254e5e6b3e9",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-03-FENCE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
+          "vector_sha256": "ab746e3c73b9f2e15b1eb5f24797a94ee82eafb5cabbf50a21e5747bfbec10ac",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-03",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
+          "vector_sha256": "ec107d6ebd1e3781ec752dd2ad379151a99bba76737c8cd85fe3db9bd88a9a6e",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-09-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure-independent-control.vector.json",
+          "vector_sha256": "0179eafc96b728fa11ddfbb58b2449c390293482688bd78b3bea094621addec1",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        },
+        {
+          "id": "ASTRA25-09",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure.vector.json",
+          "vector_sha256": "51038d2bf2d62ae1bf471a03260a7b4c1c3211ffd381ab2c8ecbf684eca99979",
+          "status": "pass",
+          "differences": [],
+          "checks": []
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "pass": 12,
+          "fail": 2
+        },
+        "deployment": {
+          "unsupported": 1
+        }
+      },
+      "fixture_base_commit": "2de226c8ce746c9ac8735c835179c4103f3063b6",
+      "fixture_commit": null,
+      "fixture_worktree_modified": true,
+      "fixture_note": "Input bytes are identified by each vector_sha256; these owned additions/edits were not yet committed at execution."
+    },
+    "astra22-phase2-unknown-erasure": {
+      "package_version": "0.2.1-draft",
+      "package_commit": "f31d58f58d05de2ae4159dedaacfa1e32bdc656d",
+      "evaluator_commit": "4960d247558d8151652b53534095f1597f6cb218",
+      "implementation_sha256": {
+        "adapter.py": "abf7d7f438c891a566eccb35dd01ecae2334616339027f6d4989b7c1ac0f8d1a",
+        "adapter_checks.py": "1490aa38b104a997df80086313d36630742b48984cbcd8038354d5724e1cc59f",
+        "evaluator.py": "999b53173fb7fe7127b5a1370b31f988e71f1f8a1fecfa922c4febb3eee6b0cc",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "transaction_checks.py": "3b700e9e8760ac4342a2f86f318dc8d135ebdddbef27d6e32b1d840e0f3c2c96",
+        "transactions.py": "913accd5b81becfaccdb04eead763a26969fdc1ad6025c19a9d06f63c8100f04"
+      },
+      "scope": "Owned current-version adversarial fixtures; untouched evaluator; five harness controls passed. Deployment unsupported is not a pass.",
+      "vectors": [
+        {
+          "id": "ASTRA25-02",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-declassification-intersection.vector.json",
+          "vector_sha256": "f8dedbc7e38d7fa7699c5fdab332c4e1fdfaa7ff338db63bf496ce03bef94bf2",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: declassify, deliver, revoke_declassification"
+        },
+        {
+          "id": "ASTRA25-07-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata-authorized-control.vector.json",
+          "vector_sha256": "e0ffb99a67a7f6e709f21aa7e9d21cbac86c445e90171e005b979584280e633d",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-07",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-erasure-receipt-metadata.vector.json",
+          "vector_sha256": "e2b70448a82d0d75007fa2f4f97a77a1a2deaaea917ff560edc8c119369648ea",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-05-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation-visible-control.vector.json",
+          "vector_sha256": "a75be249b59dc03a7bd4546e12313e8322c6d649f891ddfc945046a43f819a65",
+          "status": "unsupported",
+          "reason": "Frozen core has no dirty/review-closure output"
+        },
+        {
+          "id": "ASTRA25-05",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-dirty-invalidation.vector.json",
+          "vector_sha256": "466e1c685e1ba9cf4b04636cae25ab10f84617ac9c371552b73aa42069f8b4be",
+          "status": "unsupported",
+          "reason": "Frozen core has no dirty/review-closure output"
+        },
+        {
+          "id": "ASTRA25-01",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-hidden-premise-quality.vector.json",
+          "vector_sha256": "6e836d3bc71a8e481d8f8b496d7676d94849bf6b30d993789782a68f951e3b29",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-06",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-quality-budget-isolation.vector.json",
+          "vector_sha256": "ce6f6322eeb1398fe710c1360e0d739fae5863228954b1de6c48fd326568dfa0",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority-authorized-control.vector.json",
+          "vector_sha256": "12ebe3931b165dbe1218990378b57c4a4aef883325d996851c8f5a978eb507df",
+          "status": "pass",
+          "differences": []
+        },
+        {
+          "id": "ASTRA25-08",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-retention-authority.vector.json",
+          "vector_sha256": "e9ce4b4b07e3872d8837ad77fd8d64d565505ed60c524006196f8b26c45d342e",
+          "status": "fail",
+          "differences": [
+            {
+              "path": "$.operation_results[0].code",
+              "expected": "not_authorized",
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].custody",
+              "expected": "<absent>",
+              "actual": []
+            },
+            {
+              "path": "$.operation_results[0].erasure_status",
+              "expected": "<absent>",
+              "actual": null
+            },
+            {
+              "path": "$.operation_results[0].operation",
+              "expected": "<absent>",
+              "actual": "admit"
+            },
+            {
+              "path": "$.operation_results[0].outcome",
+              "expected": "<absent>",
+              "actual": "admitted"
+            },
+            {
+              "path": "$.operation_results[0].receipt_handle",
+              "expected": "<absent>",
+              "actual": "1144d548de2254c031f474923ebeb0d7"
+            },
+            {
+              "path": "$.operation_results[0].refs",
+              "expected": "<absent>",
+              "actual": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                }
+              ]
+            },
+            {
+              "path": "$.operation_results[0].retryable",
+              "expected": false,
+              "actual": "<absent>"
+            },
+            {
+              "path": "$.operation_results[0].type",
+              "expected": "refusal",
+              "actual": "receipt"
+            },
+            {
+              "path": "$.postconditions.record_refs.length",
+              "expected": 1,
+              "actual": 2
+            },
+            {
+              "path": "$.postconditions.record_refs[0].id",
+              "expected": "rec:private",
+              "actual": "rec:paraphrase"
+            },
+            {
+              "path": "forbidden:/operation_results/0/type",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/operation_results/0/type",
+                "test": "equals",
+                "value": "receipt"
+              }
+            },
+            {
+              "path": "forbidden:/postconditions/record_refs/0/id",
+              "expected": "predicate false",
+              "actual": {
+                "path": "/postconditions/record_refs/0/id",
+                "test": "equals",
+                "value": "rec:paraphrase"
+              }
+            }
+          ],
+          "actual": {
+            "operation_results": [
+              {
+                "type": "receipt",
+                "operation": "admit",
+                "outcome": "admitted",
+                "receipt_handle": "1144d548de2254c031f474923ebeb0d7",
+                "refs": [
+                  {
+                    "id": "rec:paraphrase",
+                    "version": 1
+                  }
+                ],
+                "custody": [],
+                "erasure_status": null
+              }
+            ],
+            "result": {
+              "type": "view",
+              "semantic_profile": "0.2.1-draft",
+              "projection_rule": {
+                "id": "projection:main",
+                "version": 1
+              },
+              "evidence_policy": {
+                "id": "evidence:1",
+                "version": 1
+              },
+              "policy": {
+                "id": "policy:1",
+                "version": 1
+              },
+              "authorized_snapshot_handle": "<fresh>",
+              "data_classification": "data",
+              "items": [],
+              "currentness": "none",
+              "historical": [],
+              "review_required": [],
+              "explanation": {
+                "status": "complete",
+                "paths": [],
+                "reason": null
+              },
+              "cutoffs": [],
+              "changes": {
+                "state": "initial",
+                "refs": []
+              }
+            },
+            "postconditions": {
+              "record_refs": [
+                {
+                  "id": "rec:paraphrase",
+                  "version": 1
+                },
+                {
+                  "id": "rec:private",
+                  "version": 1
+                }
+              ],
+              "erased_refs": [],
+              "custody_present": [],
+              "dirty": [],
+              "control_observations": [],
+              "external_effects": []
+            }
+          }
+        },
+        {
+          "id": "ASTRA25-04",
+          "profile": "deployment",
+          "path": "memory/conformance/cases/astra-25-stale-restore-witness.vector.json",
+          "vector_sha256": "021ea4e4964291793222432afa32158c440ce70f1295ddd086c9bfcc87981a7b",
+          "status": "unsupported",
+          "reason": "No protected deployment; simulated state cannot qualify current witness and failure-domain boundaries."
+        },
+        {
+          "id": "ASTRA25-03-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-complete-control.vector.json",
+          "vector_sha256": "d88799a30a0879c647c464c5b2e591aa562974b1b9575f29a2a8a254e5e6b3e9",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-03-FENCE",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure-current-generation.vector.json",
+          "vector_sha256": "ab746e3c73b9f2e15b1eb5f24797a94ee82eafb5cabbf50a21e5747bfbec10ac",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-03",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-surviving-support-erasure.vector.json",
+          "vector_sha256": "ec107d6ebd1e3781ec752dd2ad379151a99bba76737c8cd85fe3db9bd88a9a6e",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-09-CONTROL",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure-independent-control.vector.json",
+          "vector_sha256": "0179eafc96b728fa11ddfbb58b2449c390293482688bd78b3bea094621addec1",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        },
+        {
+          "id": "ASTRA25-09",
+          "profile": "semantic",
+          "path": "memory/conformance/cases/astra-25-unknown-lineage-erasure.vector.json",
+          "vector_sha256": "51038d2bf2d62ae1bf471a03260a7b4c1c3211ffd381ab2c8ecbf684eca99979",
+          "status": "unsupported",
+          "reason": "Unmapped frozen-core transaction operations: erase"
+        }
+      ],
+      "totals": {
+        "semantic": {
+          "unsupported": 10,
+          "pass": 3,
+          "fail": 1
+        },
+        "deployment": {
+          "unsupported": 1
+        }
+      },
+      "fixture_base_commit": "2de226c8ce746c9ac8735c835179c4103f3063b6",
+      "fixture_commit": null,
+      "fixture_worktree_modified": true,
+      "fixture_note": "Input bytes are identified by each vector_sha256; these owned additions/edits were not yet committed at execution."
     }
   }
 }
