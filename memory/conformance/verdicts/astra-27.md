@@ -1,15 +1,15 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 31, phase 2 active. Current score: **1/2**.
+Status: round 32, phase 2 active. Current score: **1/2**.
 Historical original supported-vector score: **2/2** at `b1ae299`.
 
-Adjudicated 56 items: ten rejected as defects, forty-four independently fixed,
-one open implementation bug (R7-056), and one owner question (R7-055).
+Adjudicated 57 items: ten rejected as defects, forty-five independently fixed,
+one open implementation bug (R7-057), and one owner question (R7-055).
 See [LEDGER.md](../LEDGER.md) and [R7-SCORE.md](../R7-SCORE.md).
 
 Both readers now independently reproduce **57/57 canonical and 61/61 supplemental
-semantic passes** on unchanged release 0.2.5 `6a04e8c`. Source runtime is `dbf4892`;
+semantic passes** on unchanged release 0.2.5 `6a04e8c`. Source runtime is `87beb46`;
 package runtime is `23b4d74`. Complete report rows, input/module hashes and actuals
 match their committed evidence after only declared fresh-handle normalization.
 All 62 supplemental artifacts validate; the final twenty author migrations at
@@ -21,14 +21,23 @@ exact atomic deadline refusals, preserving original receipts. All four write
 APIs and current original closure/replay use strict trusted-time expiry before
 idempotency. Source R7-052 remains fixed at `4a14a56`. First failures are retained.
 
-The source's erasure/restore/load mapping fills all seven former coverage gaps.
-Eight new erasure groups and four availability/control groups pass alongside prior
-controls, for 124 passing controls including the comparison harness. The added
-125th control exposes R7-056: an initially degraded public state acknowledges an
-owner's available transition but remains unavailable. Judge reproduction validates
-all inputs, isolates that failure among four public-state transitions and verifies
-two exact atomic authorization refusals. The native bug remains open despite full
-vector success; correction is authorized without changing any canonical oracle.
+R7-056 recovery closes at `87beb46`. Independent full canonical/supplemental
+execution reproduces all committed rows and input/module hashes. All 125 source
+native/comparer controls pass, along with the unchanged original recovery witness,
+four public-state transitions and two exact atomic authorization negatives.
+Only public/runtime availability facts change; original failures remain retained.
+The erasure/restore/load coverage introduced at `dbf4892` stays verified.
+
+R7-057 is a separate source erase-context defect. Original native `0529814` and
+judge probes validate and reproduce changed ungranted receipt purpose/audience:
+source returns not_authorized instead of idempotency_conflict,false. K-API-1 and
+K-ERASE-2 distinguish changed canonical intent from exact receipt replay. Current
+erase authority still precedes conflict; exact replay still needs current metadata
+permission. Both readers pass the live exact-replay, revoked-metadata, revoked-
+erase-authority and fresh-key empty-ref neighbors, with full refusal state and
+original receipt preserved. Package `23b4d74` gives the required changed-intent
+conflicts. Source correction is authorized; no new owner or canonical oracle
+choice is needed. This native bug keeps the score at 1/2 despite green vectors.
 
 R7-055 is a source ambiguity about whether an H1 canonical edge endorses an H2
 predecessor's transitive ordering. The native pair at `4424598` validates and

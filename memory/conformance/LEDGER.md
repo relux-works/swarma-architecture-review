@@ -100,7 +100,9 @@ commits and relevant controls; a candidate release alone is insufficient.
 | R7-053 | Same ASTRA25-11 submission and independently repeated inputs as R7-052 | Same deadline and authorized-replay clauses | impl-bug | astra-23 | fixed@23b4d74 | Judge independently reproduces 57/57 canonical and 61/61 current supplemental at 0.2.5 with exact reports/input/module hashes, 31 product/comparer controls and ten original isolated deadline operation checks. All four write APIs, every proposed output/known closure and current original-receipt replay use strict context.at expiry before idempotency. Equal/later fresh/replay refusals preserve full state and original receipts; live/null controls and same-key recovery pass. First failures remain unchanged. |
 | R7-054 | Judge review of ASTRA25-11; editor recommendation `$rhmPEMI5yxqbjQprbScOEovbpGlhuBzhcvFNwa--FmA` | K-DISC-1, K-AUTH-1, K-API-1/2, K-REF-1 | spec-bug | astra-21 | fixed@6a04e8c | Judge verifies 0.2.5 explicit strict context.at expiry, not_authorized,false before idempotency, original-output/known-closure replay and no purge. All 94 JSON artifacts regenerate exactly; 34 intended checker plants pass. Only P11 changes beyond version; its first 16 operations/results and other 64 vectors/pilot are preserved. Isolated unchanged-runtime probes give five forbidden writes, two expired success replays and one wrong conflict priority; a separate 20-operation positive trace matches every expected field. Runtime fixes stay R7-052/053. |
 | R7-055 | astra-24 [authority-issuer](cases/astra-24-authority-issuer.md), native pair/first `4424598`; request `$2uzH35MbQZgpUZcKniiv8nGpIIxyeCjJQVyjABqbYvU` | Kernel §§5.1/5.3; K-REV-3; package A07 | ambiguity | Ivan (owner decision) | owner-question | Exact validated pair separates issuer-local and global canonical predecessor paths: H1 endpoints through H2 intermediate yield ambiguous d1/d3 in source, current d3 in package; same-H1 control agrees. Kernel own ordered record does not define whether H1's canonical edge endorses H2's predecessor order. D-004/008 and sequence ownership do not decide that attestation meaning. No evaluator bug or invalid-state rule is inferred. See [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md); preserve both native outputs and existing same-issuer closures. |
-| R7-056 | astra-22 ASTRA22-08, signed native first `dbf4892`, [first evidence](impl-astra-22/runs/availability-recovery-first.json); request `$fDDTeYrjnc9MYUG4MHM6u2sw7BII51TC8fX0w9jadOU` | K-NI-3; S27 authorized public availability | impl-bug | astra-22 | open | Judge independently validates and reproduces initially degraded public state with runtime memory available: owner set_availability available returns availability_changed but recall remains unavailable. Three neighboring public transitions pass, and foreign-actor/undeclared-policy recovery refuses not_authorized atomically. The admitted public availability must actually recover; preserve records, policy pins, authorization and unrelated state. No deployment recovery or new owner choice is inferred. |
+| R7-056 | astra-22 ASTRA22-08, signed native first `dbf4892`, [first evidence](impl-astra-22/runs/availability-recovery-first.json); request `$fDDTeYrjnc9MYUG4MHM6u2sw7BII51TC8fX0w9jadOU` | K-NI-3; S27 authorized public availability | impl-bug | astra-22 | fixed@87beb46 | Judge independently reproduces 57/57 canonical, 61/61 supplemental and all 125 native/comparer controls at the signed correction. The unchanged original native witness and four-transition matrix now pass, as do two exact atomic authorization negatives. Only current public/runtime availability facts change; policy pins, grants, records, receipts, cuts and captures remain preserved. Original single-case and expanded-matrix red evidence stays immutable; no deployment claim. |
+
+| R7-057 | astra-22 ASTRA22-09, signed native first `0529814`, [first evidence](impl-astra-22/runs/erase-changed-context-first.json); request `$Jls_nbueo2sF-siMYb-5Xqb_iijrTcnTQ4UT_NDB2gU` | K-API-1/2; K-ERASE-2 | impl-bug | astra-22 | open | Judge validates and reproduces changed ungranted receipt purpose/audience under the same erase key: source returns not_authorized instead of idempotency_conflict,false. The erase operation remains authorized; a fresh key succeeds with empty refs. Stored-ref metadata permission gates exact replay, not a changed canonical request that returns no stored receipt. Exact live replay, denied current metadata and revoked erase authority controls retain full state/original receipt; package reader returns the required conflict. |
 
 
 ## Judge worklog
@@ -1560,3 +1562,53 @@ Ledger: 56 items, 44 fixed, 10 rejected, R7-056 implementation open and R7-055
 owner-question. Dual canonical semantics 57/57; supplemental semantics 61/61
 in both readers. Eight canonical plus one supplemental deployment case remain
 unsupported. Score remains 1/2 because the native recovery bug is open. No PARK.
+
+## Round 32 — recovery closes; erase retry priority is a separate source defect
+
+R7-056 closes at signed `87beb46`. Independent current source execution reproduces
+all 65 canonical and 62 supplemental committed rows exactly, with unchanged input
+hashes and the correction's module bytes. The 57/57 canonical and 61/61 supplemental
+semantic totals are preserved. All 120 native tests and five comparer controls
+pass. The original native recovery witness and judge four-transition matrix now
+produce the required views/refusals; foreign actor and undeclared coarse admission
+remain exact atomic not_authorized,false refusals. The expanded product matrix
+also verifies that only public/runtime availability facts change. Original first
+failure and expanded-matrix failure evidence remain immutable.
+
+R7-057 classifies ASTRA22-09 as a source implementation bug. The original signed
+`0529814` admitted initial state and operations validate. Independent isolated
+reader runs reproduce changed ungranted receipt purpose and changed audience:
+source `87beb46` returns not_authorized,false, while package `23b4d74` returns
+idempotency_conflict,false. A fresh-key request with the changed context succeeds
+in both readers, purges the same protected closure and discloses no refs.
+
+K-API-1 explicitly treats a changed erase receipt_context as a different canonical
+intent. K-ERASE-2 permits an authorized erase with an empty metadata-authorized ref
+subset. Current erase operation authority still comes first; the stored-receipt
+metadata check applies to exact replay, which actually returns those refs. A
+changed canonical request returns a conflict without disclosing or changing the
+stored receipt. Broad authorization priority cannot make its undisclosable refs
+an operation-wide erase denial. This follows the existing explicit distinction,
+not reader agreement or a new owner choice.
+
+Both readers preserve the neighboring guarantees in independent six-case probes:
+exact live retry returns the identical original receipt; exact retry after current
+metadata revocation refuses not_authorized; changed intent after erase-authority
+revocation also refuses before conflict; fresh changed-context intent succeeds
+with empty refs. Every refused attempt preserves complete state and the original
+receipt. The author's first native Refusal records only a code; judge wire
+responses explicitly record retryable=false. Classification/correction event
+`$eZJtQ5NtpfBEb7qFsk54ePTdCFPWyGbT_S4eBcV9FM8` preserves these boundaries and
+requests supplemental encoding by its authorized case owner. No canonical oracle
+or package change is required by this verdict.
+
+Evidence in judge seat `.temp/`: `astra22-round32-execution-01.json`,
+`astra22-judge-round32-{canonical,cases}.json`,
+`judge-round32-availability-corrected.json`, `judge-round32-source-comparison-01.json`,
+`astra{22,23}-judge-round32-erase-context-first.json`,
+`judge-round32-erase-context-analysis.md` and both round-32 signature logs.
+
+Ledger: 57 items, 45 fixed, 10 rejected, R7-057 implementation open and R7-055
+owner-question held for Ivan. Dual canonical 57/57 and supplemental 61/61 semantic
+passes remain valid; the native erase-context failure still blocks score 2.
+Score 1/2; deployment 8+1 unsupported; no PARK.
