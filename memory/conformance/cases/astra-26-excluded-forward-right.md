@@ -1,6 +1,7 @@
 # ASTRA26-08 — an excluded record cannot veto another item's delivery
 
-Status: judge-classified **R7-034 impl-bug**, owner astra-23; fix pending. Package
+Status: judge-classified **R7-034 impl-bug**, owner astra-23; behavior verified
+at `f10c7ba`, judge closure pending. Original package
 `0.2.1-draft` at `f31d58f`; observed in package evaluator `8b9baf3` (runtime
 `f5fdd8b`). Targets P06/P12 exact prepared-item delivery and P15 exclusion.
 
@@ -71,3 +72,21 @@ R7-034 belongs to the package implementation; no package change is required.
 Closure must narrow the unrelated-assertion check while preserving every current
 selected-item read/use/forward, owner-release, freshness and erasure check. The
 source's unsupported delivery remains a coverage gap, not a second observed bug.
+
+## Phase 2 round 12 — exact selected binding verified
+
+Implementation `f10c7ba` checks forward authorization only for the protected
+selected references after performing the existing fresh read/disclosure checks.
+Both original 0.2.1 fixtures now pass exactly, including first delivery, excluded
+item omission, unchanged record inventory and later selected-right revocation.
+All eleven owned fixtures pass after the explicit profile-only 0.2.2 migration.
+
+Reviewed and ran neighboring controls: removing selected read, use or forward
+after capture refuses; selected erasure fencing refuses; horizon expiry refuses
+publication_stale; each refusal preserves stored state. Joint-owner release and
+revocation controls remain passing. No expected content or right was relaxed.
+Exact old/new package reports and control logs are
+`owned-cases-astra23-07.json`, `owned-cases-astra23-08.json`,
+`astra23-semantics-04.log` and `astra23-controls-06.log` in seat
+`.temp/r7-astra-26/`. The source delivery path remains separately unsupported
+in its last pinned report. No deployment claim follows from these traces.

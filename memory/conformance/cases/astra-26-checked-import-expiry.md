@@ -1,7 +1,8 @@
 # ASTRA26-07 — a checked publication expires without becoming current history
 
 Status: judge-classified **R7-032 impl-bug (astra-22)** and
-**R7-033 impl-bug (astra-23)**; both fixes pending. Package
+**R7-033 impl-bug (astra-23)**. R7-033 behavior verified at `f10c7ba`,
+judge closure pending; R7-032 source fix pending. Original package
 `0.2.1-draft` at `f31d58f`; package evaluator `8b9baf3` (runtime `f5fdd8b`),
 source evaluator `512d006`. Targets S23/P07 publication currentness and P12 frozen
 history, not a live issuer/network check.
@@ -68,3 +69,25 @@ at and after expiry, missing check, known replacement, non-publication
 freshness/currentness independence, immutable earlier capture and unchanged
 evidence/origin. The original witness and first run remain unchanged while
 those fixes are pending.
+
+## Phase 2 round 12 — package fix verified
+
+Package implementation `f10c7ba` passes the unchanged original 0.2.1 witness
+exactly against pinned `f31d58f` schemas. All eleven owned fixtures pass that
+run. The subsequent explicit migration to `0.2.2-draft` at `7e71765` changes only
+semantic-profile stamps in these owned fixtures (none contains erase); all eleven
+pass again with identical semantic expectations. Original inputs are retained
+under seat `.temp/r7-astra-26/cases-0.2.1-phase2/` and in git.
+
+Reviewed and ran the clause-derived controls: before/at/after horizon, missing
+check, known replacement, stale ordinary-document currentness, unchanged
+capture bytes/state, evidence qualifications and origin. All pass; ordinary
+freshness is not used to demote a non-publication issuer sequence. The package
+fix does not itself close R7-032 in the independent source implementation.
+
+Exact reports: `owned-cases-astra23-07.json` (original package) and
+`owned-cases-astra23-08.json` (0.2.2), plus `astra23-semantics-04.log` and
+`astra23-controls-06.log`, all under seat `.temp/r7-astra-26/`. A prior mixed
+version test attempt produced only two semantic_profile stamp differences after
+the 0.2.2 pull; that attempt is retained as `astra23-semantics-03.log`, not a
+semantic failure or passing evidence. The pinned and migrated reruns resolve it.

@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 11 in progress, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, phase 2 round 12, 2026-10-17.
 
 ## Baseline and scope
 
@@ -360,3 +360,28 @@ and authorization controls are recorded in the case documents. Corrections
 and exact-head regression evidence are pending; current score remains **1/2**.
 Source proof enumeration has independently reported dual canonical coverage
 44/57; it does not close these publication/delivery findings.
+
+## Phase 2 round 12 — package fixes and 0.2.2 migration
+
+- Independently verified R7-033/R7-034 implementation `f10c7ba`: **11/11 owned
+  fixtures pass exactly** against original pinned 0.2.1 schemas. First failing
+  outputs remain immutable. Neighboring expiry/identity/evidence and selected
+  read/use/forward/release/fence/freshness controls are reviewed and green.
+- Package 0.2.2 at `7e71765` introduces explicit erase receipt_context for
+  R7-031. None of this seat's fixtures contains an erase operation; explicitly
+  migrated all eleven semantic-profile stamps only and proved input/expected
+  equality after normalizing that stamp. The same implementation passes
+  **11/11** on the new grammar. No canonical fixture or foreign file changed.
+- Package validation passes with 57 semantic / 8 deployment vectors and 23
+  intended checker violations. All owned structural checks pass; package
+  evaluator controls pass: 4 comparator and 12 product tests. Evidence: seat
+  `.temp/r7-astra-26/owned-cases-astra23-07.json`, `owned-cases-astra23-08.json`,
+  `cases-structural-07.log`, `validate-05.log`, `astra23-controls-06.log`,
+  `astra23-semantics-04.log`. Original inputs are in `cases-0.2.1-phase2/`.
+- Initial control execution immediately after pulling the new package mixed
+  old owned stamps with new grammar and failed only semantic_profile equality.
+  The retained `astra23-semantics-03.log` is not counted as a product failure
+  or a pass; pinned old-package and explicit migrated reruns both pass.
+- R7-032 source expiry correction and full dual coverage remain pending, as
+  do separate collective findings and judge closure of these package fixes.
+  Current score remains **1/2**; no protected deployment is qualified.
