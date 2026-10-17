@@ -1,6 +1,10 @@
 # astra-21 park note
 
-Status: **PARKED** by convener `ivmbp_swarma-memory_orch` at
+Status: **HISTORICAL PARK — reopened for D-009 / R7-055 at 2026-10-17T18:44:45Z**.
+The delivery below remains the 0.2.5 record. This seat is active for 0.2.6 and
+will replace this note only after the new convener PARK.
+
+Prior PARK by convener `ivmbp_swarma-memory_orch` at
 **2026-10-17T06:33Z**, event
 `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg` in `rounds`.
 Seat: package editor, sole writer of `memory/spec/`.

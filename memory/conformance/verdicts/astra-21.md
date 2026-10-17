@@ -1,21 +1,21 @@
 # astra-21 package editor verdict
 
-Status: **PARKED**, following the convener decision at **2026-10-17T06:33Z**.
-Current package: **0.2.5-draft**, signed release `6a04e8c`; package bytes are
-unchanged since release. Final open threads: [park note](../parked/astra-21.md).
+Status: **ACTIVE — bounded D-009 / R7-055 reopening** under convener event
+`$7qVXDb4qnZcORPIQr_qJeUzKFAj9Md3ZRI_VLpdOSKk` (2026-10-17T18:44:45Z).
+Current package: **0.2.6-draft**, release in this commit. The 06:33Z PARK below
+is historical; this seat remains active until the new convener PARK.
 
-**R7 score: 2/2**, matching judge `9d2cdd4`. Both independent readers exactly pass
-**57/57 canonical and 68/68 supplemental semantic vectors**. Source runtime is
-`946cbd8` with expanded report/test `b8189ba`; package runtime is `104fbe8`.
-All 14 editor-owned specification bugs and every classified implementation bug are
-judge-closed. The ledger has 58 items: 47 fixed, 10 rejected and one owner question.
-No new case, package edit or unanswered editor assignment remains in this round.
+**Provisional R7 score: 1/2**, matching judge reopening `2665ac0`. D-009 settles
+the authority-order choice; new exact canonical coverage and dual evaluator
+verification are required before R7-055 closes. Historical 0.2.5 results remain
+57/57 canonical plus 68/68 supplemental semantic for each reader. Eight canonical
+and one supplemental deployment cases remain unsupported and unqualified.
 
-R7-055 remains an explicit [owner question](../OWNER-QUESTIONS.md), held for Ivan
-without an authority choice or exact oracle. Its native separating pair stays
-outside executable denominators. Eight canonical and one supplemental deployment
-cases remain unsupported; semantic success does not qualify a deployment.
-Current [score](../R7-SCORE.md) and [ledger](../LEDGER.md) preserve these limits.
+The 0.2.6 package has 66 semantic and eight deployment vectors, 52 clauses and
+38 checker controls. Structural validation, syntax, deterministic regeneration,
+exact original-pair preservation and unchanged prior-vector/pilot checks pass.
+Independent semantic execution is pending; structural success is not a runtime
+pass. Current [score](../R7-SCORE.md) and [ledger](../LEDGER.md) own adjudication.
 
 ## Scope and independence
 
@@ -25,7 +25,7 @@ design, and the landed package. Initial baseline: `0ef608a`, package 0.1.0.
 No source design was amended. Only the package and this seat's verdict/park note
 are production write scope; scratch evidence and task tracking stay in `.temp/`.
 
-## Final PARK readback
+## Historical 0.2.5 PARK readback
 
 The convener issued PARK in `rounds`, event
 `$698CuaDIUMf-DR-20AGkuMRnSJpo1SEQgXV9GHVW3hg`, after checking full dual coverage,
@@ -521,3 +521,31 @@ Mission constraints remain in force: Python standard library only, no installs,
 web, servers, background workers, additional agents or task-board writes.
 All published editor commits are signed and pushed directly to main under the
 mission's explicit delivery rule. Task continuity: `.temp/tasks.md`.
+
+
+## Reopened round 1 — D-009 release 0.2.6
+
+Read the full mission, DECISIONS.md D-009, kernel v0.3 and the approved review at
+2c3100d. Only K-REV-3 authority order and associated exact conformance coverage
+change. The deciding issuer's protected event subgraph is restricted before
+reachability; assertion-free events count, one qualifying path suffices, foreign
+nodes are not contracted and foreign branches do not veto an all-H path. Both
+currentness and strict replacement/correction use this relation. Mixed states
+remain admitted; existing refusal codes and CAS/replay priority remain intact.
+
+S34/S35 preserve every field of the original foreign/same-issuer input triples.
+S36 adds a direct H1 path. S34/S37 and S36/S38 are paired foreign-only changes
+with exact unchanged expected reports and structural delta checks. S39 tests
+both refused revision relations, no phantom cut/dirty state, subsequent same-key
+canonical import, ambiguous CAS and exact replay. S40/S41 supply accepted
+replacement/correction controls; S42 isolates protected event issuer from source
+envelope and carrier. All 65 previous vectors retain their complete semantics
+after version substitution, and the pilot bytes remain unchanged.
+
+Validation: 103 JSON / 14 schemas / 14 domains / one fixture / 74 vectors
+(66 semantic, eight deployment) / 52 clauses / 38 intended checker controls.
+All JSON regenerates byte-for-byte. Exact commands and bounded evidence are in
+[BUILD_NOTES](../../spec/checks/BUILD_NOTES.md) and [RELEASES](../../spec/RELEASES.md).
+Historical supplemental reruns may use audited version-only scratch copies;
+original cases and behavioral oracles stay unchanged. No first-run evaluator
+result is claimed yet. Await the two independent runs and judge's R7-055 closure.

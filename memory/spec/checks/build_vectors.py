@@ -79,7 +79,7 @@ def audience_item(i,handle):
 
 def view(items=(),q=None,current=None,historical=(),review=(),cutoffs=(),explanation=None,changes=None):
  q=q or Q()
- return dict(type='view',semantic_profile='0.2.5-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
+ return dict(type='view',semantic_profile='0.2.6-draft',projection_rule=q['projection_rule'],evidence_policy=q['evidence_policy'],policy=q['policy'],authorized_snapshot_handle='@view',data_classification='data',items=list(items),currentness=current or ('current' if items else 'none'),historical=sorted([rr(x) for x in historical],key=key),review_required=sorted([rr(x) for x in review],key=key),explanation=explanation or dict(status='complete',paths=[],reason=None),cutoffs=sorted(set(cutoffs)),changes=changes or dict(state='initial',refs=[]))
 def refused(code): return dict(type='refusal',code=code,retryable=code in ['version_conflict','policy_mismatch','stale_generation','erasure_incomplete','publication_stale','unavailable'])
 def receipt(op,rs=(),outcome=None,custody=(),status=None,handle='@receipt'):
  return dict(type='receipt',operation=op,outcome=outcome or dict(admit='admitted',revise='revised',erase='purged',declassify='declassified',revoke='revoked',revoke_declassification='revoked',restore='fenced',deliver='delivered',control='proceeded',load='proceeded',set_availability='availability_changed')[op],receipt_handle=handle,refs=sorted([rr(x) if 'envelope' in x else x for x in rs],key=key),custody=sorted(custody),erasure_status=status)
@@ -233,6 +233,62 @@ s,d1,d2,r1,r2=decisions(branch=True);d3=next(x for x in s['records'] if x['envel
 emit('S28','Unordered authority replacements remain ambiguous',s,q,view([item(d2,sources=[r2],current='ambiguous_current'),item(d3,sources=[r3],current='ambiguous_current')],q,current='ambiguous_current',historical=[d1]),['K-REV-3','K-EVAL-9'],forbid=[forbidden('/result/currentness',value='current'),forbidden('/result/items','size_equals',1)])
 s,d1,d2,r1,r2=decisions(late=True);q=Q('decision')
 emit('S29','Authority predecessor order overrides late admission order',s,q,view([item(d2,sources=[r2])],q,historical=[d1]),['K-REV-3','K-TIME-1','K-EVAL-9'],forbid=[forbidden('/result/items/0/content/0/value',value='archive_home')])
+# S34-S42: D-009 event-local order. Expected results below are hand specified.
+# The two original read inputs preserve the separating corpus, including its stamps.
+def issuer_chain(foreign=False,direct=False):
+ d1=A('d','archive_home',sch='decision');d3=A('d','retain_home',sch='decision',version=3)
+ r1=Source('receipt1');r2=Source('receipt2',issuer='subj:h2' if foreign else H);r3=Source('receipt3')
+ d1['body']['authority_receipt']=rr(r1);d3['body']['authority_receipt']=rr(r3)
+ s=state([d1,r1,r2,d3,r3])
+ for record,sequence in zip(s['records'],[1,3,4,5,6]):record['envelope']['recorded']['sequence']=sequence
+ s['policy']['authority_events']=[dict(receipt=rr(r),issuer=issuer,predecessors=[rr(p) for p in predecessors],canonical=True) for r,issuer,predecessors in [(r1,H,[]),(r2,'subj:h2' if foreign else H,[r1]),(r3,H,[r1,r2] if direct else [r2])]]
+ return s,d1,d3,r1,r2,r3
+s,d1,d3,r1,r2,r3=issuer_chain(foreign=True);q=Q('decision')
+ambiguous=view([item(d1,sources=[r1],current='ambiguous_current'),item(d3,sources=[r3],current='ambiguous_current')],q,current='ambiguous_current')
+current=view([item(d3,sources=[r3])],q,historical=[d1])
+# S34 is the original separating input: no contraction over its only H2 bridge.
+emit('S34','A foreign intermediate cannot be contracted into H1 authority order',s,q,cp(ambiguous),['K-REV-3','K-REV-4','K-EVAL-9'],forbid=[forbidden('/result/currentness',value='current'),forbidden('/result/historical','size_equals',1),forbidden('/result/items','size_equals',1)])
+# The middle H1 receipt has no assertion; omitting it from the event graph is wrong.
+s,d1,d3,r1,r2,r3=issuer_chain()
+emit('S35','An assertion-free H1 event establishes transitive H1 order',s,q,cp(current),['K-REV-3','K-EVAL-9'],forbid=[forbidden('/result/currentness',value='ambiguous_current'),forbidden('/result/items','size_equals',2)])
+# A mixed branch does not veto the separate direct H1 path.
+s,d1,d3,r1,r2,r3=issuer_chain(foreign=True,direct=True)
+emit('S36','One direct H1 path suffices despite a parallel mixed path',s,q,cp(current),['K-REV-3','K-EVAL-9'],forbid=[forbidden('/result/currentness',value='ambiguous_current'),forbidden('/result/items','size_equals',2)])
+# Paired foreign-only changes: S34/S37 and S36/S38 retain every H1 event/edge.
+# Delete only H2's outgoing predecessor edge, not H2 itself or an H1 edge.
+for id,base_id,title in [('S37','S34','Foreign-only edge removal preserves unordered H1 candidates'),('S38','S36','Foreign-only edge removal preserves an established H1 order')]:
+ base=next(v for v in VECTORS if v['id']==base_id);s=cp(base['initial_state']);s['policy']['authority_events'][1]['predecessors']=[]
+ emit(id,title,s,cp(base['query']),cp(base['expected']['result']),['K-REV-3','K-VEC-2','K-EVAL-9'],forbid=cp(base['forbidden']))
+# S39: replace and correct refuse the same mixed-only path atomically; ordinary
+# import remains admitted, leaves both candidates current, and consumes the key
+# only on success. A later CAS sees ambiguity and uses version_conflict.
+s,d1,unused,r1,r2,r3=issuer_chain(foreign=True)
+d2=A('d','retain_home',sch='decision',version=2);d2['body']['authority_receipt']=rr(r3)
+replace=Rev('local-replace',d1,d2,'replace');correct=Rev('local-correct',d1,d2,'correct')
+dep=A('dependent','depends_on_archive_home');edge=J('review-dependent',dep,[d1],role='review_on_change')
+events=cp(s['policy']['authority_events']);s=state([d1,r1,r2,r3,dep,edge],schemas=['decision'],review=[d2,replace,correct]);s['policy']['authority_events']=events
+q0=Q('decision');qfuture=Q('decision',cut=102);q=Q('decision',cut=101)
+first=admit([d2],key='key:local')
+ops=[revise(replace,d2,key='key:local'),revise(correct,d2,key='key:local'),capture(q0),capture(qfuture),first,revise(replace,d2,key='key:ambiguous'),cp(first)]
+results=[refused('authority_receipt_required'),refused('authority_receipt_required'),view([item(d1,sources=[r1])],q0),refused('invalid_time'),receipt('admit',[d2]),refused('version_conflict'),receipt('admit',[d2])]
+final=view([item(d1,sources=[r1],current='ambiguous_current'),item(d2,sources=[r3],current='ambiguous_current')],q,current='ambiguous_current')
+emit('S39','Mixed-only succession refuses replace and correct but permits canonical import',s,q,final,['K-REV-1','K-REV-3','K-REV-4','K-REF-1','K-API-1','K-EVAL-8'],ops=ops,results=results,added=[d2],replays=[(4,6)],forbid=[forbidden('/operation_results/0/type',value='receipt'),forbidden('/operation_results/1/type',value='receipt'),forbidden('/operation_results/2/review_required','size_equals',1),forbidden('/operation_results/3/type',value='view'),forbidden('/operation_results/5/code',value='authority_receipt_required'),forbidden('/result/currentness',value='current'),forbidden('/postconditions/dirty','size_equals',1)])
+# Nearby accepted controls cover each revision relation, event-only transitivity,
+# a direct H1 path beside foreign edges, exact replay, and stale-CAS refusal.
+for id,relation,foreign,direct,title in [('S40','replace',False,False,'Replacement accepts an all-H1 path through an assertion-free event'),('S41','correct',True,True,'Correction accepts one direct H1 path beside a mixed branch')]:
+ s,d1,unused,r1,r2,r3=issuer_chain(foreign=foreign,direct=direct)
+ d2=A('d','retain_home',sch='decision',version=2);d2['body']['authority_receipt']=rr(r3)
+ revision=Rev('local-'+relation,d1,d2,relation);events=cp(s['policy']['authority_events'])
+ s=state([d1,r1,r2,r3,dep,edge],schemas=['decision'],review=[d2,revision]);s['policy']['authority_events']=events
+ q=Q('decision',cut=102);op=revise(revision,d2,key='key:local')
+ final=view([item(d2,sources=[r3])],q,historical=[d1],review=[dep])
+ emit(id,title,s,q,cp(final),['K-REV-1','K-REV-3','K-REF-1','K-API-1','K-EVAL-8'],ops=[op,capture(q),cp(op),revise(revision,d2,key='key:stale')],results=[receipt('revise',[revision,d2]),cp(final),receipt('revise',[revision,d2]),refused('version_conflict')],added=[revision,d2],dirty=[dep],replays=[(0,2)],pairs=[('/operation_results/1','/result')],forbid=[forbidden('/operation_results/0/type',value='refusal'),forbidden('/operation_results/3/code',value='authority_receipt_required'),forbidden('/result/currentness',value='ambiguous_current')])
+# Protected event attribution, not its carrier envelope, determines path locality.
+s,d1,d3,r1,r2,r3=issuer_chain()
+bridge=next(r for r in s['records'] if rr(r)==rr(r2));bridge['envelope'].update(issuer='subj:h2',submitter='subj:h2',perspective=pers('subj:h2'));bridge['body']['carrier']='principal:catalog'
+q=Q('decision')
+emit('S42','Carrier and submitter changes do not change protected H1 event order',s,q,view([item(d3,sources=[r3])],q,historical=[d1]),['K-REV-3','K-ENV-1','K-EVAL-9'],forbid=[forbidden('/result/currentness',value='ambiguous_current'),forbidden('/result/items','size_equals',2)])
+
 # S30: complete computation over three registered grounds cannot claim all source grounds.
 a=A();src=Source('grounds');src['body']['excerpt']='Four grounds: g1, g2, g3, g4. Only g1, g2 and g3 were registered.';src['body']['retention_admission']=R('retention:grounds');es=[E('g'+str(n),a,sources=[src],origin='origin:grounds') for n in range(1,4)];s=state([a,src]+es);q=Q(targets=[a])
 covered=A('covered','explicitly scoped coverage');cover=E('coverage',check='source_binding',subject=rr(covered),executor='deterministic');s=state([a,src,covered,cover]+es);s['policy']['coverage']=[dict(assertion=rr(covered),declaration=rr(cover))];qc=Q(targets=[covered]);ic=item(covered)

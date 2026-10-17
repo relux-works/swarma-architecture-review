@@ -1,5 +1,51 @@
 # Package releases
 
+## 0.2.6-draft
+
+Implements owner decision D-009, resolving the semantic choice in R7-055.
+K-REV-3 defines `a precedes_H b` by nonempty predecessor reachability in the
+subgraph of events whose protected authority-event issuer is H. Restriction
+precedes reachability. Assertion-free intermediates count; one all-H path
+suffices; foreign nodes are never contracted and foreign branches cannot veto
+an all-H path. Currentness and strict replacement succession share this relation.
+Mixed graphs remain admissible. Missing order leaves eligible maxima ambiguous;
+replacement/correction without qualifying succession uses the existing
+`authority_receipt_required,false`. CAS keeps `version_conflict`; authorized
+exact replay retains its existing priority and original receipt.
+
+The package contains 74 vectors: 66 semantic and eight deployment; 52 clauses,
+14 closed schemas, 14 domain documents and one reusable fixture. Nine new
+semantic vectors S34–S42 cover the approved choice. S34/S35 retain the original
+R7-055 input triples without changing any record, stamp, graph edge, operation,
+permission or query. Their expected reports are newly specified from D-009.
+S34 is also the no-contraction negative; S35 is the assertion-free-middle
+positive; S36 permits the mixed branch plus a direct H1 edge. The exact
+S34/S37 and S36/S38 invariance pairs change only H2's predecessor list. S39
+checks both refused revision relations, no intermediate committed cut or dirty
+effect, subsequent same-key ordinary import, ambiguous currentness, ambiguous
+CAS and exact import replay. S40/S41 check accepted replacement/correction,
+currentness, invalidation, exact replay and stale CAS. S42 isolates protected
+event attribution from source envelope, submitter and carrier.
+
+No wire field or refusal enum is added. Schema URNs and view semantic_profile
+advance to 0.2.6. All 65 prior vectors retain their complete inputs and expected
+semantics after this version substitution; the reusable pilot is unchanged.
+Historical supplemental vectors may be rerun through explicit version-only
+copies in the executing seat's own scratch directory: change only expected
+view `semantic_profile` values from `0.2.5-draft` to `0.2.6-draft` and exact
+package schema URN namespace references if present. Preserve originals and
+before/after hashes, and prove recursively that every other field is unchanged.
+Report this migrated historical coverage separately from canonical 0.2.6.
+No behavioral oracle change is permitted by this migration. The old R7-055
+native pair gains exact coverage only through the new canonical vectors.
+
+`validate.py` additionally checks the exact foreign-only input delta and paired
+report equality; its controls plant contraction, a foreign-branch veto, a false
+succession receipt and an illicit H1 edge change. These are bounded checks of
+fixture/checker integrity, not an independent implementation of reachability.
+Independent evaluator runs and judge closure are required before claiming the
+new release's semantic conformance. Deployment checks remain separate.
+
 ## 0.2.5-draft
 
 Corrects judge-classified R7-054: the existing earliest retention deadline now has

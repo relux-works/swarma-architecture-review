@@ -160,3 +160,38 @@ separate positive trace passes every expected field after declared handle
 normalization, including all original scope/revocation controls. Artifacts stay
 under the editor's task-scoped scratch. These checks do not prove corrected
 refusal, physical erasure or any deployment property.
+
+
+## Editor release: 0.2.6-draft
+
+Scope: D-009 / R7-055, owner decision at source commit 2c3100d and kernel v0.3
+section 5.3. K-REV-3 now defines issuer-local event reachability and applies it
+to both projection currentness and strict replace/correct succession. S34-S42
+add nine exact semantic vectors, including the original input pair, assertion-free
+middle event, no contraction, one qualifying path beside a mixed branch,
+foreign-only invariance pairs, accepted/refused revisions and carrier independence.
+Expected outputs were hand specified from D-009 before any evaluator execution.
+No evaluator source or other seat's artifact was edited.
+
+Validation: `python3 memory/spec/checks/validate.py` passes with 103 JSON files,
+14 closed schemas, 14 domain documents, one fixture, 74 vectors (66 semantic,
+eight deployment), 52 clauses and 38 intended checker plants. Four new controls
+detect the wrong currentness in both directions, a forbidden succession receipt
+and a purported foreign-only pair that actually edits H1. The pair check proves
+only these fixture deltas and exact report equality, not general graph behavior.
+
+All 103 JSON artifacts regenerate byte-for-byte. Syntax and diff-whitespace
+checks pass. A recursive comparison proves all 65 old vectors unchanged except
+version identifiers; the reusable pilot is byte-identical. S34/S35 initial_state,
+operations and query exactly equal the original foreign/same-issuer native
+probes from the unchanged input bundle with SHA-256
+8224829a810a97c79fef81cb18f0d650b59ffc84a3262bdef09b1ea900c521b3.
+Local evidence: .temp/astra-21/validate-026-01.log, validate-026-02.log,
+expected-delta-026-01.log, package-026-json-hashes.json and verify-026.py;
+continuity: .temp/tasks.md. Deterministic authoring is self-contained in the
+package and reads no external case files.
+
+RELEASES.md permits explicitly audited version-only scratch copies of historical
+supplemental fixtures, preserving originals and all non-version fields. Independent
+0.2.6 runs, first disagreement preservation and judge closure remain required.
+No semantic runtime pass or protected deployment qualification is claimed here.

@@ -18,7 +18,7 @@ specified exact bytes. None requires an implementer to consult the source files.
 | A04 | Incompatibility across different assertions versus signed conflict on one exact assertion was not operationally specified | Report deterministic cross-assertion opposition separately as `incompatible_with`. It does not synthesize a trusted negative assessment or bypass the sufficient-rule DAG. Two differently valued unassessed statements cannot establish each other's falsity. This is a deliberately conservative closure of kernel §4 and review §2.2. | K-DOM-3; S10 includes an overlapping positive control and non-overlap control |
 | A05 | Sources did not order same-batch validation or competing errors | A finite validation priority is fixed; transactions are atomic. Idempotency intent excludes the fresh intake time; replay precedes CAS, and CAS precedes duplicate replacement detection. Malformed-wire tests use a closed `admit_raw` harness variant rather than invalid vector structure. | K-API-1/2; S08, S14, S18, P10 |
 | A06 | Kernel §5.2 names expected_version while the gap note sometimes says expected_revision | Exact `(id,version)` expected_version is used. Replacement uses the same id and next version; stale representatives receive version_conflict without partial writes. | K-REV-1; P10 |
-| A07 | “Authority order” did not give a total-order algorithm and the companion has no S28/S29 | Canonical receipt predecessors form a partial DAG. Maximal eligible receipted assertions are current; incomparable maxima are ambiguous. Admission order never breaks ties. | K-REV-3; S28, S29, B01 |
+| A07 | “Authority order” did not give a total-order algorithm and the companion has no S28/S29 | Canonical receipt predecessors form a partial DAG. D-009 now fixes the issuer-local subgraph before reachability: only protected same-issuer event paths establish succession, including assertion-free intermediates. Maximal eligible receipted assertions are current; incomparable maxima are ambiguous. Admission order never breaks ties. | K-REV-3; S28, S29, S34–S42, B01 |
 | A08 | “Unreceipted replacements stay proposals” could imply automatic kind coercion | Refuse a submitted decision_record without a canonical receipt. Admit only an explicitly resubmitted proposal under its own schema. No silent downgrade or reinterpretation. | K-REV-3; B02, S19 |
 | A09 | Bounds lacked a deterministic traversal and unit of accounting | Roots before rules, exact reference order, depth-first sorted premises, per-target/per-polarity counters and memoization; zero is permitted. Hidden/inapplicable work costs no logical budget. Proof enumeration is independently capped. | K-EVAL-2/7, K-API-3; S06, S07, B08, B15 |
 | A10 | Extended premise_quality lacked aggregation rules | Any demonstrated clean path wins. Conflicted-only requires complete own enumeration and every found path tainted. Opposite search uncertainty stays not_fully_checked; no witness also uses that label. Root paths have no assertion premises. | K-EVAL-4; S02, S03, S31 |
@@ -138,3 +138,22 @@ purging state or rewriting receipts. Null adds no bound; incomplete lower bounds
 and whole-batch resolution remain unchanged. P11 uses an unrevoked separate
 storage purpose to isolate deadline failures from its preserved grant-revocation
 controls. No owner decision, new time source or scheduled erasure is invented.
+
+## 0.2.6-draft issuer-local order
+
+D-009 resolves owner question R7-055 and amends kernel v0.3 §5.3. K-REV-3 now
+uses `(E intersect (V_H x V_H))+` for both currentness and strict replacement
+succession. This is an attributed owner choice, not an inference from either
+implementation's old behavior. Protected policy event issuer is decisive;
+assertion-free events count, one all-H path suffices, foreign intermediates are
+not contracted, and foreign branches cannot veto an all-H path. Mixed graphs
+remain admissible under the existing integrity checks. No new refusal, authority
+transfer, delegation or local/global switch is introduced.
+
+S34/S35 preserve the original separating and positive input triples; S36 adds a
+direct H1 path. S34/S37 and S36/S38 pair foreign-only edge changes with unchanged
+H1 subgraphs. S39 refuses both replace/correct on the mixed-only path using
+`authority_receipt_required,false`, then admits the same candidate ordinarily,
+keeps both decisions ambiguous and preserves separate CAS/replay behavior.
+S40/S41 accept all-H replacement and mixed-plus-direct correction. S42 varies
+carrier/envelope attribution while retaining protected H1 event attribution.

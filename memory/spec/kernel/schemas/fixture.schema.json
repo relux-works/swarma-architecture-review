@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:bounded-evidence:0.2.5:fixture",
+  "$id": "urn:bounded-evidence:0.2.6:fixture",
   "type": "object",
   "properties": {
     "name": {
@@ -14,19 +14,19 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "urn:bounded-evidence:0.2.5:assertion"
+                "$ref": "urn:bounded-evidence:0.2.6:assertion"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.5:source"
+                "$ref": "urn:bounded-evidence:0.2.6:source"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.5:justification"
+                "$ref": "urn:bounded-evidence:0.2.6:justification"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.5:assessment"
+                "$ref": "urn:bounded-evidence:0.2.6:assessment"
               },
               {
-                "$ref": "urn:bounded-evidence:0.2.5:revision"
+                "$ref": "urn:bounded-evidence:0.2.6:revision"
               }
             ]
           }
@@ -34,13 +34,13 @@
         "domain_schemas": {
           "type": "array",
           "items": {
-            "$ref": "urn:bounded-evidence:0.2.5:domain-schema"
+            "$ref": "urn:bounded-evidence:0.2.6:domain-schema"
           }
         },
         "projection_rules": {
           "type": "array",
           "items": {
-            "$ref": "urn:bounded-evidence:0.2.5:projection-rule"
+            "$ref": "urn:bounded-evidence:0.2.6:projection-rule"
           }
         },
         "policy": {
@@ -1179,7 +1179,7 @@
                     "type": "string"
                   },
                   "receipt": {
-                    "$ref": "urn:bounded-evidence:0.2.5:receipt"
+                    "$ref": "urn:bounded-evidence:0.2.6:receipt"
                   }
                 },
                 "required": [
@@ -1248,7 +1248,7 @@
       "additionalProperties": false
     },
     "query": {
-      "$ref": "urn:bounded-evidence:0.2.5:query"
+      "$ref": "urn:bounded-evidence:0.2.6:query"
     }
   },
   "required": [

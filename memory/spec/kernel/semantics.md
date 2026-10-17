@@ -1,4 +1,4 @@
-# Bounded evidence memory 0.2.5-draft
+# Bounded evidence memory 0.2.6-draft
 
 This document and the closed schemas and vectors are one contract. MUST, MUST NOT,
 REQUIRED, SHALL, SHALL NOT, SHOULD and MAY have their RFC 2119 meanings. A heading
@@ -215,7 +215,8 @@ of an external authority is outside the operation vocabulary.
 A `decision_record` MUST cite a source whose policy authority-event fact is
 canonical, issued by the deciding issuer, and admitted for the caller. Receipt
 predecessor edges form a DAG. Within one decision slot, a candidate is current
-iff no other eligible candidate's receipt transitively succeeds it. Two maximal
+iff no other eligible candidate's receipt strictly succeeds it in the deciding
+issuer's order defined below. Two maximal
 receipts produce `ambiguous_current` with both sorted candidates; arrival time
 MUST NOT break the tie. Learned-late earlier events remain historical. A proposed
 adopted record without that receipt is refused `authority_receipt_required`;
@@ -225,8 +226,33 @@ single-head plain-admission restriction: the authority may supply historical or
 incomparable events. Such import creates no memory-side replacement relation;
 receipt ordering alone determines currentness. The id/version must still be new.
 Memory-only revision links MUST NOT override receipt ordering or create adoption.
+
+**Issuer-local canonical order.** After the existing canonical-event, receipt
+eligibility and integrity checks, let `G = (V, E)` be the event graph, with edges
+directed from each event to its declared predecessors. For deciding issuer `H`,
+let `V_H` contain exactly events whose protected
+`policy.authority_events[].issuer` is `H`, and let
+`E_H = E intersect (V_H x V_H)`. Then `a ≺_H b` (written `a precedes_H b`) iff `(b, a)` is in
+`E_H+`: a nonempty path from `b` to `a` using only those edges. Restrict the graph
+before computing reachability; restricting only the endpoints of a global path
+is not equivalent and MUST NOT be used. Every event on the path, including an
+intermediate event with no assertion attached, counts. The source envelope's
+issuer, submitter, carrier or catalog does not replace protected event issuer
+attribution for this test.
+
+One all-H path suffices. Cross-issuer edges establish no order for H; excluding
+a foreign event MUST NOT contract its incoming/outgoing edges into a bypass.
+Foreign branches MUST NOT cancel an existing all-H path. Mixed-issuer graphs
+remain admissible subject to the existing integrity rules. Absence of a qualifying
+path means order is not established, not that the state is invalid. Two otherwise
+eligible unordered maxima therefore remain `ambiguous_current`, with neither
+made historical merely by a mixed path. On admissible states, changes confined
+to foreign parts of the graph with the H subgraph unchanged MUST NOT change
+`precedes_H`. This invariant is about authority order, not every evidence field
+that a foreign source might independently affect.
+
 For an authoritative replacement/correction, the new canonical receipt MUST
-strictly succeed the target's receipt through one or more predecessor edges;
+strictly succeed the target's receipt under this same `precedes_H` relation;
 equality is not succession. A missing qualifying receipt, including an identical,
 prior or incomparable canonical receipt, MUST yield `authority_receipt_required`
 with `retryable: false`, committing no records, cuts, dirty state or idempotency

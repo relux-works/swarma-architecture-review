@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE='urn:bounded-evidence:0.2.5:'
+BASE='urn:bounded-evidence:0.2.6:'
 ERRORS=[]
 class Invalid(ValueError): pass
 
@@ -273,6 +273,21 @@ def check_normalization(v):
         left=pointer(normalized,pair['left']);right=pointer(normalized,pair['right'])
         require(left is not MISSING and right is not MISSING and strict_equal(left,right),'normalized paired outputs differ')
 
+def check_issuer_local_pairs(vectors):
+    # Check the bounded foreign-only fixture edits, not general graph semantics.
+    for left_id,right_id in [('S34','S37'),('S36','S38')]:
+        left=vectors[left_id];right=vectors[right_id]
+        before=left['initial_state'];after=copy.deepcopy(right['initial_state'])
+        event=before['policy']['authority_events'][1]
+        changed=after['policy']['authority_events'][1]
+        issuer=before['projection_rules'][0]['issuer']
+        require(event['issuer']!=issuer and changed['issuer']==event['issuer'],'invariance pair does not edit a foreign event')
+        require(bool(event['predecessors']) and changed['predecessors']==[],'invariance pair lacks its declared foreign-edge removal')
+        changed['predecessors']=copy.deepcopy(event['predecessors'])
+        require(strict_equal(before,after),'invariance pair changes more than the foreign predecessor list')
+        require(strict_equal(left['query'],right['query']) and strict_equal(left['operations'],right['operations']),'invariance pair changes query or operations')
+        require(strict_equal(left['expected'],right['expected']),'invariance pair changes its exact expected report')
+
 def controls(validator,vectors):
     vector=vectors["S01"]
     """Bounded plants prove the checker rejects its claimed structural violations."""
@@ -330,6 +345,18 @@ def controls(validator,vectors):
     pred=next(x for x in positive['forbidden'] if x['path']=='/operation_results/1/type')
     require(forbidden_true(report,pred),'authority succession forbidden-write plant not detected')
     cases.append('authority-succession-forbidden-write')
+    # D-009 plants distinguish contraction, foreign-branch veto and a false receipt.
+    for id,path,value,label in [('S34','/result/currentness','current','issuer-local-no-contraction'),('S36','/result/currentness','ambiguous_current','issuer-local-path-survives-foreign-branch'),('S39','/operation_results/0/type','receipt','issuer-local-succession-forbidden-write')]:
+        positive=vectors[id];report=copy.deepcopy(positive['expected'])
+        pred=next(p for p in positive['forbidden'] if p['path']==path)
+        require(not forbidden_true(report,pred),'issuer-local positive control is forbidden')
+        set_pointer(report,path,value)
+        require(forbidden_true(report,pred),'issuer-local forbidden-output plant not detected')
+        cases.append(label)
+    check_issuer_local_pairs(vectors)
+    plant=copy.deepcopy(vectors)
+    plant['S37']['initial_state']['policy']['authority_events'][2]['predecessors']=[]
+    rejected('invariance-pair-preserves-H-subgraph',lambda:check_issuer_local_pairs(plant),'changes more than the foreign predecessor list')
     state=copy.deepcopy(vector['initial_state']);state['runtime']['dirty']=[dict(id='rec:a',version=1)]
     rejected('dirty-needs-unresolved-cause',lambda:check_state(state,documents),'dirty inventory lacks')
     # Valid initial own attribution passes; foreign self-declaration fails without identity coercion.
@@ -437,8 +464,10 @@ def main():
     for p,f in fixtures:
         try:validator.check(f,schemas[BASE+'fixture']);check_state(f['initial_state'],documents)
         except (Invalid,KeyError) as e:ERRORS.append(f'{p.relative_to(ROOT)}: {e}')
-    expected_ids={f'S{i:02d}' for i in range(1,34)}|{f'P{i:02d}' for i in range(1,16)}|{f'B{i:02d}' for i in range(1,18)}
+    expected_ids={f'S{i:02d}' for i in range(1,43)}|{f'P{i:02d}' for i in range(1,16)}|{f'B{i:02d}' for i in range(1,18)}
     if set(vectors)!=expected_ids:ERRORS.append('vector inventory mismatch: '+str(sorted(expected_ids^set(vectors))))
+    try:check_issuer_local_pairs(vectors)
+    except (Invalid,KeyError) as e:ERRORS.append('issuer-local invariance pair: '+str(e))
     coverage=(ROOT/'COVERAGE.md').read_text()
     rows=[]
     for line in coverage.splitlines():

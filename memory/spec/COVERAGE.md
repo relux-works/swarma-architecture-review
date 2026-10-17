@@ -3,7 +3,7 @@
 `kernel` means the consolidated kernel contract, `companion` the bounded-support
 semantic companion, and `design` the bounded-evidence design. These citations
 identify provenance only: an implementer needs only this package. Owner decisions
-D-001–D-008 take precedence over all three sources. Source clause numbers are the
+D-001–D-009 take precedence over all three sources. Source clause numbers are the
 versions supplied for this draft. All 52 normative clause ids are exercised by at
 least one fixture; there are no unlisted normative clauses or not-vector-tested
 clauses. A citation does not claim exhaustive testing of every sentence.
@@ -43,6 +43,15 @@ clauses. A citation does not claim exhaustive testing of every sentence.
 | S31 | semantic | K-EVAL-4, K-EVAL-7 | kernel §6.1, §12 S31; review-1 gaps §2.4 |
 | S32 | semantic | K-EVAL-5, K-REC-2, K-ERASE-1 | kernel §6.1, §12 S32; companion §6 |
 | S33 | semantic | K-DOM-1, K-JSON-1 | kernel §4, §12 S33; companion §3 |
+| S34 | semantic | K-REV-3, K-REV-4, K-EVAL-9 | D-009; kernel v0.3 §5.3; original separating input; no contraction |
+| S35 | semantic | K-REV-3, K-EVAL-9 | D-009; kernel v0.3 §5.3; assertion-free H event |
+| S36 | semantic | K-REV-3, K-EVAL-9 | D-009; kernel v0.3 §5.3; one H path despite mixed branch |
+| S37 | semantic | K-REV-3, K-VEC-2, K-EVAL-9 | D-009; kernel v0.3 §5.3; foreign-only invariance pair with S34 |
+| S38 | semantic | K-REV-3, K-VEC-2, K-EVAL-9 | D-009; kernel v0.3 §5.3; foreign-only invariance pair with S36 |
+| S39 | semantic | K-REV-1, K-REV-3, K-REV-4, K-REF-1, K-API-1, K-EVAL-8 | D-009; kernel v0.3 §5.3; strict succession refusals and admissible import |
+| S40 | semantic | K-REV-1, K-REV-3, K-REF-1, K-API-1, K-EVAL-8 | D-009; kernel v0.3 §5.3; all-H transitive replacement |
+| S41 | semantic | K-REV-1, K-REV-3, K-REF-1, K-API-1, K-EVAL-8 | D-009; kernel v0.3 §5.3; direct-H correction beside mixed branch |
+| S42 | semantic | K-REV-3, K-ENV-1, K-EVAL-9 | D-009; kernel v0.3 §5.3; protected event issuer versus carrier |
 | P01 | semantic | K-ENV-1, K-ENV-3, K-PROJ-1, K-SCOPE-1 | kernel §§2,6.2,8, §12 P01; profiles gaps A2 |
 | P02 | semantic | K-ENV-2, K-REV-1, K-ENV-1, K-ENV-3 | kernel §§2,5.1, §12 P02; profiles gaps A2 |
 | P03 | semantic | K-REV-1, K-ENV-1, K-PROJ-1 | kernel §§5.1,6.2, §12 P03; profiles gaps A3 |
@@ -97,3 +106,16 @@ cross-assertion incompatibility, declared coverage, surviving attestation states
 and exact freshness expiry, respectively.
 
 Release 0.2.0-draft targets kernel v0.2. P05 includes missing-owner rejection, two-owner release/delivery and revocation. B10 includes a stale external witness refusal before current-complete reconciliation. These controls do not qualify deployment enforcement.
+
+## D-009 paired invariance boundary
+
+S34/S37 and S36/S38 are exact cross-vector pairs. Each pair differs only in
+`initial_state.policy.authority_events[1].predecessors`: the foreign H2 event's
+edge to H1 is removed. Every H1 event, every H1 predecessor list, all records,
+permissions, query and operations stay identical. Both complete expected reports
+are identical, including history and inventories. `validate.py` checks that
+precise delta and equality, with a plant that changes an H1 edge and must fail.
+S34 separately forbids contracting the foreign bridge into an invented H1 edge.
+The paired equality is limited to these otherwise identical synthetic inputs;
+D-009 does not promise that arbitrary foreign evidence changes leave every field
+of every memory response unchanged.

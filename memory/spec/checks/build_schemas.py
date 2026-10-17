@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = 'urn:bounded-evidence:0.2.5:'
+BASE = 'urn:bounded-evidence:0.2.6:'
 S = {'type': 'string'}
 I = {'type': 'integer'}
 B = {'type': 'boolean'}
@@ -62,7 +62,7 @@ SCHEMAS['query']=QUERY
 COVERAGE=choice(obj(kind=const('unknown')),obj(kind=const('declared'),ref=R))
 POL=obj(witness=enum('present','not_found'),evaluation=enum('complete','incomplete'),corpus_coverage=COVERAGE,premise_quality=enum('clean_path','conflicted_premises_only','not_fully_checked'),evidence_qualification=arr(enum('semantic_review','test_result','formal_entailment','source_binding','signature','account_control','declassification')),source_state=enum('resolvable_now','prior_assessment_only','independent_attestation'),freshness=enum('fresh','stale','not_applicable'),authorized_snapshot_handle=S,dependency_coverage=const('registered_only'),witness_roots=arr(S),independent_root_count=I)
 ITEM=obj(ref=opt(R),subject=S,issuer=S,submitter=S,perspective=PERSPECTIVE,representation_ref=opt(REP),admission_class=ENV['properties']['admission_class'],statement_kind=BODIES['assertion']['properties']['statement_kind'],content=BODIES['assertion']['properties']['content'],valid=VALID,confirmed_at=opt(S),usable_until=opt(S),currentness=enum('current','historical','ambiguous_current','last_received'),authority_receipt=opt(R),incompatible_with=arr(R),needs_review=B,source_refs=arr(R),support=POL,oppose=POL)
-VIEW=obj(type=const('view'),semantic_profile=const('0.2.5-draft'),projection_rule=R,evidence_policy=R,policy=R,authorized_snapshot_handle=S,data_classification=const('data'),items=arr(ITEM),currentness=enum('none','current','ambiguous_current','last_received'),historical=arr(R),review_required=arr(R),explanation=obj(status=enum('complete','partial'),paths=arr(arr(R)),reason=opt(enum('explanation_limit','evaluation_limit'))),cutoffs=arr(enum('root_limit','rule_limit','source_limit','source_unavailable','dirty','runtime_unavailable')),changes=obj(state=enum('initial','changed','no_change'),refs=arr(R)))
+VIEW=obj(type=const('view'),semantic_profile=const('0.2.6-draft'),projection_rule=R,evidence_policy=R,policy=R,authorized_snapshot_handle=S,data_classification=const('data'),items=arr(ITEM),currentness=enum('none','current','ambiguous_current','last_received'),historical=arr(R),review_required=arr(R),explanation=obj(status=enum('complete','partial'),paths=arr(arr(R)),reason=opt(enum('explanation_limit','evaluation_limit'))),cutoffs=arr(enum('root_limit','rule_limit','source_limit','source_unavailable','dirty','runtime_unavailable')),changes=obj(state=enum('initial','changed','no_change'),refs=arr(R)))
 SCHEMAS['view']=VIEW
 CODES=['invalid_json','invalid_shape','unknown_schema','unknown_profile','invalid_reference','duplicate_record','invalid_domain_value','invalid_time','unknown_rule','cycle','cross_scope','representation_invalid','not_authorized','quarantined','authority_receipt_required','version_conflict','idempotency_conflict','rule_unqualified','assessment_kind_invalid','mode_mismatch','limit_exceeded','policy_mismatch','erasure_fenced','stale_generation','erasure_incomplete','declassification_invalid','disclosure_revoked','publication_stale','unavailable','execution_required','unsupported_operation']
 REFUSAL=obj(type=const('refusal'),code=enum(*CODES),retryable=B)
