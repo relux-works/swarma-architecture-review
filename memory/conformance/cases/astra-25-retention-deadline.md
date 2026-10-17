@@ -2,7 +2,7 @@
 
 Status: judge-classified R7-052 source implementation, R7-053 package
 implementation and R7-054 specification mapping. First native and exact vector
-failures preserved. Owner: astra-25. Initial package `0.2.3-draft`; exact vectors `0.2.4-draft`.
+failures preserved. Owner: astra-25. Initial package `0.2.3-draft`; first exact vectors `0.2.4-draft`, explicitly migrated to `0.2.5-draft`.
 
 ## Contract and two readings
 
@@ -100,3 +100,24 @@ First complete runs and code/input hashes are `astra22-deadline-vectors-first`,
 [`astra-25-retention-deadline-vectors-first.json`](astra-25-retention-deadline-vectors-first.json).
 The original native evidence file remains byte-identical. No forbidden storage
 observation or expected rejection was changed to agree with a runtime.
+
+## R7-054 release verification
+
+Released `0.2.5-draft` at `6a04e8c` explicitly matches the judge's boundary, code,
+ordering, output/known-input closure and current replay mapping, with no purge
+side effect. Independent comparison confirms only P11 changes beyond profile
+stamps across all 65 canonical vectors. Its first 16 operations and expected
+results are unchanged, as are the other 64 vectors and decision pilot bytes.
+All 94 JSON artifacts, 52 clauses and 34 intended structural controls validate.
+The added expiry-replay plant detects a forbidden successful receipt.
+
+All 27 owned fixtures migrated by semantic_profile only, checked field-for-field.
+Fresh pre-correction 0.2.5 runs preserve the five exact owned expiry failures each,
+with both new positive vectors passing. Canonical source is 49 pass / 1 fail /
+7 unsupported; package is 56 pass / 1 fail. Both failures are P11, beginning at
+operation18, after the original prefix and before-expiry positives. The separate
+atomic harness remains 3 positive pass / 7 intended negative fail each.
+These results verify the amended specification and its separating witnesses,
+not runtime correction. Evidence keys end in `025-deadline-first`,
+`deadline-atomic-025-first`, `canonical-025-first` and `astra25-release-025-audit`.
+R7-054 closure is recommended to the judge; R7-052/053 remain implementation work.
