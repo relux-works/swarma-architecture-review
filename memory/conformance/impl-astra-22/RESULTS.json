@@ -1,14 +1,14 @@
 {
-  "checkout_commit": "1f35727fa33f9a4e472de9821cc26d1b5261b224",
+  "checkout_commit": "e38c37c6123aaca775695ac885133742295591ee",
   "package_commit": "7e71765317088d4ac1ea6946fdfb4b2f8012643c",
   "package_version": "0.2.2-draft",
   "vector_directory": "memory/spec/kernel/vectors",
   "core_sha256": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
   "totals": {
     "semantic": {
-      "pass": 47,
+      "pass": 49,
       "fail": 0,
-      "unsupported": 10
+      "unsupported": 8
     },
     "deployment": {
       "pass": 0,
@@ -2333,13 +2333,235 @@
       "file": "memory/spec/kernel/vectors/semantic/P05.json",
       "sha256": "19bdfc774a76cbdf0f8bd7d37f52785508a34268a29d6ef3893858a22a8debde",
       "status": "unsupported",
-      "reason": "Unmapped frozen-core transaction operations: declassify, deliver, revoke_declassification"
+      "reason": "Unmapped frozen-core transaction operations: declassify, revoke_declassification"
     },
     "P06": {
       "file": "memory/spec/kernel/vectors/semantic/P06.json",
       "sha256": "c36fcbdd8ceb90cc8e707eae0eefd9f4d2deeb329b4dc859d95c26d0967e9b32",
-      "status": "unsupported",
-      "reason": "Unmapped frozen-core transaction operations: deliver, revoke"
+      "actual": {
+        "operation_results": [
+          {
+            "type": "view",
+            "semantic_profile": "0.2.2-draft",
+            "projection_rule": {
+              "id": "projection:public",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "<fresh>",
+            "data_classification": "data",
+            "items": [
+              {
+                "ref": null,
+                "subject": "subj:public-a",
+                "issuer": "subj:public-a",
+                "submitter": "subj:public-a",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:public-a"
+                },
+                "representation_ref": null,
+                "admission_class": "self_declaration",
+                "statement_kind": "self_declaration",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "gardening"
+                  }
+                ],
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [],
+            "review_required": [],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
+          },
+          {
+            "type": "receipt",
+            "operation": "revoke",
+            "outcome": "revoked",
+            "receipt_handle": "<fresh>",
+            "refs": [],
+            "custody": [],
+            "erasure_status": null
+          },
+          {
+            "type": "refusal",
+            "code": "disclosure_revoked",
+            "retryable": false
+          }
+        ],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.2-draft",
+          "projection_rule": {
+            "id": "projection:public",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [
+            {
+              "ref": null,
+              "subject": "subj:public-a",
+              "issuer": "subj:public-a",
+              "submitter": "subj:public-a",
+              "perspective": {
+                "kind": "own",
+                "principal": "subj:public-a"
+              },
+              "representation_ref": null,
+              "admission_class": "self_declaration",
+              "statement_kind": "self_declaration",
+              "content": [
+                {
+                  "field": "value",
+                  "value": "gardening"
+                }
+              ],
+              "valid": {
+                "kind": "known",
+                "from": "2026-09-01T00:00:00Z",
+                "to": null,
+                "precision": "second"
+              },
+              "confirmed_at": "2026-10-17T00:00:00Z",
+              "usable_until": null,
+              "currentness": "current",
+              "authority_receipt": null,
+              "incompatible_with": [],
+              "needs_review": false,
+              "source_refs": [],
+              "support": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              },
+              "oppose": {
+                "witness": "not_found",
+                "evaluation": "complete",
+                "corpus_coverage": {
+                  "kind": "unknown"
+                },
+                "premise_quality": "not_fully_checked",
+                "evidence_qualification": [],
+                "source_state": "resolvable_now",
+                "freshness": "not_applicable",
+                "authorized_snapshot_handle": "<fresh>",
+                "dependency_coverage": "registered_only",
+                "witness_roots": [],
+                "independent_root_count": 0
+              }
+            }
+          ],
+          "currentness": "current",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "rec:interest",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "P07": {
       "file": "memory/spec/kernel/vectors/semantic/P07.json",
@@ -2507,7 +2729,7 @@
       "file": "memory/spec/kernel/vectors/semantic/P08.json",
       "sha256": "e6abf977788977e1e15ad375e8e28644970870d234addc8b4bb2ef7cbfa6f0ed",
       "status": "unsupported",
-      "reason": "Unmapped frozen-core transaction operations: erase, revoke"
+      "reason": "Unmapped frozen-core transaction operations: erase"
     },
     "P09": {
       "file": "memory/spec/kernel/vectors/semantic/P09.json",
@@ -3073,8 +3295,176 @@
     "P12": {
       "file": "memory/spec/kernel/vectors/semantic/P12.json",
       "sha256": "a5b27e2e6d031975c50bd8c835f0638cb2804f50a207daf25d320c76571aa555",
-      "status": "unsupported",
-      "reason": "Unmapped frozen-core transaction operations: deliver, revoke"
+      "actual": {
+        "operation_results": [
+          {
+            "type": "view",
+            "semantic_profile": "0.2.2-draft",
+            "projection_rule": {
+              "id": "projection:public",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "<fresh>",
+            "data_classification": "data",
+            "items": [
+              {
+                "ref": null,
+                "subject": "subj:snapshot",
+                "issuer": "subj:snapshot",
+                "submitter": "subj:snapshot",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:snapshot"
+                },
+                "representation_ref": null,
+                "admission_class": "self_declaration",
+                "statement_kind": "self_declaration",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "gardening"
+                  }
+                ],
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": null,
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [],
+            "review_required": [],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
+          },
+          {
+            "type": "receipt",
+            "operation": "deliver",
+            "outcome": "delivered",
+            "receipt_handle": "<fresh>",
+            "refs": [],
+            "custody": [],
+            "erasure_status": null
+          },
+          {
+            "type": "receipt",
+            "operation": "revoke",
+            "outcome": "revoked",
+            "receipt_handle": "<fresh>",
+            "refs": [],
+            "custody": [],
+            "erasure_status": null
+          },
+          {
+            "type": "refusal",
+            "code": "disclosure_revoked",
+            "retryable": false
+          }
+        ],
+        "result": {
+          "type": "view",
+          "semantic_profile": "0.2.2-draft",
+          "projection_rule": {
+            "id": "projection:public",
+            "version": 1
+          },
+          "evidence_policy": {
+            "id": "evidence:1",
+            "version": 1
+          },
+          "policy": {
+            "id": "policy:1",
+            "version": 1
+          },
+          "authorized_snapshot_handle": "<fresh>",
+          "data_classification": "data",
+          "items": [],
+          "currentness": "none",
+          "historical": [],
+          "review_required": [],
+          "explanation": {
+            "status": "complete",
+            "paths": [],
+            "reason": null
+          },
+          "cutoffs": [],
+          "changes": {
+            "state": "initial",
+            "refs": []
+          }
+        },
+        "postconditions": {
+          "record_refs": [
+            {
+              "id": "rec:snapshot-interest",
+              "version": 1
+            }
+          ],
+          "erased_refs": [],
+          "custody_present": [],
+          "dirty": [],
+          "control_observations": [],
+          "external_effects": []
+        }
+      },
+      "differences": [],
+      "status": "pass",
+      "reason": "Exact report and forbidden/normalization checks passed."
     },
     "P13": {
       "file": "memory/spec/kernel/vectors/semantic/P13.json",

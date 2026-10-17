@@ -45,11 +45,15 @@ class Adapter:
         self.schemas = {key(s): s for s in self.initial["domain_schemas"]}
         self.rules = {key(r): r for r in self.initial["projection_rules"]}
         self.profile = profile
-        self.captures = []
+        self.captures = {}
         self.writer = None
 
     def granted(self, record, query, right):
         envelope = record["envelope"]
+        if any(event["principal"] == query["principal"] and event["audience"] == query["audience"]
+               and event["purpose"] == query["purpose"] and event["right"] == right
+               for event in self.runtime["revocations"]):
+            return False
         for grant in self.policy["grants"]:
             if (grant["principal"] == query["principal"] and grant["space"] == envelope["space"]
                     and grant["audience"] == query["audience"] and grant["purpose"] == query["purpose"]
@@ -97,7 +101,7 @@ class Adapter:
                     out["availability"] = "unavailable"
         return out
 
-    def query(self, query):
+    def query(self, query, binding=None):
         if query["kind"] not in ("recall", "explain"):
             raise Unsupported("Changes output is not mapped yet")
         if key(query["scope"]["schema"]) not in self.schemas:
@@ -112,8 +116,6 @@ class Adapter:
             return refusal("erasure_fenced")
         if query["cut"]["memory"] not in self.runtime["committed_cuts"] or query["cut"]["sources"] != self.runtime["source_cuts"]:
             return refusal("invalid_time")
-        if self.runtime["revocations"]:
-            raise Unsupported("Live policy revocation event grammar is not mapped in the first adapter")
         rule = self.rules[key(query["projection_rule"])]
         audience = rule["family"] == "audience_projection"
         if audience and query["kind"] == "explain":
@@ -339,7 +341,7 @@ class Adapter:
         proof_truncated = proof_truncated or len(paths) > explanation_budget
         reason = "explanation_limit" if proof_truncated else "evaluation_limit" if evaluation_incomplete else None
         explanation = {"status": "partial" if reason else "complete", "paths": paths[:explanation_budget], "reason": reason}
-        return {"type": "view", "semantic_profile": self.profile, "projection_rule": query["projection_rule"],
+        result = {"type": "view", "semantic_profile": self.profile, "projection_rule": query["projection_rule"],
                 "evidence_policy": query["evidence_policy"], "policy": query["policy"], "authorized_snapshot_handle": handle,
                 "data_classification": "data", "items": items,
                 "currentness": ("none" if not items else
@@ -348,15 +350,28 @@ class Adapter:
                 "historical": sorted_refs(ref(self.records[k]) for k in projection["historical"] if k not in selected),
                 "review_required": [] if audience else sorted_refs(ref(self.records[k]) for k in review), "explanation": explanation,
                 "cutoffs": sorted(cutoffs), "changes": {"state": "initial", "refs": []}}
+        if binding is not None:
+            binding.update(query=copy.deepcopy(query), selected=sorted_refs(ref(self.records[k]) for k in selected),
+                           view=copy.deepcopy(result))
+        return copy.deepcopy(result)
 
     def execute(self, operations, query):
-        unsupported = sorted({o["op"] for o in operations if o["op"] not in {"capture", "admit", "admit_raw", "revise"}})
+        unsupported = sorted({o["op"] for o in operations if o["op"] not in {"capture", "admit", "admit_raw", "revise", "revoke", "deliver"}})
         if unsupported:
             raise Unsupported("Unmapped frozen-core transaction operations: " + ", ".join(unsupported))
         operation_results = []
-        for op in operations:
+        for index, op in enumerate(operations):
             if op["op"] == "capture":
-                operation_results.append(self.query(op["query"]))
+                binding = {}
+                operation_results.append(self.query(op["query"], binding=binding))
+                if binding:
+                    self.captures[index] = binding
+            elif op["op"] in {"revoke", "deliver"}:
+                from boundary import Boundary
+                try:
+                    operation_results.append(Boundary(self).apply(op))
+                except Refusal as error:
+                    operation_results.append(refusal(error.code))
             else:
                 if self.writer is None:
                     from transactions import Transactions

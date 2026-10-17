@@ -2,7 +2,7 @@
 
 Package: **0.2.2-draft**, package commit `7e71765317088d4ac1ea6946fdfb4b2f8012643c`.
 Vector directory: `memory/spec/kernel/vectors` (this inventory only).
-Checkout: `1f35727fa33f9a4e472de9821cc26d1b5261b224`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
+Checkout: `e38c37c6123aaca775695ac885133742295591ee`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.
@@ -11,7 +11,7 @@ Deployment cases require actual boundary qualification and are reported separate
 
 | Category | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| semantic | 47 | 0 | 10 |
+| semantic | 49 | 0 | 8 |
 | deployment | 0 | 0 | 8 |
 
 Five bounded harness controls passed (valid comparison, changed value, extra field,
@@ -42,14 +42,14 @@ No randomness-distribution or timing proof is claimed.
 | P02 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P03 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P04 | semantic | pass | Exact report and forbidden/normalization checks passed. |
-| P05 | semantic | unsupported | Unmapped frozen-core transaction operations: declassify, deliver, revoke_declassification |
-| P06 | semantic | unsupported | Unmapped frozen-core transaction operations: deliver, revoke |
+| P05 | semantic | unsupported | Unmapped frozen-core transaction operations: declassify, revoke_declassification |
+| P06 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P07 | semantic | pass | Exact report and forbidden/normalization checks passed. |
-| P08 | semantic | unsupported | Unmapped frozen-core transaction operations: erase, revoke |
+| P08 | semantic | unsupported | Unmapped frozen-core transaction operations: erase |
 | P09 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P10 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P11 | semantic | pass | Exact report and forbidden/normalization checks passed. |
-| P12 | semantic | unsupported | Unmapped frozen-core transaction operations: deliver, revoke |
+| P12 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P13 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P14 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | P15 | semantic | pass | Exact report and forbidden/normalization checks passed. |
@@ -87,4 +87,4 @@ No randomness-distribution or timing proof is claimed.
 | S32 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S33 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 
-Full normalized actual reports and input hashes: `phase2-dirty-first.json`.
+Full normalized actual reports and input hashes: `phase2-delivery-first.json`.
