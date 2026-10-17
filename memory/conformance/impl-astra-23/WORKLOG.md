@@ -775,3 +775,28 @@ will prove semantic differences and forbidden effects are detected.
 - Exact old-profile inputs remain unchanged; the pinned package snapshot is
   .temp/impl-astra-23/package-024/memory/spec. Log deadline-vectors-first-01.log
   exits1 intentionally. Freeze this full run before release0.2.5 adaptation.
+
+## Round 30 — independent succession closure; deadline release pending
+
+- Judge de37630 independently closes R7-048 at942bdee: exact current0.2.4
+  canonical57/57, prior54/54supplemental and28controls/hashes reproduced.
+  Eight atomic relation/receipt-class negatives and all valid neighbors pass.
+- Original first artifacts are unchanged. Adversary24/26 verification is retained
+  in71fb6b3/e63f727. R7-049 specification separately closed at ef02647.
+- Deadline053 is separate: exact first0c1b5ca remains56/5/0 across61cases;
+  await published0.2.5 full-release baseline before adaptation.
+
+### Round 30 released0.2.5 baseline
+
+- Read full6a04e8cfb1490569cd1de7468d2085dd4840cf51 normative/release delta.
+  Deadlines bind every output and known transitive input at trusted current intake,
+  before idempotency, including original stored closure on replay. No input shape
+  or enum change; onlyP11 changes beyond release identifiers.
+- RELEASE-0.2.5-FIRST freezes unchanged942bdee56/1/0canonical semantic, onlyP11
+  red; eight deployment unsupported. Supplemental first0c1b5ca remains pinned0.2.4.
+- First16P11scope/revocation operations remain unchanged; appended expiry probes
+  have independently unrevoked storage grants. Native correction must additionally
+  exercise revise/declassify, every applicable output and original replay closure.
+- Source051 independently closed at427fed5, giving current0.2.4 dual50/57;
+  only052/053/054remain open before this release's independent closure.
+- Log release-025-first-01.log exits1 intentionally; freeze before adaptation.

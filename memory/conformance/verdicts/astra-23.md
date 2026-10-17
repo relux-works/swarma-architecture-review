@@ -1,15 +1,15 @@
 # astra-23 — package implementer verdict
 
-Current package **0.2.4-draft**, `ef0264702d3ff937bd34410ea80660b196b6f1b0`:
-all57canonical semantic vectors pass after the R7-048 strict authority-succession
-correction. Its prior54-case supplemental corpus passes. Seven new exact expiry
-vectors expand the corpus to61: five negative cases fail, two controls pass.
-PHASE2-DEADLINE-VECTORS-FIRST preserves this run before the R7-053 correction.
+Current package **0.2.5-draft**, `6a04e8cfb1490569cd1de7468d2085dd4840cf51`:
+unchanged runtime942bdee passes56/57canonical semantic, only expandedP11 red.
+RELEASE-0.2.5-FIRST preserves the full release before deadline adaptation.
+Exact prior0.2.4 deadline first0c1b5ca records56/5/0 across61cases. R7-048 is
+judge-closed at942bdee; deadline053 and published mapping054 remain separate.
 
 | Profile | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Canonical semantic | 57 | 0 | 0 |
-| Supplemental semantic first | 56 | 5 | 0 |
+| Canonical semantic0.2.5 first | 56 | 1 | 0 |
+| Supplemental semantic0.2.4 first | 56 | 5 | 0 |
 | Canonical / supplemental deployment | 0 / 0 | 0 / 0 | 8 / 1 |
 
 Twenty-four product plus four checker controls pass. Package structural validation
@@ -29,7 +29,7 @@ PHASE2-DEADLINE-FIRSTe689cf2 independently preserves ASTRA25-11 fresh storage
 at/after inherited expiry and at own expiry, plus before-expiry admission and
 expired replay with no state mutation. Judge classified R7-053/054: at/after expiry must refuse not_authorized/false
 before idempotency, including current replay without state/receipt mutation.
-Published0.2.5 contract is pending; native probes remain separate from the new
+Published0.2.5 contract is now available; native probes remain separate from the new
 exact vector counts. Source052 is independently owned.
 
 Judge closed R7-031 receipt/replay at a016781, R7-041 CAS at53266dd,
@@ -39,9 +39,9 @@ at23290b3; new049 is judge-closed at ef02647. Existing deadline behavior is
 explicitly not included in those grant-scope closure claims.
 
 Phase1 supported score was2/2 (judgeb1ae299). Phase2 remains **1/2, active**.
-Last judge-verified dual canonical coverage is50/57 on0.2.3 after source8a42945.
-Current0.2.4 source still has a separate B01 transitive-projection failure and
-seven unsupported erasure/restore/load paths; package passes do not close those.
+Last judge-verified dual canonical coverage is50/57 on0.2.4 after source427fed5
+and package942bdee. Seven source erasure/restore/load paths remain unsupported;
+package passes do not close those. Current0.2.5 expiry corrections are pending.
 Early PARK requires source57/57 and no new open item for a complete round;
 hard cap13:00Z. Unsupported is never counted as pass. Deployment unqualified.
 

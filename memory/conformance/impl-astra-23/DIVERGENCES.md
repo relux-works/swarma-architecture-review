@@ -391,3 +391,10 @@ at/after expiry is not_authorized/false before idempotency, including current
 replay checks of original outputs and transitive known input closure. Refusal
 must preserve full state/original receipt and has no purge effect. Editor0.2.5
 is pending; no deadline runtime change precedes that published contract.
+
+### R7-048 independent closure
+
+Judge de37630 independently closes942bdee after exact canonical57/57,
+54/54supplemental,28controls and input/module-hash reproduction. Full atomic
+strict-successor/replay/CAS/plain-import boundaries pass, firsts unchanged.
+Deadline053 remains separately open and is not covered by this closure.
