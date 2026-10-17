@@ -230,3 +230,16 @@ Current migrated supplemental is 35/3/0 semantic; one deployment unsupported.
 R7-037 is the third failure. R7-031 migrated primary, purpose-isolation and full-
 authorization controls pass at a016781, as do unknown-lineage lower-bound erase
 and future-input operation controls. Independent judge closure remains separate.
+
+### R7-041 correction
+
+The unique authority head is now selected across the whole decision sequence by
+receipt partial order, excluding withdrawals, before non-challenge CAS comparison.
+Projection and write checks share the existing sequence/receipt-order rules.
+Atomic full-state and dirty-state checks pass for ambiguous and historical cases;
+unique ordering, challenge, reversed storage order, exact replay, changed-intent
+conflict and the next remaining unique head after withdrawal all pass.
+
+Canonical 57/57 and nineteen product/checker tests pass. The same 38-case corpus
+is now 37 pass / 1 fail / 0 unsupported semantic, with only R7-037 remaining.
+PHASE2-CAS-FIRST at e525612 is unchanged; independent closure is pending.

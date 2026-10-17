@@ -325,6 +325,49 @@ class Semantics(unittest.TestCase):
                 self.assertEqual(e.state, before)
                 self.assertEqual(e.state["runtime"]["idempotency"][0]["receipt"], first)
 
+    # R7-041: incomparable and historical authority candidates refuse atomically; current
+    # receipt order, challenge exemption and exact replay remain valid independently of arrival.
+    def test_authority_slot_cas(self):
+        base = SPEC.parent / "conformance/cases"
+        cases = {suffix: strict_loads((base / ("astra-24-ambiguous-cas" + suffix + ".vector.json")).read_text())
+                 for suffix in ("", "-stale", "-control", "-challenge")}
+        for suffix, case in cases.items():
+            with self.subTest(case=suffix):
+                e = engine(case)
+                before, dirty = copy.deepcopy(e.state), copy.deepcopy(e.dirty_since)
+                report = e.execute(case["operations"], case["query"])
+                self.assertEqual(compare(report, case, Grammar(SPEC / "kernel/schemas")), ([], []))
+                if suffix in ("", "-stale"):
+                    self.assertEqual(report["operation_results"][1],
+                                     {"type": "refusal", "code": "version_conflict", "retryable": True})
+                    self.assertEqual(e.state, before)
+                    self.assertEqual(e.dirty_since, dirty)
+        # Same admitted receipts with the later unique ordering accept the exact earlier request.
+        e = engine(cases[""])
+        e.state["policy"]["authority_events"] = copy.deepcopy(cases["-control"]["initial_state"]["policy"]["authority_events"])
+        e.state["records"].reverse()
+        op = copy.deepcopy(cases[""]["operations"][1])
+        first = e.operation(op, 1)
+        self.assertEqual(first["outcome"], "revised")
+        op["context"]["at"] = "2026-10-17T00:00:01Z"
+        before = copy.deepcopy(e.state)
+        self.assertEqual(e.operation(op, 2), first)
+        self.assertEqual(e.state, before)
+        op["expected_version"] = {"id": "rec:d", "version": 2}
+        self.assertEqual(e.operation(op, 3)["code"], "idempotency_conflict")
+        self.assertEqual(e.state, before)
+        # With the former unique head withdrawn, the remaining maximal receipt is now d2.
+        op["idempotency_key"] = "key:withdraw-next"
+        op["revision"]["envelope"]["id"] = "rec:withdraw-next"
+        op["revision"]["body"]["target"] = {"id": "rec:d", "version": 2}
+        e.state["policy"]["reviews"].append({"record": ref(op["revision"]), "result": "allow"})
+        fact = copy.deepcopy(next(f for f in e.state["policy"]["lineage_facts"]
+                                  if f["output"]["id"] == "rec:withdraw-candidate"))
+        fact["output"] = ref(op["revision"])
+        e.state["policy"]["lineage_facts"].append(fact)
+        final = e.operation(op, 4)
+        self.assertEqual(final.get("outcome"), "revised", final)
+
     # R7-020: authorized coverage uses the closed ref field; no declaration remains unknown.
     # A planted declaration spelling must fail both the exact comparison and closed view grammar.
     def test_coverage_mapping(self):

@@ -414,3 +414,24 @@ will prove semantic differences and forbidden effects are detected.
   correction. Unknown-lineage lower-bound erase/late-writer and future-input
   operation cases also pass exactly. No expectation or fixture is edited.
 - Log: `.temp/impl-astra-23/phase2-cas-first-01.log` (intended exit 1).
+
+### Round 18 correction outcome
+
+- First red evidence is signed e525612; native controls reproduce ambiguous and
+  historical acceptance plus an incorrect refusal of the next remaining unique
+  head after withdrawal. cas-red-02.log contains the three intended assertions;
+  cas-red-01.log's missing-outcome assertion was repaired before implementation.
+- Factor sequence identity and authority receipt maximality for shared projection
+  and CAS use. Non-challenge decision revisions require the unique non-withdrawn
+  authoritative slot head; ordinary record revision-token behavior is unchanged.
+- Exact replay remains ahead of head checks; changed canonical intent conflicts.
+  Challenge remains exempt. Ordering rather than arrival selects the current head;
+  after withdrawal, the next unique maximal authority candidate can be revised.
+- Fifteen product tests and four checker controls pass. Canonical 57/57 remains
+  green. The pinned 38-case corpus is now 37/1/0 semantic; only R7-037 remains,
+  and deployment 8+1 remains unsupported. First reports are unchanged.
+- Logs: cas-green-01.log, canonical-round18-01.log, supplemental-round18-01.log,
+  controls-10.log under `.temp/impl-astra-23/`.
+- Incoming ASTRA26-09 missing publication-check coverage and ASTRA24-09
+  transitive-review cases are queued for first reproduction after this unit.
+  R7-039/042 release work remains independent; no inferred retention scope.

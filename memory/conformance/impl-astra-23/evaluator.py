@@ -299,29 +299,15 @@ class Evaluation:
                 "witness_roots": roots, "independent_root_count": len(roots)}
 
     def sequence(self, r):
-        e, b = r["envelope"], r["body"]
-        domain = self.schemas[key(e["schema"])]
-        return (e["issuer"], e["subject"], e["space"], key(e["schema"]), cjson(e["perspective"]), b["slot"],
-                e["id"] if domain["cardinality"]["mode"] == "multi" else None)
+        return self.engine.sequence(r)
 
     def statuses(self, candidates):
         statuses, groups = {}, {}
         for r in candidates:
             groups.setdefault(self.sequence(r), []).append(r)
-        events = {key(e["receipt"]): e for e in self.p["authority_events"] if e["canonical"]}
-
-        def succeeds(a, b, seen=None):
-            seen = set() if seen is None else seen
-            if a in seen or a not in events:
-                return False
-            seen.add(a)
-            preds = {key(x) for x in events[a]["predecessors"]}
-            return b in preds or any(succeeds(p, b, seen) for p in preds)
-
         for group in groups.values():
             if group[0]["body"]["statement_kind"] == "decision_record":
-                heads = [r for r in group if not any(succeeds(key(o["body"]["authority_receipt"]),
-                                                                      key(r["body"]["authority_receipt"])) for o in group)]
+                heads = self.engine.authority_heads(group)
                 for r in group:
                     statuses[key(r)] = ("historical" if r not in heads else
                                         "ambiguous_current" if len(heads) > 1 else "current")

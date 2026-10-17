@@ -7,27 +7,29 @@ Latest tested package **0.2.2-draft**, `7e71765`: all canonical semantic vectors
 | Semantic | 57 | 0 | 0 |
 | Deployment | 0 | 0 | 8 |
 
-Eighteen product/checker controls pass; package structural validation detects all
+Nineteen product/checker controls pass; package structural validation detects all
 23 intended violation plants. The R7-031 correction filters erase receipt refs by
 explicit actor-bound context/current metadata authority while preserving complete
 protected purge. Exact replay keeps the original receipt and checks current rights;
 changed context conflicts. First 0.2.2 failure (56/57) remains at 0ca2d27 in
 RELEASE-0.2.2-FIRST. Independent review and migrated erase cases are pending.
 
-Current 0.2.2 supplemental: **35 pass / 3 fail / 0 unsupported semantic**,
+Pinned 38-case 0.2.2 supplemental: **37 pass / 1 fail / 0 unsupported semantic**,
 one deployment unsupported. R7-031 migrated hidden-ref, purpose-isolation and
 full-authority controls all pass. Unknown-lineage lower-bound erasure/late writes
 and future-input operations also pass. Independent R7-031 closure remains pending.
 
-Two failures are R7-041 ambiguous/historical authority-slot CAS, preserved before
-correction in PHASE2-CAS-FIRST; unique-head and challenge controls pass. The third
-is definite no-retain R7-037, with original first failure retained. Judge classified
+R7-041 ambiguous/historical authority-slot CAS now passes, with native atomic
+state checks, unique-head/challenge and exact replay controls; independent review
+is pending. PHASE2-CAS-FIRST at e525612 preserves both failures. The remaining
+failure is definite no-retain R7-037, with original first failure retained. Judge classified
 its missing storage-scope binding as spec-bug R7-039. Wait for the released rule
 before the complete scoped retention correction; no query-derived shortcut is used.
+New publication-check-coverage and transitive-review cases are queued for first intake.
 
 Judge independently closed R7-033 import expiry and R7-034 selected delivery at
 f10c7ba. Their pre-fix report remains PHASE2-IMPORT-DELIVERY-FIRST at f83268d.
-Source reports 47/57 coverage at e38c37c, pending expanded-head verification;
+Source reports 49/57 coverage at 5d079be, pending expanded-head verification;
 last judge-verified dual baseline is 45/57 at source 1f35727. Unsupported
 source results are never counted as passes. Deployment remains unqualified.
 

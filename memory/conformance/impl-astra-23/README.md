@@ -75,7 +75,7 @@ publication currentness only to authorized publication-source associations.
 Explicit-target history is restricted to the selected sequence identities.
 RELEASE-0.2.1-FIRST preserves the pre-fix R7-024 report; FIRST-RUN preserves the
 original package-only independence baseline. Current canonical results are 57/57
-semantic with eight deployment cases unsupported; eighteen controls pass. The
+semantic with eight deployment cases unsupported; nineteen controls pass. The
 source-state precedence control covers resolved, policy-denied, lost and empty
 source lists without upgrading evidence, including real current-source exhaustion.
 
@@ -89,3 +89,8 @@ and intake clock. It checks current authorization on exact replay, preserves the
 stored receipt, and retains full protected purge even when no refs are disclosed.
 RELEASE-0.2.2-FIRST preserves the pre-adaptation 56/57 result. Retention scope
 R7-039 and the separate no-retain defect R7-037 remain open pending a release.
+
+Authority-slot CAS now shares sequence identity and receipt partial-order selection
+with projection currentness. Ambiguous and historical candidates refuse atomically;
+challenge and exact replay retain their exemptions. PHASE2-CAS-FIRST preserves
+both pre-correction failures and the passing unique-head/challenge controls.
