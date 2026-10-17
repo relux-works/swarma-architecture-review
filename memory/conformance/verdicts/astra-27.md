@@ -1,41 +1,34 @@
 # R7 verdict — astra-27
 
 Role: judge; sole writer of ledger, owner questions and score.
-Status: round 36, phase 2 active; no PARK. Current score: **1/2**.
+Status: round 37, phase 2 active; awaiting PARK. Current score: **2/2**.
 
-Adjudicated 58 items: ten rejected as defects, forty-six independently fixed,
-one open package implementation bug (R7-058), and one filed owner question
-(R7-055). The new native finding supersedes the round-34 score 2/2. See [LEDGER.md](../LEDGER.md), [R7-SCORE.md](../R7-SCORE.md)
+Adjudicated 58 items: ten rejected as defects, forty-seven independently fixed,
+and one filed owner question (R7-055). No specification or implementation bug
+remains open. See [LEDGER.md](../LEDGER.md), [R7-SCORE.md](../R7-SCORE.md)
 and [OWNER-QUESTIONS.md](../OWNER-QUESTIONS.md).
 
-Both independent readers pass **57/57 canonical semantic vectors** on release
-0.2.5 `6a04e8c`. Source `946cbd8` passes **68/68 supplemental**; package `23b4d74`
-passes **65/68**, with three exact R7-058 failures. All 69 supplemental artifacts
-validate. Every older report row, input/module hash and normalized actual remains
-unchanged; original failures and author fixture bytes are preserved.
+Both independent readers exactly pass **57/57 canonical and 68/68 supplemental
+semantic vectors** on release 0.2.5 `6a04e8c`. Source runtime is `946cbd8`, expanded
+report/test pin `b8189ba`; package runtime is `104fbe8`. All committed rows and
+normalized actuals reproduce independently, and all 69 supplemental artifacts
+validate. Original failures and author fixture bytes remain preserved.
 
-R7-057 closes at `946cbd8`. Current erase
-authority precedes changed-intent conflict; stored-ref metadata permission gates
-only exact replay. Both unchanged purpose/audience regressions and six independent
-native probes pass. Expanded controls retain read/use/metadata revocation,
-fresh-key empty-ref purge, lost erase authority and immutable empty receipts.
-All 128 source native/comparer controls pass; 31 package controls remain applicable
-to its unchanged runtime. Earlier expiry and public-recovery closures remain valid.
+R7-058 closes at `104fbe8`. Newly witnessed obligations missing from the old
+snapshot now enter the full erasure/custody closure. Protected fences, erased refs
+and generation update before reopening. Unreachable affected custody refuses
+atomically with the global fence retained. Known/empty/repeated recovery and
+unrelated content remain valid. Original four native recovery traces, three
+late-writer controls and all five unchanged exact fixtures pass. Both derivative
+refusals preserve full engine data; a valid independent current-generation write
+still commits while the original content stays fenced.
 
-R7-058 is the newly confirmed restore bug. Original native `644c793` supplies a
-current complete external obligation A missing from the old snapshot's local
-erasure inventory. The package claims reconciliation but leaves both controlled
-sinks present and A readable; an unreachable affected sink also falsely succeeds
-and opens the global fence. Judge independently reproduces every field of all
-four validated traces, including correct source behavior, known/empty-obligation
-controls, atomic false-witness refusals and restore-fenced queries. All seventeen
-snapshot hashes verify. Current witnessed obligations must actually enter the
-reconciliation closure; package correction is authorized under existing sources.
-Five exact fixtures `1cefcf9` enter the supplemental denominator: original four
-native inputs are preserved and an independent-content neighbor protects B.
-New/current, unreachable and independent-B cases fail only in the package reader;
-known/empty controls pass. Two intended checker plants are detected. Closure
-still requires complete protected state, atomicity and late-writer verification.
+All 34 package product/comparer controls pass. The new tests reproduce seven
+intended failures with the old engine and no setup errors; nine constructed
+states and exercised operations/responses independently validate. Source control
+coverage is 129: all 12 erasure groups rerun, plus 117 unchanged previously green
+controls, with module hashes verified. Original native and exact package firsts
+remain immutable. Earlier expiry, availability and erase-context fixes remain closed.
 
 The package has no open specification finding. Its 14 schemas, 52 clauses and
 94 JSON artifacts were independently regenerated exactly, with 34 intended

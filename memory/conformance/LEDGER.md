@@ -104,7 +104,7 @@ commits and relevant controls; a candidate release alone is insufficient.
 
 | R7-057 | astra-22 ASTRA22-09, signed native first `0529814`, [first evidence](impl-astra-22/runs/erase-changed-context-first.json); request `$Jls_nbueo2sF-siMYb-5Xqb_iijrTcnTQ4UT_NDB2gU` | K-API-1/2; K-ERASE-2 | impl-bug | astra-22 | fixed@946cbd8 | Judge independently reproduces all 65 canonical/64 supplemental committed rows: 57/57 and 63/63 semantic, unchanged inputs; 128 source controls pass. Both unchanged 66233ab exact regressions and six original/native neighboring probes now pass with full refusal state and original receipts preserved. Current erase authority precedes changed-intent conflict; stored-ref metadata gates exact replay only. Read/use/metadata loss and immutable empty receipts remain covered. Original 0529814 native and five expanded wrong-code failures are retained. Package 23b4d74 remains conforming. |
 
-| R7-058 | astra-25 [restore-current-obligations](cases/astra-25-restore-current-obligations.md), signed native first `644c793`; request `$kmeFdI3d8N1_BZoCMnBcpmZE-Lju4yXDpDMw7N1Zu7k` | K-ERASE-1/2/3; companion §6; bounded-evidence protected-service restore | impl-bug | astra-23 | open | Judge independently validates and reproduces all four native traces. A current complete witness supplies A absent from the old local erased/fence inventory; package 23b4d74 claims reconciliation, leaves both payload/backup present and A readable. With an unreachable affected sink it also opens the global fence instead of atomic erasure_incomplete,true. Source reconciles or stays fenced as required; known-local and genuinely empty obligations agree. Reconcile current witnessed obligations plus retained obligations and their content/custody closure before reopening; preserve firsts and valid/negative neighbors. | Five exact fixtures 1cefcf9 accepted in round 36: source 68/68 supplemental; package 65/68 with exactly new/current, unreachable and independent-content failures. Known/empty controls pass; all older rows and original native inputs preserved.
+| R7-058 | astra-25 [restore-current-obligations](cases/astra-25-restore-current-obligations.md), native first `644c793`, late-writer first `1138c5d`, exact fixtures `1cefcf9`; request `$kmeFdI3d8N1_BZoCMnBcpmZE-Lju4yXDpDMw7N1Zu7k` | K-ERASE-1/2/3; companion §6; bounded-evidence protected-service restore | impl-bug | astra-23 | fixed@104fbe8 | Judge independently reproduces all 57 canonical and 68 supplemental semantic passes plus 34 package controls. Current supplied closure is reconciled with retained erasure coverage, unreachable affected custody refuses atomically, and newly learned obligations update fences/erased/generation before reopening. Original four native traces and three late-writer controls pass; known/empty/repeated recovery and independent content/writes remain valid. Seven intended failures reproduce on the old runtime with the new tests. All original firsts and exact input bytes remain unchanged; only three previously failing exact actuals change. Source 946cbd8 remains conforming with 129 control coverage. |
 
 
 ## Judge worklog
@@ -1784,3 +1784,70 @@ Judge seat evidence: `.temp/judge-round36-case-review-01.json`,
 
 No new item: 58 total, 46 fixed, 10 rejected, R7-058 open and R7-055 owner-question.
 Current score remains **1/2**. Deployment 8+1 unsupported; no PARK.
+
+## Round 37 — current restore obligations and late writers close R7-058
+
+Candidate `104fbe8dd5be973698e1b226fd9a52bcb79a1d2c` closes R7-058 after
+independent judge review. Candidate request is
+`$Gi1NESKNu9thWv6mMTBMiAEW9CRCKzyBdCIfCE9Y6l8`. The runtime delta selects the
+current supplied obligation closure, retains the coverage guard for known local
+erasures, checks every affected controlled sink before mutation, and records new
+erasure/fence/generation state before purging and opening recovery. No package
+clause, expected oracle or source runtime changed.
+
+Before correction review the judge independently reproduced all three additional
+native late-writer firsts from signed `1138c5d`. The old package admitted an old-
+generation derivative with state mutation, then incorrectly refused both current-
+generation variants because recovery retained generation zero. Source `946cbd8`
+met all three K-ERASE-3 expectations. The valid independent proposal has its own
+review and direct integration fact; the author's earlier missing-review scratch
+attempt is explicitly excluded. All six content-addressed snapshots verify.
+These are R7-058 neighbors, not new ledger items or vector denominators.
+
+The corrected package independently passes all 65 canonical and 69 supplemental
+report rows: 57/57 and 68/68 semantic, deployment 8+1 unsupported. Every committed
+row, module hash and full actual reproduces after only declared handle
+normalization. All fixture bytes are unchanged; only the three previously failing
+restore actuals differ from the round-36 package first. The source's expanded
+committed 68/68 report likewise matches the judge's independent round-36 output.
+
+All 30 package product tests and four comparer controls pass. A clean isolated
+candidate archive using the byte-exact old `23b4d74` engine reproduces all seven
+intended failures of the three new groups, exit 1 with no setup errors. The same
+candidate tests pass with the corrected engine; all nine constructed initial
+states and every exercised operation/response additionally pass independent
+closed-schema and admitted-reference validation. The tests cover full complete
+and incomplete-known derived closure, unreachable affected custody, unaffected
+content, uncontrolled recipients and repeated recovery.
+
+The original four native recovery inputs now have the required complete outputs
+and protected postconditions. False-witness and unreachable refusals preserve all
+engine data state and keep disclosure fenced. Known/empty and repeated recovery
+remain valid without a spurious generation increment. The unchanged three native
+late-writer inputs now produce stale_generation,true; erasure_fenced,false; and
+an admitted independent current-generation record, respectively. Both refusals
+preserve full engine data state, and independent admission retains A's fence.
+The original `644c793`, `1138c5d`, package `b805582` and exact `390b208` first
+artifacts remain byte-identical.
+
+Source runtime remains `946cbd8`; only its focused erasure tests changed at
+`b8189ba`. The judge reran all 12 erasure groups, which pass, and verified all
+other source module bytes against prior pins. Combined with 117 previously green
+unchanged controls, current source coverage is 129. This is explicit evidence
+reuse, not a claim that all 129 controls were re-executed in round 37.
+
+Judge seat evidence in `.temp/`: `judge-round37-closure-review-01.json`,
+`astra23-round37-execution-01.json`, `astra23-judge-round37-{canonical,cases}.json`,
+`astra23-judge-round37-restore-corrected.json`,
+`astra{22,23}-judge-round37-late-writer-first.json`,
+`astra23-judge-round37-late-writer-corrected.json`,
+`judge-round37-pre-fix-controls-01.json`,
+`judge-round37-generated-input-validation-01.json`,
+`astra22-round37-erasure-checks-01.log` and
+`judge-round37-candidate-signature-01.log`.
+
+Ledger: 58 items, 47 fixed, 10 rejected, R7-055 owner-question; no open spec-bug
+or impl-bug. Current rubric score returns to **2/2** with full dual canonical
+57/57 and supplemental 68/68 coverage. Owner 055 remains held without a chosen
+oracle; deployment remains unqualified. No new item this round. Continue the
+convener's full quiet-round/PARK protocol; no PARK has been posted.
