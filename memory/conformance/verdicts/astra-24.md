@@ -1,6 +1,6 @@
 # R7 verdict: astra-24 — semantics adversary
 
-Status: Phase 2 active, round 31; no PARK. Source baseline `95f974b`, kernel v0.2; current package
+Status: Phase 2 active, round 32; no PARK. Source baseline `95f974b`, kernel v0.2; current package
 `0.2.5-draft` at `6a04e8c`; all twenty owned exact fixtures explicitly migrated.
 
 ## Scope and method
@@ -529,6 +529,29 @@ Seat-local evidence: `astra24-profile-025-migration.json` and old-byte backup
 The reports retain the checkout, exact fixture hashes and all runtime module
 hashes. This is a corpus regression and explicit migration, not a full finite
 deadline or protected-deployment verification.
+
+## Round 32 source-level ancestry distinction
+
+At the judge's request, ASTRA24-12 now distinguishes the issuer-local
+recommendation from what the source explicitly entails. Kernel 5.1/5.3 and the
+companion's independent source namespaces favor local authority order, but do
+not specify whether an H1 canonical event explicitly naming a foreign H2
+predecessor accepts that foreign path into H1's own order. The global reading
+uses supplied partial-order facts, not timestamps, and leaves endpoint H1
+eligibility unchanged. The source-only exclusion is therefore not proved.
+
+Ignoring foreign events for an H1 projection and declaring a mixed-edge state
+invalid are separate rules. No supplied source mandates the latter integrity
+constraint or its error. The case records the bounded distinction and requests
+an owner question if judge adjudication cannot settle the source-level meaning;
+no exact oracle, new mechanism or evaluator edit is introduced. First native
+artifacts remain immutable. Research is retained in the case and seat-local
+`research-authority-issuer-source-reading.md`. This documentation-only response
+uses the existing paired execution evidence; no new runtime claim needs a rerun.
+
+Judge `ad16ac9` closes source deadline R7-052 at `4a14a56`. Our prior migration
+regression is unchanged and does not replace the judge's finite-deadline review.
+Package deadline R7-053 and remaining source erasure/restore coverage are separate.
 
 ## Provisional R7 row and remaining work
 

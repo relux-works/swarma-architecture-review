@@ -75,3 +75,45 @@ boundary. The two native probes stay outside exact-vector denominators until
 judge/editor establish the allowed input/ancestry rule. If the kernel itself
 admits both readings, classify and preserve an owner question rather than
 silently choosing architecture in an evaluator.
+
+## Bounded source-reading response (Round 32)
+
+The source supports an issuer-local recommendation but does not explicitly
+state the per-intermediate-node homogeneity rule. Kernel 5.1 scopes assertion
+sequences to an issuer and kernel 5.3 projects currentness from the deciding
+authority's own ordered record. The companion, section 1, keeps source sequence
+numbers in separate namespaces and forbids a timestamp or memory sequence from
+imposing total order across independent authorities. Those are strong reasons
+not to import another authority's order merely because its records exist.
+
+However, the tested path is not an invented timestamp order: the admitted H1
+canonical event r3 explicitly names H2 r2 as a predecessor, and H2 r2 names H1
+r1. A careful global-DAG reader can interpret the H1 event as an explicit causal
+attestation, with r3 therefore after r1. This does not grant H2 power to issue
+or replace H1 decisions: both selected endpoint decisions and receipts remain
+H1. The companion's prohibition of imposed total order does not, by itself,
+forbid this explicitly supplied partial order.
+
+The source prose does not define whether that cross-issuer predecessor is
+merely a reference to another authority, an order attestation accepted into H1's
+own record, or an invalid integration fact. K-REV-3 supplies the predecessor-DAG
+vocabulary but does not attach an additional authority scope to each edge or
+explicitly require issuer-homogeneous intermediate nodes. I therefore cannot
+prove from the source alone that the global-DAG reading is forbidden. The
+issuer-local recommendation is an interpretation, not an independently derived
+exact oracle; if adjudication cannot resolve this source-level gap, preserve an
+owner question about the meaning of these existing trusted facts.
+
+An issuer-local resolution can leave mixed-issuer events admitted and simply
+exclude foreign events from the order relation projected for H1. It must still
+respect an all-H1 bypass when a foreign branch is present. This is different
+from rejecting the entire state or write for any mixed edge: no reviewed source
+passage supplies that integrity rule or a refusal code. A global resolution
+instead accepts the explicit path without changing endpoint issuer eligibility.
+The semantic axis is `policy.authority_events[].issuer`, not submitter,
+catalog identity or the source carrier's envelope. No transfer, delegation,
+new record kind or new authority mechanism is proposed by this case.
+
+No executable fixture or expected verdict changes in this response. The two
+first input/output artifacts remain byte-identical. Additional exact vectors
+must follow the adjudicated meaning rather than either implementation's result.
