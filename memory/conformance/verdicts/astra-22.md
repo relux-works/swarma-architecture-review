@@ -10,18 +10,21 @@ SHA-256 `cfcf7e70d13f9054511b76ec26578b7d0299b5a33dbf2c6963d2f51816c27246`.
 The unchanged baseline and first comparisons remain in git history. The package
 was read only after the convener's announcement. No other evaluator code was read.
 
-Current package: **0.2.4-draft**, `ef0264702d3ff937bd34410ea80660b196b6f1b0`.
+Current package: **0.2.5-draft**, `6a04e8cfb1490569cd1de7468d2085dd4840cf51`.
 
 | Inventory | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
 | Canonical semantic | 50 | 0 | 7 |
 | Canonical deployment | 0 | 0 | 8 |
-| Supplemental semantic (54 current cases) | 46 | 0 | 8 |
+| Supplemental semantic (61, author24 profile migration pending) | 33 | 20 | 8 |
 | Supplemental deployment | 0 | 0 | 1 |
 
 Current outputs: `impl-astra-22/RESULTS.*`,
-`runs/phase2-authority-projection-corrected.*`, and
-`runs/phase2-authority-projection-cases-corrected.*`. No oracle was edited.
+`runs/phase2-deadline-corrected.*`. Mixed-profile supplemental results are
+`runs/phase2-deadline-cases-partial-migration.*`;20profile mismatches are not
+semantic deadline defects. Author24 migration is pending; all seven new expiry
+cases now pass unchanged. First mixed-profile15/38/8 report remains preserved. Last fully matched
+0.2.4 supplement was46/0/8 across54cases. No oracle was edited.
 
 R7-047 correction4772258 requires strict canonical receipt ancestry for
 replace/correct; three forbidden orders refuse atomically, while direct/transitive
@@ -40,17 +43,17 @@ Proof families can grow exponentially; no deployment resource guarantee follows.
 R7-050/P05 is judge-closed at8a42945. Original framed/raw failures remain36983de
 and e1ba8db; retention first0.2.3 failures remain99b5a85.
 
-All106controls pass on current grammar: source33,adapter8,transaction14,proof4,
-impact9,boundary8,retention8,release9,succession4,authority-projection4,harness5.
+All112controls pass on current grammar: source33,adapter8,transaction14,proof4,
+impact9,boundary8,retention8,release9,succession4,authority-projection4,deadline6,harness5.
 Each states its claim and limits; test setup/profile maintenance is explicit in
 WORKLOG. Current source core SHA-256:
 `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 Chronology/logs: `impl-astra-22/WORKLOG.md`; evidence:
 `impl-astra-22/DIVERGENCES.md` and `impl-astra-22/runs/`.
 
-Judge-closed source defects:011/012/013/015,025/026/027/028/029,030,032,036,040,043,050.
-Corrections047/051 await review. Deadline intake/replay native probes are queued
-pending judge/editor mapping. Phase-1's historical2/2 was a narrower rubric and
+Judge-closed source defects:011/012/013/015,025/026/027/028/029,030,032,036,040,043,047,050,051.
+Correction052 awaits review; its released0.2.5 P11 and six native deadline groups
+now pass. Author migrations of supplemental profile remain separate. Phase-1's historical2/2 was a narrower rubric and
 is not Phase-2 completion.
 
 Remaining canonical unsupported: B07,P08,S20,S24,S25,S26,S27, covering semantic
@@ -59,9 +62,11 @@ disclosure also remain unsupported API paths. No protected deployment, physical
 erasure, timing isolation, randomness qualification or crash durability is claimed.
 Semantic delivery sends no external bytes.
 
-R7-052 deadline enforcement first native evidence is preserved in
-`runs/deadline-native-first.json` and `runs/deadline-controls-first.json`:
-three expired fresh writes commit, expired replay returns success, and six
-control groups expose17intended failures. Judge explicitly requires
-not_authorized,false before idempotency with no purge;054 release pending.
-These native probes are outside the canonical/supplemental vector denominator.
+R7-052 first native evidence c9e1faf remains in
+`runs/deadline-native-first.json` and `runs/deadline-controls-first.json`:17intended
+old failures. The exact old implementation also fails new-release P11
+(`runs/0.2.5-first.*`). Current time now gates all proposed outputs and transitive
+known input deadlines before receipt replay/conflict. At/after expiry refuses
+not_authorized,false without purge or state change. All four intake APIs, exact
+replay, complete/unknown/batch inputs, null and unrelated neighbors are covered.
+Full green native output/module hashes: `runs/deadline-controls-corrected.json`.

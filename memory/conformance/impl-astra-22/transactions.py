@@ -356,18 +356,23 @@ class Transactions:
         return lineage if lineage != "unknown" else []
 
     def retention(self, proposals, context):
-        """Check storage authority before replay; no view/disclosure inference."""
+        """Check current storage authority and deadlines before receipt replay."""
         state = self.adapter.records | {key(ref(p)): p for p in proposals}
         scope = context["retention_context"] | {"principal": context["actor"]}
         seen = set()
 
         def visit(record):
             identity = key(ref(record))
+            if not self.adapter.granted(record, scope, "retain", metadata=False):
+                raise Refusal("not_authorized")
+            deadline = record["envelope"]["disclosure"]["retain_until"]
+            if deadline is not None and context["at"] >= deadline:
+                raise Refusal("not_authorized")
+            # Every proposed envelope is checked even when identities repeat;
+            # only recursive input traversal is deduplicated.
             if identity in seen:
                 return
             seen.add(identity)
-            if not self.adapter.granted(record, scope, "retain", metadata=False):
-                raise Refusal("not_authorized")
             for source in self.known_inputs(record):
                 # The reference-validation class refuses missing inputs later.
                 # A future fact alone supplies neither a record nor authority.

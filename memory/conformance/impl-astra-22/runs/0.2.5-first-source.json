@@ -1,0 +1,8 @@
+{
+  "source_commit": "c9e1fafcf8d1535137ae76373223b696709ea066",
+  "transaction_sha256": "fff9dc04a8be92f091cbc6d9f47a2772983867ef3b3930ed50052de5ed605444",
+  "note": "Exact pre-correction transaction bytes restored only for this first current-release run; corrected working bytes restored afterward. Other source modules unchanged.",
+  "exit_code": 1,
+  "stdout": "{\n  \"package\": \"0.2.5-draft\",\n  \"commit\": \"6a04e8cfb1490569cd1de7468d2085dd4840cf51\",\n  \"core_sha256\": \"7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256\",\n  \"totals\": {\n    \"semantic\": {\n      \"pass\": 49,\n      \"fail\": 1,\n      \"unsupported\": 7\n    },\n    \"deployment\": {\n      \"pass\": 0,\n      \"fail\": 0,\n      \"unsupported\": 8\n    }\n  }\n}\n",
+  "stderr": ""
+}

@@ -116,10 +116,7 @@ currentness, declared incompatibility, freshness, basic audience aliases and
 exclusion. Independent wire admission, raw admission and CAS revisions now run
 through `transactions.py`; `transaction_checks.py` contains atomicity controls.
 The first 0.2.1 run exposed the missing self-declaration identity gate (R7-026);
-its correction and the selected-history fix (R7-025) retain red/green evidence. It still explicitly rejects unsupported
-erasure transaction wire operations and
-live multi-owner release
-checks. Checked, expired, missing-check and replaced imported-publication currentness are now mapped independently from ordinary report freshness. RESULTS.md lists the
+its correction and the selected-history fix (R7-025) retain red/green evidence. It still explicitly rejects unsupported erasure transaction wire operations. Checked, expired, missing-check and replaced imported-publication currentness are now mapped independently from ordinary report freshness. RESULTS.md lists the
 precise per-vector boundaries; source model unit controls alone do not count as
 package-vector passes. Original frozen evidence is retained unchanged.
 
@@ -143,7 +140,7 @@ item before PARK; the historical supported-vector score is not that completion.
 
 ## Snapshot idempotency controls
 
-`runtime.idempotency` is the authoritative receipt store for admitted initial snapshots and successful writes. Run `python3 memory/conformance/impl-astra-22/transaction_checks.py` for eleven atomic transaction controls, including replay after semantic adapter reconstruction, actor/space/key isolation, original handle/time and current operation authority. R7-030 first/corrected probes are under `runs/persisted-idempotency-*.json`; they do not qualify physical durability or restart recovery.
+`runtime.idempotency` is the authoritative receipt store for admitted initial snapshots and successful writes. Run `python3 memory/conformance/impl-astra-22/transaction_checks.py` for fourteen atomic transaction controls, including replay after semantic adapter reconstruction, actor/space/key isolation, original handle/time and current operation authority. R7-030 first/corrected probes are under `runs/persisted-idempotency-*.json`; they do not qualify physical durability or restart recovery.
 
 ## Registered dirty and review impact
 
@@ -151,7 +148,7 @@ item before PARK; the historical supported-vector score is not that completion.
 
 ## Captures and delivery boundary
 
-`boundary.py` simulates selected-item delivery authorization over immutable captured views and protected bindings; it sends no external bytes. Live revoke events preserve pinned policy and frozen views. Run `python3 memory/conformance/impl-astra-22/boundary_checks.py` for eight controls, including selected/excluded scope, current rights, expiry, erasure/restore and binding authority. P06/P12 and the exact selected-forwarding adversary pair pass. Declassification and erasure operations still report unsupported pending their separate mappings.
+`boundary.py` simulates selected-item delivery authorization over immutable captured views and protected bindings; it sends no external bytes. Live revoke events preserve pinned policy and frozen views. Run `python3 memory/conformance/impl-astra-22/boundary_checks.py` for eight controls, including selected/excluded scope, current rights, expiry, erasure/restore and binding authority. P06/P12 and the exact selected-forwarding adversary pair pass. Erasure operations still report unsupported pending their separate mapping.
 
 Authoritative CAS now chooses a unique maximal receipt over the full exact slot before applying local transition tokens. The thirteen transaction controls preserve ambiguous/stale atomic refusals, unique current head, challenge and exact-retry precedence; first and corrected R7-040 cases are recorded in `runs/phase2-cas-*` and `DIVERGENCES.md`.
 
@@ -179,3 +176,11 @@ Canonical event ancestry is resolved before mapping it onto exact assertion
 sequences, so receipt-only intermediate events keep their ordering meaning.
 The controls preserve read-only state, candidate eligibility and incomparable
 branches. Current0.2.4 evidence is `runs/phase2-authority-projection-*`.
+
+Current retention deadline controls run with
+`PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/deadline_checks.py`.
+The trusted current intake time must precede every non-null output and known-input
+deadline before idempotency. Refusal preserves complete state and original receipts;
+it performs no purge. Exact0.2.5 first and corrected canonical evidence is under
+`runs/0.2.5-first.*` and `runs/phase2-deadline-corrected.*`; all112controls are
+recorded in `runs/deadline-controls-corrected.json`.
