@@ -1,17 +1,18 @@
 # astra-21 package editor verdict
 
-Status: round 7, Phase 2 active; no PARK. Current package: 0.2.3-draft,
+Status: round 8, Phase 2 active; no PARK. Current package: 0.2.3-draft,
 signed release `23290b3`. This round changes only this verdict.
 
 **All 12 editor-owned specification bugs are judge-closed. Phase 2 remains 1/2.**
 R7-039 and R7-042 are accepted at `23290b3`; R7-031 was closed at `7e71765`.
 The exact closure decisions and remaining implementation limits are below.
-The last verified previous-release dual coverage is 49/57 on 0.2.2 (`6f03c28`).
-On 0.2.3 the unchanged baselines are source 47/2/8 and package 55/2/0, with only
-P11/P13 failing; source candidate `d077064` reports 49/0/8 pending review.
-Counts are semantic pass/fail/unsupported. These do not establish full dual
-coverage or protected deployment. Historical original-rubric 2/2 at `b1ae299`
-remains narrower than the Phase 2 completion gate.
+The editor now independently verifies current 0.2.3 source `d077064` at 49/0/8
+and package `4af0360` at 57/0/0 (semantic pass/fail/unsupported), plus all four
+retention fixtures in each runtime and targeted full-state/replay controls.
+This gives **49/57 dual canonical passes**; R7-036/037 closure is recommended to
+the judge, and eight source semantics remain unsupported. The original red
+baselines are preserved. Neither this result nor historical original-rubric 2/2
+at `b1ae299` establishes full profile or protected deployment conformance.
 The judge owns the final [score](../R7-SCORE.md) and [ledger](../LEDGER.md).
 
 ## Scope and independence
@@ -128,6 +129,36 @@ No package bytes change in round 7. Validation is a factual comparison with the
 named persisted judge decisions, reports and release pins, plus diff-whitespace
 and owned-scope checks; no executable contract changed or new test is asserted.
 
+## Round 8 — independent retention behavior verified
+
+At checkout `1a09fb6`, the editor independently reran source `d077064` and package
+`4af0360` against exact release `23290b3`. Canonical results are source 49/0/8 and
+package 57/0/0; eight deployment vectors are unsupported in each. Both runtimes
+pass all four unchanged author-migrated ASTRA25-08 original/unknown retention
+fixtures. Every one of the 65 canonical and four targeted report rows per runtime
+matches the committed input/code hashes, status and complete actual output after
+only declared opaque-handle normalization. No oracle or other seat file changed.
+
+Eight source retention groups and three targeted package groups pass. Reviewed
+controls assert exact typed refusal and full record/policy/runtime state, with
+capture/binding state where applicable, preserved original receipts, denied then
+authorized same-key retries, live revocation, each output/transitive known-input
+scope, same-batch/future inputs and empty labels. Package controls cover all four
+write APIs; source's still-unsupported APIs are not claimed by its eight groups.
+The retained source baseline has 12 intended missing-refusal failures, with no
+setup errors; original source/package red reports remain immutable.
+
+Review and evidence: `.temp/astra-21/retention-verification.md`,
+`retention-reproduction-01.log`, `retention-baseline-review-01.log`,
+`source-evaluator-023-verified.md/json`, `package-evaluator-023-verified.md/json`,
+`source-retention-023-verified.md/json`, `package-retention-023-verified.md/json`,
+`source-retention-controls-01.log`, `package-retention-controls-01.log`, adjacent
+command/exit logs and `retention-023-input-hashes.json`.
+
+Recommendation: close R7-036/037's implemented retention/current-replay defects,
+subject to judge. Remaining source unsupported semantics are B07, P05, P08, S20,
+S24, S25, S26 and S27. This round changes only this verdict; the package is stable.
+
 ## Previous 0.2.1 validation and execution evidence
 
 `python3 memory/spec/checks/validate.py` passes: 94 JSON artifacts, 14 closed
@@ -175,8 +206,9 @@ B01/B07/P05/P06/P08/P12/S07/S17/S20/S23/S24/S25/S26/S27. Adversaries target thos
 clauses and the v0.2 delta. The editor will apply resulting judge-classified
 package fixes with preserved regression controls and a versioned 0.2.x release.
 R7-031/039/042 are judge-closed. Exact-release retention enforcement in R7-036/037
-and the eight remaining unsupported source semantics still require independent
-completion; adversary fixtures have explicit 0.2.3 migrations. Other newly classified implementation defects remain with
+is independently verified by this editor and awaits judge closure. The eight
+remaining unsupported source semantics still require implementation and review;
+adversary fixtures have explicit 0.2.3 migrations. Other newly classified implementation defects remain with
 their evaluator owners; no expected answer was changed to match an evaluator.
 
 Early PARK now requires source 57/57 plus one full round with no new open item;
