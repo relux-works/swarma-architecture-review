@@ -172,3 +172,10 @@ They separate authoritative replace/correct refusal from ordinary incomparable
 receipt imports, current-head CAS and exact successful replay. First and corrected
 write evidence is retained under `runs/phase2-succession-*`; the independent
 receipt-only intermediate projection defect is tracked separately as R7-051.
+
+Receipt-DAG projection controls run with
+`PYTHONDONTWRITEBYTECODE=1 python3 memory/conformance/impl-astra-22/authority_projection_checks.py`.
+Canonical event ancestry is resolved before mapping it onto exact assertion
+sequences, so receipt-only intermediate events keep their ordering meaning.
+The controls preserve read-only state, candidate eligibility and incomparable
+branches. Current0.2.4 evidence is `runs/phase2-authority-projection-*`.

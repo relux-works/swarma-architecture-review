@@ -1,7 +1,7 @@
 {
-  "checkout_commit": "e1ba8db79577da1b9a6f07259e36c93254c12489",
-  "package_commit": "23290b3a96a469d5190cb71b0e20139896b89236",
-  "package_version": "0.2.3-draft",
+  "checkout_commit": "d5f07bead4844844bf52c2e96cd074fc54977154",
+  "package_commit": "ef0264702d3ff937bd34410ea80660b196b6f1b0",
+  "package_version": "0.2.4-draft",
   "vector_directory": "memory/spec/kernel/vectors",
   "core_sha256": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
   "totals": {
@@ -19,37 +19,37 @@
   "vectors": {
     "B04": {
       "file": "memory/spec/kernel/vectors/deployment/B04.json",
-      "sha256": "a0f216e556ef434ac624e4870d93abed849e71497c9bc9f1e19336dd41e907a6",
+      "sha256": "045de6e6168b163f8a043ac1852511484ac62c93aae3a0c9a66f40ed04569895",
       "status": "unsupported",
       "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
     },
     "B05": {
       "file": "memory/spec/kernel/vectors/deployment/B05.json",
-      "sha256": "bf76a2683878511a50ced1e3b078e1d361dc65cc88a5de22ca6a826d9b09fa52",
+      "sha256": "caf0d77fbef7b1712f61da1568a75de3183ed822f73118e1f7670a063c7b42c4",
       "status": "unsupported",
       "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
     },
     "B06": {
       "file": "memory/spec/kernel/vectors/deployment/B06.json",
-      "sha256": "4e7bd849028c38842941efa078c9ad5e75ca00342122065e39e2d3cd1887b0c6",
+      "sha256": "f65f62661824e95763995b828bdc4d004af71c5dc0a76e3458eb96d1f9394ce3",
       "status": "unsupported",
       "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
     },
     "B09": {
       "file": "memory/spec/kernel/vectors/deployment/B09.json",
-      "sha256": "f1980557f450172f736b432f9d5c6ce82332f85a343cccb9b2d33d368a384e5a",
+      "sha256": "731d84c9ae8fe6ebddc06d0301896e9d0c44defd171cf5ba887db9d48b68f6bc",
       "status": "unsupported",
       "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
     },
     "B10": {
       "file": "memory/spec/kernel/vectors/deployment/B10.json",
-      "sha256": "9c797598a540a16a1b0b6798198a15617edb6e5bee603b4a3e00df3dc9649880",
+      "sha256": "11fa62a6592069877e8f84dbbe5df470daffcd6b9c2ea9cda413901e9a84fbe3",
       "status": "unsupported",
       "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
     },
     "B11": {
       "file": "memory/spec/kernel/vectors/deployment/B11.json",
-      "sha256": "c246532c1ed6526d078762048ffa15e83977df75abbe18003bab96d9c3a98fda",
+      "sha256": "a2a51a678bda5ec771a8fb7987c56e98eed25811c3f38d2298fcb6c25be796c4",
       "status": "unsupported",
       "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
     },
@@ -61,15 +61,146 @@
     },
     "B17": {
       "file": "memory/spec/kernel/vectors/deployment/B17.json",
-      "sha256": "835ba01fb221776ec7143037aae18189aef5e59d451c71c311eaafc4cd8d9576",
+      "sha256": "f923a3dfd49ca7e6bdea06c05a256fa9e6627b5d524a6cba8b4788b619305dad",
       "status": "unsupported",
       "reason": "No protected deployment; a semantic simulator cannot qualify this boundary."
     },
     "B01": {
       "file": "memory/spec/kernel/vectors/semantic/B01.json",
-      "sha256": "183b319ca375cafad7306d71b4034270ece49f0b0cd62603c2e24c27dc6bae89",
+      "sha256": "41356c4e4990d999bcf238e37494c5d117cd2505c82b941104daf93465547baf",
       "actual": {
         "operation_results": [
+          {
+            "type": "refusal",
+            "code": "authority_receipt_required",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "authority_receipt_required",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "authority_receipt_required",
+            "retryable": false
+          },
+          {
+            "type": "refusal",
+            "code": "authority_receipt_required",
+            "retryable": false
+          },
+          {
+            "type": "view",
+            "semantic_profile": "0.2.4-draft",
+            "projection_rule": {
+              "id": "projection:main",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "<fresh>",
+            "data_classification": "data",
+            "items": [
+              {
+                "ref": {
+                  "id": "rec:d",
+                  "version": 1
+                },
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "machine_observation",
+                "statement_kind": "decision_record",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "archive_home"
+                  }
+                ],
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": {
+                  "id": "rec:receipt1",
+                  "version": 1
+                },
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [
+                  {
+                    "id": "rec:receipt1",
+                    "version": 1
+                  }
+                ],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [],
+            "review_required": [],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
+          },
+          {
+            "type": "refusal",
+            "code": "invalid_time",
+            "retryable": false
+          },
           {
             "type": "receipt",
             "operation": "revise",
@@ -87,11 +218,168 @@
             ],
             "custody": [],
             "erasure_status": null
+          },
+          {
+            "type": "view",
+            "semantic_profile": "0.2.4-draft",
+            "projection_rule": {
+              "id": "projection:main",
+              "version": 1
+            },
+            "evidence_policy": {
+              "id": "evidence:1",
+              "version": 1
+            },
+            "policy": {
+              "id": "policy:1",
+              "version": 1
+            },
+            "authorized_snapshot_handle": "<fresh>",
+            "data_classification": "data",
+            "items": [
+              {
+                "ref": {
+                  "id": "rec:d",
+                  "version": 2
+                },
+                "subject": "subj:h1",
+                "issuer": "subj:h1",
+                "submitter": "subj:h1",
+                "perspective": {
+                  "kind": "own",
+                  "principal": "subj:h1"
+                },
+                "representation_ref": null,
+                "admission_class": "machine_observation",
+                "statement_kind": "decision_record",
+                "content": [
+                  {
+                    "field": "value",
+                    "value": "delete_home"
+                  }
+                ],
+                "valid": {
+                  "kind": "known",
+                  "from": "2026-09-01T00:00:00Z",
+                  "to": null,
+                  "precision": "second"
+                },
+                "confirmed_at": "2026-10-17T00:00:00Z",
+                "usable_until": null,
+                "currentness": "current",
+                "authority_receipt": {
+                  "id": "rec:receipt2",
+                  "version": 1
+                },
+                "incompatible_with": [],
+                "needs_review": false,
+                "source_refs": [
+                  {
+                    "id": "rec:receipt2",
+                    "version": 1
+                  }
+                ],
+                "support": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                },
+                "oppose": {
+                  "witness": "not_found",
+                  "evaluation": "complete",
+                  "corpus_coverage": {
+                    "kind": "unknown"
+                  },
+                  "premise_quality": "not_fully_checked",
+                  "evidence_qualification": [],
+                  "source_state": "resolvable_now",
+                  "freshness": "not_applicable",
+                  "authorized_snapshot_handle": "<fresh>",
+                  "dependency_coverage": "registered_only",
+                  "witness_roots": [],
+                  "independent_root_count": 0
+                }
+              }
+            ],
+            "currentness": "current",
+            "historical": [
+              {
+                "id": "rec:d",
+                "version": 1
+              }
+            ],
+            "review_required": [
+              {
+                "id": "rec:dependent",
+                "version": 1
+              }
+            ],
+            "explanation": {
+              "status": "complete",
+              "paths": [],
+              "reason": null
+            },
+            "cutoffs": [],
+            "changes": {
+              "state": "initial",
+              "refs": []
+            }
+          },
+          {
+            "type": "receipt",
+            "operation": "revise",
+            "outcome": "revised",
+            "receipt_handle": "<fresh>",
+            "refs": [
+              {
+                "id": "rec:d",
+                "version": 3
+              },
+              {
+                "id": "rec:decision-replace-transitive",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          {
+            "type": "receipt",
+            "operation": "revise",
+            "outcome": "revised",
+            "receipt_handle": "<fresh>",
+            "refs": [
+              {
+                "id": "rec:d",
+                "version": 2
+              },
+              {
+                "id": "rec:decision-replace",
+                "version": 1
+              }
+            ],
+            "custody": [],
+            "erasure_status": null
+          },
+          {
+            "type": "refusal",
+            "code": "version_conflict",
+            "retryable": true
           }
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -110,7 +398,7 @@
             {
               "ref": {
                 "id": "rec:d",
-                "version": 2
+                "version": 3
               },
               "subject": "subj:h1",
               "issuer": "subj:h1",
@@ -138,14 +426,14 @@
               "usable_until": null,
               "currentness": "current",
               "authority_receipt": {
-                "id": "rec:receipt2",
+                "id": "rec:receipt3",
                 "version": 1
               },
               "incompatible_with": [],
               "needs_review": false,
               "source_refs": [
                 {
-                  "id": "rec:receipt2",
+                  "id": "rec:receipt3",
                   "version": 1
                 }
               ],
@@ -186,6 +474,10 @@
             {
               "id": "rec:d",
               "version": 1
+            },
+            {
+              "id": "rec:d",
+              "version": 2
             }
           ],
           "review_required": [
@@ -216,11 +508,31 @@
               "version": 2
             },
             {
+              "id": "rec:d",
+              "version": 3
+            },
+            {
               "id": "rec:decision-replace",
               "version": 1
             },
             {
+              "id": "rec:decision-replace-transitive",
+              "version": 1
+            },
+            {
               "id": "rec:dependent",
+              "version": 1
+            },
+            {
+              "id": "rec:receipt-bridge",
+              "version": 1
+            },
+            {
+              "id": "rec:receipt-unordered",
+              "version": 1
+            },
+            {
+              "id": "rec:receipt0",
               "version": 1
             },
             {
@@ -229,6 +541,10 @@
             },
             {
               "id": "rec:receipt2",
+              "version": 1
+            },
+            {
+              "id": "rec:receipt3",
               "version": 1
             },
             {
@@ -254,7 +570,7 @@
     },
     "B02": {
       "file": "memory/spec/kernel/vectors/semantic/B02.json",
-      "sha256": "74bd8dfda20aec649a1e4295e6b9d281384beb3808f4984b6422dd149403bb64",
+      "sha256": "f85bd588c6a0578dc36396dda409eab8860d59d73a1945885755e788e6cb117b",
       "actual": {
         "operation_results": [
           {
@@ -279,7 +595,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -395,12 +711,12 @@
     },
     "B03": {
       "file": "memory/spec/kernel/vectors/semantic/B03.json",
-      "sha256": "bc76781ba77687f08e6f9398db83f78840c38869ddd475521bbcf77e4fadd1e4",
+      "sha256": "17b5eb264026e56ba591e3e8329cc56e836410b661b74e36a220c451c11682c8",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -541,18 +857,18 @@
     },
     "B07": {
       "file": "memory/spec/kernel/vectors/semantic/B07.json",
-      "sha256": "bcbe3886d7ba5abc2482c73a0973e30f25c25e52eb43370bf1484ec960800d20",
+      "sha256": "fd022064ede672328eb7d2f7b10b75095ef376e0cdb2e9b2040ce385893fa044",
       "status": "unsupported",
       "reason": "Unmapped frozen-core transaction operations: erase"
     },
     "B08": {
       "file": "memory/spec/kernel/vectors/semantic/B08.json",
-      "sha256": "12b7695158f1a8d0355cf72ab3318f9f8a40cd7012d0cc21c74282b7577e9c46",
+      "sha256": "571d00906b3a57ab24f5bf6ed273edd1e08a527da8010633fc430d26683498ad",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -688,7 +1004,7 @@
     },
     "B12": {
       "file": "memory/spec/kernel/vectors/semantic/B12.json",
-      "sha256": "c874b5b5085104bafe0747786cca7c6abdd76616cc0fc7d6a99850ddf1da99e7",
+      "sha256": "b3c572fd4ed332d5d95f775d958075369bce57d0a39f37db77dc6f5c28c56407",
       "actual": {
         "operation_results": [
           {
@@ -727,7 +1043,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -843,12 +1159,12 @@
     },
     "B13": {
       "file": "memory/spec/kernel/vectors/semantic/B13.json",
-      "sha256": "541c7cb78436c6db2d9bfc2b1a309bd54abcdf4179091af40ce18190e61e4457",
+      "sha256": "69bbed727d571f7e42e1899cefc8336302aa557745bb67846bf29e06199963ff",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -979,12 +1295,12 @@
     },
     "B14": {
       "file": "memory/spec/kernel/vectors/semantic/B14.json",
-      "sha256": "50db7311d2c08aafa064bccbf111a4de4f5f620d98023847896bc9a1c878bdd2",
+      "sha256": "c2244a92fed38c5488bd9136371badaa822a51d5fd34e0d7be6083533805c71c",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1158,12 +1474,12 @@
     },
     "B15": {
       "file": "memory/spec/kernel/vectors/semantic/B15.json",
-      "sha256": "bc99a2174743d187fef5f23965e9a45c3a716dbd95b1aee87de46882b8d0438a",
+      "sha256": "95b4a4fa1ce03b81f01cdfdf3e8bd408b0f3985815600020716bdb0d79d67332",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1333,12 +1649,12 @@
     },
     "P01": {
       "file": "memory/spec/kernel/vectors/semantic/P01.json",
-      "sha256": "e2acf4811742c24722b9b93f7422b7d165251af492bf854439160cfa19580831",
+      "sha256": "abdb6c3dd13ee79641978c268ca085719ddfbffca13c4c70dc906446f0a2354e",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -1371,7 +1687,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:observer",
             "version": 1
@@ -1487,7 +1803,7 @@
     },
     "P02": {
       "file": "memory/spec/kernel/vectors/semantic/P02.json",
-      "sha256": "1f2a10c148972c1b98295c22f5534d710a291ae4170b95cd57602843c73e3c93",
+      "sha256": "e3cfbad8f0570417ffa9620097d9abd5fd99f0706fa64c9171d82f779f64259f",
       "actual": {
         "operation_results": [
           {
@@ -1516,7 +1832,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:other",
               "version": 1
@@ -1615,7 +1931,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1735,7 +2051,7 @@
     },
     "P03": {
       "file": "memory/spec/kernel/vectors/semantic/P03.json",
-      "sha256": "55ec3d6204f999db51ed2109b64c74cd0e77aef260894ab33521caec796a3f8a",
+      "sha256": "82f26d7a57858aeb4a03dbbb41316d5aed24ef8ceb64e1dba313b8a8cc361d49",
       "actual": {
         "operation_results": [
           {
@@ -1758,7 +2074,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:observer",
               "version": 1
@@ -1861,7 +2177,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -1985,12 +2301,12 @@
     },
     "P04": {
       "file": "memory/spec/kernel/vectors/semantic/P04.json",
-      "sha256": "7d81f22adbf08d26eeb7af6b487ee143126e63f9ac88af083c260220ad27c1db",
+      "sha256": "b715adc9574b0f0b8dbc55f6cad9eef46149ad484f656ac272d7a88649c3a40a",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -2096,7 +2412,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -2203,7 +2519,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2331,7 +2647,7 @@
     },
     "P05": {
       "file": "memory/spec/kernel/vectors/semantic/P05.json",
-      "sha256": "5cbb2a26016ee352c750dcc4488dc51d5c2cbe78b3300075d6b61051830a1a30",
+      "sha256": "f75efbd78197fc4561ee15b35c361e7589405c42ae7b87fd85e10c8c264cebf9",
       "actual": {
         "operation_results": [
           {
@@ -2363,7 +2679,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -2482,7 +2798,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -2548,12 +2864,12 @@
     },
     "P06": {
       "file": "memory/spec/kernel/vectors/semantic/P06.json",
-      "sha256": "68afd53161cef72cbad7e9a6c95fb6b035cf7d80af7e5918258a4c90459a9a63",
+      "sha256": "3c2f6c6b8e6c89c3b0d43d67963a19507d511a52922e9311b4096c12bcf50159",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -2663,7 +2979,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -2776,12 +3092,12 @@
     },
     "P07": {
       "file": "memory/spec/kernel/vectors/semantic/P07.json",
-      "sha256": "1b61803a180aef60eb3874b215d0b211fd8633f5e662a34a9ac689210a88f26e",
+      "sha256": "823b3ab0103d8bf6813d272a8fad1829deb6b99cdcbf2b2c186e9b2c6d11caee",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -2938,18 +3254,18 @@
     },
     "P08": {
       "file": "memory/spec/kernel/vectors/semantic/P08.json",
-      "sha256": "a7ce99aa8173b15e6c1e3917686e1981a36810c96300ccd8a9b07830b31f35cf",
+      "sha256": "a1127c0409c2c5803d4225fe87bb5ef04c1d592752d5357b04f6143a732f5716",
       "status": "unsupported",
       "reason": "Unmapped frozen-core transaction operations: erase"
     },
     "P09": {
       "file": "memory/spec/kernel/vectors/semantic/P09.json",
-      "sha256": "f393674e19de093fc5749ff44fe9b6062a9b75be0d53ebf4bdbbe1c9fe42b9ba",
+      "sha256": "900db59906f8fe95d8d9a69a281e76bc155fa8ed848fac0665d2b4ef18a642d2",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:left",
               "version": 1
@@ -3045,7 +3361,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:right",
             "version": 1
@@ -3166,7 +3482,7 @@
     },
     "P10": {
       "file": "memory/spec/kernel/vectors/semantic/P10.json",
-      "sha256": "61b088f5bb3e5b7927db1e2778746ba322a2c738f5a52509c8b63a0c0b8a02a8",
+      "sha256": "f214d506c354f8ca7bea15ee18366dff979d4a5989f8ecc477b3ec18e29131c4",
       "actual": {
         "operation_results": [
           {
@@ -3200,7 +3516,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3333,7 +3649,7 @@
     },
     "P11": {
       "file": "memory/spec/kernel/vectors/semantic/P11.json",
-      "sha256": "f8f940678dfbe6852ea4c83020720f63bf89b69c376b90d6e50ba92104c162ab",
+      "sha256": "61fc19b16fa110d82b28a5a08b5c7fd972d1e3722d47097013030dd7400b9819",
       "actual": {
         "operation_results": [
           {
@@ -3411,7 +3727,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -3528,7 +3844,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -3627,7 +3943,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -3685,12 +4001,12 @@
     },
     "P12": {
       "file": "memory/spec/kernel/vectors/semantic/P12.json",
-      "sha256": "42adf980d66014077fb2bbeb08a2a9f58f18e9dbc9c7354ea8c18b262a893c63",
+      "sha256": "b8c29d59d21bfa0bc3a98716bdf75694b45483c721a63b07843cc35659b4224f",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:public",
               "version": 1
@@ -3809,7 +4125,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -3859,7 +4175,7 @@
     },
     "P13": {
       "file": "memory/spec/kernel/vectors/semantic/P13.json",
-      "sha256": "3f4fcc39216f8d9ef250dd50e7bfe7283c7818112ccff7d9947bc31cb3e51916",
+      "sha256": "c8b09e0f2c17f425ba8356b2fc67dece38855b209c42287209b457d2e10920d0",
       "actual": {
         "operation_results": [
           {
@@ -3904,7 +4220,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -4068,7 +4384,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:public",
             "version": 1
@@ -4205,7 +4521,7 @@
     },
     "P14": {
       "file": "memory/spec/kernel/vectors/semantic/P14.json",
-      "sha256": "eb30f05303e258985264923e6b0cec87a6cc7bee0e7ac2490c475261e2e9168d",
+      "sha256": "77c3046ea1095c01a670f356c07b26c1e7e4498b649c7c855d77edbb6f4516f0",
       "actual": {
         "operation_results": [
           {
@@ -4239,7 +4555,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -4372,12 +4688,12 @@
     },
     "P15": {
       "file": "memory/spec/kernel/vectors/semantic/P15.json",
-      "sha256": "f64ba36c353081cb6aeee5727fa2cc4492b9d259e509f72bb8f028f2ea0a322a",
+      "sha256": "3a919d93f3bb2a9acb5dc20a12a2366da18159760ecb8913a2491b779c4bfb7c",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:card",
               "version": 1
@@ -4534,7 +4850,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:organisation",
               "version": 1
@@ -4698,7 +5014,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:card",
             "version": 2
@@ -4815,12 +5131,12 @@
     },
     "S01": {
       "file": "memory/spec/kernel/vectors/semantic/S01.json",
-      "sha256": "f276cb50ad334829c35d04b2d4ec3535f71f13bdad53528fdd439c9c3dcba06d",
+      "sha256": "a474089c43f8bc9d4465725804a94936f82cadb3c27b27c6e8a0a5515ed20774",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -4852,7 +5168,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -4948,7 +5264,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5068,12 +5384,12 @@
     },
     "S02": {
       "file": "memory/spec/kernel/vectors/semantic/S02.json",
-      "sha256": "2c8101954c424f6d0e4941f2f86f1d262c3e9e31b4f4b410fa6d02f191a27c68",
+      "sha256": "fd21c7e4bcc4287e1e780d1e1f383750b2a24d54cf1928bcad12d4af47dceab8",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5205,12 +5521,12 @@
     },
     "S03": {
       "file": "memory/spec/kernel/vectors/semantic/S03.json",
-      "sha256": "7e3a18c556f17bf99efa3e53a7923be94b685d6383eefb8a7a141bfc247a5f1c",
+      "sha256": "8843b1658e5aab97aef52b99f8bdd5e503b090d9bb756a9e8724316218390ad6",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5355,12 +5671,12 @@
     },
     "S04": {
       "file": "memory/spec/kernel/vectors/semantic/S04.json",
-      "sha256": "89fe5248db80d052aee68e5b3b841795f7e27cebf41ccae52d1055d605bd91e6",
+      "sha256": "d1a1d2c179af496ae60b89f9f8f99ed2a68ef3aaaa7c6344f72e03b485d8d720",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5534,12 +5850,12 @@
     },
     "S05": {
       "file": "memory/spec/kernel/vectors/semantic/S05.json",
-      "sha256": "6b2711d56eb29882e4eb098fc2d4da3f3c9b8426c923adfe9826bf9cb4087e03",
+      "sha256": "173393bab627a65dc879ff4b3492a5e06c43d12a3b1cdc4db01b80f6f7242e22",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5683,12 +5999,12 @@
     },
     "S06": {
       "file": "memory/spec/kernel/vectors/semantic/S06.json",
-      "sha256": "b6c7c6dfc165cecc818739c99f0fb41a195dd5c383369512a054afd656800a49",
+      "sha256": "c5b40b40fcae8b12fbe4c88989a87ed28e1de897da5dd0cd0601ab2d379152bd",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -5858,12 +6174,12 @@
     },
     "S07": {
       "file": "memory/spec/kernel/vectors/semantic/S07.json",
-      "sha256": "9cc5d825fb6aca8bff25c695312ac0cc2fcdaa0b881bd9be730f6e38bd541e8e",
+      "sha256": "775c07b2f7bd0913f4f4e3fac3399b75acdd1613d0fab8c507b9ecbe6e341978",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6050,7 +6366,7 @@
     },
     "S08": {
       "file": "memory/spec/kernel/vectors/semantic/S08.json",
-      "sha256": "84246d3abfb93a572167599e478e6176fa5505991ab9041e0aaaa9d39778178c",
+      "sha256": "b74fb0ae781506eaa9569ee9c21a1d6b2e769af1f4a0878ed2ffa8c4736f6504",
       "actual": {
         "operation_results": [
           {
@@ -6061,7 +6377,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6181,12 +6497,12 @@
     },
     "S09": {
       "file": "memory/spec/kernel/vectors/semantic/S09.json",
-      "sha256": "cd46aef720563e48cddbe0d3eb3a1438c500c8f3730d014f84a2236f47831710",
+      "sha256": "7904974c4eb29f50bc72bdac18753d23161ca161deb3e6519ff1bc37b4865390",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6310,12 +6626,12 @@
     },
     "S10": {
       "file": "memory/spec/kernel/vectors/semantic/S10.json",
-      "sha256": "c35cfdc9bc39bd1ca236dc857ca265e56c1b3b7cff0513c77765bb98d98a5be7",
+      "sha256": "1f094701a306b14272003c37d2405cb7fe6b71ee40d01f344d58394e2ac6482d",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:team",
               "version": 1
@@ -6419,7 +6735,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6563,12 +6879,12 @@
     },
     "S11": {
       "file": "memory/spec/kernel/vectors/semantic/S11.json",
-      "sha256": "1dc10cfe425a002b150bc55ef7a1ddfb3c17e28d71040d2446d47474642f06a2",
+      "sha256": "4cf7f3f015e9b6d920469b84ee760c7f329b2d4e22dad639adcda5f26fcb5eeb",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6696,12 +7012,12 @@
     },
     "S12": {
       "file": "memory/spec/kernel/vectors/semantic/S12.json",
-      "sha256": "3ed480ef4460554615783b2d69c97ebce0dcee9eba6d713b18923d016633e2b6",
+      "sha256": "28c6c75a2b8b5afd4d823a1a47633ff235733eeb1419005e53abfe2df97162cb",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -6832,12 +7148,12 @@
     },
     "S13": {
       "file": "memory/spec/kernel/vectors/semantic/S13.json",
-      "sha256": "2f2f47bd4f22d7a154ec19b67153966e20cf6ed9b09f5c3e01088d5867834a10",
+      "sha256": "5cc56fe0653d9d071c7a4a6f3b4261de46606ed0841222ad3b02edf8821b9002",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -6954,7 +7270,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7082,7 +7398,7 @@
     },
     "S14": {
       "file": "memory/spec/kernel/vectors/semantic/S14.json",
-      "sha256": "4d2dc84a8ebb95870cfc72787f23c7d6fd450610c6c23fe2502d8e2105b69ecb",
+      "sha256": "8eff202dd8381d9985593758da887cfff04a2bd94b66bc8805cb5e83e9edab4d",
       "actual": {
         "operation_results": [
           {
@@ -7121,7 +7437,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7237,12 +7553,12 @@
     },
     "S15": {
       "file": "memory/spec/kernel/vectors/semantic/S15.json",
-      "sha256": "8f537268648c76d0e218502a86d2e2708d25a5bf5f724e44989a3c4893e211c2",
+      "sha256": "0e10a069f65d13f67279c9d145907c992142e344096922c8e6691ff6ca1b6d81",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7362,7 +7678,7 @@
     },
     "S16": {
       "file": "memory/spec/kernel/vectors/semantic/S16.json",
-      "sha256": "7a31da4a1b46f6a28d7832aa2abe5f21453b491f6237dca79ae1084d13425909",
+      "sha256": "8a02021561f59e7b5ed2eecbf528c592f9143307f18360450bceba775bf849f7",
       "actual": {
         "operation_results": [
           {
@@ -7373,7 +7689,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7493,7 +7809,7 @@
     },
     "S17": {
       "file": "memory/spec/kernel/vectors/semantic/S17.json",
-      "sha256": "80fb611d05a742ddd13e88d5bfe7296c952877626c61a14cb59aeef8ad4b317b",
+      "sha256": "cc6e81675c74e834eb6bec71235d6d67f4251869fbb330e63923eafd8e24b654",
       "actual": {
         "operation_results": [
           {
@@ -7517,7 +7833,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7669,7 +7985,7 @@
     },
     "S18": {
       "file": "memory/spec/kernel/vectors/semantic/S18.json",
-      "sha256": "faf0945feb50a7c81b331657b15613c8bd9e70283479ef777653a0433808370b",
+      "sha256": "aaa49107411c79aebbbd0908962229ee9cf6b07c990dd3d42bea9ed36bfb6c95",
       "actual": {
         "operation_results": [
           {
@@ -7680,7 +7996,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7725,7 +8041,7 @@
     },
     "S19": {
       "file": "memory/spec/kernel/vectors/semantic/S19.json",
-      "sha256": "50cd53519b95e6959ded39feec3b304586caad971187a1e49335d334856b2547",
+      "sha256": "e17b2de1085a594d97b5e5f2f64239865e693dd0fc6bd9fb6eac4a747866f88c",
       "actual": {
         "operation_results": [
           {
@@ -7745,7 +8061,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -7877,18 +8193,18 @@
     },
     "S20": {
       "file": "memory/spec/kernel/vectors/semantic/S20.json",
-      "sha256": "6fbe927ba6a12a0f8f7138e4056679289b8da993f2450c5e8bfdb2b3485c0875",
+      "sha256": "af77239e5a0734c5cf4b817702b808965b2a959ac0f04d038ac69060d2f565d2",
       "status": "unsupported",
       "reason": "Unmapped frozen-core transaction operations: erase"
     },
     "S21": {
       "file": "memory/spec/kernel/vectors/semantic/S21.json",
-      "sha256": "b11c984a2b98fe4a6bbbf9a26ff2eeb4e367092578a4b27daffb062ece01e877",
+      "sha256": "9909ce3b0ab4f46d536ad603745269474f925c64ca41805ddca0f426b9377c1d",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8044,12 +8360,12 @@
     },
     "S22": {
       "file": "memory/spec/kernel/vectors/semantic/S22.json",
-      "sha256": "2130241dc1a97f33c89e767f33c687093c2549fb01ba7565ecfe8f7815bdc487",
+      "sha256": "8a684dba3b2a362573a220b12e27b3202048e7beb9ab3080fc3cc130967ba005",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8186,12 +8502,12 @@
     },
     "S23": {
       "file": "memory/spec/kernel/vectors/semantic/S23.json",
-      "sha256": "f3e62facae73e40d95cc3855960c8e465631fc99b2fb604effbf6acdfa7ca515",
+      "sha256": "22d3b51be860ed8f4099d84485f0134482aeefcebae9e9f769820204b16fbf57",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -8295,7 +8611,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8436,7 +8752,7 @@
     },
     "S24": {
       "file": "memory/spec/kernel/vectors/semantic/S24.json",
-      "sha256": "3216706db82cd053cfa4d9a8fc1c7b222c696ca3c936679a40fd1a22f595ebd2",
+      "sha256": "4c16061b7eb13146b8202c799a9e382ea3b0152e742bd8584bf2c4bd93593c5d",
       "status": "unsupported",
       "reason": "Unmapped frozen-core transaction operations: erase"
     },
@@ -8448,24 +8764,24 @@
     },
     "S26": {
       "file": "memory/spec/kernel/vectors/semantic/S26.json",
-      "sha256": "bdf8c4d90405a358a614735079cc6d816bd3559dd88353db43878f48fce86f55",
+      "sha256": "6ac2d8b8f39f1f128e45a3f2532843b1e4302a1fbe57fa08c1bd80e4fd1afd1a",
       "status": "unsupported",
       "reason": "Unmapped frozen-core transaction operations: erase"
     },
     "S27": {
       "file": "memory/spec/kernel/vectors/semantic/S27.json",
-      "sha256": "f92e4325642c5f46b3206ca5f7a81dc08194d0e2fdb1fdf17745dd3a18b9da1f",
+      "sha256": "13df0fbe7b1811ed588a3a2742d529c443bfc72e60c0433024a0512913c44671",
       "status": "unsupported",
       "reason": "Unmapped frozen-core transaction operations: load, set_availability"
     },
     "S28": {
       "file": "memory/spec/kernel/vectors/semantic/S28.json",
-      "sha256": "7b9f5e60547b24d4ef15ef3747a3a95a63bf7988ce382a0fcb71c5d1202259e2",
+      "sha256": "a5cb88ce8be0908d91864187a12c3a97a3613c34aca2716400737ad6376eabe3",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8687,12 +9003,12 @@
     },
     "S29": {
       "file": "memory/spec/kernel/vectors/semantic/S29.json",
-      "sha256": "0e9459632915218fce46921d28751f421ad7c6025fa903138d4d883c417b74c0",
+      "sha256": "d273e475fc066faca22122f72da510eab9f56478588f38e4217f84edadc40e34",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -8833,12 +9149,12 @@
     },
     "S30": {
       "file": "memory/spec/kernel/vectors/semantic/S30.json",
-      "sha256": "2ffe9b4a73bde8c693df27c7f483c2f02a95a60d185add98ae9ed39090e854ec",
+      "sha256": "b488335472e5aae90c379656512e57e8762ba424df01290c247f402979ee57cb",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -8945,7 +9261,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9094,12 +9410,12 @@
     },
     "S31": {
       "file": "memory/spec/kernel/vectors/semantic/S31.json",
-      "sha256": "da86e5fb1773c63c99d7c49e41c44c1d20b8e484695e1ac24085dffea96b8672",
+      "sha256": "029e770015dddf38abef96df11a76072ebb9b91513f26f5d666921e9e6f1086a",
       "actual": {
         "operation_results": [],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9244,12 +9560,12 @@
     },
     "S32": {
       "file": "memory/spec/kernel/vectors/semantic/S32.json",
-      "sha256": "d488b5698fbf9d4ee113536af5bb2c8de5fb9d66316968b39f8cf7a2a03bb643",
+      "sha256": "b2705a6ea8100421b746cfad90fc8c43b3adae805d8061d46000551be787c2ac",
       "actual": {
         "operation_results": [
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -9430,7 +9746,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -9539,7 +9855,7 @@
           },
           {
             "type": "view",
-            "semantic_profile": "0.2.3-draft",
+            "semantic_profile": "0.2.4-draft",
             "projection_rule": {
               "id": "projection:main",
               "version": 1
@@ -9650,7 +9966,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1
@@ -9811,7 +10127,7 @@
     },
     "S33": {
       "file": "memory/spec/kernel/vectors/semantic/S33.json",
-      "sha256": "35461d132ab163abb762281e4166930c17c41caafc6e7460a6ed1e1f71145343",
+      "sha256": "f40557fea8529d73e090ca426d543fd0dacb7f934d872a951af87fa79e8ee04b",
       "actual": {
         "operation_results": [
           {
@@ -9822,7 +10138,7 @@
         ],
         "result": {
           "type": "view",
-          "semantic_profile": "0.2.3-draft",
+          "semantic_profile": "0.2.4-draft",
           "projection_rule": {
             "id": "projection:main",
             "version": 1

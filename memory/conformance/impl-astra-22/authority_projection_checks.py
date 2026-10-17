@@ -6,7 +6,7 @@ from pathlib import Path
 import unittest
 
 from adapter import Adapter
-from transactions import ref
+from transactions import Transactions, ref
 
 
 CASES = Path(__file__).resolve().parent.parent / "cases"
@@ -18,6 +18,9 @@ def fixture(control=False):
 
 class AuthorityProjectionControls(unittest.TestCase):
     def read(self, adapter, query):
+        shapes = Transactions(adapter).shapes
+        self.assertTrue(shapes.valid(adapter.initial, shapes.vector["properties"]["initial_state"]))
+        self.assertTrue(shapes.valid(query, shapes.vector["properties"]["query"]))
         before = copy.deepcopy((adapter.records, adapter.runtime, adapter.policy, adapter.captures))
         result = adapter.query(query)
         self.assertEqual((adapter.records, adapter.runtime, adapter.policy, adapter.captures), before)
@@ -81,7 +84,7 @@ class AuthorityProjectionControls(unittest.TestCase):
             elif variant == "subject":
                 latest["envelope"]["subject"] = "subj:other"
             else:
-                latest["envelope"]["context"] = "hypothetical"
+                latest["envelope"]["context"] = "simulated"
             adapter = Adapter(v["initial_state"], "control")
             result = self.read(adapter, v["query"])
             self.assertEqual(result["currentness"], "current")

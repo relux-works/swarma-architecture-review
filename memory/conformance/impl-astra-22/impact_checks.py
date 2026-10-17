@@ -200,14 +200,16 @@ class ImpactControls(unittest.TestCase):
     def test_cross_schema_review_is_not_global_dirty(self):
         vector = fixture("B01")
         adapter = Adapter(vector["initial_state"], "control")
-        Transactions(adapter).apply(vector["operations"][0])
+        Transactions(adapter).apply(vector["operations"][6])
+        query = copy.deepcopy(vector["query"])
+        query["cut"]["memory"] = adapter.runtime["memory_cut"]
         expected = [{"id": "rec:dependent", "version": 1}]
-        self.assertEqual(adapter.query(vector["query"])["review_required"], expected)
+        self.assertEqual(adapter.query(query)["review_required"], expected)
         adapter.runtime["dirty"] = []
         adapter.runtime["dirty_causes"] = []
-        self.assertEqual(adapter.query(vector["query"])["review_required"], expected)
+        self.assertEqual(adapter.query(query)["review_required"], expected)
         adapter.records[key({"id": "rec:review-dependent", "version": 1})]["envelope"]["disclosure"]["audiences"] = ["aud:private"]
-        self.assertEqual(adapter.query(vector["query"])["review_required"], [])
+        self.assertEqual(adapter.query(query)["review_required"], [])
 
     # Finite closure visits transitive branches and cycles without confusing a
     # support-only path with one containing a registered review edge.

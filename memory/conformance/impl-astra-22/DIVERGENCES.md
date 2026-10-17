@@ -249,3 +249,7 @@ Judge $Jxqff_h8h6pJHraJVkiriHrvMIYcTlLKLCO1QAjUMuI confirms source impl-bug. rel
 ## R7-047 strict successor correction; R7-051 kept separate
 
 R7-047 first52-case output and six native forbidden-acceptance witnesses are immutable64ef86e. Authoritative replace/correct now require a strictly succeeding canonical receipt; CAS and exact replay stay separate. Four native groups and14existing transaction groups pass. Canonical50/0/7; current54-case supplement44/2/8. Remaining failures ASTRA24-10-TRANSITIVE and ASTRA24-11 are the distinct R7-051 query adapter defect, classified by judge $lL-KfgsFVYJ8Kpol9-2KlrnISzbIcOa-A7-1Pv5Z2-k; their first actuals are preserved before changing projection. Strict successor write correction awaits judge closure. R7-050 is judge-closed at8a42945; original release failures remain unchanged.
+
+## R7-051 projection correction
+
+The wire adapter now traverses complete canonical receipt ancestry by issuer, then relates exact same-sequence/space assertion candidates. This preserves transitive ordering through receipt-only intermediates without creating candidates, weakening visibility, or imposing arrival order. Four native groups and all106current controls pass. Canonical0.2.4 is50/0/7; current54-case supplement46/0/8. B01 and both original transitive/read-only cases are exact. First0.2.4/natived5f07be and earlier64ef86e/4772258 reports remain immutable. Closed-shape test setup corrections and B01/profile control maintenance are documented separately in WORKLOG. Judge closure pending; no expected answer or package edit.

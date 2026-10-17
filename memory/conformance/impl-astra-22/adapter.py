@@ -228,13 +228,22 @@ class Adapter:
                                   premises=[[key(p["literal"]["assertion"]), p["literal"]["polarity"]] for p in b["premises"]],
                                   checked=True, kind=b["rule_kind"], edge_role=b["role"],
                                   visible=nr["visible"] and cert_valid))
-        receipt_to_assertion = {a["authority_receipt"]: a["id"] for a in assertions if a.get("authority_receipt")}
+        receipt_edges = {(event["issuer"], key(event["receipt"])): [key(p) for p in event["predecessors"]]
+                         for event in self.policy["authority_events"] if event["canonical"]}
         for assertion in assertions:
-            assertion["authority_after"] = []
-            for event in self.policy["authority_events"]:
-                if key(event["receipt"]) == assertion.get("authority_receipt"):
-                    assertion["authority_after"] = [receipt_to_assertion[key(p)] for p in event["predecessors"]
-                                                     if key(p) in receipt_to_assertion]
+            issuer = assertion["issuer"]
+            pending = list(receipt_edges.get((issuer, assertion.get("authority_receipt")), []))
+            ancestors = set()
+            while pending:
+                predecessor = pending.pop()
+                if predecessor in ancestors or (issuer, predecessor) not in receipt_edges:
+                    continue
+                ancestors.add(predecessor)
+                pending.extend(receipt_edges[(issuer, predecessor)])
+            assertion["authority_after"] = [candidate["id"] for candidate in assertions
+                                            if candidate.get("authority_receipt") in ancestors
+                                            and candidate["space"] == assertion["space"]
+                                            and sequence_key(candidate) == sequence_key(assertion)]
         from impact import Impact
         impact = Impact(self.records, normalized, self.runtime, nq)
         affected = impact.affected()

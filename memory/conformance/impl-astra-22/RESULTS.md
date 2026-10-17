@@ -1,8 +1,8 @@
 # astra-22 vector results
 
-Package: **0.2.3-draft**, package commit `23290b3a96a469d5190cb71b0e20139896b89236`.
+Package: **0.2.4-draft**, package commit `ef0264702d3ff937bd34410ea80660b196b6f1b0`.
 Vector directory: `memory/spec/kernel/vectors` (this inventory only).
-Checkout: `e1ba8db79577da1b9a6f07259e36c93254c12489`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
+Checkout: `d5f07bead4844844bf52c2e96cd074fc54977154`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.
