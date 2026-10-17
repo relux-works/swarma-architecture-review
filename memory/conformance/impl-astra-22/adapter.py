@@ -112,8 +112,6 @@ class Adapter:
             return refusal("erasure_fenced")
         if query["cut"]["memory"] not in self.runtime["committed_cuts"] or query["cut"]["sources"] != self.runtime["source_cuts"]:
             return refusal("invalid_time")
-        if self.runtime["dirty"]:
-            raise Unsupported("Frozen core has no dirty/review-closure output")
         if self.runtime["revocations"]:
             raise Unsupported("Live policy revocation event grammar is not mapped in the first adapter")
         rule = self.rules[key(query["projection_rule"])]
@@ -235,6 +233,11 @@ class Adapter:
                 if key(event["receipt"]) == assertion.get("authority_receipt"):
                     assertion["authority_after"] = [receipt_to_assertion[key(p)] for p in event["predecessors"]
                                                      if key(p) in receipt_to_assertion]
+        from impact import Impact
+        impact = Impact(self.records, normalized, self.runtime, nq)
+        affected = impact.affected()
+        nq["dirty_ids"] = affected
+        review = impact.review(affected, assertions)
         engine = Evaluator(assertions, roots, rules, sources,
                            {k: [key(s) for s in refs] for k, refs in associated.items()})
         projection_records = [a for a in assertions if a["schema"] == key(query["scope"]["schema"])]
@@ -242,6 +245,9 @@ class Adapter:
         all_current = Memory(projection_records).project(nq | {"subject": query["scope"]["subject"]})["current"]
         incompatible = incompatibilities([normalized[k] for k in all_current], schema["incompatibilities"])
         excluded = {key(r) for r in rule.get("excluded_refs", [])} if audience else set()
+        review = {k for k in review if k not in excluded and applicable(normalized[k], nq)
+                  and normalized[k]["issuer"] == rule["issuer"]
+                  and normalized[k]["subject"] == query["scope"]["subject"]}
         projection["historical"] = [k for k in projection["historical"] if k not in excluded]
         selected = ([key(r) for r in query["scope"]["targets"]] if query["scope"]["targets"] else projection["current"])
         selected = [k for k in selected if k in normalized and normalized[k]["kind"] == "assertion"
@@ -310,7 +316,7 @@ class Adapter:
                           "content": b["content"], "valid": e["valid"], "confirmed_at": e["confirmed_at"],
                           "usable_until": nr["usable_until"], "currentness": currentness, "authority_receipt": b["authority_receipt"],
                           "incompatible_with": sorted_refs(ref(self.records[x]) for x in incompatible.get(k, [])),
-                          "needs_review": False, "source_refs": sorted_refs(displayed_sources),
+                          "needs_review": k in affected, "source_refs": sorted_refs(displayed_sources),
                           "support": result["support"], "oppose": result["oppose"]})
             if audience:
                 item = items[-1]
@@ -340,7 +346,7 @@ class Adapter:
                                 "ambiguous_current" if any(i["currentness"] == "ambiguous_current" for i in items) else
                                 "last_received" if any(i["currentness"] == "last_received" for i in items) else "current"),
                 "historical": sorted_refs(ref(self.records[k]) for k in projection["historical"] if k not in selected),
-                "review_required": [], "explanation": explanation,
+                "review_required": [] if audience else sorted_refs(ref(self.records[k]) for k in review), "explanation": explanation,
                 "cutoffs": sorted(cutoffs), "changes": {"state": "initial", "refs": []}}
 
     def execute(self, operations, query):

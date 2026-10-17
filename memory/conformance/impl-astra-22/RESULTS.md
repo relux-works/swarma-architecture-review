@@ -2,7 +2,7 @@
 
 Package: **0.2.2-draft**, package commit `7e71765317088d4ac1ea6946fdfb4b2f8012643c`.
 Vector directory: `memory/spec/kernel/vectors` (this inventory only).
-Checkout: `7e71765317088d4ac1ea6946fdfb4b2f8012643c`. Source core SHA-256: `999b53173fb7fe7127b5a1370b31f988e71f1f8a1fecfa922c4febb3eee6b0cc`.
+Checkout: `1f35727fa33f9a4e472de9821cc26d1b5261b224`. Source core SHA-256: `7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 
 The core is source-derived; the original frozen run is preserved under runs/0.1.0-first.*.
 Judge-classified corrections are recorded in DIVERGENCES.md; the adapter is an independent wire mapping.
@@ -11,7 +11,7 @@ Deployment cases require actual boundary qualification and are reported separate
 
 | Category | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| semantic | 45 | 0 | 12 |
+| semantic | 47 | 0 | 10 |
 | deployment | 0 | 0 | 8 |
 
 Five bounded harness controls passed (valid comparison, changed value, extra field,
@@ -29,7 +29,7 @@ No randomness-distribution or timing proof is claimed.
 | B11 | deployment | unsupported | No protected deployment; a semantic simulator cannot qualify this boundary. |
 | B16 | deployment | unsupported | No protected deployment; a semantic simulator cannot qualify this boundary. |
 | B17 | deployment | unsupported | No protected deployment; a semantic simulator cannot qualify this boundary. |
-| B01 | semantic | unsupported | Frozen core has no dirty/review-closure output |
+| B01 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | B02 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | B03 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | B07 | semantic | unsupported | Unmapped frozen-core transaction operations: erase |
@@ -69,7 +69,7 @@ No randomness-distribution or timing proof is claimed.
 | S14 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S15 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S16 | semantic | pass | Exact report and forbidden/normalization checks passed. |
-| S17 | semantic | unsupported | Frozen core has no dirty/review-closure output |
+| S17 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S18 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S19 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S20 | semantic | unsupported | Unmapped frozen-core transaction operations: erase |
@@ -87,4 +87,4 @@ No randomness-distribution or timing proof is claimed.
 | S32 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 | S33 | semantic | pass | Exact report and forbidden/normalization checks passed. |
 
-Full normalized actual reports and input hashes: `phase2-import-0.2.2.json`.
+Full normalized actual reports and input hashes: `phase2-dirty-first.json`.

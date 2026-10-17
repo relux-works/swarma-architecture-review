@@ -16,17 +16,17 @@ Supplemental inventory below is pinned to 0.2.1 before fixture migration.
 
 | Inventory | Pass | Fail | Unsupported |
 | --- | ---: | ---: | ---: |
-| Canonical semantic | 45 | 0 | 12 |
+| Canonical semantic | 47 | 0 | 10 |
 | Canonical deployment | 0 | 0 | 8 |
 | Supplemental semantic (32-case 0.2.1 inventory) | 19 | 1 | 12 |
 | Supplemental deployment | 0 | 0 | 1 |
 
 R7-027 separates per-polarity existence budgets from independent opposite-quality
 walks. All three affected adversarial fixtures pass without increased bounds.
-33 source, 8 adapter, 11 transaction, 5 harness and 4 proof controls pass, including red/green
+33 source, 8 adapter, 11 transaction, 5 harness, 4 proof and 6 impact controls pass, including red/green
 regressions, real exhaustion, both signed directions, memoization and quality
 uncertainty. Current core SHA-256:
-`999b53173fb7fe7127b5a1370b31f988e71f1f8a1fecfa922c4febb3eee6b0cc`.
+`7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256`.
 Evidence: `RESULTS.*`, `runs/cases-0.2.1-first.*`,
 `runs/cases-0.2.1-corrected.*`, `runs/cases-source-budget-*.json`,
 `fixtures/independent-vacuous-source-first.json`, `DIVERGENCES.md` and `WORKLOG.md`.
@@ -34,11 +34,10 @@ R7-028 enforces distinct current-source visits. R7-029 corrects source-state
 precedence; exact empty/nonempty/unavailable probes are retained in
 `runs/independent-source-*.json`. Both fixes were independently closed.
 
-Phase 2 score: **1/2**; dual canonical coverage is **45/57**. Historical
+Phase 2 score: **1/2**; dual canonical coverage is **47/57**. Historical
 phase-1 score 2/2 at judge b1ae299 used the narrower supported-vector rubric.
-R7-030 persisted-idempotency is corrected with exact probe and atomic controls;
-independent closure is pending. R7-032 is corrected, awaiting closure; R7-036 retention remains open; no PARK is claimed. Unsupported paths
-remain explicit (dirty closure, publication operations,
+R7-030 persisted-idempotency is independently judge-closed at 1f3180d. R7-032 is corrected, awaiting closure; R7-036 retention remains open; no PARK is claimed. Unsupported paths
+remain explicit (publication operations,
 erasure/restore). No protected deployment
 qualification, timing proof or physical erasure is claimed.
 
@@ -52,3 +51,10 @@ unchanged state. Canonical report: `runs/phase2-idempotency-corrected.*`.
 
 R7-032 currentness controls and exact-case correction: `runs/phase2-import-*`.
 S23 now passes; package0.2.2 canonical report is `runs/phase2-import-0.2.2.*`.
+
+Dirty/review coverage first report `runs/phase2-dirty-first.*` passes B01/S17.
+The targeted unchanged hidden/visible pair also passes. Separately ASTRA24-08
+ambiguous-authority CAS fails and its unique-head control passes; first evidence
+is `runs/phase2-dirty-targeted-first.json`, pending judge disposition. The earlier
+32-case supplemental row above is historical pinned evidence, not the currently
+migrating mixed-release inventory.

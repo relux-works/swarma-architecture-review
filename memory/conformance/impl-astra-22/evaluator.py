@@ -202,6 +202,10 @@ class Evaluator:
                 memo[current] = state
                 if current[0] not in visible:
                     return state
+                if current[0] in query.get("dirty_ids", ()):
+                    state.complete = False
+                    state.cutoffs.add("dirty")
+                    return state
                 for root in root_index.get(current, []):
                     if used["roots"] >= root_budget:
                         state.complete = False

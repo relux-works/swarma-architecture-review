@@ -217,3 +217,7 @@ Signed f2c1570 retains runs/phase2-expanded-first.* (30 semantic vectors: 17 pas
 ## R7-032 correction
 
 Judge event $d-fCrpCafaGdZmlnjrNnqpKXqFOs7Um-npNJhPU8IJ8 classifies expired imports as impl-bug in both evaluators. Source correction follows kernel9.2 and K-PUB-2: publication association, admitted current check and unexpired horizon jointly constrain currentness. Known replacement stays historical; missing/unverified knowledge is last_received; ordinary mirror-report freshness is independent. Three red-before wire groups cover endpoint neighbors, source origin preservation, old capture immutability, missing/current/replaced facts and non-publication controls. Eight adapter controls pass. ASTRA26-07 passes exactly; S23 newly executes and passes. Canonical0.2.2 package7e71765 is45/0/12; pinned0.2.1 expanded supplement19/1/12, retaining R7-036 failure. Closure awaits judge verification.
+
+## ASTRA24-08 — Ambiguous authoritative head accepted by CAS
+
+During dirty coverage, the unchanged0.2.2 adversary pair independently reproduces the source defect: the primary returns revised plus a stored withdrawal instead of version_conflict/unchanged inventory; unique-head control passes. Exact first data is runs/phase2-dirty-targeted-first.json, with twelve comparison differences and all implementation/input hashes. The head helper follows target revision links without establishing a unique authoritative slot head. Await judge classification before correcting; no expectation changed.

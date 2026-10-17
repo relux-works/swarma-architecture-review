@@ -286,7 +286,7 @@ class Transactions:
         runtime["memory_cut"] = sequence
         runtime["committed_cuts"] = sorted(set(runtime["committed_cuts"] + [sequence]))
         if mode == "revise" and relation != "challenge":
-            self.mark_dirty(op["revision"]["body"]["target"], state)
+            self.mark_dirty(op["revision"], state)
         result = receipt(mode, "admitted" if mode == "admit" else
                          "challenged" if relation == "challenge" else
                          "availability_changed" if relation == "availability" else "revised",
@@ -403,18 +403,16 @@ class Transactions:
         for k in edges:
             visit(k)
 
-    def mark_dirty(self, target, state):
-        affected = {key(target)}
+    def mark_dirty(self, revision, state):
+        from impact import global_dependents
+        affected = global_dependents(state, revision)
         dirty = {key(r) for r in self.adapter.runtime["dirty"]}
-        while True:
-            before = set(affected)
-            for record in state.values():
-                if record["envelope"]["kind"] == "justification" and record["body"]["role"] in ("sufficient_support", "review_on_change"):
-                    b = record["body"]
-                    dependencies = [p["source"] if p["kind"] == "source" else p["literal"]["assertion"] for p in b["premises"]]
-                    if any(key(p) in affected for p in dependencies):
-                        affected.add(key(b["target"]["assertion"]))
-                        dirty.add(key(b["target"]["assertion"]))
-            if affected == before:
-                break
+        dirty.update(affected)
         self.adapter.runtime["dirty"] = sorted([ref(state[k]) for k in dirty], key=lambda r: (r["id"], r["version"]))
+        causes = self.adapter.runtime["dirty_causes"]
+        for k in sorted(affected):
+            cause = {"assertion": ref(state[k]), "revision": ref(revision)}
+            if cause not in causes:
+                causes.append(cause)
+        causes.sort(key=lambda c: (c["assertion"]["id"], c["assertion"]["version"],
+                                   c["revision"]["id"], c["revision"]["version"]))

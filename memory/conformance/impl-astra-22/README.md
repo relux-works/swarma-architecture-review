@@ -109,7 +109,7 @@ through `transactions.py`; `transaction_checks.py` contains atomicity controls.
 The first 0.2.1 run exposed the missing self-declaration identity gate (R7-026);
 its correction and the selected-history fix (R7-025) retain red/green evidence. It still explicitly rejects unsupported
 erasure/publication transaction wire operations,
-dynamic dirty closure, live multi-owner release
+live multi-owner release
 checks. Checked, expired, missing-check and replaced imported-publication currentness are now mapped independently from ordinary report freshness. RESULTS.md lists the
 precise per-vector boundaries; source model unit controls alone do not count as
 package-vector passes. Original frozen evidence is retained unchanged.
@@ -135,3 +135,7 @@ item before PARK; the historical supported-vector score is not that completion.
 ## Snapshot idempotency controls
 
 `runtime.idempotency` is the authoritative receipt store for admitted initial snapshots and successful writes. Run `python3 memory/conformance/impl-astra-22/transaction_checks.py` for eleven atomic transaction controls, including replay after semantic adapter reconstruction, actor/space/key isolation, original handle/time and current operation authority. R7-030 first/corrected probes are under `runs/persisted-idempotency-*.json`; they do not qualify physical durability or restart recovery.
+
+## Registered dirty and review impact
+
+`impact.py` computes retained-cause eligibility over the graph immediately before each revision under current authorization. This traversal does not manufacture a witness or clear global dirty state. `python3 memory/conformance/impl-astra-22/impact_checks.py` runs six controls for hidden/current/historical causes, necessary premises, later path withdrawal, cross-schema review and finite closure. Canonical B01/S17 and the unchanged hidden/visible dirty pair pass. Reports are under `runs/phase2-dirty-*`; logs remain in `.temp/astra-22/`.
