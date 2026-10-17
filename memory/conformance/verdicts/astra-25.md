@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 34; collective active, NO PARK. Seat identity:
+Status: phase 2, round 35; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Both evaluators now pass every canonical semantic
@@ -138,8 +138,13 @@ implementation bug. Five exact supplemental fixtures now encode new current
 obligations, unreachable custody, known/empty positives and unaffected B.
 Source passes all five; unchanged package fails new, unreachable and independent
 variants. Both false-witness/global-fence refusals and known/empty controls agree.
-Full native first snapshots and first exact outputs remain immutable. Source is
-33/33 owned semantic; package30/33. R7-058 correction/review remains necessary;
+Full native first snapshots and first exact outputs remain immutable. Three independent native late-writer controls extend R7-058: source rejects
+stale-generation and current erased-dependency writes atomically while admitting
+a reviewed independent current write. Package accepts the stale derivative and
+rejects both generation1 writers because newly learned disposition generation
+was never applied. Full first inputs/states are frozen separately; no vector
+denominator changed. Source is33/33 owned semantic; package30/33.
+R7-058 correction/review remains necessary;
 no package prose or owner decision is required. Existing R7-055 is separate.
 
 ## Phase-2 gate and remaining work

@@ -117,3 +117,31 @@ are explicitly marked as working-copy inputs and hash-pinned. The native first
 still preserves complete before/after snapshots, erasure/fence/generation and
 unreachable atomicity beyond the vector postcondition fields. No physical purge
 or outside-domain witness deployment claim is made.
+
+## Newly learned obligations and late writers
+
+Three separate valid restored instances extend R7-058's protected-state checks.
+They use S26's admitted A and reviewed future derivative facts, the primary
+current-obligation recovery sequence, then a writer at a later trusted time.
+The independent proposal has its own explicit allow-review and direct lineage
+fact. Each case starts separately so an incorrect first write cannot contaminate
+a neighboring result. All initial-state and operation shapes/invariants pass.
+
+| Writer after current witnessed A deletion | Required / source946cbd8 | Package23b4d74 first |
+| --- | --- | --- |
+| Generation0 derivative of A | stale_generation/true; full state unchanged | Admitted; state mutates with derivative |
+| Generation1 derivative of A | erasure_fenced/false; full state unchanged | stale_generation/true because generation remains0 |
+| Generation1 independent reviewed record | Admitted; A remains erased/fenced at generation1 | stale_generation/true |
+
+The source passes all three exact native assertions; the package fails all
+three. These are consequences of existing R7-058, not separate ledger items or
+supplementary vectors. Full input/setup/write/result and before/after snapshots
+are frozen in [late-writer first evidence](astra-25-restore-late-writer-first.json),
+with aggregate entries `astra22-restore-late-writer-first` and
+`astra23-restore-late-writer-first`. The correct independent positive confirms
+that fencing does not require rejecting all post-recovery writes.
+
+An initial local positive-control draft omitted the new independent record's
+allow-review and correctly received quarantined; that scratch authoring result
+is retained and is not product failure evidence. The complete frozen comparison
+uses the required review in both readers. No evaluator files were changed.
