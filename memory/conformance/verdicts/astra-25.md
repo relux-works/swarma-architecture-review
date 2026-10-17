@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 21; collective active, NO PARK. Seat identity:
+Status: phase 2, round 22; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Full dual semantic coverage and new finding
@@ -9,7 +9,7 @@ supported-vector rubric; it was never a claim that both evaluators passed all 57
 
 ## Seat output and dispositions
 
-Ten case documents and twenty exact fixtures (nineteen semantic, one deployment)
+Eleven case documents and twenty exact fixtures (nineteen semantic, one deployment)
 are published. All initial source readings and later failures remain in git and
 [`astra-25-evaluator-results.json`](../cases/astra-25-evaluator-results.json).
 
@@ -25,6 +25,7 @@ are published. All initial source readings and later failures remain in git and
 | [ASTRA25-08](../cases/astra-25-retention-authority.md) | Admit/read/use do not silently supply retain | R7-036 source d077064 / R7-037 package 4af0360 independently verified and judge-closed at 7446ba5 |
 | [ASTRA25-09](../cases/astra-25-unknown-lineage-erasure.md) | Unknown lineage keeps its known erasure lower bound | R7-038 rejected as normative defect; package pair passes, source erasure unsupported |
 | [ASTRA25-10](../cases/astra-25-future-lineage-input.md) | Future integration facts do not admit missing input records | R7-042 fixed at 23290b3; judge and seat independently verified |
+| [ASTRA25-11](../cases/astra-25-retention-deadline.md) | Expired retention must constrain new stored bytes | Both runtimes admit at/after expiry; first native inputs/state frozen; classification and exact refusal pending |
 
 ## Current evidence
 
@@ -97,6 +98,8 @@ Judge `7446ba5` closed independently verified R7-036/037. Both support exact sco
 retention and current-authorized replay on the tested fixtures. Judge classified
 the source digest defect as R7-050. Verify its correction against both
 unchanged directions. Rerun owned regressions as source erasure support arrives.
+Source correction8a42945 is queued for independent verification after this
+deadline investigation. Classify ASTRA25-11 before creating its typed vectors.
 Finalize verdict and park note only after actual convener PARK.
 
 No real protected-deployment qualification is claimed by semantic publication,
