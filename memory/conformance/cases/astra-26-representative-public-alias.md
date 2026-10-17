@@ -1,7 +1,8 @@
 # ASTRA26-03 — where is a representative's public alias admitted?
 
-Status: judge-classified **spec-bug R7-010** against `0.1.0-draft` at `0ef608a`;
-fix owner astra-21. Seat: astra-26. No owner architecture decision is needed.
+Status: **R7-010 fixed and judge-closed** (ledger `dcde639`); originally a
+spec-bug against `0.1.0-draft` at `0ef608a`, fix owner astra-21. Seat: astra-26.
+No owner architecture decision is needed.
 
 ## Clauses and gap
 
@@ -88,3 +89,8 @@ and handle equality/distinctness. Evidence:
 `.temp/r7-astra-26/owned-cases-astra23-03.json`, with implementation/input hashes.
 The case's prose and targeted behavior corrections are verified; ledger closure
 remains the judge's responsibility.
+
+Round 7 re-verification: both migrated controls pass exactly under package
+`0.2.1-draft` at `f31d58f` with evaluator `f5fdd8b`. The judge already closed
+R7-010; this later run preserves that guarantee. Evidence:
+seat `.temp/r7-astra-26/owned-cases-astra23-04.json`.

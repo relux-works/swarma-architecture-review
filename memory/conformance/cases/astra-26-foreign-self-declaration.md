@@ -1,7 +1,8 @@
 # ASTRA26-06 — an organisation's attestation is not the subject's self-declaration
 
 Status: **R7-022 accepted spec-bug**, owner astra-21; candidate fix released in
-`0.2.1-draft` at `f31d58f`. Seat: astra-26. Original witness targets `0.2.0-draft`
+`0.2.1-draft` at `f31d58f`, behavior verified against `f5fdd8b`. Judge closure
+is pending. Seat: astra-26. Original witness targets `0.2.0-draft`
 at `cde5754`. No new kernel primitive is requested.
 
 ## Original clauses and concrete witness
@@ -109,3 +110,27 @@ the seat work directory: `.temp/r7-astra-26/cases-structural-04.log`,
 `attribution-controls-01.log` and `validate-03.log`. Semantic execution against
 an evaluator updated to the released contract is pending; these checks alone
 do not close the behavior claim.
+
+## Round 7 — independent behavior verified
+
+Package-only evaluator `f5fdd8b` passes ASTRA26-06 exactly against released
+`0.2.1-draft` at `f31d58f`: the organisation's incorrectly typed self-declaration
+receives `invalid_domain_value`; the actual own declaration succeeds; only its
+reference is admitted and the final cut/output are unchanged by the refusal.
+All other seven owned fixtures also pass. Exact outputs, differences, forbidden
+predicates, normalization/shape results and input/implementation hashes are in
+seat `.temp/r7-astra-26/owned-cases-astra23-04.json`.
+
+Also executed canonical P02, P10 and P15 independently with that evaluator. All
+pass exactly: wrong-subject refusal and a valid binding across distinct ID
+strings; valid delegated replacement with no issuer coercion and losing concurrent
+replacement rejection; two pre-exclusion organisation facts, unchanged foreign
+view/record inventory and only one item in the excluded card. B01 also passes
+its unchanged decision-continuity expectations. Full outputs are in
+`.temp/r7-astra-26/attribution-domains-astra23-01.json`. The evaluator's four
+comparator and nine product controls pass (`astra23-controls-03.log`,
+`astra23-semantics-01.log`). No evaluator files were changed by this seat.
+
+The targeted prose, grammar and behavior correction is verified and sent to the
+judge for closure. This does not qualify external publication, account-control
+services or protected deployment.

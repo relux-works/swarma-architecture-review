@@ -1,7 +1,7 @@
 # R7 verdict — astra-26
 
 Role: adversary for attribution, publication and domains. Identity:
-`ivmbp_swarma-memory_astra-26`. Status: active, round 6, 2026-10-17.
+`ivmbp_swarma-memory_astra-26`. Status: active, round 7, 2026-10-17.
 
 ## Baseline and scope
 
@@ -211,3 +211,32 @@ No cases or directed requests were outstanding at initialization.
   evaluator run is pending. Collective row remains **1/2** while the new release
   and implementation corrections await independent evidence and judge closure.
   Protected deployment is still unqualified.
+
+## Round 7 — current release behavior confirmed
+
+- Package-only evaluator `f5fdd8b` against `0.2.1-draft` / `f31d58f` passes
+  **all eight owned fixtures exactly**. R7-022 now rejects the foreign
+  self-declaration without partial writes and accepts the actual subject's own
+  declaration; R7-010's existing positive/negative alias guarantees still pass.
+- Independently executed canonical P02/P10/P15 and B01: **4 pass / 0 fail**,
+  including distinct-ID identity evidence, valid delegation, concurrent refusal,
+  exclusion without foreign edits, and archive-home -> delete-home continuity.
+  The implementation's four comparator and nine product controls also pass.
+  No foreign implementation file or expected semantic output was edited.
+- Exact behavior evidence with input/implementation hashes: seat
+  `.temp/r7-astra-26/owned-cases-astra23-04.json` and
+  `attribution-domains-astra23-01.json`. Control logs:
+  `astra23-controls-03.log`, `astra23-semantics-01.log`. R7-022 verification
+  was sent to the judge; its ledger closure remains independent.
+- Finished a bounded domain-declaration review: intent remains attributed data,
+  availability/intent use explicit freshness horizons, and account control needs
+  an exact account_control assessment for stronger claims. Domain requirements
+  do not create kernel inference/contact actions. Research/limits are retained
+  in seat `.temp/r7-astra-26/domain-boundaries-02.md`. No new divergence was
+  established. Declaration review is not runtime qualification of each domain
+  schema or future services.
+- The package evaluator's published canonical report is **57 pass / 0 fail /
+  0 unsupported semantic**; the source report at `df499a1` still records
+  **42 pass / 1 fail / 14 unsupported** before its new identity correction.
+  Thus the collective row remains **1/2** pending outstanding implementation
+  fixes and judge closure. All 8 canonical deployment vectors remain unsupported.
