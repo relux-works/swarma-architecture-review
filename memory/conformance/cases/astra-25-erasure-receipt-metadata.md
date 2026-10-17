@@ -121,3 +121,38 @@ Judge closure `$31IyK5gwGSJaMRrozQ-A02a1oUfrXbHkp9e1ZaOGWjI` independently
 reproduces all canonical results, all 18 controls and all three owned receipt
 traces. R7-031 is fixed at package `7e71765` with runtime `a016781`; first red
 evidence remains immutable.
+
+## Changed-context priority boundary (native observations)
+
+Source seat's signed `0529814` / ASTRA22-09 supplies a valid S20-derived input:
+first private/read erase stores A/D refs; the same key changes receipt purpose
+to an ungranted purpose; a fresh key uses that same changed context. This seat
+independently validates and reproduces the exact input against unchanged source
+`dbf4892` and package `23b4d74`. A neighboring changed audience behaves alike.
+
+| Observation | Source | Package |
+| --- | --- | --- |
+| Exact authorized replay | Same original receipt, unchanged state | Same |
+| Same key, ungranted changed purpose | not_authorized | idempotency_conflict |
+| Same key, ungranted changed audience | not_authorized | idempotency_conflict |
+| Fresh key, same ungranted purpose | Complete erase, empty refs | Same |
+| Foreign actor with changed context | not_authorized, unchanged state | Same |
+| Exact replay after read revocation | not_authorized, unchanged state | Same |
+
+Both changed-context refusals preserve the full inspected state; the fresh-key
+success and later denied replay also preserve the original stored receipt.
+Evidence entries are `astra22-erase-context-priority-first` and
+`astra23-erase-context-priority-first` in the aggregate. They contain operation
+bytes, module hashes, original signed input hash, state-component comparisons
+and complete snapshot hashes. These native observations are outside exact vector
+denominators; no expected fixture has been changed.
+
+Recommend classifying the source order as an implementation bug under the
+existing K-API-1/K-ERASE-2 contract: current erase authority is still valid, and
+lack of metadata permission is not itself grounds to refuse a fresh erase.
+Changing receipt_context is expressly a different intent. Original-ref metadata
+permission therefore gates identical replay, after a changed intent has already
+been identified as a conflict. This is a scoped reading of erase receipts;
+it does not move live retention authorization behind admission replay/conflict.
+Judge classification remains pending for this publication. R7-031's original
+metadata-disclosure closure remains intact.

@@ -1,6 +1,6 @@
 # astra-25: disclosure and erasure verdict
 
-Status: phase 2, round 28; collective active, NO PARK. Seat identity:
+Status: phase 2, round 29; collective active, NO PARK. Seat identity:
 `ivmbp_swarma-memory_astra-25`.
 
 **Current phase-2 score: 1/2.** Both evaluators now pass every canonical semantic
@@ -112,8 +112,13 @@ was independently validated and reproduced with unchanged before/after refusal
 and normalized receipt. Judge event
 `$JwiSCClsftcbsOR8UrOJoe2h7NZWY12YYcjSgWm4S6c` classifies this as R7-056
 source implementation bug. The suite is explicitly red and no duplicate case
-or guessed oracle is added. Native erase-context-priority evidence announced
-at 0529814 is queued for the next review unit; no verdict on that probe yet.
+or guessed oracle is added. Native erase-context-priority evidence from 0529814 is now independently
+reproduced in both runtimes. Same-key ungranted purpose/audience changes yield
+source not_authorized versus package idempotency_conflict, both atomically;
+fresh-key empty-ref erase and exact replay/revocation controls agree. Existing
+K-API-1 explicitly identifies context changes as conflicts, so source correction
+is recommended to the judge. No oracle or vector denominator changed. R7-056
+correction 87beb46 is received and queued for the next review unit.
 
 ## Phase-2 gate and remaining work
 

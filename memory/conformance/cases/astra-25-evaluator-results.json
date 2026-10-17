@@ -37240,6 +37240,587 @@
         "runtime_memory_available": true
       },
       "verdict": "Known ASTRA22-08 intended product failure reproduced exactly; success acknowledgement does not restore query availability. No duplicate case or oracle change."
+    },
+    "astra22-erase-context-priority-first": {
+      "seat": "22",
+      "package_version": "0.2.5-draft",
+      "checkout_commit": "d9c325de84da0146858e98a09d4f55aee20fc807",
+      "package_commit": "6a04e8cfb1490569cd1de7468d2085dd4840cf51",
+      "implementation_sha256": {
+        "adapter.py": "6215fcc2f9bf57f083fd7fc34a5eab2a04e543c02886806f77849f2896affbdf",
+        "adapter_checks.py": "cc5c4383ef59727e1ff5f59fedb6249eec403772573b739768042e8c66591057",
+        "authority_projection_checks.py": "2165891fc3c3ee67ae800e5b37034e7abca20abb2430ca5c79fa1df0eb676248",
+        "availability_checks.py": "6a4f3bc7139682922f76773ed53a7b5404207dd50314890bb5624fc8669a5da5",
+        "boundary.py": "3d07c1773192f4e4ebc3d47b2e950559f998e45974f69d48afa8e971e17562cf",
+        "boundary_checks.py": "d7f4a8dc0572054468924d7b1723e8d92881d914e256d4fe4617152c3d439cc1",
+        "deadline_checks.py": "232ac12a7ebe446eb33e4519ca2a1353aeff8de7b1cdc8f567a93851321df2a0",
+        "erasure.py": "2362a28a8d7bd508eee9b92b6c7843dabc1ab5f967b4b230d39849f52e9598ad",
+        "erasure_checks.py": "3d49a25367ca7dcb4c27399d5ae7b297548fcf0f47a4b983764bfc75fd053114",
+        "evaluator.py": "7e0895bb74bd63a469ddc46ce25db7a6f110c2c0767a53ebacdddeb7875ab256",
+        "impact.py": "53ea88ecaa13019ae38b3e548e50dc739c43100178200d56f0f2daabd837deb5",
+        "impact_checks.py": "f437cda9614027c128e48eb5cf7508134293221926e6aa472ae1024fa97bd45c",
+        "proof_checks.py": "e6fa100c56af1b22f3d68c861ae62f858895b55c3d4b03ff4624544b54bf1180",
+        "proofs.py": "f9ce35d9f5871ae61904a6d60eba21c813e4f1b6af916e5db3f301f35e223f85",
+        "release_checks.py": "6ebda1061afbe8d48d0d79e599344c8e0359faf43f4ec39d031c59aeff4d94ba",
+        "releases.py": "dd6490344c4dfe996aeab9b348d32edda17178620d3c6fe3631702c7b79ac362",
+        "retention_checks.py": "77398d356682636ee7855f2948e4197b027fee9ad5998de3c00050f78afc8e1d",
+        "run_vectors.py": "32f079c221f407d4d660881f08c2edd0953651c2774b8e118ee666f6b16fa29e",
+        "source_checks.py": "0c99d443df1c48ba937ed46271876afc201fef9f175c74cc4c099a0321db348c",
+        "succession_checks.py": "a41eeebefafdd1f9d7ded4ac0315daa16f1f84a52683233b6bedc2130e2dd8ed",
+        "transaction_checks.py": "35d52b1b2486ca660c235f0fe671270de76b07da792fbfda65aa94e97aa2d5d5",
+        "transactions.py": "6bc9a57351c1f923654e459521bd8b5c850d6c2cfdda25e5ffad2c874f08827d"
+      },
+      "original_input_path": "memory/conformance/impl-astra-22/runs/erase-changed-context-first.json",
+      "original_input_sha256": "7db05182ca00ff29af54a5d9abb2dec6eb1e7a0e45667592e23f7dfdb894e4ac",
+      "harness_sha256": "6a8019c3a952f3afa4ef2ca96242181f63457c4f56b375cab6623537392d59d7",
+      "input_validation": "Closed initial state and all operation schemas; admitted-state invariants pass.",
+      "scope": "Native original-input reproduction plus bounded neighbors outside exact vector denominators. Changed-context outcome observations await judge classification; preservation and already-defined replay/authority/fresh-key controls are assertions.",
+      "rows": [
+        {
+          "name": "original_private_read_erase",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:read"
+            }
+          },
+          "actual": {
+            "type": "receipt",
+            "operation": "erase",
+            "outcome": "purged",
+            "receipt_handle": "5425633a33c5a565a8dc2a94511de96a",
+            "refs": [
+              {
+                "id": "rec:a",
+                "version": 1
+              },
+              {
+                "id": "rec:summary",
+                "version": 1
+              }
+            ],
+            "custody": [
+              "custody:embedding",
+              "custody:payload"
+            ],
+            "erasure_status": "purged_within_boundary"
+          },
+          "state_changed": [
+            "runtime"
+          ],
+          "before_sha256": "95e275a00ac3104211285dff8dc819f71e203793c78fa2dcef1d27acae9e0b48",
+          "after_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e"
+        },
+        {
+          "name": "exact_replay",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:read"
+            }
+          },
+          "actual": {
+            "type": "receipt",
+            "operation": "erase",
+            "outcome": "purged",
+            "receipt_handle": "5425633a33c5a565a8dc2a94511de96a",
+            "refs": [
+              {
+                "id": "rec:a",
+                "version": 1
+              },
+              {
+                "id": "rec:summary",
+                "version": 1
+              }
+            ],
+            "custody": [
+              "custody:embedding",
+              "custody:payload"
+            ],
+            "erasure_status": "purged_within_boundary"
+          },
+          "state_changed": [],
+          "before_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e",
+          "after_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e"
+        },
+        {
+          "name": "original_changed_ungranted_purpose",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:ungranted"
+            }
+          },
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "state_changed": [],
+          "before_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e",
+          "after_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e"
+        },
+        {
+          "name": "changed_ungranted_audience_neighbor",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:ungranted",
+              "purpose": "purpose:read"
+            }
+          },
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "state_changed": [],
+          "before_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e",
+          "after_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e"
+        },
+        {
+          "name": "foreign_actor_changed_context",
+          "operation": {
+            "op": "erase",
+            "actor": "other:actor",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:ungranted"
+            }
+          },
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "state_changed": [],
+          "before_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e",
+          "after_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e"
+        },
+        {
+          "name": "original_fresh_ungranted_purpose",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary-fresh",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:ungranted"
+            }
+          },
+          "actual": {
+            "type": "receipt",
+            "operation": "erase",
+            "outcome": "purged",
+            "receipt_handle": "ffb7b2b8da0c8540e483b390932ca82a",
+            "refs": [],
+            "custody": [
+              "custody:embedding",
+              "custody:payload"
+            ],
+            "erasure_status": "purged_within_boundary"
+          },
+          "state_changed": [
+            "runtime"
+          ],
+          "before_sha256": "ef64ed130930ccf9769eed4c3797ac3e4c8f1884ce86a592e7f5a2edf4ee386e",
+          "after_sha256": "0375cca6177fab812e07af59300d9eadf989083d22480315487953411e645045"
+        },
+        {
+          "name": "exact_replay_after_read_revocation",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:read"
+            }
+          },
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "state_changed": [],
+          "before_sha256": "486cf40c5ed354827912caeeacebc48cd39925ab1938fff5ffdb8efb7b32185c",
+          "after_sha256": "486cf40c5ed354827912caeeacebc48cd39925ab1938fff5ffdb8efb7b32185c"
+        }
+      ],
+      "original_receipt_preserved": true
+    },
+    "astra23-erase-context-priority-first": {
+      "seat": "23",
+      "package_version": "0.2.5-draft",
+      "checkout_commit": "d9c325de84da0146858e98a09d4f55aee20fc807",
+      "package_commit": "6a04e8cfb1490569cd1de7468d2085dd4840cf51",
+      "implementation_sha256": {
+        "common.py": "22a4807a07818eb83109c38838c094c3e4cc5fcc76e74e9e831fd2860f8db033",
+        "disclosure.py": "ae3862f6fadbb8fe602d13bfd5774df0680c7cfba17a131684102d2cacad3366",
+        "engine.py": "f2877f373db6c83f9fe4ba2e30ae4a6c08c35833618052c8209456e650a4b1c8",
+        "evaluator.py": "098d8460eb181b881f77ef7aef724d696ae652f680c44cd5905ca7e4a6c11100",
+        "run_vectors.py": "20bf1acc55f090e3c8fbcba71f24dc95ea23cfafcb31abb911138d9fdbf2298a",
+        "test_controls.py": "6cd50b73ef952ba0cc5d14f2fadecbed37a2fbb9bc275644e22c96d8c0c1e083",
+        "test_semantics.py": "b229816cd606ff766cb65c6f962bb6434b4f600f1aeb58392995fb316c1dd3bd"
+      },
+      "original_input_path": "memory/conformance/impl-astra-22/runs/erase-changed-context-first.json",
+      "original_input_sha256": "7db05182ca00ff29af54a5d9abb2dec6eb1e7a0e45667592e23f7dfdb894e4ac",
+      "harness_sha256": "6a8019c3a952f3afa4ef2ca96242181f63457c4f56b375cab6623537392d59d7",
+      "input_validation": "Closed initial state and all operation schemas; admitted-state invariants pass.",
+      "scope": "Native original-input reproduction plus bounded neighbors outside exact vector denominators. Changed-context outcome observations await judge classification; preservation and already-defined replay/authority/fresh-key controls are assertions.",
+      "rows": [
+        {
+          "name": "original_private_read_erase",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:read"
+            }
+          },
+          "actual": {
+            "type": "receipt",
+            "operation": "erase",
+            "outcome": "purged",
+            "receipt_handle": "46c001c564ea48dae02689c473cd3d00",
+            "refs": [
+              {
+                "id": "rec:a",
+                "version": 1
+              },
+              {
+                "id": "rec:summary",
+                "version": 1
+              }
+            ],
+            "custody": [
+              "custody:embedding",
+              "custody:payload"
+            ],
+            "erasure_status": "purged_within_boundary"
+          },
+          "state_changed": [
+            "state"
+          ],
+          "before_sha256": "aba46d675bc8b969d56e76d8dd9482eeb1f219d7e17fc75849591eb56f760502",
+          "after_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c"
+        },
+        {
+          "name": "exact_replay",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:read"
+            }
+          },
+          "actual": {
+            "type": "receipt",
+            "operation": "erase",
+            "outcome": "purged",
+            "receipt_handle": "46c001c564ea48dae02689c473cd3d00",
+            "refs": [
+              {
+                "id": "rec:a",
+                "version": 1
+              },
+              {
+                "id": "rec:summary",
+                "version": 1
+              }
+            ],
+            "custody": [
+              "custody:embedding",
+              "custody:payload"
+            ],
+            "erasure_status": "purged_within_boundary"
+          },
+          "state_changed": [],
+          "before_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c",
+          "after_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c"
+        },
+        {
+          "name": "original_changed_ungranted_purpose",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:ungranted"
+            }
+          },
+          "actual": {
+            "type": "refusal",
+            "code": "idempotency_conflict",
+            "retryable": false
+          },
+          "state_changed": [],
+          "before_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c",
+          "after_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c"
+        },
+        {
+          "name": "changed_ungranted_audience_neighbor",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:ungranted",
+              "purpose": "purpose:read"
+            }
+          },
+          "actual": {
+            "type": "refusal",
+            "code": "idempotency_conflict",
+            "retryable": false
+          },
+          "state_changed": [],
+          "before_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c",
+          "after_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c"
+        },
+        {
+          "name": "foreign_actor_changed_context",
+          "operation": {
+            "op": "erase",
+            "actor": "other:actor",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:ungranted"
+            }
+          },
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "state_changed": [],
+          "before_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c",
+          "after_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c"
+        },
+        {
+          "name": "original_fresh_ungranted_purpose",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary-fresh",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:ungranted"
+            }
+          },
+          "actual": {
+            "type": "receipt",
+            "operation": "erase",
+            "outcome": "purged",
+            "receipt_handle": "754db46dedac060d64f7dfe5ac7b9086",
+            "refs": [],
+            "custody": [
+              "custody:embedding",
+              "custody:payload"
+            ],
+            "erasure_status": "purged_within_boundary"
+          },
+          "state_changed": [
+            "state"
+          ],
+          "before_sha256": "3e476fbd6663f5b107d1ed01fbd539118badda49244d73d6cd39e315a0b4409c",
+          "after_sha256": "cc4a3d85ea78b8dfff30dddef32bd5e512ed706db7c3a6d0c36ed1ab861ac4d7"
+        },
+        {
+          "name": "exact_replay_after_read_revocation",
+          "operation": {
+            "op": "erase",
+            "actor": "subj:h1",
+            "at": "2026-10-17T00:00:00Z",
+            "idempotency_key": "key:context-boundary",
+            "targets": [
+              {
+                "id": "rec:a",
+                "version": 1
+              }
+            ],
+            "boundary": [
+              "custody:payload",
+              "custody:embedding"
+            ],
+            "receipt_context": {
+              "audience": "aud:private",
+              "purpose": "purpose:read"
+            }
+          },
+          "actual": {
+            "type": "refusal",
+            "code": "not_authorized",
+            "retryable": false
+          },
+          "state_changed": [],
+          "before_sha256": "c89ce4e6eba8199da578fb581c36304104b2f71ad62ffec7030eb5040303bdab",
+          "after_sha256": "c89ce4e6eba8199da578fb581c36304104b2f71ad62ffec7030eb5040303bdab"
+        }
+      ],
+      "original_receipt_preserved": true
     }
   }
 }
