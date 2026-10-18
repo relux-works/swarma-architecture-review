@@ -151,6 +151,12 @@ Our own trusted agents have memory, and the owners manage it. Agents that come f
 - **Decision (Ivan, in session):** «ок» to: the version that reached the space's main branch first, in first-parent history, counts; the other is shown as a rejected write with `version_conflict`, and its author rewrites the change after the next sync.
 - **Artifact:** `docs/architecture.md` §7.3.
 
+## D-026. Where an agent space lives (2026-10-18, for now)
+
+- **Question put:** an agent space is a git repository on the owner's remote; the agent's home holds only a working clone, so the memory survives account retirement and a returning agent clones it again.
+- **Decision (Ivan, in session):** «давай так пока».
+- **Scope:** the first version; may be revisited. Artifact: `docs/architecture.md` §5.5 in relux-works/swarma-memory.
+
 ## Proposed next steps (not decisions)
 
 - **2026-10-18, on Ivan's order** («можно сразу публичный. доска в отдельном репо - в приватном»): public code repository [relux-works/swarma-memory](https://github.com/relux-works/swarma-memory) created with the cleaned package 0.2.7 (c2627bf); private board repository relux-works/swarma-memory-board created with EPIC-261018-sjk2i0 memory-v1, STORY-261018-qlwnsw v1-architecture and STORY-261018-mcdun6 public-repo-bootstrap. The architecture document waits for Ivan's go.
