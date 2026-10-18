@@ -38,3 +38,11 @@ Living list for the agent-memory design. Each item says why it is open, what is 
     - a release assessment that is withdrawn after declassification must stop authorizing reads and prepared delivery (K-REC-2, K-REV-2, K-PUB-1);
     - reads must honour per-record fences and erasure states supplied in the initial state, including for current source resolution (K-ERASE-1);
     - handle-slot declarations that over- or under-cover the expected report must be a harness error (K-VEC-2).
+
+## Found in stage 2–3 (2026-10-18)
+
+20. **Where the trusted kernel configuration comes from outside tests.** A git space opens with an independently trusted kernel template: domain registry, grants, intake reviews, lineage facts, evaluation policy and bounds. Signed records never manufacture these. For the CLI (stage 3) the provisional choice is twofold:
+    - the binary ships a built-in agent-memory profile that carries only non-authority configuration;
+    - every write and read authority is derived from the owner-signed space policy, and no local config may widen it.
+    Open: whether an owner should be able to distribute a signed profile per space, and how intake reviews and lineage facts reach a reader in a real deployment.
+21. **Signed write transactions in commit metadata (stage 2).** The closed record wire carries no admission operation or receipt. The git adapter therefore adds a fourth signed purpose, a write transaction in the commit metadata. It binds the space, the first parent, the source tree and the policy digest. The independent review judged it justified. The architecture (§6.1, §6.3) should name it, or the record wire should carry the operation in a future package release.
