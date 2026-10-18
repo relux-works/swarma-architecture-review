@@ -139,6 +139,18 @@ Our own trusted agents have memory, and the owners manage it. Agents that come f
 - **Meaning:** every element of the memory design that was marked as proposed (the kernel's data model and semantics, the normative package, the deployment profiles, the delivery and disclosure rules) is decided design, not implemented. Items that are open stay open (`OPEN-QUESTIONS.md`). Further additions from the design discussions go into the book as they are decided.
 - **Next step held by the owner:** the architecture document of the first working version starts only on Ivan's separate go («Дождись моего отдельного Go на архитектуру первой рабочей версии»).
 
+## D-024. The owner registers temporary agent keys (2026-10-18)
+
+- **Question put:** with self-generated temporary keys (D-017), an agent declaring "this key is mine" proves nothing. Proposal: the agent generates the key; an owner writes its public part into the space policy under the agent's identity with the owner's signature; the owner may delegate this right to an orchestrator.
+- **Decision (Ivan, in session):** «ок».
+- **Artifact:** `docs/architecture.md` §6.2 in relux-works/swarma-memory.
+
+## D-025. Competing versions of one record (2026-10-18)
+
+- **Question put:** if two versions of one sequence built from the same expected version both reach a space (a writer bypassed the compare-and-set check), which one counts?
+- **Decision (Ivan, in session):** «ок» to: the version that reached the space's main branch first, in first-parent history, counts; the other is shown as a rejected write with `version_conflict`, and its author rewrites the change after the next sync.
+- **Artifact:** `docs/architecture.md` §7.3.
+
 ## Proposed next steps (not decisions)
 
 - **2026-10-18, on Ivan's order** («можно сразу публичный. доска в отдельном репо - в приватном»): public code repository [relux-works/swarma-memory](https://github.com/relux-works/swarma-memory) created with the cleaned package 0.2.7 (c2627bf); private board repository relux-works/swarma-memory-board created with EPIC-261018-sjk2i0 memory-v1, STORY-261018-qlwnsw v1-architecture and STORY-261018-mcdun6 public-repo-bootstrap. The architecture document waits for Ivan's go.
