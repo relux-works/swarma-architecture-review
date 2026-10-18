@@ -28,3 +28,9 @@ Living list for the agent-memory design. Each item says why it is open, what is 
 13. Coarse availability information that may be disclosed in advance.
 14. Qualification of the protected deployment.
 15. When the kernel becomes a standalone open release.
+
+## Found while implementing the Go kernel (2026-10-18)
+
+16. **Retention-admission reference without a registry (K-REC-1, K-API-2, vector S30).** An excerpt names `retention_admission` = `retention:grounds` v1, but the closed snapshot holds no such record and no registry. The kernel treats the exact reference as trusted adapter evidence and checks current retain rights separately. The spec should say whether that is intended or add the registry. The interpretation is documented in the public repo's `docs/write-admission.md`.
+17. **Team perspective grants (K-ENV-1, vector S10).** The grant model has issuer, principal and space but no team selector. The kernel requires the issuer's explicit admit grant in the space and infers no membership from the team principal. The spec should state that or add a team selector.
+18. **Version label.** The package README says draft 0.2.7; `semantics.md` and the schema URNs still say 0.2.6. Bump the URNs in a package release, or label 0.2.7 as a text-only revision.
