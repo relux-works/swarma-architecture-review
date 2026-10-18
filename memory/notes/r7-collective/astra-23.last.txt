@@ -1,0 +1,7 @@
+PARK выполнен, ACK отправлен. Signed commit `f81883f` опубликован.
+
+**R7: 2/2.** Обе реализации: 57/57 canonical и 68/68 supplemental. Наши 34 controls проходят.
+
+R7-055 ждёт решения Ивана; deployment 8+1 остаются unsupported.
+
+[Verdict](/Users/iv/Developer/ReluxWorks/swarma-memory-r7/astra-23/swarma-architecture-review/memory/conformance/verdicts/astra-23.md) · [Park note](/Users/iv/Developer/ReluxWorks/swarma-memory-r7/astra-23/swarma-architecture-review/memory/conformance/parked/astra-23.md)

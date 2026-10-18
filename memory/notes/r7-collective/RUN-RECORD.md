@@ -34,3 +34,26 @@
 
 - **PARK:** convener event at 2026-10-17T19:12Z, after a check at 715d7a7. All 25 commits from 2c3100d to 35a2f94 are signed (G).
 - **Result:** package 0.2.6-draft @ 77b951e (D-009 in K-REV-3, vectors S34–S42); both evaluators pass 66/66 canonical semantic vectors; ledger 59 items (48 fixed, 10 rejected, R7-055 resolved by the owner); no open owner question; deployment vectors 8 + 1 still unsupported.
+
+## Seat stdout logs (deleted 2026-10-18 to free disk; Codex sessions remain in the Codex session store)
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| astra-21.log | 34970449 | `2f01dde3e6c5ccd829288a0b41d635269a7540299e3c713758c1027e6d3c771f` |
+| astra-22.log | 124426260 | `e3a71efaaaf618a7f2f3bd7591317dd9d8c828bcc483d3681ec696cf7a8d4eaa` |
+| astra-23.log | 72367641 | `a669cae763969c64d364416f4354867f0dbd9d9daad13f79f579f398f3d71dda` |
+| astra-24.log | 3024181 | `dd74573b744122b00f5777f74ae5333d13bd9a547f63115a3f99ee9c2c555a05` |
+| astra-25.log | 45331301 | `b75462aa2ed838fd6ef593c1485d4a279d64d1bce7ff674dd3aa9d2dfcba21e8` |
+| astra-26.log | 32996485 | `38534a4f74bfee128013b9280be3d5288fdaf9a3d19b20e8f4ad8dd367126190` |
+| astra-27.log | 28008513 | `5c5c68bc9428658dac87d86dcc7df1e4c9e9aaeffcd5be19ac7261c09c1c4d9e` |
+| astra-21.last.txt | 687 | `f80ad21b285e74fa941a92612bcb67cd000d58c192e83b513bd1bf47e0b0856a` |
+| astra-22.last.txt | 579 | `95e9baf513459e30fd8465c53c31adafc4c71df2f6fcf93f1e41464204fef932` |
+| astra-23.last.txt | 578 | `636e5a19980378b571d6e324e673a8e5f3347b801147ebd6e2408929b8f3bed8` |
+| astra-24.last.txt | 677 | `0f4df6540e54431e96766607e6c9f231616146a7c63ff3be73205de8a5836122` |
+| astra-25.last.txt | 693 | `b5465650622ea39c8fbebed9860e61a0e2105a9c3f6bb0df8dff95b292367268` |
+| astra-26.last.txt | 735 | `08a7ef2855587cba304d98d55861883dc439a11f0748942e1d4b7fcabe396cb2` |
+| astra-27.last.txt | 414 | `3e15c0544971cef50193d36102b1f1a81e232c715464efcb4b388fee991a7248` |
+| astra-21.r2.last.txt | 462 | `6692c81ce3575d0b3ad75e2df1b5dfac47d1c6bc61cc840d3a97dc4f9a76b04d` |
+| astra-22.r2.last.txt | 630 | `c135c2bbc466b013ea49e1950ee9b319f2df164a2e8bf3196fbbecbb47e6859e` |
+| astra-23.r2.last.txt | 515 | `34217f27ca20c82b28aa77724f03ab58de1ff66c168069f80e9ac31650be04f5` |
+| astra-27.r2.last.txt | 363 | `b15c3a76e9434252d35a4e6b75363feda29e69c6f23318eb7b2e5cccae9c853c` |

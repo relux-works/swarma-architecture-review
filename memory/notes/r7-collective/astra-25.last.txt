@@ -1,0 +1,7 @@
+astra-25 завершил PARK. Подписанный commit `de99035` опубликован в `main`, ACK отправлен convener.
+
+R7 — **2/2**. Обе реализации проходят **57/57 canonical** и **68/68 supplemental semantic vectors**. Открытых spec/impl bugs нет.
+
+R7-055 остаётся решением Ивану; **8+1 deployment vectors — unsupported**.
+
+[Итоговый verdict](/Users/iv/Developer/ReluxWorks/swarma-memory-r7/astra-25/swarma-architecture-review/memory/conformance/verdicts/astra-25.md) · [Park note](/Users/iv/Developer/ReluxWorks/swarma-memory-r7/astra-25/swarma-architecture-review/memory/conformance/parked/astra-25.md)

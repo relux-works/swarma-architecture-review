@@ -1,0 +1,7 @@
+PARK выполнен. R7-055 закрыт по D-009, R7-059 исправлен. Score **2/2**.
+
+- Semantic: **66/66 canonical**, **68/68 historical**; fail/unsupported — 0.
+- Controls: **134/134 pass**.
+- Deployment: **8 canonical + 1 historical unsupported**.
+
+Signed commit `35a2f94` опубликован, ack отправлен. [Verdict](/Users/iv/Developer/ReluxWorks/swarma-memory-r7/astra-22/swarma-architecture-review/memory/conformance/verdicts/astra-22.md) и [park note](/Users/iv/Developer/ReluxWorks/swarma-memory-r7/astra-22/swarma-architecture-review/memory/conformance/parked/astra-22.md) обновлены.

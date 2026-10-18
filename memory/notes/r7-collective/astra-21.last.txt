@@ -1,0 +1,5 @@
+PARK завершён. [Verdict](/Users/iv/Developer/ReluxWorks/swarma-memory-r7/astra-21/swarma-architecture-review/memory/conformance/verdicts/astra-21.md) и [park note](/Users/iv/Developer/ReluxWorks/swarma-memory-r7/astra-21/swarma-architecture-review/memory/conformance/parked/astra-21.md) опубликованы подписанным commit `962a21d`; ack отправлен.
+
+Пакет `0.2.5-draft` валидируется. **R7: 2/2** — оба evaluator проходят **57/57 canonical** и **68/68 supplemental semantic vectors**. Открытых spec/impl bugs нет.
+
+`R7-055` оставлен Ивану; deployment vectors **8+1** остаются unsupported.

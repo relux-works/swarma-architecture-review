@@ -1,0 +1,5 @@
+PARK выполнен. `0.2.6-draft` опубликован (`77b951e`), D-009 закреплён в спецификации и девяти новых vectors.
+
+Оба evaluator: **66/66 canonical**, отдельно **68/68 historical**. Validator зелёный, R7 **2/2**, R7-055 и R7-059 закрыты. Deployment 8+1 остаются unsupported.
+
+Verdict и park note подписаны и отправлены (`cdd1b36`), ack опубликован.
