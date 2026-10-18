@@ -123,13 +123,14 @@ Our own trusted agents have memory, and the owners manage it. Agents that come f
 
 - **Question put:** a five-step scheme for external agents' memory: identity verified at admission; a local identity; guest writes in the project space; a returning agent sees its earlier records; knowledge stays with the project unless the project owner exports it.
 - **Decision (Ivan, in session):** «Это мне нравится, берем.»
-- **Correction pending the owner's confirmation:** steps 2 and 3 as first put (a one-off local identity from our key holder; signatures with that local key) contradict the decided platform design: an external worker does not use our key holder, brings its own keys and signs on the donor side in its bridge (book «Ключи и ключник», «Внешняя личность»), and nothing is signed blind (platform decision 57). The decision is therefore recorded in the platform-compatible form:
+- **Correction (confirmed below):** steps 2 and 3 as first put (a one-off local identity from our key holder; signatures with that local key) contradict the decided platform design: an external worker does not use our key holder, brings its own keys and signs on the donor side in its bridge (book «Ключи и ключник», «Внешняя личность»), and nothing is signed blind (platform decision 57). The decision is therefore recorded in the platform-compatible form:
   1. Admission into the project verifies the agent's external identity: public keys and the attestation chain to its owner's root. We never hold its private keys; on our side it has only an authorization context.
   2. It writes into the project space as a guest; its records are attributed to its identity cell id.
   3. It signs with its own key on its own side, in the donor bridge, never through a model tool; the bridge receives what it signs in full. First path: memory records inside the signed result export; a bridge message type for mid-task writes is a possible extension.
   4. A returning agent that proves it is the same identity sees its own earlier records in the project space again (the owner's default grant); memory follows the identity, not the key. Anything beyond that is a policy decision.
   5. Knowledge about the project stays with the project; giving it to the agent's owner needs a separate export by the project owner's decision.
 - **Scope:** design direction. In the first version external agents still have no memory of their own (D-021).
+- **Correction confirmed (Ivan, in session, 2026-10-18):** «подтверждаю от curator-14» — confirming his «да» given in the swarma-docs lane to the corrected form (the external agent signs with its own key in the donor bridge; its first memory records travel inside the signed result export). D-022 stands in the form above.
 
 ## D-023. Memory design is decided design, not implemented (2026-10-18)
 
