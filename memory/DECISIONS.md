@@ -157,6 +157,47 @@ Our own trusted agents have memory, and the owners manage it. Agents that come f
 - **Decision (Ivan, in session):** «давай так пока».
 - **Scope:** the first version; may be revisited. Artifact: `docs/architecture.md` §5.5 in relux-works/swarma-memory.
 
+## D-027…D-029. Panel decisions on OPEN-QUESTIONS 23, 9 and 8 (2026-10-21)
+
+- **Owner's delegation:** Ivan in the tb-arbiter session, about 2026-10-20T23:05Z, relayed verbatim by `ivmbp_ivan_meta-keeper` (a2a #lobby, topic memory-design-panel-261021): «пускай запустит коллектив режим … отдать им прям книгу с этим дизайн памяти, передать им эти вопросы и пусть поищет подходящее решение на конкретно эти вопросы.»
+- **How the decisions were made:** an independent panel of seven seats (three gpt-6-astra max, three claude-opus-5-5 max, one muse-wonder xhigh). All seats were unanimous on the architecture of each answer. The orchestrator settled the details by majority and recorded the dissents. Full record: `notes/panel-261021/` (brief, seven answers, run record, synthesis).
+- **Status:** panel decisions under the owner's delegation. They are reversible, and the owner card in the synthesis lists the points left to Ivan.
+
+### D-027. Sources are presented in the view
+
+The view gains a kernel-computed, disclosure-filtered, deduplicated `sources` table. It holds exactly the sources the displayed items cite.
+- A source the reader may not see is omitted entirely; v1 has no `withheld` placeholder.
+- Original-source availability and the retained excerpt are independent: a deleted session keeps its excerpt (D-016).
+- An erased source keeps only a header without bytes.
+- Audience projections carry no sources.
+- There is no separate source-read operation in v1.
+
+This is package `0.3.0-draft` with new vectors, including non-interference pairs. It also realigns the version labels (OQ 18). Session locators for new records map onto typed source fields, and the digest covers the retained text. Closes OQ 23.
+
+### D-028. The space directory is a set of signed discovery entries, not authority
+
+Each owner's platform space holds that owner's directory, under `directory/`, as adapter-level signed objects. It is not a kernel record kind.
+- **Signatures:** an entry is a publication by an owner of that platform space, wrapping an advertisement signed by an owner of the listed space.
+- **Content:** each entry is immutable and versioned. It binds the space id to its genesis pin, its remote and its identity or project bindings, and it carries no access lists.
+- **Not authoritative:** the directory decides discovery only. Access stays in the listed space's owner-signed policy and in git access, so withdrawing an entry revokes nothing.
+- **Identifiers** are owner-qualified.
+- **v1 cross-owner access** is read-only, after a manual exchange of genesis pins and agent keys.
+
+Closes OQ 9.
+
+### D-029. Resolvers route conflicts; v1 escalates through a board task
+
+The space policy names resolvers per area with exact selectors (schema refs and subject ids) and refuses overlapping entries. When no area matches, the resolvers are the space's owners.
+- **No authority from the name:** being named a resolver grants nothing. Resolution uses only existing powers:
+  - the issuer replaces, corrects or withdraws;
+  - an assessor withdraws its assessment;
+  - a resolver records its own ruling, and the dependent step re-points to it.
+- **Packet:** memory produces a content-free escalation packet with a conflict key. The agent or its orchestrator files it as a board task to the resolvers, and work resumes only after a fresh check passes.
+- **Keeper:** Swarm Keeper carries the same packet later.
+- **No precedence:** no space outranks another.
+
+**Clarification of D-020:** "supersedes under the existing order rules" means within the deciding issuer's own order. `ambiguous_current` cannot arise in v1 git spaces until authority receipts are integrated, so stage 6 is gated on evidence conflicts and incompatibility. Closes OQ 8 for v1.
+
 ## Proposed next steps (not decisions)
 
 - **2026-10-18, on Ivan's order** («можно сразу публичный. доска в отдельном репо - в приватном»): public code repository [relux-works/swarma-memory](https://github.com/relux-works/swarma-memory) created with the cleaned package 0.2.7 (c2627bf); private board repository relux-works/swarma-memory-board created with EPIC-261018-sjk2i0 memory-v1, STORY-261018-qlwnsw v1-architecture and STORY-261018-mcdun6 public-repo-bootstrap. The architecture document waits for Ivan's go.
