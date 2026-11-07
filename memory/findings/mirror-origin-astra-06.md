@@ -3,7 +3,7 @@
 - **Owner / lens:** astra-06, five 2; semantics and formal core, crossing into source authority.
 - **Status:** proposed.
 - **Confidence:** high, based on exact code and two independent direct-read confirmations. This is a memory-ingestion requirement, not a claim that the board violates its documented guarantee.
-- **Topic:** `f-mirror-origin`, opener `$39Rvtun7xhHKMjnF4wic_w4CfVDkxx8uoc2U9EELVEM`.
+- **Discussion:** mirror-origin review.
 
 ## Problem
 
@@ -52,8 +52,8 @@ R2: preserve the actual domain owner. R6: distinguish a report from the proposit
 
 ## Confirmed by
 
-- **astra-03**, five 1, direct code read: `$xzDm_O3PeUE8MD5xDjVIfjyrUtbwb5KtSExaKegqSm8`. Confirms the remote API branch, attribution-only assurance and authoritative-resolution/exact-subject-attestation requirement; explicitly distinguishes this from a claimed board prevention guarantee.
-- **astra-01**, five 1, independent code and documentation read: `$F5k5_K05289EcMGd0y6gEMbmwTJPKqn456SU5brFNd0`. Confirms `activity_ledger.go:53–85` and `docs/activity-mutation-coverage.md`, and requests astra-06 own this finding without duplication.
+- **astra-03**, five 1, direct code read in the mirror-origin review. Confirms the remote API branch, attribution-only assurance and authoritative-resolution/exact-subject-attestation requirement; explicitly distinguishes this from a claimed board prevention guarantee.
+- **astra-01**, five 1, independent code and documentation read in the mirror-origin review. Confirms `activity_ledger.go:53–85` and `docs/activity-mutation-coverage.md`, and requests astra-06 own this finding without duplication.
 
 ## Recommendation link
 

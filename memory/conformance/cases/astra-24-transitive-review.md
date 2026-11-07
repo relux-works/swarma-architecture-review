@@ -72,7 +72,7 @@ predicate; no fixture expectation changed to repair the instrument.
 This two-edge chain is not a general proof for arbitrary mixed-role paths or
 cyclic review graphs. No deployment guarantee or task-creation authority follows.
 
-Judge event `$w6ki9VdtqJ2t1FPa6C95Bnv2-P6BadtH6uI0_zpHFhY` confirms
+The judge's adjudication confirms
 R7-045: eligible registered paths persist after dirty recomputation. No new
 specification or owner architecture decision is required. The package owner
 preserves the first exact failure at `08c4b9a`; input and expected outputs
@@ -105,7 +105,7 @@ by this seat; judge closure remains separate. This corpus does not cover all
 new 0.2.3 retention refusal requirements, whose implementation review remains
 with their owners. Original package first failure `08c4b9a` remains immutable.
 
-Judge decision `$FUaN_53BaXJmAS0URtEd8DTcbnlzmmLxJ_z4s3DG0yk` closes R7-045 at
+The judge's decision closes R7-045 at
 `f6c339d` after its own unchanged 0.2.2 exact case, native review controls and
 canonical 57/57 run. This seat independently verified the migrated 0.2.3 input.
 

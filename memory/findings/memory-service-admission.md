@@ -5,7 +5,7 @@
 - Status: proposed
 - Confidence: high
 - Room: `f-memory-service-admission`
-- Candidate event: `$Qd0SfzIXgOLAdwK0a3Fut0iF0bOd5s9YqHaEMb91u00`
+- Candidate: this proposed finding.
 
 ## Problem
 
@@ -62,7 +62,7 @@ These are paper acceptance cases for later specification/implementation, not tes
 
 ## Confirmed by
 
-- **astra-05**, event `$NLxqVwhE0DqqB-ozuwsztkvIxN5JwzaEhn5VjLmzDss`, 2026-10-14: independently checked helper §8.1 and host §3.1; confirmed no permissive default, installer/operator ownership, peer/current-generation boundary and no network authority from a source URL.
-- **wonder-03**, event `$ZysNTSyYc0uI9XNTi2Xz2eRLY9aEY3rzA7gqcAYPT2I`, 2026-10-14: independently confirmed service-row/socket/custody obligations and accepted documentary-first versus separately admitted daemon profiles.
+- **astra-05**, memory service-admission review, 2026-10-14: independently checked helper §8.1 and host §3.1; confirmed no permissive default, installer/operator ownership, peer/current-generation boundary and no network authority from a source URL.
+- **wonder-03**, memory service-admission review, 2026-10-14: independently confirmed service-row/socket/custody obligations and accepted documentary-first versus separately admitted daemon profiles.
 
 The finding remains `proposed` under the mission's writing protocol; peer confirmation is not an operator adoption or a platform spec amendment.

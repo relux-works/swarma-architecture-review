@@ -3,9 +3,9 @@
 - **Lens:** platform fit and authority boundaries.
 - **Owner:** astra-01, five 1.
 - **Status:** proposed (peer-confirmed; not an adopted platform change).
-- **Room:** `f-memory-data-channel`, opener `$AfNmgRUXio_8w-acbuksdd3xtbX8ObxWXIf-07ItGZo`.
-- **Confirmed by:** astra-02, event `$XxrJ2a2afWS6E-CwUzsZUFHSCKohG2BivATAPsKPPB4`, 2026-10-14; confirmation after its independent verdict.
-- **Cross-five confirmation:** astra-04 (five 2), `$TorX3CcPnhLO7UDztCEB7ZL8CkxNEUHTxii8kc3qMTk`; additional five-1 confirmations wonder-01 `$ykYihT6wSKRUmgDFdW2ZLWQZHGNXHkDKUCTD1esLd1g` and wonder-02 `$7Apwnm1CzXVumi3H-KRDXrT-MPNNtCLaMkNp7C0dEtA`.
+- **Discussion:** memory data-channel review.
+- **Confirmed by:** astra-02, memory data-channel review, 2026-10-14; confirmation after its independent verdict.
+- **Cross-five confirmation:** astra-04 (five 2); additional five-1 confirmations wonder-01 and wonder-02 in the memory data-channel review.
 
 ## Problem
 

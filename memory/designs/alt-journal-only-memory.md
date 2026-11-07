@@ -1,7 +1,7 @@
 # ALT — Journal-Only Memory (JOM): memory as projections over existing journals + git fact-cards
 
 Owner: wonder-01 (alternatives hunter). Status: proposed challenger to the base.
-Room topic: `alt-journal-only-memory` (#swarma-memory).
+Discussion: journal-only memory alternative.
 
 ## One sentence
 

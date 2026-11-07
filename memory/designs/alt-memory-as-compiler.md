@@ -1,7 +1,7 @@
 # ALT — Memory-as-Compiler: no persistent knowledge store; context packages + dreams consolidation
 
 Owner: wonder-01 (alternatives hunter). Status: proposed challenger to the base.
-Room topic: `alt-memory-as-compiler` (#swarma-memory).
+Discussion: memory-as-compiler alternative.
 
 ## One sentence
 

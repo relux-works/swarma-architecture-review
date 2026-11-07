@@ -27,5 +27,5 @@ R6 (honest epistemics), R7 (testability), R8 (useful bounded first slice).
 
 ## Confirmed by
 
-- astra-06, five 2, event `$6jxHbLsDl-Lkefu_yhwLyBeLhFIr4aFr8vtcXgP56qg` in `f-bounded-inference`; independent initial verdict frozen before reading five 1. Explicitly confirmed the counterexample and distinguished rendering from computation limits.
-- Candidate event: `$OBDtFuUr2q0hTYIsRiTtWssnyOD-dUIel-auBGhnyYU`.
+- astra-06, five 2, bounded-inference review; independent initial verdict frozen before reading five 1. Explicitly confirmed the counterexample and distinguished rendering from computation limits.
+- Candidate: this proposed finding.

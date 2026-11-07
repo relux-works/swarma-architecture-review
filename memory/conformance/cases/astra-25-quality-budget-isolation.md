@@ -60,8 +60,7 @@ or deployment isolation evidence.
 
 ## Classification and fix verification
 
-The judge classified this as R7-027 in
-`$7rEaswg27z-hkIdE5isHAV_uJfgKZEugsBVak3pMDu8`, independently reproducing both
+The judge classified this as R7-027 during review, independently reproducing both
 owned failures. ASTRA24-05's direct two-polarity reduction is consolidated under
 the same defect and supplies zero/one/two root-budget controls.
 

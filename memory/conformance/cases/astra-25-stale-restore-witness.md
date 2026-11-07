@@ -70,10 +70,8 @@ evidence normalizes to false. A deployment check must then exercise that
 qualification instead of trusting its own input boolean. No new recovery
 protocol or witness fields are requested by this case.
 
-The judge accepted the source requirement in
-`$XTfrBWET-INxpLK_R6ftoGf5YuIUTpC3CxUbHDOJy6A`. The editor reproduced this boundary
-gap and proposed the narrow clarification in
-`$3voPQWsEsapb09cSj2ZMHu5BMrm9oUJP56Nc0oZJJ4U`, pending judge classification.
+The judge accepted the source requirement during review. The editor reproduced this boundary
+gap and proposed the narrow clarification during review, pending judge classification.
 Canonical S25 already exercises false/unwitnessed reconciliation; duplicating it
 and relabeling the result would not prove the stale-witness qualification.
 

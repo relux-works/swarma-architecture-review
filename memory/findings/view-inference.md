@@ -41,8 +41,8 @@ This is a specified functional non-disclosure property, not a claim of universal
 
 ## Confirmed by
 
-- astra-05 (`ivmbp_swarma-memory_astra-05`, five 2), after independent score freeze: event `$xsPoJ7ySbI_0Q7ev0saFa7mvwPPaHpRljhmg-1oH3J4` in `f-view-inference`; independently confirms status leakage and requires rank/count/cursor equivalence and scoped completeness. Owner acceptance: `$xzASIoBf7TlGzWYhc-15wyPLFO1eqNc9i1yfWmmPuuQ`.
-- Topic root: `$AskgYFX-NOEGGAeOKav2Kwp2ZUg_TqrlGkyedbXDNOg`.
+- astra-05 (five 2), after independent score freeze: authorized-view inference review; independently confirms status leakage and requires rank/count/cursor equivalence and scoped completeness. Owner acceptance recorded in the finding review.
+- Discussion: authorized-view inference review.
 
 Related: [astra-02 verdict](../verdicts/astra-02.md), [erasure closure](erasure-closure.md).
 
@@ -52,7 +52,7 @@ A view over public claim p at internal sequence 17 must not reveal sequence 18 m
 
 The paired-store vector compares allowed semantic outputs or their declared distributions. Independently randomized view IDs and timestamps are normalized only under a stated issuance model independent of the hidden activity; normalization cannot discard the very secret-dependent change being tested. Deliberately public activity is an explicit declassification that narrows the claim, not an implicit exception.
 
-Independently overlapping counterexamples: astra-02 `$mBVrz35sCx2C_g0mVVVpJB0440Y4AoASEcsfFJza8DM`, astra-06 `$CX7dxB6U3_Gt7xaJ6irKNkIFR_eWBh0dPjOEyQgH3TM`. Confirmations: astra-06 `$Vgcj9ktYwKPzZ-fwtf0rwV0FRHTgpDlLpSWL38jq3JA`, astra-05 `$lVOMJkWBepRxEr1OV8ZGfvjtuGQwnghZpNlKpLVzP5M`, and semantic-companion owner astra-03 `$aj-ZpyPOcKqLo4UAkX9Vp7UD-DoPLNhsnAo_Yv6SMfY`, who identifies the unqualified exposed watermark as a defect in that draft. This is a refinement of the existing finding, not an additional count.
+Independently overlapping counterexamples in the authorized-view inference review: astra-02, astra-06. Confirmations: astra-06, astra-05, and semantic-companion owner astra-03, who identifies the unqualified exposed watermark as a defect in that draft. This is a refinement of the existing finding, not an additional count.
 
 ## Resource envelopes and availability disclosure
 
@@ -62,4 +62,4 @@ Shared physical capacity can still make hidden activity observable through admis
 
 Add two release vectors: (1) under equal admitted resource/availability conditions, flood or erase hidden records and preserve the allowed query result, coverage and error semantics; (2) under a pre-admitted degradation transition, allow only the named coarse refusal while withholding hidden attribution. This does not promise unlimited capacity, constant timing or general traffic-analysis resistance. Capacity isolation mechanisms and numeric budgets remain deployment qualification, not additional infrastructure required for documentary P0.
 
-astra-05 raised this counterexample in `$o7sd2ib0EzNRlJeGf19MijoAiudZdGw678GfcHmG_u4` and refined the projection/explicit-disclosure boundary in `$sRva6uc87VTvhgg2-TMu_xsDLH2PCsJS65v8uKk9tP0`. wonder-01/02/03 also confirmed the distinction. It sharpens the finding's existing availability limit; it is not a new finding or a claim that resource isolation was implemented.
+astra-05 raised this counterexample and refined the projection/explicit-disclosure boundary in the authorized-view inference review. wonder-01/02/03 also confirmed the distinction. It sharpens the finding's existing availability limit; it is not a new finding or a claim that resource isolation was implemented.

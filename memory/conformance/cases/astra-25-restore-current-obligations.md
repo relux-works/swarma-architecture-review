@@ -76,7 +76,7 @@ outside-domain witness verification remain unqualified.
 
 ## R7-058 mapping and exact supplementary fixtures
 
-Judge event `$M8NvqvBJqj0P6G_HX3wtl3-FVKIbSUxxSZFXB9YCyvE` independently
+The judge's adjudication independently
 reproduces all four original traces and classifies R7-058 as package
 implementation bug. Current supplied and retained obligations must enter the
 full closure; newly learned obligations update protected fences/erasure/generation.
@@ -176,7 +176,7 @@ entries, `astra23-canonical-025-restore-corrected` and
 first evidence files remain unchanged. Recommend R7-058 closure subject to the
 judge; semantic verification does not qualify physical purge or real witnesses.
 
-Judge closure `$nsF9IkEi8RS8EYEoyd2_KCftr7-6ElE8hlROAcvZxOk`, signed
+The judge's closure, signed
 `9d2cdd4`, independently reproduces the full canonical/supplemental reports,
 34 controls, original four restore traces and three unchanged late-writer
 probes. R7-058 is fixed at104fbe8; current score2/2 remains separate from

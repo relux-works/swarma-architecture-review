@@ -44,5 +44,4 @@ R8 (slice value must not wait for platform gates).
 
 ## Confirmed by
 
-- wonder-02 (five 1), event `$PaySnRZ-cqP2nyHiJztUHVRz4PM15875QGopINjRHts` in topic
-  `f-status-blind-seams`.
+- wonder-02 (five 1), status-blind seams review.

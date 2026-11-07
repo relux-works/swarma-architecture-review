@@ -40,20 +40,22 @@ Owner decisions are listed in the sources (`wiki/decisions.md`; the D-* decision
 
 Start with the book, then go to the specs. The book's figures have PlantUML sources next to it.
 
+Portable source locators below use caller-supplied read-only checkouts: `<source-root>` contains the source repositories in the directory layout shown, `<a2a-swarm-checkout>` is the coordination-bus checkout, and `<review-context>` contains the review context and input copies. `<review-work-dir>` is the reviewer's own directory; `<review-checkout>` is its `swarma-architecture-review` clone. These locators do not change source versions or copy obligations.
+
 | What | Where |
 |---|---|
-| The book (Russian; full platform story, 16 chapters, figures) | `~/Developer/ReluxWorks/wiki/book/swarma/ru/*.md`, figures in `book/swarma/src/*.puml`, PDF `book/swarma/swarma-book.ru.pdf` |
-| Owner decisions, glossary, names | `~/Developer/ReluxWorks/wiki/decisions.md`, `glossary.md`, `naming.md` |
-| Session-host architecture (Russian; §0 indexes the canon) | `~/Developer/ReluxWorks/wiki/session-host/architecture.ru.md` |
-| User manager + launcher | `~/Developer/ReluxWorks/platform/curator-host-helper/spec/helper.md`, `diagrams/` |
-| Dispatcher | `~/Developer/ReluxWorks/platform/curator-dispatcher/spec/dispatcher.md`, `diagrams/` |
-| Credential broker | `~/Developer/ReluxWorks/platform/curator-credential-broker/spec/broker.md`, `diagrams/` |
-| Session host | `~/Developer/ReluxWorks/platform/curator-session-host/spec/session-host.md`, `docs/`, `diagrams/` |
-| Curator: profiles, environments, CIPs (remote worker, donor, executor, wire names) | `~/Developer/ReluxWorks/curator/curator-spec/` (`protocol/`, `cips/`, `decisions/`) |
-| Agent launcher (`curator-run`) | `~/Developer/ReluxWorks/curator/curator-agent-launcher/SPEC.md`, `diagrams/` |
-| spm (the monolith being split) | `~/Developer/ReluxWorks/skill-project-management/.specs/` |
-| Coordination bus protocol | `~/src/a2a-swarm/docs/protocol.md`, `docs/cli.md` |
-| Platform architecture repo (trust contracts, VISION sequences) | `~/Developer/ReluxWorks/swarma-review/context/swarm-platform-architecture` (a read-only clone; `gh` does not work inside your sandbox) |
+| The book (Russian; full platform story, 16 chapters, figures) | `<source-root>/wiki/book/swarma/ru/*.md`, figures in `book/swarma/src/*.puml`, PDF `book/swarma/swarma-book.ru.pdf` |
+| Owner decisions, glossary, names | `<source-root>/wiki/decisions.md`, `glossary.md`, `naming.md` |
+| Session-host architecture (Russian; §0 indexes the canon) | `<source-root>/wiki/session-host/architecture.ru.md` |
+| User manager + launcher | `<source-root>/platform/curator-host-helper/spec/helper.md`, `diagrams/` |
+| Dispatcher | `<source-root>/platform/curator-dispatcher/spec/dispatcher.md`, `diagrams/` |
+| Credential broker | `<source-root>/platform/curator-credential-broker/spec/broker.md`, `diagrams/` |
+| Session host | `<source-root>/platform/curator-session-host/spec/session-host.md`, `docs/`, `diagrams/` |
+| Curator: profiles, environments, CIPs (remote worker, donor, executor, wire names) | `<source-root>/curator/curator-spec/` (`protocol/`, `cips/`, `decisions/`) |
+| Agent launcher (`curator-run`) | `<source-root>/curator/curator-agent-launcher/SPEC.md`, `diagrams/` |
+| spm (the monolith being split) | `<source-root>/skill-project-management/.specs/` |
+| Coordination bus protocol | `<a2a-swarm-checkout>/docs/protocol.md`, `docs/cli.md` |
+| Platform architecture repo (trust contracts, VISION sequences) | `<review-context>/swarm-platform-architecture` (a read-only clone; `gh` does not work inside your sandbox) |
 
 Local repository directories still carry the former `curator-*` names; the components are named `swarma-*` (see `wiki/naming.md`).
 
@@ -61,11 +63,11 @@ Local repository directories still carry the former `curator-*` names; the compo
 
 You start with one lens. You are free to roam beyond it, and you are expected to challenge the others.
 
-1. **rev1 (`macmini_swarma-review_rev1`): trust and threat model.** External contributors in both directions: key classes, grants, revocation, the identity lifecycle, what a malicious host or a malicious agent can do.
-2. **rev2 (`macmini_swarma-review_rev2`): simplicity.** Component count, privileged surfaces, wire objects, states, duplicated responsibilities; what can be merged, deleted or deferred.
-3. **rev3 (`macmini_swarma-review_rev3`): reliability.** Failure, crash and recovery paths, reconciliation, unknown-vs-absent, idempotency, fences and epochs, durability ordering.
-4. **rev4 (`macmini_swarma-review_rev4`): operations and migration.** The operator's and agents' day-to-day work, the cut-over out of the spm monolith, phases v0/v1/SH2+, what to build first.
-5. **rev5 (`macmini_swarma-review_rev5`): consistency.** Cross-spec contradictions, invariants that should be stated once, formal properties that can be checked mechanically.
+1. **rev1: trust and threat model.** External contributors in both directions: key classes, grants, revocation, the identity lifecycle, what a malicious host or a malicious agent can do.
+2. **rev2: simplicity.** Component count, privileged surfaces, wire objects, states, duplicated responsibilities; what can be merged, deleted or deferred.
+3. **rev3: reliability.** Failure, crash and recovery paths, reconciliation, unknown-vs-absent, idempotency, fences and epochs, durability ordering.
+4. **rev4: operations and migration.** The operator's and agents' day-to-day work, the cut-over out of the spm monolith, phases v0/v1/SH2+, what to build first.
+5. **rev5: consistency.** Cross-spec contradictions, invariants that should be stated once, formal properties that can be checked mechanically.
 
 ## Working protocol
 
@@ -75,12 +77,12 @@ You start with one lens. You are free to roam beyond it, and you are expected to
 - Never use another identity. Never paste tokens anywhere.
 
 **Collaboration**
-- Post findings and proposals in `#swarma-review`, in topics. One topic per candidate finding, slug `f-<short-name>`.
+- Post findings and proposals in the review collective room, in topics. One topic per candidate finding, slug `f-<short-name>`.
 - Validate or refute each other's candidates with evidence, citing spec sections, file:line and book chapters.
 - Disagreement is welcome; resolve it with evidence.
 
 **The findings file**
-- File: `FINDINGS.md` in the private repo `relux-works/swarma-architecture-review`. Your clone is already at `~/Developer/ReluxWorks/swarma-review/revN/swarma-architecture-review` (N = your number).
+- File: `FINDINGS.md` in the private repo `relux-works/swarma-architecture-review`. Your clone is already at `<review-checkout>`.
 - Append an entry ONLY when the finding has high confidence AND at least one other reviewer has confirmed it in the room (cite the event id).
 - Entry format:
   - id `F-<n>`;
@@ -114,7 +116,7 @@ You start with one lens. You are free to roam beyond it, and you are expected to
 ## Sandbox
 
 You run in Codex `workspace-write` with network access. You can write only to:
-- your own directory `~/Developer/ReluxWorks/swarma-review/revN/`;
+- your own directory `<review-work-dir>/`;
 - `~/.config/a2a-swarm` (a2a identity and cursor);
 - the launch cwd.
 
@@ -126,6 +128,6 @@ Everything else is read-only for you by design. That includes the spec repos, th
 
 - **Docs-only.** Do not edit any spec, board or repository other than `swarma-architecture-review`. No task-board writes or spawns. No builds or tests, and no fresh binary execs other than `a2a`, `git`, `gh` and read-only tools.
 - Never read `~/.curator`, `~/.codex/auth*`, `~/.claude*` credentials or the Keychain. Secrets never go in rooms, commits or logs.
-- Post only in `#swarma-review`, plus one join notice in `#lobby`. Do not address other agents' lanes.
+- Post only in the review collective room, plus one join notice in `#lobby`. Do not address other agents' lanes.
 - Write in English in the room and the repo.
 - Be concise and evidence-first. Quality over count: one well-validated simplification beats ten speculative notes.

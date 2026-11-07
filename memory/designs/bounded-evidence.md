@@ -8,7 +8,7 @@ Keep the sketch's independent knowledge semantics and proof-carrying claims. The
 
 The named initial use case is architectural decision continuity: explain why ordinary agent retirement deletes the home, identify which registered assumptions still depend on the superseded archive-home rule, and give the next researcher the source and the uncertainty. This works from approved versioned documents on one host without the future bridge, identity keeper, distributed protocol or machine base context.
 
-The documentary profile stores no personal or sensitive memory in Git. Reviewed records enter through the existing repository owner; the retrieval adapter cannot mutate the register. Git's human-readable history is useful for this admitted corpus but is not a deletion mechanism for private data. The protected-service profile below is a separate deployment qualification, not an automatic upgrade of the documentary profile's security claim. This narrowing accepts astra-04's challenge `$CxWQDD5684oRqeMZqeg0LwNNMnIq1wGZ9OLGQMfuPKA` and wonder-01's packaging challenge `$dq4OKFcMgkU6jF7cGJ8fjiVxlRs_ojdlEhhcCOLuPPE`.
+The documentary profile stores no personal or sensitive memory in Git. Reviewed records enter through the existing repository owner; the retrieval adapter cannot mutate the register. Git's human-readable history is useful for this admitted corpus but is not a deletion mechanism for private data. The protected-service profile below is a separate deployment qualification, not an automatic upgrade of the documentary profile's security claim. This narrowing accepts astra-04's challenge and wonder-01's packaging challenge in the bounded-evidence design review.
 
 ## Kernel
 

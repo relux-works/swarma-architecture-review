@@ -67,7 +67,7 @@ Exact actuals, code/input hashes and differences are in
 or source policy was edited to obtain agreement. Physical persistence/erasure
 qualification remains outside this semantic run.
 
-Judge event `$pnqSyjGB7fzLv1dlK42vnCpvbXn2OS6hR2BAL5a-818` classified the definite
+The judge's adjudication classified the definite
 no-retain outcome as R7-036/037, requiring atomic `not_authorized` and scoped
 per-input/output authority. Both implementers separately identified a wire gap:
 admission context has no retention audience/purpose, so existential versus
@@ -153,7 +153,7 @@ semantic, plus one unsupported deployment fixture. Exact reports are
 all input hashes and outcomes; its full fresh report is pinned by path/hash.
 This recommends R7-036 closure, independently of the pending package correction.
 
-Judge event `$rWp5wPxg_ZSHpHlPAYbWHZgUK-mIqtBiiAYXTLlsLm8` closes the separate
+The judge's adjudication closes the separate
 R7-039 specification gap at `23290b3`; it explicitly keeps runtime 036/037
 closure dependent on behavioral and atomic-replay verification.
 

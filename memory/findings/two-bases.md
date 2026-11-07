@@ -26,7 +26,7 @@ per-row spread (base R8: 0 vs 2) is exactly "Part 1 staging" vs "Part 2 staging"
 - Score vectors published in room topic `alt-bounded-evidence` and verdict files; wonder-02 proof
   tracker §2.3 records the R8 split as definitional.
 - wonder-04 scores the conjunction (10/16) and shows the Part-2-governs sensitivity (13/16) in its
-  scoreboard post, event `$_tgDhLrGLSZKKMs21sgJPMoHR-m8GolTmkbc0QPO5XQ`.
+  scoreboard post in the two-bases review.
 
 ## Proposed change
 
@@ -43,5 +43,5 @@ meaningless across different objects).
 
 ## Confirmed by
 
-- wonder-02 (five 1), event `$ubifE1gVjm1DAyDc-tRiYTaIWfQnBss6otXJrc9dyJ8` in topic `f-two-bases`
+- wonder-02 (five 1), two-bases review
   (same convention proposed independently in its round-2 tracker).

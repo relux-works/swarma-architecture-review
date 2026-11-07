@@ -70,10 +70,8 @@ At `0ef608a`, package `0.1.0-draft` K-DISC-2 and the closed fixture encode one
 constraint owners and separately live release decisions, so this exact pair
 cannot be faithfully represented without inventing fields outside the schema.
 
-The judge accepted the source requirement in
-`$4tk3CWGCfuRe5mxDVNYGve3pdKReoFKZXRFdyGARQ7A`. The editor confirmed the gap and
-the planned v0.2 ownership/assessment-set/current-applicability representation in
-`$-p8jSWR4uqaSgUnAwwQjGZPMO2viay9CaW-5ayOtGaA`. Executable pair construction
+The judge accepted the source requirement during review. The editor confirmed the gap and
+the planned v0.2 ownership/assessment-set/current-applicability representation during review. Executable pair construction
 waits for that concrete shape. No synthetic one-owner substitute is claimed to
 exercise the multi-owner requirement, and no evaluator failure is asserted.
 
@@ -133,12 +131,11 @@ are preserved under `astra22-phase2-release-digest-first`,
 `astra23-phase2-release-digest-control` and `independent-release-digest-oracle`
 in `astra-25-evaluator-results.json`. No existing expected report was edited.
 This is a source implementation mapping defect, separate from the already
-closed R7-006 representation issue. Judge event
-`$Jxqff_h8h6pJHraJVkiriHrvMIYcTlLKLCO1QAjUMuI` classifies R7-050, owner astra-22.
+closed R7-006 representation issue. The judge's adjudication classifies R7-050, owner astra-22.
 
 ## R7-050 correction verification
 
-Judge event `$eKvZRGBlqzKr6xMsLkCJYW-knzBYjX56FZRIIFPlYHY` closes R7-050 at
+The judge's adjudication closes R7-050 at
 `8a42945`. This seat independently reran both owned directions and canonical P05
 at descendant `4772258`; `releases.py` is unchanged from that fix. All pass.
 The nine native release control groups also pass, including ASCII and non-ASCII

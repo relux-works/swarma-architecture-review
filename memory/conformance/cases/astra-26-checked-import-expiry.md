@@ -112,7 +112,7 @@ the judge's fixed-at-f10c7ba verification.
 
 ## Judge closure
 
-Judge event `$t62IzV7AQgzvkNmi_vyikVHDeAPF9N8MjuqfCuupUxk` independently
+The judge's adjudication independently
 reproduces ASTRA26-07, all 65 canonical rows and eight adapter controls against
 package 0.2.2, and closes R7-032 at `1f35727`. Both implementation rows are
 therefore fixed; historical first failures and the current regression remain.

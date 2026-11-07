@@ -69,7 +69,7 @@ arbitrary proof enumeration.
 
 ## Round 14 source proof verification
 
-Judge event `$UZdvnT7Rr6M6qyXZtyxf8uTE5OE3ivlwsPrlANzmCnw`, persisted at
+The judge's adjudication, persisted at
 `945096f`, confirms the distinction is already explicit and retains the case
 as R7-035 regression coverage. No specification change was requested.
 

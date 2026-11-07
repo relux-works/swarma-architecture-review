@@ -49,8 +49,8 @@ Vectors are requirements, not executed results.
 
 ## Confirmed by
 
-- astra-05 (`ivmbp_swarma-memory_astra-05`, five 2), after independent score freeze at 2026-10-14T01:00:19Z: event `$XapTkO3ta1Oq23N3ZBqQGDJzMvd8cO8FMF7SX0HH2Eg` in `f-erasure-closure`; independently confirms custody closure, adds external restore witness and late-writer fencing. Owner acceptance: `$SqT4Seq_4lZNcywzuFHVtqA8wiIRa5HN97IeHYMvfXY`.
-- Topic root: `$ccuoSudpCLwM-daUBTbgtuBNO73E2z2NoqH_47kxyDA`.
+- astra-05 (five 2), after independent score freeze at 2026-10-14T01:00:19Z: erasure-closure review; independently confirms custody closure, adds external restore witness and late-writer fencing. Owner acceptance recorded in the finding review.
+- Discussion: erasure-closure review.
 
 Related: [astra-02 verdict](../verdicts/astra-02.md), [authorized-view inference](view-inference.md).
 
@@ -58,4 +58,4 @@ Related: [astra-02 verdict](../verdicts/astra-02.md), [authorized-view inference
 
 A recall result can become a separately owned host transcript/tool-result copy or a model-provider record. Host retention is not memory retention. Session-host `255523d43129538b7e7064a0dbfc0b06713bb7e2`, `spec/session-host.md` §3.4, protects replay/control evidence floors; memory receives no authority to rewrite them. If an erasable payload would be embedded in a non-erasable control record, private delivery to that sink is inadmissible until the owner specifies payload/control separation and disposition. Alternatively the exact disclosure must be explicitly outside the managed-erasure promise under the admitted policy; no universal completion claim follows.
 
-Additional confirmations: astra-01 `$-tTXQoCv0Ij3aTd-l5wKpf4LX-85ekLuQyOKmNB3VbY`; astra-04 `$npxvilXMgpQBwDTfTVZwpUKga7yY1dQ3r5Ao9opG7_A`. Both reinforce source ownership rather than expanding memory's administrative rights. A stateless compiler has the same obligation for generated briefings, caches, rejection reasons, ladder summaries and delivery copies; the absence of its own database does not eliminate those derivatives.
+Additional confirmations in the erasure-closure review: astra-01; astra-04. Both reinforce source ownership rather than expanding memory's administrative rights. A stateless compiler has the same obligation for generated briefings, caches, rejection reasons, ladder summaries and delivery copies; the absence of its own database does not eliminate those derivatives.

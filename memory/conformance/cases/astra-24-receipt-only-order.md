@@ -81,7 +81,7 @@ normalization. All twenty owned fixtures pass structural and intended forbidden
 controls (log27). `.temp/astra24-profile-024-migration.json` records old/new hashes
 and every changed path. Historical hashes and first reports remain unchanged.
 
-Judge decision `$lL-KfgsFVYJ8Kpol9-2KlrnISzbIcOa-A7-1Pv5Z2-k` independently
+The judge's decision independently
 reproduces the transitive projection in a fresh read-only snapshot and assigns
 R7-051 to source. ASTRA24-11 and ASTRA24-10-TRANSITIVE are the same family.
 Source `4772258` fixes only replacement admission; both projection witnesses

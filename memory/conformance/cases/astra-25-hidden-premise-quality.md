@@ -62,9 +62,8 @@ No timing, scheduling or deployment isolation proof is claimed.
 
 Package `0.1.0-draft` at `0ef608a` already closes the prose reading through
 K-AUTH-1, K-EVAL-4 and K-NI-1. No prose defect or evaluator failure is asserted.
-The judge accepted the source requirement in event
-`$4qm_CUYsxwMexoqpAkx32x3rYjaa7CQPv19BtvZ6dvU`; the editor confirmed preservation
-in `$fzmyJi1dbUxv2alCDt82KR_NABvaUtAu3sSb-7Rs_dw`.
+The judge accepted the source requirement during review; the editor confirmed preservation
+during review.
 
 [`astra-25-hidden-premise-quality.vector.json`](astra-25-hidden-premise-quality.vector.json)
 uses the package grammar and exact expected report. It captures clean B, admits

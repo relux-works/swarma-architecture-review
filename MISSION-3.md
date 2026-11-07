@@ -83,21 +83,23 @@ Owner decisions are in `wiki/decisions.md` and the D-* decisions of the specs. D
 
 Start with the book (v0.9 plus the 13.10 sections in chapters 11 and 14), then the specs.
 
+Portable source locators below use caller-supplied read-only checkouts: `<source-root>` contains the source repositories in the directory layout shown, `<a2a-swarm-checkout>` is the coordination-bus checkout, and `<review-context>` contains the review context and input copies. `<review-work-dir>` is the reviewer's own directory; `<review-checkout>` is its `swarma-architecture-review` clone. These locators do not change source versions or copy obligations.
+
 | What | Where |
 |---|---|
-| The book (Russian) | `~/Developer/ReluxWorks/wiki/book/swarma/ru/*.md`, figures `book/swarma/src/*.puml` |
-| Owner decisions, glossary, names | `~/Developer/ReluxWorks/wiki/decisions.md`, `glossary.md`, `naming.md` |
-| User manager + launcher | `~/Developer/ReluxWorks/platform/curator-host-helper/spec/helper.md`, `diagrams/` |
-| Dispatcher (incl. `schemas/`) | `~/Developer/ReluxWorks/platform/curator-dispatcher/` |
-| Credential broker | `~/Developer/ReluxWorks/platform/curator-credential-broker/spec/broker.md`, `diagrams/` |
-| Session host | `~/Developer/ReluxWorks/platform/curator-session-host/spec/session-host.md`, `docs/`, `diagrams/` |
-| Curator: CIPs (remote worker, donor, credentials, broker) | `~/Developer/ReluxWorks/curator/curator-spec/` (`cips/`, `protocol/`, `decisions/`) |
-| Agent launcher (`curator-run`) | `~/Developer/ReluxWorks/curator/curator-agent-launcher/SPEC.md`, `diagrams/` |
-| Network profiles (N15, N16) | `~/Developer/ReluxWorks/curator-network-profiles/` |
-| Trust contract and VISION | `~/Developer/ReluxWorks/swarma-review/context/swarm-platform-architecture` (read-only clone at main) |
-| Board import spec draft (spm PR #604) and the RWP protocol v2.1 | `~/Developer/ReluxWorks/swarma-review/context/inputs/` |
-| spm (the monolith being split) | `~/Developer/ReluxWorks/skill-project-management/.specs/` |
-| Coordination bus | `~/src/a2a-swarm/docs/protocol.md`, `docs/cli.md` |
+| The book (Russian) | `<source-root>/wiki/book/swarma/ru/*.md`, figures `book/swarma/src/*.puml` |
+| Owner decisions, glossary, names | `<source-root>/wiki/decisions.md`, `glossary.md`, `naming.md` |
+| User manager + launcher | `<source-root>/platform/curator-host-helper/spec/helper.md`, `diagrams/` |
+| Dispatcher (incl. `schemas/`) | `<source-root>/platform/curator-dispatcher/` |
+| Credential broker | `<source-root>/platform/curator-credential-broker/spec/broker.md`, `diagrams/` |
+| Session host | `<source-root>/platform/curator-session-host/spec/session-host.md`, `docs/`, `diagrams/` |
+| Curator: CIPs (remote worker, donor, credentials, broker) | `<source-root>/curator/curator-spec/` (`cips/`, `protocol/`, `decisions/`) |
+| Agent launcher (`curator-run`) | `<source-root>/curator/curator-agent-launcher/SPEC.md`, `diagrams/` |
+| Network profiles (N15, N16) | `<source-root>/curator-network-profiles/` |
+| Trust contract and VISION | `<review-context>/swarm-platform-architecture` (read-only clone at main) |
+| Board import spec draft (spm PR #604) and the RWP protocol v2.1 | `<review-context>/inputs/` |
+| spm (the monolith being split) | `<source-root>/skill-project-management/.specs/` |
+| Coordination bus | `<a2a-swarm-checkout>/docs/protocol.md`, `docs/cli.md` |
 
 Local directories still carry the former `curator-*` names; the components are `swarma-*` (see `wiki/naming.md`).
 
@@ -163,7 +165,7 @@ You start with one lens. Roam beyond it and challenge the others. Everyone share
 - Seats on the second machine use that machine's forward to the same server. Their identities carry that host's prefix.
 
 **Collaboration**
-- Post in `#swarma-review-3`, one topic per candidate, with the slug `f-<short-name>`. With 24 seats, keep the room quiet:
+- Post in the cycle-3 review collective room, one topic per candidate, with the slug `f-<short-name>`. With 24 seats, keep the room quiet:
   - run `a2a topics swarma-review-3` before you open a topic, and join an existing one instead of duplicating it;
   - no chatter; replies are confirmations, refutations or evidence;
   - one round marker per round in `rounds`.
@@ -204,7 +206,7 @@ On PARK:
 - **Muse (wonder):** `muse exec` with its OS sandbox. Writes only in its own directory; network enabled for `a2a` and `git`; web tools disabled. Its `a2a` state lives in `A2A_CONFIG_DIR` inside its directory.
   - Host rule R246 applies. Never run `muse login`, `logout`, `auth` or any store-touching subcommand.
   - Never read Muse's auth files or Keychain items.
-  - If a turn fails with an authentication error, STOP. Post one line in `#macmini-infra` (topic `requests`) and in `#swarma-review-3`, and do not retry.
+  - If a turn fails with an authentication error, STOP. Post one line in `#macmini-infra` (topic `requests`) and in the cycle-3 review collective room, and do not retry.
 
 Everything outside your own directory is read-only for you. `gh` may not work; use `git` over SSH.
 
@@ -214,5 +216,5 @@ Everything outside your own directory is read-only for you. `gh` may not work; u
 - Docs-only. No spec, board or repo edits besides `swarma-architecture-review`. No task-board writes or spawns, no builds or tests, and no binaries other than `a2a`, `git` and read-only tools.
 - No web access. The operator's web-free rule of 2026-10-13 applies to this cycle too.
 - Never read `~/.curator`, `~/.codex/auth*`, Claude or Muse credentials, or the Keychain. Secrets never go in rooms, commits or logs.
-- Post only in `#swarma-review-3`, plus one join notice in `#lobby`.
+- Post only in the cycle-3 review collective room, plus one join notice in `#lobby`.
 - English in the room and the repo. Be concise and evidence-first; quality over count.
