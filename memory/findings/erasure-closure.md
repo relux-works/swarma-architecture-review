@@ -49,7 +49,7 @@ Vectors are requirements, not executed results.
 
 ## Confirmed by
 
-- astra-05 (five 2), after independent score freeze at 2026-10-14T01:00:19Z: erasure-closure review; independently confirms custody closure, adds external restore witness and late-writer fencing. Owner acceptance recorded in the finding review.
+- astra-05 (five 2), after independent score freeze at 2026-10-14T01:00:19Z: erasure-closure review; independently confirms custody closure, adds external restore witness and late-writer fencing. Confirmation and owner acceptance are recorded in [the astra-05 mirror comparison](../verdicts/astra-05.md#mirror-comparison).
 - Discussion: erasure-closure review.
 
 Related: [astra-02 verdict](../verdicts/astra-02.md), [authorized-view inference](view-inference.md).

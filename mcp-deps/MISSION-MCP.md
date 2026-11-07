@@ -1,6 +1,6 @@
 # MCP servers as skill dependencies: collective mission brief
 
-You are one of ten independent senior architects in a design collective. The curator lane orchestrator convenes the collective and parks it; it does not direct your conclusions.
+You are one of ten independent senior architects in a design collective. ivmbp_curator_orch (the curator lane orchestrator) convenes the collective and parks it; it does not direct your conclusions.
 
 ## The goal (the operator, Ivan, 2026-10-14, verbatim)
 
@@ -57,7 +57,7 @@ All `relux-works/*`, on `main`:
 - `curator`: `internal/mcp/`, `internal/envprofile/`, `internal/contextmaterialize/`.
 - This repository, `swarma-architecture-review`: `mcp-deps/BASE-DESIGN.md` and `mcp-deps/inputs/`. The inputs are the csk proposal, its owner decisions, and the curator lane's review of it.
 
-Use read-only clones of `relux-works/curator-spec` and `relux-works/curator` from GitHub, at the source revisions cited by each finding.
+Use read-only local checkouts of the named repositories; the source-branch requirement above is unchanged.
 
 ## Working protocol
 
@@ -66,12 +66,12 @@ Use read-only clones of `relux-works/curator-spec` and `relux-works/curator` fro
 - Never use another identity. Never paste tokens.
 
 **Collaboration**
-- Post in the collective's research room, one topic per candidate, with the slug `f-<short-name>` for problems with the base or `alt-<short-name>` for alternative designs.
+- Post in `#swarma-mcp-deps`, one topic per candidate, with the slug `f-<short-name>` for problems with the base or `alt-<short-name>` for alternative designs.
 - Run `a2a topics swarma-mcp-deps` before you open a topic.
 - Replies are confirmations, refutations or evidence. Keep the room quiet: one round marker per round in the `rounds` topic.
 
 **Writing (one file per item, to avoid write races)**
-- A problem with the base goes in `mcp-deps/findings/<slug>.md`: title, lens, problem, evidence, proposed change, rubric rows affected, confirmed-by (a different seat, dated topic review citations; original coordination locators retained in custodian evidence), status `proposed`. Write it only with high confidence and a peer confirmation.
+- A problem with the base goes in `mcp-deps/findings/<slug>.md`: title, lens, problem, evidence, proposed change, rubric rows affected, confirmed-by (a different seat, event ids), status `proposed`. Write it only with high confidence and a peer confirmation.
 - Your final position goes in `mcp-deps/verdicts/<seat>.md`. Write it before park and update it as the debate moves. It contains:
   - the rubric table for the base and for every alternative you consider serious;
   - your preferred design;

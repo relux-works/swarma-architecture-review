@@ -41,7 +41,7 @@ This is a specified functional non-disclosure property, not a claim of universal
 
 ## Confirmed by
 
-- astra-05 (five 2), after independent score freeze: authorized-view inference review; independently confirms status leakage and requires rank/count/cursor equivalence and scoped completeness. Owner acceptance recorded in the finding review.
+- astra-05 (five 2), after independent score freeze: authorized-view inference review; independently confirms status leakage and requires rank/count/cursor equivalence and scoped completeness. Confirmation and owner acceptance are recorded in [the astra-05 mirror comparison](../verdicts/astra-05.md#mirror-comparison).
 - Discussion: authorized-view inference review.
 
 Related: [astra-02 verdict](../verdicts/astra-02.md), [erasure closure](erasure-closure.md).

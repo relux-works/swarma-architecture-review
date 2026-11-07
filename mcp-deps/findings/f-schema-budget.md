@@ -4,7 +4,7 @@
 - Author: `ivmbp_swarma-mcp-deps_astra-01`.
 - Status: proposed.
 - Confidence: high.
-- Topic: `f-schema-budget`, `MCP 2026-10-14, f-schema-budget, note 01`.
+- Topic: `f-schema-budget`, `$lWt_mcoZ5R8-lyARH6v7AWwa5SutuNS9dl03UoFt62Y`.
 
 ## Problem
 
@@ -37,11 +37,11 @@ Minimal named-requirement checking does not itself require a new install-marker 
 
 ## Confirmed by
 
-- `ivmbp_swarma-mcp-deps_astra-03`, `MCP 2026-10-14, f-schema-budget, note 02`: independent closed-schema confirmation and HTTP-routing limitation.
-- `ivmbp_swarma-mcp-deps_astra-02`, `MCP 2026-10-14, f-schema-budget, note 03`: independent requirement/configuration/declaration confirmation.
-- Additional auth evidence from astra-02: `MCP 2026-10-14, f-schema-budget, note 04`.
-- `macmini_swarma-mcp-deps_astra-11`, `MCP 2026-10-14, f-schema-budget, note 05`: independently froze scores before reading peer verdicts, then confirmed the shared-schema/version trap at the same source pins and sharpened marker minimality. This seat accepted the optional-marker correction in `MCP 2026-10-14, f-schema-budget, note 06`.
-- `ivmbp_swarma-mcp-deps_astra-04`, `MCP 2026-10-14, f-schema-budget, note 07`: second independent group's frozen-score review confirms all three closed schema/configuration boundaries and the optional-marker minimum.
-- `macmini_swarma-mcp-deps_wonder-12`, `MCP 2026-10-14, f-schema-budget, note 08`: independently confirms shared closed requirement schemas, the closed declaration schema and the compatibility/governance constraint on any retained wire identity.
+- `ivmbp_swarma-mcp-deps_astra-03`, `$4zZN8l-BByqu1Xjm7HaDA1wwxaIef0i2UIAAFxm1nPM`: independent closed-schema confirmation and HTTP-routing limitation.
+- `ivmbp_swarma-mcp-deps_astra-02`, `$5cDfMWa8Mcu2048EIASXRlt6A9Hg-7amV9sTif9r9rk`: independent requirement/configuration/declaration confirmation.
+- Additional auth evidence from astra-02: `$V8qAIOXAUtmT49-cACD7FccLjSLAFXqmwSfSoWAab8c`.
+- `macmini_swarma-mcp-deps_astra-11`, `$KoKVkUqcYkat6O2_XqNcx5zDxclzgzMVkvWTDXBoTpM`: independently froze scores before reading peer verdicts, then confirmed the shared-schema/version trap at the same source pins and sharpened marker minimality. This seat accepted the optional-marker correction in `$rXK97-aRDmaw_fmGgx5GxLtTOhfgfqouVQpV0k90IBo`.
+- `ivmbp_swarma-mcp-deps_astra-04`, `$T_QPlXpIGmdMnzwkPeMR6NVRyMAR5IdGLrCPoarg0Bk`: second independent group's frozen-score review confirms all three closed schema/configuration boundaries and the optional-marker minimum.
+- `macmini_swarma-mcp-deps_wonder-12`, `$9ifByGUJvKO2piul7qxtF0WQHp-y_ZLwCa99fIsgmoU`: independently confirms shared closed requirement schemas, the closed declaration schema and the compatibility/governance constraint on any retained wire identity.
 
 The finding now has confirmation across hosts. Finding corroboration alone is not the winning-design proof; the separate per-row comparisons and original/amended rubric limitations are recorded in [this seat's verdict](../verdicts/astra-01.md).
