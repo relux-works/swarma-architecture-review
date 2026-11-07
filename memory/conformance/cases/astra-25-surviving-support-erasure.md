@@ -63,8 +63,7 @@ completion and expose any unsupported deployment operation explicitly.
 At `0ef608a`, package `0.1.0-draft` K-ERASE-1/2/3 already requires content/custody
 closure, incomplete receipts for unreachable sinks, and current-generation
 rejection of erased lineage. No prose defect or evaluator failure is asserted.
-The judge accepted the source requirement in
-`$oux3OwHwQeLafO_HZvK8vHFsSwjDwRLhAI2ts4XZkoY`.
+The judge accepted the source requirement during review.
 
 - [`astra-25-surviving-support-erasure.vector.json`](astra-25-surviving-support-erasure.vector.json):
   C and its independent root remain supported while A and its summary enter the

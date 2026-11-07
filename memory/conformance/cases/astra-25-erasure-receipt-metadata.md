@@ -69,7 +69,7 @@ phase-2 coverage work; no dual execution claim is made. This is semantic metadat
 disclosure evidence, not proof of actual storage purge or timing isolation.
 
 
-Judge R7-031 (`$JPPhod2ZE3Dm7yPZZY1gOh8KGSHsO6j0Fi33ewipx7o`) confirms the
+Judge R7-031 confirms the
 existing source constraint and wire/profile gap. The accepted correction specified explicit
 actor-bound `receipt_context {audience, purpose}` with pre-fence authorization,
 including idempotency/revocation controls. Neither the later query nor a union of
@@ -117,7 +117,7 @@ original receipt only when currently authorized. Exact evidence entries are
 receipt contract; it does not establish physical purge or general side-channel
 isolation. Judge owns final R7-031 closure.
 
-Judge closure `$31IyK5gwGSJaMRrozQ-A02a1oUfrXbHkp9e1ZaOGWjI` independently
+The judge's closure independently
 reproduces all canonical results, all 18 controls and all three owned receipt
 traces. R7-031 is fixed at package `7e71765` with runtime `a016781`; first red
 evidence remains immutable.
@@ -159,7 +159,7 @@ metadata-disclosure closure remains intact.
 
 ## R7-057 classification and exact regression pair
 
-Judge event `$eZJtQ5NtpfBEb7qFsk54ePTdCFPWyGbT_S4eBcV9FM8` classifies the
+The judge's adjudication classifies the
 source behavior as R7-057 implementation bug and authorizes exact supplementary
 fixtures. The expected refusal is `idempotency_conflict`, `retryable: false`,
 after current erase operation authority. Exact replay still reauthorizes every
@@ -203,6 +203,6 @@ Runs `astra22-phase2-025-erase-conflict-corrected`,
 failures and fixture bytes remain unchanged. Recommend judge closure of R7-057;
 ASTRA25-12 restore obligations remain a separate package finding.
 
-Judge `$gEHHYy2OeM-zzow_LLsQk2oL17CygOcHKE1ZmXyb1wI`, signed e3d44df,
+The judge's decision, signed e3d44df,
 closes R7-057 at946cbd8 after full exact/native reproduction. First wrong-code
 observations and both author-owned exact inputs remain unchanged.

@@ -110,7 +110,7 @@ These tests cover exact authorized candidates and authority order, not hidden
 head disclosure or arbitrary authority graphs. Scoped authorization and receipt
 ordering must still precede any externally visible conclusion.
 
-Judge decision `$jWF7PS9bJWLBKtoGF2OqBiJIlvcfYJB7WzuI6j5fxPw`, persisted
+The judge's decision, persisted
 in round18 at `1cdcb36`, accepts the exact primary/control separation as
 R7-040 source and R7-041 package. No specification change or owner decision
 is required. Historical-head and challenge neighbors were sent for consolidation
@@ -205,7 +205,7 @@ methods. The initial remaining-head failure `bd75f4f` and first source reports
 remain immutable. R7-040 closure is recommended after the judge's own gates;
 full retention enforcement and canonical unsupported operations are separate.
 
-Judge decision `$tmfi_3vaCFABPnbEDIekguKbs5okvS5uAK-igNNYZng` closes R7-040 at
+The judge's decision closes R7-040 at
 `99b5a85` after independent frozen 0.2.2 verification of all five CAS cases,
 14 transaction controls and canonical 49/0/8. This seat separately verifies the
 explicitly migrated 0.2.3 cases above; the two release claims remain distinct.

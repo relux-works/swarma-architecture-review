@@ -80,7 +80,7 @@ architecture question. Existing CAS head-selection fixes remain separately valid
 
 ## Round 25 adjudicated exact vectors
 
-Judge decision `$oswbTe0Ndkm1yCdJdGq7nbrO9wT2oEUuevIL7-Sa6Zk` assigns
+The judge's decision assigns
 R7-047/R7-048 to the two implementation gaps and R7-049 to the missing wire-code
 mapping. The required negative result is `authority_receipt_required`,
 `retryable=false`, including an incomparable, prior or identical receipt. A

@@ -67,7 +67,7 @@ No protected-deployment qualification is claimed.
 
 ## Judge disposition
 
-Judge event `$Y8OHdh7iDMe_LPy7R9JzU80dB6gLZcU1j9HGQrDTFcg` independently
+The judge's adjudication independently
 reproduces all three fixtures and classifies R7-044 as a package implementation
 bug. Exact source checks cannot transfer through origin deduplication. No spec
 change or owner question is required. The package implementer's independent
@@ -99,7 +99,7 @@ retained. Independent closure evidence has been sent to the judge.
 
 ## Judge closure
 
-Judge event `$G--edKuqkU1ptO6Zc7tC1mISY_NZF-JzmmRuXO1ky_k` closes R7-044
+The judge's adjudication closes R7-044
 at `f6c339d`. Its exact frozen 0.2.2 run reproduces 57/57 canonical vectors,
 all three owned witnesses and 18 product plus four harness controls, including
 missing exact checks and hidden publications. The immutable first failure is

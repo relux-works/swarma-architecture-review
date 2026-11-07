@@ -54,7 +54,7 @@ Code/input hashes and exact results are in
 This is modeled lineage/fence/custody behavior, not actual deletion evidence.
 Keep the pair for the source implementation's phase-2 erasure run.
 
-Judge event `$Gfb8hRoyoU6bjoszyLeRlFn2ss9BBGiDTXjcxGzfih8` independently validates
+The judge's adjudication independently validates
 both original fixtures and exact package outcomes. No source ambiguity, new
 architecture or package correction is required. The `0.2.2` owned migration run
 retains both package passes and explicit source unsupported results.

@@ -127,8 +127,7 @@ The ledger and complete owner question were read back after the Round 34 rebase.
 This establishes the source-level uncertainty, not an implementation defect.
 The original same-issuer R7-048/R7-051 fixes remain valid.
 
-The convener explicitly holds the question for Ivan in event
-`$wrLtxOryOvNuOttDN4ofHbvs0INg6jS0hLEpgMJ58wk`. Until an attributed owner
+The convener explicitly holds the question for Ivan in the recorded owner hold. Until an attributed owner
 decision, neither authority option nor mixed-edge invalidity is applied, and
 the native pair is neither a pass nor a fail in any exact-vector denominator.
 The two inputs and both first outputs retain their original bytes from `4424598`.

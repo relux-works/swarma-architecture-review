@@ -66,8 +66,7 @@ cannot satisfy the pair. Historical cut behavior remains governed by K-TIME-1.
 The pair uses the actual closed package grammar, not a hypothetical extra field.
 Expected observations are derived from the source non-interference requirement;
 the competing dirty result follows the package's explicit operational clause.
-The judge classified this contradiction as R7-018 in
-`$D0a-8XDYarvyPLYMfKbRvVIcsEaYLn2GtBqouYz-NDw`; astra-21 accepted the fix.
+The judge classified this contradiction as R7-018 during review; astra-21 accepted the fix.
 No physical timing or protected-deployment qualification is claimed.
 
 Both vectors pass the released package's schema, reference, normalization and

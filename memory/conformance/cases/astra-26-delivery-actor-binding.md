@@ -64,7 +64,7 @@ the contract; they do not define the expected verdict by implementation consensu
 
 ## Judge disposition
 
-Judge event `$g9ovpw6DYL8Zlps7PFLbTJ48DFO_AnuBgVT9hrvJ5tA` independently
+The judge's adjudication independently
 reproduces the unauthorized receipt and exact source pass, classifying R7-046 as
 a package implementation bug. Required outcome is not_authorized without state
 or external effects. The finding is deliberately limited to the ungranted actor;
@@ -96,7 +96,7 @@ synthetic result makes no live delivery or protected-deployment claim.
 
 ## Judge closure
 
-Judge event `$yjV0b8Np4X4WOpR5twcN5bIDbTo9nRpBvX9zWG8QBkg` closes R7-046
+The judge's adjudication closes R7-046
 at `3ce8ee3`. Independent byte-pinned 0.2.2 and current 0.2.3 actor vectors and
 controls pass, with complete state/binding preservation and rightful/revoked
 neighbors. The judge's current package run at `4af0360` passes 57/57 canonical

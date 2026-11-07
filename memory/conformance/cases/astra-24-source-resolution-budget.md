@@ -98,7 +98,7 @@ This observation is kept separate from the successful R7-027 verification.
 
 ## Source-resolution correction verified — round 11
 
-Judge event `$_nHN4l4lurg4x7z88Ie7my2bKrY65tHxu33Tb4NG5j8` classifies this
+The judge's adjudication classifies this
 as R7-028, separately from R7-027. Source correction `c923ebd` passes the unchanged
 exact fixture: bound 1 preserves the derived witness and exact source; bound 0
 returns no found witness or found-path provenance and the required source_limit.

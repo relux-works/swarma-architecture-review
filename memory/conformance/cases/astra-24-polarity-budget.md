@@ -101,7 +101,7 @@ not a duplicate count. At `f39af13`, the unchanged ASTRA24-05 still fails in
 
 ## Source correction verified — round 10
 
-Judge event `$Dp4_riQyF6haSd2qyOmKMURbHNt2rkZrFJBDw9-Ctlw` consolidates this
+The judge's adjudication consolidates this
 case into R7-027. At signed fix `4e647ea`, the unchanged exact fixture passes:
 both direct polarities retain their own bound-1 witness, bound 0 still rejects
 both walks, and bound 2 remains the positive equal-output control. No fixture

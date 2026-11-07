@@ -63,7 +63,7 @@ No physical deletion, remote custody or protected-deployment qualification follo
 
 ## Adjudicated mapping and exact witnesses
 
-Judge event `$JPRw0HAxhQiEJ-rN4erBtnvRBnBXixLi2Rap_jcFAN0` requires live retention
+The judge's adjudication requires live retention
 iff trusted `context.at` is strictly before every applicable non-null deadline.
 At or after expiry, return exactly `not_authorized`, `retryable: false`, in the
 current retention-authorization class before idempotency. Replay checks original
@@ -142,7 +142,7 @@ and state checks, not a physical-purge claim. Evidence runs are
 `astra22-canonical-025-deadline-corrected` and
 `astra22-native-deadline-025-corrected`.
 
-Judge event `$SbEXLoMfdvIL1PJIOlfGVne-nAiumUitpRJTZRnx5Z4` closes R7-054 at
+The judge's adjudication closes R7-054 at
 `6a04e8c`. This seat recommends R7-052 closure at `4a14a56` on the verified
 coverage above. Package R7-053 correction remains a separate verification unit.
 
@@ -160,11 +160,11 @@ idempotency, then separately checks the original stored outputs on replay.
 Exact corrected evidence is `astra23-phase2-025-deadline-corrected`,
 `astra23-deadline-atomic-corrected`, `astra23-canonical-025-deadline-corrected`
 and `astra23-native-deadline-025-corrected`. Earlier native and exact-vector
-failures are unchanged. Judge event `$HZk3768zLdVELKOLbBdEC07KP_j0-uY6h775onLttZc`
+failures are unchanged. The judge's adjudication
 closes source R7-052 at `4a14a56`. This seat recommends package R7-053 closure
 at `23b4d74`. All deployment fixtures remain unsupported.
 
-Judge event `$7LZ_jHBTMbdlYf2VDbojWWLtqduicbKXVYWAI_UMt-0`, signed ledger
+The judge's adjudication, signed ledger
 `13e3d73`, closes R7-053 at `23b4d74` after full canonical/supplemental and
 independent state-control reproduction. R7-052/053/054 are now all closed;
 first native/vector failures and all old input hashes remain preserved.

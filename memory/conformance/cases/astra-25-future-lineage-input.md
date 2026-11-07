@@ -67,7 +67,7 @@ hashes identify the executed bytes. The original canonical package's own 65
 vectors still structurally validated; this additional fixture is explicitly a
 known checker rejection, not reported as a structural pass or runtime defect.
 
-Judge event `$GMbY9p6_pemnZ4YJ4kSkLz6M9eJTAjloeXsRPKzFrmA` independently
+The judge's adjudication independently
 confirms the exact future-fact failure and both evaluator passes. It additionally
 checks unknown-lineage admitted B with missing known input A: this must remain
 invalid too. Defer input existence only for facts with unadmitted outputs; keep
@@ -92,6 +92,6 @@ and `astra23-phase2-023-first`. No evaluator or original expected report was
 altered to produce this correction. The earlier rejecting result remains in
 `checker-future-lineage-022`; this change does not erase the regression witness.
 
-Judge closure `$VnpOe2mi3GgXbmhsUHB1BX-Eu0mxKhwbHU7aOMnsqIk` verifies all the
+The judge's closure verifies all the
 above controls plus unchanged duplicate/direct-fact integrity and exact
 regeneration. R7-042 is closed; runtime retention remains separate.
