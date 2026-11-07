@@ -46,20 +46,22 @@ Owner decisions are listed in the sources (`wiki/decisions.md`, including the 20
 
 Start with the book, then go to the specs. The book's figures have PlantUML sources next to it.
 
+Portable source locators below use caller-supplied read-only checkouts: `<source-root>` contains the source repositories in the directory layout shown, `<a2a-swarm-checkout>` is the coordination-bus checkout, and `<review-context>` contains the review context and input copies. `<review-work-dir>` is the reviewer's own directory; `<review-checkout>` is its `swarma-architecture-review` clone. These locators do not change source versions or copy obligations.
+
 | What | Where |
 |---|---|
-| The book (Russian; full platform story, 16 chapters, figures) | `~/Developer/ReluxWorks/wiki/book/swarma/ru/*.md`, figures in `book/swarma/src/*.puml`, PDF `book/swarma/swarma-book.ru.pdf` |
-| Owner decisions, glossary, names | `~/Developer/ReluxWorks/wiki/decisions.md`, `glossary.md`, `naming.md` |
-| Session-host architecture (Russian; §0 indexes the canon) | `~/Developer/ReluxWorks/wiki/session-host/architecture.ru.md` |
-| User manager + launcher | `~/Developer/ReluxWorks/platform/curator-host-helper/spec/helper.md`, `diagrams/` |
-| Dispatcher | `~/Developer/ReluxWorks/platform/curator-dispatcher/spec/dispatcher.md`, `diagrams/` |
-| Credential broker | `~/Developer/ReluxWorks/platform/curator-credential-broker/spec/broker.md`, `diagrams/` |
-| Session host | `~/Developer/ReluxWorks/platform/curator-session-host/spec/session-host.md`, `docs/`, `diagrams/` |
-| Curator: profiles, environments, CIPs (remote worker, donor, executor, wire names) | `~/Developer/ReluxWorks/curator/curator-spec/` (`protocol/`, `cips/`, `decisions/`) |
-| Agent launcher (`curator-run`) | `~/Developer/ReluxWorks/curator/curator-agent-launcher/SPEC.md`, `diagrams/` |
-| spm (the monolith being split) | `~/Developer/ReluxWorks/skill-project-management/.specs/` |
-| Coordination bus protocol | `~/src/a2a-swarm/docs/protocol.md`, `docs/cli.md` |
-| Platform architecture repo (trust contracts, VISION sequences) | `~/Developer/ReluxWorks/swarma-review/context/swarm-platform-architecture` (a read-only clone; `gh` does not work inside your sandbox) |
+| The book (Russian; full platform story, 16 chapters, figures) | `<source-root>/wiki/book/swarma/ru/*.md`, figures in `book/swarma/src/*.puml`, PDF `book/swarma/swarma-book.ru.pdf` |
+| Owner decisions, glossary, names | `<source-root>/wiki/decisions.md`, `glossary.md`, `naming.md` |
+| Session-host architecture (Russian; §0 indexes the canon) | `<source-root>/wiki/session-host/architecture.ru.md` |
+| User manager + launcher | `<source-root>/platform/curator-host-helper/spec/helper.md`, `diagrams/` |
+| Dispatcher | `<source-root>/platform/curator-dispatcher/spec/dispatcher.md`, `diagrams/` |
+| Credential broker | `<source-root>/platform/curator-credential-broker/spec/broker.md`, `diagrams/` |
+| Session host | `<source-root>/platform/curator-session-host/spec/session-host.md`, `docs/`, `diagrams/` |
+| Curator: profiles, environments, CIPs (remote worker, donor, executor, wire names) | `<source-root>/curator/curator-spec/` (`protocol/`, `cips/`, `decisions/`) |
+| Agent launcher (`curator-run`) | `<source-root>/curator/curator-agent-launcher/SPEC.md`, `diagrams/` |
+| spm (the monolith being split) | `<source-root>/skill-project-management/.specs/` |
+| Coordination bus protocol | `<a2a-swarm-checkout>/docs/protocol.md`, `docs/cli.md` |
+| Platform architecture repo (trust contracts, VISION sequences) | `<review-context>/swarm-platform-architecture` (a read-only clone; `gh` does not work inside your sandbox) |
 
 Local repository directories still carry the former `curator-*` names; the components are named `swarma-*` (see `wiki/naming.md`).
 
@@ -67,9 +69,9 @@ Local repository directories still carry the former `curator-*` names; the compo
 
 You start with one lens. You are free to roam beyond it, and you are expected to challenge the others. All three of you share the consistency lens: cross-spec contradictions, invariants that should be stated once, properties that can be checked mechanically.
 
-1. **fable (`macmini_swarma-review-2_fable`, Claude Fable 5.1): trust and threat model.** External contributors in both directions: key classes, grants and delegation, revocation, the identity lifecycle, what a malicious host or a malicious agent can do.
-2. **opus (`macmini_swarma-review-2_opus`, Claude Opus 5.5): reliability and recovery.** Failure, crash and recovery paths, reconciliation, unknown-vs-absent, idempotency, fences and epochs, durability ordering, maintenance and restore.
-3. **astra (`macmini_swarma-review-2_astra`, Codex gpt-6-astra): simplicity and operations.** Component count, privileged surfaces, wire objects, states, duplicated responsibilities; the operator's day-to-day work and the cut-over out of the spm monolith; what to build first.
+1. **fable (Claude Fable 5.1): trust and threat model.** External contributors in both directions: key classes, grants and delegation, revocation, the identity lifecycle, what a malicious host or a malicious agent can do.
+2. **opus (Claude Opus 5.5): reliability and recovery.** Failure, crash and recovery paths, reconciliation, unknown-vs-absent, idempotency, fences and epochs, durability ordering, maintenance and restore.
+3. **astra (Codex gpt-6-astra): simplicity and operations.** Component count, privileged surfaces, wire objects, states, duplicated responsibilities; the operator's day-to-day work and the cut-over out of the spm monolith; what to build first.
 
 ## Working protocol
 
@@ -79,12 +81,12 @@ You start with one lens. You are free to roam beyond it, and you are expected to
 - Never use another identity. Never paste tokens anywhere.
 
 **Collaboration**
-- Post findings and proposals in `#swarma-review-2`, in topics. One topic per candidate finding, slug `f-<short-name>`.
+- Post findings and proposals in the cycle-2 review collective room, in topics. One topic per candidate finding, slug `f-<short-name>`.
 - Validate or refute each other's candidates with evidence, citing spec sections, file:line and book chapters.
 - Disagreement is welcome; resolve it with evidence.
 
 **The findings file**
-- File: `FINDINGS.md` in the private repo `relux-works/swarma-architecture-review`. Continue the numbering after F-11, under the heading `# Cycle 2`. Your clone is already at `~/Developer/ReluxWorks/swarma-review-2/<role>/swarma-architecture-review`.
+- File: `FINDINGS.md` in the private repo `relux-works/swarma-architecture-review`. Continue the numbering after F-11, under the heading `# Cycle 2`. Your clone is already at `<review-checkout>`.
 - Append an entry ONLY when the finding has high confidence AND at least one other reviewer has confirmed it in the room (cite the event id).
 - Entry format:
   - id `F-<n>`;
@@ -125,7 +127,7 @@ You start with one lens. You are free to roam beyond it, and you are expected to
 
   Anything else is denied without a prompt. Do not try to work around a denial; note it in the room if it blocks you.
 
-Your own directory is `~/Developer/ReluxWorks/swarma-review-2/<role>/`. Everything outside it is read-only for you by design. That includes the spec repos, the wiki, `~/.curator`, `~/.codex`, `~/.claude` and `~/.agents`. `gh` may not work. Use `git` over SSH: signed commits and push to the findings repo.
+Your own directory is `<review-work-dir>/`. Everything outside it is read-only for you by design. That includes the spec repos, the wiki, `~/.curator`, `~/.codex`, `~/.claude` and `~/.agents`. `gh` may not work. Use `git` over SSH: signed commits and push to the findings repo.
 
 ## Hard rules
 
@@ -133,6 +135,6 @@ Your own directory is `~/Developer/ReluxWorks/swarma-review-2/<role>/`. Everythi
 
 - **Docs-only.** Do not edit any spec, board or repository other than `swarma-architecture-review`. No task-board writes or spawns. No builds or tests, and no fresh binary execs other than `a2a`, `git`, `gh` and read-only tools.
 - Never read `~/.curator`, `~/.codex/auth*`, `~/.claude*` credentials or the Keychain. Secrets never go in rooms, commits or logs.
-- Post only in `#swarma-review-2`, plus one join notice in `#lobby`. Do not address other agents' lanes.
+- Post only in the cycle-2 review collective room, plus one join notice in `#lobby`. Do not address other agents' lanes.
 - Write in English in the room and the repo.
 - Be concise and evidence-first. Quality over count: one well-validated simplification beats ten speculative notes.

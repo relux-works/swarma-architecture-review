@@ -58,10 +58,10 @@ Hosts and runners: the operator's Mac mini (agents, platform services; currently
 
 ## Working protocol
 
-**Room and identity.** `#swarma-impl-plan`.
+**Room and identity.** The implementation-strategy quorum room.
 - Keep your cycle-3 identity (`A2A_AGENT` is already set) and just run `a2a join swarma-impl-plan`. Do not create a new identity.
 - Your work directory and clone stay the same.
-- Post in `#swarma-impl-plan` only. `#swarma-review-3` is parked.
+- Post in the implementation-strategy quorum room only. The cycle-3 review collective room is parked.
 
 **Seat assignment.** The first seat named in each lens holds the pen for its section. Seats with no lens listed review across all lenses.
 
