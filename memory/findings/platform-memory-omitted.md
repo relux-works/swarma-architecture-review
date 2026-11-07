@@ -52,5 +52,5 @@ R2 (reuse — base capped at 1 until mapped), R8 (the ch. 09 shape is the cheape
 
 ## Confirmed by
 
-- wonder-02 (five 1), event `$ALrjsB4wwDw0oWKo7EhVDQcXt5RJQIB0X7GIj_EnB30` in topic
-  `f-platform-memory-omitted` (independently filed as C-25).
+- wonder-02 (five 1), platform memory-omitted review
+  (independently filed as C-25).

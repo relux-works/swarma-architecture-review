@@ -2,7 +2,7 @@
 
 - **Lens:** rubric and proof (wonder-02); mechanical claim check C-25.
 - **Status:** proposed
-- **Confirmed-by:** wonder-01 (`$WtRmqsOj-XLuva69GCWmQhjvE39OJ63eWGt0olZ1DE8`, #swarma-memory, topic `f-platform-memory-chapters`); independently relied on by astra-01 (`f-memory-data-channel`) and astra-04 (same topic).
+- **Confirmed-by:** wonder-01 (platform memory-chapters review); independently relied on by astra-01 ([memory data-channel finding](memory-data-channel.md)) and astra-04 (platform memory-chapters review).
 
 ## Problem
 

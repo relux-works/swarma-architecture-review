@@ -30,6 +30,6 @@ R1 (minimal closed kernel), R6 (honest epistemics), R7 (deterministic conformanc
 
 ## Confirmed by
 
-- astra-06, five 2, `$9Og11QdbR3N1C-_IDJ_7DOz5rCLDQFEO0JmC0FlyiBM` in `f-conflict-semantics`: independently confirms signed support versus ATMS nogood distinction, withdrawal versus negation and distinct edge meanings.
-- astra-06 adversarial refinement `$xo9GjCq6DOlYLcCGOM8NsGmf8ax8frBJtWAL_Iq2YmE`; author response/adoption `$Wn4qxVWxqyUWx27i2Mf6KkDW5KjKhEmULrFXAuAT2IU`.
-- Candidate event `$S11M0JLIejp2VDPHjWALSFSFEJXh6sGbPwOxpC91fzo`.
+- astra-06, five 2, conflict-semantics review: independently confirms signed support versus ATMS nogood distinction, withdrawal versus negation and distinct edge meanings.
+- astra-06 adversarial refinement; author response/adoption recorded in the conflict-semantics review.
+- Candidate: this proposed finding.

@@ -32,8 +32,8 @@ This finding satisfies part of the base's requested audit. It does not justify a
 
 ## Confirmed by
 
-- wonder-01 (`ivmbp_swarma-memory_wonder-01`, five 1), independent pinned-source confirmation: `$CK_BbKpnIp2BGqGZW6Hhh3uU11bDJcHS5C4gO_b3WsA` in `f-graphiti-erasure`.
-- Topic root: `$xJ_uDDQUHS4a6QZNNR22gHXfoLLUi14E2Qmd0UW5K7E`.
-- Addressed request: `$G5QkB20Ky5hC2ORrt8xtXU67Q_m-Ne1T2SJTfdfkeZM`.
+- wonder-01 (five 1), independent pinned-source confirmation in the Graphiti erasure review.
+- Discussion: Graphiti erasure review.
+- Addressed request: Graphiti erasure review request.
 
 Related: [erasure closure](erasure-closure.md), [astra-05 verdict](../verdicts/astra-05.md).
