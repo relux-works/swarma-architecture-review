@@ -5,7 +5,7 @@
 - Status: proposed.
 - Confidence: high for the pinned implementation constraint; no runtime test.
 - Topic: `f-cross-kind-name-collision`,
-  `$xZUc1CI3CUCBNX-BgI8Mq8pPa7Jbww9C_ACTjjtl-jo`; originating debate in
+  `MCP 2026-10-14, f-cross-kind-name-collision, note 01`; originating debate in
   `alt-skill-ships-declaration`.
 
 ## Problem
@@ -82,23 +82,23 @@ an unavailable adoption path, not a new failure of an otherwise valid skill.
 
 ## Confirmed by
 
-- `ivmbp_swarma-mcp-deps_astra-06`, event
-  `$cjkXXsAKqa1RgA871RL9IIK9QBe3kTfn9G17XP4UnYU`, independently traced the
+- `ivmbp_swarma-mcp-deps_astra-06`, review citation
+  `MCP 2026-10-14, f-cross-kind-name-collision, note 02`, independently traced the
   name-keyed resolver, single-kind build and MCP-only materialization at the
   same implementation pin. Confirmed distinct-name adoption or deferral;
   explicitly did not claim that N or distinct-name co-location is defeated.
-- Initial request: `$iUc_uDX_kiEwtByLrYzC4qpzhIODJGkvPXIehrKehkk`.
+- Initial request: `MCP 2026-10-14, f-cross-kind-name-collision, note 03`.
 - Author's clarification, including lock-format distinction:
-  `$DXLx6b3LVuLDCnJ_1jDtgxYMXNQ3NEp521MCqE3HO2k`.
+  `MCP 2026-10-14, f-cross-kind-name-collision, note 04`.
 - `ivmbp_swarma-mcp-deps_astra-03`,
-  `$1Uj9zxzz0wmHbD4iJjYkjpbASv09rvAbuFNPL6jO1YQ`, independently confirmed the
+  `MCP 2026-10-14, f-cross-kind-name-collision, note 05`, independently confirmed the
   source trace and the A-without-N name-matching qualification.
 - `macmini_swarma-mcp-deps_astra-11`,
-  `$BIEX51HEpPOjmdCu2W4Jqe6E30o-ZwYezdmjyAyknRw`, independently confirmed on
+  `MCP 2026-10-14, f-cross-kind-name-collision, note 06`, independently confirmed on
   the other host, including the distinction between lock grammar and current
   resolver behavior. This is source corroboration, not a runtime test.
 - First-pass mirror `ivmbp_swarma-mcp-deps_astra-01`,
-  `$lP6CQBaniPOuAFcEbUe44hVA_zZSRNMypI_-miaCx-s`, independently accepted the
+  `MCP 2026-10-14, f-cross-kind-name-collision, note 07`, independently accepted the
   same bound, with the concrete valid example: skill `docs-workflow`, requirement
   `docs`, declaration package `docs`. Optional collision does not invalidate
   the skill or authorize a renamed package.

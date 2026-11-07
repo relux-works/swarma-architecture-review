@@ -4,7 +4,7 @@
 - Author: astra-03, ivmbp.
 - Status: proposed.
 - Confidence: high for the logical gap; no claim that every individual plugin is opaque.
-- Room topic: `f-opaque-provider`, `$9eGSjcLXP4ntgBzfgAKDfEFELLQplnW5Ufh0Vut9UoQ`.
+- Room topic: `f-opaque-provider`, `MCP 2026-10-14, f-opaque-provider, note 01`.
 
 ## Problem
 
@@ -49,14 +49,14 @@ E4 and E6 are in tension until the observation/assertion distinction is explicit
 
 ## Confirmed by
 
-- astra-01 on ivmbp, event `$4QY-PSEXY4t7AD-_QYL4k0XNGG12f9i9nl51GzCqqyI`: independently confirmed that BASE binding discharges only the identity conjunct; protected scoped reliance is new evidence semantics, not a rename-only alias.
-- astra-13 on Mac mini, event `$wLoUfoiOHgAPNZNmoxN_csBRJZY6WzWiKvsgMOyx22k`: independently confirmed after freezing initial scores. Indistinguishable enabled/absent account states expose the AND-premise gap. It retains E4=1 for conditional source-category coverage; my response `$kOe1Skk9G9JhTmiB5NR6WNRulSzfx2mVaTf8I6-jbGQ` confirms this never means universal effective availability, authentication or machine verification. A known excluded launch or unsupported header materialization cannot be repaired by assertion. This supersedes the original pending request to the earlier `mini_*` addressee.
-- wonder-12 on Mac mini, event `$UZprv43nl3tVZaUsQbHaLEXHnv2iXyFbBEUibBbJjtw`: independently confirms the conjunction gap and protected target-scoped reliance as additional evidence semantics. Known-incapable targets and authoritative contrary evidence remain failures; the assertion mechanism counts in E1/E2/E7.
+- astra-01 on ivmbp, review citation `MCP 2026-10-14, f-opaque-provider, note 02`: independently confirmed that BASE binding discharges only the identity conjunct; protected scoped reliance is new evidence semantics, not a rename-only alias.
+- astra-13 on Mac mini, review citation `MCP 2026-10-14, f-opaque-provider, note 03`: independently confirmed after freezing initial scores. Indistinguishable enabled/absent account states expose the AND-premise gap. It retains E4=1 for conditional source-category coverage; my response `MCP 2026-10-14, f-opaque-provider, note 04` confirms this never means universal effective availability, authentication or machine verification. A known excluded launch or unsupported header materialization cannot be repaired by assertion. This supersedes the original pending request to the earlier `mini_*` addressee.
+- wonder-12 on Mac mini, review citation `MCP 2026-10-14, f-opaque-provider, note 05`: independently confirms the conjunction gap and protected target-scoped reliance as additional evidence semantics. Known-incapable targets and authoritative contrary evidence remain failures; the assertion mechanism counts in E1/E2/E7.
 
 ## Round-2 corroboration and absence qualification
 
-- wonder-02 event `$0UgvTzavFWc7rqs4v1V-ynXdb3IBMMQaSoK3X_2XhXs` independently confirms both the AND-premise gap and the missing report surface. It requires asserted labels to remain visible in status/markers and forbids duplicate provisioning as a workaround.
-- wonder-01 event `$sUOXEjJk3_kBCejALWb5zFTCWckRcaZl6hqN_9jzz9s` confirms the gap and emphasizes invalidation on contrary later evidence.
-- astra-01 event `$cEgcvBO0Gz53jfDFYyh91YxqVqgLyetKx0XaU4SZ2FE` confirms that alias and reliance can share one new contract, but old observed `FoundIn` cannot silently represent assertions.
+- wonder-02 review citation `MCP 2026-10-14, f-opaque-provider, note 06` independently confirms both the AND-premise gap and the missing report surface. It requires asserted labels to remain visible in status/markers and forbids duplicate provisioning as a workaround.
+- wonder-01 review citation `MCP 2026-10-14, f-opaque-provider, note 07` confirms the gap and emphasizes invalidation on contrary later evidence.
+- astra-01 review citation `MCP 2026-10-14, f-opaque-provider, note 08` confirms that alias and reliance can share one new contract, but old observed `FoundIn` cannot silently represent assertions.
 
-Negative evidence must be authoritative for the **same bound provider and selected launch**. No entry in the six native files remains unknown for an opaque connector; it is not proof of absence. A complete authoritative provider inventory or an explicit launch-channel exclusion can establish absence. Similarly, a disabled unrelated same-name native entry must not be mistaken for the separately bound connector. This clarification was posted at `$HRMbfIwYB1nZGNelCpp5JjoDUw4XoYAwRux5bIHd8n8`.
+Negative evidence must be authoritative for the **same bound provider and selected launch**. No entry in the six native files remains unknown for an opaque connector; it is not proof of absence. A complete authoritative provider inventory or an explicit launch-channel exclusion can establish absence. Similarly, a disabled unrelated same-name native entry must not be mistaken for the separately bound connector. This clarification was posted at `MCP 2026-10-14, f-opaque-provider, note 09`.

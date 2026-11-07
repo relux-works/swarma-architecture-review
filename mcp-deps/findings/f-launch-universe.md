@@ -4,7 +4,7 @@
 - Author: astra-03, ivmbp.
 - Status: proposed.
 - Confidence: high for the specification/source mismatch; native release behavior is only as strong as the source's recorded evidence.
-- Room topic: `f-launch-universe`, `$3jMMc2o4Phy7P3ht6PyomB9g2iFHa9i4-yEQ-nE1lFQ`.
+- Room topic: `f-launch-universe`, `MCP 2026-10-14, f-launch-universe, note 01`.
 
 ## Problem
 
@@ -50,15 +50,15 @@ E4: no universal zoo claim without target-specific visibility. E6: a configured 
 
 ## Confirmed by
 
-- astra-01 on ivmbp, event `$vmTiv-XDm2nS_z1xPQ8q9pg3xh1Eny2-Yp4RfWUxQFo`: independently confirmed §5.8/§7.8 and the implementation's native union; explicitly preserved legacy semantics and required a versioned optional contract for stronger claims.
-- astra-13 on Mac mini, event `$Ik6SFKGm-9ekiZyHUaGRomeGLoHoWzQQZcIZiEa-QDU`: independently confirmed after freezing initial scores at the same source pins. Native union lacks launch context; an actually applied nonempty strict Claude channel excludes native X; OpenCode override defeats profile-only evidence. Empty-set no-channel, recorded pi scope and native-writer ownership remain explicit bounds. This supersedes the original pending request to the earlier `mini_*` addressee.
-- astra-06, second independent five on ivmbp, event `$eYBcS-nMESRK1ys0xtnRMblxOfqF9wHgoV_kDzj7P50`: independently confirmed selected-launch mismatch and sharpened the OpenCode disabled-layer case after frozen scores. I re-read the cited source and confirmed at `$-WPmMsTwqDITDwlLnchhPOzpeZDwUvCNbfeRCtPGOkU`; Mac mini astra-13 independently corroborated it at `$3gLOuU_zpyqKhXrTTBjgvnUPNRRrKE7zUy0wy-2Ot98`.
-- astra-06's HTTP header-routing qualification `$ONgixBEBVu0CJC8M6vE9ZcPCkZOiScTCbdc49bAp0Q4` was independently confirmed at `$pqoN-QjlkB5g7Xqw7eRpNAuBDF9cKqvDLNccUSxqOoE`. It bounds provisioning capability and does not introduce manager authentication.
-- wonder-12 on Mac mini, event `$9LZhnCM9q4Bs1RCgTox1sYdV1wSSnHIzg6eT1T7JTfo`: independently confirms disjoint native/managed surfaces, strict-channel exclusion, documented OpenCode residual and the native union's lack of launch scope. Its later corrected activity marker is not evidence of additional runtime or source validation.
+- astra-01 on ivmbp, review citation `MCP 2026-10-14, f-launch-universe, note 02`: independently confirmed §5.8/§7.8 and the implementation's native union; explicitly preserved legacy semantics and required a versioned optional contract for stronger claims.
+- astra-13 on Mac mini, review citation `MCP 2026-10-14, f-launch-universe, note 03`: independently confirmed after freezing initial scores at the same source pins. Native union lacks launch context; an actually applied nonempty strict Claude channel excludes native X; OpenCode override defeats profile-only evidence. Empty-set no-channel, recorded pi scope and native-writer ownership remain explicit bounds. This supersedes the original pending request to the earlier `mini_*` addressee.
+- astra-06, second independent five on ivmbp, review citation `MCP 2026-10-14, f-launch-universe, note 04`: independently confirmed selected-launch mismatch and sharpened the OpenCode disabled-layer case after frozen scores. I re-read the cited source and confirmed at `MCP 2026-10-14, f-launch-universe, note 05`; Mac mini astra-13 independently corroborated it at `MCP 2026-10-14, f-launch-universe, note 06`.
+- astra-06's HTTP header-routing qualification `MCP 2026-10-14, f-consent-binding, note 07` was independently confirmed at `MCP 2026-10-14, f-launch-universe, note 07`. It bounds provisioning capability and does not introduce manager authentication.
+- wonder-12 on Mac mini, review citation `MCP 2026-10-14, f-launch-universe, note 08`: independently confirms disjoint native/managed surfaces, strict-channel exclusion, documented OpenCode residual and the native union's lack of launch scope. Its later corrected activity marker is not evidence of additional runtime or source validation.
 
 ## Round-2 corroboration and bounds
 
-- wonder-02 event `$wo5YNm48iTnPqXqJqcxbFC_00nZSLnCcFlkpgTMZ138` independently confirms the native union, disjoint managed paths and precedence issue. It additionally notes that the current reader's disabled-entry filters are not uniform across clients; stronger evidence must not inherit a false uniform-enabled claim.
-- wonder-01 event `$Zd7y6tD0c9N7xmCDrBul5sYd7h88H19v10Le9Xg1W2s` identifies `internal/install/install.go:1582-1605` and `internal/marker/marker.go:253`. I independently read those at the pinned implementation: the gate takes only project/user roots, and the marker maps names to found-agent lists without a launch descriptor.
+- wonder-02 review citation `MCP 2026-10-14, f-launch-universe, note 09` independently confirms the native union, disjoint managed paths and precedence issue. It additionally notes that the current reader's disabled-entry filters are not uniform across clients; stronger evidence must not inherit a false uniform-enabled claim.
+- wonder-01 review citation `MCP 2026-10-14, f-launch-universe, note 10` identifies `internal/install/install.go:1582-1605` and `internal/marker/marker.go:253`. I independently read those at the pinned implementation: the gate takes only project/user roots, and the marker maps names to found-agent lists without a launch descriptor.
 - Operator assertions cannot add an MCP channel to the current revision-1 managed pi adapter (recorded against 0.84.2), make project-scoped Windsurf acquire a nonexistent project surface, or make strict managed Claude consume excluded native header configuration. This does not exclude arbitrary native/plugin integration or later releases; it bounds the selected documented launch.
 - New observed/asserted evidence must not be silently stored in the legacy marker's `FoundIn` representation as if it had identical meaning. The governed extension must retain provenance of the evidence category as well as target context.
