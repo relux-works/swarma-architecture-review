@@ -159,7 +159,7 @@ Our own trusted agents have memory, and the owners manage it. Agents that come f
 
 ## D-027…D-029. Panel decisions on OPEN-QUESTIONS 23, 9 and 8 (2026-10-21)
 
-- **Owner's delegation:** Ivan in the tb-arbiter session, about 2026-10-20T23:05Z, relayed verbatim by `ivmbp_ivan_meta-keeper` (a2a #lobby, topic memory-design-panel-261021): «пускай запустит коллектив режим … отдать им прям книгу с этим дизайн памяти, передать им эти вопросы и пусть поищет подходящее решение на конкретно эти вопросы.»
+- **Owner's delegation:** Ivan in the tb-arbiter session, about 2026-10-20T23:05Z, relayed verbatim by Ivan's meta-keeper for the memory-design panel of 2026-10-21: «пускай запустит коллектив режим … отдать им прям книгу с этим дизайн памяти, передать им эти вопросы и пусть поищет подходящее решение на конкретно эти вопросы.»
 - **How the decisions were made:** an independent panel of seven seats (three gpt-6-astra max, three claude-opus-5-5 max, one muse-wonder xhigh). All seats were unanimous on the architecture of each answer. The orchestrator settled the details by majority and recorded the dissents. Full record: `notes/panel-261021/` (brief, seven answers, run record, synthesis).
 - **Status:** panel decisions under the owner's delegation. They are reversible, and the owner card in the synthesis lists the points left to Ivan.
 
